@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Accélération angulaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\omega_0 = \qty{\v{w0}}{tr/min} = \Res{\vsi{w0}}{rad/s}$, $\omega = 0$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $\alpha$
+    \item \textbf{Équations pertinentes :} \[ \omega = \omega_0 + \alpha t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \alpha = -\frac{\omega_0}{t} \]
+    \item \textbf{Résolution numérique :} \[ \alpha = -\frac{\Val{\vsi{w0}}}{\num{\v{t}}} = \Res{-\vsi{w0}/\vsi{t}}{rad/s^2} \]
+    \item \textbf{Réponse :} $\alpha = \mathbf{\Res{-\vsi{w0}/\vsi{t}}{rad/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre de tours}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\omega_0 = \Res{\vsi{w0}}{rad/s}$, $\omega = 0$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :} \[ \Delta\theta = \frac{\omega_0 + \omega}{2}\,t, \qquad N = \frac{\Delta\theta}{2\pi} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ N = \frac{\omega_0 t}{4\pi} \]
+    \item \textbf{Résolution numérique :} \[ N = \frac{\Val{\vsi{w0}} \cdot \num{\v{t}}}{4\pi} = \Res{\vsi{w0}*\vsi{t}/2/(2*pi)}{tours} \]
+    \item \textbf{Réponse :} $N = \mathbf{\Res{\vsi{w0}*\vsi{t}/2/(2*pi)}{tours}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Moment de force du frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $R = \qty{\v{R}}{m}$, $|\alpha| = \Res{\vsi{w0}/\v{t}}{rad/s^2}$ ; variable recherchée : $|\tau|$
+    \item \textbf{Équations pertinentes :} \[ \sum \tau = I\alpha, \qquad I = mR^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ |\tau| = m R^2 |\alpha| \]
+    \item \textbf{Résolution numérique :} \[ |\tau| = \num{\v{m}} \cdot (\num{\v{R}})^2 \cdot \Val{\vsi{w0}/\v{t}} = \Res{\vsi{m}*\vsi{R}^2*\vsi{w0}/\vsi{t}}{N.m} \]
+    \item \textbf{Réponse :} $|\tau| = \mathbf{\Res{\vsi{m}*\vsi{R}^2*\vsi{w0}/\vsi{t}}{N.m}}$
+\end{enumerate}

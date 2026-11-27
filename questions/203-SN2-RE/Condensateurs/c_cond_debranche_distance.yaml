@@ -1,0 +1,15 @@
+title: 'Écartement des armatures, pile débranchée'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Isolé, le condensateur garde sa charge $Q$. Doubler $d$ divise $C = \varepsilon_0 A/d$ par 2, donc $\Delta V = Q/C$ double.'
+choices:
+  - 'Elle double'
+  - 'Elle est divisée par 2'
+  - 'Elle ne change pas'
+  - 'Elle est multipliée par 4'

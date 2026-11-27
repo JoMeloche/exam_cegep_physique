@@ -1,0 +1,15 @@
+title: 'Résistance ajoutée en parallèle'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La résistance équivalente diminue en parallèle ; la tension de la pile étant fixe, $I = \Delta V / R_{\mathrm{éq}}$ augmente. Le courant dans la première résistance, lui, ne change pas.'
+choices:
+  - 'Il augmente'
+  - 'Il diminue'
+  - 'Il ne change pas'
+  - 'Il devient nul'

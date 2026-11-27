@@ -1,0 +1,15 @@
+title: 'Spire : courant et rayon doublés'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$B = \mu_0 I/(2R)$ : doubler $I$ et $R$ ne change pas le rapport.'
+choices:
+  - '$2B$'
+  - '$B/2$'
+  - '$4B$'
+  - '$B$'

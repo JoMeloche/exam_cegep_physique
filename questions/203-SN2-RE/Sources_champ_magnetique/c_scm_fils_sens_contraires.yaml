@@ -1,0 +1,15 @@
+title: 'Deux fils aux courants opposés'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Avec la règle de la main droite, les champs des deux fils pointent dans le même sens entre les fils quand les courants sont opposés : ils s''additionnent.'
+choices:
+  - 'Le double du champ produit par un seul fil'
+  - 'Il est nul'
+  - 'Le champ produit par un seul fil'
+  - 'La moitié du champ produit par un seul fil'

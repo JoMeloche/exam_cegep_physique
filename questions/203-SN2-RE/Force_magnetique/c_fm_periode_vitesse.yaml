@@ -1,0 +1,15 @@
+title: 'Période d''une particule quand sa vitesse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$r = mv/(|q|B)$ double, mais la circonférence et la vitesse doublent ensemble : $T = 2\pi m/(|q|B)$ ne dépend pas de $v$.'
+choices:
+  - 'Elle est divisée par 2'
+  - 'Elle double'
+  - 'Elle ne change pas'
+  - 'Elle est multipliée par 4'

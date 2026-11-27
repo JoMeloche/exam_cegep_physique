@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = 0$, $a_t = \qty{\v{at}}{m/s^2}$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} \[ v = v_0 + a_t t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = a_t t \]
+    \item \textbf{Résolution numérique :} \[ v = \num{\v{at}} \cdot \num{\v{t}} = \Res{\vsi{at}*\vsi{t}}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{\vsi{at}*\vsi{t}}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération centripète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \Res{\v{at}*\v{t}}{m/s}$, $R = \qty{\v{R}}{m}$ ; variable recherchée : $a_c$
+    \item \textbf{Équations pertinentes :} \[ a_c = \frac{v^2}{R} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ a_c = \frac{(\Val{\v{at}*\v{t}})^2}{\num{\v{R}}} = \Res{(\vsi{at}*\vsi{t})^2/\vsi{R}}{m/s^2} \]
+    \item \textbf{Réponse :} $a_c = \mathbf{\Res{(\vsi{at}*\vsi{t})^2/\vsi{R}}{m/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a_t = \qty{\v{at}}{m/s^2}$, $a_c = \Res{(\v{at}*\v{t})^2/\v{R}}{m/s^2}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} les deux composantes sont perpendiculaires :\[ a = \sqrt{a_t^2 + a_c^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ a = \sqrt{(\num{\v{at}})^2 + (\Val{(\v{at}*\v{t})^2/\v{R}})^2} = \Res{sqrt(\vsi{at}^2 + ((\vsi{at}*\vsi{t})^2/\vsi{R})^2)}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{sqrt(\vsi{at}^2 + ((\vsi{at}*\vsi{t})^2/\vsi{R})^2)}{m/s^2}}$
+\end{enumerate}

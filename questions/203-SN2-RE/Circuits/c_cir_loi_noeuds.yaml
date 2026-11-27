@@ -1,0 +1,15 @@
+title: 'Loi des nœuds'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Conservation de la charge : la somme des courants entrants égale la somme des courants sortants, $5 = 2 + I_3$.'
+choices:
+  - 'Un courant de \qty{3}{A} entre dans le nœud'
+  - 'Un courant de \qty{7}{A} sort du nœud'
+  - 'Un courant de \qty{7}{A} entre dans le nœud'
+  - 'Un courant de \qty{3}{A} sort du nœud'

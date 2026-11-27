@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Temps de montée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = \qty{\v{v0}}{m/s}$, $\theta = \ang{\v{th}}$, $v_y = 0$ au sommet ; variable recherchée : $t_s$
+    \item \textbf{Équations pertinentes :} \[ v_y = v_0 \sin\theta - g t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t_s = \frac{v_0 \sin\theta}{g} \]
+    \item \textbf{Résolution numérique :} \[ t_s = \frac{\num{\v{v0}} \sin(\ang{\v{th}})}{\num{9.81}} = \Res{\vsi{v0}*sind(\vsi{th})/9.81}{s} \]
+    \item \textbf{Réponse :} $t_s = \mathbf{\Res{\vsi{v0}*sind(\vsi{th})/9.81}{s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Hauteur du sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $y_0 = \qty{\v{h0}}{m}$, $v_{0y} = v_0\sin\theta$, $v_y = 0$ au sommet ; variable recherchée : $y_{\max}$
+    \item \textbf{Équations pertinentes :} \[ v_y^2 = v_{0y}^2 - 2g\,(y_{\max} - y_0) \]
+    \item \textbf{Isolation de la variable recherchée :} \[ y_{\max} = y_0 + \frac{(v_0 \sin\theta)^2}{2g} \]
+    \item \textbf{Résolution numérique :} \[ y_{\max} = \num{\v{h0}} + \frac{(\num{\v{v0}} \sin \ang{\v{th}})^2}{2 \cdot \num{9.81}} = \Res{\vsi{h0} + (\vsi{v0}*sind(\vsi{th}))^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} $y_{\max} = \mathbf{\Res{\vsi{h0} + (\vsi{v0}*sind(\vsi{th}))^2/(2*9.81)}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = \qty{\v{v0}}{m/s}$, $\theta = \ang{\v{th}}$ ; au sommet $v_y = 0$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} \[ v = \sqrt{v_x^2 + v_y^2}, \quad v_x = v_0 \cos\theta \text{ (constante)} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = v_0 \cos\theta \]
+    \item \textbf{Résolution numérique :} \[ v = \num{\v{v0}} \cos(\ang{\v{th}}) = \Res{\vsi{v0}*cosd(\vsi{th})}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{\vsi{v0}*cosd(\vsi{th})}{m/s}}$, horizontale.
+\end{enumerate}

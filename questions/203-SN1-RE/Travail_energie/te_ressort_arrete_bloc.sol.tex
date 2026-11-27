@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Compression maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $v = \qty{\v{v}}{m/s}$, $k = \qty{\v{k}}{N/m}$ ; variable recherchée : $x_{\max}$
+    \item \textbf{Équations pertinentes :} l'énergie mécanique est conservée :\[ \tfrac{1}{2} m v^2 = \tfrac{1}{2} k x_{\max}^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ x_{\max} = v\sqrt{\frac{m}{k}} \]
+    \item \textbf{Résolution numérique :} \[ x_{\max} = \num{\v{v}} \sqrt{\frac{\num{\v{m}}}{\num{\v{k}}}} = \Res{\vsi{v}*sqrt(\vsi{m}/\vsi{k})}{m} \]
+    \item \textbf{Réponse :} $x_{\max} = \mathbf{\Res{\vsi{v}*sqrt(\vsi{m}/\vsi{k})}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Force maximale du ressort}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $k = \qty{\v{k}}{N/m}$, $x_{\max} = \Res{\v{v}*sqrt(\v{m}/\v{k})}{m}$ ; variable recherchée : $F_{\max}$
+    \item \textbf{Équations pertinentes :} \[ F_{\max} = k\,x_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ F_{\max} = \num{\v{k}} \cdot \Val{\v{v}*sqrt(\v{m}/\v{k})} = \Res{\vsi{k}*\vsi{v}*sqrt(\vsi{m}/\vsi{k})}{N} \]
+    \item \textbf{Réponse :} $F_{\max} = \mathbf{\Res{\vsi{k}*\vsi{v}*sqrt(\vsi{m}/\vsi{k})}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse à mi-compression}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \qty{\v{v}}{m/s}$, $x = x_{\max}/2$ ; variable recherchée : $v'$
+    \item \textbf{Équations pertinentes :} avec $\tfrac{1}{2} k x_{\max}^2 = \tfrac{1}{2} m v^2$ :\[ \tfrac{1}{2} m v^2 = \tfrac{1}{2} m v'^2 + \tfrac{1}{2} k \left(\tfrac{x_{\max}}{2}\right)^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v'^2 = v^2 - \tfrac{1}{4}v^2 \implies v' = \frac{\sqrt{3}}{2}\,v \]
+    \item \textbf{Résolution numérique :} \[ v' = \frac{\sqrt{3}}{2} \cdot \num{\v{v}} = \Res{\vsi{v}*sqrt(3)/2}{m/s} \]
+    \item \textbf{Réponse :} $v' = \mathbf{\Res{\vsi{v}*sqrt(3)/2}{m/s}}$
+\end{enumerate}

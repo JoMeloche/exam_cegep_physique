@@ -1,0 +1,20 @@
+title: 'Deux enfants sur une bascule'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m1: {type: integer, min: 35, max: 50, step: 1, unit: kg, label: Masse de l'enfant 1}
+  m2: {type: integer, min: 20, max: 34, step: 1, unit: kg, label: Masse de l'enfant 2}
+  d1: {type: decimal, min: 1.0, max: 1.5, step: 0.1, unit: m, label: Distance de l'enfant 1 au pivot}
+  M: {type: integer, min: 15, max: 30, step: 1, unit: kg, label: Masse de la planche}
+constraints:
+  - 'm1*d1/m2 < 2.0'
+solution:
+  mode: manual
+  file: eq_bascule_enfants.sol.tex
+  parts:
+    a: {expr: 'm1*d1/m2', unit: 'm', label: 'Position du second enfant'}
+    b: {expr: '(m1 + m2 + M)*9.81', unit: 'N', label: 'Force du pivot'}
+    c: {expr: '(m1 - m2)*9.81*d1', unit: 'N*m', label: 'Moment de force résultant'}

@@ -1,0 +1,15 @@
+title: 'Élément chauffant sous une tension réduite de moitié'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$P = \Delta V^2/R$ : diviser la tension par 2 divise la puissance par 4.'
+choices:
+  - '\qty{300}{W}'
+  - '\qty{600}{W}'
+  - '\qty{1200}{W}'
+  - '\qty{150}{W}'

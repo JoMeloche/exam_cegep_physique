@@ -1,0 +1,15 @@
+title: 'Transformateur abaisseur'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\Delta V_2/\Delta V_1 = N_2/N_1 = 50/200$, donc $\Delta V_2 = \qty{30}{V}$.'
+choices:
+  - '\qty{480}{V}'
+  - '\qty{120}{V}'
+  - '\qty{0}{V}'
+  - '\qty{30}{V}'

@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Force de frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $F = \qty{\v{F}}{N}$, le livre est immobile ; variable recherchée : $f_s$
+    \item \textbf{Équations pertinentes :} à l'équilibre vertical, le frottement (vers le haut) compense le poids :\[ \sum F_y = f_s - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ f_s = mg \]
+    \item \textbf{Résolution numérique :} \[ f_s = \num{\v{m}} \cdot \num{9.81} = \Res{\vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} $f_s = \mathbf{\Res{\vsi{m}*9.81}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Frottement statique maximal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mu_s = \num{\v{mus}}$, $F = \qty{\v{F}}{N}$ ; variable recherchée : $f_{s,\max}$
+    \item \textbf{Équations pertinentes :} à l'équilibre horizontal, la normale du mur égale la poussée, $n = F$ :\[ f_{s,\max} = \mu_s n = \mu_s F \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ f_{s,\max} = \num{\v{mus}} \cdot \num{\v{F}} = \Res{\vsi{mus}*\vsi{F}}{N} \]
+    \item \textbf{Réponse :} $f_{s,\max} = \mathbf{\Res{\vsi{mus}*\vsi{F}}{N}}$ : c'est plus que $mg$, le livre reste en place.
+\end{enumerate}
+
+\subsubsection*{Question c) Poussée minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $\mu_s = \num{\v{mus}}$ ; variable recherchée : $F_{\min}$
+    \item \textbf{Équations pertinentes :} à la limite du glissement, le frottement maximal égale le poids :\[ \mu_s F_{\min} = mg \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_{\min} = \frac{mg}{\mu_s} \]
+    \item \textbf{Résolution numérique :} \[ F_{\min} = \frac{\num{\v{m}} \cdot \num{9.81}}{\num{\v{mus}}} = \Res{\vsi{m}*9.81/\vsi{mus}}{N} \]
+    \item \textbf{Réponse :} $F_{\min} = \mathbf{\Res{\vsi{m}*9.81/\vsi{mus}}{N}}$
+\end{enumerate}

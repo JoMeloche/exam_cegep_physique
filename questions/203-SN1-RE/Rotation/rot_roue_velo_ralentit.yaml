@@ -1,0 +1,19 @@
+title: 'Roue de vélo qui ralentit'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  w0: {type: integer, min: 120, max: 300, step: 10, unit: tr/min, si: 0.10471975512, label: Vitesse angulaire initiale}
+  t: {type: integer, min: 10, max: 40, step: 2, unit: s, label: Durée de l'arrêt}
+  m: {type: decimal, min: 1.0, max: 2.0, step: 0.1, unit: kg, label: Masse de la roue}
+  R: {type: decimal, min: 0.30, max: 0.35, step: 0.01, unit: m, label: Rayon de la roue}
+constraints: []
+solution:
+  mode: manual
+  file: rot_roue_velo_ralentit.sol.tex
+  parts:
+    a: {expr: '-w0/t', unit: 'rad/s^2', label: 'Accélération angulaire'}
+    b: {expr: 'w0*t/2/(2*pi)', unit: 'tr', label: 'Nombre de tours'}
+    c: {expr: 'm*R**2*w0/t', unit: 'N*m', label: 'Moment de force du frottement'}

@@ -1,0 +1,18 @@
+title: 'Recul d''un canon'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  M: {type: integer, min: 500, max: 1500, step: 50, unit: kg, label: Masse du canon}
+  m: {type: integer, min: 5, max: 20, step: 1, unit: kg, label: Masse du boulet}
+  v: {type: integer, min: 150, max: 350, step: 10, unit: m/s, label: Vitesse du boulet}
+constraints: []
+solution:
+  mode: manual
+  file: qm_recul_canon.sol.tex
+  parts:
+    a: {expr: 'm*v/M', unit: 'm/s', label: 'Vitesse de recul'}
+    b: {expr: 'm*v', unit: 'kg*m/s', label: 'Impulsion reçue par le boulet'}
+    c: {expr: 'm*v**2/2 + M*(m*v/M)**2/2', unit: 'J', label: 'Énergie cinétique fournie'}
