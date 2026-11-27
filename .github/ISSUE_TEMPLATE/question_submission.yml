@@ -1,0 +1,32 @@
+name: 📝 Proposer une question / Submit a question
+description: Ajouter une question à la banque de départ. / Add a question to the starter bank.
+labels: [questions]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Le plus simple : créez la question dans l'application (écran **Importer**, bouton **Tester**),
+        puis joignez ici les fichiers `nom.tex`, `nom.yaml` et, s'il y a lieu, `nom.sol.tex` et la figure.
+        Vous pouvez aussi ouvrir une pull request directement (voir CONTRIBUTING.md).
+        Ne soumettez que des questions que vous avez le droit de partager sous licence MIT.
+  - type: input
+    id: course
+    attributes:
+      label: Cours et thème / Course and topic
+      placeholder: 203-SN3-RE / Doppler
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Fichiers de la question / Question files
+      description: Collez le contenu ou glissez les fichiers ici. / Paste the content or drop the files here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Droits / Rights
+      options:
+        - label: J'ai écrit cette question ou j'ai le droit de la partager sous licence MIT. / I wrote this question or may share it under the MIT license.
+          required: true

@@ -1,0 +1,52 @@
+name: 🐛 Bogue / Bug report
+description: Quelque chose ne fonctionne pas comme prévu. / Something doesn't work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de prendre le temps de signaler un problème ! Vous pouvez écrire en français ou en anglais.
+        Thanks for taking the time to report a problem! French or English is fine.
+  - type: textarea
+    id: what
+    attributes:
+      label: Que s'est-il passé ? / What happened?
+      description: Ce que vous avez fait, ce que vous attendiez et ce qui s'est produit. / What you did, what you expected, what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire / Steps to reproduce
+      placeholder: |
+        1. Écran Générer, cours 203-SN3-RE, examen 1
+        2. Cliquer sur « Exporter les PDF »
+        3. ...
+  - type: dropdown
+    id: install
+    attributes:
+      label: Installation
+      options:
+        - Docker (application web)
+        - Windows (ExamGen-Setup.exe)
+        - macOS (.dmg)
+        - Linux (AppImage / .deb)
+        - Code source / From source
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Version téléchargée (ex. v0.1.0) ou date du git pull. / Release you downloaded (e.g. v0.1.0) or date of your git pull.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Message d'erreur ou journal LaTeX / Error message or LaTeX log
+      description: Collez le message affiché ou la fin du journal. Retirez toute information personnelle. / Paste the message or the end of the log. Remove personal information.
+      render: text
+  - type: textarea
+    id: question
+    attributes:
+      label: Question concernée (facultatif) / Question involved (optional)
+      description: Identifiant (ex. 203-SN3-RE/MHS/chariot) ou contenu du .tex et du .yaml. / Id or the .tex and .yaml content.
