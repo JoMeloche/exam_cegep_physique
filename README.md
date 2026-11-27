@@ -14,7 +14,7 @@ et produit un PDF d'examen et un PDF de solutionnaire par version, par exemple
   mises à niveau) que vous pouvez modifier, compléter ou remplacer.
 - Questions en LaTeX, variables avec intervalles, solutions automatiques étape par étape (SymPy)
   ou rédigées en LaTeX, choix de réponse mélangés à chaque version.
-- Tout reste sur votre ordinateur : aucun service en ligne.
+- Tout reste sur votre ordinateur ou votre serveur : aucun service externe.
 
 ## Installation en 3 étapes (Docker)
 
@@ -28,7 +28,14 @@ et produit un PDF d'examen et un PDF de solutionnaire par version, par exemple
    Le premier lancement prend 5 à 10 minutes (installation de LaTeX). Ouvrez ensuite
    **http://localhost:8765** dans votre navigateur.
 
-Au premier lancement, un écran de bienvenue vous demande votre établissement, vos professeurs et vos cours.
+Au premier lancement, créez le compte administrateur avec le code affiché par `docker compose logs examgen`
+(ou mettez `EXAMGEN_ADMIN_EMAIL` et `EXAMGEN_ADMIN_PASSWORD` dans `.env`). Un écran de bienvenue vous demande
+ensuite votre établissement, vos professeurs et vos cours.
+
+**Comptes** : n'importe qui peut demander un compte en expliquant pourquoi ; un administrateur approuve ou
+refuse la demande dans **Utilisateurs**. Chaque enseignant a sa propre banque et peut partager des questions
+avec tous ou avec des collègues choisis. Pour mettre l'application en ligne en HTTPS, voir
+[docs/securite.md](docs/securite.md).
 
 Vos questions, vos examens et vos PDF sont conservés dans le dossier **`mes_examens`** à côté de
 `docker-compose.yml`. Sauvegardez ce dossier ; vous pouvez le partager avec vos collègues.
@@ -101,7 +108,13 @@ outputs one exam PDF and one solution PDF per version (e.g. `203-NYC-05_Examen_1
 1. Install **Docker Desktop** (Windows, macOS) or Docker (Linux).
 2. Download this project (**Code → Download ZIP** and unzip, or `git clone`).
 3. In the project folder run `docker compose up -d`, wait 5–10 minutes the first time, then open
-   **http://localhost:8765**. A welcome screen asks for your institution, professors and courses.
+   **http://localhost:8765**. Create the administrator account with the code shown by
+   `docker compose logs examgen` (or set `EXAMGEN_ADMIN_EMAIL`/`EXAMGEN_ADMIN_PASSWORD` in `.env`); a welcome
+   screen then asks for your institution, professors and courses.
+
+**Accounts**: anyone can request an account with a reason; an administrator approves or rejects it under
+**Utilisateurs**. Each teacher gets their own bank and can share questions with everyone or chosen colleagues.
+HTTPS deployment and the security model: [docs/securite.md](docs/securite.md) (French).
 
 Your library and PDFs live in the **`mes_examens`** folder next to `docker-compose.yml`.
 Stop: `docker compose down`. Update: `git pull` then `docker compose up -d --build`.

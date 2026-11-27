@@ -1,0 +1,32 @@
+# HTTPS in front of the app with Caddy (automatic Let's Encrypt certificates).
+#   1. Point a DNS name (e.g. examens.moncegep.ca) to this server; open ports 80 and 443.
+#   2. In .env:  EXAMGEN_DOMAIN=examens.moncegep.ca
+#   3. docker compose -f docker-compose.yml -f docker-compose.https.yml up -d
+# The app is then reachable only through Caddy, cookies are HTTPS-only and HSTS is on.
+services:
+  examgen:
+    ports: !reset []
+    expose:
+      - "8765"
+    environment:
+      - EXAMGEN_SECURE_COOKIES=1
+      - FORWARDED_ALLOW_IPS=*   # only Caddy can reach the app, so trust its X-Forwarded-For
+  caddy:
+    image: caddy:2.10
+    container_name: examgen-caddy
+    restart: unless-stopped
+    depends_on:
+      - examgen
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      - EXAMGEN_DOMAIN=${EXAMGEN_DOMAIN:?Set EXAMGEN_DOMAIN in .env (e.g. examens.moncegep.ca)}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+volumes:
+  caddy_data:
+  caddy_config:

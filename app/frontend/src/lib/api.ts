@@ -22,6 +22,7 @@ export interface QuestionSummary {
   id: string; course: string; topic: string; name: string; title: string; type: QType; points: number
   time_min: number; difficulty: number; solution_mode: string; n_variables: number; tags: string[]
   last_used: string; times_used: number; needs_review: boolean; excerpt?: string; answer?: string
+  shared_by?: string; read_only?: boolean; my_share?: 'all' | 'users' | null
 }
 export interface VariableSpec {
   type: 'integer' | 'decimal' | 'sigfig' | 'choice' | 'text'
@@ -43,7 +44,7 @@ export interface ExamSection { title: string; type: QType; points?: number | nul
 export interface ExamDef { course: string; number: number; duration_min: number; sections: ExamSection[]; saved?: boolean }
 export interface Placed {
   slot: string; section: number; question_id: string; points: number; values: Record<string, unknown>
-  answer: string; title?: string; time_min?: number; difficulty?: number; type?: QType; topic?: string
+  answer: string; title?: string; time_min?: number; difficulty?: number; type?: QType; topic?: string; shared_by?: string
 }
 export interface Plan {
   seed: number; warnings: string[]; session: string; export_dir: string; exam_def: ExamDef
@@ -52,7 +53,7 @@ export interface Plan {
 export interface ExamRequest {
   course: string; exam_number: number; date: string; professor: string; duration_min: number; n_versions: number
   mode: 'same' | 'different'; seed?: number; locks?: Record<string, string>; exam_def?: ExamDef
-  shuffle_conceptual?: boolean; shuffle_choices?: boolean
+  shuffle_conceptual?: boolean; shuffle_choices?: boolean; include_shared?: boolean
 }
 export interface ExportResult { folder: string; files: { name: string; url: string; path: string }[]; warnings: string[]; seed: number }
 export interface TestResult { problems: string[]; pdf: string | null; draws: Record<string, string>[]; answers: { key: string; name: string; value: string; unit: string }[][]; log?: string }
@@ -61,14 +62,43 @@ export class ApiError extends Error {
   constructor(message: string, public status: number, public data: unknown) { super(message) }
 }
 
+export interface AuthUser { id: number; email: string; name: string; role: 'admin' | 'user'; status: string }
+export interface AuthState {
+  enabled: boolean; user: AuthUser | null; needs_setup?: boolean; pending?: number
+  library_mode: 'per-user' | 'shared' | 'local'; sharing: boolean
+}
+export type UserStatus = 'pending' | 'approved' | 'rejected' | 'disabled'
+export interface AdminUser extends AuthUser {
+  status: UserStatus; reason: string; note: string; created_at: string; decided_at: string | null
+  decided_by: string | null; last_login: string | null
+}
+export interface Person { id: number; name: string; email: string }
+export interface Share { id: number; target: string; audience: 'all' | 'users'; created_at: string; users: Person[] }
+
+/** CSRF: the server checks that writes echo the token it put in this (non-HttpOnly) cookie. */
+export function csrfToken(): string {
+  const m = document.cookie.match(/(?:^|;\s*)examgen_csrf=([^;]+)/)
+  return m ? decodeURIComponent(m[1]) : ''
+}
+
+function headersFor(method: string, json: boolean): Record<string, string> {
+  const h: Record<string, string> = {}
+  if (json) h['Content-Type'] = 'application/json'
+  if (!['GET', 'HEAD'].includes(method)) h['X-CSRF-Token'] = csrfToken()
+  return h
+}
+
 async function req<T>(method: string, url: string, body?: unknown): Promise<T> {
   const r = await fetch(url, {
     method,
-    headers: body !== undefined ? { 'Content-Type': 'application/json' } : undefined,
+    credentials: 'same-origin',
+    headers: headersFor(method, body !== undefined),
     body: body !== undefined ? JSON.stringify(body) : undefined,
   })
   const text = await r.text()
-  const data = text ? JSON.parse(text) : null
+  let data = null
+  try { data = text ? JSON.parse(text) : null } catch { data = null }
+  if (r.status === 401 && !url.startsWith('/api/auth/')) window.dispatchEvent(new Event('examgen:signed-out'))
   if (!r.ok) {
     let msg = `Erreur ${r.status}`
     const d = data?.detail
@@ -82,11 +112,11 @@ async function req<T>(method: string, url: string, body?: unknown): Promise<T> {
 const enc = (id: string) => id.split('/').map(encodeURIComponent).join('/')
 
 export const api = {
-  health: () => req<{ version: string; root: string; desktop: boolean; latex: string | null; platform: string }>('GET', '/api/health'),
+  health: () => req<{ version: string; root: string; desktop: boolean; latex: string | null; platform: string; auth?: boolean; latex_locked?: boolean }>('GET', '/api/health'),
   config: () => req<Config>('GET', '/api/config'),
   saveConfig: (c: Partial<Config>) => req<Config>('PUT', '/api/config', c),
   courses: () => req<Course[]>('GET', '/api/courses'),
-  questions: (p: { course?: string; topic?: string; type?: string; q?: string } = {}) => {
+  questions: (p: { course?: string; topic?: string; type?: string; q?: string; scope?: 'mine' | 'shared' | 'all' } = {}) => {
     const s = new URLSearchParams(Object.entries(p).filter(([, v]) => v) as [string, string][])
     return req<{ items: QuestionSummary[]; errors: Record<string, string> }>('GET', `/api/questions?${s}`)
   },
@@ -104,8 +134,30 @@ export const api = {
   figures: () => req<string[]>('GET', '/api/figures'),
   uploadFigure: async (file: File) => {
     const fd = new FormData(); fd.append('file', file)
-    const r = await fetch('/api/figures', { method: 'POST', body: fd })
+    const r = await fetch('/api/figures', { method: 'POST', body: fd, headers: headersFor('POST', false) })
     if (!r.ok) throw new ApiError((await r.json()).detail ?? 'Erreur', r.status, null)
     return (await r.json()) as { name: string }
   },
+}
+
+export const authApi = {
+  state: () => req<AuthState>('GET', '/api/auth/state'),
+  login: (email: string, password: string) => req<{ user: AuthUser }>('POST', '/api/auth/login', { email, password }),
+  logout: () => req<{ ok: boolean }>('POST', '/api/auth/logout', {}),
+  signup: (p: { name: string; email: string; password: string; reason: string; website?: string }) =>
+    req<{ ok: boolean; message: string }>('POST', '/api/auth/signup', p),
+  setup: (p: { token: string; name: string; email: string; password: string }) => req<{ user: AuthUser }>('POST', '/api/auth/setup', p),
+  changePassword: (current_password: string, new_password: string) =>
+    req<{ ok: boolean }>('POST', '/api/auth/password', { current_password, new_password }),
+  users: (status?: UserStatus) => req<{ users: AdminUser[]; counts: Record<UserStatus, number> }>('GET', `/api/admin/users${status ? `?status=${status}` : ''}`),
+  act: (id: number, action: 'approve' | 'reject' | 'disable' | 'enable' | 'make-admin' | 'make-user' | 'reset-password', note?: string) =>
+    req<{ user: AdminUser; temporary_password?: string }>('POST', `/api/admin/users/${id}/${action}`, note ? { note } : {}),
+  remove: (id: number) => req<{ deleted: number }>('DELETE', `/api/admin/users/${id}`),
+}
+
+export const shareApi = {
+  list: () => req<{ shares: Share[]; users: Person[] }>('GET', '/api/shares'),
+  set: (target: string, audience: 'all' | 'users', user_ids: number[]) => req<Share>('PUT', '/api/shares', { target, audience, user_ids }),
+  remove: (id: number) => req<{ deleted: number }>('DELETE', `/api/shares/${id}`),
+  copy: (id: string) => req<{ id: string }>('POST', '/api/shares/copy', { id }),
 }

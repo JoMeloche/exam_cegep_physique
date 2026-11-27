@@ -1,5 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom'
-import { FileText, Library as LibraryIcon, Moon, PlusCircle, Settings as SettingsIcon, Sun, Sparkles } from 'lucide-react'
+import { FileText, Library as LibraryIcon, LogOut, Moon, PlusCircle, Settings as SettingsIcon, Sun, Sparkles, Users } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { api } from '@/lib/api'
@@ -9,6 +9,8 @@ import QuestionEditor from '@/pages/QuestionEditor'
 import Settings from '@/pages/Settings'
 import Exports from '@/pages/Exports'
 import Setup from '@/pages/Setup'
+import Admin from '@/pages/Admin'
+import { useAuth } from '@/lib/auth'
 
 const nav = [
   { to: '/', label: 'Générer', icon: Sparkles, end: true },
@@ -19,6 +21,8 @@ const nav = [
 ]
 
 export default function App() {
+  const { state: auth, logout } = useAuth()
+  const isAdmin = auth.user?.role === 'admin'
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'))
   const [latexOk, setLatexOk] = useState<boolean | null>(null)
   const [needsSetup, setNeedsSetup] = useState<boolean | null>(null)
@@ -52,6 +56,14 @@ export default function App() {
               <Icon className="h-4 w-4" />{label}
             </NavLink>
           ))}
+          {isAdmin && (
+            <NavLink to="/admin"
+              className={({ isActive }) => cn('flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+                isActive ? 'bg-accent text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground')}>
+              <Users className="h-4 w-4" />Utilisateurs
+              {!!auth.pending && <span className="ml-auto rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-semibold leading-none text-primary-foreground">{auth.pending}</span>}
+            </NavLink>
+          )}
         </nav>
         <div className="mt-auto space-y-3 px-2">
           {latexOk === false && (
@@ -60,6 +72,20 @@ export default function App() {
           <button onClick={() => setDark(!dark)} className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-sm text-muted-foreground hover:text-foreground cursor-pointer">
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />} {dark ? 'Mode clair' : 'Mode sombre'}
           </button>
+          {auth.user && (
+            <div className="flex items-center gap-2 border-t pt-3">
+              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent text-xs font-semibold text-primary">
+                {auth.user.name.split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase()).join('')}
+              </div>
+              <div className="min-w-0 flex-1 leading-tight">
+                <div className="truncate text-sm font-medium">{auth.user.name}</div>
+                <div className="truncate text-xs text-muted-foreground">{auth.user.email}</div>
+              </div>
+              <button onClick={logout} title="Se déconnecter" aria-label="Se déconnecter" className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer">
+                <LogOut className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
       </aside>
       <main className="min-w-0 flex-1 overflow-auto">
@@ -70,6 +96,7 @@ export default function App() {
           <Route path="/question/edit/*" element={<QuestionEditor />} />
           <Route path="/exports" element={<Exports />} />
           <Route path="/settings" element={<Settings />} />
+          {isAdmin && <Route path="/admin" element={<Admin />} />}
         </Routes>
       </main>
     </div>

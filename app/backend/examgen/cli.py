@@ -66,6 +66,34 @@ def cmd_serve(args) -> int:
     return 0
 
 
+def cmd_create_admin(args) -> int:
+    """Create or promote a web-app administrator (docker compose exec examgen examgen create-admin)."""
+    import getpass
+    import os
+    from . import auth
+    if args.root:
+        os.environ["EXAM_APP_HOME"] = args.root
+    email = (args.email or input("Courriel : ")).strip().lower()
+    if not auth.EMAIL_RE.match(email):
+        print("Courriel invalide", file=sys.stderr)
+        return 2
+    if args.password_stdin:
+        pw = sys.stdin.readline().rstrip("\n")
+    else:
+        pw = getpass.getpass("Mot de passe : ")
+        if pw != getpass.getpass("Confirmer : "):
+            print("Les mots de passe ne correspondent pas", file=sys.stderr)
+            return 2
+    prob = auth.password_problem(pw, email)
+    if prob:
+        print(prob, file=sys.stderr)
+        return 2
+    os.environ["EXAMGEN_QUIET_SETUP"] = "1"  # no setup-code banner from the CLI
+    u = auth.create_admin(auth.store(), email, args.name or email.split("@")[0], pw)
+    print(f"Administrateur prêt : {u.email} (bibliothèque : {auth.library_root(u)})")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="examgen")
     ap.add_argument("--root", help="dossier de la bibliothèque (défaut ~/exam_app)")
@@ -101,6 +129,12 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--host", default="127.0.0.1")
     s.add_argument("--port", type=int, default=8765)
     s.set_defaults(func=cmd_serve)
+
+    a = sub.add_parser("create-admin", help="créer ou promouvoir un administrateur de l'application web")
+    a.add_argument("--email")
+    a.add_argument("--name")
+    a.add_argument("--password-stdin", action="store_true", help="lire le mot de passe sur l'entrée standard")
+    a.set_defaults(func=cmd_create_admin)
 
     args = ap.parse_args(argv)
     return args.func(args)
