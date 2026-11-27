@@ -48,7 +48,7 @@ PDF de solutionnaire par version, par exemple `203-NYC-05_Examen_1_A26_v1.pdf` e
 | 📚 **Banque de départ** | Plus de 650 questions de physique (mécanique, électricité et magnétisme, ondes et physique moderne, mises à niveau) à modifier, compléter ou remplacer. |
 | 🌗 **Interface moderne** | Interface web en français, mode clair et sombre. |
 | 👥 **Comptes et partage** | Version web multi-utilisateur : demandes de compte approuvées par un administrateur, une banque par enseignant, partage de questions avec tous ou avec des collègues choisis, examens avec ou sans questions partagées. |
-| 🔒 **Vos données restent chez vous** | Tout fonctionne sur votre ordinateur ou votre serveur ; aucun service en ligne. |
+| 🔒 **Vos données restent chez vous** | Tout fonctionne sur votre ordinateur ou votre serveur ; aucun service externe. |
 
 <table>
   <tr>
@@ -197,7 +197,7 @@ The interface is in French; it was built for Québec cégeps but works for any c
 - 📚 **Starter bank**: 650+ physics questions (mechanics, E&M, waves & modern physics, upgrading courses).
 - 👥 **Accounts and sharing** (web app): account requests approved by an administrator, one bank per teacher,
   share questions with everyone or chosen colleagues, build exams with or without shared questions.
-- 🔒 **Local first**: runs on your computer or your own server; no online service.
+- 🔒 **Local first**: runs on your computer or your own server; no external service.
 
 ## 🚀 Install
 

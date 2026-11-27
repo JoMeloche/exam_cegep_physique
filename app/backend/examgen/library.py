@@ -138,6 +138,7 @@ class Library:
         self.exports_dir = self.root / "exports"
         self._cache: dict[str, Question] | None = None
         self._errors: dict[str, str] = {}
+        self._stamp: tuple | None = None
 
     # ------------------------------------------------------------------ setup
     def ensure(self) -> "Library":
@@ -164,6 +165,29 @@ class Library:
     # -------------------------------------------------------------- questions
     def reload(self) -> None:
         self._cache = None
+
+    def _fingerprint(self) -> tuple:
+        """Cheap change detector for the question files (names, sizes, modification times)."""
+        h, n = 0, 0
+        if self.questions_dir.exists():
+            for course in os.scandir(self.questions_dir):
+                if not course.is_dir():
+                    continue
+                for topic in os.scandir(course.path):
+                    if not topic.is_dir():
+                        continue
+                    for f in os.scandir(topic.path):
+                        st = f.stat()
+                        h ^= hash((f.name, st.st_mtime_ns, st.st_size, topic.name, course.name))
+                        n += 1
+        return (n, h)
+
+    def refresh(self) -> None:
+        """Re-read the questions only if a file changed on disk since the last load."""
+        stamp = self._fingerprint()
+        if stamp != self._stamp:
+            self._cache = None
+            self._stamp = stamp
 
     def _load_all(self) -> dict[str, Question]:
         if self._cache is not None:

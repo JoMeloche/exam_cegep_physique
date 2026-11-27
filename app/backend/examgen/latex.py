@@ -13,6 +13,12 @@ from .model import VREF_RE
 
 MARKER = "%%EXAMGEN-QUESTION "
 
+# Web server with accounts: TeX runs with the server's own engine (the per-user "latex.path" setting
+# is ignored), never with unrestricted shell escape, and cannot read or write files outside its
+# working directory (openin_any/openout_any = paranoid), so one user's LaTeX can't read other banks.
+RESTRICTED = False
+ALLOWED_ENGINES = {"pdflatex", "xelatex", "lualatex"}
+
 
 class LatexError(RuntimeError):
     def __init__(self, message: str, log_excerpt: str = "", question_id: str | None = None):
@@ -70,8 +76,11 @@ def find_engine(engine: str = "pdflatex", configured_path: str = "") -> str | No
     if env and (Path(env) / exe).exists():
         return str(Path(env) / exe)
     for d in _bundled_dirs():
-        if (d / exe).exists():
-            return str(d / exe)
+        try:
+            if (d / exe).exists():
+                return str(d / exe)
+        except OSError:  # e.g. a home folder this user may not read
+            continue
     return shutil.which(engine)
 
 
@@ -96,6 +105,11 @@ def _question_at_line(tex: str, line_no: int) -> str | None:
 
 def compile_tex(tex: str, workdir: Path, jobname: str, *, engine: str = "pdflatex",
                 engine_path: str = "", runs: int = 2, timeout: int = 120) -> CompileResult:
+    env = None
+    if RESTRICTED:
+        engine = engine if engine in ALLOWED_ENGINES else "pdflatex"
+        engine_path = ""
+        env = {**os.environ, "openin_any": "p", "openout_any": "p", "shell_escape": "p"}
     exe = find_engine(engine, engine_path)
     if not exe:
         raise LatexError("Aucune installation LaTeX trouvée. Indiquez le chemin dans Paramètres.")
@@ -106,7 +120,7 @@ def compile_tex(tex: str, workdir: Path, jobname: str, *, engine: str = "pdflate
     for _ in range(runs):
         proc = subprocess.run(
             [exe, "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", src.name],
-            cwd=workdir, capture_output=True, timeout=timeout,
+            cwd=workdir, capture_output=True, timeout=timeout, env=env,
         )
         logp = workdir / f"{jobname}.log"
         log = logp.read_text(encoding="utf-8", errors="replace") if logp.exists() else proc.stdout.decode(errors="replace")

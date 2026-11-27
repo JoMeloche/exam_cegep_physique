@@ -1,0 +1,4 @@
+#!/bin/sh
+# AppImage entry point: run the bundled app (PyInstaller build + TinyTeX + starter bank).
+here="$(dirname "$(readlink -f "$0")")"
+exec "$here/usr/lib/examgen/ExamGen" "$@"

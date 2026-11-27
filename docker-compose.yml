@@ -1,5 +1,14 @@
 # Générateur d'examens — one command:  docker compose up -d   then open http://localhost:8765
 # Your questions, exams and PDFs are kept in ./mes_examens next to this file (change below or in .env).
+#
+# Accounts: anyone can request an account (with a reason); an administrator approves it in
+# « Utilisateurs ». The first administrator is created either
+#   - from EXAMGEN_ADMIN_EMAIL / EXAMGEN_ADMIN_PASSWORD in .env, or
+#   - in the browser with the one-time code printed by:  docker compose logs examgen
+# Each approved teacher gets their own question bank (EXAMGEN_LIBRARY_MODE=per-user).
+#
+# On the internet, put it behind HTTPS:  docker compose -f docker-compose.yml -f docker-compose.https.yml up -d
+# (see docs/securite.md).
 services:
   examgen:
     build:
@@ -8,9 +17,22 @@ services:
     image: examgen:latest
     container_name: examgen
     ports:
-      - "${EXAMGEN_PORT:-8765}:8765"
+      # Only this computer by default. EXAMGEN_BIND=0.0.0.0 opens it to your network (prefer HTTPS then).
+      - "${EXAMGEN_BIND:-127.0.0.1}:${EXAMGEN_PORT:-8765}:8765"
     volumes:
       - ${EXAMGEN_DATA:-./mes_examens}:/data
     environment:
       - TZ=${TZ:-America/Toronto}
+      - EXAMGEN_ADMIN_EMAIL=${EXAMGEN_ADMIN_EMAIL:-}
+      - EXAMGEN_ADMIN_PASSWORD=${EXAMGEN_ADMIN_PASSWORD:-}
+      - EXAMGEN_LIBRARY_MODE=${EXAMGEN_LIBRARY_MODE:-per-user}
+      - EXAMGEN_SECURE_COOKIES=${EXAMGEN_SECURE_COOKIES:-auto}
+      - EXAMGEN_TRUSTED_ORIGINS=${EXAMGEN_TRUSTED_ORIGINS:-}
+      - EXAMGEN_SESSION_IDLE_HOURS=${EXAMGEN_SESSION_IDLE_HOURS:-24}
+      - EXAMGEN_SESSION_MAX_HOURS=${EXAMGEN_SESSION_MAX_HOURS:-168}
+      - FORWARDED_ALLOW_IPS=${FORWARDED_ALLOW_IPS:-127.0.0.1}   # address of your HTTPS proxy, if any
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=512m
     restart: unless-stopped

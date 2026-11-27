@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import { CheckCircle2, Plus, Save, Trash2, XCircle } from 'lucide-react'
+import { CheckCircle2, KeyRound, Loader2, Plus, Save, Trash2, XCircle } from 'lucide-react'
 import { PageHeader } from '@/App'
 import { LatexEditor } from '@/components/LatexEditor'
 import { CoursesEditor, LogoEditor, ProfessorsEditor, bankFoldersOf } from '@/components/ConfigEditors'
@@ -8,14 +8,17 @@ import { Button } from '@/components/ui/button'
 import { Card, CardBody, CardHeader } from '@/components/ui/card'
 import { Field, Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
-import { api, type Config } from '@/lib/api'
+import { api, authApi, type Config } from '@/lib/api'
+import { useAuth } from '@/lib/auth'
+import { PasswordInput, passwordHint } from '@/pages/Auth'
 import { fileBaseName, sessionCode } from '@/lib/utils'
 
 const MONTHS = ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'août', 'sep', 'oct', 'nov', 'déc']
 
 export default function Settings() {
   const [cfg, setCfg] = useState<Config | null>(null)
-  const [health, setHealth] = useState<{ root: string; latex: string | null; version: string } | null>(null)
+  const [health, setHealth] = useState<{ root: string; latex: string | null; version: string; latex_locked?: boolean } | null>(null)
+  const { state: auth } = useAuth()
   const [folders, setFolders] = useState<string[]>([])
   useEffect(() => {
     api.config().then(setCfg); api.health().then(setHealth)
@@ -121,9 +124,11 @@ export default function Settings() {
                 {health?.latex ? <CheckCircle2 className="h-4 w-4 text-success" /> : <XCircle className="h-4 w-4 text-danger" />}
                 <span className="truncate font-mono text-xs">{health?.latex ?? 'Aucune installation LaTeX trouvée'}</span>
               </div>
-              <Field label="Chemin de LaTeX (optionnel)" hint="Laisser vide pour utiliser le LaTeX inclus ou celui du système.">
-                <Input value={cfg.latex.path} onChange={(e) => set({ latex: { ...cfg.latex, path: e.target.value } })} placeholder="C:\…\bin\windows" />
-              </Field>
+              {health?.latex_locked
+                ? <p className="text-xs text-muted-foreground">Le serveur fournit LaTeX ; ce réglage n'est pas modifiable dans l'application web.</p>
+                : <Field label="Chemin de LaTeX (optionnel)" hint="Laisser vide pour utiliser le LaTeX inclus ou celui du système.">
+                    <Input value={cfg.latex.path} onChange={(e) => set({ latex: { ...cfg.latex, path: e.target.value } })} placeholder="C:\…\bin\windows" />
+                  </Field>}
             </div>
             <div className="grid grid-cols-2 gap-3 self-start">
               <Field label="Marge de temps" hint="Temps visé = durée × (1 − marge)">
@@ -133,7 +138,42 @@ export default function Settings() {
             </div>
           </CardBody>
         </Card>
+        {auth.user && <AccountCard />}
       </div>
     </div>
+  )
+}
+
+function AccountCard() {
+  const { state } = useAuth()
+  const [current, setCurrent] = useState('')
+  const [next, setNext] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [busy, setBusy] = useState(false)
+  const hint = passwordHint(next)
+  async function change(e: React.FormEvent) {
+    e.preventDefault()
+    if (next !== confirm) { toast.error('Les deux nouveaux mots de passe ne correspondent pas'); return }
+    setBusy(true)
+    try {
+      await authApi.changePassword(current, next)
+      setCurrent(''); setNext(''); setConfirm('')
+      toast.success('Mot de passe changé. Vos autres sessions ont été fermées.')
+    } catch (err) { toast.error((err as Error).message) } finally { setBusy(false) }
+  }
+  return (
+    <Card className="lg:col-span-2">
+      <CardHeader title="Mon compte" description={`${state.user!.name} · ${state.user!.email}${state.user!.role === 'admin' ? ' · administrateur' : ''}`} />
+      <CardBody>
+        <form onSubmit={change} className="grid gap-4 md:grid-cols-4 md:items-end">
+          <Field label="Mot de passe actuel"><PasswordInput autoComplete="current-password" value={current} onChange={(e) => setCurrent(e.target.value)} /></Field>
+          <Field label="Nouveau mot de passe" hint={hint.text}><PasswordInput autoComplete="new-password" value={next} onChange={(e) => setNext(e.target.value)} /></Field>
+          <Field label="Confirmer" hint={confirm && confirm !== next ? 'Ne correspond pas' : ' '}><PasswordInput autoComplete="new-password" value={confirm} onChange={(e) => setConfirm(e.target.value)} /></Field>
+          <Button type="submit" className="md:mb-5" disabled={busy || !current || !hint.ok || next !== confirm}>
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <KeyRound className="h-4 w-4" />}Changer le mot de passe
+          </Button>
+        </form>
+      </CardBody>
+    </Card>
   )
 }
