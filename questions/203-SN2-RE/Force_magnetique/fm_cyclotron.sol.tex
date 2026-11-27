@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Vitesse de sortie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \qty{\v{B}}{T}$, $R = \qty{\v{R}}{m}$, $q = e$, $m = m_p$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} la force magnétique joue le rôle de force centripète :\[ |q| v B = \frac{m v^2}{R} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \frac{e B R}{m_p} \]
+    \item \textbf{Résolution numérique :} \[ v = \frac{\num{1.602e-19} \cdot \num{\v{B}} \cdot \num{\v{R}}}{\num{1.673e-27}} = \ResSci{1.602e-19*\vsi{B}*\vsi{R}/1.673e-27}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\ResSci{1.602e-19*\vsi{B}*\vsi{R}/1.673e-27}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \ResSci{1.602e-19*\v{B}*\v{R}/1.673e-27}{m/s}$, $\qty{1}{\mega\electronvolt} = \qty{1.602e-13}{J}$ ; variable recherchée : $K$
+    \item \textbf{Équations pertinentes :} \[ K = \tfrac{1}{2} m_p v^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K = \tfrac{1}{2} \cdot \num{1.673e-27} \cdot \left(\ResSci{1.602e-19*\v{B}*\v{R}/1.673e-27}{m/s}\right)^2 = \ResSci{(1.602e-19*\v{B}*\v{R})^2/(2*1.673e-27)}{J} = \Res{(1.602e-19*\vsi{B}*\vsi{R})^2/(2*1.673e-27)/1.602e-19/1e6}{\mega\electronvolt} \]
+    \item \textbf{Réponse :} $K = \mathbf{\Res{(1.602e-19*\vsi{B}*\vsi{R})^2/(2*1.673e-27)/1.602e-19/1e6}{\mega\electronvolt}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Fréquence du cyclotron}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \qty{\v{B}}{T}$, $q = e$, $m = m_p$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :} la tension doit changer de signe à chaque demi-tour ; la période d'un tour ne dépend pas de la vitesse :\[ T = \frac{2\pi R}{v} = \frac{2\pi m_p}{e B} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ f = \frac{1}{T} = \frac{e B}{2\pi m_p} \]
+    \item \textbf{Résolution numérique :} \[ f = \frac{\num{1.602e-19} \cdot \num{\v{B}}}{2\pi \cdot \num{1.673e-27}} = \ResSci{1.602e-19*\vsi{B}/(2*pi*1.673e-27)}{Hz} \]
+    \item \textbf{Réponse :} $f = \mathbf{\ResSci{1.602e-19*\vsi{B}/(2*pi*1.673e-27)}{Hz}}$
+\end{enumerate}

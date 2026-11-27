@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Résistance d'un fil}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \qty{1.68e-8}{\ohm.m}$, $L = \qty{\v{L}}{m}$, $D = \qty{\vsi{D}}{m}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :} \[ R = \frac{\rho L}{A}, \qquad A = \frac{\pi D^2}{4} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ R = \frac{4\rho L}{\pi D^2} \]
+    \item \textbf{Résolution numérique :} \[ R = \frac{4 \cdot \num{1.68e-8} \cdot \num{\v{L}}}{\pi (\num{\vsi{D}})^2} = \Res{1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{\ohm} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{\ohm}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Chute de tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $R_{\mathrm{tot}} = 2R = \Res{2*4*1.68e-8*\v{L}/(pi*(\vsi{D})^2)}{\ohm}$ ; variable recherchée : $\Delta V$
+    \item \textbf{Équations pertinentes :} \[ \Delta V = R_{\mathrm{tot}}\,I \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \Delta V = \Val{2*4*1.68e-8*\v{L}/(pi*(\vsi{D})^2)} \cdot \num{\v{I}} = \Res{\vsi{I}*2*1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{V} \]
+    \item \textbf{Réponse :} $\Delta V = \mathbf{\Res{\vsi{I}*2*1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{V}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Puissance dissipée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $R_{\mathrm{tot}} = \Res{2*4*1.68e-8*\v{L}/(pi*(\vsi{D})^2)}{\ohm}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :} \[ P = R_{\mathrm{tot}}\,I^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ P = \Val{2*4*1.68e-8*\v{L}/(pi*(\vsi{D})^2)} \cdot (\num{\v{I}})^2 = \Res{\vsi{I}^2*2*1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{W} \]
+    \item \textbf{Réponse :} $P = \mathbf{\Res{\vsi{I}^2*2*1.68e-8*\vsi{L}/(pi*\vsi{D}^2/4)}{W}}$
+\end{enumerate}

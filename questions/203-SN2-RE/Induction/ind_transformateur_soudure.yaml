@@ -1,0 +1,20 @@
+title: 'Transformateur d''un poste de soudure'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  N1: {type: integer, min: 400, max: 1200, step: 50, label: Spires au primaire}
+  N2: {type: integer, min: 20, max: 80, step: 5, label: Spires au secondaire}
+  P: {type: integer, min: 500, max: 3000, step: 100, unit: W, label: Puissance fournie}
+constraints:
+  - '240*N2/N1 > 15'
+  - 'P/(240*N2/N1) < 250'
+solution:
+  mode: manual
+  file: ind_transformateur_soudure.sol.tex
+  parts:
+    a: {expr: '240*N2/N1', unit: 'V', label: 'Tension au secondaire'}
+    b: {expr: 'P/(240*N2/N1)', unit: 'A', label: 'Courant au secondaire'}
+    c: {expr: 'P/240', unit: 'A', label: 'Courant au primaire'}
