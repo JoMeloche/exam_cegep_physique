@@ -27,7 +27,7 @@ rm -rf backend/examgen/static
 cp -R frontend/dist backend/examgen/static
 
 echo "3/7  TinyTeX"
-TT="$BUILD/TinyTeX"
+TT="$APP_DIR/$BUILD/TinyTeX"
 if [ ! -x "$TT/bin/universal-darwin/pdflatex" ]; then
   # Official TinyTeX installer (picks the macOS build, universal-darwin binaries) into ~/Library/TinyTeX
   export TINYTEX_INSTALLER=TinyTeX-1
@@ -44,7 +44,7 @@ cat > "$BUILD/textest/t.tex" <<'TEX'
 \documentclass{exam}\usepackage[french]{babel}\usepackage{siunitx,xfp,enumitem,tikz,amsmath,lmodern}
 \begin{document}Test \SI{9.81}{m/s^2} $\fpeval{2*3}$\end{document}
 TEX
-(cd "$BUILD/textest" && "$OLDPWD/$TLBIN/pdflatex" -interaction=nonstopmode -halt-on-error t.tex >/dev/null)
+(cd "$BUILD/textest" && "$TLBIN/pdflatex" -interaction=nonstopmode -halt-on-error t.tex >/dev/null)
 echo "     TinyTeX OK"
 
 echo "4/7  Starter question bank"
