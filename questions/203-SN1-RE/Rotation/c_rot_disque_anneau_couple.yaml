@@ -1,0 +1,15 @@
+title: 'Disque et anneau soumis au même moment de force'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\alpha = \tau/I$ ; $I_{\mathrm{disque}} = \tfrac{1}{2}mR^2 < I_{\mathrm{anneau}} = mR^2$, donc le disque accélère deux fois plus.'
+choices:
+  - 'L''anneau'
+  - 'Ils ont la même accélération angulaire'
+  - 'Cela dépend de la vitesse de rotation'
+  - 'Le disque plein'

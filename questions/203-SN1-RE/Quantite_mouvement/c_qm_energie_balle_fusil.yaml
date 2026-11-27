@@ -1,0 +1,15 @@
+title: 'Énergie de la balle et du fusil'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les quantités de mouvement ont le même module $p$, mais $K = p^2/(2m)$ : la balle, beaucoup plus légère, a beaucoup plus d''énergie cinétique.'
+choices:
+  - 'Celle de la balle est beaucoup plus grande'
+  - 'Elles sont égales, comme les quantités de mouvement'
+  - 'Celle du fusil est beaucoup plus grande'
+  - 'Celle de la balle est nulle'

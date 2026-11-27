@@ -1,0 +1,15 @@
+title: 'Plus difficile de démarrer que de pousser'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Il faut vaincre $f_{s,\max} = \mu_s n$ pour démarrer ; ensuite le frottement vaut $f_c = \mu_c n$, plus petit puisque $\mu_c < \mu_s$.'
+choices:
+  - 'Le coefficient de frottement statique est plus grand que le coefficient de frottement cinétique'
+  - 'La masse de la caisse diminue lorsqu''elle bouge'
+  - 'La force normale augmente quand la caisse glisse'
+  - 'Le frottement cinétique augmente avec la vitesse'

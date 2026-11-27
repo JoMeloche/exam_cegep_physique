@@ -1,0 +1,15 @@
+title: 'Position d''un colis largué par un avion'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le colis garde la vitesse horizontale de l''avion ($a_x = 0$) : leurs positions horizontales restent identiques. Seul le mouvement vertical diffère.'
+choices:
+  - 'De plus en plus loin derrière l''avion'
+  - 'De plus en plus loin devant l''avion'
+  - 'Toujours directement sous l''avion'
+  - 'Il tombe verticalement à partir du point de largage'

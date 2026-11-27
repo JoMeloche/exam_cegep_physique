@@ -1,0 +1,15 @@
+title: 'Aire sous une courbe vitesse-temps'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$\Delta x = \int v\,\mathrm{d}t$ : l''aire sous $v(t)$ est le déplacement (une aire sous l''axe compte négativement).'
+choices:
+  - 'L''accélération moyenne'
+  - 'Le déplacement pendant cet intervalle'
+  - 'La vitesse moyenne'
+  - 'La distance au point de départ au premier instant'
