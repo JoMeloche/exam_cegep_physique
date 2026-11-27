@@ -8,6 +8,7 @@ import Library from '@/pages/Library'
 import QuestionEditor from '@/pages/QuestionEditor'
 import Settings from '@/pages/Settings'
 import Exports from '@/pages/Exports'
+import Setup from '@/pages/Setup'
 
 const nav = [
   { to: '/', label: 'Générer', icon: Sparkles, end: true },
@@ -20,11 +21,16 @@ const nav = [
 export default function App() {
   const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'))
   const [latexOk, setLatexOk] = useState<boolean | null>(null)
+  const [needsSetup, setNeedsSetup] = useState<boolean | null>(null)
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
   useEffect(() => { api.health().then((h) => setLatexOk(!!h.latex)).catch(() => setLatexOk(false)) }, [])
+  useEffect(() => { api.config().then((c) => setNeedsSetup(!c.setup_done)).catch(() => setNeedsSetup(false)) }, [])
+
+  if (needsSetup === null) return null
+  if (needsSetup) return <Setup onDone={() => setNeedsSetup(false)} />
 
   return (
     <div className="flex h-full">

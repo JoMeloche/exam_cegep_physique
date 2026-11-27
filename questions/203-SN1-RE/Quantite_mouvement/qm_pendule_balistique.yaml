@@ -8,7 +8,7 @@ variables:
   mb: {type: integer, min: 5, max: 20, step: 1, unit: g, si: 0.001, label: Masse de la balle}
   M: {type: decimal, min: 1.0, max: 5.0, step: 0.1, unit: kg, label: Masse du bloc}
   h: {type: decimal, min: 5.0, max: 25.0, step: 0.5, unit: cm, si: 0.01, label: Hauteur de remontée}
-constraints: []
+constraints: ["(mb + M)/mb*sqrt(2*g*h) > 150", "(mb + M)/mb*sqrt(2*g*h) < 900"]
 solution:
   mode: manual
   file: qm_pendule_balistique.sol.tex

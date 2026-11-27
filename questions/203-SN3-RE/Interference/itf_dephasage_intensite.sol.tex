@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $d = \qty{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty{\vsi{y}}{m}$
+        \item $d = \qty[exponent-mode=threshold]{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty[exponent-mode=threshold]{\vsi{y}}{m}$
         \item Variable recherchée : $\Delta r$
     \end{itemize}
     \item \textbf{Équations pertinentes :} pour de petits angles, $\sin\theta \approx \tan\theta = y/L$ et
@@ -13,7 +13,7 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \Delta r = \frac{d\,y}{L} \]
     \item \textbf{Résolution numérique :}
-    \[ \Delta r = \frac{\num{\vsi{sep}} \cdot \num{\vsi{y}}}{\num{\v{L}}} = \Res{1e9*\vsi{sep}*\vsi{y}/\v{L}}{nm} \]
+    \[ \Delta r = \frac{\num[exponent-mode=threshold]{\vsi{sep}} \cdot \num[exponent-mode=threshold]{\vsi{y}}}{\num{\v{L}}} = \Res{1e9*\vsi{sep}*\vsi{y}/\v{L}}{nm} \]
     \item \textbf{Réponse :} la différence de marche est \textbf{\Res{1e9*\vsi{sep}*\vsi{y}/\v{L}}{nm}}.
 \end{enumerate}
 

@@ -1,0 +1,21 @@
+title: Alternateur à bobine tournante
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  N: {type: integer, min: 50, max: 500, step: 10, unit: '', label: Nombre de spires}
+  a: {type: integer, min: 5, max: 25, step: 1, unit: cm, si: 0.01, label: Longueur de la bobine}
+  b: {type: integer, min: 5, max: 20, step: 1, unit: cm, si: 0.01, label: Largeur de la bobine}
+  f: {type: choice, values: [50, 60, 25, 30, 40], unit: Hz, label: Fréquence de rotation}
+  B: {type: decimal, min: 0.05, max: 0.80, step: 0.05, unit: T, label: Champ magnétique}
+constraints:
+  - N*B*a*b*2*pi*f <= 400
+  - N*B*a*b*2*pi*f >= 2
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*pi*f", unit: rad/s, label: Vitesse angulaire}
+    b: {expr: "N*B*a*b*2*pi*f", unit: V, label: Force électromotrice maximale}
+    c: {expr: "1/(12*f)", unit: s, label: Instant où la fém vaut la moitié du maximum}

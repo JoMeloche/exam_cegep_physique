@@ -1,0 +1,19 @@
+title: 'Masse et poids sur une autre planète'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 55, max: 110, step: 1, unit: kg, label: Masse de l'astronaute équipé}
+  W: {type: integer, min: 150, max: 2000, step: 10, unit: N, label: Poids mesuré sur la planète}
+constraints:
+  - 'W > 0.3*m*g'
+  - 'W < 2.5*m*g'
+  - 'abs(W - m*g) > 0.1*m*g'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g", unit: N, label: Poids sur la Terre}
+    b: {expr: "W/m", unit: N/kg, label: Intensité du champ gravitationnel de la planète}
+    c: {expr: "m*1.62", unit: N, label: Poids sur la Lune}

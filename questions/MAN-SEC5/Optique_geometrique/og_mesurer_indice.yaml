@@ -1,0 +1,18 @@
+title: 'Mesurer l''indice de réfraction d''un liquide'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  th1: {type: integer, min: 30, max: 70, step: 5, unit: \degree, label: Angle d'incidence dans l'air}
+  th2: {type: integer, min: 15, max: 45, step: 1, unit: \degree, label: Angle de réfraction mesuré}
+constraints:
+  - 'sin(rad(th1))/sin(rad(th2)) > 1.25'
+  - 'sin(rad(th1))/sin(rad(th2)) < 1.9'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sin(rad(th1))/sin(rad(th2))", unit: "", label: Indice de réfraction du liquide}
+    b: {expr: "c*sin(rad(th2))/sin(rad(th1))", unit: m/s, label: Vitesse de la lumière dans le liquide}
+    c: {expr: "deg(asin(sin(rad(th2))/sin(rad(th1))))", unit: \degree, label: Angle critique liquide-air}

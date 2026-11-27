@@ -1,0 +1,15 @@
+title: 'Reconnaître un conducteur ohmique'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un conducteur ohmique a une résistance indépendante de la tension : $I$ est proportionnel à $V$, et le graphe de $I$ en fonction de $V$ est une droite passant par l''origine.'
+choices:
+  - 'Le courant est le même pour toutes les tensions'
+  - 'Le graphe de $I$ en fonction de $V$ est une droite passant par l''origine'
+  - 'Le courant double quand la tension est divisée par 2'
+  - 'Le graphe de $I$ en fonction de $V$ est une parabole'

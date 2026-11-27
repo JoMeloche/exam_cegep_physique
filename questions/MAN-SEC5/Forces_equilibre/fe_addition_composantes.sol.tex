@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Composantes de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_1 = \qty{\v{F1}}{N}$ à \qty{\v{a1}}{\degree} au nord de l'est, $F_2 = \qty{\v{F2}}{N}$ à \qty{\v{a2}}{\degree} au nord de l'ouest ; variables recherchées : $R_x$, $R_y$ (axe $x$ vers l'est, axe $y$ vers le nord)
+    \item \textbf{Équations pertinentes :}
+    \[ R_x = F_1\cos\theta_1 - F_2\cos\theta_2 \qquad R_y = F_1\sin\theta_1 + F_2\sin\theta_2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ R_x = \qty{\v{F1}}{N}\cos(\qty{\v{a1}}{\degree}) - \qty{\v{F2}}{N}\cos(\qty{\v{a2}}{\degree}) = \Res{\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})}{N} \] \[ R_y = \qty{\v{F1}}{N}\sin(\qty{\v{a1}}{\degree}) + \qty{\v{F2}}{N}\sin(\qty{\v{a2}}{\degree}) = \Res{\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2})}{N} \]
+    \item \textbf{Réponse :} $R_x = \mathbf{\Res{\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})}{N}}$ (vers l'est) et $R_y = \mathbf{\Res{\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2})}{N}}$ (vers le nord).
+\end{enumerate}
+\subsubsection*{Question b) Grandeur de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_x = \Res{\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})}{N}$, $R_y = \Res{\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2})}{N}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :}
+    \[ R^2 = R_x^2 + R_y^2 \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ R = \sqrt{R_x^2 + R_y^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ R = \sqrt{(\Val{\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})}\,\unit{N})^2 + (\Val{\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2})}\,\unit{N})^2} = \Res{sqrt((\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2}))^2 + (\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2}))^2)}{N} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{sqrt((\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2}))^2 + (\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2}))^2)}{N}}$.
+\end{enumerate}
+\subsubsection*{Question c) Orientation de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_x > 0$ et $R_y > 0$ (la résultante pointe vers le nord-est) ; variable recherchée : $\theta$ au nord de l'est
+    \item \textbf{Équations pertinentes :}
+    \[ \tan\theta = \frac{R_y}{R_x} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ \theta = \arctan\left(\frac{R_y}{R_x}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta = \arctan\left(\frac{\Val{\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2})}\,\unit{N}}{\Val{\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})}\,\unit{N}}\right) = \Res{atand((\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2}))/(\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})))}{\degree} \]
+    \item \textbf{Réponse :} la résultante est orientée à \textbf{\Res{atand((\v{F1}*sind(\v{a1}) + \v{F2}*sind(\v{a2}))/(\v{F1}*cosd(\v{a1}) - \v{F2}*cosd(\v{a2})))}{\degree}} au nord de l'est.
+\end{enumerate}

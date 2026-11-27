@@ -1,0 +1,39 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Inductance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $\ell = \QtyT{\vsi{l}}{m}$, $r = \QtyT{\vsi{r}}{m}$ ; variable recherchée : $L$
+    \item \textbf{Équations pertinentes :}
+    \[ L = \frac{N\Phi_B}{I} \qquad \Phi_B = BA = \mu_0 \frac{N}{\ell} I\,\pi r^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ L = \frac{\mu_0 N^2 \pi r^2}{\ell} \]
+    \item \textbf{Résolution numérique :}
+    \[ L = \frac{4\pi \times 10^{-7} \cdot \v{N}^2 \cdot \pi \cdot \left(\NumT{\vsi{r}}\right)^2}{\NumT{\vsi{l}}} = \ResSci{4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}}{H} \]
+    \item \textbf{Réponse :} $L = \mathbf{\Res{1000*4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}}{mH}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Force électromotrice auto-induite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \ResSci{4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}}{H}$, $dI/dt = \qty{-\v{dIdt}}{A/s}$ ; variable recherchée : $\mathcal{E}_L$
+    \item \textbf{Équations pertinentes :}
+    \[ \mathcal{E}_L = -L\frac{dI}{dt} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \mathcal{E}_L = -\Valt{4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}} \cdot (-\num{\v{dIdt}}) = \Res{(4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l})*\v{dIdt}}{V} \]
+    \item \textbf{Réponse :} $|\mathcal{E}_L| = \mathbf{\Res{(4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l})*\v{dIdt}}{V}}$ ; elle tend à maintenir le courant (même sens que le courant), car celui-ci diminue.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie emmagasinée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \ResSci{4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}}{H}$, $I = \qty{\v{I}}{A}$ ; variable recherchée : $U_B$
+    \item \textbf{Équations pertinentes :}
+    \[ U_B = \tfrac{1}{2} L I^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ U_B = \tfrac{1}{2} \cdot \Valt{4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l}} \cdot \num{\v{I}}^2 = \ResSci{0.5*(4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l})*\v{I}^2}{J} \]
+    \item \textbf{Réponse :} $U_B = \mathbf{\ResSci{0.5*(4*pi*1e-7*\v{N}^2*pi*\vsi{r}^2/\vsi{l})*\v{I}^2}{J}}$.
+\end{enumerate}

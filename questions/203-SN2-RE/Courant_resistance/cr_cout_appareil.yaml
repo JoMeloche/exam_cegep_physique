@@ -1,0 +1,19 @@
+title: Consommation et coût d'une plinthe électrique
+type: developpement
+points: 20
+time_min: 10
+difficulty: 1
+figures: []
+variables:
+  P:    {type: integer, min: 500, max: 2500, step: 250, unit: W, label: Puissance nominale}
+  h:    {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: h, label: Heures d'utilisation par jour}
+  prix: {type: decimal, min: 6.0, max: 12.0, step: 0.1, unit: '¢/kWh', label: Prix de l'électricité}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "P/240", unit: A, label: Courant}
+    a2: {expr: "240**2/P", unit: \ohm, label: Résistance}
+    b1: {expr: "P/1000*h*30", unit: kWh, label: Énergie consommée}
+    b2: {expr: "P*h*30*3600", unit: J, label: Énergie en joules}
+    c: {expr: "P/1000*h*30*prix/100", unit: '\$', label: Coût mensuel}

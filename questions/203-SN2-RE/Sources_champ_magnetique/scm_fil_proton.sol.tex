@@ -1,25 +1,28 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Champ du fil}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $r = \qty{\vsi{r}}{m}$ ; variable recherchée : $B$
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $r = \QtyT{\vsi{r}}{m}$ ; variable recherchée : $B$
     \item \textbf{Équations pertinentes :} théorème d'Ampère pour un long fil :
     \[ B = \frac{\mu_0 I}{2\pi r} \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ B = \frac{4\pi \times 10^{-7} \cdot \num{\v{I}}}{2\pi \cdot \num{\vsi{r}}} = \ResSci{2e-7*\v{I}/\vsi{r}}{T} \]
+    \[ B = \frac{4\pi \times 10^{-7} \cdot \num{\v{I}}}{2\pi \cdot \NumT{\vsi{r}}} = \ResSci{2e-7*\v{I}/\vsi{r}}{T} \]
     \item \textbf{Réponse :} $B = \mathbf{\ResSci{2e-7*\v{I}/\vsi{r}}{T}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Force sur le proton}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $q = \qty{1.602e-19}{C}$, $v = \qty{\vsi{v}}{m/s}$, $B = \ResSci{2e-7*\v{I}/\vsi{r}}{T}$, $\theta = \qty{90}{\degree}$ ; variable recherchée : $F$
+    \item \textbf{Variables connues et recherchées :} $q = \qty{1.602e-19}{C}$, $v = \QtyT{\vsi{v}}{m/s}$, $B = \ResSci{2e-7*\v{I}/\vsi{r}}{T}$, $\theta = \qty{90}{\degree}$ ; variable recherchée : $F$
     \item \textbf{Équations pertinentes :}
     \[ F = |q| v B \sin\theta \]
     \item \textbf{Isolation de la variable recherchée :} la vitesse (parallèle au fil) est perpendiculaire au champ (circulaire autour du fil), donc $\sin\theta = 1$.
     \item \textbf{Résolution numérique :}
-    \[ F = \num{1.602e-19} \cdot \num{\vsi{v}} \cdot \Val{2e-7*\v{I}/\vsi{r}} = \ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})}{N} \]
+    \[ F = \num{1.602e-19} \cdot \NumT{\vsi{v}} \cdot \Valt{2e-7*\v{I}/\vsi{r}} = \ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})}{N} \]
     \item \textbf{Réponse :} $F = \mathbf{\ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})}{N}}$.
 \end{enumerate}
 
@@ -34,6 +37,6 @@ Un proton qui se déplace dans le sens du courant est équivalent à un petit co
     \item \textbf{Isolation de la variable recherchée :}
     \[ a = \frac{F}{m_p} \]
     \item \textbf{Résolution numérique :}
-    \[ a = \frac{\Val{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})}}{\num{1.673e-27}} = \ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})/1.673e-27}{m/s^2} \]
+    \[ a = \frac{\Valt{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})}}{\num{1.673e-27}} = \ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})/1.673e-27}{m/s^2} \]
     \item \textbf{Réponse :} $a = \mathbf{\ResSci{1.602e-19*\vsi{v}*(2e-7*\v{I}/\vsi{r})/1.673e-27}{m/s^2}}$, dirigée vers le fil.
 \end{enumerate}

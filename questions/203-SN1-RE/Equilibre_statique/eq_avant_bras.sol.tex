@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force du biceps}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d = \qty{\vsi{d}}{m}$, $L_c = \qty{\vsi{Lc}}{m}$, $L = \qty{\vsi{L}}{m}$, $m_a = \qty{\v{mf}}{kg}$, $m = \qty{\v{m}}{kg}$ ; variable recherchée : $F_b$
+    \item \textbf{Équations pertinentes :} moments de force par rapport au coude : \[ \sum\tau = F_b d - m_a g L_c - mgL = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_b = \frac{g(m_a L_c + mL)}{d} \]
+    \item \textbf{Résolution numérique :} \[ F_b = \frac{\num{9.81} \cdot (\num{\v{mf}} \cdot \num{\vsi{Lc}} + \num{\v{m}} \cdot \num{\vsi{L}})}{\num{\vsi{d}}} = \Res{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})}{N} \]
+    \item \textbf{Réponse :} $F_b = \mathbf{\Res{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})}{N}}$ vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question b) Force du coude}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_b = \Res{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})}{N}$, $(m_a + m)g = \Res{(\vsi{mf} + \vsi{m})*9.81}{N}$ ; variable recherchée : $F_c$ (vers le bas)
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_b - F_c - m_a g - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_c = F_b - (m_a + m)g \]
+    \item \textbf{Résolution numérique :} \[ F_c = \Val{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})} - \Val{(\vsi{mf} + \vsi{m})*9.81} = \Res{((9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d}) - (\vsi{mf} + \vsi{m})*9.81)}{N} \]
+    \item \textbf{Réponse :} $F_c = \mathbf{\Res{((9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d}) - (\vsi{mf} + \vsi{m})*9.81)}{N}}$ vers le bas.
+\end{enumerate}
+
+\subsubsection*{Question c) Rapport}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_b = \Res{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})}{N}$, $mg = \Res{\vsi{m}*9.81}{N}$ ; variable recherchée : $F_b/(mg)$
+    \item \textbf{Équations pertinentes :} \[ \text{rapport} = \frac{F_b}{mg} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \frac{F_b}{mg} = \frac{\Val{(9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})}}{\Val{\vsi{m}*9.81}} = \num[round-mode=figures,round-precision=3]{\fpeval{((9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})/(\vsi{m}*9.81))}} \]
+    \item \textbf{Réponse :} le biceps exerce environ $\mathbf{\num[round-mode=figures,round-precision=3]{\fpeval{((9.81*(\vsi{mf}*\vsi{Lc} + \vsi{m}*\vsi{L})/\vsi{d})/(\vsi{m}*9.81))}}}$ fois le poids de l'haltère, car son bras de levier est très court.
+\end{enumerate}

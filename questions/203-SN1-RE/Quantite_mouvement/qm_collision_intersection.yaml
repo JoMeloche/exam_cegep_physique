@@ -15,5 +15,5 @@ solution:
   file: qm_collision_intersection.sol.tex
   parts:
     a: {expr: "sqrt((m1*v1)**2 + (m2*v2)**2)/(m1 + m2)", unit: 'm/s', label: 'Vitesse après la collision'}
-    b: {expr: "deg(atan(m2*v2/(m1*v1)))", unit: 'deg', label: 'Direction (nord de l''est)'}
+    b: {expr: "deg(atan(m2*v2/(m1*v1)))", unit: '\degree', label: 'Direction (nord de l''est)'}
     c: {expr: "0.5*m1*v1**2 + 0.5*m2*v2**2 - 0.5*(m1 + m2)*((sqrt((m1*v1)**2 + (m2*v2)**2)/(m1 + m2)))**2", unit: 'J', label: 'Énergie cinétique perdue'}

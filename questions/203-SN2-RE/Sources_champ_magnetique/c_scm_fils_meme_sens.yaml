@@ -1,0 +1,15 @@
+title: "Interaction entre deux courants parallèles"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le champ du fil 1 au fil 2 est perpendiculaire au fil 2 ; $\vec{F} = I_2\vec{L}\times\vec{B}_1$ pointe vers le fil 1. Deux courants de même sens s''attirent.'
+choices:
+  - Ils s'attirent
+  - Ils se repoussent
+  - Ils n'exercent aucune force l'un sur l'autre
+  - Ils tendent à tourner pour devenir perpendiculaires

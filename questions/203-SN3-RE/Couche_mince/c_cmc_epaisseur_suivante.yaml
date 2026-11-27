@@ -1,0 +1,15 @@
+title: "Épaisseur suivante d'un film qui réfléchit une couleur"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Pour un film de savon (un seul déphasage), les épaisseurs de réflexion forte sont $e = (m + \frac{1}{2})\lambda/(2n)$, soit $\lambda/(4n)$, $3\lambda/(4n)$, $5\lambda/(4n)$, ... L''épaisseur suivante est donc $3e_1$.'
+choices:
+  - '$1{,}5\,e_1$'
+  - '$2\,e_1$'
+  - '$4\,e_1$'
+  - '$3\,e_1$'

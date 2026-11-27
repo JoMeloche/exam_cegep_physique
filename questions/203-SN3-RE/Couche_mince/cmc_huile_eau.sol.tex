@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} air-huile ($1 < \num{\v{n}}$) : déphasage de $\lambda/2$ ; huile-eau ($\num{\v{n}} > \num{1.33}$) : aucun déphasage. Il y a donc un seul déphasage de $\lambda/2$.
+
+\subsubsection*{Question a) Longueur d'onde visible fortement réfléchie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $n = \num{\v{n}}$, $e = \qty{\v{ep}}{nm}$
+        \item Variable recherchée : $\lambda$ dans le visible
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} un seul déphasage, donc interférence constructive quand
+    \[ 2ne = \left(m + \tfrac{1}{2}\right)\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{4ne}{2m + 1} \]
+    \item \textbf{Résolution numérique :}
+    \[ m = 0 : \lambda = \Res{4*\v{n}*\v{ep}}{nm}, \quad m = 1 : \lambda = \Res{4*\v{n}*\v{ep}/3}{nm}, \quad m = 2 : \lambda = \Res{4*\v{n}*\v{ep}/5}{nm} \]
+    \item \textbf{Réponse :} $m = 0$ donne de l'infrarouge et $m = 2$ de l'ultraviolet ; seule \textbf{\Res{4*\v{n}*\v{ep}/3}{nm}} ($m = 1$) est dans le visible.
+\end{enumerate}
+
+\subsubsection*{Question b) Plus grande longueur d'onde éteinte}
+Interférence destructive : $2ne = m\lambda$, $m \ge 1$. Avec $m = 1$ :
+\[ \lambda = 2ne = 2 \cdot \num{\v{n}} \cdot \num{\v{ep}} = \Res{2*\v{n}*\v{ep}}{nm} \]
+La plus grande longueur d'onde absente est \textbf{\Res{2*\v{n}*\v{ep}}{nm}}.
+
+\subsubsection*{Question c) Épaisseur minimale pour la même couleur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \Res{4*\v{n}*\v{ep}/3}{nm}$, $n = \num{\v{n}}$, $m = 0$ ; variable recherchée : $e_{\min}$
+    \item \textbf{Équations pertinentes :} $2ne = \left(m + \tfrac{1}{2}\right)\lambda$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e_{\min} = \frac{\lambda}{4n} \]
+    \item \textbf{Résolution numérique :}
+    \[ e_{\min} = \frac{\Val{4*\v{n}*\v{ep}/3}}{4 \cdot \num{\v{n}}} = \Res{\v{ep}/3}{nm} \]
+    \item \textbf{Réponse :} l'épaisseur minimale est \textbf{\Res{\v{ep}/3}{nm}}, soit le tiers de l'épaisseur actuelle.
+\end{enumerate}

@@ -1,0 +1,32 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Champ dans le conducteur central}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $a = \QtyT{\vsi{a}}{m}$, $r_1 = \QtyT{\vsi{r1}}{m}$ ; variable recherchée : $B(r_1)$
+    \item \textbf{Équations pertinentes :} théorème d'Ampère sur un cercle de rayon $r_1 < a$ ; le courant enlacé est proportionnel à l'aire :
+    \[ B\,(2\pi r_1) = \mu_0 I_{\text{int}} \qquad I_{\text{int}} = I\,\frac{\pi r_1^2}{\pi a^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ B(r_1) = \frac{\mu_0 I r_1}{2\pi a^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ B(r_1) = \frac{4\pi \times 10^{-7} \cdot \num{\v{I}} \cdot \NumT{\vsi{r1}}}{2\pi \cdot \left(\NumT{\vsi{a}}\right)^2} = \ResSci{2e-7*\v{I}*\vsi{r1}/\vsi{a}^2}{T} \]
+    \item \textbf{Réponse :} $B(r_1) = \mathbf{\Res{1000*2e-7*\v{I}*\vsi{r1}/\vsi{a}^2}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ entre le conducteur et la gaine}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $r_2 = \QtyT{\vsi{r2}}{m}$ ; variable recherchée : $B(r_2)$
+    \item \textbf{Équations pertinentes :} le cercle de rayon $r_2$ enlace tout le courant central :
+    \[ B\,(2\pi r_2) = \mu_0 I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ B(r_2) = \frac{\mu_0 I}{2\pi r_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ B(r_2) = \frac{4\pi \times 10^{-7} \cdot \num{\v{I}}}{2\pi \cdot \NumT{\vsi{r2}}} = \ResSci{2e-7*\v{I}/\vsi{r2}}{T} \]
+    \item \textbf{Réponse :} $B(r_2) = \mathbf{\Res{1000*2e-7*\v{I}/\vsi{r2}}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Champ à l'extérieur}
+Un cercle de rayon $r > b$ enlace le courant $I$ du conducteur central et le courant $-I$ de la gaine : $I_{\text{int}} = 0$. Par symétrie, $B$ a la même grandeur partout sur le cercle, donc $B\,(2\pi r) = 0$ et \textbf{le champ est nul à l'extérieur du câble}.

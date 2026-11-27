@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} air-couche ($1 < \num{\v{nc}}$) : déphasage de $\lambda/2$ ; couche-verre ($\num{\v{nc}} > \num{1.52}$) : aucun déphasage. Il y a donc un seul déphasage de $\lambda/2$.
+
+\subsubsection*{Question a) Épaisseur minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\v{lam}}{nm}$, $n = \num{\v{nc}}$, $m = 0$
+        \item Variable recherchée : $e_{\min}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} avec un seul déphasage, l'interférence est constructive quand
+    \[ 2ne = \left(m + \tfrac{1}{2}\right)\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e_{\min} = \frac{\lambda}{4n} \]
+    \item \textbf{Résolution numérique :}
+    \[ e_{\min} = \frac{\num{\v{lam}}}{4 \cdot \num{\v{nc}}} = \Res{\v{lam}/(4*\v{nc})}{nm} \]
+    \item \textbf{Réponse :} l'épaisseur minimale est \textbf{\Res{\v{lam}/(4*\v{nc})}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Épaisseur suivante}
+Avec $m = 1$ : $e = \dfrac{3\lambda}{4n} = \dfrac{3 \cdot \num{\v{lam}}}{4 \cdot \num{\v{nc}}} = $ \textbf{\Res{3*\v{lam}/(4*\v{nc})}{nm}}.
+
+\subsubsection*{Question c) Longueur d'onde éteinte}
+Interférence destructive avec un seul déphasage : $2ne = m\lambda'$. Avec $e = \lambda/(4n)$ et $m = 1$ :
+\[ \lambda' = 2ne = \frac{\lambda}{2} = \Res{\v{lam}/2}{nm} \]
+La longueur d'onde \textbf{\Res{\v{lam}/2}{nm}} (ultraviolet) est absente de la lumière réfléchie.

@@ -25,11 +25,11 @@
 
 \subsubsection*{Question c) Coût}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $E = \Res{\v{P}/1000*\v{h}*30}{kWh}$, tarif \qty{\v{tx}}{\$/kWh} ; variable recherchée : coût
+    \item \textbf{Variables connues et recherchées :} $E = \Res{\v{P}/1000*\v{h}*30}{kWh}$, tarif \qty[minimum-decimal-digits=2]{\v{tx}}{\$/kWh} ; variable recherchée : coût
     \item \textbf{Équations pertinentes :}
     \[ \text{Coût} = E \times \text{tarif} \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ \text{Coût} = \Val{\v{P}/1000*\v{h}*30} \times \num{\v{tx}} = \qty[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*\v{h}*30*\v{tx}}}{\$} \]
+    \[ \text{Coût} = \Val{\v{P}/1000*\v{h}*30} \times \num[minimum-decimal-digits=2]{\v{tx}} = \qty[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*\v{h}*30*\v{tx}}}{\$} \]
     \item \textbf{Réponse :} l'utilisation coûte \textbf{\qty[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*\v{h}*30*\v{tx}}}{\$}}.
 \end{enumerate}

@@ -1,0 +1,20 @@
+title: Deux raies spectrales sur un écran
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  Nmm: {type: integer, min: 200, max: 600, step: 50, unit: traits/mm, label: Nombre de traits par millimètre}
+  L: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: m, label: Distance réseau-écran}
+  lam1: {type: choice, values: [656.3, 632.8, 589.0], unit: nm, si: 1e-9, label: Longueur d'onde de la première raie}
+  lam2: {type: choice, values: [486.1, 434.0, 404.7], unit: nm, si: 1e-9, label: Longueur d'onde de la seconde raie}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    t1: {expr: "deg(asin(lam1*Nmm*1e3))", unit: deg, label: Angle de la première raie}
+    t2: {expr: "deg(asin(lam2*Nmm*1e3))", unit: deg, label: Angle de la seconde raie}
+    y1: {expr: "L*tan(asin(lam1*Nmm*1e3))", unit: m, label: Position de la première raie}
+    y2: {expr: "L*tan(asin(lam2*Nmm*1e3))", unit: m, label: Position de la seconde raie}
+    sep: {expr: "L*tan(asin(lam1*Nmm*1e3)) - L*tan(asin(lam2*Nmm*1e3))", unit: m, label: Distance entre les raies}

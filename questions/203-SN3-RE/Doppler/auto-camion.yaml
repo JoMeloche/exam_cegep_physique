@@ -1,4 +1,4 @@
-title: Auto-camion
+title: Automobile qui klaxonne en dépassant un camion
 type: developpement
 points: 20
 time_min: 20
@@ -10,22 +10,31 @@ variables:
     min: 25
     max: 45
     step: 5
-    label: doppSixVAuto
+    label: Vitesse de l'automobile
+    unit: m/s
   VCamion:
     type: integer
     min: 5
     max: 25
     step: 5
-    label: doppSixVCamion
+    label: Vitesse du camion
+    unit: m/s
   Freq:
     type: integer
     min: 370
     max: 460
     step: 10
-    label: doppSixFreq
+    label: Fréquence du klaxon
+    unit: Hz
+constraints:
+- VAuto >= VCamion + 10
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: Freq*(343 - VCamion)/(343 - VAuto) - Freq*(343 + VCamion)/(343 + VAuto)
+      unit: Hz
+      label: Différence de fréquence avant/après
 source: Question_dev/Doppler/auto-camion.tex
 original_values:
   VAuto:

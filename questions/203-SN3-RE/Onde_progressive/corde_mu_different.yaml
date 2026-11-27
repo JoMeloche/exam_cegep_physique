@@ -1,4 +1,4 @@
-title: Corde mu different
+title: Onde transmise vers une corde plus lourde
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,6 +6,8 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: C
+explanation: La fréquence est imposée par la source ; $v = \sqrt{F/\mu}$ diminue, donc $\lambda = v/f$ diminue.
 choices:
 - La fréquence et la longueur d'onde augmentent
 - La fréquence est inchangée et la longueur d'onde augmente
@@ -13,6 +15,5 @@ choices:
 - La fréquence et la longueur d'onde diminuent
 - La fréquence augmente et la longueur d'onde est inchangée
 - La fréquence diminue et la longueur d'onde est inchangée
-needs_review: true
 source: Question_concept/Onde_progressive/c_corde_mu_different.tex
 history: []

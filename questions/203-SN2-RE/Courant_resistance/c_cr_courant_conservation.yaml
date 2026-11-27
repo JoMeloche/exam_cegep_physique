@@ -1,0 +1,15 @@
+title: 'Courant et vitesse de dérive dans un fil de section variable'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La charge ne s''accumule pas : le courant est le même partout. Comme $I = neAv_d$, une section $A$ plus petite exige une vitesse de dérive plus grande.'
+choices:
+  - 'Le courant et la vitesse de dérive sont plus grands'
+  - 'Le courant est plus petit et la vitesse de dérive est la même'
+  - 'Le courant est le même et la vitesse de dérive est plus grande'
+  - 'Le courant et la vitesse de dérive sont les mêmes'

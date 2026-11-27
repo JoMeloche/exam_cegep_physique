@@ -1,4 +1,4 @@
-title: Pompier
+title: Vitesse du son émis par un camion de pompier
 type: conceptuel
 points: 4
 time_min: 4
@@ -10,22 +10,25 @@ variables:
     min: 20
     max: 40
     step: 5
-    label: doppDeuxCVitCamion
+    label: Vitesse du camion
+    unit: m/s
   Auto:
     type: integer
     min: 5
     max: 25
     step: 5
-    label: doppDeuxCVitAuto
+    label: Vitesse de l'auto
+    unit: m/s
 solution:
   mode: none
+answer: A
+explanation: La vitesse du son ne dépend que du milieu (l'air), pas du mouvement de la source.
 choices:
 - La même que la vitesse de propagation des ondes sonores du klaxon de l’auto.
 - Deux fois plus grande que la vitesse de propagation des ondes sonores du klaxon de l’auto.
 - Plus grande que la vitesse de propagation des ondes sonores du klaxon de l’auto, mais pas deux fois plus grande.
 - Deux fois plus petite que la vitesse de propagation des ondes sonores du klaxon de l’auto.
 - Plus petite que la vitesse de propagation des ondes sonores du klaxon de l’auto, mais pas deux fois plus petite.
-needs_review: true
 source: Question_concept/Doppler/Pompier.tex
 original_values:
   Camion:

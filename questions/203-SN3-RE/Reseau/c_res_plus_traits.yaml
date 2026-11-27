@@ -1,0 +1,15 @@
+title: "Réseau avec plus de traits par millimètre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Plus de traits par millimètre signifie un pas $d$ plus petit. Comme $\sin\theta = m\lambda/d$, les maximums sont à des angles plus grands.'
+choices:
+  - 'Ils se rapprochent du centre'
+  - 'Ils s''éloignent du centre'
+  - 'Ils restent au même endroit, mais sont plus intenses'
+  - 'Ils disparaissent'

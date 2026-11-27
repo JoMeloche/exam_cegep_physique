@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Tension du câble}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $m = \qty{\v{m}}{kg}$, $L = \qty{\v{L}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :} moments de force par rapport à la charnière (ses forces n'y produisent aucun moment) : \[ \sum\tau = TL\sin\theta - Mg\frac{L}{2} - mgL = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ T = \frac{\left(\frac{M}{2} + m\right)g}{\sin\theta} \]
+    \item \textbf{Résolution numérique :} \[ T = \frac{(\Val{\vsi{M}/2} + \num{\v{m}}) \cdot \num{9.81}}{\sin(\qty{\v{th}}{\degree})} = \Res{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))}{N} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))}{N}}$ (la longueur de la tige se simplifie).
+\end{enumerate}
+
+\subsubsection*{Question b) Force horizontale de la charnière}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \Res{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $R_x$
+    \item \textbf{Équations pertinentes :} \[ \sum F_x = R_x - T\cos\theta = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ R_x = T\cos\theta \]
+    \item \textbf{Résolution numérique :} \[ R_x = \Val{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{(((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*cosd(\vsi{th}))}{N} \]
+    \item \textbf{Réponse :} $R_x = \mathbf{\Res{(((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*cosd(\vsi{th}))}{N}}$, dirigée vers l'extérieur du mur.
+\end{enumerate}
+
+\subsubsection*{Question c) Force verticale de la charnière}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T\sin\theta = \Res{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*sind(\vsi{th})}{N}$, $(M+m)g = \Res{(\vsi{M} + \vsi{m})*9.81}{N}$ ; variable recherchée : $R_y$
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = R_y + T\sin\theta - Mg - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ R_y = (M + m)g - T\sin\theta \]
+    \item \textbf{Résolution numérique :} \[ R_y = \Val{(\vsi{M} + \vsi{m})*9.81} - \Val{((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*sind(\vsi{th})} = \Res{((\vsi{M} + \vsi{m})*9.81 - ((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*sind(\vsi{th}))}{N} \]
+    \item \textbf{Réponse :} $R_y = \mathbf{\Res{((\vsi{M} + \vsi{m})*9.81 - ((\vsi{M}/2 + \vsi{m})*9.81/sind(\vsi{th}))*sind(\vsi{th}))}{N}}$ vers le haut (c'est la moitié du poids de la tige).
+\end{enumerate}

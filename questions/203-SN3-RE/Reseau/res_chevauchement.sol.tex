@@ -1,0 +1,34 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+Distance entre les traits : $d = \dfrac{\num{1e-3}}{\num{\v{Nmm}}} = \Res{1e6*1e-3/\v{Nmm}}{\micro\metre}$.
+
+\subsubsection*{Question a) Rouge à l'ordre 2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \Res{1e-3/\v{Nmm}}{m}$, $\lambda_R = \qty[exponent-mode=threshold]{\vsi{lr}}{m}$, $m = 2$
+        \item Variable recherchée : $\theta_{R,2}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} $d\sin\theta = m\lambda$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_{R,2} = \arcsin\left(\frac{2\lambda_R}{d}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_{R,2} = \arcsin\left(\frac{2 \cdot \num[exponent-mode=threshold]{\vsi{lr}}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(2*\vsi{lr}*\v{Nmm}*1e3)}{\degree} \]
+    \item \textbf{Réponse :} le rouge d'ordre 2 est à \textbf{\Res{asind(2*\vsi{lr}*\v{Nmm}*1e3)}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Violet à l'ordre 3}
+\[ \theta_{V,3} = \arcsin\left(\frac{3 \cdot \num{400e-9}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(3*400e-9*\v{Nmm}*1e3)}{\degree} \]
+Le violet d'ordre 3 est à \textbf{\Res{asind(3*400e-9*\v{Nmm}*1e3)}{\degree}}. Cet angle est plus petit que celui du rouge d'ordre 2, donc \textbf{les spectres se chevauchent} (en fait, $3 \cdot 400 = 1200 < 2\lambda_R$ quel que soit le réseau).
+
+\subsubsection*{Question c) Longueur d'onde superposée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda_R = \qty{\v{lr}}{nm}$ à l'ordre 2 ; variable recherchée : $\lambda$ à l'ordre 3 au même angle
+    \item \textbf{Équations pertinentes :} même angle : $d\sin\theta = 2\lambda_R = 3\lambda$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{2\lambda_R}{3} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{2 \cdot \num{\v{lr}}}{3} = \Res{2*\v{lr}/3}{nm} \]
+    \item \textbf{Réponse :} la longueur d'onde \textbf{\Res{2*\v{lr}/3}{nm}} de l'ordre 3 se superpose au rouge de l'ordre 2 ; ce résultat ne dépend pas du réseau.
+\end{enumerate}

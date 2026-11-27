@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $d = \qty{\vsi{sep}}{m}$, $m = \v{m}$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $d = \qty[exponent-mode=threshold]{\vsi{sep}}{m}$, $m = \v{m}$
         \item Variable recherchée : $\theta_{\v{m}}$
     \end{itemize}
     \item \textbf{Équations pertinentes :} condition d'interférence constructive :
@@ -13,7 +13,7 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \theta = \arcsin\left(\frac{m\lambda}{d}\right) \]
     \item \textbf{Résolution numérique :}
-    \[ \theta = \arcsin\left(\frac{\v{m} \cdot \num{\vsi{lam}}}{\num{\vsi{sep}}}\right) = \Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree} \]
+    \[ \theta = \arcsin\left(\frac{\v{m} \cdot \num[exponent-mode=threshold]{\vsi{lam}}}{\num[exponent-mode=threshold]{\vsi{sep}}}\right) = \Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree} \]
     \item \textbf{Réponse :} la frange brillante d'ordre \v{m} est à \textbf{\Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree}}.
 \end{enumerate}
 
@@ -31,5 +31,5 @@
 
 \subsubsection*{Question c) Distance entre deux franges voisines}
 Pour de petits angles, $y_m \approx m\lambda L/d$, donc
-\[ \Delta y = \frac{\lambda L}{d} = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{sep}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm} \]
+\[ \Delta y = \frac{\lambda L}{d} = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{sep}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm} \]
 Deux franges brillantes voisines sont séparées de \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm}}.

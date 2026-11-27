@@ -5,7 +5,7 @@ time_min: 12
 difficulty: 2
 figures: []
 variables:
-  T:  {type: integer, min: 800, max: 1600, step: 50, unit: \degreeCelsius, label: Température du four}
+  T:  {type: integer, min: 800, max: 1300, step: 50, unit: \degreeCelsius, label: Température du four}
   S:  {type: integer, min: 20, max: 200, step: 10, unit: cm^2, si: 0.0001, label: Aire de l'ouverture}
   t:  {type: integer, min: 1, max: 10, step: 1, unit: h, si: 3600, label: Durée}
 constraints: []

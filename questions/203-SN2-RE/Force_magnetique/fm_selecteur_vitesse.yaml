@@ -11,6 +11,8 @@ variables:
 constraints:
   - dV/(d*B) > 1e4
   - dV/(d*B) < 2e7
+  - 1.673e-27*dV/(d*B)/(1.602e-19*B) > 0.01
+  - 1.673e-27*dV/(d*B)/(1.602e-19*B) < 1
 solution:
   mode: manual
   parts:

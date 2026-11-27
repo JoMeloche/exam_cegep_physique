@@ -1,0 +1,41 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Force électromotrice induite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \qty{\v{B}}{T}$, $a = \QtyT{\vsi{a}}{m}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $\mathcal{E}$
+    \item \textbf{Équations pertinentes :} si $x$ est la longueur de spire encore dans le champ, $\Phi_B = Bax$ et $dx/dt = -v$ :
+    \[ |\mathcal{E}| = \left|\frac{d\Phi_B}{dt}\right| = Bav \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \mathcal{E} = \num{\v{B}} \cdot \NumT{\vsi{a}} \cdot \num{\v{v}} = \Res{\v{B}*\vsi{a}*\v{v}}{V} \]
+    \item \textbf{Réponse :} $\mathcal{E} = \mathbf{\Res{\v{B}*\vsi{a}*\v{v}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant induit}
+\[ I = \frac{\mathcal{E}}{R} = \frac{\Valt{\v{B}*\vsi{a}*\v{v}}}{\num{\v{R}}} = \mathbf{\ResSci{(\v{B}*\vsi{a}*\v{v})/\v{R}}{A}} \]
+
+\subsubsection*{Question c) Force à exercer}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \ResSci{(\v{B}*\vsi{a}*\v{v})/\v{R}}{A}$, $a = \QtyT{\vsi{a}}{m}$, $B = \qty{\v{B}}{T}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :} seul le côté encore dans le champ et parallèle au bord subit une force nette, qui freine la spire (loi de Lenz) :
+    \[ F = IaB \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F = \Valt{(\v{B}*\vsi{a}*\v{v})/\v{R}} \cdot \NumT{\vsi{a}} \cdot \num{\v{B}} = \ResSci{(\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B}}{N} \]
+    \item \textbf{Réponse :} il faut tirer avec $F = \mathbf{\ResSci{(\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B}}{N}}$ dans le sens du mouvement.
+\end{enumerate}
+
+\subsubsection*{Question d) Énergie dissipée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \ResSci{(\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B}}{N}$, distance parcourue pendant la sortie : $a = \QtyT{\vsi{a}}{m}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :} l'énergie dissipée est égale au travail de la force extérieure (l'énergie cinétique ne change pas) :
+    \[ E = W = F\,a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (on vérifie que $E = RI^2 \cdot a/v$).
+    \item \textbf{Résolution numérique :}
+    \[ E = \Valt{(\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B}} \cdot \NumT{\vsi{a}} = \ResSci{((\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B})*\vsi{a}}{J} \]
+    \item \textbf{Réponse :} $E = \mathbf{\ResSci{((\v{B}*\vsi{a}*\v{v})/\v{R}*\vsi{a}*\v{B})*\vsi{a}}{J}}$.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Nature de l''onde sonore'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le son est une onde longitudinale : les particules oscillent autour de leur position, dans la même direction que la propagation, formant des compressions et des raréfactions.'
+choices:
+  - 'Perpendiculairement à la direction de propagation (onde transversale)'
+  - 'Parallèlement à la direction de propagation (onde longitudinale)'
+  - 'Elles avancent avec l''onde jusqu''à l''oreille'
+  - 'Elles ne bougent pas du tout'

@@ -1,4 +1,4 @@
-title: Planete masse
+title: Mesurer une masse avec un ressort (planète)
 type: developpement
 points: 20
 time_min: 20
@@ -11,15 +11,14 @@ variables:
     max: 70
     step: 10
     unit: N/m
-    label: QoneK
+    label: Constante de rappel
   Etir:
     type: integer
     min: 30
     max: 70
     step: 10
     unit: cm
-    label: QoneEtir
-    si_unit: m
+    label: Étirement initial
     si: 0.01
   Tpass:
     type: decimal
@@ -27,17 +26,35 @@ variables:
     max: 0.52
     step: 0.01
     unit: s
-    label: QoneTpass
+    label: Instant du premier passage
   Xeval:
     type: decimal
     min: 0.15
     max: 0.35
     step: 0.05
     unit: m
-    label: QoneXeval
+    label: Position évaluée
+constraints:
+- Xeval < 0.9*Etir
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: 4*Tpass
+      unit: s
+      label: Période
+    b:
+      expr: K*(4*Tpass)**2/(4*pi**2)
+      unit: kg
+      label: Masse
+    c:
+      expr: K*Etir**2/2
+      unit: J
+      label: Énergie mécanique
+    d:
+      expr: 2*pi/(4*Tpass)*sqrt(Etir**2 - Xeval**2)
+      unit: m/s
+      label: Vitesse à x
 source: Question_dev/MHS/Q_planete_masse.tex
 original_values:
   K:

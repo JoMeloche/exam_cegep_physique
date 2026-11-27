@@ -1,40 +1,51 @@
-title: Bungee
+title: Bungee au-dessus d'une rivière
 type: developpement
 points: 20
 time_min: 20
 difficulty: 3
 figures: []
 variables:
-  Eq:
-    type: text
-    values:
-    - 4.2 \sin(1.35 t)
-    - 3.8 \sin(1.25 t)
-    - 4.5 \sin(1.40 t)
-    label: QoneEq
+  Amp:
+    type: decimal
+    min: 3.8
+    max: 4.5
+    step: 0.1
+    unit: m
+    label: Amplitude
+  w:
+    type: decimal
+    min: 1.25
+    max: 1.4
+    step: 0.05
+    unit: rad/s
+    label: Fréquence angulaire
   M:
     type: integer
     min: 45
     max: 65
     step: 5
     unit: kg
-    label: QoneM
+    label: 'Masse de l''étudiante'
   H:
     type: decimal
     min: 0.6
     max: 1.4
     step: 0.2
     unit: m
-    label: QoneH
+    label: Hauteur au point le plus bas
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: M*w**2
+      unit: N/m
+      label: Constante de rappel
+    b:
+      expr: 2*acos(1 - (2 - H)/Amp)/w
+      unit: s
+      label: Durée à moins de 2 m de l'eau
 source: Question_dev/MHS/Q_bungee.tex
 original_values:
-  Eq:
-    A: 4.2 \sin(1.35 t)
-    B: 3.8 \sin(1.25 t)
-    C: 4.5 \sin(1.40 t)
   M:
     A: '55'
     B: '60'

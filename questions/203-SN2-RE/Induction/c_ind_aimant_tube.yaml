@@ -1,0 +1,15 @@
+title: "Aimant qui tombe dans un tube de cuivre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le mouvement de l''aimant fait varier le flux dans les anneaux du tube et y induit des courants (courants de Foucault). D''après la loi de Lenz, leurs champs s''opposent au mouvement : l''aimant est freiné et tombe plus lentement.'
+choices:
+  - Exactement comme en chute libre
+  - Plus vite, car le cuivre l'attire
+  - Plus lentement, à cause des courants induits dans le tube
+  - Il reste immobile dans le tube

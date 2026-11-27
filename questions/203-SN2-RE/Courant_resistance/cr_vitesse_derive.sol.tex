@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Densité de courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $r = \ResSci{\vsi{d}/2}{m}$ ; variable recherchée : $J$
+    \item \textbf{Équations pertinentes :}
+    \[ J = \frac{I}{A} = \frac{I}{\pi r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ J = \frac{\num{\v{I}}}{\pi(\ResSci{\vsi{d}/2}{})^2} = \ResSci{\v{I}/(pi*(\vsi{d}/2)^2)}{A/m^2} \]
+    \item \textbf{Réponse :} $J = \mathbf{\ResSci{\v{I}/(pi*(\vsi{d}/2)^2)}{A/m^2}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de dérive}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $J$, $n = \qty{8.49e28}{m^{-3}}$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $v_d$
+    \item \textbf{Équations pertinentes :}
+    \[ J = nev_d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_d = \frac{J}{ne} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_d = \frac{\ResSci{\v{I}/(pi*(\vsi{d}/2)^2)}{}}{\num{8.49e28} \cdot \num{1.602e-19}} = \ResSci{\v{I}/(pi*(\vsi{d}/2)^2*8.49e28*1.602e-19)}{m/s} \]
+    \item \textbf{Réponse :} $v_d = \mathbf{\Res{1000*\v{I}/(pi*(\vsi{d}/2)^2*8.49e28*1.602e-19)}{mm/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps pour parcourir \qty{1}{m}}
+\[ t = \frac{\Delta x}{v_d} = \frac{\num{1}}{\ResSci{\v{I}/(pi*(\vsi{d}/2)^2*8.49e28*1.602e-19)}{}} = \Res{pi*(\vsi{d}/2)^2*8.49e28*1.602e-19/\v{I}}{s} \]
+Il faut environ \textbf{\Res{pi*(\vsi{d}/2)^2*8.49e28*1.602e-19/\v{I}/60}{min}}. La lampe s'allume tout de suite parce que c'est le \textbf{champ électrique} qui s'établit dans tout le circuit à une vitesse proche de celle de la lumière : tous les électrons libres du fil (déjà présents partout, y compris dans le filament) se mettent en mouvement en même temps.

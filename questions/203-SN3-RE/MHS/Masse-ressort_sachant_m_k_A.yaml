@@ -1,4 +1,4 @@
-title: Masse-ressort sachant m k A
+title: Vitesse et accélération à deux positions
 type: developpement
 points: 20
 time_min: 20
@@ -10,34 +10,61 @@ variables:
     min: 20
     max: 45
     step: 5
-    label: mhsqSeptMasse
+    label: Masse du bloc
+    unit: g
+    si: 0.001
   Amp:
     type: integer
     min: 9
     max: 16
     step: 1
-    label: mhsqSeptAmp
+    label: Amplitude
+    unit: cm
+    si: 0.01
   K:
     type: decimal
     min: 1
     max: 2.2
     step: 0.2
-    label: mhsqSeptK
+    label: Constante de rappel
+    unit: N/m
   PosA:
     type: integer
     min: -6
     max: -2
     step: 1
-    label: mhsqSeptPosA
+    label: Position a)
+    unit: cm
+    si: 0.01
   PosB:
     type: integer
     min: 4
     max: 12
     step: 2
-    label: mhsqSeptPosB
+    label: Position b)
+    unit: cm
+    si: 0.01
+constraints:
+- PosB < Amp
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a1:
+      expr: sqrt(K/Masse*(Amp**2 - PosA**2))
+      unit: m/s
+      label: Vitesse (±) en a)
+    a2:
+      expr: -K/Masse*PosA
+      unit: m/s^2
+      label: Accélération en a)
+    b1:
+      expr: sqrt(K/Masse*(Amp**2 - PosB**2))
+      unit: m/s
+      label: Vitesse (±) en b)
+    b2:
+      expr: -K/Masse*PosB
+      unit: m/s^2
+      label: Accélération en b)
 source: Question_dev/MHS/Masse-ressort_sachant_m_k_A.tex
 original_values:
   Masse:

@@ -20,4 +20,4 @@ Force répulsive, orientée vers $q_1$ (vers la gauche).
 \subsubsection*{Question c) Force résultante}
 Les deux forces sont opposées : on soustrait leurs grandeurs.
 \[ F_{\text{rés}} = |F_{13} - F_{23}| = \Res{abs(8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2 - 8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2)}{N} \]
-La force résultante est de \textbf{\Res{abs(8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2 - 8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2)}{N}}, orientée \textbf{\ifthenelse{\lengthtest{\fpeval{\v{q1}/\v{x}^2}pt > \fpeval{\v{q2}/(\v{d}-\v{x})^2}pt}}{vers la droite (vers $q_2$)}{vers la gauche (vers $q_1$)}}, dans le sens de la plus grande des deux forces.
+La force résultante est de \textbf{\Res{abs(8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2 - 8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2)}{N}}, orientée \textbf{\ifnum\fpeval{\v{q1}/\v{x}^2 > \v{q2}/(\v{d}-\v{x})^2}=1 vers la droite (vers $q_2$)\else vers la gauche (vers $q_1$)\fi}, dans le sens de la plus grande des deux forces.

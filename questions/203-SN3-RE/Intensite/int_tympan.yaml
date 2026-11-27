@@ -5,7 +5,7 @@ time_min: 12
 difficulty: 2
 figures: []
 variables:
-  niv: {type: integer, min: 60, max: 120, step: 5, unit: dB, label: Niveau sonore}
+  niv: {type: integer, min: 80, max: 115, step: 5, unit: dB, label: Niveau sonore}
   S:  {type: decimal, min: 0.50, max: 0.80, step: 0.05, unit: cm^2, si: 0.0001, label: Aire du tympan}
   t:  {type: integer, min: 1, max: 8, step: 1, unit: h, si: 3600, label: Durée d'exposition}
 constraints: []

@@ -1,4 +1,4 @@
-title: Chariot briques
+title: Chariot avec deux briques entre deux ressorts
 type: conceptuel
 points: 4
 time_min: 4
@@ -7,6 +7,6 @@ figures:
 - chariot_deux_briques.png
 solution:
   mode: none
-needs_review: true
+explanation: 'Augmentée : $f = \frac{1}{2\pi}\sqrt{k/m}$ et la masse diminue.'
 source: Question_concept/MHS/chariot_briques.tex
 history: []

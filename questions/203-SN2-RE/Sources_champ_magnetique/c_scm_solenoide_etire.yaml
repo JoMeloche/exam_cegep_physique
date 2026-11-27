@@ -1,0 +1,15 @@
+title: "Solénoïde étiré à longueur double"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$B = \mu_0 n I$ avec $n = N/L$. Si $L$ double avec le même $N$, $n$ est divisé par deux, donc le champ aussi.'
+choices:
+  - Il double
+  - Il reste le même
+  - Il est divisé par deux
+  - Il est divisé par quatre

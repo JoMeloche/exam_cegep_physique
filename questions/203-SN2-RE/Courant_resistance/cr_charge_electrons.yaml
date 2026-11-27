@@ -1,0 +1,17 @@
+title: Charge et nombre d'électrons transportés
+type: developpement
+points: 20
+time_min: 10
+difficulty: 1
+figures: []
+variables:
+  I: {type: integer, min: 50, max: 950, step: 25, unit: mA, si: 0.001, label: Courant}
+  t: {type: integer, min: 2, max: 60, step: 1, unit: min, si: 60, label: Durée}
+  V: {type: decimal, min: 1.5, max: 12.0, step: 0.5, unit: V, label: Différence de potentiel}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "I*t", unit: C, label: Charge}
+    b: {expr: "I*t/1.602e-19", unit: '', label: Nombre d'électrons}
+    c: {expr: "V*I*t", unit: J, label: Énergie dissipée}

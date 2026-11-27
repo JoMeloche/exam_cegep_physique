@@ -1,0 +1,25 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle limite de résolution}
+\[ \theta_{\min} = \frac{1{,}22\,\lambda}{D} = \frac{\num{1.22} \cdot \num{550e-9}}{\num[exponent-mode=threshold]{\vsi{Dp}}} = \ResSci{1.22*550e-9/\vsi{Dp}}{rad} \]
+L'angle limite de résolution est \textbf{\ResSci{1.22*550e-9/\vsi{Dp}}{rad}}.
+
+\subsubsection*{Question b) Distance à partir de laquelle les points se confondent}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $s = \qty[exponent-mode=threshold]{\vsi{s}}{m}$, $\theta_{\min} = \ResSci{1.22*550e-9/\vsi{Dp}}{rad}$
+        \item Variable recherchée : $L$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} deux points sont tout juste résolus quand $s/L = \theta_{\min}$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ L = \frac{s}{\theta_{\min}} = \frac{sD}{1{,}22\,\lambda} \]
+    \item \textbf{Résolution numérique :}
+    \[ L = \frac{\num[exponent-mode=threshold]{\vsi{s}}}{\Val{1.22*550e-9/\vsi{Dp}}} = \Res{\vsi{s}*\vsi{Dp}/(1.22*550e-9)}{m} \]
+    \item \textbf{Réponse :} au-delà de \textbf{\Res{\vsi{s}*\vsi{Dp}/(1.22*550e-9)}{m}}, les points se confondent.
+\end{enumerate}
+
+\subsubsection*{Question c) Points bleus et rouges}
+\[ L_{\text{bleu}} = \frac{\num[exponent-mode=threshold]{\vsi{s}} \cdot \num[exponent-mode=threshold]{\vsi{Dp}}}{\num{1.22} \cdot \num{450e-9}} = \Res{\vsi{s}*\vsi{Dp}/(1.22*450e-9)}{m}, \qquad L_{\text{rouge}} = \frac{\num[exponent-mode=threshold]{\vsi{s}} \cdot \num[exponent-mode=threshold]{\vsi{Dp}}}{\num{1.22} \cdot \num{650e-9}} = \Res{\vsi{s}*\vsi{Dp}/(1.22*650e-9)}{m} \]
+Les points bleus restent distincts jusqu'à \textbf{\Res{\vsi{s}*\vsi{Dp}/(1.22*450e-9)}{m}} et les rouges jusqu'à \textbf{\Res{\vsi{s}*\vsi{Dp}/(1.22*650e-9)}{m}} : les \textbf{points rouges} se confondent en premier, car leur longueur d'onde est plus grande.

@@ -1,0 +1,15 @@
+title: 'Force associée au poids par la troisième loi'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Les deux forces d''une paire action-réaction agissent sur deux objets différents et sont de même nature. Le poids est la force gravitationnelle de la Terre sur le livre ; sa réaction est la force gravitationnelle du livre sur la Terre. La normale est égale au poids ici, mais elle agit sur le même objet : c''est l''équilibre (première loi), pas la troisième loi.'
+choices:
+  - 'La force normale de la table sur le livre'
+  - 'La force du livre sur la table'
+  - 'La force de la table sur le plancher'
+  - 'La force gravitationnelle exercée par le livre sur la Terre'

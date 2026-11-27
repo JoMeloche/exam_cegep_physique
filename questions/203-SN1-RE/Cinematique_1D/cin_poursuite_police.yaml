@@ -5,7 +5,7 @@ time_min: 13
 difficulty: 3
 figures: []
 variables:
-  vc: {type: integer, min: 90, max: 140, step: 5, unit: km/h, si: 0.2777777778, label: Vitesse du contrevenant}
+  vc: {type: integer, min: 70, max: 110, step: 5, unit: km/h, si: 0.2777777778, label: Vitesse du contrevenant}
   a: {type: decimal, min: 2.0, max: 5.0, step: 0.5, unit: m/s^2, label: Accélération de la policière}
 constraints: []
 solution:

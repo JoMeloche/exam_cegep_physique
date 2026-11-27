@@ -6,7 +6,7 @@ difficulty: 4
 figures: []
 variables:
   f:  {type: integer, min: 200, max: 1000, step: 20, unit: Hz, label: Fréquence des haut-parleurs}
-  vo: {type: decimal, min: 0.8, max: 3.0, step: 0.1, unit: m/s, label: Vitesse de la marcheuse}
+  vo: {type: decimal, min: 0.8, max: 2.0, step: 0.1, unit: m/s, label: Vitesse de la marcheuse}
   v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
 constraints: []
 solution:

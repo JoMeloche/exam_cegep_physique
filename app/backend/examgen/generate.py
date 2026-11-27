@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import re
 import json
 import random
 import shutil
@@ -21,9 +22,13 @@ MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "
 
 
 # ------------------------------------------------------------------ naming helpers
-def session_code(d: dt.date) -> str:
-    """Aug-Dec -> A (automne), Jan-May -> H (hiver), Jun-Jul -> E (été), + 2-digit year."""
-    letter = "A" if d.month >= 8 else ("H" if d.month <= 5 else "E")
+DEFAULT_SESSIONS = {"A": [8, 9, 10, 11, 12], "H": [1, 2, 3, 4, 5], "E": [6, 7]}
+DEFAULT_PATTERN = "{course}_Examen_{exam}_{session}_v{version}"
+
+
+def session_code(d: dt.date, sessions: dict[str, list[int]] | None = None) -> str:
+    """Session letter from the month (Québec default: Aug-Dec A, Jan-May H, Jun-Jul E) + 2-digit year."""
+    letter = next((k for k, months in (sessions or DEFAULT_SESSIONS).items() if d.month in months), "")
     return f"{letter}{d.year % 100:02d}"
 
 
@@ -41,8 +46,21 @@ def duration_text(minutes: int) -> str:
     return f"{m} min"
 
 
-def exam_basename(course: str, number: int, d: dt.date, version: int) -> str:
-    return f"{course}_Examen_{number}_{session_code(d)}_v{version}"
+def exam_basename(course: str, number: int, d: dt.date, version: int, cfg: dict | None = None) -> str:
+    cfg = cfg or {}
+    pattern = (cfg.get("naming") or {}).get("file_pattern") or DEFAULT_PATTERN
+    name = pattern.format_map(_SafeDict(course=course, exam=number, session=session_code(d, cfg.get("sessions")),
+                                        version=version, date=d.isoformat(), year=d.year))
+    return re.sub(r'[<>:"/\\|?*]+', "-", name).strip()
+
+
+class _SafeDict(dict):
+    def __missing__(self, key: str) -> str:
+        return "{" + key + "}"
+
+
+def solution_suffix(cfg: dict | None) -> str:
+    return ((cfg or {}).get("naming") or {}).get("solution_suffix", "_solution")
 
 
 # ------------------------------------------------------------------ data classes
@@ -140,7 +158,8 @@ class ExamPlan:
                 items.append(item)
             out["versions"].append({"number": v.number, "placed": items,
                                     "basename": exam_basename(self.request.course, self.request.exam_number,
-                                                              self.request.date, v.number)})
+                                                              self.request.date, v.number,
+                                                              lib.config if lib is not None else None)})
         return out
 
 
@@ -366,12 +385,21 @@ def _summary_text(ed: ExamDef, placed: list[Placed], lib: Library) -> str:
     return " et ".join(bits) or "0 question"
 
 
+def logo_tex(lib: Library) -> str:
+    logo = (lib.config.get("logo") or "").strip()
+    if logo and (lib.figures_dir / Path(logo).name).exists():
+        return rf"\includegraphics[height=1.3cm]{{Figures/{Path(logo).name}}}\par\smallskip{{}}"
+    return ""
+
+
 def build_document(lib: Library, plan: ExamPlan, vp: VersionPlan, *, with_solutions: bool) -> tuple[str, list[str]]:
     req, ed = plan.request, plan.exam_def
     cfg = lib.config
     course_cfg = (cfg.get("courses") or {}).get(req.course, {})
     group = req.group if req.group is not None else course_cfg.get("group", "")
     total = sum(p.points for p in vp.placed)
+    naming = cfg.get("naming") or {}
+    cover = cfg.get("cover") or {}
     fields = {
         "version": str(vp.number),
         "school": cfg.get("school", ""),
@@ -385,6 +413,13 @@ def build_document(lib: Library, plan: ExamPlan, vp: VersionPlan, *, with_soluti
         "total": _fmt_points(total),
         "summary": _summary_text(ed, vp.placed, lib),
         "solution_banner": r"\\[0.3cm]\Large\textbf{SOLUTIONNAIRE}" if with_solutions else "",
+        "exam_label": naming.get("exam_label", "Examen"),
+        "version_label": naming.get("version_label", "Version"),
+        "professor_label": cover.get("professor_label", "Professeur"),
+        "name_label": cover.get("name_label", "NOM"),
+        "instructions": cover.get("instructions", ""),
+        "note": cover.get("note", ""),
+        "logo": logo_tex(lib),
     }
     out = [latex.fill(lib.template("preamble.tex", req.course), fields), r"\begin{document}",
            latex.fill(lib.template("cover.tex", req.course), fields)]
@@ -428,7 +463,7 @@ class ExportResult:
 
 
 def export_dir(lib: Library, req: ExamRequest) -> Path:
-    return lib.exports_dir / req.course / f"Examen_{req.exam_number}_{session_code(req.date)}"
+    return lib.exports_dir / req.course / f"Examen_{req.exam_number}_{session_code(req.date, lib.config.get('sessions'))}"
 
 
 def export_exam(lib: Library, plan: ExamPlan, *, record_usage: bool = True, keep_tex: bool = True) -> ExportResult:
@@ -441,9 +476,11 @@ def export_exam(lib: Library, plan: ExamPlan, *, record_usage: bool = True, keep
     with tempfile.TemporaryDirectory(prefix="examgen-") as tmp:
         tmpd = Path(tmp)
         for vp in plan.versions:
-            base = exam_basename(req.course, req.exam_number, req.date, vp.number)
-            for with_sol, suffix in ((False, ""), (True, "_solution")):
+            base = exam_basename(req.course, req.exam_number, req.date, vp.number, lib.config)
+            for with_sol, suffix in ((False, ""), (True, solution_suffix(lib.config))):
                 tex, figs = build_document(lib, plan, vp, with_solutions=with_sol)
+                if lib.config.get("logo"):
+                    figs = figs + [Path(lib.config["logo"]).name]
                 missing = lib.copy_figures(figs, tmpd)
                 warnings += [f"Figure introuvable : {m}" for m in missing]
                 res = latex.compile_tex(tex, tmpd, base + suffix, engine=cfg.get("engine", "pdflatex"),
@@ -492,7 +529,7 @@ def load_usage(lib: Library) -> dict[str, list[dict]]:
 def add_usage(lib: Library, plan: ExamPlan) -> None:
     usage = load_usage(lib)
     req = plan.request
-    tag = f"Examen_{req.exam_number}_{session_code(req.date)}"
+    tag = f"Examen_{req.exam_number}_{session_code(req.date, lib.config.get('sessions'))}"
     for vp in plan.versions:
         for p in vp.placed:
             entries = usage.setdefault(p.question_id, [])

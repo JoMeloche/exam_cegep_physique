@@ -1,0 +1,21 @@
+title: Champ magnétique dans un tore (théorème d'Ampère)
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+tags: [Ampère]
+variables:
+  N: {type: integer, min: 100, max: 1500, step: 50, unit: '', label: Nombre de spires}
+  I: {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: A, label: Courant}
+  a: {type: decimal, min: 3.0, max: 10.0, step: 0.5, unit: cm, si: 0.01, label: Rayon intérieur}
+  b: {type: decimal, min: 4.0, max: 15.0, step: 0.5, unit: cm, si: 0.01, label: Rayon extérieur}
+  h: {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: cm, si: 0.01, label: Hauteur de la section}
+constraints:
+  - b > a + 0.01
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2e-7*N*I/a", unit: T, label: Champ au rayon intérieur}
+    b: {expr: "2e-7*N*I/b", unit: T, label: Champ au rayon extérieur}
+    c: {expr: "2e-7*N*I*h*log(b/a)", unit: Wb, label: Flux à travers une spire}

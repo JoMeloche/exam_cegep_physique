@@ -1,0 +1,16 @@
+# Générateur d'examens — one command:  docker compose up -d   then open http://localhost:8765
+# Your questions, exams and PDFs are kept in ./mes_examens next to this file (change below or in .env).
+services:
+  examgen:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    image: examgen:latest
+    container_name: examgen
+    ports:
+      - "${EXAMGEN_PORT:-8765}:8765"
+    volumes:
+      - ${EXAMGEN_DATA:-./mes_examens}:/data
+    environment:
+      - TZ=${TZ:-America/Toronto}
+    restart: unless-stopped

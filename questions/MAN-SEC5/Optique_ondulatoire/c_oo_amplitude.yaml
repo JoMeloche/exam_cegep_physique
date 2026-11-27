@@ -1,0 +1,15 @@
+title: 'Effet de l''amplitude sur une onde'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Le rythme fixe la fréquence et le milieu fixe la vitesse ; la longueur d''onde ($\lambda = v/f$) ne change donc pas. Seule l''amplitude augmente, et avec elle l''énergie transportée.'
+choices:
+  - 'Sa vitesse'
+  - 'Sa fréquence'
+  - 'Sa longueur d''onde'
+  - 'Son amplitude, donc l''énergie qu''elle transporte'
