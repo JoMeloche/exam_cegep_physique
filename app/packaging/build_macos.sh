@@ -30,8 +30,11 @@ echo "3/7  TinyTeX"
 TT="$BUILD/TinyTeX"
 if [ ! -x "$TT/bin/universal-darwin/pdflatex" ]; then
   # TinyTeX-1-<ver>.tgz is the macOS build (universal-darwin binaries, arm64 + x86_64)
-  url="$(curl -fsSL https://api.github.com/repos/rstudio/tinytex-releases/releases/latest \
-        | python3 -c 'import json,sys,re;a=json.load(sys.stdin)["assets"];print(next(x["browser_download_url"] for x in a if re.match(r"^TinyTeX-1-v.*\.tgz$",x["name"])))')"
+  auth=(); [ -n "${GITHUB_TOKEN:-}" ] && auth=(-H "Authorization: Bearer $GITHUB_TOKEN")
+  url="$(curl -fsSL ${auth[@]+"${auth[@]}"} https://api.github.com/repos/rstudio/tinytex-releases/releases/latest \
+        | python3 -c 'import json,sys,re;a=json.load(sys.stdin)["assets"];print(next(x["browser_download_url"] for x in a if re.match(r"^TinyTeX-1-v.*\.tgz$",x["name"])))' \
+        || echo https://github.com/rstudio/tinytex-releases/releases/download/daily/TinyTeX-1.tgz)"
+  echo "     $url"
   curl -fsSL "$url" -o "$BUILD/tinytex.tgz"
   rm -rf "$TT"; tar -xzf "$BUILD/tinytex.tgz" -C "$BUILD"
 fi
