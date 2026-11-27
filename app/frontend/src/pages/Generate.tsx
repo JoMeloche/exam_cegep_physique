@@ -17,6 +17,7 @@ import {
   type QuestionSummary,
 } from '@/lib/api'
 import { cn, durationText, fileBaseName, isoDate, sessionCode } from '@/lib/utils'
+import { useAuth } from '@/lib/auth'
 
 const DURATIONS = [60, 75, 90, 105, 120, 135, 150, 165, 180, 210, 240]
 
@@ -45,6 +46,8 @@ export default function Generate() {
   const [swapSlot, setSwapSlot] = useState<{ key: string; version: number; current: string } | null>(null)
   const [addProfOpen, setAddProfOpen] = useState(false)
   const [desktop, setDesktop] = useState(false)
+  const { state: auth } = useAuth()
+  const [includeShared, setIncludeShared] = useState(false)
 
   useEffect(() => {
     Promise.all([api.config(), api.courses(), api.health()]).then(([cfg, cs, h]) => {
@@ -70,7 +73,7 @@ export default function Generate() {
   function buildRequest(extra: Partial<ExamRequest> = {}): ExamRequest {
     return {
       course, exam_number: examNumber, date: isoDate(date), professor, duration_min: duration, n_versions: nVersions,
-      mode, shuffle_conceptual: shuffle, shuffle_choices: shuffle, exam_def: examDef ? { ...examDef, duration_min: duration } : undefined,
+      mode, shuffle_conceptual: shuffle, shuffle_choices: shuffle, include_shared: auth.sharing && includeShared, exam_def: examDef ? { ...examDef, duration_min: duration } : undefined,
       ...extra,
     }
   }
@@ -203,6 +206,11 @@ export default function Generate() {
                   { value: 'different', label: 'Questions différentes' },
                 ]} />
               </Field>
+              {auth.sharing && (
+                <Field label="Questions partagées" hint="Piger aussi dans les questions que vos collègues vous ont partagées.">
+                  <div className="flex h-9 items-center gap-2 text-sm"><Switch checked={includeShared} onChange={setIncludeShared} />{includeShared ? 'Incluses' : 'Ma banque seulement'}</div>
+                </Field>
+              )}
               <div className="rounded-lg bg-muted px-3 py-2 font-mono text-xs text-muted-foreground">{fileName}</div>
             </CardBody>
           </Card>
@@ -339,6 +347,7 @@ function QuestionRow({ p, index, topicLabel, locked, onLock, onSwap }: { p: Plac
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="truncate font-medium">{p.title}</span>
+          {p.shared_by && <Badge tone="primary" className="shrink-0">{p.shared_by}</Badge>}
           <Badge>{topicLabel}</Badge>
           {p.answer && <Badge tone="success">Rép. {p.answer}</Badge>}
         </div>
@@ -374,7 +383,7 @@ function SwapDialog({ open, onClose, req, slot, exclude, onPick }: { open: boole
             {items.map((q) => (
               <button key={q.id} onClick={() => onPick(q.id)} className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-muted cursor-pointer">
                 <div className="min-w-0 flex-1">
-                  <div className="truncate font-medium">{q.title}</div>
+                  <div className="truncate font-medium">{q.title}{q.shared_by && <span className="ml-2 text-xs font-normal text-primary">· {q.shared_by}</span>}</div>
                   <div className="text-xs text-muted-foreground">{q.topic.replace(/_/g, ' ')} · {q.time_min} min · utilisée {q.times_used}×</div>
                 </div>
                 <Difficulty value={q.difficulty} />

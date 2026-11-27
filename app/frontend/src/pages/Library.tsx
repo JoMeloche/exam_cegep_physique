@@ -1,14 +1,16 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
-import { AlertTriangle, Clock, Eye, Loader2, Plus, Search } from 'lucide-react'
+import { AlertTriangle, Clock, CopyPlus, Eye, Loader2, Plus, Search, Share2, UserRound } from 'lucide-react'
 import { PageHeader } from '@/App'
 import { Button } from '@/components/ui/button'
 import { Badge, Card, Difficulty } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Segmented } from '@/components/ui/switch'
-import { api, type Course, type QuestionSummary } from '@/lib/api'
+import { api, shareApi, type Course, type QuestionSummary } from '@/lib/api'
+import { useAuth } from '@/lib/auth'
+import { ShareDialog } from '@/components/ShareDialog'
 import { cn } from '@/lib/utils'
 
 const MODE_LABEL: Record<string, string> = { auto: 'Auto', manual: 'LaTeX', answers_only: 'Réponses', none: 'Aucune' }
@@ -24,15 +26,26 @@ export default function Library() {
   const [sort, setSort] = useState<'topic' | 'unused' | 'difficulty'>('topic')
   const [items, setItems] = useState<QuestionSummary[] | null>(null)
   const [previewing, setPreviewing] = useState<string | null>(null)
+  const { state: auth } = useAuth()
+  const [scope, setScope] = useState<'mine' | 'shared'>('mine')
+  const [sharing, setSharing] = useState<{ target: string; title: string } | null>(null)
+  const [reloadKey, setReloadKey] = useState(0)
 
   useEffect(() => { api.courses().then((cs) => { setCourses(cs); setCourse(cs.find((c) => c.topics.length)?.code ?? cs[0]?.code ?? '') }) }, [])
   useEffect(() => {
     if (!course) return
     setItems(null)
-    const t = setTimeout(() => api.questions({ course, topic: topic || undefined, type: type === 'all' ? undefined : type, q: search || undefined })
+    const t = setTimeout(() => api.questions({ course, topic: topic || undefined, type: type === 'all' ? undefined : type, q: search || undefined, scope })
       .then((r) => setItems(r.items)).catch((e) => toast.error(e.message)), 150)
     return () => clearTimeout(t)
-  }, [course, topic, type, search])
+  }, [course, topic, type, search, scope, reloadKey])
+
+  async function copyToMine(q: QuestionSummary) {
+    try {
+      const r = await shareApi.copy(q.id)
+      toast.success('Copiée dans votre banque', { action: { label: 'Modifier', onClick: () => nav(`/question/edit/${r.id}`) } })
+    } catch (e) { toast.error((e as Error).message) }
+  }
 
   const courseObj = courses.find((c) => c.code === course)
   const shown = useMemo(() => {
@@ -65,8 +78,17 @@ export default function Library() {
   return (
     <div>
       <PageHeader title="Bibliothèque" subtitle={items ? `${shown.length} question${shown.length > 1 ? 's' : ''}` : 'Chargement…'}
-        actions={<Button onClick={() => nav('/question/new')}><Plus className="h-4 w-4" />Nouvelle question</Button>} />
+        actions={<>
+          {auth.sharing && <Button variant="outline" onClick={() => setSharing({ target: '*', title: '' })}><Share2 className="h-4 w-4" />Partager ma banque</Button>}
+          <Button onClick={() => nav('/question/new')}><Plus className="h-4 w-4" />Nouvelle question</Button>
+        </>} />
       <div className="space-y-6 p-8">
+        {auth.sharing && (
+          <Segmented value={scope} onChange={setScope} options={[
+            { value: 'mine', label: 'Ma banque' },
+            { value: 'shared', label: <span className="flex items-center gap-1.5"><UserRound className="h-3.5 w-3.5" />Partagées avec moi</span> },
+          ]} />
+        )}
         <Card className="flex flex-wrap items-center gap-3 p-3">
           <div className="relative min-w-[240px] flex-1">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -92,7 +114,9 @@ export default function Library() {
               {qs.map((q) => (
                 <Card key={q.id} className="group flex flex-col p-4 transition-shadow hover:shadow-md">
                   <div className="mb-2 flex items-start justify-between gap-2">
-                    <Link to={`/question/edit/${q.id}`} className="font-medium leading-snug hover:text-primary">{q.title}</Link>
+                    {q.read_only
+                      ? <span className="font-medium leading-snug">{q.title}</span>
+                      : <Link to={`/question/edit/${q.id}`} className="font-medium leading-snug hover:text-primary">{q.title}</Link>}
                     <Badge tone={q.type === 'conceptuel' ? 'primary' : 'default'}>{q.type === 'conceptuel' ? 'Conceptuelle' : 'Développement'}</Badge>
                   </div>
                   <p className="line-clamp-2 flex-1 text-sm text-muted-foreground">{q.excerpt}</p>
@@ -104,20 +128,30 @@ export default function Library() {
                       ? <Badge tone={q.answer ? 'success' : 'warning'}>{q.answer ? `Réponse : ${q.answer}` : 'Réponse manquante'}</Badge>
                       : <Badge tone={q.solution_mode === 'none' ? 'warning' : 'success'}>Solution : {MODE_LABEL[q.solution_mode]}</Badge>}
                     {q.needs_review && <Badge tone="warning">À réviser</Badge>}
+                    {q.shared_by && <Badge tone="primary"><UserRound className="h-3 w-3" />{q.shared_by}</Badge>}
+                    {q.my_share && <Badge tone="primary"><Share2 className="h-3 w-3" />Partagée</Badge>}
                     <span className="ml-auto">{q.times_used ? `utilisée ${q.times_used}× · ${q.last_used}` : 'jamais utilisée'}</span>
                   </div>
                   <div className="mt-3 flex gap-2 border-t pt-3 opacity-70 transition-opacity group-hover:opacity-100">
                     <Button size="sm" variant="outline" onClick={() => preview(q)} disabled={previewing === q.id}>
                       {previewing === q.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Eye className="h-3.5 w-3.5" />}Aperçu PDF
                     </Button>
-                    <Button size="sm" variant="ghost" onClick={() => nav(`/question/edit/${q.id}`)}>Modifier</Button>
+                    {q.read_only
+                      ? <Button size="sm" variant="ghost" onClick={() => copyToMine(q)}><CopyPlus className="h-3.5 w-3.5" />Copier dans ma banque</Button>
+                      : <Button size="sm" variant="ghost" onClick={() => nav(`/question/edit/${q.id}`)}>Modifier</Button>}
+                    {auth.sharing && !q.read_only && (
+                      <Button size="sm" variant="ghost" className="ml-auto" onClick={() => setSharing({ target: q.id, title: q.title })}><Share2 className="h-3.5 w-3.5" />Partager</Button>
+                    )}
                   </div>
                 </Card>
               ))}
             </div>
           </section>
         ))}
-        {items && !shown.length && <p className="py-16 text-center text-muted-foreground">Aucune question ne correspond.</p>}
+        {items && !shown.length && <p className="py-16 text-center text-muted-foreground">
+          {scope === 'shared' ? 'Aucun collègue ne vous a encore partagé de questions pour ce cours.' : 'Aucune question ne correspond.'}</p>}
+        <ShareDialog open={!!sharing} onOpenChange={(v) => !v && setSharing(null)} target={sharing?.target ?? '*'} title={sharing?.title ?? ''}
+          onChanged={() => setReloadKey((k) => k + 1)} />
       </div>
     </div>
   )

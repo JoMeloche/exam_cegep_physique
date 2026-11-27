@@ -9,16 +9,19 @@ import re
 import shutil
 import subprocess
 import tempfile
+import threading
 import uuid
+from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
-from fastapi import Body, FastAPI, File, HTTPException, Query, UploadFile
+from fastapi import Body, FastAPI, File, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import __version__, values as V
+from . import __version__, auth, latex as LX, sharing, values as V
+from .auth_routes import AuthMiddleware, router as auth_router
 from .generate import (ExamRequest, alternatives, exam_basename, export_dir, export_exam, plan_exam,
                        preview_question, session_code, load_usage)
 from .latex import LatexError, find_engine
@@ -27,24 +30,67 @@ from .model import NAME_RE, VREF_RE, Question, QuestionError
 from .solve import SolveError, solve_parts
 from .validate import validate_question
 
-app = FastAPI(title="Générateur d'examens", version=__version__)
+@asynccontextmanager
+async def _lifespan(_app):
+    LX.RESTRICTED = auth.enabled()
+    if auth.enabled():
+        auth.store().purge_expired()  # also creates the first admin or prints the setup code
+    yield
+
+
+app = FastAPI(title="Générateur d'examens", version=__version__, lifespan=_lifespan,
+              docs_url=None if auth.enabled() else "/docs", redoc_url=None,
+              openapi_url=None if auth.enabled() else "/openapi.json")
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
                    allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(AuthMiddleware)
+app.include_router(auth_router)
 
 _PREVIEWS = Path(tempfile.gettempdir()) / "examgen-previews"
 _PREVIEWS.mkdir(exist_ok=True)
+MAX_UPLOAD = 20 * 1024 * 1024
+_libs: dict[Path, Library] = {}
+_libs_lock = threading.Lock()
 
 
-def lib() -> Library:
-    root = os.environ.get("EXAM_APP_HOME")
-    if not hasattr(app.state, "lib") or (root and Path(root).expanduser() != app.state.lib.root):
-        app.state.lib = Library(root).ensure()
-    app.state.lib.reload()
-    return app.state.lib
+def own_lib() -> Library:
+    """The library of the signed-in teacher (web app), or the single local library (desktop, auth off)."""
+    user = auth.current_user.get() if auth.enabled() else None
+    root = auth.library_root(user) if user else Path(os.environ.get("EXAM_APP_HOME") or Library().root).expanduser()
+    with _libs_lock:
+        L = _libs.get(root)
+        if L is None:
+            if user:
+                auth.provision_library(user)
+            L = _libs[root] = Library(root).ensure()
+    L.refresh()
+    return L
+
+
+def sharing_on() -> bool:
+    return auth.enabled() and auth.library_mode() == "per-user" and auth.current_user.get() is not None
+
+
+def lib(include_shared: bool = False) -> Library:
+    """Own library, or own + questions colleagues shared with this teacher."""
+    L = own_lib()
+    if include_shared and sharing_on():
+        return sharing.SharedLibrary(L, auth.current_user.get())  # type: ignore[arg-type]
+    return L
 
 
 def desktop_mode() -> bool:
-    return os.environ.get("EXAMGEN_DESKTOP") == "1"
+    return auth.desktop_mode()
+
+
+def _user_key() -> str:
+    u = auth.current_user.get()
+    return f"u{u.id}" if u else "local"
+
+
+@app.exception_handler(auth.AuthError)
+async def _auth_error(_, exc: auth.AuthError):
+    return JSONResponse(status_code=exc.status, content={"detail": exc.detail}, headers=exc.headers)
 
 
 @app.exception_handler(LatexError)
@@ -61,9 +107,12 @@ async def _question_error(_, exc: QuestionError):
 # ------------------------------------------------------------------ meta
 @app.get("/api/health")
 def health() -> dict[str, Any]:
+    if auth.enabled() and auth.current_user.get() is None:
+        return {"version": __version__, "desktop": False, "auth": True}
     L = lib()
     cfg = L.config.get("latex") or {}
-    return {"version": __version__, "root": str(L.root), "desktop": desktop_mode(),
+    return {"version": __version__, "root": str(L.root), "desktop": desktop_mode(), "auth": auth.enabled(),
+            "latex_locked": LX.RESTRICTED,
             "latex": find_engine(cfg.get("engine", "pdflatex"), cfg.get("path", "")),
             "platform": platform.system()}
 
@@ -76,6 +125,8 @@ def get_config() -> dict[str, Any]:
 @app.put("/api/config")
 def put_config(cfg: dict[str, Any] = Body(...)) -> dict[str, Any]:
     L = lib()
+    if LX.RESTRICTED:
+        cfg = {k: v for k, v in cfg.items() if k != "latex"}  # the server decides which TeX runs
     merged = {**L.config, **cfg}
     L.save_config(merged)
     return L.config
@@ -104,20 +155,41 @@ def courses() -> list[dict[str, Any]]:
 
 
 # ------------------------------------------------------------------ questions
-def _full(q: Question) -> dict[str, Any]:
-    usage = load_usage(lib()).get(q.id, [])
+def _share_info(L: Library, qid: str) -> dict[str, Any]:
+    """Who shared it (questions from colleagues), or how I share it (my own questions)."""
+    if isinstance(L, sharing.SharedLibrary) and qid in L.origins:
+        o = L.origins[qid]
+        return {"shared_by": o.owner_name, "read_only": True}
+    return {}
+
+
+def _my_share_map() -> dict[str, str]:
+    if not sharing_on():
+        return {}
+    return {s["target"]: s["audience"] for s in sharing.my_shares(auth.current_user.get())}  # type: ignore[arg-type]
+
+
+def _full(q: Question, L: Library | None = None) -> dict[str, Any]:
+    L = L or lib()
+    usage = load_usage(L).get(q.id, [])
+    shares = _my_share_map()
     return {**q.summary(), "meta": q.meta_dict(), "body": q.body, "solution_tex": q.solution_tex,
-            "problems": q.problems(), "usage": usage}
+            "problems": q.problems(), "usage": usage, **_share_info(L, q.id),
+            "my_share": shares.get(q.id) or shares.get("*")}
 
 
 @app.get("/api/questions")
 def list_questions(course: str | None = None, topic: str | None = None, type: str | None = None,
-                   q: str | None = None) -> dict[str, Any]:
-    L = lib()
+                   q: str | None = None, scope: str = "mine") -> dict[str, Any]:
+    """scope: mine (default) | shared (colleagues' questions shared with me) | all."""
+    L = lib(include_shared=scope in {"shared", "all"})
     usage = load_usage(L)
+    shares = _my_share_map()
     items = []
     needle = (q or "").lower()
     for qq in L.questions(course, topic, type):
+        if scope == "shared" and not _share_info(L, qq.id):
+            continue
         if needle and needle not in (qq.title + " " + qq.body + " " + qq.name).lower():
             continue
         s = qq.summary()
@@ -129,6 +201,9 @@ def list_questions(course: str | None = None, topic: str | None = None, type: st
         txt = re.sub(r"Justification\s*:|Réponse\s*:", " ", txt)
         s["excerpt"] = re.sub(r"\s+", " ", re.sub(r"\\[a-zA-Z]+|[{}$\\]", " ", txt))[:180].strip()
         s["answer"] = qq.answer
+        s.update(_share_info(L, qq.id))
+        if not s.get("shared_by"):
+            s["my_share"] = shares.get(qq.id) or shares.get("*")
         items.append(s)
     items.sort(key=lambda x: (x["course"], x["topic"], x["type"], x["name"]))
     return {"items": items, "errors": L.load_errors}
@@ -137,7 +212,8 @@ def list_questions(course: str | None = None, topic: str | None = None, type: st
 @app.get("/api/questions/{qid:path}")
 def get_question(qid: str) -> dict[str, Any]:
     try:
-        return _full(lib().get(qid))
+        L = lib(include_shared=sharing.split_shared_id(qid) is not None)
+        return _full(L.get(qid), L)
     except KeyError as exc:
         raise HTTPException(404, str(exc)) from exc
 
@@ -155,6 +231,8 @@ def _question_from_payload(p: dict[str, Any]) -> Question:
 def save_question(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
     L = lib()
     q = _question_from_payload(payload)
+    if sharing_on() and sharing.split_shared_id(q.id):
+        raise HTTPException(403, "Question partagée : copiez-la dans votre banque pour la modifier.")
     old_id = payload.get("original_id")
     try:
         existing = L.get(q.id)
@@ -168,7 +246,7 @@ def save_question(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
         raise HTTPException(422, {"detail": "Question invalide", "problems": errs})
     q.extra.pop("needs_review", None) if payload.get("reviewed") else None
     L.save_question(q)
-    if old_id and old_id != q.id:
+    if old_id and old_id != q.id and not (sharing_on() and sharing.split_shared_id(old_id)):
         try:
             L.delete_question(old_id)
         except KeyError:
@@ -178,8 +256,12 @@ def save_question(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
 
 @app.delete("/api/questions/{qid:path}")
 def delete_question(qid: str) -> dict[str, str]:
+    if sharing_on() and sharing.split_shared_id(qid):
+        raise HTTPException(403, "Question partagée : seul son auteur peut la supprimer.")
     try:
         lib().delete_question(qid)
+        if sharing_on():
+            sharing.unshare_question(auth.current_user.get(), qid)  # type: ignore[arg-type]
     except KeyError as exc:
         raise HTTPException(404, str(exc)) from exc
     return {"deleted": qid}
@@ -198,15 +280,15 @@ def detect_variables(payload: dict[str, Any] = Body(...)) -> dict[str, list[str]
 @app.post("/api/questions/test")
 def test_question(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
     """Static checks + n random draws + compile. Returns problems and a preview PDF id."""
-    L = lib()
     q = _question_from_payload(payload)
-    n = int(payload.get("draws", 5))
+    L = lib(include_shared=sharing.split_shared_id(q.id) is not None)
+    n = max(1, min(int(payload.get("draws", 5)), 20))
     problems = q.problems()
     result: dict[str, Any] = {"problems": problems, "pdf": None, "draws": [], "answers": []}
     if problems:
         return result
     pid = uuid.uuid4().hex
-    wd = _PREVIEWS / pid
+    wd = _PREVIEWS / _user_key() / pid
     try:
         pdf, draws = preview_question(L, q, seed=random.randrange(1, 10**6), n=n, workdir=wd)
         result["pdf"] = pid
@@ -231,7 +313,7 @@ def test_question(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
 def get_preview(pid: str):
     if not re.fullmatch(r"[0-9a-f]{32}", pid):
         raise HTTPException(404)
-    p = _PREVIEWS / pid / "apercu.pdf"
+    p = _PREVIEWS / _user_key() / pid / "apercu.pdf"
     if not p.exists():
         raise HTTPException(404)
     return FileResponse(p, media_type="application/pdf")
@@ -256,14 +338,31 @@ async def upload_figure(file: UploadFile = File(...)) -> dict[str, str]:
     if not re.search(r"\.(png|jpe?g|pdf|eps)$", name, re.I):
         raise HTTPException(400, "Formats acceptés : png, jpg, pdf, eps")
     dest = lib().figures_dir / name
-    with dest.open("wb") as fh:
-        shutil.copyfileobj(file.file, fh)
+    tmp = dest.with_name(f".{name}.{uuid.uuid4().hex}.part")
+    size = 0
+    try:
+        with tmp.open("wb") as fh:
+            while chunk := await file.read(1024 * 1024):
+                size += len(chunk)
+                if size > MAX_UPLOAD:
+                    raise HTTPException(413, "Fichier trop volumineux (20 Mo au maximum)")
+                fh.write(chunk)
+        tmp.replace(dest)
+    finally:
+        tmp.unlink(missing_ok=True)
     return {"name": name}
 
 
 @app.get("/api/figures/{name}")
 def get_figure(name: str):
     p = lib().figures_dir / Path(name).name
+    if not p.exists() and sharing_on():  # a figure of a question a colleague shared with me
+        view = lib(include_shared=True)
+        view.questions()
+        for o in view.origins.values():  # type: ignore[attr-defined]
+            if Path(name).name in {Path(f).name for f in o.library.get(o.original_id).figures}:
+                p = o.library.figures_dir / Path(name).name
+                break
     if not p.exists():
         raise HTTPException(404)
     return FileResponse(p)
@@ -286,10 +385,13 @@ def put_exam_def(course: str, number: int, payload: dict[str, Any] = Body(...)) 
 
 @app.post("/api/exams/plan")
 def plan(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
-    L = lib()
+    L = lib(include_shared=bool(payload.get("include_shared")))
     req = ExamRequest.from_dict(payload)
     p = plan_exam(L, req)
     out = p.to_dict(L)
+    for v in out["versions"]:
+        for item in v["placed"]:
+            item.update(_share_info(L, item["question_id"]))
     out["session"] = session_code(req.date, L.config.get("sessions"))
     out["export_dir"] = str(export_dir(L, req))
     return out
@@ -297,16 +399,16 @@ def plan(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
 
 @app.post("/api/exams/alternatives")
 def exam_alternatives(payload: dict[str, Any] = Body(...)) -> list[dict[str, Any]]:
-    L = lib()
+    L = lib(include_shared=bool(payload.get("include_shared")))
     req = ExamRequest.from_dict(payload)
     ed = req.exam_def or L.exam_def(req.course, req.exam_number)
     exclude = set(payload.get("exclude") or [])
-    return [q.summary() for q in alternatives(L, ed, req.course, payload["slot"], exclude)]
+    return [{**q.summary(), **_share_info(L, q.id)} for q in alternatives(L, ed, req.course, payload["slot"], exclude)]
 
 
 @app.post("/api/exams/export")
 def export(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
-    L = lib()
+    L = lib(include_shared=bool(payload.get("include_shared")))
     req = ExamRequest.from_dict(payload)
     p = plan_exam(L, req)
     res = export_exam(L, p, record_usage=bool(payload.get("record_usage", True)))

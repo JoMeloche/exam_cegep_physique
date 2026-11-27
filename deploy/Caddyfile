@@ -1,0 +1,10 @@
+{$EXAMGEN_DOMAIN} {
+	encode zstd gzip
+	request_body {
+		max_size 25MB
+	}
+	header {
+		-Server
+	}
+	reverse_proxy examgen:8765
+}

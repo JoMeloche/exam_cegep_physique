@@ -9,9 +9,10 @@ SRC = Path(os.environ.get("EXAMGEN_TEST_LIB", "/tmp/apilib"))
 
 
 @pytest.fixture()
-def client(tmp_path):
+def client(tmp_path, monkeypatch):
     root = tmp_path / "lib"
     shutil.copytree(SRC, root)
+    monkeypatch.setenv("EXAMGEN_AUTH", "0")  # accounts are covered in test_auth.py
     os.environ["EXAM_APP_HOME"] = str(root)
     from examgen.api import app
     return TestClient(app)

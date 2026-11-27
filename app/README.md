@@ -43,9 +43,13 @@ starter question bank copied to `%USERPROFILE%\exam_app` on first launch.
 ```
 pip install -e "backend[dev]"
 cd frontend && npm ci && npm run build && cp -r dist/. ../backend/examgen/static/ && cd ..
-python -m examgen serve                     # http://127.0.0.1:8765
+python -m examgen serve                     # http://127.0.0.1:8765 (accounts on; EXAMGEN_AUTH=0 for none)
+python -m examgen create-admin --email you@example.org   # first web-app administrator
 # UI hot reload: (cd frontend && npm run dev)  -> http://localhost:5173, proxies /api
 ```
+Accounts (web app only, off in the desktop app): `examgen/auth.py`, `auth_routes.py`, sharing in `sharing.py`;
+see `../docs/securite.md`.
+
 Needs a LaTeX install (pdflatex + exam, babel-french, siunitx, xfp, pgf, enumitem, lm).
 
 ## Command line
