@@ -1,0 +1,15 @@
+title: 'Usage des miroirs convexes'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un miroir convexe fait diverger la lumière : il donne toujours une image virtuelle, droite et réduite, ce qui permet de voir une plus grande région d''un seul coup d''œil.'
+choices:
+  - 'Ils donnent une image agrandie, plus facile à voir'
+  - 'Ils offrent un champ de vision plus large, avec des images droites et réduites'
+  - 'Ils forment une image réelle qu''on peut projeter'
+  - 'Ils concentrent la lumière en un point'

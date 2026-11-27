@@ -1,4 +1,4 @@
-title: Onde sin
+title: Doubler la fréquence sur une même corde
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: A
+explanation: $v$ ne dépend que de la corde, donc $\lambda = v/f$ est divisée par deux. (La puissance est multipliée par 4, pas 2.)
 choices:
-- la longueur d'onde est divisée par deux ;
-- la vitesse de l'onde double ;
-- la tension de la corde double ;
-- la période de l'onde double ;
-- la puissance requise pour maintenir l'onde double.
-needs_review: true
+- la longueur d'onde est divisée par deux
+- la vitesse de l'onde double
+- la tension de la corde double
+- la période de l'onde double
+- la puissance requise pour maintenir l'onde double
 source: Question_concept/Onde_sinusoidale/C_onde_sin.tex
 history: []

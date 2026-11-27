@@ -1,0 +1,17 @@
+title: Miroir d'un satellite d'observation
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  H: {type: integer, min: 200, max: 800, step: 50, unit: km, si: 1000, label: Altitude du satellite}
+  s: {type: integer, min: 5, max: 50, step: 5, unit: cm, si: 0.01, label: Détail à distinguer}
+  lam: {type: integer, min: 450, max: 650, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    th: {expr: "s/H", unit: rad, label: Angle à résoudre}
+    Dm: {expr: "1.22*lam*H/s", unit: m, label: Diamètre minimal du miroir}
+    sh: {expr: "1.22*lam*H/2.4", unit: m, label: Plus petit détail avec un miroir de 2,4 m}

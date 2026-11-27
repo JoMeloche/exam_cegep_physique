@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle limite de résolution}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $D = \qty[exponent-mode=threshold]{\vsi{Dt}}{m}$
+        \item Variable recherchée : $\theta_{\min}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} critère de Rayleigh pour une ouverture circulaire :
+    \[ \theta_{\min} = \frac{1{,}22\,\lambda}{D} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \theta_{\min} = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}}}{\num[exponent-mode=threshold]{\vsi{Dt}}} = \ResSci{1.22*\vsi{lam}/\vsi{Dt}}{rad} \]
+    \item \textbf{Réponse :} l'angle limite de résolution est \textbf{\ResSci{1.22*\vsi{lam}/\vsi{Dt}}{rad}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Plus petit détail sur la Lune}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\theta_{\min}$, $r = \qty{3.84e8}{m}$ ; variable recherchée : $s_{\min}$
+    \item \textbf{Équations pertinentes :} pour un petit angle, $s = r\,\theta$
+    \item \textbf{Isolation de la variable recherchée :} $s_{\min} = r\,\theta_{\min}$
+    \item \textbf{Résolution numérique :}
+    \[ s_{\min} = \num{3.84e8} \cdot \Val{1.22*\vsi{lam}/\vsi{Dt}} = \Res{1.22*\vsi{lam}*3.84e8/\vsi{Dt}}{m} \]
+    \item \textbf{Réponse :} le télescope distingue des détails séparés d'au moins \textbf{\Res{1.22*\vsi{lam}*3.84e8/\vsi{Dt}}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Diamètre nécessaire}
+\[ \frac{s}{r} = \frac{1{,}22\,\lambda}{D} \quad\Rightarrow\quad D = \frac{1{,}22\,\lambda\,r}{s} = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{3.84e8}}{\num{\v{s}}} = \Res{1.22*\vsi{lam}*3.84e8/\v{s}}{m} \]
+Il faudrait un objectif de \textbf{\Res{1.22*\vsi{lam}*3.84e8/\v{s}}{m}} de diamètre.

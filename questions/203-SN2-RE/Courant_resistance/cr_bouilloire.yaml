@@ -1,0 +1,18 @@
+title: Temps de chauffe d'une bouilloire
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  P:  {type: integer, min: 800, max: 1800, step: 100, unit: W, label: Puissance de la bouilloire}
+  m:  {type: decimal, min: 0.5, max: 1.7, step: 0.1, unit: L, label: Volume d'eau}
+  Ti: {type: integer, min: 4, max: 25, step: 1, unit: \celsius, label: Température initiale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "120**2/P", unit: \ohm, label: Résistance}
+    a2: {expr: "P/120", unit: A, label: Courant}
+    b: {expr: "m*4186*(100 - Ti)", unit: J, label: Énergie nécessaire}
+    c: {expr: "m*4186*(100 - Ti)/P", unit: s, label: Temps de chauffe}

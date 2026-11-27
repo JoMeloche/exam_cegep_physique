@@ -14,4 +14,5 @@ solution:
   parts:
     a: {expr: "m*9.8*h", unit: J, label: Énergie potentielle}
     b: {expr: "sqrt(2*9.8*h)", unit: m/s, label: Vitesse sans frottement}
-    c: {expr: "sqrt(2*(1 - pe/100)*m*9.8*h/m)", unit: m/s, label: Vitesse avec frottement}
+    c1: {expr: "(1 - pe/100)*m*9.8*h", unit: J, label: Énergie cinétique avec frottement}
+    c2: {expr: "sqrt(2*(1 - pe/100)*9.8*h)", unit: m/s, label: Vitesse avec frottement}

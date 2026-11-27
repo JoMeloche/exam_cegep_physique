@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Charge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\vsi{I}}{A}$, $\Delta t = \qty{\vsi{t}}{s}$ ; variable recherchée : $\Delta Q$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{\Delta Q}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta Q = I\Delta t \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta Q = \num{\vsi{I}} \cdot \num{\vsi{t}} = \Res{\vsi{I}*\vsi{t}}{C} \]
+    \item \textbf{Réponse :} $\Delta Q = \mathbf{\Res{\vsi{I}*\vsi{t}}{C}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre d'électrons}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta Q$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta Q = Ne \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N = \frac{\Delta Q}{e} \]
+    \item \textbf{Résolution numérique :}
+    \[ N = \frac{\Val{\vsi{I}*\vsi{t}}}{\num{1.602e-19}} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{I}*\vsi{t}/1.602e-19}} \]
+    \item \textbf{Réponse :} $N = \mathbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{I}*\vsi{t}/1.602e-19}}}$ électrons.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie dissipée}
+\[ E = \Delta Q \cdot V = \Val{\vsi{I}*\vsi{t}} \cdot \num{\v{V}} = \Res{\v{V}*\vsi{I}*\vsi{t}}{J} \]
+Le fil a transformé \textbf{\Res{\v{V}*\vsi{I}*\vsi{t}}{J}} d'énergie électrique en chaleur (on peut aussi calculer $E = VI\Delta t$).

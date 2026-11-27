@@ -1,0 +1,20 @@
+title: 'Poutre sur deux appuis avec une personne'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  M: {type: integer, min: 20, max: 80, step: 5, unit: kg, label: Masse de la poutre}
+  L: {type: decimal, min: 3.0, max: 8.0, step: 0.5, unit: m, label: Longueur de la poutre}
+  m: {type: integer, min: 50, max: 100, step: 5, unit: kg, label: Masse de la personne}
+  x: {type: decimal, min: 0.5, max: 7.5, step: 0.25, unit: m, label: Position de la personne}
+constraints:
+  - x < 0.9*L
+  - abs(x - L/2) > 0.1*L
+solution:
+  mode: manual
+  file: eq_poutre_personne.sol.tex
+  parts:
+    a: {expr: "g*(M*L/2 + m*x)/L", unit: 'N', label: 'Force de l''appui de droite'}
+    b: {expr: "(M + m)*g - (g*(M*L/2 + m*x)/L)", unit: 'N', label: 'Force de l''appui de gauche'}

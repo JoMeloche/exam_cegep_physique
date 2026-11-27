@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Tension du câble 1}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $\theta_1 = \qty{\v{t1}}{\degree}$, $\theta_2 = \qty{\v{t2}}{\degree}$ ; variable recherchée : $T_1$
+    \item \textbf{Équations pertinentes :} équilibre du point d'attache : \[ \sum F_x = -T_1\cos\theta_1 + T_2\cos\theta_2 = 0 \qquad \sum F_y = T_1\sin\theta_1 + T_2\sin\theta_2 - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} de la première équation, $T_2 = T_1\cos\theta_1/\cos\theta_2$ ; en remplaçant dans la deuxième : \[ T_1 = \frac{mg\cos\theta_2}{\sin\theta_1\cos\theta_2 + \cos\theta_1\sin\theta_2} = \frac{mg\cos\theta_2}{\sin(\theta_1 + \theta_2)} \]
+    \item \textbf{Résolution numérique :} \[ T_1 = \frac{\num{\v{m}} \cdot \num{9.81} \cdot \cos(\qty{\v{t2}}{\degree})}{\sin(\Res{\vsi{t1} + \vsi{t2}}{\degree})} = \Res{(\vsi{m}*9.81*cosd(\vsi{t2})/sind(\vsi{t1} + \vsi{t2}))}{N} \]
+    \item \textbf{Réponse :} $T_1 = \mathbf{\Res{(\vsi{m}*9.81*cosd(\vsi{t2})/sind(\vsi{t1} + \vsi{t2}))}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Tension du câble 2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_1 = \Res{(\vsi{m}*9.81*cosd(\vsi{t2})/sind(\vsi{t1} + \vsi{t2}))}{N}$, $\theta_1$, $\theta_2$ ; variable recherchée : $T_2$
+    \item \textbf{Équations pertinentes :} \[ T_2\cos\theta_2 = T_1\cos\theta_1 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ T_2 = \frac{T_1\cos\theta_1}{\cos\theta_2} = \frac{mg\cos\theta_1}{\sin(\theta_1 + \theta_2)} \]
+    \item \textbf{Résolution numérique :} \[ T_2 = \frac{\Val{(\vsi{m}*9.81*cosd(\vsi{t2})/sind(\vsi{t1} + \vsi{t2}))} \cdot \cos(\qty{\v{t1}}{\degree})}{\cos(\qty{\v{t2}}{\degree})} = \Res{(\vsi{m}*9.81*cosd(\vsi{t1})/sind(\vsi{t1} + \vsi{t2}))}{N} \]
+    \item \textbf{Réponse :} $T_2 = \mathbf{\Res{(\vsi{m}*9.81*cosd(\vsi{t1})/sind(\vsi{t1} + \vsi{t2}))}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Masse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_{\max} = \qty{\v{Tmax}}{N}$, les tensions sont proportionnelles à $m$ ; variable recherchée : $m_{\max}$
+    \item \textbf{Équations pertinentes :} le câble le plus tendu est celui dont l'angle avec l'horizontale est le plus grand (cosinus de l'autre angle plus grand) : \[ T_{\text{plus grand}} = \frac{m g \max(\cos\theta_1, \cos\theta_2)}{\sin(\theta_1+\theta_2)} = T_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ m_{\max} = \frac{T_{\max}\sin(\theta_1+\theta_2)}{g\max(\cos\theta_1, \cos\theta_2)} \]
+    \item \textbf{Résolution numérique :} \[ m_{\max} = \frac{\num{\v{Tmax}} \cdot \sin(\Res{\vsi{t1} + \vsi{t2}}{\degree})}{\num{9.81} \cdot \Val{max(cosd(\vsi{t1}), cosd(\vsi{t2}))}} = \Res{(\vsi{Tmax}*sind(\vsi{t1} + \vsi{t2})/(9.81*max(cosd(\vsi{t1}), cosd(\vsi{t2}))))}{kg} \]
+    \item \textbf{Réponse :} $m_{\max} = \mathbf{\Res{(\vsi{Tmax}*sind(\vsi{t1} + \vsi{t2})/(9.81*max(cosd(\vsi{t1}), cosd(\vsi{t2}))))}{kg}}$
+\end{enumerate}

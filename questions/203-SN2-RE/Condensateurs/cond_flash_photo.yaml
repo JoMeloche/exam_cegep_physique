@@ -11,6 +11,7 @@ variables:
   U2: {type: integer, min: 5, max: 60, step: 5, unit: J, label: Énergie visée}
 constraints:
   - abs(U2 - 0.5*C*V**2) > 0.5
+  - sqrt(2*U2/C) <= 600
 solution:
   mode: manual
   parts:

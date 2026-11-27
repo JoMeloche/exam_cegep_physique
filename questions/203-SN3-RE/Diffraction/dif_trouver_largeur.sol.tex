@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $L = \qty{\v{L}}{m}$, $W = \qty{\vsi{W}}{m}$, donc $y_1 = W/2 = \Res{\vsi{W}/2}{m}$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $L = \qty{\v{L}}{m}$, $W = \qty[exponent-mode=threshold]{\vsi{W}}{m}$, donc $y_1 = W/2 = \Res{\vsi{W}/2}{m}$
         \item Variable recherchée : $a$
     \end{itemize}
     \item \textbf{Équations pertinentes :} pour de petits angles, $\sin\theta_1 \approx y_1/L$ et
@@ -13,12 +13,12 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ a = \frac{\lambda L}{y_1} = \frac{2\lambda L}{W} \]
     \item \textbf{Résolution numérique :}
-    \[ a = \frac{2 \cdot \num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{W}}} = \Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre} \]
+    \[ a = \frac{2 \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{W}}} = \Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre} \]
     \item \textbf{Réponse :} la fente mesure \textbf{\Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre}} de large.
 \end{enumerate}
 
 \subsubsection*{Question b) Troisième minimum}
-\[ \sin\theta_3 = \frac{3\lambda}{a} = \frac{3 \cdot \num{\vsi{lam}}}{\Val{2*\vsi{lam}*\v{L}/\vsi{W}}} \quad\Rightarrow\quad \theta_3 = \Res{asind(3*\vsi{W}/(2*\v{L}))}{\degree} \]
+\[ \sin\theta_3 = \frac{3\lambda}{a} = \frac{3 \cdot \num[exponent-mode=threshold]{\vsi{lam}}}{\Val{2*\vsi{lam}*\v{L}/\vsi{W}}} \quad\Rightarrow\quad \theta_3 = \Res{asind(3*\vsi{W}/(2*\v{L}))}{\degree} \]
 Le troisième minimum est à \textbf{\Res{asind(3*\vsi{W}/(2*\v{L}))}{\degree}}.
 
 \subsubsection*{Question c) Nombre de minimums}

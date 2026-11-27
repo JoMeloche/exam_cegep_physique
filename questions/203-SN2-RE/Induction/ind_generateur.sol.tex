@@ -1,0 +1,32 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Vitesse angulaire}
+\[ \omega = 2\pi f = 2\pi \cdot \num{\v{f}} = \mathbf{\Res{2*pi*\v{f}}{rad/s}} \]
+
+\subsubsection*{Question b) Force électromotrice maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $B = \qty{\v{B}}{T}$, $A = \NumT{\vsi{a}} \cdot \NumT{\vsi{b}} = \Res{\vsi{a}*\vsi{b}}{m^2}$, $\omega = \Res{2*pi*\v{f}}{rad/s}$ ; variable recherchée : $\mathcal{E}_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ \Phi_B = BA\cos(\omega t) \qquad \mathcal{E} = -N\frac{d\Phi_B}{dt} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \mathcal{E} = NBA\omega\sin(\omega t) \quad\Rightarrow\quad \mathcal{E}_{\max} = NBA\omega \]
+    \item \textbf{Résolution numérique :}
+    \[ \mathcal{E}_{\max} = \v{N} \cdot \num{\v{B}} \cdot \Valt{\vsi{a}*\vsi{b}} \cdot \Valt{2*pi*\v{f}} = \Res{\v{N}*\v{B}*\vsi{a}*\vsi{b}*2*pi*\v{f}}{V} \]
+    \item \textbf{Réponse :} $\mathcal{E}_{\max} = \mathbf{\Res{\v{N}*\v{B}*\vsi{a}*\vsi{b}*2*pi*\v{f}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Instant où $\mathcal{E} = \mathcal{E}_{\max}/2$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E}/\mathcal{E}_{\max} = \num{0.5}$, $\omega = \Res{2*pi*\v{f}}{rad/s}$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :}
+    \[ \mathcal{E} = \mathcal{E}_{\max}\sin(\omega t) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \sin(\omega t) = \num{0.5} \quad\Rightarrow\quad \omega t = \frac{\pi}{6} \quad\Rightarrow\quad t = \frac{\pi}{6\omega} = \frac{1}{12 f} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{1}{12 \cdot \num{\v{f}}} = \ResSci{1/(12*\v{f})}{s} \]
+    \item \textbf{Réponse :} $t = \mathbf{\Res{1000/(12*\v{f})}{ms}}$.
+\end{enumerate}

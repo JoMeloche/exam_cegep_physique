@@ -1,4 +1,4 @@
-title: Chariot
+title: 'Chariot en MHS : équation de position'
 type: developpement
 points: 20
 time_min: 20
@@ -10,28 +10,47 @@ variables:
     min: 380
     max: 620
     step: 10
-    label: mhsqUnMasse
+    label: Masse du chariot
+    unit: g
+    si: 0.001
   K:
     type: integer
     min: 6
     max: 14
     step: 2
-    label: mhsqUnK
+    label: Constante de rappel
+    unit: N/m
   PosInit:
     type: integer
     min: 3
     max: 7
     step: 1
-    label: mhsqUnPosInit
+    label: Position initiale
+    unit: cm
+    si: 0.01
   VitInit:
     type: integer
     min: 4
     max: 12
     step: 2
-    label: mhsqUnVitInit
+    label: Vitesse initiale
+    unit: cm/s
+    si: 0.01
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a1:
+      expr: sqrt(K/Masse)
+      unit: rad/s
+      label: Fréquence angulaire
+    a2:
+      expr: sqrt(PosInit**2 + VitInit**2*Masse/K)
+      unit: m
+      label: Amplitude
+    a3:
+      expr: atan(PosInit*sqrt(K/Masse)/VitInit)
+      unit: rad
+      label: Constante de phase (sinus)
 source: Question_dev/MHS/chariot.tex
 original_values:
   Masse:

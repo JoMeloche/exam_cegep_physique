@@ -1,4 +1,4 @@
-title: Pendule simple
+title: 'Pendule simple : amplitude et énergie'
 type: developpement
 points: 20
 time_min: 20
@@ -10,28 +10,46 @@ variables:
     min: 30
     max: 55
     step: 5
-    label: mhsqHuitMasse
+    label: Masse
+    unit: g
+    si: 0.001
   Longueur:
     type: integer
     min: 70
     max: 105
     step: 5
-    label: mhsqHuitLongueur
+    label: Longueur du fil
+    unit: cm
+    si: 0.01
   Angle:
     type: decimal
     min: 7.2
     max: 10.3
     step: 0.1
-    label: mhsqHuitAngle
+    label: Angle initial
+    unit: \degree
   Vit:
     type: decimal
     min: 0.4
     max: 0.8
     step: 0.1
-    label: mhsqHuitVit
+    label: Vitesse tangentielle initiale
+    unit: m/s
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: sqrt((Longueur*rad(Angle))**2 + Vit**2*Longueur/g)
+      unit: m
+      label: Amplitude (arc)
+    b:
+      expr: Masse*g/Longueur*((Longueur*rad(Angle))**2 + Vit**2*Longueur/g)/2
+      unit: J
+      label: Énergie mécanique
+    c:
+      expr: sqrt(g/Longueur)*sqrt((Longueur*rad(Angle))**2 + Vit**2*Longueur/g)
+      unit: m/s
+      label: Vitesse maximale
 source: Question_dev/MHS/Pendule_simple.tex
 original_values:
   Masse:

@@ -13,6 +13,7 @@ variables:
 constraints:
   - F*cos(rad(th)) > 1.3*mu*(m*g - F*sin(rad(th)))
   - F*sin(rad(th)) < 0.8*m*g
+  - 2*(F*d*cos(rad(th)) - mu*(m*g - F*sin(rad(th)))*d)/m < 36
 solution:
   mode: manual
   file: te_caisse_tiree_angle.sol.tex

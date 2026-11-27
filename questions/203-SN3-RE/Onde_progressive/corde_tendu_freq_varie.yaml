@@ -1,4 +1,4 @@
-title: Corde tendu freq varie
+title: Changer la fréquence d'une onde sur une corde
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: C
+explanation: $\omega = 2\pi f$ change et, comme $v$ est fixée par la corde, $k = \omega/v$ change aussi. L'amplitude est indépendante.
 choices:
 - $k$ seulement
 - $\omega$ seulement
 - $k$ et $\omega$
 - $k$, $\omega$ et $A$
 - $\omega$ et $A$
-needs_review: true
 source: Question_concept/Onde_progressive/C_corde_tendu_freq_varie.tex
 history: []

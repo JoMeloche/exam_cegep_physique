@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Indice de réfraction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_1 = \num{1.00}$, $\theta_1 = \qty{\v{th1}}{\degree}$, $\theta_2 = \qty{\v{th2}}{\degree}$ ; variable recherchée : $n_2$
+    \item \textbf{Équations pertinentes :}
+    \[ n_1\sin\theta_1 = n_2\sin\theta_2 \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ n_2 = \frac{n_1\sin\theta_1}{\sin\theta_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ n_2 = \frac{\num{1.00}\cdot\sin(\qty{\v{th1}}{\degree})}{\sin(\qty{\v{th2}}{\degree})} = \num[round-mode=figures,round-precision=3]{\fpeval{sind(\v{th1})/sind(\v{th2})}} \]
+    \item \textbf{Réponse :} $n_2 = \mathbf{\num[round-mode=figures,round-precision=3]{\fpeval{sind(\v{th1})/sind(\v{th2})}}}$ (sans unité).
+\end{enumerate}
+\subsubsection*{Question b) Vitesse dans le liquide}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $c = \qty{3.00e8}{m/s}$, $n_2 = \Val{sind(\v{th1})/sind(\v{th2})}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{c}{v} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ v = \frac{c}{n} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{\qty{3.00e8}{m/s}}{\Val{sind(\v{th1})/sind(\v{th2})}} = \ResSci{3e8*sind(\v{th2})/sind(\v{th1})}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\ResSci{3e8*sind(\v{th2})/sind(\v{th1})}{m/s}}$.
+\end{enumerate}
+\subsubsection*{Question c) Angle critique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_1 = \Val{sind(\v{th1})/sind(\v{th2})}$ (liquide), $n_2 = \num{1.00}$ (air) ; variable recherchée : $\theta_c$
+    \item \textbf{Équations pertinentes :}
+    \[ n_1\sin\theta_c = n_2\sin(\qty{90}{\degree}) \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ \theta_c = \arcsin\left(\frac{n_2}{n_1}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_c = \arcsin\left(\frac{\num{1.00}}{\Val{sind(\v{th1})/sind(\v{th2})}}\right) = \Res{asind(sind(\v{th2})/sind(\v{th1}))}{\degree} \]
+    \item \textbf{Réponse :} $\theta_c = \mathbf{\Res{asind(sind(\v{th2})/sind(\v{th1}))}{\degree}}$.
+\end{enumerate}

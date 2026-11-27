@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Demi-angle d'ouverture}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $D = \qty{\v{Dt}}{m}$
+        \item Variable recherchée : $\theta_1$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} premier minimum de diffraction d'une ouverture circulaire :
+    \[ \sin\theta_1 \approx \theta_1 = \frac{1{,}22\,\lambda}{D} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \theta_1 = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}}}{\num{\v{Dt}}} = \ResSci{1.22*\vsi{lam}/\v{Dt}}{rad} \]
+    \item \textbf{Réponse :} le demi-angle d'ouverture est \textbf{\ResSci{1.22*\vsi{lam}/\v{Dt}}{rad}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Diamètre de la tache}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\theta_1$, $r = \qty{3.84e8}{m}$ ; variable recherchée : $D_{\text{tache}}$
+    \item \textbf{Équations pertinentes :} rayon de la tache $R = r\theta_1$
+    \item \textbf{Isolation de la variable recherchée :} $D_{\text{tache}} = 2r\theta_1$
+    \item \textbf{Résolution numérique :}
+    \[ D_{\text{tache}} = 2 \cdot \num{3.84e8} \cdot \Val{1.22*\vsi{lam}/\v{Dt}} = \Res{2*1.22*\vsi{lam}*3.84e8/(1000*\v{Dt})}{km} \]
+    \item \textbf{Réponse :} la tache a un diamètre de \textbf{\Res{2*1.22*\vsi{lam}*3.84e8/(1000*\v{Dt})}{km}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Diamètre de télescope nécessaire}
+\[ \frac{X}{2r} = \frac{1{,}22\,\lambda}{D} \quad\Rightarrow\quad D = \frac{2 \cdot 1{,}22\,\lambda\,r}{X} = \frac{2 \cdot \num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{3.84e8}}{\num[exponent-mode=threshold]{\vsi{X}}} = \Res{2*1.22*\vsi{lam}*3.84e8/\vsi{X}}{m} \]
+Il faudrait un télescope de \textbf{\Res{2*1.22*\vsi{lam}*3.84e8/\vsi{X}}{m}} de diamètre.

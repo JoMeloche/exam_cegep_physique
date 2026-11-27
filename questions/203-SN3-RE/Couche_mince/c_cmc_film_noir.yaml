@@ -1,0 +1,15 @@
+title: "Film de savon très mince qui paraît noir"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Quand $e \to 0$, la différence de marche $2ne$ tend vers zéro, mais une seule des deux réflexions (air-savon) subit un déphasage de $\lambda/2$. Les deux ondes réfléchies sont donc en opposition de phase pour toutes les longueurs d''onde.'
+choices:
+  - 'Le film absorbe toute la lumière'
+  - 'La lumière est entièrement transmise parce que le film est trop mince pour réfléchir'
+  - 'Une seule des deux réflexions subit un déphasage de $\lambda/2$, donc les ondes réfléchies s''annulent'
+  - 'La différence de marche est égale à une longueur d''onde pour toutes les couleurs'

@@ -1,4 +1,4 @@
-title: Trapéziste
+title: Trapéziste rejoint par une collègue
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: D
+explanation: La période ne dépend pas de la masse, la collègue s'accroche au point le plus haut (vitesse nulle) donc l'amplitude est la même, et la vitesse au point le plus bas ne dépend que de la hauteur.
 choices:
 - La vitesse des trapézistes à leur point le plus bas.
 - La période d’oscillation des trapézistes.
 - L’amplitude d’oscillation des trapézistes.
 - Ces quantités seront toutes inchangées.
 pin_last: 1
-needs_review: true
 source: Question_concept/MHS/trapéziste.tex
 history: []

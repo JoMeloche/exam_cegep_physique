@@ -1,29 +1,32 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Force sur le fil}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $L = \qty{\vsi{L}}{m}$, $B = \qty{\vsi{B}}{T}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F$
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{A}$, $L = \QtyT{\vsi{L}}{m}$, $B = \QtyT{\vsi{B}}{T}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F$
     \item \textbf{Équations pertinentes :}
     \[ \vec{F} = I\vec{L} \times \vec{B} \qquad F = ILB\sin\theta \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ F = \num{\v{I}} \cdot \num{\vsi{L}} \cdot \num{\vsi{B}} \cdot \sin(\qty{\v{th}}{\degree}) = \ResSci{\v{I}*\vsi{L}*\vsi{B}*sind(\v{th})}{N} \]
+    \[ F = \num{\v{I}} \cdot \NumT{\vsi{L}} \cdot \NumT{\vsi{B}} \cdot \sin(\qty{\v{th}}{\degree}) = \ResSci{\v{I}*\vsi{L}*\vsi{B}*sind(\v{th})}{N} \]
     \item \textbf{Réponse :} $F = \mathbf{\ResSci{\v{I}*\vsi{L}*\vsi{B}*sind(\v{th})}{N}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Force maximale}
 La force est maximale quand $\sin\theta = 1$, c'est-à-dire lorsque le fil est \textbf{perpendiculaire au champ} ($\theta = \qty{90}{\degree}$) :
-\[ F_{\max} = ILB = \num{\v{I}} \cdot \num{\vsi{L}} \cdot \num{\vsi{B}} = \mathbf{\ResSci{\v{I}*\vsi{L}*\vsi{B}}{N}} \]
+\[ F_{\max} = ILB = \num{\v{I}} \cdot \NumT{\vsi{L}} \cdot \NumT{\vsi{B}} = \mathbf{\ResSci{\v{I}*\vsi{L}*\vsi{B}}{N}} \]
 
 \subsubsection*{Question c) Courant pour faire léviter le fil}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{m}}{kg}$, $g = \qty{9.81}{m/s^2}$, $L = \qty{\vsi{L}}{m}$, $B = \qty{\vsi{B}}{T}$, $\theta = \qty{90}{\degree}$ ; variable recherchée : $I$
+    \item \textbf{Variables connues et recherchées :} $m = \QtyT{\vsi{m}}{kg}$, $g = \qty{9.81}{m/s^2}$, $L = \QtyT{\vsi{L}}{m}$, $B = \QtyT{\vsi{B}}{T}$, $\theta = \qty{90}{\degree}$ ; variable recherchée : $I$
     \item \textbf{Équations pertinentes :} équilibre vertical :
     \[ F_B = mg \qquad F_B = ILB \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ I = \frac{mg}{LB} \]
     \item \textbf{Résolution numérique :}
-    \[ I = \frac{\num{\vsi{m}} \cdot \num{9.81}}{\num{\vsi{L}} \cdot \num{\vsi{B}}} = \Res{\vsi{m}*9.81/(\vsi{L}*\vsi{B})}{A} \]
+    \[ I = \frac{\NumT{\vsi{m}} \cdot \num{9.81}}{\NumT{\vsi{L}} \cdot \NumT{\vsi{B}}} = \Res{\vsi{m}*9.81/(\vsi{L}*\vsi{B})}{A} \]
     \item \textbf{Réponse :} il faut un courant de $\mathbf{\Res{\vsi{m}*9.81/(\vsi{L}*\vsi{B})}{A}}$ (orienté pour que $I\vec{L}\times\vec{B}$ pointe vers le haut).
 \end{enumerate}

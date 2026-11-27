@@ -1,0 +1,34 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} un seul déphasage de $\lambda/2$ (réflexion air-savon). Frange brillante : $2ne = \left(m + \tfrac{1}{2}\right)\lambda$ ; film noir quand $e \to 0$.
+
+\subsubsection*{Question a) Variation d'épaisseur entre deux franges}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\v{lam}}{nm}$, $n = \num{1.33}$
+        \item Variable recherchée : $\Delta e$ entre les ordres $m$ et $m - 1$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} $2ne_m = \left(m + \tfrac{1}{2}\right)\lambda$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta e = e_m - e_{m-1} = \frac{\lambda}{2n} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta e = \frac{\num{\v{lam}}}{2 \cdot \num{1.33}} = \Res{\v{lam}/2.66}{nm} \]
+    \item \textbf{Réponse :} l'épaisseur change de \textbf{\Res{\v{lam}/2.66}{nm}} entre deux franges brillantes.
+\end{enumerate}
+
+\subsubsection*{Question b) Épaisseur initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} on compte \v{N} franges après la première, et la dernière frange brillante avant le noir est $m = 0$ ; variable recherchée : $e_0$
+    \item \textbf{Équations pertinentes :} les franges comptées sont $m = \fpeval{\v{N} - 1}, \dots, 0$, donc la frange initiale est d'ordre $m = \v{N}$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e_0 = \frac{(\v{N} + \frac{1}{2})\lambda}{2n} \]
+    \item \textbf{Résolution numérique :}
+    \[ e_0 = \frac{\num{\fpeval{\v{N} + 0.5}} \cdot \num{\v{lam}}}{2 \cdot \num{1.33}} = \Res{(\v{N} + 0.5)*\v{lam}/2.66}{nm} \]
+    \item \textbf{Réponse :} au début, le film avait une épaisseur de \textbf{\Res{(\v{N} + 0.5)*\v{lam}/2.66}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse d'amincissement}
+\[ v = \frac{e_0}{T} = \frac{\Val{(\v{N} + 0.5)*\v{lam}/2.66}}{\num{\v{T}}} = \Res{(\v{N} + 0.5)*\v{lam}/(2.66*\v{T})}{nm/s} \]
+Le film s'amincit en moyenne de \textbf{\Res{(\v{N} + 0.5)*\v{lam}/(2.66*\v{T})}{nm/s}}.

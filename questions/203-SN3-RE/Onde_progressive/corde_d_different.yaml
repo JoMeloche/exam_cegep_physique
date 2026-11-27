@@ -1,4 +1,4 @@
-title: Corde d different
+title: Impulsion vers une corde plus épaisse
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,6 +6,7 @@ difficulty: 2
 figures: []
 solution:
   mode: none
-needs_review: true
+answer: C
+explanation: 'La corde de droite est plus lourde : l''impulsion réfléchie est inversée et l''impulsion transmise reste à l''endroit.'
 source: Question_concept/Onde_progressive/C_corde_d_different.tex
 history: []

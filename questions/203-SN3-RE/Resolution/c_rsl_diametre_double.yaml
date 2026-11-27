@@ -1,0 +1,15 @@
+title: "Effet de doubler le diamètre d'un télescope"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$\theta_{\min} = 1{,}22\,\lambda/D$ est inversement proportionnel à $D$ : doubler le diamètre divise l''angle limite de résolution par deux.'
+choices:
+  - 'Il double'
+  - 'Il est divisé par quatre'
+  - 'Il est divisé par deux'
+  - 'Il ne change pas'

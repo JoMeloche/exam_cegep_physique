@@ -7,7 +7,7 @@ figures: []
 tags: [deuxième loi, poids apparent]
 variables:
   m: {type: integer, min: 50, max: 95, step: 1, unit: kg, label: Masse de la personne}
-  a: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: m/s^2, label: Accélération de l'ascenseur}
+  a: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: m/s^2, label: Accélération de l'ascenseur}
 constraints: []
 solution:
   mode: manual

@@ -1,0 +1,18 @@
+title: Tache d'un faisceau laser envoyé sur la Lune
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Dt: {type: decimal, min: 0.5, max: 3.5, step: 0.1, unit: m, label: Diamètre du télescope émetteur}
+  lam: {type: choice, values: [532, 694], unit: nm, si: 1e-9, label: Longueur d'onde du laser}
+  X: {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: km, si: 1000, label: Diamètre de tache visé}
+constraints:
+  - X < 0.8*2*1.22*lam*3.84e8/Dt
+solution:
+  mode: manual
+  parts:
+    th: {expr: "1.22*lam/Dt", unit: rad, label: Demi-angle d'ouverture du faisceau}
+    Dtache: {expr: "2*1.22*lam*3.84e8/Dt", unit: m, label: Diamètre de la tache sur la Lune}
+    Dmin: {expr: "2*1.22*lam*3.84e8/X", unit: m, label: Diamètre de télescope nécessaire}

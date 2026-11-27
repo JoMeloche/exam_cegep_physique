@@ -1,4 +1,4 @@
-title: Restaurant
+title: Se faire entendre au restaurant
 type: developpement
 points: 20
 time_min: 20
@@ -11,19 +11,26 @@ variables:
     max: 79
     step: 1
     unit: dB
-    label: QfourNiveau
+    label: Niveau sonore ambiant
   Dist:
     type: integer
     min: 70
     max: 95
     step: 5
     unit: cm
-    label: QfourDist
-    si_unit: m
+    label: Distance de votre compagne
     si: 0.01
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: 2*1e-12*10**(Niveau/10)*4*pi*Dist**2
+      unit: W
+      label: Puissance de la voix
+    b:
+      expr: Niveau + 10*log10(3)
+      unit: dB
+      label: Niveau perçu
 source: Question_dev/Intensité/Q_restaurant.tex
 original_values:
   Niveau:

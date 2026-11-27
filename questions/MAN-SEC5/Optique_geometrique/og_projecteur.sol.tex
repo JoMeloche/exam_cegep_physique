@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Grandissement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $h_o = \qty{\v{ho}}{mm} = \qty{\vsi{ho}}{m}$, $h_i = \qty{-\v{hi}}{m}$ (image renversée) ; variable recherchée : $G$
+    \item \textbf{Équations pertinentes :}
+    \[ G = \frac{h_i}{h_o} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ G = \frac{\qty{-\v{hi}}{m}}{\qty{\vsi{ho}}{m}} = \num[round-mode=figures,round-precision=3]{\fpeval{-\v{hi}/\vsi{ho}}} \]
+    \item \textbf{Réponse :} $G = \mathbf{\num[round-mode=figures,round-precision=3]{\fpeval{-\v{hi}/\vsi{ho}}}}$ (négatif : image renversée).
+\end{enumerate}
+\subsubsection*{Question b) Position de la diapositive}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $G = \Val{-\v{hi}/\vsi{ho}}$, $d_i = \qty{\v{di}}{m}$ ; variable recherchée : $d_o$
+    \item \textbf{Équations pertinentes :}
+    \[ G = -\frac{d_i}{d_o} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ d_o = -\frac{d_i}{G} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_o = -\frac{\qty{\v{di}}{m}}{\Val{-\v{hi}/\vsi{ho}}} = \Res{\v{di}*\vsi{ho}/\v{hi}}{m} = \Res{100*\v{di}*\vsi{ho}/\v{hi}}{cm} \]
+    \item \textbf{Réponse :} la diapositive doit être à \textbf{\Res{100*\v{di}*\vsi{ho}/\v{hi}}{cm}} de la lentille.
+\end{enumerate}
+\subsubsection*{Question c) Distance focale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_o = \Res{\v{di}*\vsi{ho}/\v{hi}}{m}$, $d_i = \qty{\v{di}}{m}$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ f = \frac{1}{\frac{1}{d_o} + \frac{1}{d_i}} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{1}{\frac{1}{\Val{\v{di}*\vsi{ho}/\v{hi}}\,\unit{m}} + \frac{1}{\qty{\v{di}}{m}}} = \Res{1/(\v{hi}/(\v{di}*\vsi{ho}) + 1/\v{di})}{m} = \Res{100/(\v{hi}/(\v{di}*\vsi{ho}) + 1/\v{di})}{cm} \]
+    \item \textbf{Réponse :} il faut une lentille convergente de distance focale \textbf{\Res{100/(\v{hi}/(\v{di}*\vsi{ho}) + 1/\v{di})}{cm}}, à peine plus petite que $d_o$ puisque l'écran est loin.
+\end{enumerate}

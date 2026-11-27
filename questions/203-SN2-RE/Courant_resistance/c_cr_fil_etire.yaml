@@ -1,0 +1,15 @@
+title: 'Résistance d''un fil étiré'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Le volume $LA$ est constant : doubler $L$ divise $A$ par 2. Comme $R = \rho L/A$, la résistance est multipliée par $2 \times 2 = 4$.'
+choices:
+  - '2'
+  - '$1/2$'
+  - '1 (elle ne change pas)'
+  - '4'

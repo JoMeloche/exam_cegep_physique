@@ -11,5 +11,5 @@ explanation: 'Deux sources incohérentes identiques doublent l''intensité : $10
 choices:
   - '\qty{180}{dB}'
   - '\qty{90}{dB}'
-  - 'Environ \qty{93}{dB}'
+  - '\qty{93}{dB}'
   - '\qty{100}{dB}'

@@ -1,0 +1,16 @@
+title: 'Ondes d''un four à micro-ondes'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  f: {type: choice, values: [2.40, 2.42, 2.45, 2.48, 2.50], unit: GHz, si: 1e9, label: Fréquence du four}
+  x: {type: decimal, min: 5.6, max: 6.6, step: 0.1, unit: cm, si: 0.01, label: Distance entre deux zones chaudes}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "100*c/f", unit: cm, label: Longueur d'onde}
+    b: {expr: "1e12/f", unit: ps, label: Période}
+    c: {expr: "2*x*f", unit: m/s, label: Vitesse déduite de l'expérience}

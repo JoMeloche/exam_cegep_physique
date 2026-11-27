@@ -13,5 +13,6 @@ solution:
   parts:
     a1: {expr: "m*g*sin(rad(th))", unit: N, label: Composante du poids parallèle au plan}
     a2: {expr: "m*g*cos(rad(th))", unit: N, label: Composante du poids perpendiculaire au plan}
-    b: {expr: "m*g*sin(rad(th))", unit: N, label: Tension dans la corde}
+    b1: {expr: "m*g*sin(rad(th))", unit: N, label: Tension dans la corde}
+    b2: {expr: "m*g*cos(rad(th))", unit: N, label: Force normale}
     c: {expr: "tan(rad(th))", unit: "", label: Coefficient de frottement statique minimal}

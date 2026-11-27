@@ -1,0 +1,15 @@
+title: 'Vitesse de la lumière dans le verre'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$n = c/v$, donc $v = c/n = c/\num{1.5}$ : la lumière est 1,5 fois plus lente dans le verre.'
+choices:
+  - 'Elle est 1,5 fois plus grande'
+  - 'Elle est la même'
+  - 'Elle est 1,5 fois plus petite'
+  - 'Elle est nulle'

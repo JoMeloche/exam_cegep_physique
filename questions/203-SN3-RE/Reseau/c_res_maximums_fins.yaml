@@ -1,0 +1,15 @@
+title: "Éclairer plus de traits d'un même réseau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La position des maximums dépend seulement de $d$ et $\lambda$. La largeur d''un maximum principal diminue quand le nombre $N$ de traits éclairés augmente : les maximums deviennent plus fins (et le pouvoir de résolution $mN$ augmente).'
+choices:
+  - 'Ils restent aux mêmes angles mais deviennent plus fins'
+  - 'Ils se déplacent vers de plus grands angles'
+  - 'Ils deviennent plus larges'
+  - 'Le nombre d''ordres observables double'

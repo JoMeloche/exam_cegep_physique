@@ -1,0 +1,15 @@
+title: "Énoncé du critère de Rayleigh"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Selon le critère de Rayleigh, deux sources sont tout juste résolues quand le centre de la tache de diffraction de l''une tombe sur le premier minimum de la tache de l''autre.'
+choices:
+  - 'leurs taches de diffraction ne se touchent pas du tout'
+  - 'leurs taches de diffraction ont la même intensité'
+  - 'la distance entre les centres des taches est égale au diamètre de l''ouverture'
+  - 'le centre de la tache de diffraction de l''une tombe sur le premier minimum de l''autre'

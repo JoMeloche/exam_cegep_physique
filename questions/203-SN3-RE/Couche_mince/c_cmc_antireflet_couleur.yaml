@@ -1,0 +1,15 @@
+title: "Reflet coloré d'une lentille traitée antireflet"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La couche est conçue pour éliminer la réflexion au milieu du visible (vert-jaune). Les extrémités du spectre (rouge et bleu-violet) sont moins bien éliminées, et leur mélange donne un reflet violacé.'
+choices:
+  - 'La couche absorbe la lumière verte'
+  - 'La couche élimine surtout la réflexion du vert ; il reste un peu de rouge et de bleu réfléchis'
+  - 'La couche est plus épaisse au centre de la lentille'
+  - 'La couche diffracte la lumière blanche en un spectre'

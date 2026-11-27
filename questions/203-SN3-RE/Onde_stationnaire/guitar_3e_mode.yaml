@@ -1,4 +1,4 @@
-title: Guitar 3e mode
+title: Corde de guitare et tuyau ouvert-fermé
 type: developpement
 points: 20
 time_min: 20
@@ -11,8 +11,7 @@ variables:
     max: 72
     step: 2
     unit: cm
-    label: QtwoLc
-    si_unit: m
+    label: Longueur de la corde
     si: 0.01
   Mu:
     type: decimal
@@ -20,15 +19,14 @@ variables:
     max: 0.0016
     step: 0.0001
     unit: kg/m
-    label: QtwoMu
+    label: Masse linéique de la corde
   Lp:
     type: integer
     min: 28
     max: 42
     step: 2
     unit: cm
-    label: QtwoLp
-    si_unit: m
+    label: Longueur du tuyau
     si: 0.01
   Vson:
     type: integer
@@ -36,10 +34,22 @@ variables:
     max: 347
     step: 1
     unit: m/s
-    label: QtwoVson
+    label: Vitesse du son
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    b:
+      expr: Mu*(2*Lc/3*3*Vson/(4*Lp))**2
+      unit: N
+      label: Tension
+    c1:
+      expr: 3*Vson/(4*Lp)
+      unit: Hz
+      label: Fréquence
+    c2:
+      expr: 4*Lp/3
+      unit: m
+      label: Longueur d'onde dans l'air
 source: Question_dev/Onde_résonnante/Q_guitar_3e_mode.tex
 original_values:
   Lc:

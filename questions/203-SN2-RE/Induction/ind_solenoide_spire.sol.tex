@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Taux de variation du champ}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n = \qty{\v{n}}{m^{-1}}$, $dI/dt = \qty{\v{dIdt}}{A/s}$ ; variable recherchée : $dB/dt$
+    \item \textbf{Équations pertinentes :}
+    \[ B = \mu_0 n I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \frac{dB}{dt} = \mu_0 n \frac{dI}{dt} \]
+    \item \textbf{Résolution numérique :}
+    \[ \frac{dB}{dt} = 4\pi \times 10^{-7} \cdot \num{\v{n}} \cdot \num{\v{dIdt}} = \ResSci{4*pi*1e-7*\v{n}*\v{dIdt}}{T/s} \]
+    \item \textbf{Réponse :} $dB/dt = \mathbf{\ResSci{4*pi*1e-7*\v{n}*\v{dIdt}}{T/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Force électromotrice induite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $dB/dt = \ResSci{4*pi*1e-7*\v{n}*\v{dIdt}}{T/s}$, $r_s = \QtyT{\vsi{rs}}{m}$ ; variable recherchée : $\mathcal{E}$
+    \item \textbf{Équations pertinentes :} le champ est pratiquement nul à l'extérieur du solénoïde : le flux à travers la spire ne traverse que la section du solénoïde, $\Phi_B = B\,\pi r_s^2$ (et non $\pi r_\ell^2$).
+    \[ |\mathcal{E}| = \frac{d\Phi_B}{dt} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ |\mathcal{E}| = \pi r_s^2\,\frac{dB}{dt} \]
+    \item \textbf{Résolution numérique :}
+    \[ |\mathcal{E}| = \pi \cdot \left(\NumT{\vsi{rs}}\right)^2 \cdot \Valt{4*pi*1e-7*\v{n}*\v{dIdt}} = \ResSci{pi*\vsi{rs}^2*4*pi*1e-7*\v{n}*\v{dIdt}}{V} \]
+    \item \textbf{Réponse :} $|\mathcal{E}| = \mathbf{\Res{1000*pi*\vsi{rs}^2*4*pi*1e-7*\v{n}*\v{dIdt}}{mV}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant induit}
+\[ I = \frac{|\mathcal{E}|}{R} = \frac{\Valt{pi*\vsi{rs}^2*4*pi*1e-7*\v{n}*\v{dIdt}}}{\num{\v{R}}} = \mathbf{\ResSci{(pi*\vsi{rs}^2*4*pi*1e-7*\v{n}*\v{dIdt})/\v{R}}{A}} \]
+
+\subsubsection*{Question d) Sens du courant induit}
+Le flux à travers la spire augmente dans le sens du champ du solénoïde. D'après la loi de Lenz, le courant induit crée un champ qui s'oppose à cette augmentation : il circule donc \textbf{en sens inverse} du courant du solénoïde.

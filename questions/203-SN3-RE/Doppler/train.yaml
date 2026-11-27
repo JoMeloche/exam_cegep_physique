@@ -1,4 +1,4 @@
-title: Train
+title: Sifflet de train à l'approche et à l'éloignement
 type: developpement
 points: 20
 time_min: 20
@@ -10,16 +10,30 @@ variables:
     min: 455
     max: 505
     step: 5
-    label: doppOnzeFreqApp
+    label: Fréquence à l'approche
+    unit: Hz
   Elo:
     type: integer
     min: 370
     max: 430
     step: 10
-    label: doppOnzeFreqElo
+    label: Fréquence à l'éloignement
+    unit: Hz
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a1:
+      expr: 343*(App - Elo)/(App + Elo)
+      unit: m/s
+      label: Vitesse du train
+    a2:
+      expr: 2*App*Elo/(App + Elo)
+      unit: Hz
+      label: Fréquence émise
+    b:
+      expr: 343*(App + Elo)/(2*App*Elo)
+      unit: m
+      label: Longueur d'onde
 source: Question_dev/Doppler/train.tex
 original_values:
   App:

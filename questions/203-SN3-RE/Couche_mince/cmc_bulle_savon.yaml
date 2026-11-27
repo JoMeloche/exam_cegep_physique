@@ -1,0 +1,19 @@
+title: Couleurs réfléchies par un film de savon
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  ep: {type: integer, min: 250, max: 600, step: 10, unit: nm, si: 1e-9, label: Épaisseur du film}
+  n: {type: choice, values: [1.33, 1.35], label: Indice de réfraction du film}
+  lam: {type: integer, min: 420, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde de la partie c)}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    l0: {expr: "4*n*ep", unit: m, label: Longueur d'onde réfléchie (m = 0)}
+    l1: {expr: "4*n*ep/3", unit: m, label: Longueur d'onde réfléchie (m = 1)}
+    l2: {expr: "4*n*ep/5", unit: m, label: Longueur d'onde réfléchie (m = 2)}
+    ld: {expr: "2*n*ep", unit: m, label: Plus grande longueur d'onde éteinte}
+    tmin: {expr: "lam/(4*n)", unit: m, label: Épaisseur minimale pour la partie c)}

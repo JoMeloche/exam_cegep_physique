@@ -1,0 +1,15 @@
+title: 'Stabilité d''un objet posé sur une table'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Tant que le centre de masse est au-dessus de la table, le poids produit un moment de force qui ramène le livre ; au-delà du bord, le moment fait basculer le livre.'
+choices:
+  - 'Jusqu''à ce que la moitié de sa longueur ait dépassé le bord, peu importe la position de son centre de masse'
+  - 'Jusqu''à ce que les trois quarts de sa longueur dépassent'
+  - 'Jusqu''à ce que son centre de masse soit juste au-dessus du bord de la table'
+  - 'Il bascule dès qu''il dépasse le bord'

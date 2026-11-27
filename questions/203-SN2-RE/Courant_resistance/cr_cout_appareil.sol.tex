@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Courant et résistance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $V = \qty{240}{V}$ ; variables recherchées : $I$, $R$
+    \item \textbf{Équations pertinentes :}
+    \[ P = VI \qquad V = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{P}{V} \qquad R = \frac{V}{I} = \frac{V^2}{P} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{P}}}{\num{240}} = \Res{\v{P}/240}{A} \qquad R = \frac{(\num{240})^2}{\num{\v{P}}} = \Res{240^2/\v{P}}{\ohm} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{\v{P}/240}{A}}$ et $R = \mathbf{\Res{240^2/\v{P}}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie consommée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\fpeval{\v{P}/1000}}{kW}$, $\Delta t = \num{30} \times \qty{\v{h}}{h} = \qty{\fpeval{30*\v{h}}}{h}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = P\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \num{\fpeval{\v{P}/1000}} \cdot \num{\fpeval{30*\v{h}}} = \Res{\v{P}/1000*30*\v{h}}{kWh} = \Res{\v{P}/1000*30*\v{h}}{} \times \qty{3.6e6}{J} = \ResSci{\v{P}*30*\v{h}*3600}{J} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{\v{P}/1000*30*\v{h}}{kWh}}$ $= \ResSci{\v{P}*30*\v{h}*3600}{J}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Coût}
+\[ \text{Coût} = \Res{\v{P}/1000*30*\v{h}}{kWh} \times \qty{\v{prix}}{\text{¢}/kWh} = \Res{\v{P}/1000*30*\v{h}*\v{prix}}{\text{¢}} \]
+Le mois coûte environ \textbf{\num[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*30*\v{h}*\v{prix}/100}}~\$}.

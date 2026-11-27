@@ -1,4 +1,4 @@
-title: Masse ressort moteur
+title: Masse-ressort entraîné par un moteur
 type: conceptuel
 points: 4
 time_min: 4
@@ -7,12 +7,13 @@ figures:
 - masse_ressort_general.png
 solution:
   mode: none
+answer: C
+explanation: 'Résonance : l''amplitude est maximale quand la fréquence d''excitation égale la fréquence naturelle (\qty{2}{Hz}).'
 choices:
 - Si le moteur applique une force très intense
 - Si le moteur applique une force faible mais constante
 - Si le moteur vibre à une fréquence de $2\text{ Hz}$
 - Si le moteur vibre à une fréquence très supérieure à $2\text{ Hz}$
 - Si le moteur vibre à une fréquence très inférieure à $2\text{ Hz}$
-needs_review: true
 source: Question_concept/MHS/masse_ressort_moteur.tex
 history: []
