@@ -67,10 +67,22 @@ jobs:
           export EXAM_APP_HOME="$RUNNER_TEMP/exam_home"
           "$APP/Contents/MacOS/ExamGen" > "$RUNNER_TEMP/app.log" 2>&1 &
           pid=$!
-          sleep 25
+          port=""
+          for i in $(seq 1 60); do
+            port="$(lsof -nP -a -p $pid -iTCP -sTCP:LISTEN 2>/dev/null | awk 'NR>1{split($9,a,":");print a[2];exit}')"
+            [ -n "$port" ] && break; sleep 1
+          done
           cat "$RUNNER_TEMP/app.log" || true
-          ls "$EXAM_APP_HOME/questions" | head
-          kill -0 $pid   # still running = server and window came up without crashing
+          test -n "$port"
+          ls "$EXAM_APP_HOME/questions"
+          curl -fsS "http://127.0.0.1:$port/api/health" | tee "$RUNNER_TEMP/health.json"; echo
+          grep -q 'ExamGen.app/Contents' "$RUNNER_TEMP/health.json"   # bundled pdflatex is the one used
+          # generate a real exam (1 version + solution) through the bundled app and LaTeX
+          curl -fsS -X POST "http://127.0.0.1:$port/api/exams/export" -H 'Content-Type: application/json' \
+            -d '{"course":"203-SN3-RE","exam_number":1,"date":"2026-09-28","professor":"CI","n_versions":1,"seed":1,"record_usage":false}' \
+            | tee "$RUNNER_TEMP/export.json"; echo
+          python3 -c 'import json,sys;f=[x["name"] for x in json.load(open(sys.argv[1]))["files"]];print(f);assert any(n.endswith(".pdf") for n in f)' "$RUNNER_TEMP/export.json"
+          kill -0 $pid   # still running
           kill $pid || true
 
       - uses: actions/upload-artifact@v4
