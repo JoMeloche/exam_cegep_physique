@@ -1,9 +1,0 @@
-services:
-  examgen:
-    build: .
-    image: examgen:latest
-    ports:
-      - "8765:8765"
-    volumes:
-      - ${EXAM_APP_DIR:-~/exam_app}:/data
-    restart: unless-stopped

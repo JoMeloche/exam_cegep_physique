@@ -1,12 +1,18 @@
-school: Cégep de Valleyfield
-professors:
-- Jonathan Meloche-Gagnon
-default_professor: Jonathan Meloche-Gagnon
+# Configuration de la bibliothèque. L'écran « Paramètres » de l'application modifie ce fichier.
+# Au premier lancement, un écran de configuration demande l'établissement, les professeurs et les cours.
+# Un cours peut réutiliser la banque d'un autre dossier, ex. dans votre cégep :
+#   courses:
+#     203-NYC-05: {title: Physique, full_title: Ondes et physique moderne, questions_from: [203-SN3-RE]}
+setup_done: false
+school: ''
+logo: ''
+professors: []
+default_professor: ''
 courses:
   203-SN3-RE:
     title: Physique
     full_title: Ondes et physique moderne
-    group: groupe 2
+    group: ''
   203-SN1-RE:
     title: Physique
     full_title: Mécanique

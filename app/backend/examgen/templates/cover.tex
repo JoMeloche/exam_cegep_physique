@@ -1,41 +1,32 @@
 \noindent
-<<school>> \hfill NOM : \underline{\hspace{5.5cm}} \\
-<<course_title>> <<course>><<group_paren>> \hfill <<date_long>> \\
-Professeur : <<professor>> \hfill Durée : <<duration>>
+\begin{minipage}[t]{0.62\textwidth}
+<<logo>><<school>>\\
+<<course_title>> <<course>><<group_paren>>\\
+<<professor_label>> : <<professor>>
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\textwidth}\raggedleft
+<<name_label>> : \underline{\hspace{4.5cm}}\\[0.4ex]
+<<date_long>>\\
+Durée : <<duration>>
+\end{minipage}
 
 \begin{center}
-    \huge\underline{\textbf{Examen \#<<exam_number>> --- Version <<version>>}}<<solution_banner>>
+    \huge\underline{\textbf{<<exam_label>> \#<<exam_number>> --- <<version_label>> <<version>>}}<<solution_banner>>
 \end{center}
 
 \vspace{0.3cm}
 \hrule
 \vspace{0.3cm}
 
-\textbf{CONSIGNES POUR L'EXAMEN :} les éléments suivants sont exigés dans les solutions de problèmes :
-\begin{itemize}[leftmargin=*, noitemsep]
-    \item schéma de la situation avec identification des variables ;
-    \item données initiales ;
-    \item exposé clair de chaque étape de la solution avec titre ou courte phrase explicative, équations utilisées, résolution algébrique (voir ci-dessous) et calculs numériques (avec unités).
-    \begin{itemize}
-        \item Isolez algébriquement la variable recherchée avant de remplacer par les valeurs numériques.
-        \item Faites le moins d'approximations possible lors de vos calculs.
-        \item Donnez les réponses finales avec au moins trois chiffres significatifs.
-    \end{itemize}
-\end{itemize}
-Les calculatrices programmables, téléphones cellulaires et autres appareils multimédias sont interdits.\\
-Lorsque vous aurez terminé, brochez le questionnaire sur le dessus de votre examen.
+<<instructions>>
 
 \vspace{0.3cm}
 \hrule
 \vspace{0.5cm}
 
-\textbf{Cet examen comporte <<summary>> pour un total de <<total>> points.
-\\
-\\
-Note importante : Si vous ne réussissez pas à trouver la réponse à une partie d’une
-question et vous avez besoin de cette réponse pour les parties suivantes, vous pouvez
-inventer une valeur pour poursuivre le problème et vous ne serez pas pénalisé.e tant
-que votre démarche reste cohérente à la valeur inventée!}
+\textbf{Cet examen comporte <<summary>> pour un total de <<total>> points.}
+
+\textbf{<<note>>}
 \vspace{5cm}
 \begin{center}
     \Huge \textbf{\rule{1cm}{0.4pt}/<<total>> points}

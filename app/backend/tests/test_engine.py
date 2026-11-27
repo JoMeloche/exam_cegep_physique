@@ -17,6 +17,8 @@ def test_naming():
     d = dt.date(2026, 9, 28)
     assert exam_basename("203-SN3-RE", 1, d, 1) == "203-SN3-RE_Examen_1_A26_v1"
     assert session_code(dt.date(2027, 1, 10)) == "H27"
+    assert session_code(dt.date(2027, 1, 10), {"W": [1, 2, 3, 4]}) == "W27"
+    assert exam_basename("X", 2, d, 3, {"naming": {"file_pattern": "{course}-E{exam}-{year}-{version}"}}) == "X-E2-2026-3"
     assert session_code(dt.date(2027, 7, 1)) == "E27"
     assert date_long_fr(d) == "28 septembre 2026"
     assert duration_text(120) == "2 h" and duration_text(150) == "2 h 30"

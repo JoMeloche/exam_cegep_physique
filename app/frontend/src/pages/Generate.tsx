@@ -16,7 +16,7 @@ import {
   api, type Config, type Course, type ExamDef, type ExamRequest, type ExportResult, type Placed, type Plan,
   type QuestionSummary,
 } from '@/lib/api'
-import { cn, durationText, isoDate, sessionCode } from '@/lib/utils'
+import { cn, durationText, fileBaseName, isoDate, sessionCode } from '@/lib/utils'
 
 const DURATIONS = [60, 75, 90, 105, 120, 135, 150, 165, 180, 210, 240]
 
@@ -64,8 +64,8 @@ export default function Generate() {
 
   const courseObj = courses.find((c) => c.code === course)
   const topicLabel = (t: string) => courseObj?.topics.find((x) => x.name === t)?.label ?? t.replace(/_/g, ' ')
-  const session = sessionCode(date)
-  const fileName = `${course}_Examen_${examNumber}_${session}_v1.pdf`
+  const session = sessionCode(date, config?.sessions)
+  const fileName = fileBaseName(config?.naming?.file_pattern, { course, exam: examNumber, session, version: 1, date }) + '.pdf'
 
   function buildRequest(extra: Partial<ExamRequest> = {}): ExamRequest {
     return {
