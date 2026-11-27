@@ -1,0 +1,100 @@
+name: Build macOS app
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+  pull_request:
+    paths:
+      - "app/**"
+      - ".github/workflows/build-macos.yml"
+
+permissions:
+  contents: write   # attach the .dmg files to the release on v* tags
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15         # Apple Silicon
+            arch: arm64
+          - runner: macos-15-intel   # Intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: app/frontend/package-lock.json
+
+      - name: Cache TinyTeX
+        uses: actions/cache@v4
+        with:
+          path: app/packaging/build/TinyTeX
+          key: tinytex-macos-${{ matrix.arch }}-${{ hashFiles('app/packaging/tex-packages.txt') }}
+
+      - name: Version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then v="${GITHUB_REF_NAME#v}"
+          else v="$(python -c 'import tomllib;print(tomllib.load(open("backend/pyproject.toml","rb"))["project"]["version"])')"; fi
+          echo "EXAMGEN_VERSION=$v" >> "$GITHUB_ENV"
+
+      - name: Build .app and .dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash packaging/build_macos.sh
+
+      - name: Smoke test (app starts its server and finds LaTeX)
+        run: |
+          APP=packaging/dist/ExamGen.app
+          test -x "$APP/Contents/Resources/tinytex/bin/universal-darwin/pdflatex"
+          test -d "$APP/Contents/Frameworks/seed/questions"
+          file "$APP/Contents/MacOS/ExamGen"
+          du -sh "$APP" packaging/dist/*.dmg
+          export EXAM_APP_HOME="$RUNNER_TEMP/exam_home"
+          "$APP/Contents/MacOS/ExamGen" > "$RUNNER_TEMP/app.log" 2>&1 &
+          pid=$!
+          port=""
+          for i in $(seq 1 60); do
+            port="$(lsof -nP -a -p $pid -iTCP -sTCP:LISTEN 2>/dev/null | awk 'NR>1{split($9,a,":");print a[2];exit}')"
+            [ -n "$port" ] && break; sleep 1
+          done
+          cat "$RUNNER_TEMP/app.log" || true
+          test -n "$port"
+          ls "$EXAM_APP_HOME/questions"
+          curl -fsS "http://127.0.0.1:$port/api/health" | tee "$RUNNER_TEMP/health.json"; echo
+          grep -q 'ExamGen.app/Contents' "$RUNNER_TEMP/health.json"   # bundled pdflatex is the one used
+          # a teacher fills the school on the setup screen; an empty one trips the cover page (fixed in PR #3)
+          sed -i '' "s/^school: ''/school: 'Cégep CI'/" "$EXAM_APP_HOME/config.yaml"
+          # generate a real exam (1 version + solution) through the bundled app and LaTeX
+          curl -sS -o "$RUNNER_TEMP/export.json" -w '%{http_code}\n' -X POST "http://127.0.0.1:$port/api/exams/export" -H 'Content-Type: application/json' \
+            -d '{"course":"203-SN3-RE","exam_number":1,"date":"2026-09-28","professor":"CI","n_versions":1,"seed":1,"record_usage":false}' \
+          ; cat "$RUNNER_TEMP/export.json"; echo
+          python3 -c 'import json,sys;f=[x["name"] for x in json.load(open(sys.argv[1]))["files"]];print(f);assert any(n.endswith(".pdf") for n in f)' "$RUNNER_TEMP/export.json"
+          kill -0 $pid   # still running
+          kill $pid || true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ExamGen-macos-${{ matrix.arch }}
+          path: app/packaging/dist/*.dmg
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/packaging/dist/*.dmg
