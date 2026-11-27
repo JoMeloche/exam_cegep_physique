@@ -6,17 +6,17 @@ export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
 }
 export function CardHeader({ className, title, description, action }: { className?: string; title: React.ReactNode; description?: React.ReactNode; action?: React.ReactNode }) {
   return (
-    <div className={cn('flex items-start justify-between gap-4 border-b px-5 py-4', className)}>
-      <div>
-        <h3 className="font-semibold">{title}</h3>
-        {description && <p className="mt-0.5 text-sm text-muted-foreground">{description}</p>}
+    <div className={cn('flex flex-wrap items-start justify-between gap-x-4 gap-y-2 border-b px-4 py-4 sm:px-5', className)}>
+      <div className="min-w-0">
+        <h2 className="font-semibold">{title}</h2>
+        {description && <div className="mt-0.5 break-words text-sm text-muted-foreground">{description}</div>}
       </div>
-      {action}
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   )
 }
 export function CardBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('p-5', className)} {...props} />
+  return <div className={cn('p-4 sm:p-5', className)} {...props} />
 }
 
 export function Badge({ className, tone = 'default', ...props }: React.HTMLAttributes<HTMLSpanElement> & { tone?: 'default' | 'primary' | 'success' | 'warning' | 'danger' }) {

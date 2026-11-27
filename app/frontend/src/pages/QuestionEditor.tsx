@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { AlertTriangle, CheckCircle2, FlaskConical, ImagePlus, Loader2, Plus, Save, Trash2, Wand2, X } from 'lucide-react'
 import { PageHeader } from '@/App'
+import { useConfirm } from '@/components/ui/confirm'
 import { LatexEditor } from '@/components/LatexEditor'
 import { Button } from '@/components/ui/button'
 import { Badge, Card, CardBody, CardHeader } from '@/components/ui/card'
@@ -52,6 +53,7 @@ export default function QuestionEditor() {
   const [topic, setTopic] = useState('')
   const [newTopic, setNewTopic] = useState('')
   const [name, setName] = useState('')
+  const [confirmDialog, ask] = useConfirm()
   const [title, setTitle] = useState('')
   const [qtype, setQtype] = useState<QType>('developpement')
   const [points, setPoints] = useState(20)
@@ -109,6 +111,9 @@ export default function QuestionEditor() {
 
   const courseObj = courses.find((c) => c.code === course)
   const isConcept = qtype === 'conceptuel'
+  // The file name defaults to the title, simplified (accents and spaces removed).
+  const autoName = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 60)
+  const fileName = name || autoName
 
   function setVar(i: number, patch: Partial<VarRow>) { setVars((vs) => vs.map((v, j) => (j === i ? { ...v, ...patch } : v))) }
   function setPart(i: number, patch: Partial<PartRow>) { setParts((ps) => ps.map((p, j) => (j === i ? { ...p, ...patch } : p))) }
@@ -148,7 +153,7 @@ export default function QuestionEditor() {
       if (explanation) meta.explanation = explanation
       if (choices.length) { meta.choices = choices; if (pinLast) meta.pin_last = pinLast }
     }
-    return { course, topic: topic === '__new' ? newTopic : topic, name, meta, body, solution_tex: mode === 'manual' ? solution : '', original_id: editId }
+    return { course, topic: topic === '__new' ? newTopic : topic, name: fileName, meta, body, solution_tex: mode === 'manual' ? solution : '', original_id: editId }
   }
 
   async function runTest() {
@@ -166,8 +171,8 @@ export default function QuestionEditor() {
   }
 
   async function remove() {
-    if (!editId || !confirm('Supprimer cette question ?')) return
-    await api.deleteQuestion(editId); toast.success('Question supprimée'); nav('/library')
+    if (!editId || !(await ask({ title: 'Supprimer cette question ?', description: `« ${title || name} » sera retirée de votre banque. Les examens déjà produits ne changent pas.` }))) return
+    try { await api.deleteQuestion(editId); toast.success('Question supprimée'); nav('/library') } catch (e) { toast.error((e as Error).message) }
   }
 
   async function uploadFigure(f: File) {
@@ -187,10 +192,10 @@ export default function QuestionEditor() {
         actions={<>
           {editId && <Button variant="ghost" onClick={remove}><Trash2 className="h-4 w-4" />Supprimer</Button>}
           <Button variant="outline" onClick={runTest} disabled={!!busy}>{busy === 'test' ? <Loader2 className="h-4 w-4 animate-spin" /> : <FlaskConical className="h-4 w-4" />}Tester (5 tirages)</Button>
-          <Button onClick={save} disabled={!!busy || !name}>{busy === 'save' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}Enregistrer</Button>
+          <Button onClick={save} disabled={!!busy || !fileName} title={fileName ? undefined : 'Donnez un titre ou un nom de fichier'}>{busy === 'save' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}Enregistrer</Button>
         </>} />
 
-      <div className="grid gap-6 p-8 2xl:grid-cols-[1fr_520px]">
+      <div className="grid grid-cols-1 gap-6 p-4 sm:p-6 lg:p-8 2xl:grid-cols-[minmax(0,1fr)_520px]">
         <div className="space-y-6">
           <Card>
             <CardHeader title="Identification" />
@@ -204,7 +209,7 @@ export default function QuestionEditor() {
               {topic === '__new' ? (
                 <Field label="Nouveau thème" hint="Sans accents ni espaces, ex. Effet_Compton"><Input value={newTopic} onChange={(e) => setNewTopic(e.target.value)} /></Field>
               ) : <div className="hidden md:block" />}
-              <Field label="Nom du fichier" hint="ex. masse_ressort_energie"><Input value={name} onChange={(e) => setName(e.target.value.replace(/[^A-Za-z0-9_-]/g, '_'))} /></Field>
+              <Field label="Nom du fichier" hint={name ? 'Lettres, chiffres, _ et -.' : 'Laissez vide pour le déduire du titre.'}><Input value={name} placeholder={autoName || 'masse_ressort_energie'} onChange={(e) => setName(e.target.value.replace(/[^A-Za-z0-9_-]/g, '_'))} /></Field>
               <Field label="Titre" className="md:col-span-2"><Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Masse-ressort sachant E, m, k" /></Field>
               <Field label="Type">
                 <Segmented value={qtype} onChange={(v) => { setQtype(v); if (v === 'conceptuel') { setPoints(4); setTime(4); setMode('none') } }}
@@ -270,7 +275,7 @@ export default function QuestionEditor() {
                 {constraints.map((c, i) => (
                   <div key={i} className="flex gap-2">
                     <Input className="font-mono text-xs" value={c} onChange={(e) => setConstraints(constraints.map((x, j) => (j === i ? e.target.value : x)))} placeholder="v < 0.9*sqrt(2*Em/m)" />
-                    <Button size="icon" variant="ghost" onClick={() => setConstraints(constraints.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
+                    <Button size="icon" variant="ghost" aria-label={`Retirer la contrainte ${i + 1}`} title="Retirer" onClick={() => setConstraints(constraints.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
                   </div>
                 ))}
                 <Button size="sm" variant="ghost" className="text-primary" onClick={() => setConstraints([...constraints, ''])}><Plus className="h-3.5 w-3.5" />Ajouter une contrainte</Button>
@@ -287,7 +292,7 @@ export default function QuestionEditor() {
                     <button onClick={() => setAnswer(String.fromCharCode(65 + i))} title="Bonne réponse"
                       className={cn('grid h-8 w-8 shrink-0 place-items-center rounded-md text-sm font-semibold cursor-pointer', answer === String.fromCharCode(65 + i) ? 'bg-success text-white' : 'bg-muted')}>{String.fromCharCode(65 + i)}</button>
                     <Input value={c} onChange={(e) => setChoices(choices.map((x, j) => (j === i ? e.target.value : x)))} />
-                    <Button size="icon" variant="ghost" onClick={() => setChoices(choices.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
+                    <Button size="icon" variant="ghost" aria-label={`Retirer le choix ${String.fromCharCode(65 + i)}`} title="Retirer" onClick={() => setChoices(choices.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
                   </div>
                 ))}
                 <div className="flex flex-wrap items-center gap-4 pt-1">
@@ -328,7 +333,7 @@ export default function QuestionEditor() {
                       <Field label="Unité" className="col-span-4 md:col-span-1"><Input className="h-8 px-2 text-xs" value={p.unit ?? ''} onChange={(e) => setPart(i, { unit: e.target.value })} /></Field>
                       <Field label="Description" className="col-span-6 md:col-span-3"><Input className="h-8 text-xs" value={p.label ?? ''} onChange={(e) => setPart(i, { label: e.target.value })} placeholder="Amplitude" /></Field>
                       <div className="col-span-2 flex justify-end md:col-span-1">
-                        <Button size="icon" variant="ghost" onClick={() => setParts(parts.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
+                        <Button size="icon" variant="ghost" aria-label={`Retirer la partie ${i + 1}`} title="Retirer" onClick={() => setParts(parts.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
                       </div>
                     </div>
                   ))}
@@ -347,6 +352,7 @@ export default function QuestionEditor() {
           <TestPanel test={test} busy={busy === 'test'} onTest={runTest} />
         </div>
       </div>
+      {confirmDialog}
     </div>
   )
 }

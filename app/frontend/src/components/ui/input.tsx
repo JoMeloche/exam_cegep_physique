@@ -33,12 +33,20 @@ export function Label({ className, ...props }: React.LabelHTMLAttributes<HTMLLab
   return <label className={cn('text-xs font-medium uppercase tracking-wide text-muted-foreground', className)} {...props} />
 }
 
+/** A labelled form row. The label is tied to the control (and the hint described by it) when the
+ *  child is a single element, so screen readers announce "Professeur, liste" instead of nothing. */
 export function Field({ label, children, className, hint }: { label: string; children: React.ReactNode; className?: string; hint?: React.ReactNode }) {
+  const id = React.useId()
+  const hintId = `${id}-hint`
+  const only = React.Children.count(children) === 1 && React.isValidElement(children) ? children as React.ReactElement<Record<string, unknown>> : null
+  const control = only && !only.props.id
+    ? React.cloneElement(only, { id, ...(hint && !only.props['aria-describedby'] ? { 'aria-describedby': hintId } : {}) })
+    : children
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
-      <Label>{label}</Label>
-      {children}
-      {hint && <p className="text-xs text-muted-foreground">{hint}</p>}
+      <Label htmlFor={only ? (only.props.id as string | undefined) ?? id : undefined}>{label}</Label>
+      {control}
+      {hint && <p id={hintId} className="text-xs text-muted-foreground">{hint}</p>}
     </div>
   )
 }

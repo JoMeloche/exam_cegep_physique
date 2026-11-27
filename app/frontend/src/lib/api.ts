@@ -55,8 +55,19 @@ export interface ExamRequest {
   mode: 'same' | 'different'; seed?: number; locks?: Record<string, string>; exam_def?: ExamDef
   shuffle_conceptual?: boolean; shuffle_choices?: boolean; include_shared?: boolean
 }
-export interface ExportResult { folder: string; files: { name: string; url: string; path: string }[]; warnings: string[]; seed: number }
+export interface ExportResult { folder: string; course: string; name: string; files: { name: string; url: string; path: string }[]; warnings: string[]; seed: number }
 export interface TestResult { problems: string[]; pdf: string | null; draws: Record<string, string>[]; answers: { key: string; name: string; value: string; unit: string }[][]; log?: string }
+
+export interface ExportItem {
+  course: string; name: string; files: string[]; folder: string; modified: string
+  date?: string; professor?: string; n_versions?: number | null
+  pairs?: { exam: string | null; solution: string | null }[]
+}
+
+/** Link to a ZIP of one generated exam's PDFs. */
+export function exportZipUrl(course: string, name: string, which: 'all' | 'exams' | 'solutions' = 'all') {
+  return `/api/exports/${encodeURIComponent(course)}/${encodeURIComponent(name)}.zip?which=${which}`
+}
 
 export class ApiError extends Error {
   constructor(message: string, public status: number, public data: unknown) { super(message) }
@@ -129,7 +140,8 @@ export const api = {
   plan: (r: ExamRequest) => req<Plan>('POST', '/api/exams/plan', r),
   alternatives: (r: ExamRequest & { slot: string; exclude: string[] }) => req<QuestionSummary[]>('POST', '/api/exams/alternatives', r),
   exportExam: (r: ExamRequest) => req<ExportResult>('POST', '/api/exams/export', r),
-  exports: () => req<{ course: string; name: string; files: string[]; folder: string; modified: string }[]>('GET', '/api/exports'),
+  exports: () => req<ExportItem[]>('GET', '/api/exports'),
+  deleteExport: (course: string, name: string) => req<{ ok: boolean }>('DELETE', `/api/exports/${encodeURIComponent(course)}/${encodeURIComponent(name)}`),
   open: (path: string, reveal = false) => req<{ ok: boolean }>('POST', '/api/open', { path, reveal }),
   figures: () => req<string[]>('GET', '/api/figures'),
   uploadFigure: async (file: File) => {

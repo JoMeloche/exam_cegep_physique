@@ -13,10 +13,11 @@ import { Field, Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Segmented, Switch } from '@/components/ui/switch'
 import {
-  api, type Config, type Course, type ExamDef, type ExamRequest, type ExportResult, type Placed, type Plan,
+  api, exportZipUrl, type Config, type Course, type ExamDef, type ExamRequest, type ExportResult, type Placed, type Plan,
   type QuestionSummary,
 } from '@/lib/api'
-import { cn, durationText, fileBaseName, isoDate, sessionCode } from '@/lib/utils'
+import { cn, durationText, fileBaseName, frNumber, isoDate, sessionCode } from '@/lib/utils'
+import { Link } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 
 const DURATIONS = [60, 75, 90, 105, 120, 135, 150, 165, 180, 210, 240]
@@ -138,6 +139,8 @@ export default function Generate() {
     setConfig(cfg); setProfessor(name.trim()); setAddProfOpen(false)
   }
 
+  const solSuffix = config?.naming?.solution_suffix || '_solution'
+  const isSol = (name: string) => name.replace(/\.pdf$/i, '').endsWith(solSuffix)
   const version = plan?.versions.find((v) => v.number === activeVersion) ?? plan?.versions[0]
   const stats = useMemo(() => {
     if (!version) return null
@@ -162,7 +165,7 @@ export default function Generate() {
           </Button>
         )} />
 
-      <div className="grid gap-6 p-8 xl:grid-cols-[400px_1fr]">
+      <div className="grid grid-cols-1 gap-6 p-4 sm:p-6 lg:p-8 xl:grid-cols-[400px_minmax(0,1fr)]">
         <div className="space-y-6">
           <Card>
             <CardHeader title="Paramètres" description="Ce qui apparaît sur la page couverture" />
@@ -191,13 +194,13 @@ export default function Generate() {
               <div className="grid grid-cols-2 gap-3">
                 <Field label="Versions">
                   <div className="flex h-9 items-center justify-between rounded-lg border bg-card px-1">
-                    <Button size="icon" variant="ghost" className="h-7 w-7" onClick={() => setNVersions(Math.max(1, nVersions - 1))}><Minus className="h-3.5 w-3.5" /></Button>
-                    <span className="font-semibold tabular-nums">{nVersions}</span>
-                    <Button size="icon" variant="ghost" className="h-7 w-7" onClick={() => setNVersions(Math.min(8, nVersions + 1))}><Plus className="h-3.5 w-3.5" /></Button>
+                    <Button size="icon" variant="ghost" className="h-7 w-7" aria-label="Une version de moins" disabled={nVersions <= 1} onClick={() => setNVersions(Math.max(1, nVersions - 1))}><Minus className="h-3.5 w-3.5" /></Button>
+                    <span className="font-semibold tabular-nums" aria-live="polite" aria-label={`${nVersions} version${nVersions > 1 ? 's' : ''}`}>{nVersions}</span>
+                    <Button size="icon" variant="ghost" className="h-7 w-7" aria-label="Une version de plus" disabled={nVersions >= 8} onClick={() => setNVersions(Math.min(8, nVersions + 1))}><Plus className="h-3.5 w-3.5" /></Button>
                   </div>
                 </Field>
-                <Field label="Mélanger">
-                  <div className="flex h-9 items-center gap-2 text-sm"><Switch checked={shuffle} onChange={setShuffle} /> conceptuelles</div>
+                <Field label="Mélanger" hint="Ordre des questions conceptuelles et des choix de réponse.">
+                  <div className="flex h-9 items-center gap-2 text-sm"><Switch checked={shuffle} onChange={setShuffle} aria-label="Mélanger les questions conceptuelles et les choix" />{shuffle ? 'Oui' : 'Non'}</div>
                 </Field>
               </div>
               <Field label="Versions différentes par">
@@ -208,7 +211,7 @@ export default function Generate() {
               </Field>
               {auth.sharing && (
                 <Field label="Questions partagées" hint="Piger aussi dans les questions que vos collègues vous ont partagées.">
-                  <div className="flex h-9 items-center gap-2 text-sm"><Switch checked={includeShared} onChange={setIncludeShared} />{includeShared ? 'Incluses' : 'Ma banque seulement'}</div>
+                  <div className="flex h-9 items-center gap-2 text-sm"><Switch checked={includeShared} onChange={setIncludeShared} aria-label="Inclure les questions partagées" />{includeShared ? 'Incluses' : 'Ma banque seulement'}</div>
                 </Field>
               )}
               <div className="rounded-lg bg-muted px-3 py-2 font-mono text-xs text-muted-foreground">{fileName}</div>
@@ -284,14 +287,16 @@ export default function Generate() {
           {result && (
             <Card>
               <CardHeader title={<span className="flex items-center gap-2"><FileCheck2 className="h-5 w-5 text-success" />PDF prêts</span>}
-                description={<span className="font-mono text-xs">{result.folder}</span>}
-                action={desktop && <Button variant="outline" size="sm" onClick={() => api.open(result.folder)}><FolderOpen className="h-3.5 w-3.5" />Ouvrir le dossier</Button>} />
+                description={desktop ? <span className="break-all font-mono text-xs">{result.folder}</span> : <>Aussi dans <Link to="/exports" className="text-primary hover:underline">Examens produits</Link>.</>}
+                action={desktop
+                  ? <Button variant="outline" size="sm" onClick={() => api.open(result.folder)}><FolderOpen className="h-3.5 w-3.5" />Ouvrir le dossier</Button>
+                  : <a href={exportZipUrl(result.course, result.name)} className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-90"><Download className="h-3.5 w-3.5" />Tout télécharger (ZIP)</a>} />
               <CardBody className="grid gap-2 sm:grid-cols-2">
                 {result.files.map((f) => (
                   <a key={f.name} href={f.url} target="_blank" rel="noreferrer"
                     onClick={(e) => { if (desktop) { e.preventDefault(); api.open(f.path) } }}
-                    className={cn('flex items-center gap-3 rounded-lg border px-3 py-2.5 text-sm hover:bg-muted', f.name.includes('_solution') && 'bg-accent/40')}>
-                    <FileText2 solution={f.name.includes('_solution')} />
+                    className={cn('flex items-center gap-3 rounded-lg border px-3 py-2.5 text-sm hover:bg-muted', isSol(f.name) && 'bg-accent/40')}>
+                    <FileText2 solution={isSol(f.name)} />
                     <span className="truncate font-mono text-xs">{f.name}</span>
                   </a>
                 ))}
@@ -330,7 +335,7 @@ function TimeBar({ time, duration, margin, points, diff }: { time: number; durat
       </div>
       <div className="flex items-center justify-around rounded-lg bg-muted px-2 text-center">
         <div><div className="text-lg font-semibold tabular-nums">{Math.round(points)}</div><div className="text-[10px] uppercase text-muted-foreground">points</div></div>
-        <div><div className="text-lg font-semibold tabular-nums">{diff.toFixed(1)}</div><div className="text-[10px] uppercase text-muted-foreground">difficulté</div></div>
+        <div><div className="text-lg font-semibold tabular-nums">{frNumber(diff)}</div><div className="text-[10px] uppercase text-muted-foreground">difficulté</div></div>
       </div>
     </div>
   )
@@ -356,11 +361,11 @@ function QuestionRow({ p, index, topicLabel, locked, onLock, onSwap }: { p: Plac
       <div className="hidden items-center gap-4 text-xs text-muted-foreground md:flex">
         <span className="tabular-nums">{p.time_min} min</span>
         <Difficulty value={p.difficulty ?? 0} />
-        <span className="w-12 text-right font-medium tabular-nums text-foreground">{Math.round(p.points * 100) / 100} pts</span>
+        <span className="w-12 text-right font-medium tabular-nums text-foreground">{Number.isInteger(p.points) ? p.points : frNumber(p.points, 2)} pts</span>
       </div>
       <div className="flex items-center gap-1">
-        <Button size="icon" variant="ghost" title="Remplacer cette question" onClick={onSwap}><ArrowLeftRight className="h-4 w-4" /></Button>
-        <Button size="icon" variant={locked ? 'subtle' : 'ghost'} title={locked ? 'Déverrouiller' : 'Verrouiller (garder lors de la régénération)'} onClick={onLock}>
+        <Button size="icon" variant="ghost" title="Remplacer cette question" aria-label={`Remplacer la question ${index} : ${p.title}`} onClick={onSwap}><ArrowLeftRight className="h-4 w-4" /></Button>
+        <Button size="icon" variant={locked ? 'subtle' : 'ghost'} title={locked ? 'Déverrouiller' : 'Verrouiller (garder lors de la régénération)'} aria-label={locked ? `Déverrouiller la question ${index}` : `Verrouiller la question ${index}`} aria-pressed={locked} onClick={onLock}>
           {locked ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4 opacity-50" />}
         </Button>
       </div>
@@ -415,15 +420,21 @@ function StructureEditor({ def, onChange, topics, onSave }: { def: ExamDef; onCh
         action={<Button variant="ghost" size="sm" onClick={onSave}>Enregistrer</Button>} />
       <CardBody className="space-y-5">
         {def.sections.map((sec, si) => (
-          <div key={si} className="space-y-2">
+          <div key={si} className="space-y-2" role="group" aria-label={sec.title}>
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium">{sec.title}</span>
               {sec.type === 'conceptuel' && (
                 <span className="flex items-center gap-1 text-xs text-muted-foreground">total
-                  <Input className="h-7 w-14 px-2 text-xs" type="number" value={sec.points ?? ''} onChange={(e) => update((d) => { d.sections[si].points = Number(e.target.value) })} /> pts
+                  <Input className="h-7 w-14 px-2 text-xs" type="number" min={0} aria-label={`Points totaux, ${sec.title}`} value={sec.points ?? ''} onChange={(e) => update((d) => { d.sections[si].points = Number(e.target.value) })} /> pts
                 </span>
               )}
             </div>
+            {sec.slots.length > 0 && (
+              <div className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-wide text-muted-foreground" aria-hidden>
+                <span className="flex-1">Thème</span><span className="w-12 text-center">Nb</span>
+                {sec.type !== 'conceptuel' && <span className="w-14 text-center">Points</span>}<span className="w-8" />
+              </div>
+            )}
             {sec.slots.map((sl, li) => {
               const t = sl.topics ?? (sl.topic ? [sl.topic] : [])
               return (
@@ -431,13 +442,13 @@ function StructureEditor({ def, onChange, topics, onSave }: { def: ExamDef; onCh
                   <Select className="h-8 flex-1 text-xs" value={t[0]} onChange={(v) => update((d) => { d.sections[si].slots[li] = { ...sl, topic: v, topics: undefined } })}
                     options={topics} placeholder="Thème" />
                   {t.length > 1 && <Badge title={t.join(', ')}>+{t.length - 1}</Badge>}
-                  <Input className="h-8 w-12 px-2 text-center text-xs" type="number" min={1} value={sl.count} title="Nombre de questions"
+                  <Input className="h-8 w-12 px-2 text-center text-xs" type="number" min={1} value={sl.count} title="Nombre de questions" aria-label={`Nombre de questions, thème ${li + 1}`}
                     onChange={(e) => update((d) => { d.sections[si].slots[li].count = Math.max(1, Number(e.target.value)) })} />
                   {sec.type !== 'conceptuel' && (
-                    <Input className="h-8 w-14 px-2 text-center text-xs" type="number" value={sl.points ?? ''} title="Points"
+                    <Input className="h-8 w-14 px-2 text-center text-xs" type="number" min={0} value={sl.points ?? ''} title="Points par question" aria-label={`Points par question, thème ${li + 1}`}
                       onChange={(e) => update((d) => { d.sections[si].slots[li].points = Number(e.target.value) })} />
                   )}
-                  <Button size="icon" variant="ghost" className="h-8 w-8" onClick={() => update((d) => { d.sections[si].slots.splice(li, 1) })}><Trash2 className="h-3.5 w-3.5" /></Button>
+                  <Button size="icon" variant="ghost" className="h-8 w-8" aria-label={`Retirer le thème ${li + 1}`} title="Retirer" onClick={() => update((d) => { d.sections[si].slots.splice(li, 1) })}><Trash2 className="h-3.5 w-3.5" /></Button>
                 </div>
               )
             })}

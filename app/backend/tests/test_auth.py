@@ -6,14 +6,14 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-SRC = Path(os.environ.get("EXAMGEN_TEST_LIB", "/tmp/apilib"))
+from conftest import SRC, copy_library
 ADMIN = ("admin@cegep.test", "admin-password-123")
 
 
 @pytest.fixture()
 def env(tmp_path, monkeypatch):
     root = tmp_path / "data"
-    shutil.copytree(SRC, root)
+    copy_library(root)
     monkeypatch.setenv("EXAM_APP_HOME", str(root))
     monkeypatch.setenv("EXAMGEN_AUTH", "1")
     monkeypatch.delenv("EXAMGEN_DESKTOP", raising=False)
