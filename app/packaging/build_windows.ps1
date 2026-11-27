@@ -34,12 +34,14 @@ if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) {
   if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) { throw "TinyTeX extracted but $tt\bin\windows\pdflatex.exe is missing" }
 }
 $tlmgr = "$tt\bin\windows\tlmgr.bat"
+$env:PATH = "$tt\bin\windows;$env:PATH"  # fmtutil needs kpsewhich on PATH
 # The pinned TinyTeX is TeX Live 2025, and tlmgr refuses to install from a newer year's repository,
 # so install packages from the frozen TL2025 archive. Override with $env:TEXLIVE_REPO.
 $repos = if ($env:TEXLIVE_REPO) { @($env:TEXLIVE_REPO) } else { @(
   "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/tlnet-final",
   "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/tlnet-final") }
-$pkgs = Get-Content packaging\tex-packages.txt | Where-Object { $_.Trim() }
+# xfp has been part of l3kernel since TeX Live 2024 and is no longer a package of its own.
+$pkgs = Get-Content packaging\tex-packages.txt | Where-Object { $_.Trim() -and $_.Trim() -ne "xfp" }
 $ok = $false
 foreach ($r in $repos) {
   Write-Host "    packages from $r"
