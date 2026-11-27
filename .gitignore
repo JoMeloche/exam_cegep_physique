@@ -21,3 +21,5 @@ __pycache__/
 mes_examens/
 .env
 *.tsbuildinfo
+app/packaging/linux/build/
+app/packaging/linux/dist/
