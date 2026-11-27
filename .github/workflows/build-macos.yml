@@ -77,6 +77,8 @@ jobs:
           ls "$EXAM_APP_HOME/questions"
           curl -fsS "http://127.0.0.1:$port/api/health" | tee "$RUNNER_TEMP/health.json"; echo
           grep -q 'ExamGen.app/Contents' "$RUNNER_TEMP/health.json"   # bundled pdflatex is the one used
+          # a teacher fills the school on the setup screen; an empty one trips the cover page (fixed in PR #3)
+          sed -i '' "s/^school: ''/school: 'Cégep CI'/" "$EXAM_APP_HOME/config.yaml"
           # generate a real exam (1 version + solution) through the bundled app and LaTeX
           curl -sS -o "$RUNNER_TEMP/export.json" -w '%{http_code}\n' -X POST "http://127.0.0.1:$port/api/exams/export" -H 'Content-Type: application/json' \
             -d '{"course":"203-SN3-RE","exam_number":1,"date":"2026-09-28","professor":"CI","n_versions":1,"seed":1,"record_usage":false}' \
