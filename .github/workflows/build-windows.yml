@@ -1,0 +1,82 @@
+# Builds the Windows installer (ExamGen-Setup.exe) with app/packaging/build_windows.ps1.
+# Run it by hand from the Actions tab, or push a tag like v0.2.0 to also attach it to a GitHub release.
+name: Build Windows app
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+  pull_request:
+    paths:
+      - "app/**"
+      - ".github/workflows/build-windows.yml"
+
+permissions:
+  contents: write  # needed only to attach the installer to a release on tag pushes
+
+concurrency:
+  group: build-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: app/frontend/package-lock.json
+
+      - name: Install Inno Setup
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) { choco install innosetup -y --no-progress }
+
+      - name: Cache TinyTeX
+        uses: actions/cache@v4
+        with:
+          path: app/packaging/build/TinyTeX
+          key: tinytex-windows-${{ hashFiles('app/packaging/tex-packages.txt') }}
+
+      - name: Build installer
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          APP_VERSION: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '0.1.0' }}
+        run: |
+          $env:APP_VERSION = $env:APP_VERSION.TrimStart('v')
+          ./app/packaging/build_windows.ps1
+
+      - name: Smoke test (bundled LaTeX compiles a real exam)
+        working-directory: app
+        env:
+          EXAMGEN_TEX: ${{ github.workspace }}\app\packaging\dist\ExamGen\tinytex\bin\windows
+        run: |
+          Copy-Item -Recurse seed $env:RUNNER_TEMP\lib
+          .\.venv\Scripts\examgen --root "$env:RUNNER_TEMP\lib" generate --course 203-SN3-RE --exam 1 --versions 1 --seed 1 --no-record
+          if ($LASTEXITCODE -ne 0) { throw "exam generation failed" }
+          $pdfs = Get-ChildItem -Recurse "$env:RUNNER_TEMP\lib" -Filter *.pdf
+          if (-not $pdfs) { throw "no PDF produced" }
+          $pdfs | ForEach-Object { Write-Host $_.FullName }
+          if (-not (Test-Path packaging\dist\ExamGen\ExamGen.exe)) { throw "ExamGen.exe missing" }
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ExamGen-Setup-windows
+          path: app/packaging/Output/ExamGen-Setup.exe
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/packaging/Output/ExamGen-Setup.exe
