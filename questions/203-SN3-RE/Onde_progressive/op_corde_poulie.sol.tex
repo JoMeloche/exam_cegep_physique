@@ -1,0 +1,50 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse de l'impulsion}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $M = \qty{\v{M}}{kg}$, $\mu = \qty{\v{mu}}{g/m} = \qty{\vsi{mu}}{kg/m}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} le bloc est en équilibre, donc la tension vaut son poids :
+    \[ F = Mg \qquad v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{\frac{Mg}{\mu}} \]
+    \item \textbf{Résolution numérique :}
+    \[ F = \num{\v{M}} \cdot \num{9.81} = \Res{\v{M}*9.81}{N} \qquad v = \sqrt{\frac{\Val{\v{M}*9.81}}{\num{\vsi{mu}}}} = \Res{sqrt(\v{M}*9.81/\vsi{mu})}{m/s} \]
+    \item \textbf{Réponse :} l'impulsion se propage à \textbf{\Res{sqrt(\v{M}*9.81/\vsi{mu})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Temps aller-retour}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Distance parcourue : $2L = \qty{\fpeval{2*\v{L}}}{m}$, $v = \Res{sqrt(\v{M}*9.81/\vsi{mu})}{m/s}$
+        \item Variable recherchée : $\Delta t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2L}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{2L}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\fpeval{2*\v{L}}}{\Val{sqrt(\v{M}*9.81/\vsi{mu})}} = \Res{2*\v{L}/sqrt(\v{M}*9.81/\vsi{mu})}{s} \]
+    \item \textbf{Réponse :} l'impulsion revient à la poulie après \textbf{\Res{2000*\v{L}/sqrt(\v{M}*9.81/\vsi{mu})}{ms}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse pour une vitesse \num{\v{n}} fois plus grande}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v' = \num{\v{n}}\,v$, même corde ($\mu$ inchangé)
+        \item Variable recherchée : $M'$ (kg)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{v'}{v} = \sqrt{\frac{M'g/\mu}{Mg/\mu}} = \sqrt{\frac{M'}{M}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ M' = M\left(\frac{v'}{v}\right)^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ M' = \num{\v{M}} \cdot (\num{\v{n}})^2 = \Res{\v{M}*\v{n}^2}{kg} \]
+    \item \textbf{Réponse :} il faudrait suspendre un bloc de \textbf{\Res{\v{M}*\v{n}^2}{kg}}.
+\end{enumerate}

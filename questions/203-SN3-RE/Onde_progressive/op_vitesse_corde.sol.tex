@@ -1,0 +1,48 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse linéique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{g} = \qty{\vsi{m}}{kg}$, $L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $\mu$ (kg/m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \mu = \frac{m}{L} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \mu = \frac{\num{\vsi{m}}}{\num{\v{L}}} = \Res{\vsi{m}/\v{L}}{kg/m} \]
+    \item \textbf{Réponse :} la masse linéique est de \textbf{\Res{\vsi{m}/\v{L}}{kg/m}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de l'impulsion}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $F = \qty{\v{F}}{N}$, $\mu = \Res{\vsi{m}/\v{L}}{kg/m}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\frac{\num{\v{F}}}{\Val{\vsi{m}/\v{L}}}} = \Res{sqrt(\v{F}*\v{L}/\vsi{m})}{m/s} \]
+    \item \textbf{Réponse :} l'impulsion se propage à \textbf{\Res{sqrt(\v{F}*\v{L}/\vsi{m})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps de parcours}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $L = \qty{\v{L}}{m}$, $v = \Res{sqrt(\v{F}*\v{L}/\vsi{m})}{m/s}$
+        \item Variable recherchée : $\Delta t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{L}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{L}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\num{\v{L}}}{\Val{sqrt(\v{F}*\v{L}/\vsi{m})}} = \Res{\v{L}/sqrt(\v{F}*\v{L}/\vsi{m})}{s} \]
+    \item \textbf{Réponse :} l'impulsion atteint l'autre extrémité après \textbf{\Res{1000*\v{L}/sqrt(\v{F}*\v{L}/\vsi{m})}{ms}}.
+\end{enumerate}

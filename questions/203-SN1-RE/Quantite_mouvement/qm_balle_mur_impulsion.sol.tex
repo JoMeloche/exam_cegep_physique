@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Impulsion}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{m}}{kg}$, $v_i = \qty{-\v{v1}}{m/s}$ (vers le mur), $v_f = \qty{\v{v2}}{m/s}$ (axe positif sortant du mur) ; variable recherchée : $J$
+    \item \textbf{Équations pertinentes :} \[ J = \Delta p = m v_f - m v_i \]
+    \item \textbf{Isolation de la variable recherchée :} \[ J = m(v_f - v_i) = m(v_2 + v_1) \]
+    \item \textbf{Résolution numérique :} \[ J = \num{\vsi{m}} \cdot (\num{\v{v2}} + \num{\v{v1}}) = \Res{(\vsi{m}*(\vsi{v1} + \vsi{v2}))}{kg.m/s} \]
+    \item \textbf{Réponse :} $J = \mathbf{\Res{(\vsi{m}*(\vsi{v1} + \vsi{v2}))}{kg.m/s}}$, dirigée en sens opposé au mouvement initial.
+\end{enumerate}
+
+\subsubsection*{Question b) Force moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $J = \Res{(\vsi{m}*(\vsi{v1} + \vsi{v2}))}{kg.m/s}$, $\Delta t = \qty{\vsi{dt}}{s}$ ; variable recherchée : $F_{\text{moy}}$
+    \item \textbf{Équations pertinentes :} \[ J = F_{\text{moy}}\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_{\text{moy}} = \frac{J}{\Delta t} \]
+    \item \textbf{Résolution numérique :} \[ F_{\text{moy}} = \frac{\Val{(\vsi{m}*(\vsi{v1} + \vsi{v2}))}}{\num{\vsi{dt}}} = \Res{(\vsi{m}*(\vsi{v1} + \vsi{v2})/\vsi{dt})}{N} \]
+    \item \textbf{Réponse :} $F_{\text{moy}} = \mathbf{\Res{(\vsi{m}*(\vsi{v1} + \vsi{v2})/\vsi{dt})}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie cinétique perdue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{m}}{kg}$, $v_1 = \qty{\v{v1}}{m/s}$, $v_2 = \qty{\v{v2}}{m/s}$ ; variable recherchée : $|\Delta K|$
+    \item \textbf{Équations pertinentes :} \[ |\Delta K| = \tfrac{1}{2}mv_1^2 - \tfrac{1}{2}mv_2^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ |\Delta K| = \tfrac{1}{2} \cdot \num{\vsi{m}} \cdot \left(\num{\v{v1}}^2 - \num{\v{v2}}^2\right) = \Res{(0.5*\vsi{m}*(\vsi{v1}^2 - \vsi{v2}^2))}{J} \]
+    \item \textbf{Réponse :} $|\Delta K| = \mathbf{\Res{(0.5*\vsi{m}*(\vsi{v1}^2 - \vsi{v2}^2))}{J}}$
+\end{enumerate}

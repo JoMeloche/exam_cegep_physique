@@ -1,0 +1,15 @@
+title: 'Inertie dans un autobus'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Première loi de Newton : sans force pour le ralentir, le corps du passager continue à la même vitesse ; c''est l''autobus qui ralentit sous lui.'
+choices:
+  - 'Une force pousse le passager vers l''avant au moment du freinage.'
+  - 'Le passager tend à conserver sa vitesse alors que l''autobus ralentit (inertie).'
+  - 'La force gravitationnelle augmente pendant le freinage.'
+  - 'Le plancher de l''autobus pousse le passager vers l''avant.'

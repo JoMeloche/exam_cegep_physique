@@ -1,0 +1,604 @@
+% --- DEFINITION DES PARAMETRES SELON LA VERSION ---
+
+% Question 1 : Bungee
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QoneEq}{4.2 \sin(1.35 t)}
+    \newcommand{\QoneM}{55}
+    \newcommand{\QoneH}{1.0}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QoneEq}{3.8 \sin(1.25 t)}
+    \newcommand{\QoneM}{60}
+    \newcommand{\QoneH}{1.2}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QoneEq}{4.5 \sin(1.40 t)}
+    \newcommand{\QoneM}{50}
+    \newcommand{\QoneH}{0.8}
+}{}
+
+% Question 1 : MHS
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QoneK}{50}
+    \newcommand{\QoneEtir}{50}
+    \newcommand{\QoneTpass}{0.420}
+    \newcommand{\QoneXeval}{0.25}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QoneK}{60}
+    \newcommand{\QoneEtir}{40}
+    \newcommand{\QoneTpass}{0.350}
+    \newcommand{\QoneXeval}{0.20}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QoneK}{40}
+    \newcommand{\QoneEtir}{60}
+    \newcommand{\QoneTpass}{0.500}
+    \newcommand{\QoneXeval}{0.30}
+}{}
+
+% Question : Saxophone (Doppler)
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QtwoFreq}{440}
+    \newcommand{\QtwoValb}{1.4}
+    \newcommand{\QtwoVbea}{1.2}
+    \newcommand{\QtwoVvous}{0.5}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QtwoFreq}{440}
+    \newcommand{\QtwoValb}{1.6}
+    \newcommand{\QtwoVbea}{1.1}
+    \newcommand{\QtwoVvous}{0.6}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QtwoFreq}{523}
+    \newcommand{\QtwoValb}{1.5}
+    \newcommand{\QtwoVbea}{1.3}
+    \newcommand{\QtwoVvous}{0.4}
+}{}
+
+% Question : Guitare et Tuyau
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QtwoLc}{66}
+    \newcommand{\QtwoMu}{0.0012}
+    \newcommand{\QtwoLp}{36}
+    \newcommand{\QtwoVson}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QtwoLc}{60}
+    \newcommand{\QtwoMu}{0.0015}
+    \newcommand{\QtwoLp}{40}
+    \newcommand{\QtwoVson}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QtwoLc}{70}
+    \newcommand{\QtwoMu}{0.0010}
+    \newcommand{\QtwoLp}{30}
+    \newcommand{\QtwoVson}{343}
+}{}
+
+% Question : Guitare / Flûte
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QthreeMasse}{0.8}
+    \newcommand{\QthreeLcorde}{65}
+    \newcommand{\QthreeLflute}{60}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QthreeMasse}{0.9}
+    \newcommand{\QthreeLcorde}{70}
+    \newcommand{\QthreeLflute}{50}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QthreeMasse}{0.75}
+    \newcommand{\QthreeLcorde}{60}
+    \newcommand{\QthreeLflute}{55}
+}{}
+
+% Question: Dinosaures et Niveau Sonore
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QthreeP}{4}
+    \newcommand{\QthreeBeta}{85}
+    \newcommand{\QthreeR}{0.003}
+    \newcommand{\QthreeMusique}{80}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QthreeP}{5}
+    \newcommand{\QthreeBeta}{80}
+    \newcommand{\QthreeR}{0.004}
+    \newcommand{\QthreeMusique}{75}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QthreeP}{3}
+    \newcommand{\QthreeBeta}{88}
+    \newcommand{\QthreeR}{0.0025}
+    \newcommand{\QthreeMusique}{82}
+}{}
+
+% Question: Restaurant
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QfourNiveau}{75}
+    \newcommand{\QfourDist}{80}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QfourNiveau}{70}
+    \newcommand{\QfourDist}{90}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QfourNiveau}{78}
+    \newcommand{\QfourDist}{75}
+}{}
+
+% Question: Doppler et Chat
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QfourVr}{10}
+    \newcommand{\QfourVc}{10.5}
+    \newcommand{\QfourFreq}{2000}
+    \newcommand{\QfourVson}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QfourVr}{12}
+    \newcommand{\QfourVc}{13.0}
+    \newcommand{\QfourFreq}{2500}
+    \newcommand{\QfourVson}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QfourVr}{8}
+    \newcommand{\QfourVc}{8.8}
+    \newcommand{\QfourFreq}{1800}
+    \newcommand{\QfourVson}{343}
+}{}
+
+% Question : Équation d'onde
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\QfiveEq}{0.02 \sin\left(\pi x + \frac{\pi}{4}t + \frac{3\pi}{2}\right)}
+    \newcommand{\QfiveTeval}{2}
+    \newcommand{\QfiveXeval}{7}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\QfiveEq}{0.03 \sin\left(2\pi x + \frac{\pi}{2}t + \pi\right)}
+    \newcommand{\QfiveTeval}{1}
+    \newcommand{\QfiveXeval}{3}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\QfiveEq}{0.015 \sin\left(\frac{\pi}{2}x + \frac{\pi}{3}t + \frac{\pi}{2}\right)}
+    \newcommand{\QfiveTeval}{3}
+    \newcommand{\QfiveXeval}{5}
+}{}
+
+% Question 1 : MHS (Alien / Balle anti-stress)
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\BalleRaideur}{45}
+    \newcommand{\BalleEtirement}{40}
+    \newcommand{\BalleTempsPassage}{0.380}
+    \newcommand{\BallePosEval}{0.20}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\BalleRaideur}{55}
+    \newcommand{\BalleEtirement}{35}
+    \newcommand{\BalleTempsPassage}{0.310}
+    \newcommand{\BallePosEval}{0.15}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\BalleRaideur}{35}
+    \newcommand{\BalleEtirement}{50}
+    \newcommand{\BalleTempsPassage}{0.450}
+    \newcommand{\BallePosEval}{0.25}
+}{}
+
+% Question 2 : Ondes stationnaires (Guitare de concert vs Flûte de pan)
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\CordeLongueur}{102}
+    \newcommand{\CordeMasseLin}{0.0054}
+    \newcommand{\TuyauLongueur}{185}
+    \newcommand{\CordeVitesseSon}{344}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\CordeLongueur}{98}
+    \newcommand{\CordeMasseLin}{0.0062}
+    \newcommand{\TuyauLongueur}{196}
+    \newcommand{\CordeVitesseSon}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\CordeLongueur}{101}
+    \newcommand{\CordeMasseLin}{0.0063}
+    \newcommand{\TuyauLongueur}{204}
+    \newcommand{\CordeVitesseSon}{346}
+}{}
+
+% Question 3 : Intensité sonore (Le pneu qui éclate / DJ du Cégep)
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\PneuPuissance}{60}
+    \newcommand{\PneuNiveaudB}{95}
+    \newcommand{\OreilleRayon}{0.0035}
+    \newcommand{\MusiqueNiveaudB}{88}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\PneuPuissance}{80}
+    \newcommand{\PneuNiveaudB}{98}
+    \newcommand{\OreilleRayon}{0.0040}
+    \newcommand{\MusiqueNiveaudB}{89}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\PneuPuissance}{50}
+    \newcommand{\PneuNiveaudB}{92}
+    \newcommand{\OreilleRayon}{0.0030}
+    \newcommand{\MusiqueNiveaudB}{94}
+}{}
+
+% Question 4 : Doppler & Battements (faucon en trottinette vs Mouette)
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\CibleVitesse}{8}
+    \newcommand{\FauconVitesse}{11.5}
+    \newcommand{\OiseauFreq}{1800}
+    \newcommand{\DopplerVson}{340}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\CibleVitesse}{9}
+    \newcommand{\FauconVitesse}{12.8}
+    \newcommand{\OiseauFreq}{2200}
+    \newcommand{\DopplerVson}{343}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\CibleVitesse}{7}
+    \newcommand{\FauconVitesse}{10.2}
+    \newcommand{\OiseauFreq}{1600}
+    \newcommand{\DopplerVson}{338}
+}{}
+
+% Question 5.5 : Fonction d'onde cinématique
+\ifthenelse{\equal{\VersionExamen}{A}}{
+    \newcommand{\OndeEquation}{0.03 \sin\left(\frac{\pi}{2} x + \frac{\pi}{2} t + \pi\right)}
+    \newcommand{\OndeTempsEval}{1}
+    \newcommand{\OndePosEval}{6}
+}{}
+\ifthenelse{\equal{\VersionExamen}{B}}{
+    \newcommand{\OndeEquation}{0.025 \sin\left(\pi x + \frac{\pi}{3} t + \frac{\pi}{2}\right)}
+    \newcommand{\OndeTempsEval}{3}
+    \newcommand{\OndePosEval}{4}
+}{}
+\ifthenelse{\equal{\VersionExamen}{C}}{
+    \newcommand{\OndeEquation}{0.04 \sin\left(\frac{\pi}{3} x + \pi t + \frac{3\pi}{2}\right)}
+    \newcommand{\OndeTempsEval}{2}
+    \newcommand{\OndePosEval}{5}
+}{}
+
+% --- MHS ---
+\ifthenelse{\equal{\VersionChoisie}{A}}{
+    % VERSION A
+    \newcommand{\mhsqUnMasse}{500}
+    \newcommand{\mhsqUnK}{8}
+    \newcommand{\mhsqUnPosInit}{5}
+    \newcommand{\mhsqUnVitInit}{6}
+
+    \newcommand{\mhsqDeuxMasse}{52}
+    \newcommand{\mhsqDeuxK}{88}
+    \newcommand{\mhsqDeuxPosInit}{1.4}
+    \newcommand{\mhsqDeuxVitInit}{4.2}
+
+    \newcommand{\mhsqTroisMasse}{0.5}
+    \newcommand{\mhsqTroisK}{22}
+    \newcommand{\mhsqTroisHautEquil}{12}
+    \newcommand{\mhsqTroisAmp}{16}
+
+    \newcommand{\mhsqQuatreMasse}{0.6}
+    \newcommand{\mhsqQuatreDist}{5}
+
+    \newcommand{\mhsqCinqFreq}{50}
+    \newcommand{\mhsqCinqCourse}{6}
+    \newcommand{\mhsqCinqDepassement}{2}
+
+    \newcommand{\mhsqSixEm}{0.2}
+    \newcommand{\mhsqSixMasse}{120}
+    \newcommand{\mhsqSixK}{40}
+    \newcommand{\mhsqSixVit}{1.3}
+
+    \newcommand{\mhsqSeptMasse}{30}
+    \newcommand{\mhsqSeptAmp}{12}
+    \newcommand{\mhsqSeptK}{1.4}
+    \newcommand{\mhsqSeptPosA}{-4}
+    \newcommand{\mhsqSeptPosB}{8}
+
+    \newcommand{\mhsqHuitMasse}{40}
+    \newcommand{\mhsqHuitLongueur}{80}
+    \newcommand{\mhsqHuitAngle}{8.6}
+    \newcommand{\mhsqHuitVit}{0.60}
+
+    \newcommand{\mhsqDixPos}{5}
+    \newcommand{\mhsqDixVit}{0.6}
+    \newcommand{\mhsqDixMasse}{1.3}
+    \newcommand{\mhsqDixK}{35}
+
+    \newcommand{\mhsqOnzeAmp}{6.0}
+    \newcommand{\mhsqOnzeK}{0.7}
+    \newcommand{\mhsqOnzeOmega}{25}
+    \newcommand{\mhsqOnzeX}{2}
+    \newcommand{\mhsqOnzeT}{1.5}
+
+    \newcommand{\mhsqDouzeMasse}{0.5}
+    \newcommand{\mhsqDouzeK}{8}
+    \newcommand{\mhsqDouzePosInit}{5}
+    \newcommand{\mhsqDouzeVitInit}{6}
+
+    \newcommand{\mhsqTreizeMasse}{0.5}
+    \newcommand{\mhsqTreizeT}{0.5}
+
+    \newcommand{\mhsqQuatorzeK}{18.5}
+    \newcommand{\mhsqQuatorzeT}{0.5}
+
+    \newcommand{\mhsqCinqCPeriode}{3.0}
+    \newcommand{\mhsqNeufCPeriode}{3.0}
+}{
+\ifthenelse{\equal{\VersionChoisie}{B}}{
+    % VERSION B
+    \newcommand{\mhsqUnMasse}{400}
+    \newcommand{\mhsqUnK}{10}
+    \newcommand{\mhsqUnPosInit}{4}
+    \newcommand{\mhsqUnVitInit}{8}
+
+    \newcommand{\mhsqDeuxMasse}{60}
+    \newcommand{\mhsqDeuxK}{95}
+    \newcommand{\mhsqDeuxPosInit}{1.8}
+    \newcommand{\mhsqDeuxVitInit}{3.5}
+
+    \newcommand{\mhsqTroisMasse}{0.4}
+    \newcommand{\mhsqTroisK}{25}
+    \newcommand{\mhsqTroisHautEquil}{15}
+    \newcommand{\mhsqTroisAmp}{20}
+
+    \newcommand{\mhsqQuatreMasse}{0.8}
+    \newcommand{\mhsqQuatreDist}{8}
+
+    \newcommand{\mhsqCinqFreq}{60}
+    \newcommand{\mhsqCinqCourse}{8}
+    \newcommand{\mhsqCinqDepassement}{3}
+
+    \newcommand{\mhsqSixEm}{0.3}
+    \newcommand{\mhsqSixMasse}{150}
+    \newcommand{\mhsqSixK}{50}
+    \newcommand{\mhsqSixVit}{1.5}
+
+    \newcommand{\mhsqSeptMasse}{40}
+    \newcommand{\mhsqSeptAmp}{15}
+    \newcommand{\mhsqSeptK}{2.0}
+    \newcommand{\mhsqSeptPosA}{-5}
+    \newcommand{\mhsqSeptPosB}{10}
+
+    \newcommand{\mhsqHuitMasse}{50}
+    \newcommand{\mhsqHuitLongueur}{100}
+    \newcommand{\mhsqHuitAngle}{10.0}
+    \newcommand{\mhsqHuitVit}{0.50}
+
+    \newcommand{\mhsqDixPos}{6}
+    \newcommand{\mhsqDixVit}{0.8}
+    \newcommand{\mhsqDixMasse}{1.5}
+    \newcommand{\mhsqDixK}{40}
+
+    \newcommand{\mhsqOnzeAmp}{8.0}
+    \newcommand{\mhsqOnzeK}{0.5}
+    \newcommand{\mhsqOnzeOmega}{20}
+    \newcommand{\mhsqOnzeX}{3}
+    \newcommand{\mhsqOnzeT}{2.0}
+
+    \newcommand{\mhsqDouzeMasse}{0.4}
+    \newcommand{\mhsqDouzeK}{10}
+    \newcommand{\mhsqDouzePosInit}{4}
+    \newcommand{\mhsqDouzeVitInit}{8}
+
+    \newcommand{\mhsqTreizeMasse}{0.4}
+    \newcommand{\mhsqTreizeT}{0.4}
+
+    \newcommand{\mhsqQuatorzeK}{22.0}
+    \newcommand{\mhsqQuatorzeT}{0.4}
+
+    \newcommand{\mhsqCinqCPeriode}{2.5}
+    \newcommand{\mhsqNeufCPeriode}{2.5}
+}{
+    % VERSION C
+    \newcommand{\mhsqUnMasse}{600}
+    \newcommand{\mhsqUnK}{12}
+    \newcommand{\mhsqUnPosInit}{6}
+    \newcommand{\mhsqUnVitInit}{10}
+
+    \newcommand{\mhsqDeuxMasse}{48}
+    \newcommand{\mhsqDeuxK}{75}
+    \newcommand{\mhsqDeuxPosInit}{1.2}
+    \newcommand{\mhsqDeuxVitInit}{5.0}
+
+    \newcommand{\mhsqTroisMasse}{0.8}
+    \newcommand{\mhsqTroisK}{30}
+    \newcommand{\mhsqTroisHautEquil}{10}
+    \newcommand{\mhsqTroisAmp}{15}
+
+    \newcommand{\mhsqQuatreMasse}{0.5}
+    \newcommand{\mhsqQuatreDist}{4}
+
+    \newcommand{\mhsqCinqFreq}{45}
+    \newcommand{\mhsqCinqCourse}{5}
+    \newcommand{\mhsqCinqDepassement}{1.5}
+
+    \newcommand{\mhsqSixEm}{0.15}
+    \newcommand{\mhsqSixMasse}{100}
+    \newcommand{\mhsqSixK}{30}
+    \newcommand{\mhsqSixVit}{1.0}
+
+    \newcommand{\mhsqSeptMasse}{25}
+    \newcommand{\mhsqSeptAmp}{10}
+    \newcommand{\mhsqSeptK}{1.2}
+    \newcommand{\mhsqSeptPosA}{-3}
+    \newcommand{\mhsqSeptPosB}{6}
+
+    \newcommand{\mhsqHuitMasse}{35}
+    \newcommand{\mhsqHuitLongueur}{75}
+    \newcommand{\mhsqHuitAngle}{7.5}
+    \newcommand{\mhsqHuitVit}{0.70}
+
+    \newcommand{\mhsqDixPos}{4}
+    \newcommand{\mhsqDixVit}{0.5}
+    \newcommand{\mhsqDixMasse}{1.1}
+    \newcommand{\mhsqDixK}{30}
+
+    \newcommand{\mhsqOnzeAmp}{5.0}
+    \newcommand{\mhsqOnzeK}{0.8}
+    \newcommand{\mhsqOnzeOmega}{30}
+    \newcommand{\mhsqOnzeX}{1.5}
+    \newcommand{\mhsqOnzeT}{1.0}
+
+    \newcommand{\mhsqDouzeMasse}{0.6}
+    \newcommand{\mhsqDouzeK}{12}
+    \newcommand{\mhsqDouzePosInit}{6}
+    \newcommand{\mhsqDouzeVitInit}{10}
+
+    \newcommand{\mhsqTreizeMasse}{0.6}
+    \newcommand{\mhsqTreizeT}{0.6}
+
+    \newcommand{\mhsqQuatorzeK}{15.0}
+    \newcommand{\mhsqQuatorzeT}{0.6}
+
+    \newcommand{\mhsqCinqCPeriode}{3.5}
+    \newcommand{\mhsqNeufCPeriode}{3.5}
+}}
+
+% --- DOPPLER ---
+\ifthenelse{\equal{\VersionChoisie}{A}}{
+    % VERSION A
+    \newcommand{\doppUnVThon}{10}
+    \newcommand{\doppUnVDauphin}{14}
+    \newcommand{\doppUnFreq}{33000}
+    \newcommand{\doppUnVSon}{1513}
+
+    \newcommand{\doppDeuxTemp}{6}
+    \newcommand{\doppDeuxVit}{0.5}
+    \newcommand{\doppDeuxFreq}{21}
+
+    \newcommand{\doppTroisVFlute}{2}
+    \newcommand{\doppTroisVObs}{3}
+    \newcommand{\doppTroisLongueur}{35}
+
+    \newcommand{\doppQuatreFreqEm}{600}
+    \newcommand{\doppQuatreFreqObs}{640}
+
+    \newcommand{\doppCinqVPolice}{40}
+    \newcommand{\doppCinqFreq}{600}
+    \newcommand{\doppCinqVCamion}{20}
+    \newcommand{\doppCinqVSon}{343}
+
+    \newcommand{\doppSixVAuto}{40}
+    \newcommand{\doppSixVCamion}{15}
+    \newcommand{\doppSixFreq}{400}
+
+    \newcommand{\doppSeptFreqApp}{595}
+    \newcommand{\doppSeptFreqElo}{587}
+
+    \newcommand{\doppHuitFreqApp}{860}
+    \newcommand{\doppHuitFreqElo}{745}
+
+    \newcommand{\doppNeufFreqSonar}{22}
+    \newcommand{\doppNeufFreqBatt}{72}
+
+    \newcommand{\doppDixFreq}{440}
+    \newcommand{\doppDixVAlbert}{1.4}
+    \newcommand{\doppDixVBeatrice}{1.2}
+    \newcommand{\doppDixVVous}{0.5}
+
+    \newcommand{\doppOnzeFreqApp}{485}
+    \newcommand{\doppOnzeFreqElo}{400}
+
+    \newcommand{\doppUnCIntensite}{40}
+    \newcommand{\doppDeuxCVitCamion}{30}
+    \newcommand{\doppDeuxCVitAuto}{15}
+}{
+\ifthenelse{\equal{\VersionChoisie}{B}}{
+    % VERSION B
+    \newcommand{\doppUnVThon}{8}
+    \newcommand{\doppUnVDauphin}{12}
+    \newcommand{\doppUnFreq}{30000}
+    \newcommand{\doppUnVSon}{1500}
+
+    \newcommand{\doppDeuxTemp}{10}
+    \newcommand{\doppDeuxVit}{0.8}
+    \newcommand{\doppDeuxFreq}{25}
+
+    \newcommand{\doppTroisVFlute}{1.5}
+    \newcommand{\doppTroisVObs}{2.5}
+    \newcommand{\doppTroisLongueur}{40}
+
+    \newcommand{\doppQuatreFreqEm}{500}
+    \newcommand{\doppQuatreFreqObs}{530}
+
+    \newcommand{\doppCinqVPolice}{35}
+    \newcommand{\doppCinqFreq}{550}
+    \newcommand{\doppCinqVCamion}{15}
+    \newcommand{\doppCinqVSon}{343}
+
+    \newcommand{\doppSixVAuto}{35}
+    \newcommand{\doppSixVCamion}{20}
+    \newcommand{\doppSixFreq}{450}
+
+    \newcommand{\doppSeptFreqApp}{610}
+    \newcommand{\doppSeptFreqElo}{590}
+
+    \newcommand{\doppHuitFreqApp}{900}
+    \newcommand{\doppHuitFreqElo}{800}
+
+    \newcommand{\doppNeufFreqSonar}{25}
+    \newcommand{\doppNeufFreqBatt}{80}
+
+    \newcommand{\doppDixFreq}{440}
+    \newcommand{\doppDixVAlbert}{1.6}
+    \newcommand{\doppDixVBeatrice}{1.0}
+    \newcommand{\doppDixVVous}{0.6}
+
+    \newcommand{\doppOnzeFreqApp}{500}
+    \newcommand{\doppOnzeFreqElo}{420}
+
+    \newcommand{\doppUnCIntensite}{36}
+    \newcommand{\doppDeuxCVitCamion}{25}
+    \newcommand{\doppDeuxCVitAuto}{10}
+}{
+    % VERSION C
+    \newcommand{\doppUnVThon}{12}
+    \newcommand{\doppUnVDauphin}{16}
+    \newcommand{\doppUnFreq}{35000}
+    \newcommand{\doppUnVSon}{1520}
+
+    \newcommand{\doppDeuxTemp}{15}
+    \newcommand{\doppDeuxVit}{1.0}
+    \newcommand{\doppDeuxFreq}{20}
+
+    \newcommand{\doppTroisVFlute}{3}
+    \newcommand{\doppTroisVObs}{4}
+    \newcommand{\doppTroisLongueur}{30}
+
+    \newcommand{\doppQuatreFreqEm}{700}
+    \newcommand{\doppQuatreFreqObs}{750}
+
+    \newcommand{\doppCinqVPolice}{30}
+    \newcommand{\doppCinqFreq}{650}
+    \newcommand{\doppCinqVCamion}{10}
+    \newcommand{\doppCinqVSon}{343}
+
+    \newcommand{\doppSixVAuto}{30}
+    \newcommand{\doppSixVCamion}{10}
+    \newcommand{\doppSixFreq}{380}
+
+    \newcommand{\doppSeptFreqApp}{520}
+    \newcommand{\doppSeptFreqElo}{500}
+
+    \newcommand{\doppHuitFreqApp}{820}
+    \newcommand{\doppHuitFreqElo}{710}
+
+    \newcommand{\doppNeufFreqSonar}{20}
+    \newcommand{\doppNeufFreqBatt}{60}
+
+    \newcommand{\doppDixFreq}{440}
+    \newcommand{\doppDixVAlbert}{1.2}
+    \newcommand{\doppDixVBeatrice}{1.5}
+    \newcommand{\doppDixVVous}{0.4}
+
+    \newcommand{\doppOnzeFreqApp}{460}
+    \newcommand{\doppOnzeFreqElo}{380}
+
+    \newcommand{\doppUnCIntensite}{50}
+    \newcommand{\doppDeuxCVitCamion}{35}
+    \newcommand{\doppDeuxCVitAuto}{20}
+}}

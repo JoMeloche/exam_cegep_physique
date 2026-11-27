@@ -1,0 +1,19 @@
+title: 'Masse suspendue à une poulie massive'
+type: developpement
+points: 20
+time_min: 20
+difficulty: 4
+figures: []
+variables:
+  m: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: kg, label: Masse suspendue}
+  M: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: kg, label: Masse de la poulie}
+  R: {type: integer, min: 5, max: 25, step: 1, unit: cm, si: 0.01, label: Rayon de la poulie}
+  h: {type: decimal, min: 0.5, max: 2.5, step: 0.1, unit: m, label: Hauteur de chute}
+constraints: []
+solution:
+  mode: manual
+  file: rot_poulie_masse.sol.tex
+  parts:
+    a: {expr: "m*g/(m + M/2)", unit: 'm/s^2', label: 'Accélération de la masse'}
+    b: {expr: "m*(g - (m*g/(m + M/2)))", unit: 'N', label: 'Tension'}
+    c: {expr: "sqrt(2*(m*g/(m + M/2))*h)/R", unit: 'rad/s', label: 'Vitesse angulaire finale'}

@@ -1,0 +1,19 @@
+title: Mesurer la largeur d'une fente par diffraction
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  lam: {type: choice, values: [532, 633, 650], unit: nm, si: 1e-9, label: Longueur d'onde du laser}
+  L: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: m, label: Distance fente-écran}
+  W: {type: decimal, min: 8.0, max: 40.0, step: 0.5, unit: mm, si: 0.001, label: Largeur du maximum central}
+constraints:
+  - 30e-6 < 2*lam*L/W < 300e-6
+  - abs(2*L/W - round(2*L/W)) > 0.1
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*lam*L/W", unit: m, label: Largeur de la fente}
+    b: {expr: "deg(asin(3*W/(2*L)))", unit: deg, label: Angle du troisième minimum}
+    c: {expr: "floor(2*L/W)", unit: "", label: Nombre de minimums de chaque côté}

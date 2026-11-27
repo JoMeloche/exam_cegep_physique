@@ -1,0 +1,15 @@
+title: "Effet du doublement de l'amplitude sur l'énergie"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$E = \tfrac{1}{2}kA^2$ : l''énergie est proportionnelle au carré de l''amplitude, donc doubler $A$ multiplie $E$ par 4.'
+choices:
+  - 'Elle est deux fois plus grande'
+  - 'Elle est quatre fois plus grande'
+  - 'Elle est $\sqrt{2}$ fois plus grande'
+  - 'Elle est inchangée, car $m$ et $k$ ne changent pas'

@@ -1,0 +1,18 @@
+title: Deux blocs en contact poussés
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  F: {type: decimal, min: 10.0, max: 40.0, step: 0.5, unit: N, label: Force appliquée}
+  m1: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: kg, label: Masse du bloc A}
+  m2: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: kg, label: Masse du bloc B}
+constraints: [abs(m1 - m2) >= 0.5]
+solution:
+  mode: manual
+  file: newt_blocs_contact.sol.tex
+  parts:
+    a: {expr: F/(m1 + m2), unit: m/s^2, label: Accélération}
+    b: {expr: m2*F/(m1 + m2), unit: N, label: Force de contact (on pousse A)}
+    c: {expr: m1*F/(m1 + m2), unit: N, label: Force de contact (on pousse B)}

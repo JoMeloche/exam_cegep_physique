@@ -1,0 +1,19 @@
+title: Cycliste qui roule vers une alarme
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  f:  {type: integer, min: 500, max: 3000, step: 100, unit: Hz, label: Fréquence de l'alarme}
+  vo: {type: decimal, min: 4.0, max: 15.0, step: 0.5, unit: m/s, label: Vitesse du cycliste}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+  fp: {type: integer, min: 10, max: 60, step: 5, unit: Hz, label: Augmentation visée}
+constraints:
+  - fp*v/f < 40
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f*(v + vo)/v", unit: Hz, label: Fréquence perçue à l'approche}
+    b: {expr: "f*(v - vo)/v", unit: Hz, label: Fréquence perçue en s'éloignant}
+    c: {expr: "fp*v/f", unit: m/s, label: Vitesse pour l'augmentation visée}

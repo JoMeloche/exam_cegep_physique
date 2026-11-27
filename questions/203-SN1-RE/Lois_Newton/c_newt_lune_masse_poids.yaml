@@ -1,0 +1,11 @@
+title: Masse et poids sur la Lune
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: La masse est une propriété de l'objet ; le poids $mg$ dépend de $g$, donc il est six fois plus petit sur la Lune.
+choices: [Sa masse et son poids diminuent, 'Sa masse diminue, son poids reste le même', 'Sa masse reste la même, son poids diminue', Sa masse et son poids restent les mêmes]

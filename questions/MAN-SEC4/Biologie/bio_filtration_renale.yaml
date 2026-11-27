@@ -1,0 +1,17 @@
+title: Filtration et réabsorption dans les reins
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  DFG: {type: integer, min: 100, max: 140, step: 5, unit: mL/min, label: Débit de filtration}
+  U:   {type: decimal, min: 1.0, max: 2.0, step: 0.1, unit: L, label: Urine produite par jour}
+  glu: {type: decimal, min: 0.8, max: 1.2, step: 0.1, unit: g/L, label: Concentration de glucose dans le sang}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "DFG*1440/1000", unit: L, label: Filtrat produit par jour}
+    b: {expr: "100*(DFG*1440/1000 - U)/(DFG*1440/1000)", unit: "%", label: Pourcentage réabsorbé}
+    c: {expr: "DFG*1440/1000*glu", unit: g, label: Glucose filtré par jour}

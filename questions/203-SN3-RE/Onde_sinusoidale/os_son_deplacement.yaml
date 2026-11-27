@@ -1,0 +1,17 @@
+title: Onde sonore de déplacement dans l'air
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  f:  {type: integer, min: 200, max: 2000, step: 50, unit: Hz, label: Fréquence}
+  s:  {type: decimal, min: 0.5, max: 8.0, step: 0.5, unit: \micro\metre, si: 1e-6, label: Amplitude de déplacement}
+  v:  {type: choice, values: [340, 343, 345], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "v/f", unit: m, label: Longueur d'onde}
+    a2: {expr: "2*pi*f/v", unit: rad/m, label: Nombre d'onde}
+    b: {expr: "s*2*pi*f", unit: m/s, label: Vitesse maximale des molécules}

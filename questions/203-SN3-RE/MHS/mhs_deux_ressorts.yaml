@@ -1,0 +1,20 @@
+title: Chariot entre deux ressorts
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m:  {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: kg, label: Masse du chariot}
+  k1: {type: integer, min: 20, max: 100, step: 5, unit: N/m, label: Constante du ressort 1}
+  k2: {type: integer, min: 20, max: 100, step: 5, unit: N/m, label: Constante du ressort 2}
+  A:  {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+constraints:
+  - k1 != k2
+solution:
+  mode: manual
+  file: mhs_deux_ressorts.sol.tex
+  parts:
+    a: {expr: "sqrt((k1+k2)/m)/(2*pi)", unit: Hz, label: Fréquence avec deux ressorts}
+    b: {expr: "sqrt(k1/m)/(2*pi)", unit: Hz, label: Fréquence avec le ressort 1 seul}
+    c: {expr: "A*sqrt((k1+k2)/m)", unit: m/s, label: Vitesse maximale}

@@ -1,0 +1,15 @@
+title: 'Image d''un objet placé entre le foyer et une lentille convergente'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Avec $d_o < f$, l''équation des lentilles donne $d_i < 0$ (image virtuelle) et $G = -d_i/d_o > 1$ : c''est le principe de la loupe.'
+choices:
+  - 'Réelle, renversée et agrandie'
+  - 'Virtuelle, droite et agrandie'
+  - 'Virtuelle, droite et réduite'
+  - 'Il n''y a pas d''image'

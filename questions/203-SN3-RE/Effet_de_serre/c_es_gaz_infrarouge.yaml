@@ -1,0 +1,15 @@
+title: "Propriété des gaz à effet de serre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les gaz à effet de serre laissent passer l''essentiel du rayonnement solaire (visible), mais absorbent le rayonnement infrarouge émis par le sol, à plus grande longueur d''onde.'
+choices:
+  - 'Ils réfléchissent la lumière visible du Soleil vers l''espace'
+  - 'Ils produisent de la chaleur par réaction chimique'
+  - 'Ils sont presque transparents au visible, mais absorbent l''infrarouge'
+  - 'Ils absorbent surtout les rayons ultraviolets'

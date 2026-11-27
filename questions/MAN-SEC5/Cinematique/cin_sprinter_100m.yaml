@@ -1,0 +1,18 @@
+title: Sprinteur au 100 m (MRUA puis MRU)
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+tags: [MRU, MRUA]
+variables:
+  t1: {type: decimal, min: 2.0, max: 4.0, step: 0.5, unit: s, label: Durée de l'accélération}
+  vm: {type: decimal, min: 9.0, max: 11.4, step: 0.2, unit: m/s, label: Vitesse maximale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "vm/t1", unit: m/s^2, label: Accélération}
+    b: {expr: "vm*t1/2", unit: m, label: Distance d'accélération}
+    c: {expr: "t1 + (100 - vm*t1/2)/vm", unit: s, label: Temps total}
+    d: {expr: "100/(t1 + (100 - vm*t1/2)/vm)", unit: m/s, label: Vitesse moyenne}

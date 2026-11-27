@@ -1,0 +1,19 @@
+Une charge $q_1 = \qty{\v{q1}}{nC}$ est placée à l'origine et une charge $q_2 = \qty{\v{q2}}{nC}$ est placée à $x = \qty{\v{d}}{cm}$.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-{Latex}] (-0.5,0) -- (9,0) node[right] {$x$};
+    \fill (0,0) circle (3pt) node[above=3pt] {$q_1$};
+    \fill (5,0) circle (3pt) node[above=3pt] {$q_2$};
+    \draw (2.5,0) node {$\times$} node[above=3pt] {$M$};
+    \draw (7.5,0) node {$\times$} node[above=3pt] {$P$};
+    \draw[|-|] (0,-0.5) -- node[below] {\qty{\v{d}}{cm}} (5,-0.5);
+    \draw[|-|] (5,-0.5) -- node[below] {\qty{\v{s}}{cm}} (7.5,-0.5);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez le champ électrique résultant (module et sens) au point $M$, au milieu des deux charges.
+    \item Déterminez le champ électrique résultant (module et sens) au point $P$, situé à \qty{\v{s}}{cm} à droite de $q_2$.
+    \item Quelle force subirait un proton placé au point $M$ ?
+\end{enumerate}

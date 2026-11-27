@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Potentiels d'arrêt}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = 1240/\num{\v{lam}} = \Res{1240/\v{lam}}{eV}$, $\phi_1$, $\phi_2$ ; variables recherchées : $V_{0,1}$, $V_{0,2}$
+    \item \textbf{Équations pertinentes :}
+    \[ eV_0 = \frac{hc}{\lambda} - \phi \]
+    \item \textbf{Isolation de la variable recherchée :} en électronvolts, $V_0$ (en volts) $= E - \phi$ (en eV).
+    \item \textbf{Résolution numérique :}
+    \[ V_{0,1} = \Val{1240/\v{lam}} - \num{\v{phi1}} = \Res{1240/\v{lam} - \v{phi1}}{V} \qquad V_{0,2} = \Val{1240/\v{lam}} - \num{\v{phi2}} = \Res{1240/\v{lam} - \v{phi2}}{V} \]
+    \item \textbf{Réponse :} $V_{0,1} = \mathbf{\Res{1240/\v{lam} - \v{phi1}}{V}}$ et $V_{0,2} = \mathbf{\Res{1240/\v{lam} - \v{phi2}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Seuil du métal 2}
+\[ \lambda_{0,2} = \frac{1240}{\num{\v{phi2}}} = \Res{1240/\v{phi2}}{nm} \]
+Le métal 2 cesse d'émettre au-delà de \textbf{\Res{1240/\v{phi2}}{nm}}. Le métal 1 émet encore, puisque son seuil est à $1240/\num{\v{phi1}} = \Res{1240/\v{phi1}}{nm}$, une longueur d'onde plus grande.
+
+\subsubsection*{Question c) Intensité doublée}
+Les potentiels d'arrêt \textbf{ne changent pas}, car ils ne dépendent que de l'énergie de chaque photon ($hf$). Le nombre de photons par seconde double, donc le \textbf{nombre d'électrons éjectés double} (et le courant aussi).

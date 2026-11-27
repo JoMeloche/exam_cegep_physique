@@ -1,0 +1,19 @@
+title: 'Collision de deux voitures à une intersection'
+type: developpement
+points: 20
+time_min: 20
+difficulty: 4
+figures: []
+variables:
+  m1: {type: integer, min: 900, max: 2000, step: 50, unit: kg, label: Masse de la voiture 1}
+  v1: {type: decimal, min: 8.0, max: 20.0, step: 0.5, unit: m/s, label: Vitesse de la voiture 1}
+  m2: {type: integer, min: 1200, max: 3000, step: 50, unit: kg, label: Masse de la voiture 2}
+  v2: {type: decimal, min: 8.0, max: 20.0, step: 0.5, unit: m/s, label: Vitesse de la voiture 2}
+constraints: []
+solution:
+  mode: manual
+  file: qm_collision_intersection.sol.tex
+  parts:
+    a: {expr: "sqrt((m1*v1)**2 + (m2*v2)**2)/(m1 + m2)", unit: 'm/s', label: 'Vitesse après la collision'}
+    b: {expr: "deg(atan(m2*v2/(m1*v1)))", unit: 'deg', label: 'Direction (nord de l''est)'}
+    c: {expr: "0.5*m1*v1**2 + 0.5*m2*v2**2 - 0.5*(m1 + m2)*((sqrt((m1*v1)**2 + (m2*v2)**2)/(m1 + m2)))**2", unit: 'J', label: 'Énergie cinétique perdue'}

@@ -1,0 +1,20 @@
+title: Refroidissement radiatif d'une tasse de café
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  T:  {type: integer, min: 60, max: 90, step: 1, unit: \degreeCelsius, label: Température du café}
+  Te: {type: integer, min: 15, max: 25, step: 1, unit: \degreeCelsius, label: Température de la pièce}
+  S:  {type: integer, min: 150, max: 400, step: 10, unit: cm^2, si: 0.0001, label: Aire extérieure de la tasse}
+  em: {type: choice, values: [0.90, 0.92, 0.95], label: Émissivité de la céramique}
+  t:  {type: integer, min: 5, max: 20, step: 1, unit: min, si: 60, label: Durée}
+constraints:
+  - T - Te > 35
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em*5.67e-8*S*((T+273)**4 - (Te+273)**4)", unit: W, label: Puissance nette rayonnée}
+    e2: {expr: "em*5.67e-8*S*((T+273)**4 - (Te+273)**4)*t", unit: J, label: Énergie perdue}
+    e3: {expr: "em*5.67e-8*S*((T+273)**4 - (Te+273)**4)*t/(0.25*4186)", unit: K, label: Baisse de température}

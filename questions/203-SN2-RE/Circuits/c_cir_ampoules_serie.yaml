@@ -1,0 +1,15 @@
+title: "Ampoule grillée dans un montage en série"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'En série, le même courant traverse toutes les ampoules. Un filament brisé ouvre le circuit : le courant devient nul partout et les deux autres ampoules s''éteignent.'
+choices:
+  - Elles brillent davantage
+  - Elles brillent moins
+  - Elles brillent de la même façon
+  - Elles s'éteignent

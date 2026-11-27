@@ -1,0 +1,18 @@
+Un wagon de montagnes russes de \qty{\v{m}}{kg} passe au point A, situé à \qty{\v{hA}}{m} du sol, avec une vitesse de \qty{\v{vA}}{m/s}. Il descend jusqu'au point B, au niveau du sol, puis remonte une deuxième bosse dont le sommet C est à \qty{\v{hC}}{m} du sol. On néglige le frottement et on prend $g = \qty{9.81}{m/s^2}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-0.5,0) -- (10,0);
+    \draw[thick] (0,3.2) .. controls (1.5,3.6) and (2.5,0) .. (4,0) .. controls (5.5,0) and (6,2.2) .. (7,2.2) .. controls (8,2.2) and (8.5,0.8) .. (9.5,0.8);
+    \fill (0.6,3.35) circle (2pt) node[above] {A};
+    \fill (4,0) circle (2pt) node[below] {B};
+    \fill (7,2.2) circle (2pt) node[above] {C};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Quelle est l'énergie mécanique du wagon au point A ?
+    \item Quelle est la vitesse du wagon au point B ?
+    \item Quelle est la vitesse du wagon au sommet C ?
+    \item Quelle hauteur maximale le wagon pourrait-il atteindre sur une bosse assez haute ?
+\end{enumerate}

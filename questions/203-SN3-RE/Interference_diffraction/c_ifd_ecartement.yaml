@@ -1,0 +1,15 @@
+title: "Écarter les fentes sans changer leur largeur"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'L''interfrange $\lambda L/d$ diminue quand $d$ augmente. L''enveloppe de diffraction ne dépend que de la largeur $a$ des fentes, qui ne change pas.'
+choices:
+  - 'Les franges se rapprochent et l''enveloppe de diffraction ne change pas'
+  - 'Les franges s''écartent et l''enveloppe de diffraction s''élargit'
+  - 'Les franges se rapprochent et l''enveloppe de diffraction rétrécit'
+  - 'Rien ne change'

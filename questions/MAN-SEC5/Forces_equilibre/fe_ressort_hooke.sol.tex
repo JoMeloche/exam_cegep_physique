@@ -1,0 +1,39 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force du ressort}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g} = \qty{\vsi{m}}{kg}$, $g = \qty{9.81}{N/kg}$ ; variable recherchée : $F_r$
+    \item \textbf{Équations pertinentes :} la masse est en équilibre, donc la force du ressort compense le poids :
+    \[ F_r - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_r = mg \]
+    \item \textbf{Résolution numérique :}
+    \[ F_r = \qty{\vsi{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} le ressort exerce \textbf{\Res{\vsi{m}*9.81}{N}} vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question b) Constante de rappel}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_r = \Res{\vsi{m}*9.81}{N}$, $\Delta x = \qty{\fpeval{\v{L0}+\v{dx}}}{cm} - \qty{\v{L0}}{cm} = \qty{\v{dx}}{cm} = \qty{\vsi{dx}}{m}$ ; variable recherchée : $k$
+    \item \textbf{Équations pertinentes :} loi de Hooke :
+    \[ F_r = k\,\Delta x \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ k = \frac{F_r}{\Delta x} \]
+    \item \textbf{Résolution numérique :}
+    \[ k = \frac{\Val{\vsi{m}*9.81}\,\unit{N}}{\qty{\vsi{dx}}{m}} = \Res{\vsi{m}*9.81/\vsi{dx}}{N/m} \]
+    \item \textbf{Réponse :} $k = \mathbf{\Res{\vsi{m}*9.81/\vsi{dx}}{N/m}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Longueur avec la deuxième masse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_2 = \qty{\vsi{m2}}{kg}$, $k = \Res{\vsi{m}*9.81/\vsi{dx}}{N/m}$, $L_0 = \qty{\v{L0}}{cm}$ ; variable recherchée : $L$
+    \item \textbf{Équations pertinentes :}
+    \[ m_2 g = k\,\Delta x_2 \qquad L = L_0 + \Delta x_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta x_2 = \frac{m_2 g}{k} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta x_2 = \frac{\qty{\vsi{m2}}{kg} \cdot \qty{9.81}{N/kg}}{\Val{\vsi{m}*9.81/\vsi{dx}}\,\unit{N/m}} = \Res{\vsi{m2}*\vsi{dx}/\vsi{m}}{m} = \Res{100*\vsi{m2}*\vsi{dx}/\vsi{m}}{cm} \]
+    \[ L = \qty{\v{L0}}{cm} + \Val{100*\vsi{m2}*\vsi{dx}/\vsi{m}}\,\unit{cm} = \Res{\v{L0} + 100*\vsi{m2}*\vsi{dx}/\vsi{m}}{cm} \]
+    \item \textbf{Réponse :} le ressort mesure \textbf{\Res{\v{L0} + 100*\vsi{m2}*\vsi{dx}/\vsi{m}}{cm}}.
+\end{enumerate}

@@ -1,0 +1,20 @@
+title: Fusée miniature propulsée par un moteur
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+tags: [deuxième loi]
+variables:
+  m: {type: integer, min: 300, max: 800, step: 50, unit: g, si: 0.001, label: Masse de la fusée}
+  F: {type: integer, min: 10, max: 25, step: 1, unit: N, label: Poussée du moteur}
+  t: {type: decimal, min: 0.5, max: 1.5, step: 0.1, unit: s, label: Durée de la poussée}
+constraints:
+  - F > 1.5*m*g
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g", unit: N, label: Poids}
+    b: {expr: "F - m*g", unit: N, label: Force résultante}
+    c: {expr: "(F - m*g)/m", unit: m/s^2, label: Accélération}
+    d: {expr: "(F - m*g)/m*t", unit: m/s, label: Vitesse à l'extinction}

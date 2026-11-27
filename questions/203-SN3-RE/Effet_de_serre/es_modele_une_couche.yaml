@@ -1,0 +1,16 @@
+title: Modèle de l'atmosphère à une couche
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  S:  {type: integer, min: 1340, max: 1380, step: 5, unit: W/m^2, label: Constante solaire}
+  al: {type: decimal, min: 0.25, max: 0.35, step: 0.01, label: Albédo}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "(S*(1 - al)/(4*5.67e-8))**0.25", unit: K, label: Température de l'atmosphère}
+    e2: {expr: "2**0.25*(S*(1 - al)/(4*5.67e-8))**0.25", unit: K, label: Température de la surface}
+    e3: {expr: "2*S*(1 - al)/4", unit: W/m^2, label: Puissance émise par la surface}

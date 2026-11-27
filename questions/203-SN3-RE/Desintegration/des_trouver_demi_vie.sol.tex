@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Demi-vie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $A_1 = \qty{\v{A1}}{Bq}$, $A_2 = \qty[round-mode=figures,round-precision=4]{\fpeval{\v{A1}*0.5^(\v{dt}/\v{T})}}{Bq}$, $\Delta t = \qty{\v{dt}}{min}$ ; variable recherchée : $T_{1/2}$
+    \item \textbf{Équations pertinentes :}
+    \[ A_2 = A_1 \left(\tfrac{1}{2}\right)^{\Delta t / T_{1/2}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_{1/2} = \frac{\Delta t\,\ln 2}{\ln(A_1/A_2)} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_{1/2} = \frac{\num{\v{dt}} \cdot \ln 2}{\ln\left(\num{\v{A1}} / \Val{\v{A1}*0.5^(\v{dt}/\v{T})}\right)} = \Res{\v{T}}{min} \]
+    \item \textbf{Réponse :} la demi-vie est de \textbf{\Res{\v{T}}{min}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Constante de désintégration}
+\[ \lambda = \frac{\ln 2}{T_{1/2}} = \frac{\ln 2}{\num{\v{T}} \cdot 60} = \ResSci{ln(2)/(\v{T}*60)}{s^{-1}} \]
+
+\subsubsection*{Question c) Nombre initial de noyaux}
+\[ N_1 = \frac{A_1}{\lambda} = \frac{\num{\v{A1}}}{\ResSci{ln(2)/(\v{T}*60)}{}} = \ResSci{\v{A1}/(ln(2)/(\v{T}*60))}{} \]
+L'échantillon contenait \textbf{\ResSci{\v{A1}/(ln(2)/(\v{T}*60))}{}} noyaux radioactifs.

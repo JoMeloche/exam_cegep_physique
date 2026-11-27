@@ -1,0 +1,12 @@
+title: Chariot briques
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures:
+- chariot_deux_briques.png
+solution:
+  mode: none
+needs_review: true
+source: Question_concept/MHS/chariot_briques.tex
+history: []

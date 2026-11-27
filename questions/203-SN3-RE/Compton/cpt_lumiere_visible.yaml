@@ -1,0 +1,17 @@
+title: Pourquoi l'effet Compton est invisible avec la lumière visible
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  lv: {type: integer, min: 400, max: 700, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde visible}
+  lx: {type: decimal, min: 10.0, max: 100.0, step: 5.0, unit: pm, si: 1e-12, label: Longueur d'onde X}
+  th: {type: integer, min: 60, max: 180, step: 10, unit: \degree, label: Angle de diffusion}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))", unit: m, label: Décalage}
+    b: {expr: "6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))/lv", unit: "", label: Variation relative (visible)}
+    c: {expr: "6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))/lx", unit: "", label: Variation relative (X)}

@@ -1,0 +1,19 @@
+title: Tension d'une corde à partir de sa fonction d'onde
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  A:  {type: decimal, min: 0.5, max: 4.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+  k:  {type: decimal, min: 2.0, max: 20.0, step: 0.5, unit: rad/m, label: Nombre d'onde}
+  w:  {type: integer, min: 50, max: 600, step: 10, unit: rad/s, label: Fréquence angulaire}
+  mu: {type: decimal, min: 1.0, max: 12.0, step: 0.5, unit: g/m, si: 0.001, label: Masse linéique}
+constraints:
+  - 5 < mu*(w/k)**2 < 500
+solution:
+  mode: manual
+  parts:
+    a: {expr: "w/k", unit: m/s, label: Vitesse}
+    b: {expr: "mu*(w/k)**2", unit: N, label: Tension}
+    c: {expr: "A*w**2", unit: m/s^2, label: Accélération transversale maximale}

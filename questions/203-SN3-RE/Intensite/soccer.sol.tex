@@ -1,0 +1,117 @@
+\subsubsection*{Question a) Distance par rapport à la sirène de but}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Puissance de la source : $P = \qty{\v{PneuPuissance}}{W}$
+        \item Niveau d'intensité sonore : $\beta_{\text{sirène}} = \qty{\v{PneuNiveaudB}}{dB}$
+        \item Intensité du seuil d'audibilité : $I_0 = 10^{-12} \text{ W/m}^2$
+        \item Variable recherchée : Distance $r \text{ (m)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    \beta = 10 \log_{10}\left(\frac{I}{I_0}\right) \quad \implies \quad I = I_0 \cdot 10^{\frac{\beta}{10}}
+    \]
+    \[
+    I = \frac{P}{4\pi r^2} \quad \text{(modèle d'onde sphérique)}
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    \frac{P}{4\pi r^2} = I_0 \cdot 10^{\frac{\beta}{10}} \quad \implies \quad r^2 = \frac{P}{4\pi \cdot I_0 \cdot 10^{\frac{\beta}{10}}} \quad \implies \quad r = \sqrt{\frac{P}{4\pi \cdot I_0 \cdot 10^{\frac{\beta}{10}}}}
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    I_{\text{sirène}} = 10^{-12} \cdot 10^{\frac{\v{PneuNiveaudB}}{10}} = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{10^(-12) * 10^(\v{PneuNiveaudB} / 10)}} \text{ W/m}^2
+    \]
+    \[
+    r = \sqrt{\frac{\v{PneuPuissance}}{4\pi \cdot 10^{-12} \cdot 10^{\frac{\v{PneuNiveaudB}}{10}}}} = \qty{\fpeval{round(sqrt(\v{PneuPuissance} / (4 * pi * 10^(-12) * 10^(\v{PneuNiveaudB} / 10))), 2)}}{m}
+    \]
+
+    \item \textbf{Réponse :}
+    Vous vous trouvez à une distance d'environ \textbf{\qty{\fpeval{round(sqrt(\v{PneuPuissance} / (4 * pi * 10^(-12) * 10^(\v{PneuNiveaudB} / 10))), 2)}}{m}} de la sirène de but.
+\end{enumerate}
+
+
+% ------------------------------------------------------------------------------
+% QUESTION B
+% ------------------------------------------------------------------------------
+\subsubsection*{Question b) Puissance acoustique absorbée par le tympan}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du conduit auditif : $R = \qty{\v{OreilleRayon}}{m}$
+        \item Intensité sonore locale : $I_{\text{sirène}} = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{10^(-12) * 10^(\v{PneuNiveaudB} / 10)}} \text{ W/m}^2$
+        \item Variable recherchée : Puissance absorbée $P_{\text{tympan}} \text{ (W)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    A = \pi R^2 \quad \text{(surface circulaire)}
+    \]
+    \[
+    P_{\text{tympan}} = I_{\text{sirène}} \cdot A
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    P_{\text{tympan}} = \left( I_0 \cdot 10^{\frac{\beta}{10}} \right) \cdot \pi R^2
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    A = \pi \cdot (\v{OreilleRayon})^2 = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{pi * (\v{OreilleRayon})^2}} \text{ m}^2
+    \]
+    \[
+    P_{\text{tympan}} = \left(10^{-12} \cdot 10^{\frac{\v{PneuNiveaudB}}{10}}\right) \cdot \pi (\v{OreilleRayon})^2 = \qty[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{(10^(-12) * 10^(\v{PneuNiveaudB} / 10)) * pi * (\v{OreilleRayon})^2}}{W}
+    \]
+
+    \item \textbf{Réponse :}
+    La puissance acoustique exacte absorbée par le tympan est de \textbf{\qty[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{(10^(-12) * 10^(\v{PneuNiveaudB} / 10)) * pi * (\v{OreilleRayon})^2}}{W}} (soit environ \qty{\fpeval{round((10^(-12) * 10^(\v{PneuNiveaudB} / 10)) * pi * (\v{OreilleRayon})^2 * 10^6, 2)}}{\micro\watt}).
+\end{enumerate}
+
+
+% ------------------------------------------------------------------------------
+% QUESTION C
+% ------------------------------------------------------------------------------
+\subsubsection*{Question c) Niveau d'intensité sonore total (Superposition)}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label=-]
+        \item Niveau sonore de la sirène : $\beta_{\text{sirène}} = \qty{\v{PneuNiveaudB}}{dB}$
+        \item Niveau sonore de la musique : $\beta_{\text{musique}} = \qty{\v{MusiqueNiveaudB}}{dB}$
+        \item Intensité de référence : $I_0 = 10^{-12} \text{ W/m}^2$
+        \item Variable recherchée : Niveau sonore total $\beta_{\text{tot}} \text{ (dB)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    I_{\text{tot}} = I_{\text{sirène}} + I_{\text{musique}} = I_0 \cdot 10^{\frac{\beta_{\text{sirène}}}{10}} + I_0 \cdot 10^{\frac{\beta_{\text{musique}}}{10}}
+    \]
+    \[
+    \beta_{\text{tot}} = 10 \log_{10}\left(\frac{I_{\text{tot}}}{I_0}\right)
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    \beta_{\text{tot}} = 10 \log_{10}\left(\frac{I_0 \left(10^{\frac{\beta_{\text{sirène}}}{10}} + 10^{\frac{\beta_{\text{musique}}}{10}}\right)}{I_0}\right) = 10 \log_{10}\left(10^{\frac{\beta_{\text{sirène}}}{10}} + 10^{\frac{\beta_{\text{musique}}}{10}}\right)
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    I_{\text{musique}} = 10^{-12} \cdot 10^{\frac{\v{MusiqueNiveaudB}}{10}} = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{10^(-12) * 10^(\v{MusiqueNiveaudB} / 10)}} \text{ W/m}^2
+    \]
+    \[
+    I_{\text{tot}} = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{10^(-12) * (10^(\v{PneuNiveaudB} / 10) + 10^(\v{MusiqueNiveaudB} / 10))}} \text{ W/m}^2
+    \]
+    \[
+    \beta_{\text{tot}} = 10 \log_{10}\left(10^{\frac{\v{PneuNiveaudB}}{10}} + 10^{\frac{\v{MusiqueNiveaudB}}{10}}\right) = \qty{\fpeval{round(10 * (ln(10^(\v{PneuNiveaudB} / 10) + 10^(\v{MusiqueNiveaudB} / 10)) / ln(10)), 2)}}{dB}
+    \]
+
+    \item \textbf{Réponse :}
+    Le niveau d'intensité sonore total ressenti lorsque la sirène retentit en même temps que la musique est de \textbf{\qty{\fpeval{round(10 * (ln(10^(\v{PneuNiveaudB} / 10) + 10^(\v{MusiqueNiveaudB} / 10)) / ln(10)), 2)}}{dB}}.
+\end{enumerate}

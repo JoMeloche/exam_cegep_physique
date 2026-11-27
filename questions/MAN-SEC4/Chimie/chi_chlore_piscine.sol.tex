@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Concentration en ppm}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{mc}}{mg}$, $V = \qty{\v{Ve}}{mL} = \qty{\fpeval{\v{Ve}/1000}}{L}$ ; variable recherchée : $C$ (ppm = mg/L)
+    \item \textbf{Équations pertinentes :}
+    \[ C = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ C = \frac{\num{\v{mc}}}{\num{\fpeval{\v{Ve}/1000}}} = \Res{\v{mc}/(\v{Ve}/1000)}{mg/L} = \Res{\v{mc}/(\v{Ve}/1000)}{ppm} \]
+    \item \textbf{Réponse :} la concentration du chlore est de \textbf{\Res{\v{mc}/(\v{Ve}/1000)}{ppm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Masse de chlore dans la piscine}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C = \Res{\v{mc}/(\v{Ve}/1000)}{mg/L}$, $V_p = \qty{\v{Vp}}{m^3} = \qty{\fpeval{\v{Vp}*1000}}{L}$ ; variable recherchée : $m_p$
+    \item \textbf{Équations pertinentes :}
+    \[ C = \frac{m_p}{V_p} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m_p = C \times V_p \]
+    \item \textbf{Résolution numérique :}
+    \[ m_p = \Val{\v{mc}/(\v{Ve}/1000)} \times \num{\fpeval{\v{Vp}*1000}} = \Res{\v{mc}/(\v{Ve}/1000)*\v{Vp}*1000}{mg} = \Res{\v{mc}/(\v{Ve}/1000)*\v{Vp}}{g} \]
+    \item \textbf{Réponse :} la piscine contient \textbf{\Res{\v{mc}/(\v{Ve}/1000)*\v{Vp}}{g}} de chlore.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse de chlore à ajouter}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_{\text{visée}} = \qty{3}{mg/L}$, $C = \Res{\v{mc}/(\v{Ve}/1000)}{mg/L}$, $V_p = \qty{\fpeval{\v{Vp}*1000}}{L}$ ; variable recherchée : $m_{\text{ajout}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m_{\text{ajout}} = (C_{\text{visée}} - C) \times V_p \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{ajout}} = (\num{3} - \Val{\v{mc}/(\v{Ve}/1000)}) \times \num{\fpeval{\v{Vp}*1000}} = \Res{(3-\v{mc}/(\v{Ve}/1000))*\v{Vp}*1000}{mg} \]
+    \item \textbf{Réponse :} il faut ajouter \textbf{\Res{(3-\v{mc}/(\v{Ve}/1000))*\v{Vp}}{g}} de chlore.
+\end{enumerate}

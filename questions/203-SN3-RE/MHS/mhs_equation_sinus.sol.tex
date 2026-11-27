@@ -1,0 +1,49 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Fréquence et période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Fréquence angulaire : $\omega = \qty{\v{w}}{rad/s}$
+        \item Variables recherchées : $f$ (Hz) et $T$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \omega = 2\pi f \qquad T = \frac{1}{f} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f = \frac{\omega}{2\pi} \qquad T = \frac{2\pi}{\omega} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\num{\v{w}}}{2\pi} = \Res{\v{w}/(2*pi)}{Hz} \qquad T = \frac{2\pi}{\num{\v{w}}} = \Res{2*pi/\v{w}}{s} \]
+    \item \textbf{Réponse :} $f = \mathbf{\Res{\v{w}/(2*pi)}{Hz}}$ et $T = \mathbf{\Res{2*pi/\v{w}}{s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Position et vitesse initiales}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\v{A}}{cm}$, $\omega = \qty{\v{w}}{rad/s}$, $\phi = \qty{\v{phi}}{rad}$
+        \item Variables recherchées : $x(0)$ et $v(0)$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x(t) = A\sin(\omega t + \phi) \qquad v(t) = A\omega\cos(\omega t + \phi) \]
+    \item \textbf{Isolation de la variable recherchée :} à $t = 0$ : $x(0) = A\sin\phi$ et $v(0) = A\omega\cos\phi$.
+    \item \textbf{Résolution numérique :}
+    \[ x(0) = \num{\v{A}}\sin(\num{\v{phi}}) = \Res{\v{A}*sin(\v{phi})}{cm} \]
+    \[ v(0) = \num{\vsi{A}} \cdot \num{\v{w}}\cos(\num{\v{phi}}) = \Res{\vsi{A}*\v{w}*cos(\v{phi})}{m/s} \]
+    \item \textbf{Réponse :} $x(0) = \mathbf{\Res{\v{A}*sin(\v{phi})}{cm}}$ et $v(0) = \mathbf{\Res{\vsi{A}*\v{w}*cos(\v{phi})}{m/s}}$. La position et la vitesse sont toutes deux positives : l'objet \textbf{s'éloigne} de la position d'équilibre.
+\end{enumerate}
+
+\subsubsection*{Question c) Constante de rappel et énergie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $\omega = \qty{\v{w}}{rad/s}$, $A = \qty{\vsi{A}}{m}$
+        \item Variables recherchées : $k$ (N/m) et $E$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \omega = \sqrt{\frac{k}{m}} \qquad E = \frac{1}{2} k A^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ k = m\omega^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ k = \num{\v{m}} \cdot (\num{\v{w}})^2 = \Res{\v{m}*\v{w}^2}{N/m} \qquad E = \frac{1}{2} \cdot \Val{\v{m}*\v{w}^2} \cdot (\num{\vsi{A}})^2 = \Res{\v{m}*\v{w}^2*\vsi{A}^2/2}{J} \]
+    \item \textbf{Réponse :} $k = \mathbf{\Res{\v{m}*\v{w}^2}{N/m}}$ et $E = \mathbf{\Res{\v{m}*\v{w}^2*\vsi{A}^2/2}{J}}$.
+\end{enumerate}

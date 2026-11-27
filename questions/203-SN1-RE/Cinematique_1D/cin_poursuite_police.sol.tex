@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Temps pour rattraper}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse du contrevenant : $v_c = \qty{\v{vc}}{km/h}$ $= \qty{\vsi{vc}}{m/s}$
+        \item Accélération de la policière : $a = \qty{\v{a}}{m/s^2}$
+        \item La police part du repos au même endroit et au même instant
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x_c = v_c t \qquad x_p = \frac{1}{2} a t^2 \qquad x_c = x_p \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_c t = \frac{1}{2} a t^2 \implies t = \frac{2 v_c}{a} \quad (t \neq 0) \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{2 \cdot \Val{\vsi{vc}}}{\num{\vsi{a}}} = \Res{2*\vsi{vc}/\vsi{a}}{s} \]
+    \item \textbf{Réponse :} la policière rattrape la voiture après \textbf{\Res{2*\vsi{vc}/\vsi{a}}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance parcourue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse du contrevenant : $v_c = \qty{\v{vc}}{km/h}$ $= \qty{\vsi{vc}}{m/s}$
+        \item $t = \Res{2*\vsi{vc}/\vsi{a}}{s}$
+        \item Variable recherchée : $x$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x = v_c t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ x = v_c \cdot \frac{2v_c}{a} = \frac{2 v_c^2}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ x = \Val{\vsi{vc}} \cdot \Val{2*\vsi{vc}/\vsi{a}} = \Res{2*\vsi{vc}^2/\vsi{a}}{m} \]
+    \item \textbf{Réponse :} la rencontre a lieu à \textbf{\Res{2*\vsi{vc}^2/\vsi{a}}{m}} du point de départ.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse de la police}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Accélération de la policière : $a = \qty{\v{a}}{m/s^2}$
+        \item $t = \Res{2*\vsi{vc}/\vsi{a}}{s}$
+        \item Variable recherchée : $v_p$ (km/h)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_p = a t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_p = a \cdot \frac{2 v_c}{a} = 2 v_c \]
+    \item \textbf{Résolution numérique :}
+    \[ v_p = \num{\vsi{a}} \cdot \Val{2*\vsi{vc}/\vsi{a}} = \Res{2*\vsi{vc}}{m/s} = \Res{2*\vsi{vc}*3.6}{km/h} \]
+    \item \textbf{Réponse :} la voiture de police roule à \textbf{\Res{2*\vsi{vc}*3.6}{km/h}}, soit le double de la vitesse du contrevenant.
+\end{enumerate}

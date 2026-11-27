@@ -1,0 +1,15 @@
+title: 'Lignes de champ d''une charge négative'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le champ indique le sens de la force sur une charge test positive, qui est attirée par la charge négative : les lignes sont radiales et pointent vers la charge.'
+choices:
+  - 'Radiales, en s''éloignant de la charge'
+  - 'Radiales, en pointant vers la charge'
+  - 'En cercles autour de la charge'
+  - 'Il n''y a pas de lignes de champ, car la charge est négative'

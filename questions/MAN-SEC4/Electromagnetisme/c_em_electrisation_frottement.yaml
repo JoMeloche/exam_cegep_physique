@@ -1,0 +1,15 @@
+title: 'Électrisation par frottement'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Seuls les électrons se déplacent d''un corps à l''autre. Le ballon gagne des électrons (négatif) et les cheveux en perdent (positifs) ; la charge totale est conservée.'
+choices:
+  - 'Des protons sont passés du ballon aux cheveux.'
+  - 'Des électrons sont passés des cheveux au ballon.'
+  - 'Des électrons sont passés du ballon aux cheveux.'
+  - 'Le frottement a créé de nouvelles charges négatives dans le ballon.'

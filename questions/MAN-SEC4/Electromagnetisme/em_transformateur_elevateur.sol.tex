@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Tension au secondaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N_p = \num{\v{Np}}$, $N_s = \num{\v{Ns}}$, $U_p = \qty{\v{Up}}{V}$ ; variable recherchée : $U_s$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{U_s}{U_p} = \frac{N_s}{N_p} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ U_s = U_p \frac{N_s}{N_p} \]
+    \item \textbf{Résolution numérique :}
+    \[ U_s = \qty{\v{Up}}{V} \cdot \frac{\num{\v{Ns}}}{\num{\v{Np}}} = \Res{\v{Up}*\v{Ns}/\v{Np}}{V} \]
+    \item \textbf{Réponse :} la tension au secondaire est de \textbf{\Res{\v{Up}*\v{Ns}/\v{Np}}{V}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Type de transformateur}
+Le secondaire a plus de spires que le primaire ($N_s > N_p$), donc $U_s > U_p$ : c'est un transformateur \textbf{élévateur} de tension.
+
+\subsubsection*{Question c) Courant au secondaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U_p = \qty{\v{Up}}{V}$, $I_p = \qty{\v{Ip}}{A}$, $U_s = \Res{\v{Up}*\v{Ns}/\v{Np}}{V}$ ; variable recherchée : $I_s$
+    \item \textbf{Équations pertinentes :} sans perte, la puissance est conservée :
+    \[ U_p I_p = U_s I_s \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I_s = \frac{U_p I_p}{U_s} = I_p \frac{N_p}{N_s} \]
+    \item \textbf{Résolution numérique :}
+    \[ I_s = \qty{\v{Ip}}{A} \cdot \frac{\num{\v{Np}}}{\num{\v{Ns}}} = \Res{\v{Ip}*\v{Np}/\v{Ns}}{A} \]
+    \item \textbf{Réponse :} le courant au secondaire est de \textbf{\Res{\v{Ip}*\v{Np}/\v{Ns}}{A}} ; la tension monte, le courant baisse.
+\end{enumerate}

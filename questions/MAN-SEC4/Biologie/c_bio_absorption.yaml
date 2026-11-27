@@ -1,0 +1,15 @@
+title: 'Lieu principal de l''absorption des nutriments'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Les villosités de l''intestin grêle offrent une très grande surface d''échange : c''est là que la majorité des nutriments est absorbée. Le gros intestin absorbe surtout l''eau.'
+choices:
+  - 'L''estomac'
+  - 'L''intestin grêle'
+  - 'Le gros intestin'
+  - 'Le foie'

@@ -1,0 +1,52 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Coefficient statique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Angle où le bloc commence à glisser : $\theta_c = \qty{\v{thc}}{\degree}$
+        \item Juste avant de glisser : $f_s = f_{s,\max} = \mu_s n$, $a = 0$
+        \item Variable recherchée : $\mu_s$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ mg\sin\theta_c = \mu_s n \qquad n = mg\cos\theta_c \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \mu_s = \tan\theta_c \]
+    \item \textbf{Résolution numérique :}
+    \[ \mu_s = \tan(\ang{\v{thc}}) = \num[round-mode=figures,round-precision=3]{\fpeval{tand(\v{thc})}} \]
+    \item \textbf{Réponse :} $\mu_s = $ \textbf{\num[round-mode=figures,round-precision=3]{\fpeval{tand(\v{thc})}}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Angle où le bloc commence à glisser : $\theta = \qty{\v{thc}}{\degree}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ mg\sin\theta - \mu_c mg\cos\theta = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = g(\sin\theta - \mu_c\cos\theta) \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \num{9.81}\,(\sin(\ang{\v{thc}}) - \num{\vsi{mu}}\cos(\ang{\v{thc}})) = \Res{9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))}{m/s^2} \]
+    \item \textbf{Réponse :} la gomme accélère à \textbf{\Res{9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Durée de la descente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a = \Res{9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))}{m/s^2}$
+        \item Longueur de la planche : $L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ L = \frac{1}{2} a t^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \sqrt{\frac{2L}{a}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2\cdot \num{\vsi{L}}}{\Val{9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))}}} = \Res{sqrt(2*\vsi{L}/(9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))))}{s} \]
+    \item \textbf{Réponse :} la gomme descend la planche en \textbf{\Res{sqrt(2*\vsi{L}/(9.81*(sind(\vsi{thc}) - \vsi{mu}*cosd(\vsi{thc}))))}{s}}.
+\end{enumerate}

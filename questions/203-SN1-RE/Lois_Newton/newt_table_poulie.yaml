@@ -1,0 +1,18 @@
+title: Bloc sur une table relié à un bloc suspendu
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  m1: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: kg, label: Masse du bloc sur la table}
+  m2: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: kg, label: Masse du bloc suspendu}
+  d: {type: integer, min: 40, max: 120, step: 5, unit: cm, si: 0.01, label: Distance à parcourir}
+constraints: []
+solution:
+  mode: manual
+  file: newt_table_poulie.sol.tex
+  parts:
+    a: {expr: m2*g/(m1 + m2), unit: m/s^2, label: Accélération}
+    b: {expr: m1*m2*g/(m1 + m2), unit: N, label: Tension}
+    c: {expr: sqrt(2*d/(m2*g/(m1 + m2))), unit: s, label: Temps}

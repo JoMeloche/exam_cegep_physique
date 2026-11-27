@@ -1,0 +1,21 @@
+title: Poids d'une astronaute sur une autre planète
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+tags: [poids, masse]
+variables:
+  m:  {type: integer, min: 70, max: 130, step: 5, unit: kg, label: Masse de l'astronaute}
+  Wp: {type: integer, min: 150, max: 1500, step: 10, unit: N, label: Poids mesuré sur la planète}
+  h:  {type: decimal, min: 1.0, max: 2.0, step: 0.1, unit: m, label: Hauteur de chute}
+constraints:
+  - Wp/m > 1.5
+  - Wp/m < 25
+  - abs(Wp/m - g) > 0.8
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g", unit: N, label: Poids sur la Terre}
+    b: {expr: "Wp/m", unit: N/kg, label: Champ gravitationnel de la planète}
+    c: {expr: "sqrt(2*h*m/Wp)", unit: s, label: Durée de la chute}

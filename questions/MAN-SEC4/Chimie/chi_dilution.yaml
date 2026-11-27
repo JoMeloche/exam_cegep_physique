@@ -1,0 +1,20 @@
+title: Dilution d'une solution mère
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  C1: {type: integer, min: 20, max: 100, step: 5, unit: g/L, label: Concentration de la solution mère}
+  V1: {type: integer, min: 10, max: 50, step: 5, unit: mL, label: Volume prélevé}
+  V2: {type: integer, min: 100, max: 500, step: 50, unit: mL, label: Volume final}
+  C3: {type: integer, min: 2, max: 15, step: 1, unit: g/L, label: Concentration voulue}
+  V3: {type: integer, min: 100, max: 500, step: 50, unit: mL, label: Volume voulu}
+constraints:
+  - C3 < 0.8*C1
+solution:
+  mode: manual
+  parts:
+    a: {expr: "C1*V1/V2", unit: g/L, label: Concentration diluée}
+    b: {expr: "V2 - V1", unit: mL, label: Eau ajoutée}
+    c: {expr: "C3*V3/C1", unit: mL, label: Volume de solution mère à prélever}

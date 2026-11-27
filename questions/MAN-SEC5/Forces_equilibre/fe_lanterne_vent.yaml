@@ -1,0 +1,17 @@
+title: 'Lanterne suspendue déviée par le vent'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  m: {type: decimal, min: 2.0, max: 15.0, step: 0.5, unit: kg, label: Masse de la lanterne}
+  F: {type: integer, min: 5, max: 80, step: 1, unit: N, label: Force horizontale du vent}
+constraints:
+  - 'F < 1.2*m*g'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g", unit: N, label: Poids de la lanterne}
+    b: {expr: "deg(atan(F/(m*g)))", unit: \degree, label: Angle du câble avec la verticale}
+    c: {expr: "sqrt(F**2 + (m*g)**2)", unit: N, label: Tension dans le câble}

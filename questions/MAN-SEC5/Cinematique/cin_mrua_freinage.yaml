@@ -1,0 +1,19 @@
+title: Distance d'arrêt d'une voiture (temps de réaction et freinage)
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+tags: [MRU, MRUA]
+variables:
+  v0: {type: integer, min: 60, max: 110, step: 5, unit: km/h, si: 0.277777777778, label: Vitesse initiale}
+  tr: {type: decimal, min: 0.5, max: 1.5, step: 0.1, unit: s, label: Temps de réaction}
+  a:  {type: decimal, min: 4.0, max: 8.0, step: 0.5, unit: m/s^2, label: Décélération}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v0*tr", unit: m, label: Distance de réaction}
+    b: {expr: "v0/a", unit: s, label: Durée du freinage}
+    c: {expr: "v0**2/(2*a)", unit: m, label: Distance de freinage}
+    d: {expr: "v0*tr + v0**2/(2*a)", unit: m, label: Distance d'arrêt totale}

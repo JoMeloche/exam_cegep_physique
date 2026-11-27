@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Spires au secondaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U_p = \qty{120}{V}$, $U_s = \qty{\v{Us}}{V}$, $N_p = \num{\v{Np}}$ ; variable recherchée : $N_s$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{U_s}{U_p} = \frac{N_s}{N_p} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N_s = N_p \frac{U_s}{U_p} \]
+    \item \textbf{Résolution numérique :}
+    \[ N_s = \num{\v{Np}} \cdot \frac{\qty{\v{Us}}{V}}{\qty{120}{V}} = \num{\fpeval{round(\v{Np}*\v{Us}/120, 0)}} \]
+    \item \textbf{Réponse :} le secondaire compte \textbf{\num{\fpeval{round(\v{Np}*\v{Us}/120, 0)}} spires}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance fournie}
+\[ P_s = U_s I_s = \qty{\v{Us}}{V} \cdot \qty{\vsi{Is}}{A} = \Res{\v{Us}*\vsi{Is}}{W} \]
+L'appareil reçoit \textbf{\Res{\v{Us}*\vsi{Is}}{W}}.
+
+\subsubsection*{Question c) Courant au primaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \Res{\v{Us}*\vsi{Is}}{W}$, $U_p = \qty{120}{V}$ ; variable recherchée : $I_p$
+    \item \textbf{Équations pertinentes :} transformateur idéal :
+    \[ U_p I_p = U_s I_s \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I_p = \frac{U_s I_s}{U_p} \]
+    \item \textbf{Résolution numérique :}
+    \[ I_p = \frac{\Val{\v{Us}*\vsi{Is}}\,\unit{W}}{\qty{120}{V}} = \Res{\v{Us}*\vsi{Is}/120}{A} \]
+    \item \textbf{Réponse :} le primaire tire \textbf{\Res{\v{Us}*\vsi{Is}/120}{A}} (\Res{1000*\v{Us}*\vsi{Is}/120}{mA}) de la prise.
+\end{enumerate}

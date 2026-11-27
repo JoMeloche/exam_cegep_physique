@@ -1,0 +1,20 @@
+title: Diffraction du son par une porte
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f: {type: integer, min: 600, max: 3000, step: 50, unit: Hz, label: Fréquence du son}
+  larg: {type: decimal, min: 0.70, max: 1.20, step: 0.05, unit: m, label: Largeur de la porte}
+  v: {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints:
+  - v/f < 0.9*larg
+  - abs(larg*f/v - round(larg*f/v)) > 0.15
+solution:
+  mode: manual
+  parts:
+    lam: {expr: "v/f", unit: m, label: Longueur d'onde}
+    th1: {expr: "deg(asin(v/(f*larg)))", unit: deg, label: Angle du premier minimum}
+    nmin: {expr: "floor(larg*f/v)", unit: "", label: Nombre de minimums de chaque côté}
+    fmin: {expr: "v/larg", unit: Hz, label: Fréquence sous laquelle il n'y a aucun minimum}

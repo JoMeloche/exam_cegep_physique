@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse du centre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $h = \qty{\v{h}}{m}$, $I = \tfrac{1}{2}mR^2$, $v = \omega R$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} le frottement statique ne travaille pas (roulement sans glissement) : \[ mgh = \tfrac{1}{2}mv^2 + \tfrac{1}{2}I\omega^2 = \tfrac{1}{2}mv^2 + \tfrac{1}{4}mv^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \sqrt{\frac{4gh}{3}} \]
+    \item \textbf{Résolution numérique :} \[ v = \sqrt{\frac{4 \cdot \num{9.81} \cdot \num{\v{h}}}{3}} = \Res{(sqrt(4*9.81*\vsi{h}/3))}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{(sqrt(4*9.81*\vsi{h}/3))}{m/s}}$ (la masse et le rayon n'interviennent pas).
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse angulaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \Res{(sqrt(4*9.81*\vsi{h}/3))}{m/s}$, $R = \qty{\vsi{R}}{m}$ ; variable recherchée : $\omega$
+    \item \textbf{Équations pertinentes :} \[ v = \omega R \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \omega = \frac{v}{R} \]
+    \item \textbf{Résolution numérique :} \[ \omega = \frac{\Val{(sqrt(4*9.81*\vsi{h}/3))}}{\num{\vsi{R}}} = \Res{((sqrt(4*9.81*\vsi{h}/3))/\vsi{R})}{rad/s} \]
+    \item \textbf{Réponse :} $\omega = \mathbf{\Res{((sqrt(4*9.81*\vsi{h}/3))/\vsi{R})}{rad/s}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie cinétique de rotation}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $R = \qty{\vsi{R}}{m}$, $\omega = \Res{((sqrt(4*9.81*\vsi{h}/3))/\vsi{R})}{rad/s}$ ; variable recherchée : $K_{\text{rot}}$
+    \item \textbf{Équations pertinentes :} \[ K_{\text{rot}} = \tfrac{1}{2}I\omega^2 = \tfrac{1}{4}mR^2\omega^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_{\text{rot}} = \tfrac{1}{4} \cdot \num{\v{m}} \cdot \left(\num{\vsi{R}}\right)^2 \cdot \left(\Val{((sqrt(4*9.81*\vsi{h}/3))/\vsi{R})}\right)^2 = \Res{(\vsi{m}*9.81*\vsi{h}/3)}{J} \]
+    \item \textbf{Réponse :} $K_{\text{rot}} = \mathbf{\Res{(\vsi{m}*9.81*\vsi{h}/3)}{J}}$, soit le tiers de $mgh$.
+\end{enumerate}

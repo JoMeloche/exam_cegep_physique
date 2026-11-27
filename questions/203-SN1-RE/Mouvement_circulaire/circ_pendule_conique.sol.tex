@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse : $m = \qty{\v{m}}{kg}$
+        \item Angle avec la verticale : $\theta = \qty{\v{th}}{\degree}$
+        \item Forces : $mg$ et $T$ ; pas d'accélération verticale
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T\cos\theta - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \frac{mg}{\cos\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{\num{\vsi{m}}\cdot\num{9.81}}{\cos(\ang{\v{th}})} = \Res{\vsi{m}*9.81/cosd(\vsi{th})}{N} \]
+    \item \textbf{Réponse :} la tension vaut \textbf{\Res{\vsi{m}*9.81/cosd(\vsi{th})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Longueur de la corde : $L = \qty{\v{L}}{m}$
+        \item Angle avec la verticale : $\theta = \qty{\v{th}}{\degree}$
+        \item Rayon du cercle : $r = L\sin\theta = \Res{\vsi{L}*sind(\vsi{th})}{m}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T\sin\theta = \frac{m v^2}{r} \qquad T\cos\theta = mg \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \tan\theta = \frac{v^2}{g r} \implies v = \sqrt{g L \sin\theta\tan\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\num{9.81}\cdot\Val{\vsi{L}*sind(\vsi{th})}\cdot\tan(\ang{\v{th}})} = \Res{sqrt(9.81*\vsi{L}*sind(\vsi{th})*tand(\vsi{th}))}{m/s} \]
+    \item \textbf{Réponse :} la masse tourne à \textbf{\Res{sqrt(9.81*\vsi{L}*sind(\vsi{th})*tand(\vsi{th}))}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $r = \Res{\vsi{L}*sind(\vsi{th})}{m}$, $v = \Res{sqrt(9.81*\vsi{L}*sind(\vsi{th})*tand(\vsi{th}))}{m/s}$
+        \item Variable recherchée : $T_p$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2\pi r}{T_p} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_p = \frac{2\pi r}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_p = \frac{2\pi\cdot\Val{\vsi{L}*sind(\vsi{th})}}{\Val{sqrt(9.81*\vsi{L}*sind(\vsi{th})*tand(\vsi{th}))}} = \Res{2*pi*sqrt(\vsi{L}*cosd(\vsi{th})/9.81)}{s} \]
+    \item \textbf{Réponse :} la période est de \textbf{\Res{2*pi*sqrt(\vsi{L}*cosd(\vsi{th})/9.81)}{s}}.
+\end{enumerate}

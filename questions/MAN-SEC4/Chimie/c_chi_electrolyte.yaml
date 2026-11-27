@@ -1,0 +1,15 @@
+title: 'Substance qui conduit l''électricité en solution'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le chlorure de sodium est un électrolyte : il se dissocie en ions Na$^+$ et Cl$^-$ qui transportent le courant. Le sucre et l''éthanol se dissolvent sans former d''ions ; l''huile ne se dissout pas.'
+choices:
+  - 'Le sucre (saccharose)'
+  - 'L''éthanol'
+  - 'Le chlorure de sodium'
+  - 'L''huile végétale'

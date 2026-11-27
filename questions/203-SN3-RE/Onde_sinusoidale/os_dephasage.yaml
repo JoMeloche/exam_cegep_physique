@@ -1,0 +1,21 @@
+title: Déphasage entre deux points d'une onde
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f:  {type: integer, min: 100, max: 900, step: 10, unit: Hz, label: Fréquence}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+  dx: {type: integer, min: 5, max: 60, step: 1, unit: cm, si: 0.01, label: Distance entre les points}
+  dt: {type: decimal, min: 0.2, max: 2.0, step: 0.1, unit: ms, si: 0.001, label: Intervalle de temps}
+constraints:
+  - f*dx < 0.95*v
+  - f*dt < 0.95
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v/f", unit: m, label: Longueur d'onde}
+    b: {expr: "2*pi*f/v*dx", unit: rad, label: Déphasage spatial}
+    c: {expr: "2*pi*f*dt", unit: rad, label: Déphasage temporel}
+    d: {expr: "v/(2*f)", unit: m, label: Distance minimale pour une opposition de phase}

@@ -1,0 +1,15 @@
+title: 'Lien entre période et fréquence'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$f = \qty{5}{Hz}$, donc $T = 1/f = \qty{0.2}{s}$.'
+choices:
+  - '\qty{5}{s}'
+  - '\qty{0.2}{s}'
+  - '\qty{0.5}{s}'
+  - '\qty{5}{Hz}'

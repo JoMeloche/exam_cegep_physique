@@ -1,0 +1,17 @@
+title: Énergie cinétique maximale et potentiel d'arrêt
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  lam: {type: integer, min: 150, max: 400, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  phi: {type: choice, values: [2.28, 2.36, 2.75, 3.66, 4.08, 4.26, 4.70], unit: eV, label: Travail d'extraction}
+constraints:
+  - 1240/(lam*1e9) > phi + 0.3
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1240/(lam*1e9)", unit: eV, label: Énergie d'un photon}
+    b: {expr: "1240/(lam*1e9) - phi", unit: eV, label: Énergie cinétique maximale}
+    c: {expr: "1240/(lam*1e9) - phi", unit: V, label: Potentiel d'arrêt}

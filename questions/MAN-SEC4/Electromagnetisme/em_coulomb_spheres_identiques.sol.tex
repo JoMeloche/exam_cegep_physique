@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Charge de chaque sphère}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $r = \qty{\vsi{r}}{m}$, $k = \qty{8.99e9}{N.m^2/C^2}$, $q_1 = q_2 = q$ ; variable recherchée : $q$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \frac{k\,q^2}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ q = r\sqrt{\frac{F}{k}} \]
+    \item \textbf{Résolution numérique :}
+    \[ q = \num{\vsi{r}} \sqrt{\frac{\num{\v{F}}}{\num{8.99e9}}} = \ResSci{\vsi{r}*sqrt(\v{F}/8.99e9)}{C} \]
+    \item \textbf{Réponse :} chaque sphère porte \textbf{\ResSci{\vsi{r}*sqrt(\v{F}/8.99e9)}{C}} (\Res{1e6*\vsi{r}*sqrt(\v{F}/8.99e9)}{\micro C}).
+\end{enumerate}
+
+\subsubsection*{Question b) Électrons en surplus}
+\[ N = \frac{|q|}{e} = \frac{\num[round-mode=figures,round-precision=4,exponent-mode=scientific]{\fpeval{\vsi{r}*sqrt(\v{F}/8.99e9)}}}{\num{1.602e-19}} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{r}*sqrt(\v{F}/8.99e9)/1.602e-19}} \]
+Chaque sphère porte environ \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{r}*sqrt(\v{F}/8.99e9)/1.602e-19}} électrons} en surplus.
+
+\subsubsection*{Question c) Distance triplée}
+La force varie comme $1/r^2$ : si $r$ est multipliée par 3, $F$ est divisée par $3^2 = 9$.
+\[ F' = \frac{F}{9} = \frac{\qty{\v{F}}{N}}{9} = \Res{\v{F}/9}{N} \]

@@ -1,0 +1,15 @@
+title: 'Quelle ampoule tire le plus de courant'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$I = P/U$ : \qty{0.83}{A} pour \qty{100}{W} et \qty{0.50}{A} pour \qty{60}{W}. $R = U^2/P$ : \qty{144}{\ohm} contre \qty{240}{\ohm}.'
+choices:
+  - 'L''ampoule de \qty{100}{W} a la plus grande résistance et tire le plus de courant.'
+  - 'L''ampoule de \qty{100}{W} a la plus petite résistance et tire le plus de courant.'
+  - 'Les deux ampoules tirent le même courant, car elles sont sous la même tension.'
+  - 'L''ampoule de \qty{60}{W} a la plus petite résistance et tire le moins de courant.'

@@ -1,0 +1,18 @@
+title: Plinthe électrique et facture
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  P: {type: choice, values: [500, 750, 1000, 1250, 1500, 2000], unit: W, label: Puissance de la plinthe}
+  h: {type: decimal, min: 4.0, max: 12.0, step: 0.5, unit: h, label: Durée de fonctionnement par jour}
+  tarif: {type: choice, values: [0.07, 0.08, 0.09, 0.10], unit: \$/kWh, label: Tarif}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "P/240", unit: A, label: Intensité du courant}
+    b: {expr: "240**2/P", unit: \ohm, label: Résistance}
+    c: {expr: "P*h*30/1000", unit: \kilo\watt\hour, label: Énergie consommée}
+    d: {expr: "P*h*30/1000*tarif", unit: \$, label: Coût}

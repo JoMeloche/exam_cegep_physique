@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Période sur Terre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Longueur : $L = \qty{\v{L}}{m}$, $g = \qty{9.81}{m/s^2}$
+        \item Variable recherchée : $T_T$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T = 2\pi\sqrt{\frac{L}{g}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T_T = 2\pi\sqrt{\frac{\num{\v{L}}}{\num{9.81}}} = \Res{2*pi*sqrt(\v{L}/9.81)}{s} \]
+    \item \textbf{Réponse :} sur Terre, la période est de \textbf{\Res{2*pi*sqrt(\v{L}/9.81)}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Période sur la planète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $L = \qty{\v{L}}{m}$, $g_p = \qty{\v{gp}}{m/s^2}$
+        \item Variable recherchée : $T_p$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T = 2\pi\sqrt{\frac{L}{g}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T_p = 2\pi\sqrt{\frac{\num{\v{L}}}{\num{\v{gp}}}} = \Res{2*pi*sqrt(\v{L}/\v{gp})}{s} \]
+    \item \textbf{Réponse :} sur la planète, la période est de \textbf{\Res{2*pi*sqrt(\v{L}/\v{gp})}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Longueur pour retrouver la période terrestre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $T_T = \Res{2*pi*sqrt(\v{L}/9.81)}{s}$, $g_p = \qty{\v{gp}}{m/s^2}$
+        \item Variable recherchée : $L'$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 2\pi\sqrt{\frac{L'}{g_p}} = 2\pi\sqrt{\frac{L}{g}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ L' = L\,\frac{g_p}{g} \]
+    \item \textbf{Résolution numérique :}
+    \[ L' = \num{\v{L}} \cdot \frac{\num{\v{gp}}}{\num{9.81}} = \Res{\v{L}*\v{gp}/9.81}{m} \]
+    \item \textbf{Réponse :} il faut une tige de \textbf{\Res{\v{L}*\v{gp}/9.81}{m}}, donc il faut \textbf{\ifthenelse{\lengthtest{\fpeval{\v{gp}-9.81}pt > 0pt}}{l'allonger}{la raccourcir}}.
+\end{enumerate}

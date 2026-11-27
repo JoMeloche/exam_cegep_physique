@@ -1,0 +1,15 @@
+title: "Rôle des parois argentées d'une bouteille isolante"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les surfaces argentées ont une émissivité très faible : elles émettent et absorbent peu de rayonnement, ce qui réduit les échanges radiatifs.'
+choices:
+  - 'La conduction'
+  - 'La convection'
+  - 'Le rayonnement'
+  - 'L''évaporation'

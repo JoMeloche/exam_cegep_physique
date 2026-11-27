@@ -1,0 +1,11 @@
+title: Angles complémentaires et portée
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\sin(\ang{60}) = \sin(\ang{120})$ : des angles complémentaires donnent la même portée (celui à \ang{60} reste plus longtemps dans les airs).'
+choices: ['Celui lancé à \ang{60} va deux fois plus loin', 'Celui lancé à \ang{30} va plus loin', 'Celui lancé à \ang{60} va plus loin', Ils ont la même portée]

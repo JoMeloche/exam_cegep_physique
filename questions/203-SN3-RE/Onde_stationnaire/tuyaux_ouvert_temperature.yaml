@@ -1,0 +1,17 @@
+title: Tuyaux ouvert temperature
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- augmentée
+- diminuée
+- inchangée
+- impossible de le savoir
+pin_last: 1
+needs_review: true
+source: Question_concept/Onde_stationnaire/C_tuyaux_ouvert_temperature.tex
+history: []

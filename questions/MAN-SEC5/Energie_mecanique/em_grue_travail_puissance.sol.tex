@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Travail}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $h = \qty{\v{h}}{m}$, $g = \qty{9.81}{m/s^2}$
+        \item À vitesse constante, la grue exerce une force égale au poids : $F = m g$, dans le sens du déplacement
+        \item Variable recherchée : $W$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ W = F\,d = m g h \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ W = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{h}} = \Res{\v{m}*9.81*\v{h}}{J} \]
+    \item \textbf{Réponse :} la grue effectue un travail de \textbf{\Res{\v{m}*9.81*\v{h}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance utile}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $W = \Res{\v{m}*9.81*\v{h}}{J}$, $\Delta t = \qty{\v{t}}{s}$
+        \item Variable recherchée : $P_u$ (W)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ P = \frac{W}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_u = \frac{\Val{\v{m}*9.81*\v{h}}}{\num{\v{t}}} = \Res{\v{m}*9.81*\v{h}/\v{t}}{W} \]
+    \item \textbf{Réponse :} la puissance utile est de \textbf{\Res{\v{m}*9.81*\v{h}/\v{t}}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Rendement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $P_u = \Res{\v{m}*9.81*\v{h}/\v{t}}{W}$, $P_{\text{consommée}} = \qty{\v{Pm}}{kW} = \qty{\vsi{Pm}}{W}$
+        \item Variable recherchée : $\eta$ (\%)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \eta = \frac{P_u}{P_{\text{consommée}}} \times \qty{100}{\%} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \eta = \frac{\Val{\v{m}*9.81*\v{h}/\v{t}}}{\num{\vsi{Pm}}} \times 100 = \Res{100*\v{m}*9.81*\v{h}/\v{t}/\vsi{Pm}}{\%} \]
+    \item \textbf{Réponse :} le rendement du moteur est de \textbf{\Res{100*\v{m}*9.81*\v{h}/\v{t}/\vsi{Pm}}{\%}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Énergie non utile}
+L'énergie consommée qui n'est pas transformée en énergie potentielle (environ \Res{100 - 100*\v{m}*9.81*\v{h}/\v{t}/\vsi{Pm}}{\%}) est surtout transformée en énergie thermique (chaleur) par le frottement dans les engrenages et les câbles et par l'échauffement du moteur, et un peu en énergie sonore.

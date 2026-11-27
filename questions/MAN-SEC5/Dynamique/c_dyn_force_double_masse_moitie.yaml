@@ -1,0 +1,16 @@
+title: 'Accélération quand la force double et la masse diminue de moitié'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [deuxième loi]
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$a = F/m$ : le numérateur est multiplié par 2 et le dénominateur divisé par 2, donc l''accélération est multipliée par 4.'
+choices:
+  - 'Elle reste la même'
+  - 'Elle double'
+  - 'Elle est divisée par deux'
+  - 'Elle est quatre fois plus grande'

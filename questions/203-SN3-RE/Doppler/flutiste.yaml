@@ -1,0 +1,43 @@
+title: Flutiste
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  VFlute:
+    type: decimal
+    min: 1
+    max: 3.5
+    step: 0.5
+    label: doppTroisVFlute
+  VObs:
+    type: decimal
+    min: 2
+    max: 4.5
+    step: 0.5
+    label: doppTroisVObs
+  Longueur:
+    type: integer
+    min: 25
+    max: 45
+    step: 5
+    label: doppTroisLongueur
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Doppler/flutiste.tex
+original_values:
+  VFlute:
+    A: '2'
+    B: '1.5'
+    C: '3'
+  VObs:
+    A: '3'
+    B: '2.5'
+    C: '4'
+  Longueur:
+    A: '35'
+    B: '40'
+    C: '30'
+history: []

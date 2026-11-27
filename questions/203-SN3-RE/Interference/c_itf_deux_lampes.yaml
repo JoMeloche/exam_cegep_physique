@@ -1,0 +1,15 @@
+title: "Pourquoi deux lampes ne font pas de franges"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Pour observer des franges stables, les deux sources doivent garder une différence de phase constante (sources cohérentes). Deux lampes indépendantes émettent avec des phases qui varient au hasard très rapidement, donc la figure se brouille.'
+choices:
+  - 'La lumière blanche ne peut jamais produire d''interférence'
+  - 'Les deux lampes sont trop proches l''une de l''autre'
+  - 'L''intensité des deux lampes est trop faible'
+  - 'Les deux sources ne sont pas cohérentes : leur différence de phase varie au hasard'

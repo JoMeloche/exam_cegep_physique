@@ -1,0 +1,18 @@
+title: Paramètres d'une fonction d'onde sinusoïdale
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  A:  {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+  k:  {type: decimal, min: 1.0, max: 15.0, step: 0.5, unit: rad/m, label: Nombre d'onde}
+  w:  {type: integer, min: 20, max: 400, step: 10, unit: rad/s, label: Fréquence angulaire}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "2*pi/k", unit: m, label: Longueur d'onde}
+    a2: {expr: "w/(2*pi)", unit: Hz, label: Fréquence}
+    b: {expr: "w/k", unit: m/s, label: Vitesse de l'onde}
+    c: {expr: "A*w", unit: m/s, label: Vitesse transversale maximale}

@@ -1,0 +1,15 @@
+title: "Effet de rétrécir la fente"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le premier minimum est à $\sin\theta_1 = \lambda/a$ : si $a$ diminue, $\theta_1$ augmente et le maximum central s''élargit.'
+choices:
+  - 'Il devient environ deux fois plus large'
+  - 'Il devient environ deux fois plus étroit'
+  - 'Sa largeur ne change pas, seule son intensité diminue'
+  - 'Il se sépare en deux maximums'

@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc sur la table : $m_1 = \qty{\v{m1}}{kg}$
+        \item Masse du bloc suspendu : $m_2 = \qty{\v{m2}}{kg}$
+        \item Bloc 1 : $T$ horizontale ; bloc 2 : $m_2 g$ vers le bas et $T$ vers le haut
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Bloc 1 : } T = m_1 a \qquad \text{Bloc 2 : } m_2 g - T = m_2 a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m_2 g = (m_1 + m_2) a \implies a = \frac{m_2 g}{m_1 + m_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\vsi{m2}} \cdot \num{9.81}}{\num{\vsi{m1}} + \num{\vsi{m2}}} = \Res{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{m/s^2} \]
+    \item \textbf{Réponse :} le système accélère à \textbf{\Res{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc sur la table : $m_1 = \qty{\v{m1}}{kg}$
+        \item $a = \Res{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{m/s^2}$
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T = m_1 a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \num{\vsi{m1}} \cdot \Val{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})} = \Res{\vsi{m1}*\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{N} \]
+    \item \textbf{Réponse :} la tension vaut \textbf{\Res{\vsi{m1}*\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{N}} (moins que le poids du bloc suspendu, \Res{\vsi{m2}*9.81}{N}).
+\end{enumerate}
+
+\subsubsection*{Question c) Temps}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Distance à parcourir : $d = \qty{\v{d}}{cm}$ $= \qty{\vsi{d}}{m}$
+        \item $a = \Res{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}{m/s^2}$
+        \item $v_0 = 0$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ d = \frac{1}{2} a t^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \sqrt{\frac{2d}{a}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2 \cdot \num{\vsi{d}}}{\Val{\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})}}} = \Res{sqrt(2*\vsi{d}/(\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})))}{s} \]
+    \item \textbf{Réponse :} le bloc parcourt la distance en \textbf{\Res{sqrt(2*\vsi{d}/(\vsi{m2}*9.81/(\vsi{m1} + \vsi{m2})))}{s}}.
+\end{enumerate}

@@ -1,0 +1,49 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Constante de temps}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \qty{\vsi{R}}{\ohm}$, $C = \qty{\vsi{C}}{F}$ ; variable recherchée : $\tau$
+    \item \textbf{Équations pertinentes :}
+    \[ \tau = RC \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \tau = \num{\vsi{R}} \cdot \num{\vsi{C}} = \Res{\vsi{R}*\vsi{C}}{s} \]
+    \item \textbf{Réponse :} $\tau = \mathbf{\Res{1000*\vsi{R}*\vsi{C}}{ms}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Charge à $t = \qty{\v{t}}{ms}$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $C = \qty{\vsi{C}}{F}$, $\tau = \Res{\vsi{R}*\vsi{C}}{s}$, $t = \qty{\vsi{t}}{s}$ ; variable recherchée : $q$
+    \item \textbf{Équations pertinentes :}
+    \[ q(t) = Q_{\max}\left(1 - e^{-t/\tau}\right) \qquad Q_{\max} = C\mathcal{E} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ q = C\mathcal{E}\left(1 - e^{-t/\tau}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ q = \num{\vsi{C}} \cdot \num{\v{eps}} \left(1 - e^{-\num{\vsi{t}}/\Val{\vsi{R}*\vsi{C}}}\right) = \ResSci{\vsi{C}*\v{eps}*(1-exp(-\vsi{t}/(\vsi{R}*\vsi{C})))}{C} \]
+    \item \textbf{Réponse :} $q = \mathbf{\Res{1e6*\vsi{C}*\v{eps}*(1-exp(-\vsi{t}/(\vsi{R}*\vsi{C})))}{\micro\coulomb}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant à $t = \qty{\v{t}}{ms}$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $R = \qty{\vsi{R}}{\ohm}$, $\tau = \Res{\vsi{R}*\vsi{C}}{s}$, $t = \qty{\vsi{t}}{s}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ I(t) = I_0\, e^{-t/\tau} \qquad I_0 = \frac{\mathcal{E}}{R} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{\mathcal{E}}{R}\, e^{-t/\tau} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{eps}}}{\num{\vsi{R}}}\, e^{-\num{\vsi{t}}/\Val{\vsi{R}*\vsi{C}}} = \ResSci{\v{eps}/\vsi{R}*exp(-\vsi{t}/(\vsi{R}*\vsi{C}))}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{1000*\v{eps}/\vsi{R}*exp(-\vsi{t}/(\vsi{R}*\vsi{C}))}{mA}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Temps pour atteindre \qty{90}{\percent} de la charge finale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q/Q_{\max} = \num{0.90}$, $\tau = \Res{\vsi{R}*\vsi{C}}{s}$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :}
+    \[ q = Q_{\max}\left(1 - e^{-t/\tau}\right) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e^{-t/\tau} = 1 - \frac{q}{Q_{\max}} \quad\Rightarrow\quad t = -\tau \ln\left(1 - \frac{q}{Q_{\max}}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ t = -\Val{\vsi{R}*\vsi{C}} \cdot \ln(\num{0.10}) = \Res{-(\vsi{R}*\vsi{C})*ln(0.1)}{s} \]
+    \item \textbf{Réponse :} $t = \mathbf{\Res{-1000*(\vsi{R}*\vsi{C})*ln(0.1)}{ms}}$ (environ $2{,}30\,\tau$).
+\end{enumerate}

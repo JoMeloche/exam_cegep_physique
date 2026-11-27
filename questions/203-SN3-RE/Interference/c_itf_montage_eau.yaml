@@ -1,0 +1,15 @@
+title: "Expérience de Young plongée dans l'eau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Dans l''eau, la longueur d''onde devient $\lambda/n$, plus courte. Comme $\Delta y = \lambda_n L/d$, les franges se rapprochent ; la fréquence, elle, ne change pas.'
+choices:
+  - 'Les franges s''écartent, car la lumière ralentit'
+  - 'Les franges se rapprochent, car la longueur d''onde diminue'
+  - 'Rien ne change, car la fréquence de la lumière est la même'
+  - 'Les franges disparaissent, car l''eau détruit la cohérence'

@@ -1,0 +1,11 @@
+title: Vitesse au sommet d'une trajectoire parabolique
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: Au sommet, $v_y = 0$ mais $v_x = v_0\cos\theta$ reste constante pendant tout le vol.
+choices: [Elle est nulle, '$v_0 \cos\theta$, horizontale', '$v_0 \sin\theta$, horizontale', '$v_0$, horizontale']

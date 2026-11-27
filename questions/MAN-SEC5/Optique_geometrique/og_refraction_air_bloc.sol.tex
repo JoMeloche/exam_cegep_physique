@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle de réfraction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_1 = \num{1.00}$, $\theta_1 = \qty{\v{th1}}{\degree}$, $n_2 = \num{\v{n}}$ ; variable recherchée : $\theta_2$
+    \item \textbf{Équations pertinentes :} loi de Snell-Descartes :
+    \[ n_1 \sin\theta_1 = n_2 \sin\theta_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_2 = \arcsin\left(\frac{n_1\sin\theta_1}{n_2}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_2 = \arcsin\left(\frac{\num{1.00}\cdot\sin(\qty{\v{th1}}{\degree})}{\num{\v{n}}}\right) = \Res{asind(sind(\v{th1})/\v{n})}{\degree} \]
+    \item \textbf{Réponse :} $\theta_2 = \mathbf{\Res{asind(sind(\v{th1})/\v{n})}{\degree}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse dans le bloc}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $c = \qty{3.00e8}{m/s}$, $n = \num{\v{n}}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{c}{v} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \frac{c}{n} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{\qty{3.00e8}{m/s}}{\num{\v{n}}} = \ResSci{3e8/\v{n}}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\ResSci{3e8/\v{n}}{m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Déviation}
+\[ \delta = \theta_1 - \theta_2 = \qty{\v{th1}}{\degree} - \Val{asind(sind(\v{th1})/\v{n})}\,\unit{\degree} = \Res{\v{th1} - asind(sind(\v{th1})/\v{n})}{\degree} \]
+Le rayon est dévié de \textbf{\Res{\v{th1} - asind(sind(\v{th1})/\v{n})}{\degree}}. Il passe dans un milieu plus réfringent ($n_2 > n_1$) : il ralentit et se \textbf{rapproche de la normale}.

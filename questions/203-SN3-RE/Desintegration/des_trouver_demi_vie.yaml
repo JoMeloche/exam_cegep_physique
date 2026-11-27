@@ -1,0 +1,18 @@
+title: Déterminer une demi-vie à partir de deux mesures d'activité
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  A1: {type: integer, min: 2000, max: 9000, step: 100, unit: Bq, label: Activité initiale}
+  T:  {type: decimal, min: 5.0, max: 60.0, step: 0.5, unit: min, label: Demi-vie (cachée)}
+  dt: {type: integer, min: 10, max: 120, step: 5, unit: min, label: Intervalle entre les mesures}
+constraints:
+  - 0.03 < 0.5**(dt/T) < 0.8
+solution:
+  mode: manual
+  parts:
+    a: {expr: "T", unit: min, label: Demi-vie}
+    b: {expr: "log(2)/(T*60)*1", unit: 1/s, label: Constante de désintégration}
+    c: {expr: "A1/(log(2)/(T*60))", unit: "", label: Nombre initial de noyaux}

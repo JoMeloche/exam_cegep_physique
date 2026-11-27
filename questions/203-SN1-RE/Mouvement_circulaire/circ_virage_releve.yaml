@@ -1,0 +1,18 @@
+title: Virage relevé sans frottement
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  m: {type: integer, min: 900, max: 1800, step: 50, unit: kg, label: Masse de la voiture}
+  r: {type: integer, min: 50, max: 250, step: 10, unit: m, label: Rayon du virage}
+  th: {type: integer, min: 8, max: 25, step: 1, unit: \degree, label: Angle d'inclinaison}
+constraints: []
+solution:
+  mode: manual
+  file: circ_virage_releve.sol.tex
+  parts:
+    a: {expr: sqrt(r*g*tan(rad(th))), unit: m/s, label: Vitesse de conception}
+    b: {expr: m*g/cos(rad(th)), unit: N, label: Force normale}
+    c: {expr: 2*pi*r/sqrt(r*g*tan(rad(th))), unit: s, label: Période}

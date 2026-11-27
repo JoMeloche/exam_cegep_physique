@@ -1,0 +1,17 @@
+title: Force efficace sur un traîneau
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  F:   {type: integer, min: 40, max: 150, step: 5, unit: N, label: Tension dans la corde}
+  th:  {type: integer, min: 30, max: 60, step: 5, unit: \degree, label: Angle de la corde}
+  th2: {type: integer, min: 5, max: 25, step: 5, unit: \degree, label: Nouvel angle}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "F*cos(rad(th))", unit: N, label: Force efficace}
+    b: {expr: "F*sin(rad(th))", unit: N, label: Composante verticale}
+    c: {expr: "F*cos(rad(th))/cos(rad(th2))", unit: N, label: Force nécessaire au nouvel angle}

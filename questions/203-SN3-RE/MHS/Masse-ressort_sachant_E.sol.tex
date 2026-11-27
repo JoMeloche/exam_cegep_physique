@@ -1,0 +1,100 @@
+\subsubsection*{Question a) Amplitude d'oscillation du bloc}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Énergie mécanique : $E = \qty{\v{Em}}{J}$
+        \item Masse du bloc : $m = \qty{\v{Masse}}{g} = \qty{\fpeval{\v{Masse} / 1000}}{kg}$
+        \item Constante de rappel : $k = \qty{\v{K}}{N/m}$
+        \item Variable recherchée : Amplitude $A \text{ (m)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    E = \frac{1}{2} k A^2
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    A^2 = \frac{2E}{k} \quad \implies \quad A = \sqrt{\frac{2E}{k}}
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    A = \sqrt{\frac{2 \cdot \v{Em}}{\v{K}}} = \qty{\fpeval{round(sqrt(2 * \v{Em} / \v{K}), 4)}}{m}
+    \]
+
+    \item \textbf{Réponse :}
+    L'amplitude d'oscillation du bloc est de \textbf{\qty{\fpeval{round(sqrt(2 * \v{Em} / \v{K}), 3)}}{m}} (soit \textbf{\qty{\fpeval{round(sqrt(2 * \v{Em} / \v{K}) * 100, 2)}}{cm}}).
+\end{enumerate}
+
+
+% ------------------------------------------------------------------------------
+% QUESTION B
+% ------------------------------------------------------------------------------
+\subsubsection*{Question b) Module de la vitesse maximale}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Énergie mécanique : $E = \qty{\v{Em}}{J}$
+        \item Masse du bloc : $m = \qty{\fpeval{\v{Masse} / 1000}}{kg}$
+        \item Variable recherchée : Vitesse maximale $v_{\max} \text{ (m/s)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    E = \frac{1}{2} m v_{\max}^2
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    v_{\max}^2 = \frac{2E}{m} \quad \implies \quad v_{\max} = \sqrt{\frac{2E}{m}}
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    v_{\max} = \sqrt{\frac{2 \cdot \v{Em}}{\fpeval{\v{Masse} / 1000}}} = \qty{\fpeval{round(sqrt(2 * \v{Em} / (\v{Masse} / 1000)), 2)}}{m/s}
+    \]
+
+    \item \textbf{Réponse :}
+    Le module de la vitesse maximale atteinte par le bloc est de \textbf{\qty{\fpeval{round(sqrt(2 * \v{Em} / (\v{Masse} / 1000)), 2)}}{m/s}}.
+\end{enumerate}
+
+
+% ------------------------------------------------------------------------------
+% QUESTION C
+% ------------------------------------------------------------------------------
+\subsubsection*{Question c) Position lorsque la vitesse est de \qty{\v{Vit}}{m/s}}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Énergie mécanique : $E = \qty{\v{Em}}{J}$
+        \item Masse du bloc : $m = \qty{\fpeval{\v{Masse} / 1000}}{kg}$
+        \item Constante de rappel : $k = \qty{\v{K}}{N/m}$
+        \item Vitesse instantanée : $v = \qty{\v{Vit}}{m/s}$
+        \item Variable recherchée : Position $x \text{ (m)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    E = K + U = \frac{1}{2} m v^2 + \frac{1}{2} k x^2
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    \frac{1}{2} k x^2 = E - \frac{1}{2} m v^2 \quad \implies \quad x^2 = \frac{2E - m v^2}{k} \quad \implies \quad x = \pm \sqrt{\frac{2E - m v^2}{k}}
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    K = \frac{1}{2} \cdot \left(\fpeval{\v{Masse} / 1000}\right) \cdot (\v{Vit})^2 = \num[scientific-notation=true, round-mode=figures, round-precision=3]{\fpeval{0.5 * (\v{Masse} / 1000) * (\v{Vit})^2}} \text{ J}
+    \]
+    \[
+    x = \pm \sqrt{\frac{2 \cdot \v{Em} - (\fpeval{\v{Masse} / 1000}) \cdot (\v{Vit})^2}{\v{K}}} = \pm \qty{\fpeval{round(sqrt((2 * \v{Em} - (\v{Masse} / 1000) * (\v{Vit})^2) / \v{K}), 4)}}{m}
+    \]
+
+    \item \textbf{Réponse :}
+    Lorsque la vitesse du bloc est de \qty{\v{Vit}}{m/s}, sa position se trouve à \textbf{$\pm$ \qty{\fpeval{round(sqrt((2 * \v{Em} - (\v{Masse} / 1000) * (\v{Vit})^2) / \v{K}), 3)}}{m}} (soit \textbf{$\pm$ \qty{\fpeval{round(sqrt((2 * \v{Em} - (\v{Masse} / 1000) * (\v{Vit})^2) / \v{K}) * 100, 2)}}{cm}}) par rapport à sa position d'équilibre.
+\end{enumerate}

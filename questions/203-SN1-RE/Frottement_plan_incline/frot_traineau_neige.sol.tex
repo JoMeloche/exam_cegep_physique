@@ -1,0 +1,54 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du traîneau : $m = \qty{\v{m}}{kg}$
+        \item Tension dans la corde : $T = \qty{\v{T}}{N}$
+        \item Angle de la corde : $\theta = \qty{\v{th}}{\degree}$
+        \item $a_y = 0$
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_y = 0 \implies n + T\sin\theta - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ n = mg - T\sin\theta \]
+    \item \textbf{Résolution numérique :}
+    \[ n = \num{\vsi{m}}\cdot\num{9.81} - \num{\vsi{T}}\sin(\ang{\v{th}}) = \Res{\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})}{N} \]
+    \item \textbf{Réponse :} la force normale vaut \textbf{\Res{\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item $n = \Res{\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})}{N}$
+        \item Variable recherchée : $f_c$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f_c = \mu_c n \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f_c = \num{\vsi{mu}} \cdot \Val{\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})} = \Res{\vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th}))}{N} \]
+    \item \textbf{Réponse :} le frottement vaut \textbf{\Res{\vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th}))}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Tension dans la corde : $T = \qty{\v{T}}{N}$
+        \item Angle de la corde : $\theta = \qty{\v{th}}{\degree}$
+        \item $f_c = \Res{\vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th}))}{N}$
+        \item Variable recherchée : $a_x$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_x = m a_x \implies T\cos\theta - f_c = m a_x \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a_x = \frac{T\cos\theta - f_c}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a_x = \frac{\num{\vsi{T}}\cos(\ang{\v{th}}) - \Val{\vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th}))}}{\num{\vsi{m}}} = \Res{(\vsi{T}*cosd(\vsi{th}) - \vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})))/\vsi{m}}{m/s^2} \]
+    \item \textbf{Réponse :} le traîneau accélère à \textbf{\Res{(\vsi{T}*cosd(\vsi{th}) - \vsi{mu}*(\vsi{m}*9.81 - \vsi{T}*sind(\vsi{th})))/\vsi{m}}{m/s^2}}.
+\end{enumerate}

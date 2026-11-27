@@ -1,0 +1,18 @@
+title: Balle lancée du toit d'un édifice
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  v0: {type: decimal, min: 8.0, max: 20.0, step: 0.5, unit: m/s, label: Vitesse initiale}
+  th: {type: integer, unit: \degree, label: Angle de lancement, min: 20, max: 50, step: 5}
+  h: {type: decimal, min: 15.0, max: 45.0, step: 0.5, unit: m, label: Hauteur de l'édifice}
+constraints: []
+solution:
+  mode: manual
+  file: proj_lancer_toit.sol.tex
+  parts:
+    a: {expr: h + (v0*sin(rad(th)))**2/(2*g), unit: m, label: Hauteur maximale}
+    b: {expr: (v0*sin(rad(th)) + sqrt((v0*sin(rad(th)))**2 + 2*g*h))/g, unit: s, label: Temps de vol}
+    c: {expr: v0*cos(rad(th))*(v0*sin(rad(th)) + sqrt((v0*sin(rad(th)))**2 + 2*g*h))/g, unit: m, label: Portée horizontale}

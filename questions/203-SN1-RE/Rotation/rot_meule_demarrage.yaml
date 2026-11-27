@@ -1,0 +1,18 @@
+title: 'Démarrage d''une meule à accélération angulaire constante'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  wf: {type: integer, min: 600, max: 3000, step: 100, unit: tr/min, si: 0.10471975511965977, label: Vitesse angulaire finale}
+  t: {type: decimal, min: 2.0, max: 10.0, step: 0.5, unit: s, label: Durée du démarrage}
+  r: {type: decimal, min: 5.0, max: 20.0, step: 0.5, unit: cm, si: 0.01, label: Rayon de la meule}
+constraints: []
+solution:
+  mode: manual
+  file: rot_meule_demarrage.sol.tex
+  parts:
+    a: {expr: "wf/t", unit: 'rad/s^2', label: 'Accélération angulaire'}
+    b: {expr: "0.5*wf*t/(2*pi)", unit: 'tours', label: 'Nombre de tours'}
+    c: {expr: "wf*r", unit: 'm/s', label: 'Vitesse en périphérie'}

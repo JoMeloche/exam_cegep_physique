@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Distance pendant la réaction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{v0}}{km/h}$ $= \qty{\vsi{v0}}{m/s}$
+        \item Temps de réaction : $t_r = \qty{\v{tr}}{s}$
+        \item Variable recherchée : $d_r$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ d_r = v_0 t_r \quad \text{(vitesse constante)} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ d_r = \Val{\vsi{v0}} \cdot \num{\vsi{tr}} = \Res{\vsi{v0}*\vsi{tr}}{m} \]
+    \item \textbf{Réponse :} l'automobile parcourt \textbf{\Res{\vsi{v0}*\vsi{tr}}{m}} avant de commencer à freiner.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance de freinage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{v0}}{km/h}$ $= \qty{\vsi{v0}}{m/s}$
+        \item Décélération au freinage : $a = \qty{\v{a}}{m/s^2}$ (le vecteur accélération est opposé à la vitesse)
+        \item Vitesse finale : $v = \qty{0}{m/s}$
+        \item Variable recherchée : $d_f$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v^2 = v_0^2 + 2 a_x \Delta x \qquad a_x = -a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ 0 = v_0^2 - 2 a d_f \implies d_f = \frac{v_0^2}{2a} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_f = \frac{(\Val{\vsi{v0}})^2}{2 \cdot \num{\vsi{a}}} = \Res{\vsi{v0}^2/(2*\vsi{a})}{m} \]
+    \item \textbf{Réponse :} la distance de freinage est de \textbf{\Res{\vsi{v0}^2/(2*\vsi{a})}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps total}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{v0}}{km/h}$ $= \qty{\vsi{v0}}{m/s}$
+        \item Temps de réaction : $t_r = \qty{\v{tr}}{s}$
+        \item Décélération au freinage : $a = \qty{\v{a}}{m/s^2}$
+        \item Variable recherchée : $t_{\text{tot}}$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = v_0 + a_x t_f \qquad t_{\text{tot}} = t_r + t_f \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ 0 = v_0 - a t_f \implies t_f = \frac{v_0}{a} \implies t_{\text{tot}} = t_r + \frac{v_0}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ t_{\text{tot}} = \num{\vsi{tr}} + \frac{\Val{\vsi{v0}}}{\num{\vsi{a}}} = \Res{\vsi{tr} + \vsi{v0}/\vsi{a}}{s} \]
+    \item \textbf{Réponse :} l'automobile s'immobilise \textbf{\Res{\vsi{tr} + \vsi{v0}/\vsi{a}}{s}} après l'apparition du chevreuil.
+\end{enumerate}

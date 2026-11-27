@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance absorbée moyenne}
+La Terre intercepte le rayonnement sur un disque d'aire $\pi R^2$, mais rayonne par toute sa surface $4\pi R^2$ ; il faut donc diviser par 4. Elle n'absorbe que la fraction $(1-a)$.
+\[ \frac{P_{\text{abs}}}{4\pi R^2} = \frac{S(1-a)\pi R^2}{4\pi R^2} = \frac{\num{\v{S}}(1 - \num{\v{al}})}{4} = \Res{\v{S}*(1 - \v{al})/4}{W/m^2} \]
+
+\subsubsection*{Question b) Température d'équilibre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} puissance absorbée par m² $= \Res{\v{S}*(1 - \v{al})/4}{W/m^2}$ ; variable recherchée : $T_e$
+    \item \textbf{Équations pertinentes :} équilibre : puissance absorbée = puissance émise :
+    \[ \frac{S(1-a)}{4} = \sigma T_e^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_e = \left(\frac{S(1-a)}{4\sigma}\right)^{1/4} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_e = \left(\frac{\Val{\v{S}*(1 - \v{al})/4}}{\num{5.67e-8}}\right)^{1/4} = \Res{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K} \]
+    \item \textbf{Réponse :} $T_e = \mathbf{\Res{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K}}$, soit \qty[round-mode=places,round-precision=0]{\fpeval{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25 - 273}}{\degreeCelsius}.
+\end{enumerate}
+
+\subsubsection*{Question c) Écart avec la réalité}
+La surface réelle est plus chaude d'environ \textbf{\Res{288 - (\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K}} : c'est l'\textbf{effet de serre}. Les gaz à effet de serre (vapeur d'eau, $\mathrm{CO_2}$, $\mathrm{CH_4}$) laissent passer le rayonnement solaire visible, mais absorbent une grande partie du rayonnement infrarouge émis par le sol et en renvoient une partie vers la surface.

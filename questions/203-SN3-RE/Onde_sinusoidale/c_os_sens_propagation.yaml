@@ -1,0 +1,15 @@
+title: "Sens de propagation d'après la fonction d'onde"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Une phase de la forme $kx + \omega t$ reste constante si $x$ diminue quand $t$ augmente : l''onde va vers les $x$ négatifs, à $v = \omega/k = \qty{2}{m/s}$.'
+choices:
+  - 'Vers les $x$ positifs, à \qty{2}{m/s}'
+  - 'Vers les $x$ négatifs, à \qty{2}{m/s}'
+  - 'Vers les $x$ positifs, à \qty{18}{m/s}'
+  - 'Vers les $x$ négatifs, à \qty{0.5}{m/s}'

@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force avant le contact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_2 = \qty{\v{q2}e-6}{C}$, $r = \qty{\vsi{r}}{m}$, $k = \qty{8.99e9}{N.m^2/C^2}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \frac{k\,|q_1 q_2|}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F = \frac{\num{8.99e9} \cdot |\num{\v{q1}e-6} \cdot (\num{\v{q2}e-6})|}{(\num{\vsi{r}})^2} = \Res{8.99e9*abs(\v{q1}*\v{q2})*1e-12/(\vsi{r})^2}{N} \]
+    \item \textbf{Réponse :} $F = \mathbf{\Res{8.99e9*abs(\v{q1}*\v{q2})*1e-12/(\vsi{r})^2}{N}}$. Les charges sont de signes contraires : la force est \textbf{attractive}.
+\end{enumerate}
+
+\subsubsection*{Question b) Charge après le contact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1$, $q_2$ ; variable recherchée : $q'$ (charge de chaque sphère)
+    \item \textbf{Équations pertinentes :} la charge totale est conservée et se partage également entre deux sphères identiques :
+    \[ q_1 + q_2 = 2q' \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ q' = \frac{q_1 + q_2}{2} \]
+    \item \textbf{Résolution numérique :}
+    \[ q' = \frac{\num{\v{q1}} + (\num{\v{q2}})}{2} = \Res{(\v{q1}+\v{q2})/2}{\micro\coulomb} \]
+    \item \textbf{Réponse :} chaque sphère porte $q' = \mathbf{\Res{(\v{q1}+\v{q2})/2}{\micro\coulomb}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Force après le contact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q' = \Res{(\v{q1}+\v{q2})/2}{\micro\coulomb}$, $r = \qty{\vsi{r}}{m}$ ; variable recherchée : $F'$
+    \item \textbf{Équations pertinentes :}
+    \[ F' = \frac{k\,q'^2}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F' = \frac{\num{8.99e9} \cdot (\Val{(\v{q1}+\v{q2})/2}\times 10^{-6})^2}{(\num{\vsi{r}})^2} = \Res{8.99e9*((\v{q1}+\v{q2})/2)^2*1e-12/(\vsi{r})^2}{N} \]
+    \item \textbf{Réponse :} $F' = \mathbf{\Res{8.99e9*((\v{q1}+\v{q2})/2)^2*1e-12/(\vsi{r})^2}{N}}$. Les deux sphères ont maintenant la même charge : la force est \textbf{répulsive}.
+\end{enumerate}

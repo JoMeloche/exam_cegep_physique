@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Débit cardiaque au repos}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_c = \qty{\v{FC}}{battements/min}$, $V = \qty{\v{VES}}{mL} = \qty{\fpeval{\v{VES}/1000}}{L}$ ; variable recherchée : débit $Q$ (L/min)
+    \item \textbf{Équations pertinentes :}
+    \[ Q = f_c \times V \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \num{\v{FC}} \times \num{\fpeval{\v{VES}/1000}} = \Res{\v{FC}*\v{VES}/1000}{L/min} \]
+    \item \textbf{Réponse :} le débit cardiaque au repos est de \textbf{\Res{\v{FC}*\v{VES}/1000}{L/min}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Temps de circulation de tout le sang}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_{\text{sang}} = \qty{5}{L}$, $Q = \Res{\v{FC}*\v{VES}/1000}{L/min}$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = \frac{V_{\text{sang}}}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{V_{\text{sang}}}{Q} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\num{5}}{\Val{\v{FC}*\v{VES}/1000}} = \Res{5/(\v{FC}*\v{VES}/1000)}{min} \]
+    \item \textbf{Réponse :} il faut environ \textbf{\Res{5/(\v{FC}*\v{VES}/1000)}{min}}, soit \Res{60*5/(\v{FC}*\v{VES}/1000)}{s}.
+\end{enumerate}
+
+\subsubsection*{Question c) Débit cardiaque à l'effort}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_{c,e} = \qty{\v{FCe}}{battements/min}$, $V_e = \qty{\fpeval{\v{VESe}/1000}}{L}$ ; variables recherchées : $Q_e$ et le facteur $Q_e/Q$
+    \item \textbf{Équations pertinentes :}
+    \[ Q_e = f_{c,e} \times V_e \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ Q_e = \num{\v{FCe}} \times \num{\fpeval{\v{VESe}/1000}} = \Res{\v{FCe}*\v{VESe}/1000}{L/min} \qquad \frac{Q_e}{Q} = \frac{\Val{\v{FCe}*\v{VESe}/1000}}{\Val{\v{FC}*\v{VES}/1000}} = \Val{\v{FCe}*\v{VESe}/(\v{FC}*\v{VES})} \]
+    \item \textbf{Réponse :} le débit à l'effort est de \textbf{\Res{\v{FCe}*\v{VESe}/1000}{L/min}}, environ \textbf{\num[round-mode=figures,round-precision=2]{\fpeval{\v{FCe}*\v{VESe}/(\v{FC}*\v{VES})}} fois} le débit au repos. Les muscles qui travaillent font plus de respiration cellulaire : ils ont besoin de plus de dioxygène et de glucose, et doivent évacuer plus de dioxyde de carbone. Le sang, qui transporte ces substances, doit donc circuler plus vite.
+\end{enumerate}

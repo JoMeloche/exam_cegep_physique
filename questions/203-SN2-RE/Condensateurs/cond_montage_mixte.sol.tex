@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Capacité équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_1 = \qty{\v{C1}}{\micro\farad}$, $C_2 = \qty{\v{C2}}{\micro\farad}$, $C_3 = \qty{\v{C3}}{\micro\farad}$ ; variable recherchée : $C_{\text{éq}}$
+    \item \textbf{Équations pertinentes :}
+    \[ C_{23} = C_2 + C_3 \qquad \frac{1}{C_{\text{éq}}} = \frac{1}{C_1} + \frac{1}{C_{23}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ C_{\text{éq}} = \frac{C_1C_{23}}{C_1 + C_{23}} \]
+    \item \textbf{Résolution numérique :}
+    \[ C_{23} = \num{\v{C2}} + \num{\v{C3}} = \Res{\v{C2}+\v{C3}}{\micro\farad} \qquad C_{\text{éq}} = \frac{\num{\v{C1}} \cdot \Val{\v{C2}+\v{C3}}}{\num{\v{C1}} + \Val{\v{C2}+\v{C3}}} = \Res{\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{\micro\farad} \]
+    \item \textbf{Réponse :} $C_{\text{éq}} = \mathbf{\Res{\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{\micro\farad}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Charge et tension sur $C_1$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_{\text{éq}}$, $V = \qty{\v{V}}{V}$ ; variables recherchées : $Q_1$, $V_1$
+    \item \textbf{Équations pertinentes :} $C_1$ est en série avec le groupe : il porte la charge totale.
+    \[ Q_1 = C_{\text{éq}}V \qquad V_1 = \frac{Q_1}{C_1} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ Q_1 = \Val{\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}\times 10^{-6} \cdot \num{\v{V}} = \Res{\v{V}*\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{\micro\coulomb} \qquad V_1 = \frac{\Val{\v{V}*\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}}{\num{\v{C1}}} = \Res{\v{V}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{V} \]
+    \item \textbf{Réponse :} $Q_1 = \mathbf{\Res{\v{V}*\v{C1}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{\micro\coulomb}}$ et $V_1 = \mathbf{\Res{\v{V}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Tension et charge sur $C_2$}
+\[ V_2 = V - V_1 = \num{\v{V}} - \Val{\v{V}*(\v{C2}+\v{C3})/(\v{C1}+\v{C2}+\v{C3})} = \Res{\v{V}*\v{C1}/(\v{C1}+\v{C2}+\v{C3})}{V} \qquad Q_2 = C_2V_2 = \num{\v{C2}} \cdot \Val{\v{V}*\v{C1}/(\v{C1}+\v{C2}+\v{C3})} = \Res{\v{C2}*\v{V}*\v{C1}/(\v{C1}+\v{C2}+\v{C3})}{\micro\coulomb} \]
+$C_2$ et $C_3$ ont la même tension $V_2 = \mathbf{\Res{\v{V}*\v{C1}/(\v{C1}+\v{C2}+\v{C3})}{V}}$, et $Q_2 = \mathbf{\Res{\v{C2}*\v{V}*\v{C1}/(\v{C1}+\v{C2}+\v{C3})}{\micro\coulomb}}$.

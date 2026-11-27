@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+\[ \lambda = \frac{v}{f} = \frac{\num{\v{v}}}{\num{\v{f}}} = \Res{\v{v}/\v{f}}{m} \]
+La longueur d'onde est de \textbf{\Res{\v{v}/\v{f}}{m}}.
+
+\subsubsection*{Question b) Premier minimum}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a = \qty{\v{larg}}{m}$, $\lambda = \Res{\v{v}/\v{f}}{m}$, $m = 1$
+        \item Variable recherchée : $\theta_1$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} la porte se comporte comme une fente :
+    \[ a\sin\theta = m\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_1 = \arcsin\left(\frac{\lambda}{a}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_1 = \arcsin\left(\frac{\Val{\v{v}/\v{f}}}{\num{\v{larg}}}\right) = \Res{asind(\v{v}/(\v{f}*\v{larg}))}{\degree} \]
+    \item \textbf{Réponse :} l'intensité est nulle pour la première fois à \textbf{\Res{asind(\v{v}/(\v{f}*\v{larg}))}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre de directions d'intensité nulle}
+Il faut $\sin\theta = m\lambda/a \le 1$, donc $m \le a/\lambda = \Val{\v{larg}*\v{f}/\v{v}}$. On a donc \textbf{\num{\fpeval{floor(\v{larg}*\v{f}/\v{v})}}} directions d'intensité nulle de chaque côté de l'axe.
+
+\subsubsection*{Question d) Fréquence minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a = \qty{\v{larg}}{m}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $f$ telle que $\lambda = a$
+    \item \textbf{Équations pertinentes :} il existe un premier minimum seulement si $\lambda/a \le 1$, et $v = \lambda f$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f = \frac{v}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\num{\v{v}}}{\num{\v{larg}}} = \Res{\v{v}/\v{larg}}{Hz} \]
+    \item \textbf{Réponse :} sous \textbf{\Res{\v{v}/\v{larg}}{Hz}}, le son se répand dans le corridor sans aucune direction d'intensité nulle.
+\end{enumerate}

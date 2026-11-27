@@ -1,0 +1,27 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle de la frange d'ordre 1}
+\[ d\sin\theta_1 = \lambda \quad\Rightarrow\quad \theta_1 = \arcsin\left(\frac{\num{\vsi{lam}}}{\num{\vsi{sep}}}\right) = \Res{asind(\vsi{lam}/\vsi{sep})}{\degree} \]
+La frange d'ordre 1 est à \textbf{\Res{asind(\vsi{lam}/\vsi{sep})}{\degree}}.
+
+\subsubsection*{Question b) Intensité de la frange d'ordre 1}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $I_0 = \qty{\v{I0}}{W/m^2}$, $a = \qty{\v{larg}}{\micro\metre}$, $d = \qty{\v{sep}}{\micro\metre}$, $m = 1$
+        \item Variable recherchée : $I_1$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ I = I_0\cos^2\left(\frac{\phi}{2}\right)\left(\frac{\sin\alpha}{\alpha}\right)^2, \qquad \alpha = \frac{\pi a\sin\theta}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :} à une frange brillante, $\cos^2(\phi/2) = 1$ et $\sin\theta_m = m\lambda/d$, donc $\alpha = \dfrac{\pi m a}{d}$ et
+    \[ I_m = I_0\left(\frac{\sin(\pi m a/d)}{\pi m a/d}\right)^2 \]
+    \item \textbf{Résolution numérique :} $\alpha = \pi \cdot \num{\v{larg}}/\num{\v{sep}} = \Res{pi*\v{larg}/\v{sep}}{rad}$
+    \[ I_1 = \num{\v{I0}} \cdot \left(\frac{\sin(\Val{pi*\v{larg}/\v{sep}})}{\Val{pi*\v{larg}/\v{sep}}}\right)^2 = \Res{\v{I0}*(sin(pi*\v{larg}/\v{sep})/(pi*\v{larg}/\v{sep}))^2}{W/m^2} \]
+    \item \textbf{Réponse :} la frange d'ordre 1 a une intensité de \textbf{\Res{\v{I0}*(sin(pi*\v{larg}/\v{sep})/(pi*\v{larg}/\v{sep}))^2}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Intensité de la frange d'ordre 2}
+Avec $m = 2$, $\alpha = 2\pi a/d = \Res{2*pi*\v{larg}/\v{sep}}{rad}$ :
+\[ I_2 = \num{\v{I0}} \cdot \left(\frac{\sin(\Val{2*pi*\v{larg}/\v{sep}})}{\Val{2*pi*\v{larg}/\v{sep}}}\right)^2 = \Res{\v{I0}*(sin(2*pi*\v{larg}/\v{sep})/(2*pi*\v{larg}/\v{sep}))^2}{W/m^2} \]
+La frange d'ordre 2 a une intensité de \textbf{\Res{\v{I0}*(sin(2*pi*\v{larg}/\v{sep})/(2*pi*\v{larg}/\v{sep}))^2}{W/m^2}}.

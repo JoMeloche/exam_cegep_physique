@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération vers le haut}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $a = \qty{+\v{a}}{m/s^2}$ (vers le haut), $g = \qty{9.81}{m/s^2}$
+        \item Forces sur la personne : poids $m g$ (vers le bas), normale $F_N$ du pèse-personne (vers le haut)
+        \item Variable recherchée : $F_N$ (N), la lecture du pèse-personne
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_N - m g = m a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_N = m (g + a) \]
+    \item \textbf{Résolution numérique :}
+    \[ F_N = \num{\v{m}} \cdot (\num{9.81} + \num{\v{a}}) = \Res{\v{m}*(9.81+\v{a})}{N} \]
+    \item \textbf{Réponse :} le pèse-personne indique \textbf{\Res{\v{m}*(9.81+\v{a})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse constante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $a = \qty{0}{m/s^2}$
+        \item Variable recherchée : $F_N$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_N - m g = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_N = m g \]
+    \item \textbf{Résolution numérique :}
+    \[ F_N = \num{\v{m}} \cdot \num{9.81} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} le pèse-personne indique \textbf{\Res{\v{m}*9.81}{N}}, le poids réel de la personne.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération vers le bas}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $a = \qty{-\v{a}}{m/s^2}$ (vers le bas)
+        \item Variable recherchée : $F_N$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_N - m g = m a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_N = m (g + a) = m (g - |a|) \]
+    \item \textbf{Résolution numérique :}
+    \[ F_N = \num{\v{m}} \cdot (\num{9.81} - \num{\v{a}}) = \Res{\v{m}*(9.81-\v{a})}{N} \]
+    \item \textbf{Réponse :} le pèse-personne indique \textbf{\Res{\v{m}*(9.81-\v{a})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Explication}
+La sensation de poids vient de la force normale que le plancher (ou le pèse-personne) exerce sur nous. Quand l'ascenseur accélère vers le bas, il faut une force résultante vers le bas, donc la normale devient plus petite que le poids : \Res{\v{m}*(9.81-\v{a})}{N} au lieu de \Res{\v{m}*9.81}{N}. La masse et le poids réel ne changent pas.

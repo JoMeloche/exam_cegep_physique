@@ -1,0 +1,11 @@
+title: Déplacement après un tour de piste
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: Le déplacement relie la position initiale à la position finale ; elles sont identiques. La distance parcourue, elle, est de \qty{400}{m}.
+choices: ['\qty{400}{m}', '\qty{200}{m}', '\qty{127}{m}', '\qty{0}{m}']

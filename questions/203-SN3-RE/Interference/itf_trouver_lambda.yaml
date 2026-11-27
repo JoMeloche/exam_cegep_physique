@@ -1,0 +1,19 @@
+title: Mesurer une longueur d'onde avec deux fentes
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  sep: {type: decimal, min: 0.15, max: 0.50, step: 0.05, unit: mm, si: 0.001, label: Distance entre les fentes}
+  L: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: m, label: Distance fentes-écran}
+  N: {type: integer, min: 3, max: 6, label: Ordre de la frange mesurée}
+  dy: {type: decimal, min: 4.0, max: 40.0, step: 0.5, unit: mm, si: 0.001, label: Distance mesurée sur l'écran}
+constraints:
+  - 420e-9 < dy*sep/(N*L) < 680e-9
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "dy*sep/(N*L)", unit: m, label: Longueur d'onde}
+    b: {expr: "1.5*dy/N", unit: m, label: Position de la deuxième frange sombre}
+    c1: {expr: "dy/N/1.33", unit: m, label: Distance entre franges dans l'eau}

@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance lumineuse de l'ampoule incandescente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P_1 = \qty{\v{P1}}{W}$, rendement \qty{\v{e1}}{\percent} ; variable recherchée : $P_u$
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Rendement} = \frac{P_u}{P_1} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ P_u = \frac{\text{Rendement} \times P_1}{100} \]
+    \item \textbf{Résolution numérique :}
+    \[ P_u = \frac{\num{\v{e1}} \times \num{\v{P1}}}{100} = \Res{\v{P1}*\v{e1}/100}{W} \]
+    \item \textbf{Réponse :} l'ampoule produit \textbf{\Res{\v{P1}*\v{e1}/100}{W}} de lumière ; le reste, \Res{\v{P1}-\v{P1}*\v{e1}/100}{W}, est transformé en \textbf{chaleur}.
+\end{enumerate}
+
+\subsubsection*{Question b) Rendement de la DEL}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P_u = \Res{\v{P1}*\v{e1}/100}{W}$ (même lumière), $P_2 = \qty{\v{P2}}{W}$ ; variable recherchée : rendement
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Rendement} = \frac{P_u}{P_2} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \text{Rendement} = \frac{\Val{\v{P1}*\v{e1}/100}}{\num{\v{P2}}} \times 100 = \Res{\v{P1}*\v{e1}/\v{P2}}{\percent} \]
+    \item \textbf{Réponse :} la DEL a un rendement de \textbf{\Res{\v{P1}*\v{e1}/\v{P2}}{\percent}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Économie annuelle}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} différence de puissance $\num{\v{P1}} - \num{\v{P2}} = \qty{\fpeval{\v{P1}-\v{P2}}}{W} = \qty{\fpeval{(\v{P1}-\v{P2})/1000}}{kW}$, $\Delta t = \num{\v{h}} \times \num{365} = \qty{\fpeval{\v{h}*365}}{h}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = P\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \num{\fpeval{(\v{P1}-\v{P2})/1000}} \times \num{\fpeval{\v{h}*365}} = \Res{(\v{P1}-\v{P2})*\v{h}*365/1000}{kWh} \]
+    \item \textbf{Réponse :} on économise \textbf{\Res{(\v{P1}-\v{P2})*\v{h}*365/1000}{kWh}} par année.
+\end{enumerate}

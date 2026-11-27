@@ -1,0 +1,15 @@
+title: 'Contrainte subie par une colonne'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le poids du plancher pousse sur le haut de la colonne et le sol la retient en bas : deux forces qui l''écrasent, c''est la compression. Le béton résiste très bien à cette contrainte.'
+choices:
+  - 'La compression'
+  - 'La traction'
+  - 'Le cisaillement'
+  - 'La torsion'

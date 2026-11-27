@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \num{\v{N}}$ vagues, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ f = \frac{N}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\num{\v{N}}}{\qty{\v{t}}{s}} = \Res{\v{N}/\v{t}}{Hz} \]
+    \item \textbf{Réponse :} $f = \mathbf{\Res{\v{N}/\v{t}}{Hz}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \Res{\v{N}/\v{t}}{Hz}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ T = \frac{1}{f} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{1}{\Val{\v{N}/\v{t}}\,\unit{Hz}} = \Res{\v{t}/\v{N}}{s} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{\v{t}/\v{N}}{s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\v{lam}}{m}$, $f = \Res{\v{N}/\v{t}}{Hz}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \qty{\v{lam}}{m} \cdot \Val{\v{N}/\v{t}}\,\unit{Hz} = \Res{\v{lam}*\v{N}/\v{t}}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{\v{lam}*\v{N}/\v{t}}{m/s}}$.
+\end{enumerate}

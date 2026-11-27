@@ -1,0 +1,57 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Temps de vol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vertical : $v_{0y} = \qty{0}{m/s}$, $\Delta y = \qty{-\v{h}}{m}$, $a_y = \qty{-9.81}{m/s^2}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \Delta y = v_{0y} t + \tfrac{1}{2} a_y t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t = \sqrt{\frac{2h}{g}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2 \cdot \num{\v{h}}}{\num{9.81}}} = \Res{sqrt(2*\v{h}/9.81)}{s} \]
+    \item \textbf{Réponse :} la bille touche le plancher après \textbf{\Res{sqrt(2*\v{h}/9.81)}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Portée horizontale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Horizontal (MRU) : $v_x = \qty{\v{vx}}{m/s}$, $t = \Res{sqrt(2*\v{h}/9.81)}{s}$
+        \item Variable recherchée : $\Delta x$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \Delta x = v_x t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta x = \num{\v{vx}} \cdot \Val{sqrt(2*\v{h}/9.81)} = \Res{\v{vx}*sqrt(2*\v{h}/9.81)}{m} \]
+    \item \textbf{Réponse :} la bille touche le plancher à \textbf{\Res{\v{vx}*sqrt(2*\v{h}/9.81)}{m}} du bord de la table.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse verticale à l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_{0y} = \qty{0}{m/s}$, $a_y = \qty{-9.81}{m/s^2}$, $t = \Res{sqrt(2*\v{h}/9.81)}{s}$
+        \item Variable recherchée : $v_y$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_y = v_{0y} + a_y t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_y = -g t \]
+    \item \textbf{Résolution numérique :}
+    \[ v_y = -\num{9.81} \cdot \Val{sqrt(2*\v{h}/9.81)} = \Res{-sqrt(2*9.81*\v{h})}{m/s} \]
+    \item \textbf{Réponse :} la composante verticale est de \textbf{\Res{sqrt(2*9.81*\v{h})}{m/s} vers le bas}.
+\end{enumerate}
+
+\subsubsection*{Question d) Module de la vitesse à l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_x = \qty{\v{vx}}{m/s}$, $v_y = \Res{-sqrt(2*9.81*\v{h})}{m/s}$
+        \item Variable recherchée : $|\vec v|$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ |\vec v| = \sqrt{v_x^2 + v_y^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ |\vec v| = \sqrt{(\num{\v{vx}})^2 + (\Val{sqrt(2*9.81*\v{h})})^2} = \Res{sqrt(\v{vx}^2 + 2*9.81*\v{h})}{m/s} \]
+    \item \textbf{Réponse :} la bille frappe le plancher à \textbf{\Res{sqrt(\v{vx}^2 + 2*9.81*\v{h})}{m/s}}.
+\end{enumerate}

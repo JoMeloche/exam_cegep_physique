@@ -1,0 +1,15 @@
+title: 'Conditions de la réflexion totale interne'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Il faut que la lumière passe d''un milieu plus réfringent vers un milieu moins réfringent, avec un angle d''incidence supérieur à l''angle critique.'
+choices:
+  - 'La lumière passe de l''air au verre avec un grand angle d''incidence'
+  - 'La lumière passe de l''eau à l''air avec un angle d''incidence plus grand que l''angle critique'
+  - 'La lumière passe de l''air à l''eau avec un angle d''incidence plus grand que l''angle critique'
+  - 'La lumière arrive perpendiculairement sur une surface de verre'

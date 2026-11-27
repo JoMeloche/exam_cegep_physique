@@ -1,0 +1,15 @@
+title: 'Masse et poids sur la Lune'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La masse est une quantité de matière, la même partout. Le poids $F_g = mg$ dépend de $g$ : environ \qty{784}{N} sur la Terre et \qty{130}{N} sur la Lune.'
+choices:
+  - 'Sa masse et son poids sont tous deux divisés par six.'
+  - 'Sa masse reste la même et son poids est divisé par environ six.'
+  - 'Sa masse est divisée par six et son poids reste le même.'
+  - 'Sa masse et son poids ne changent pas.'

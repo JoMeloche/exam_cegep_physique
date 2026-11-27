@@ -1,0 +1,19 @@
+course: 203-SN3-RE
+number: 1
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: MHS, count: 1, points: 20}
+      - {topic: Onde_stationnaire, count: 1, points: 20}
+      - {topic: Intensite, count: 1, points: 20}
+      - {topic: Doppler, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Onde_progressive, count: 1}
+      - {topic: MHS, count: 2}
+      - {topic: Onde_stationnaire, count: 1}
+      - {topics: [Doppler, Intensite, Onde_sinusoidale], count: 1}

@@ -1,0 +1,15 @@
+title: "Condition d'une frange sombre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Deux ondes en phase s''annulent quand l''une a une demi-longueur d''onde de retard sur l''autre, à un nombre entier de longueurs d''onde près : $\Delta r = (m + \frac{1}{2})\lambda$.'
+choices:
+  - '$\Delta r = m\lambda$'
+  - '$\Delta r = 2m\lambda$'
+  - '$\Delta r = (m + \frac{1}{2})\lambda$'
+  - '$\Delta r = m\lambda/4$'

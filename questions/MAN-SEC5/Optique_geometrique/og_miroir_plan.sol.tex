@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance de l'image}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_o = \qty{\v{d}}{m}$ ; variable recherchée : distance personne--image $D$
+    \item \textbf{Équations pertinentes :} pour un miroir plan, l'image est aussi loin derrière le miroir que l'objet est devant :
+    \[ d_i = d_o \qquad D = d_o + d_i \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ D = 2d_o \]
+    \item \textbf{Résolution numérique :}
+    \[ D = 2 \cdot \qty{\v{d}}{m} = \Res{2*\v{d}}{m} \]
+    \item \textbf{Réponse :} l'image est à \textbf{\Res{2*\v{d}}{m}} de la personne. Elle est \textbf{virtuelle} (derrière le miroir, aucun rayon n'y passe vraiment).
+\end{enumerate}
+
+\subsubsection*{Question b) Hauteur minimale du miroir}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $H = \qty{\v{H}}{cm}$ ; variable recherchée : $h_{\min}$
+    \item \textbf{Équations pertinentes :} angle de réflexion = angle d'incidence. Le rayon qui va des pieds à l'œil se réfléchit à mi-hauteur entre les pieds et les yeux ; celui qui va du sommet de la tête à l'œil, à mi-hauteur entre la tête et les yeux. Le miroir doit couvrir l'espace entre ces deux points :
+    \[ h_{\min} = \frac{H}{2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ h_{\min} = \frac{\qty{\v{H}}{cm}}{2} = \Res{\v{H}/2}{cm} \]
+    \item \textbf{Réponse :} il faut un miroir d'au moins \textbf{\Res{\v{H}/2}{cm}}, peu importe la distance au miroir.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse de l'image}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $v_{\text{rel}}$
+    \item \textbf{Équations pertinentes :} la distance personne--image vaut $D = 2d_o$ ; quand $d_o$ diminue de $v$ chaque seconde, $D$ diminue de $2v$ :
+    \[ v_{\text{rel}} = 2v \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\text{rel}} = 2 \cdot \qty{\v{v}}{m/s} = \Res{2*\v{v}}{m/s} \]
+    \item \textbf{Réponse :} l'image s'approche de la personne à \textbf{\Res{2*\v{v}}{m/s}}.
+\end{enumerate}

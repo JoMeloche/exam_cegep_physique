@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Luminosité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \qty{\v{T}}{K}$, $R = \qty{6.96e8}{m}$ ; variable recherchée : $L$
+    \item \textbf{Équations pertinentes :}
+    \[ L = \sigma A T^4 = \sigma \cdot 4\pi R^2 \cdot T^4 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ L = \num{5.67e-8} \cdot 4\pi(\num{6.96e8})^2 \cdot (\num{\v{T}})^4 = \ResSci{5.67e-8*\v{T}^4*4*pi*6.96e8^2}{W} \]
+    \item \textbf{Réponse :} $L = \mathbf{\ResSci{5.67e-8*\v{T}^4*4*pi*6.96e8^2}{W}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Intensité à la planète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L$, $d = \ResSci{\vsi{dp}}{m}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{L}{4\pi d^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\ResSci{5.67e-8*\v{T}^4*4*pi*6.96e8^2}{}}{4\pi(\ResSci{\vsi{dp}}{})^2} = \Res{5.67e-8*\v{T}^4*4*pi*6.96e8^2/(4*pi*\vsi{dp}^2)}{W/m^2} \]
+    \item \textbf{Réponse :} l'intensité est de \textbf{\Res{5.67e-8*\v{T}^4*4*pi*6.96e8^2/(4*pi*\vsi{dp}^2)}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Maximum du spectre}
+\[ \lambda_{\max} = \frac{\num{2.898e-3}}{\num{\v{T}}} = \Res{1e9*2.898e-3/\v{T}}{nm} \]
+Le maximum est à \textbf{\Res{1e9*2.898e-3/\v{T}}{nm}}, dans le \textbf{visible} (vert-bleu).

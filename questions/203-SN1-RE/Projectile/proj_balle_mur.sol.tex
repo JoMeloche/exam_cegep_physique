@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Temps pour atteindre le mur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{v0}}{m/s}$
+        \item Angle de lancement : $\theta = \qty{\v{th}}{\degree}$
+        \item Distance du mur : $D = \qty{\v{D}}{m}$
+        \item $v_{0x} = v_0\cos\theta = \Res{\vsi{v0}*cosd(\vsi{th})}{m/s}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x = v_{0x} t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \frac{D}{v_0\cos\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\num{\vsi{D}}}{\Val{\vsi{v0}*cosd(\vsi{th})}} = \Res{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{s} \]
+    \item \textbf{Réponse :} la balle atteint le mur après \textbf{\Res{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Hauteur d'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Hauteur de lancer : $y_0 = \qty{\v{y0}}{m}$
+        \item $v_{0y} = v_0\sin\theta = \Res{\vsi{v0}*sind(\vsi{th})}{m/s}$
+        \item $t = \Res{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{s}$
+        \item Variable recherchée : $y$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y = y_0 + v_{0y} t - \frac{1}{2} g t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{\vsi{y0}} + \Val{\vsi{v0}*sind(\vsi{th})} \cdot \Val{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))} - \frac{1}{2}\cdot\num{9.81}\cdot(\Val{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))})^2 = \Res{\vsi{y0} + \vsi{v0}*sind(\vsi{th})*\vsi{D}/(\vsi{v0}*cosd(\vsi{th})) - 9.81*(\vsi{D}/(\vsi{v0}*cosd(\vsi{th})))^2/2}{m} \]
+    \item \textbf{Réponse :} la balle frappe le mur à \textbf{\Res{\vsi{y0} + \vsi{v0}*sind(\vsi{th})*\vsi{D}/(\vsi{v0}*cosd(\vsi{th})) - 9.81*(\vsi{D}/(\vsi{v0}*cosd(\vsi{th})))^2/2}{m}} du sol.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse verticale à l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_{0y} = \Res{\vsi{v0}*sind(\vsi{th})}{m/s}$
+        \item $t = \Res{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{s}$
+        \item Variable recherchée : $v_y$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_y = v_{0y} - g t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_y = \Val{\vsi{v0}*sind(\vsi{th})} - \num{9.81} \cdot \Val{\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))} = \Res{\vsi{v0}*sind(\vsi{th}) - 9.81*\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{m/s} \]
+    \item \textbf{Réponse :} $v_y = $ \textbf{\Res{\vsi{v0}*sind(\vsi{th}) - 9.81*\vsi{D}/(\vsi{v0}*cosd(\vsi{th}))}{m/s}} : positive, la balle monte encore ; négative, elle a déjà passé son sommet et redescend.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: "Fréquence des battements de deux diapasons"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La fréquence des battements est la différence des fréquences : $444 - 440 = \qty{4}{Hz}$.'
+choices:
+  - '$2$'
+  - '$4$'
+  - '$442$'
+  - '$884$'

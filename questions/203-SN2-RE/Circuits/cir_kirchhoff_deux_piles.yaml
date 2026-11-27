@@ -1,0 +1,22 @@
+title: Lois de Kirchhoff avec deux piles
+type: developpement
+points: 20
+time_min: 20
+difficulty: 4
+figures: []
+tags: [Kirchhoff]
+variables:
+  e1: {type: integer, min: 6, max: 24, step: 1, unit: V, label: Force électromotrice de la pile 1}
+  e2: {type: integer, min: 3, max: 18, step: 1, unit: V, label: Force électromotrice de la pile 2}
+  R1: {type: integer, min: 2, max: 20, step: 1, unit: \ohm, label: Résistance R1}
+  R2: {type: integer, min: 2, max: 20, step: 1, unit: \ohm, label: Résistance R2}
+  R3: {type: integer, min: 2, max: 20, step: 1, unit: \ohm, label: Résistance R3}
+constraints:
+  - e1 - R2*(e1/R1 + e2/R3)/(1 + R2/R1 + R2/R3) > 0.15*e1
+  - e2 - R2*(e1/R1 + e2/R3)/(1 + R2/R1 + R2/R3) > 0.15*e2
+solution:
+  mode: manual
+  parts:
+    b: {expr: "(e1/R1 + e2/R3)/(1 + R2/R1 + R2/R3)", unit: A, label: Courant I2}
+    c: {expr: "(e1 - R2*(e1/R1 + e2/R3)/(1 + R2/R1 + R2/R3))/R1", unit: A, label: Courant I1}
+    d: {expr: "e1*(e1 - R2*(e1/R1 + e2/R3)/(1 + R2/R1 + R2/R3))/R1", unit: W, label: Puissance fournie par la pile 1}

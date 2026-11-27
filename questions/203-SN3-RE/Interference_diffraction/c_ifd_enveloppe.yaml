@@ -1,0 +1,15 @@
+title: "Ce qui fixe la largeur de l'enveloppe de diffraction"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'L''enveloppe est la figure de diffraction d''une seule fente : ses minimums sont à $a\sin\theta = m\lambda$. Elle dépend de $a$ et de $\lambda$, pas de $d$ ni du nombre de fentes.'
+choices:
+  - 'La distance $d$ entre les fentes'
+  - 'L''intensité de la source'
+  - 'La distance entre les fentes et l''écran seulement'
+  - 'La largeur $a$ de chaque fente'

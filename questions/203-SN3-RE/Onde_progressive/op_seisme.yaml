@@ -1,0 +1,17 @@
+title: Distance d'un séisme à partir des ondes P et S
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  vP: {type: decimal, min: 5.5, max: 8.0, step: 0.1, unit: km/s, si: 1000, label: Vitesse des ondes P}
+  vS: {type: decimal, min: 3.0, max: 4.5, step: 0.1, unit: km/s, si: 1000, label: Vitesse des ondes S}
+  dt: {type: integer, min: 10, max: 90, step: 1, unit: s, label: Délai entre les ondes P et S}
+constraints:
+  - vP > 1.4*vS
+solution:
+  mode: manual
+  parts:
+    a: {expr: "dt/(1/vS - 1/vP)", unit: m, label: Distance de l'épicentre}
+    b: {expr: "dt/(1/vS - 1/vP)/vP", unit: s, label: Temps d'arrivée des ondes P}

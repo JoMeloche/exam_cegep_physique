@@ -1,0 +1,16 @@
+title: 'Forces lors d''une collision camion-voiture'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [troisième loi]
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Troisième loi de Newton : les deux forces sont égales en grandeur et opposées. C''est l''accélération ($a = F/m$) qui est plus grande pour la voiture.'
+choices:
+  - 'La force sur la voiture est plus grande'
+  - 'Les deux forces ont la même grandeur'
+  - 'La force sur le camion est plus grande'
+  - 'Cela dépend de leurs vitesses'

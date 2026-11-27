@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+On prend l'axe des $x$ positif vers la droite. Le champ d'une charge positive s'éloigne d'elle ; celui d'une charge négative pointe vers elle.
+
+\subsubsection*{Question a) Champ au milieu}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-9}{C}$, $q_2 = \qty{\v{q2}e-9}{C}$, distance de chaque charge à $M$ : $d/2 = \qty{\fpeval{\vsi{d}/2}}{m}$ ; variable recherchée : $E_M$
+    \item \textbf{Équations pertinentes :} en $M$, $\vec E_1$ (s'éloigne de $q_1$) et $\vec E_2$ (vers $q_2$) pointent tous deux vers les $x$ positifs :
+    \[ E_M = \frac{k|q_1|}{(d/2)^2} + \frac{k|q_2|}{(d/2)^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_M = \frac{\num{8.99e9}\,(\num{\v{q1}e-9} + \num{\fpeval{abs(\v{q2})}e-9})}{(\num{\fpeval{\vsi{d}/2}})^2} = \Res{8.99e9*(\v{q1}-\v{q2})*1e-9/(\vsi{d}/2)^2}{N/C} \]
+    \item \textbf{Réponse :} $E_M = \mathbf{\Res{8.99e9*(\v{q1}-\v{q2})*1e-9/(\vsi{d}/2)^2}{N/C}}$ vers les $x$ \textbf{positifs}.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ au point $P$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $r_1 = \qty{\fpeval{\vsi{d}+\vsi{s}}}{m}$, $r_2 = \qty{\vsi{s}}{m}$ ; variable recherchée : $E_{P,x}$
+    \item \textbf{Équations pertinentes :} en $P$, $\vec E_1$ pointe vers $+x$ et $\vec E_2$ pointe vers $q_2$, donc vers $-x$ :
+    \[ E_{P,x} = \frac{k|q_1|}{r_1^2} - \frac{k|q_2|}{r_2^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_{P,x} = \Val{8.99e9*\v{q1}*1e-9/(\vsi{d}+\vsi{s})^2} - \Val{8.99e9*abs(\v{q2})*1e-9/(\vsi{s})^2} = \Res{8.99e9*1e-9*(\v{q1}/(\vsi{d}+\vsi{s})^2 + \v{q2}/(\vsi{s})^2)}{N/C} \]
+    \item \textbf{Réponse :} $E_{P,x} = \mathbf{\Res{8.99e9*1e-9*(\v{q1}/(\vsi{d}+\vsi{s})^2 + \v{q2}/(\vsi{s})^2)}{N/C}}$ ; le signe donne le sens selon l'axe des $x$.
+\end{enumerate}
+
+\subsubsection*{Question c) Force sur un proton en $M$}
+\[ F = eE_M = \num{1.602e-19} \cdot \Val{8.99e9*(\v{q1}-\v{q2})*1e-9/(\vsi{d}/2)^2} = \ResSci{1.602e-19*8.99e9*(\v{q1}-\v{q2})*1e-9/(\vsi{d}/2)^2}{N} \]
+Le proton subit une force de \textbf{\ResSci{1.602e-19*8.99e9*(\v{q1}-\v{q2})*1e-9/(\vsi{d}/2)^2}{N}} vers les $x$ positifs (même sens que le champ).

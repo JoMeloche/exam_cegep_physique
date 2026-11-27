@@ -1,0 +1,15 @@
+title: 'Sens du champ et variation du potentiel'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le champ pointe dans le sens où le potentiel diminue le plus rapidement ($E_x = -\mathrm{d}V/\mathrm{d}x$) : vers l''est.'
+choices:
+  - 'Vers l''ouest'
+  - 'Vers le nord'
+  - 'Vers l''est'
+  - 'Le champ est nul'

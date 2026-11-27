@@ -1,0 +1,32 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Maximum central dans l'air}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $W$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} premier minimum $a\sin\theta_1 = \lambda$ ; pour de petits angles $y_1 = L\lambda/a$ et $W = 2y_1$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ W = \frac{2\lambda L}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ W = \frac{2 \cdot \num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{2000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+    \item \textbf{Réponse :} dans l'air, le maximum central mesure \textbf{\Res{2000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Maximum central dans le liquide}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n = \num{\v{n}}$ ; variable recherchée : $W'$
+    \item \textbf{Équations pertinentes :} dans le liquide, $\lambda_n = \lambda/n$, et $W' = 2\lambda_n L/a$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ W' = \frac{W}{n} \]
+    \item \textbf{Résolution numérique :}
+    \[ W' = \frac{\Val{2000*\vsi{lam}*\v{L}/\vsi{larg}}}{\num{\v{n}}} = \Res{2000*\vsi{lam}*\v{L}/(\v{n}*\vsi{larg})}{mm} \]
+    \item \textbf{Réponse :} dans le liquide, le maximum central mesure \textbf{\Res{2000*\vsi{lam}*\v{L}/(\v{n}*\vsi{larg})}{mm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Deuxième minimum dans le liquide}
+\[ \sin\theta_2 = \frac{2\lambda_n}{a} = \frac{2\lambda}{n a} = \frac{2 \cdot \num{\vsi{lam}}}{\num{\v{n}} \cdot \num{\vsi{larg}}} \quad\Rightarrow\quad \theta_2 = \Res{asind(2*\vsi{lam}/(\v{n}*\vsi{larg}))}{\degree} \]
+Le deuxième minimum est à \textbf{\Res{asind(2*\vsi{lam}/(\v{n}*\vsi{larg}))}{\degree}}.

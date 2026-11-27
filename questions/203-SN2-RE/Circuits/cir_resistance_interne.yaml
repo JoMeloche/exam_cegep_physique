@@ -1,0 +1,18 @@
+title: Pile réelle avec résistance interne
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  eps: {type: decimal, min: 1.5, max: 12.0, step: 0.5, unit: V, label: Force électromotrice}
+  r: {type: decimal, min: 0.2, max: 2.0, step: 0.1, unit: \ohm, label: Résistance interne}
+  R: {type: integer, min: 2, max: 30, step: 1, unit: \ohm, label: Résistance externe}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "eps/(R + r)", unit: A, label: Courant}
+    b: {expr: "eps*R/(R + r)", unit: V, label: Tension aux bornes de la pile}
+    c: {expr: "R*(eps/(R + r))**2", unit: W, label: Puissance dans R}
+    d: {expr: "eps**2/(4*r)", unit: W, label: Puissance maximale (R = r)}

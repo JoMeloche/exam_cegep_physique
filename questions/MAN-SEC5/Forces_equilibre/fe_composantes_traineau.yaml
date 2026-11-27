@@ -1,0 +1,18 @@
+title: 'Composantes d''une force oblique sur un traîneau'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  F:  {type: integer, min: 50, max: 200, step: 5, unit: N, label: Force exercée par la corde}
+  th: {type: integer, min: 15, max: 60, step: 5, unit: \degree, label: Angle de la corde avec l'horizontale}
+  m:  {type: integer, min: 25, max: 70, step: 1, unit: kg, label: Masse du traîneau et de l'enfant}
+constraints:
+  - 'F*sin(rad(th)) < 0.8*m*g'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "F*cos(rad(th))", unit: N, label: Composante horizontale}
+    b: {expr: "F*sin(rad(th))", unit: N, label: Composante verticale}
+    c: {expr: "m*g - F*sin(rad(th))", unit: N, label: Force normale}

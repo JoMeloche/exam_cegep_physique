@@ -1,0 +1,11 @@
+title: Défaut de masse et énergie de liaison d'un noyau
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  nuc: {type: choice, values: [1, 2, 3, 4], label: Noyau étudié (1 C-12, 2 O-16, 3 Fe-56, 4 U-238)}
+constraints: []
+solution:
+  mode: manual

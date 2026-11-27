@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force efficace}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F_{\text{eff}}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{\text{eff}} = F\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{\text{eff}} = \qty{\v{F}}{N} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{F}*cosd(\v{th})}{N} \]
+    \item \textbf{Réponse :} la force efficace est de \textbf{\Res{\v{F}*cosd(\v{th})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Composante verticale}
+\[ F_y = F\sin\theta = \qty{\v{F}}{N} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{\v{F}*sind(\v{th})}{N} \]
+Cette composante ne fait pas avancer le traîneau ; elle le soulève légèrement.
+
+\subsubsection*{Question c) Force au nouvel angle}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{\text{eff}} = \Res{\v{F}*cosd(\v{th})}{N}$, $\theta' = \qty{\v{th2}}{\degree}$ ; variable recherchée : $F'$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{\text{eff}} = F'\cos\theta' \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F' = \frac{F_{\text{eff}}}{\cos\theta'} \]
+    \item \textbf{Résolution numérique :}
+    \[ F' = \frac{\Val{\v{F}*cosd(\v{th})}\,\unit{N}}{\cos(\qty{\v{th2}}{\degree})} = \Res{\v{F}*cosd(\v{th})/cosd(\v{th2})}{N} \]
+    \item \textbf{Réponse :} il suffit d'exercer \textbf{\Res{\v{F}*cosd(\v{th})/cosd(\v{th2})}{N}} : plus la corde est proche de l'horizontale, plus la force est efficace.
+\end{enumerate}

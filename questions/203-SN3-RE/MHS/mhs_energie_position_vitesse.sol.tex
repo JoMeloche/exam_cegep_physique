@@ -1,0 +1,65 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Énergie mécanique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $k = \qty{\v{k}}{N/m}$
+        \item $x = \qty{\v{x0}}{cm} = \qty{\vsi{x0}}{m}$, $v = \qty{\v{v0}}{m/s}$
+        \item Variable recherchée : $E$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ E = \frac{1}{2} m v^2 + \frac{1}{2} k x^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{1}{2}(\num{\v{m}})(\num{\v{v0}})^2 + \frac{1}{2}(\num{\v{k}})(\num{\vsi{x0}})^2 = \Res{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}{J} \]
+    \item \textbf{Réponse :} l'énergie mécanique est de \textbf{\Res{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Amplitude}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E = \Res{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}{J}$, $k = \qty{\v{k}}{N/m}$
+        \item Variable recherchée : $A$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} à la position extrême, la vitesse est nulle :
+    \[ E = \frac{1}{2} k A^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ A = \sqrt{\frac{2E}{k}} \]
+    \item \textbf{Résolution numérique :}
+    \[ A = \sqrt{\frac{2 \cdot \Val{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}}{\num{\v{k}}}} = \Res{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{k})}{m} \]
+    \item \textbf{Réponse :} l'amplitude est de \textbf{\Res{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{k})*100}{cm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E = \Res{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}{J}$, $m = \qty{\v{m}}{kg}$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} à la position d'équilibre, toute l'énergie est cinétique :
+    \[ E = \frac{1}{2} m v_{\max}^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_{\max} = \sqrt{\frac{2E}{m}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \sqrt{\frac{2 \cdot \Val{\v{m}*\v{v0}^2/2 + \v{k}*\vsi{x0}^2/2}}{\num{\v{m}}}} = \Res{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{m})}{m/s} \]
+    \item \textbf{Réponse :} le module de la vitesse maximale est de \textbf{\Res{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{m})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse à $x = A/2$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $x = A/2 = \Res{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{k})/2}{m}$, $E$, $m$, $k$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ E = \frac{1}{2} m v^2 + \frac{1}{2} k x^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{\frac{2E - k x^2}{m}} = \sqrt{\frac{2E - kA^2/4}{m}} = \sqrt{\frac{3}{4}}\, v_{\max} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{0.75} \cdot \Val{sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{m})} = \Res{sqrt(0.75)*sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{m})}{m/s} \]
+    \item \textbf{Réponse :} à mi-chemin, le module de la vitesse est de \textbf{\Res{sqrt(0.75)*sqrt((\v{m}*\v{v0}^2 + \v{k}*\vsi{x0}^2)/\v{m})}{m/s}}.
+\end{enumerate}

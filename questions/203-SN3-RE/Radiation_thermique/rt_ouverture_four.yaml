@@ -1,0 +1,17 @@
+title: Pertes par l'ouverture d'un four
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  T:  {type: integer, min: 800, max: 1600, step: 50, unit: \degreeCelsius, label: Température du four}
+  S:  {type: integer, min: 20, max: 200, step: 10, unit: cm^2, si: 0.0001, label: Aire de l'ouverture}
+  t:  {type: integer, min: 1, max: 10, step: 1, unit: h, si: 3600, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "5.67e-8*S*(T+273)**4", unit: W, label: Puissance qui s'échappe}
+    e2: {expr: "5.67e-8*S*(T+273)**4*t", unit: J, label: Énergie perdue}
+    e3: {expr: "2.898e-3/(T+273)", unit: m, label: Lambda max}

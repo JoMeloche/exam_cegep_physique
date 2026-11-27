@@ -1,0 +1,18 @@
+title: Bloc sur une table relié à un bloc suspendu
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+tags: [deuxième loi, tension]
+variables:
+  m1: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: kg, label: Masse du bloc A}
+  m2: {type: decimal, min: 0.5, max: 4.0, step: 0.5, unit: kg, label: Masse du bloc B}
+  d:  {type: decimal, min: 0.4, max: 1.2, step: 0.1, unit: m, label: Distance de descente}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m2*g/(m1 + m2)", unit: m/s^2, label: Accélération}
+    b: {expr: "m1*m2*g/(m1 + m2)", unit: N, label: Tension}
+    c: {expr: "sqrt(2*d*(m1 + m2)/(m2*g))", unit: s, label: Durée de la descente}

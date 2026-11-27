@@ -1,0 +1,18 @@
+title: 'Onde qui se propage le long d''une corde'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  f: {type: decimal, min: 2.0, max: 10.0, step: 0.5, unit: Hz, label: Fréquence de l'oscillation}
+  v: {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: m/s, label: Vitesse de l'onde}
+  L: {type: integer, min: 5, max: 20, step: 1, unit: m, label: Longueur de la corde}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v/f", unit: m, label: Longueur d'onde}
+    b: {expr: "1/f", unit: s, label: Période}
+    c1: {expr: "L/v", unit: s, label: Temps pour parcourir la corde}
+    c2: {expr: "L*f/v", unit: "", label: Nombre de longueurs d'onde sur la corde}

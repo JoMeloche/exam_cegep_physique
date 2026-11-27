@@ -1,0 +1,16 @@
+title: Température et luminosité d'une étoile
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  lm: {type: integer, min: 150, max: 1000, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde du maximum}
+  R:  {type: decimal, min: 0.2, max: 20.0, step: 0.1, unit: R_soleil, si: 6.96e8, label: Rayon de l'étoile}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "2.898e-3/lm", unit: K, label: Température de surface}
+    e2: {expr: "5.67e-8*(2.898e-3/lm)**4", unit: W/m^2, label: Puissance par unité de surface}
+    e3: {expr: "5.67e-8*(2.898e-3/lm)**4*4*pi*R**2", unit: W, label: Luminosité}

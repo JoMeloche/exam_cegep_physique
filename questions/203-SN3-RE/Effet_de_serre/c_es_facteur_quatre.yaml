@@ -1,0 +1,15 @@
+title: "Origine du facteur 4 dans la température d'équilibre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La planète capte le rayonnement sur la section d''un disque, $\pi R^2$, mais rayonne par toute sa surface sphérique, $4\pi R^2$ : le rapport des deux aires vaut 4.'
+choices:
+  - 'Des quatre saisons de l''année'
+  - 'Du fait que la planète réfléchit les trois quarts du rayonnement'
+  - 'Du rapport entre la distance Terre-Soleil et le rayon de la Terre'
+  - 'Du rapport entre l''aire de la sphère qui rayonne et celle du disque qui capte le rayonnement'

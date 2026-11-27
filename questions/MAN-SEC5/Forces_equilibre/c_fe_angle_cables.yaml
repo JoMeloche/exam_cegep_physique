@@ -1,0 +1,15 @@
+title: 'Tension et angle des câbles'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La composante verticale $2T\sin\theta$ doit toujours égaler le poids. Si $\theta$ diminue, $\sin\theta$ diminue et $T$ doit augmenter.'
+choices:
+  - 'Elle diminue'
+  - 'Elle reste la même, car le poids ne change pas'
+  - 'Elle augmente'
+  - 'Elle devient nulle'

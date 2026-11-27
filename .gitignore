@@ -1,0 +1,20 @@
+# generated
+exports/
+usage.json
+app/seed/
+app/backend/examgen/static/
+app/frontend/node_modules/
+app/frontend/dist/
+app/packaging/build/
+app/packaging/dist/
+app/packaging/Output/
+app/.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+# LaTeX build files
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz

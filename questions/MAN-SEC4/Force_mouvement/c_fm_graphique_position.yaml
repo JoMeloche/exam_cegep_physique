@@ -1,0 +1,15 @@
+title: 'Lecture d''un graphique position-temps'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La pente du graphique position-temps est la vitesse. Une droite horizontale a une pente nulle : la position ne change pas, l''objet est au repos.'
+choices:
+  - 'Il se déplace à vitesse constante.'
+  - 'Il accélère.'
+  - 'Il est immobile.'
+  - 'Il ralentit.'

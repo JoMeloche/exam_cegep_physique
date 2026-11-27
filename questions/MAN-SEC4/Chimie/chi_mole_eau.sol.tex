@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Quantité d'eau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$ ; $M(\text{H}_2\text{O}) = 2 \times \num{1.008} + \num{16.00} = \qty{18.02}{g/mol}$ ; variable recherchée : $n$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{m}{M} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n = \frac{\num{\v{m}}}{\num{18.02}} = \Res{\v{m}/18.02}{mol} \]
+    \item \textbf{Réponse :} le verre contient \textbf{\Res{\v{m}/18.02}{mol}} d'eau.
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre de molécules}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n = \Res{\v{m}/18.02}{mol}$, $N_A = \qty{6.022e23}{mol^{-1}}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ N = n\,N_A \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ N = \Val{\v{m}/18.02} \times \num{6.022e23} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\v{m}/18.02*6.022e23}} \]
+    \item \textbf{Réponse :} le verre contient \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\v{m}/18.02*6.022e23}} molécules} d'eau, donc deux fois plus d'atomes d'hydrogène : \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{2*\v{m}/18.02*6.022e23}}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse d'hydrogène}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$ ; dans \qty{18.02}{g} d'eau, il y a $2 \times \num{1.008} = \qty{2.016}{g}$ d'hydrogène ; variable recherchée : $m_{\text{H}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m_{\text{H}} = m \times \frac{2 M(\text{H})}{M(\text{H}_2\text{O})} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{H}} = \num{\v{m}} \times \frac{\num{2.016}}{\num{18.02}} = \Res{\v{m}*2.016/18.02}{g} \]
+    \item \textbf{Réponse :} l'eau contient \textbf{\Res{\v{m}*2.016/18.02}{g}} d'hydrogène.
+\end{enumerate}

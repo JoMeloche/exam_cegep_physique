@@ -1,0 +1,15 @@
+title: 'Reconnaître un matériau composite'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un composite combine des matériaux de familles différentes : dans le béton armé, des tiges d''acier (métal) sont noyées dans le béton (céramique). L''acier inoxydable est un alliage, pas un composite.'
+choices:
+  - 'L''acier inoxydable'
+  - 'Le béton armé'
+  - 'Le verre'
+  - 'Le polyéthylène'

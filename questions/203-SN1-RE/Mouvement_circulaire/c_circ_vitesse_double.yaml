@@ -1,0 +1,11 @@
+title: Vitesse doublée dans un virage
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$F_c = mv^2/r$ : doubler $v$ multiplie la force par $2^2 = 4$.'
+choices: ['$\frac{1}{2}$', $2$, $4$, '$\sqrt{2}$']

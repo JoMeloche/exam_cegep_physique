@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance nette}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $A = \qty{\v{S}}{m^2}$, $e = \num{\v{em}}$, $T = \qty{\fpeval{\v{Tr}+273}}{K}$, $T_e = \qty{\fpeval{\v{Te}+273}}{K}$ ; variable recherchée : $P_{\text{net}}$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{net}} = e\sigma A\,(T^4 - T_e^4) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_{\text{net}} = \num{\v{em}} \cdot \num{5.67e-8} \cdot \num{\v{S}} \cdot \left((\num{\fpeval{\v{Tr}+273}})^4 - (\num{\fpeval{\v{Te}+273}})^4\right) = \Res{\v{em}*5.67e-8*\v{S}*((\v{Tr}+273)^4 - (\v{Te}+273)^4)}{W} \]
+    \item \textbf{Réponse :} le radiateur fournit \textbf{\Res{\v{em}*5.67e-8*\v{S}*((\v{Tr}+273)^4 - (\v{Te}+273)^4)}{W}} par rayonnement.
+\end{enumerate}
+
+\subsubsection*{Question b) Température requise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P_{\text{net}} = \qty{\v{Pv}}{W}$ ; variable recherchée : $T'$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{net}} = e\sigma A\,(T'^4 - T_e^4) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T' = \left(\frac{P_{\text{net}}}{e\sigma A} + T_e^4\right)^{1/4} \]
+    \item \textbf{Résolution numérique :}
+    \[ T' = \left(\frac{\num{\v{Pv}}}{\num{\v{em}} \cdot \num{5.67e-8} \cdot \num{\v{S}}} + (\num{\fpeval{\v{Te}+273}})^4\right)^{1/4} = \Res{(\v{Pv}/(\v{em}*5.67e-8*\v{S}) + (\v{Te}+273)^4)^0.25}{K} \]
+    \item \textbf{Réponse :} il faudrait \textbf{\Res{(\v{Pv}/(\v{em}*5.67e-8*\v{S}) + (\v{Te}+273)^4)^0.25}{K}}, soit \textbf{\qty[round-mode=places,round-precision=0]{\fpeval{(\v{Pv}/(\v{em}*5.67e-8*\v{S}) + (\v{Te}+273)^4)^0.25 - 273}}{\degreeCelsius}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Peinture métallisée}
+Une surface de faible émissivité rayonne peu : à la même température, le radiateur transmettrait beaucoup moins de puissance par rayonnement à la pièce.

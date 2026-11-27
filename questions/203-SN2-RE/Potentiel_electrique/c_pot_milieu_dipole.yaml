@@ -1,0 +1,15 @@
+title: 'Potentiel et champ au milieu d''un dipôle'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Les potentiels $kq/r$ et $-kq/r$ s''annulent, donc $V = 0$. Les deux champs pointent vers $-q$ et s''additionnent, donc $E \neq 0$.'
+choices:
+  - '$V = 0$ et $E = 0$'
+  - '$V = 0$ et $E \neq 0$'
+  - '$V \neq 0$ et $E = 0$'
+  - '$V \neq 0$ et $E \neq 0$'

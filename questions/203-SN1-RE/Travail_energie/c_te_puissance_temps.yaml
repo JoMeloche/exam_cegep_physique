@@ -1,0 +1,15 @@
+title: 'Puissance de deux moteurs soulevant la même charge'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$W = mgh$ est le même pour les deux ; $P = W/\Delta t$ double quand $\Delta t$ est divisé par 2.'
+choices:
+  - 'Même travail ; la puissance de A est deux fois plus petite'
+  - 'Le travail et la puissance de A sont deux fois plus grands'
+  - 'Le travail de A est deux fois plus grand ; même puissance'
+  - 'Même travail ; la puissance de A est deux fois plus grande'

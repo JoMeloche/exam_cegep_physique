@@ -1,0 +1,15 @@
+title: Comparer une sphère noire et une sphère grise
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  em: {type: decimal, min: 0.10, max: 0.70, step: 0.05, label: Émissivité de la sphère grise}
+  T:  {type: integer, min: 400, max: 1500, step: 50, unit: K, label: Température de la sphère noire}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em", unit: "", label: Rapport des puissances}
+    e2: {expr: "T/em**0.25", unit: K, label: Température de la sphère grise pour la même puissance}

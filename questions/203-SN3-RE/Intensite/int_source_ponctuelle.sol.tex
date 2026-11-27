@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Intensité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $r = \qty{\v{r}}{m}$ ; variable recherchée : $I$ (W/m²)
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{P}{4\pi r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{P}}}{4\pi(\num{\v{r}})^2} = \ResSci{\v{P}/(4*pi*\v{r}^2)}{W/m^2} \]
+    \item \textbf{Réponse :} l'intensité est de \textbf{\ResSci{\v{P}/(4*pi*\v{r}^2)}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Niveau sonore}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \ResSci{\v{P}/(4*pi*\v{r}^2)}{W/m^2}$, $I_0 = \qty{e-12}{W/m^2}$ ; variable recherchée : $\beta$ (dB)
+    \item \textbf{Équations pertinentes :}
+    \[ \beta = 10\log\left(\frac{I}{I_0}\right) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \beta = 10\log\left(\frac{\ResSci{\v{P}/(4*pi*\v{r}^2)}{}}{\num{e-12}}\right) = \Res{10*ln(\v{P}/(4*pi*\v{r}^2)/1e-12)/ln(10)}{dB} \]
+    \item \textbf{Réponse :} le niveau sonore est de \textbf{\Res{10*ln(\v{P}/(4*pi*\v{r}^2)/1e-12)/ln(10)}{dB}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance pour \qty{\v{b2}}{dB}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta' = \qty{\v{b2}}{dB}$, $P = \qty{\v{P}}{W}$ ; variable recherchée : $r'$
+    \item \textbf{Équations pertinentes :}
+    \[ I' = I_0\,10^{\beta'/10} \qquad I' = \frac{P}{4\pi r'^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r' = \sqrt{\frac{P}{4\pi I'}} \]
+    \item \textbf{Résolution numérique :}
+    \[ I' = 10^{-12} \cdot 10^{\v{b2}/10} = \ResSci{1e-12*10^(\v{b2}/10)}{W/m^2} \qquad r' = \sqrt{\frac{\num{\v{P}}}{4\pi \cdot \ResSci{1e-12*10^(\v{b2}/10)}{}}} = \Res{sqrt(\v{P}/(4*pi*1e-12*10^(\v{b2}/10)))}{m} \]
+    \item \textbf{Réponse :} le niveau tombe à \qty{\v{b2}}{dB} à \textbf{\Res{sqrt(\v{P}/(4*pi*1e-12*10^(\v{b2}/10)))}{m}} du haut-parleur.
+\end{enumerate}

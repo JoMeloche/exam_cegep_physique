@@ -1,0 +1,15 @@
+title: "Ce que démontre l'effet Compton"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'On ne peut expliquer le décalage qu''en traitant la lumière comme des particules (photons) possédant une énergie $hf$ et une quantité de mouvement $h/\lambda$ qui entrent en collision avec les électrons.'
+choices:
+  - 'La lumière est une onde électromagnétique transversale'
+  - 'La vitesse de la lumière est la même pour tous les observateurs'
+  - 'Les photons possèdent une quantité de mouvement $p = h/\lambda$'
+  - 'La lumière peut produire des figures d''interférence'

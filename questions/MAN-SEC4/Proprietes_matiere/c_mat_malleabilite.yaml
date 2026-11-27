@@ -1,0 +1,15 @@
+title: 'Propriété mécanique de l''aluminium en feuille'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La malléabilité est la capacité d''un matériau à être aplati ou mis en forme sans se rompre.'
+choices:
+  - 'La malléabilité'
+  - 'La conductibilité électrique'
+  - 'La rigidité'
+  - 'La résilience'

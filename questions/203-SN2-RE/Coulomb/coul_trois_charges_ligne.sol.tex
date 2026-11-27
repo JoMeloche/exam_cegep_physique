@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+On prend l'axe des $x$ positif vers la droite. $q_3$ est à $r_{13} = \qty{\fpeval{(\v{d1}+\v{d2})/100}}{m}$ de $q_1$ et à $r_{23} = \qty{\vsi{d2}}{m}$ de $q_2$.
+
+\subsubsection*{Question a) Force de $q_1$ sur $q_3$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_3 = \qty{\v{q3}e-6}{C}$, $r_{13} = \qty{\fpeval{(\v{d1}+\v{d2})/100}}{m}$ ; variable recherchée : $F_{13}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{13} = \frac{k\,|q_1 q_3|}{r_{13}^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{13} = \frac{\num{8.99e9} \cdot \num{\v{q1}e-6} \cdot \num{\v{q3}e-6}}{(\num{\fpeval{(\v{d1}+\v{d2})/100}})^2} = \Res{8.99e9*\v{q1}*\v{q3}*1e-12/((\v{d1}+\v{d2})/100)^2}{N} \]
+    \item \textbf{Réponse :} $F_{13} = \mathbf{\Res{8.99e9*\v{q1}*\v{q3}*1e-12/((\v{d1}+\v{d2})/100)^2}{N}}$, répulsive, donc vers les $x$ \textbf{positifs}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force de $q_2$ sur $q_3$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_2 = \qty{\v{q2}e-6}{C}$, $q_3 = \qty{\v{q3}e-6}{C}$, $r_{23} = \qty{\vsi{d2}}{m}$ ; variable recherchée : $F_{23}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{23} = \frac{k\,|q_2 q_3|}{r_{23}^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{23} = \frac{\num{8.99e9} \cdot \num{\fpeval{abs(\v{q2})}e-6} \cdot \num{\v{q3}e-6}}{(\num{\vsi{d2}})^2} = \Res{8.99e9*abs(\v{q2})*\v{q3}*1e-12/(\vsi{d2})^2}{N} \]
+    \item \textbf{Réponse :} $F_{23} = \mathbf{\Res{8.99e9*abs(\v{q2})*\v{q3}*1e-12/(\vsi{d2})^2}{N}}$, attractive, donc vers $q_2$, c'est-à-dire vers les $x$ \textbf{négatifs}.
+\end{enumerate}
+
+\subsubsection*{Question c) Force résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{13,x} = +\Res{8.99e9*\v{q1}*\v{q3}*1e-12/((\v{d1}+\v{d2})/100)^2}{N}$, $F_{23,x} = -\Res{8.99e9*abs(\v{q2})*\v{q3}*1e-12/(\vsi{d2})^2}{N}$ ; variable recherchée : $F_x$
+    \item \textbf{Équations pertinentes :}
+    \[ F_x = F_{13,x} + F_{23,x} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_x = \Val{8.99e9*\v{q1}*\v{q3}*1e-12/((\v{d1}+\v{d2})/100)^2} - \Val{8.99e9*abs(\v{q2})*\v{q3}*1e-12/(\vsi{d2})^2} = \Res{8.99e9*\v{q3}*1e-12*(\v{q1}/((\v{d1}+\v{d2})/100)^2 + \v{q2}/(\vsi{d2})^2)}{N} \]
+    \item \textbf{Réponse :} $F_x = \mathbf{\Res{8.99e9*\v{q3}*1e-12*(\v{q1}/((\v{d1}+\v{d2})/100)^2 + \v{q2}/(\vsi{d2})^2)}{N}}$ ; le signe donne le sens (positif : vers la droite, négatif : vers la gauche).
+\end{enumerate}

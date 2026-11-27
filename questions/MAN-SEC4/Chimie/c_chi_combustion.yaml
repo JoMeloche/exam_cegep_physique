@@ -1,0 +1,15 @@
+title: 'Triangle de feu'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le couvercle empêche l''air d''atteindre l''huile : on retire le comburant (le dioxygène). Le combustible (l''huile) est toujours là et encore chaud.'
+choices:
+  - 'Le combustible'
+  - 'Le comburant'
+  - 'Le point d''ignition'
+  - 'Le catalyseur'

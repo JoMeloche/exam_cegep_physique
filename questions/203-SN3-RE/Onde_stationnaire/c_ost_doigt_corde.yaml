@@ -1,0 +1,15 @@
+title: "Effet de raccourcir une corde vibrante"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'En appuyant sur la corde, on diminue sa longueur vibrante $L$. Comme $f_1 = v/(2L)$ et que $v$ ne change pas, la fréquence augmente.'
+choices:
+  - 'Elle augmente'
+  - 'Elle diminue'
+  - 'Elle reste la même, car la tension ne change pas'
+  - 'Elle reste la même, car la masse linéique ne change pas'

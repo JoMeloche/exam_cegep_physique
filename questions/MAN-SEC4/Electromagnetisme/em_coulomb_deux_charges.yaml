@@ -1,0 +1,18 @@
+title: Loi de Coulomb entre deux charges
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  q1: {type: decimal, min: 1.0, max: 9.0, step: 0.5, unit: \micro C, si: 1e-6, label: Charge 1}
+  q2: {type: decimal, min: 1.0, max: 9.0, step: 0.5, unit: \micro C, si: 1e-6, label: Charge 2 (valeur absolue)}
+  r:  {type: integer, min: 5, max: 50, step: 1, unit: cm, si: 0.01, label: Distance}
+  Fc: {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: N, label: Force visée}
+constraints:
+  - abs(8.99e9*q1*q2/r**2 - Fc) > 0.2*Fc
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.99e9*q1*q2/r**2", unit: N, label: Force électrique}
+    c: {expr: "sqrt(8.99e9*q1*q2/Fc)*100", unit: cm, label: Distance nécessaire}

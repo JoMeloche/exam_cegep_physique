@@ -1,0 +1,53 @@
+title: Thon
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  VThon:
+    type: integer
+    min: 6
+    max: 14
+    step: 2
+    label: doppUnVThon
+  VDauphin:
+    type: integer
+    min: 10
+    max: 18
+    step: 2
+    label: doppUnVDauphin
+  Freq:
+    type: integer
+    min: 29500
+    max: 35500
+    step: 10
+    label: doppUnFreq
+  VSon:
+    type: integer
+    min: 1484
+    max: 1536
+    step: 1
+    label: doppUnVSon
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Doppler/thon.tex
+original_values:
+  VThon:
+    A: '10'
+    B: '8'
+    C: '12'
+  VDauphin:
+    A: '14'
+    B: '12'
+    C: '16'
+  Freq:
+    A: '33000'
+    B: '30000'
+    C: '35000'
+  VSon:
+    A: '1513'
+    B: '1500'
+    C: '1520'
+history: []

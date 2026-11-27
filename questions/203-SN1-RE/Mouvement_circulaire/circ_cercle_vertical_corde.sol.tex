@@ -1,0 +1,56 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse minimale au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Longueur de la corde : $r = \qty{\v{L}}{m}$
+        \item À la vitesse minimale, $T = 0$ : seul le poids fournit la force centripète
+        \item Variable recherchée : $v_{\min}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ mg = \frac{m v_{\min}^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_{\min} = \sqrt{g r} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_{\min} = \sqrt{\num{9.81}\cdot\num{\vsi{L}}} = \Res{sqrt(9.81*\vsi{L})}{m/s} \]
+    \item \textbf{Réponse :} la vitesse au sommet doit être d'au moins \textbf{\Res{sqrt(9.81*\vsi{L})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la pierre : $m = \qty{\v{m}}{kg}$
+        \item Longueur de la corde : $r = \qty{\v{L}}{m}$
+        \item Vitesse au sommet : $v = \qty{\v{vt}}{m/s}$
+        \item Au sommet, $T$ et $mg$ pointent vers le centre (vers le bas)
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T + mg = \frac{m v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = m\left(\frac{v^2}{r} - g\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \num{\vsi{m}}\left(\frac{(\num{\vsi{vt}})^2}{\num{\vsi{L}}} - \num{9.81}\right) = \Res{\vsi{m}*(\vsi{vt}^2/\vsi{L} - 9.81)}{N} \]
+    \item \textbf{Réponse :} la tension au sommet vaut \textbf{\Res{\vsi{m}*(\vsi{vt}^2/\vsi{L} - 9.81)}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Tension au bas}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la pierre : $m = \qty{\v{m}}{kg}$
+        \item Longueur de la corde : $r = \qty{\v{L}}{m}$
+        \item Vitesse au bas : $v = \qty{\v{vb}}{m/s}$
+        \item Au bas, $T$ pointe vers le centre (vers le haut), $mg$ vers le bas
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ T - mg = \frac{m v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = m\left(\frac{v^2}{r} + g\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \num{\vsi{m}}\left(\frac{(\num{\vsi{vb}})^2}{\num{\vsi{L}}} + \num{9.81}\right) = \Res{\vsi{m}*(\vsi{vb}^2/\vsi{L} + 9.81)}{N} \]
+    \item \textbf{Réponse :} la tension au bas vaut \textbf{\Res{\vsi{m}*(\vsi{vb}^2/\vsi{L} + 9.81)}{N}}, c'est là que la corde risque le plus de casser.
+\end{enumerate}

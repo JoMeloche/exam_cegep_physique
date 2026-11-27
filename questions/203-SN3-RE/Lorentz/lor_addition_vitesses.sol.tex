@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Sonde lancée vers l'avant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \num{\v{u1}}\,c$ (vaisseau / Terre), $u' = \num{\v{u2}}\,c$ (sonde / vaisseau) ; variable recherchée : $u$
+    \item \textbf{Équations pertinentes :}
+    \[ u = \frac{u' + v}{1 + \dfrac{u' v}{c^2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ u = \frac{\num{\v{u2}} + \num{\v{u1}}}{1 + \num{\v{u2}} \cdot \num{\v{u1}}}\,c = \Res{(\v{u1}+\v{u2})/(1+\v{u1}*\v{u2})}{}\,c \]
+    \item \textbf{Réponse :} $u = \mathbf{\Res{(\v{u1}+\v{u2})/(1+\v{u1}*\v{u2})}{}\,c}$, alors que la relativité galiléenne donnerait \num{\fpeval{\v{u1}+\v{u2}}}\,c\ifthenelse{\lengthtest{\fpeval{\v{u1}+\v{u2}}pt > 1pt}}{, plus que la vitesse de la lumière}{}.
+\end{enumerate}
+
+\subsubsection*{Question b) Sonde lancée vers l'arrière}
+\[ u = \frac{u' + v}{1 + u'v/c^2} \quad \text{avec } u' = -\num{\v{u2}}\,c : \quad u = \frac{-\num{\v{u2}} + \num{\v{u1}}}{1 - \num{\v{u2}} \cdot \num{\v{u1}}}\,c = \Res{(\v{u1}-\v{u2})/(1-\v{u1}*\v{u2})}{}\,c \]
+\ifthenelse{\lengthtest{\fpeval{\v{u1}-\v{u2}}pt > 0pt}}{La vitesse est positive : la sonde continue de \textbf{s'éloigner} de la Terre, mais plus lentement que le vaisseau.}{\ifthenelse{\lengthtest{\fpeval{\v{u1}-\v{u2}}pt < 0pt}}{La vitesse est négative : la sonde \textbf{se dirige vers} la Terre.}{La sonde est \textbf{immobile} par rapport à la Terre.}}
+
+\subsubsection*{Question c) Deux vaisseaux en sens opposés}
+Dans le référentiel du premier vaisseau, la Terre s'éloigne à $\num{\v{u1}}\,c$ et le second vaisseau s'éloigne de la Terre à $\num{\v{u1}}\,c$ dans le même sens :
+\[ u = \frac{\num{\v{u1}} + \num{\v{u1}}}{1 + (\num{\v{u1}})^2}\,c = \Res{2*\v{u1}/(1+\v{u1}^2)}{}\,c \]
+Chaque vaisseau voit l'autre s'éloigner à \textbf{\Res{2*\v{u1}/(1+\v{u1}^2)}{}\,c}, toujours moins que $c$.

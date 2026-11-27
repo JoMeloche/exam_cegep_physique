@@ -1,0 +1,17 @@
+title: 'Éclair et tonnerre : lumière et son'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  t: {type: decimal, min: 1.0, max: 15.0, step: 0.5, unit: s, label: Délai entre l'éclair et le tonnerre}
+  v: {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+  f: {type: integer, min: 50, max: 200, step: 10, unit: Hz, label: Fréquence du grondement}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v*t", unit: m, label: Distance de l'orage}
+    b: {expr: "1e6*v*t/c", unit: \micro\second, label: Durée du trajet de la lumière}
+    c: {expr: "v/f", unit: m, label: Longueur d'onde du grondement}

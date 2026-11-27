@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde incidente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\v{E0}}{keV} = \ResSci{\vsi{E0}}{J}$ ; variable recherchée : $\lambda$
+    \item \textbf{Équations pertinentes :}
+    \[ E = \frac{hc}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{hc}{E} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\num{6.626e-34} \cdot \num{3.00e8}}{\ResSci{\vsi{E0}}{}} = \Res{1e12*6.626e-34*3e8/\vsi{E0}}{pm} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{1e12*6.626e-34*3e8/\vsi{E0}}{pm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Longueur d'onde rétrodiffusée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\theta = \qty{180}{\degree}$, $\lambda$ ; variable recherchée : $\lambda'$
+    \item \textbf{Équations pertinentes :}
+    \[ \lambda' = \lambda + \frac{h}{m_e c}(1 - \cos\theta) \]
+    \item \textbf{Isolation de la variable recherchée :} avec $\cos 180^\circ = -1$, $\lambda' = \lambda + \dfrac{2h}{m_e c}$.
+    \item \textbf{Résolution numérique :}
+    \[ \lambda' = \Val{1e12*6.626e-34*3e8/\vsi{E0}} + 2 \cdot \num{2.425} = \Res{1e12*(6.626e-34*3e8/\vsi{E0} + 2*6.626e-34/(9.109e-31*3e8))}{pm} \]
+    \item \textbf{Réponse :} $\lambda' = \mathbf{\Res{1e12*(6.626e-34*3e8/\vsi{E0} + 2*6.626e-34/(9.109e-31*3e8))}{pm}}$. Le facteur $(1 - \cos\theta)$ atteint sa valeur maximale, 2, à \qty{180}{\degree} : c'est le choc frontal, où l'électron reçoit le plus de quantité de mouvement.
+\end{enumerate}
+
+\subsubsection*{Question c) Fraction d'énergie perdue}
+\[ \frac{E - E'}{E} = 1 - \frac{\lambda}{\lambda'} = 1 - \frac{\Val{1e12*6.626e-34*3e8/\vsi{E0}}}{\Val{1e12*(6.626e-34*3e8/\vsi{E0} + 2*6.626e-34/(9.109e-31*3e8))}} = \Res{100*(1 - (6.626e-34*3e8/\vsi{E0})/(6.626e-34*3e8/\vsi{E0} + 2*6.626e-34/(9.109e-31*3e8)))}{\percent} \]
+Le photon cède \textbf{\Res{100*(1 - (6.626e-34*3e8/\vsi{E0})/(6.626e-34*3e8/\vsi{E0} + 2*6.626e-34/(9.109e-31*3e8)))}{\percent}} de son énergie à l'électron.

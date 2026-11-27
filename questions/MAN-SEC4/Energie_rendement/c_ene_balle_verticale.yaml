@@ -1,0 +1,15 @@
+title: 'Énergie d''une balle au sommet de sa trajectoire'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Au sommet, la balle est momentanément immobile ($E_k = 0$) et à sa hauteur maximale ($E_p$ maximale). Sans frottement, l''énergie mécanique reste constante.'
+choices:
+  - 'L''énergie cinétique est maximale et l''énergie potentielle est minimale'
+  - 'L''énergie cinétique est nulle et l''énergie potentielle est maximale'
+  - 'L''énergie cinétique et l''énergie potentielle sont toutes deux nulles'
+  - 'L''énergie mécanique est nulle'

@@ -1,0 +1,19 @@
+title: Grille-pain, puissance et coût
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  U: {type: choice, values: [110, 120], unit: V, label: Tension de la prise}
+  R: {type: decimal, min: 10.0, max: 16.0, step: 0.5, unit: \ohm, label: Résistance de l'élément}
+  t: {type: integer, min: 3, max: 8, step: 1, unit: min, si: 60, label: Durée d'utilisation par jour}
+  tarif: {type: choice, values: [0.07, 0.08, 0.09, 0.10], unit: \$/kWh, label: Tarif}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "U/R", unit: A, label: Intensité du courant}
+    b: {expr: "U**2/R", unit: W, label: Puissance}
+    c: {expr: "U**2/R*30*t/3.6e6", unit: \kilo\watt\hour, label: Énergie consommée}
+    d: {expr: "U**2/R*30*t/3.6e6*tarif", unit: \$, label: Coût}

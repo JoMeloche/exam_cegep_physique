@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueurs d'onde du maximum}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_1 = \qty{\v{T1}}{K}$, $T_2 = \qty{\v{T2}}{K}$ ; variables recherchées : $\lambda_{\max,1}$, $\lambda_{\max,2}$
+    \item \textbf{Équations pertinentes :}
+    \[ \lambda_{\max} T = \qty{2.898e-3}{m.K} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda_{\max} = \frac{\num{2.898e-3}}{T} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda_{\max,1} = \frac{\num{2.898e-3}}{\num{\v{T1}}} = \Res{1e9*2.898e-3/\v{T1}}{nm} \qquad \lambda_{\max,2} = \frac{\num{2.898e-3}}{\num{\v{T2}}} = \Res{1e9*2.898e-3/\v{T2}}{nm} \]
+    \item \textbf{Réponse :} $\lambda_{\max}$ passe de \textbf{\Res{1e9*2.898e-3/\v{T1}}{nm}} à \textbf{\Res{1e9*2.898e-3/\v{T2}}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Facteur de puissance}
+\[ \frac{P_2}{P_1} = \left(\frac{T_2}{T_1}\right)^4 = \left(\frac{\num{\v{T2}}}{\num{\v{T1}}}\right)^4 = \Res{(\v{T2}/\v{T1})^4}{} \]
+La puissance est multipliée par \textbf{\Res{(\v{T2}/\v{T1})^4}{}}.
+
+\subsubsection*{Question c) Couleur}
+Le maximum se déplace vers les courtes longueurs d'onde (il reste dans l'infrarouge), mais la part du spectre dans le visible augmente, surtout du côté bleu : la lueur passe du rouge sombre à l'orangé, puis vers le jaune-blanc, et devient beaucoup plus brillante.

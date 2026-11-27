@@ -1,0 +1,59 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{m/s^2}$
+        \item Forces : poids $\vec F_g$ (vers le bas), normale $\vec F_N$ (vers le haut), corde $\vec F$ (vers l'avant), frottement $\vec f$ (vers l'arrière)
+        \item Variable recherchée : $F_N$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} aucune accélération verticale :
+    \[ \sum F_y = F_N - m g = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_N = m g \]
+    \item \textbf{Résolution numérique :}
+    \[ F_N = \num{\v{m}} \cdot \num{9.81} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} la force normale est de \textbf{\Res{\v{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force de frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\mu_c = \num{\v{mu}}$, $F_N = \Res{\v{m}*9.81}{N}$
+        \item Variable recherchée : $f$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ f = \mu_c F_N \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f = \num{\v{mu}} \cdot \Val{\v{m}*9.81} = \Res{\v{mu}*\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} la force de frottement est de \textbf{\Res{\v{mu}*\v{m}*9.81}{N}}, opposée au mouvement.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $F = \qty{\v{F}}{N}$, $f = \Res{\v{mu}*\v{m}*9.81}{N}$, $m = \qty{\v{m}}{kg}$
+        \item Variable recherchée : $a$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_x = F - f = m a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{F - f}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\v{F}} - \Val{\v{mu}*\v{m}*9.81}}{\num{\v{m}}} = \Res{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}}{m/s^2} \]
+    \item \textbf{Réponse :} le traîneau accélère à \textbf{\Res{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse après \qty{\v{t}}{s}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{0}{m/s}$, $a = \Res{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}}{m/s^2}$, $t = \qty{\v{t}}{s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v = v_0 + a t \]
+    \item \textbf{Isolation de la variable recherchée :} avec $v_0 = 0$ : $v = a t$
+    \item \textbf{Résolution numérique :}
+    \[ v = \Val{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}} \cdot \num{\v{t}} = \Res{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}*\v{t}}{m/s} \]
+    \item \textbf{Réponse :} après \qty{\v{t}}{s}, le traîneau roule à \textbf{\Res{(\v{F} - \v{mu}*\v{m}*9.81)/\v{m}*\v{t}}{m/s}}.
+\end{enumerate}

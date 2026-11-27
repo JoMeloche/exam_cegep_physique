@@ -1,0 +1,20 @@
+title: Ampoule incandescente ou DEL
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  P1: {type: choice, values: [40, 60, 100], unit: W, label: Puissance de l'ampoule incandescente}
+  e1: {type: integer, min: 3, max: 5, step: 1, unit: \percent, label: Rendement de l'ampoule incandescente}
+  P2: {type: integer, min: 5, max: 15, step: 1, unit: W, label: Puissance de la DEL}
+  h:  {type: integer, min: 2, max: 6, step: 1, unit: h, label: Utilisation par jour}
+constraints:
+  - P1*e1/100/P2 < 0.5
+  - P1*e1/100/P2 > 0.15
+solution:
+  mode: manual
+  parts:
+    a: {expr: "P1*e1/100", unit: W, label: Puissance lumineuse}
+    b: {expr: "100*P1*e1/100/P2", unit: "%", label: Rendement de la DEL}
+    c: {expr: "(P1 - P2)*h*365/1000", unit: kWh, label: Économie annuelle}

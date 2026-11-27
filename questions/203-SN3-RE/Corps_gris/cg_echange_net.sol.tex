@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance émise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \num{\v{em}}$, $A = \qty{\v{S}}{m^2}$, $T = \qty{\fpeval{(\v{T}+273)}}{K}$ ; variable recherchée : $P_{\text{ém}}$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{ém}} = e\sigma A T^4 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_{\text{ém}} = \num{\v{em}} \cdot \num{5.67e-8} \cdot \num{\v{S}} \cdot (\num{\fpeval{(\v{T}+273)}})^4 = \Res{\v{em}*5.67e-8*\v{S}*(\v{T}+273)^4}{W} \]
+    \item \textbf{Réponse :} la plaque émet \textbf{\Res{\v{em}*5.67e-8*\v{S}*(\v{T}+273)^4}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance absorbée}
+Un bon émetteur est un aussi bon absorbeur : la plaque absorbe avec la même émissivité.
+\[ P_{\text{abs}} = e\sigma A T_e^4 = \num{\v{em}} \cdot \num{5.67e-8} \cdot \num{\v{S}} \cdot (\num{\fpeval{(\v{Te}+273)}})^4 = \Res{\v{em}*5.67e-8*\v{S}*(\v{Te}+273)^4}{W} \]
+
+\subsubsection*{Question c) Puissance nette}
+\[ P_{\text{net}} = e\sigma A\,(T^4 - T_e^4) = \Val{\v{em}*5.67e-8*\v{S}*(\v{T}+273)^4} - \Val{\v{em}*5.67e-8*\v{S}*(\v{Te}+273)^4} = \Res{\v{em}*5.67e-8*\v{S}*((\v{T}+273)^4 - (\v{Te}+273)^4)}{W} \]
+La plaque perd \textbf{\Res{\v{em}*5.67e-8*\v{S}*((\v{T}+273)^4 - (\v{Te}+273)^4)}{W}} par rayonnement.

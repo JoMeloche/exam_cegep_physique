@@ -1,0 +1,18 @@
+title: Le rotor de la foire
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  m: {type: integer, min: 40, max: 90, step: 1, unit: kg, label: Masse de la personne}
+  r: {type: decimal, min: 2.0, max: 4.0, step: 0.1, unit: m, label: Rayon du rotor}
+  Tp: {type: decimal, min: 1.5, max: 3.0, step: 0.1, unit: s, label: Période de rotation}
+constraints: [g*r/(2*pi*r/Tp)**2 < 0.9]
+solution:
+  mode: manual
+  file: circ_rotor_foire.sol.tex
+  parts:
+    a: {expr: 2*pi*r/Tp, unit: m/s, label: Vitesse}
+    b: {expr: m*(2*pi*r/Tp)**2/r, unit: N, label: Force normale}
+    c: {expr: g*r/(2*pi*r/Tp)**2, label: Coefficient minimal}

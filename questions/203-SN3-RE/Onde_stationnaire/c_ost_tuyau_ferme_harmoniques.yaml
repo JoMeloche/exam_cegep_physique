@@ -1,0 +1,15 @@
+title: "Harmoniques présents dans un tuyau fermé"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un tuyau fermé à un bout a un nœud au bout fermé et un ventre au bout ouvert : seuls les harmoniques impairs ($f_1, 3f_1, 5f_1, \dots$) existent.'
+choices:
+  - '\qty{100}{Hz}'
+  - '\qty{300}{Hz}'
+  - '\qty{200}{Hz}'
+  - '\qty{500}{Hz}'

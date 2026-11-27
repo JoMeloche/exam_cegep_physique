@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie cinétique maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\v{lam}}{nm}$, $\phi = \qty{\v{phi}}{eV}$ ; variable recherchée : $K_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ K_{\max} = \frac{hc}{\lambda} - \phi \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ K_{\max} = \frac{1240}{\num{\v{lam}}} - \num{\v{phi}} = \Res{1240/\v{lam} - \v{phi}}{eV} = \ResSci{(1240/\v{lam} - \v{phi})*1.602e-19}{J} \]
+    \item \textbf{Réponse :} $K_{\max} = \mathbf{\ResSci{(1240/\v{lam} - \v{phi})*1.602e-19}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $K_{\max}$, $m_e = \qty{9.109e-31}{kg}$ ; variable recherchée : $v_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ K_{\max} = \frac{1}{2} m_e v_{\max}^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_{\max} = \sqrt{\frac{2K_{\max}}{m_e}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \sqrt{\frac{2 \cdot \ResSci{(1240/\v{lam} - \v{phi})*1.602e-19}{}}{\num{9.109e-31}}} = \ResSci{sqrt(2*(1240/\v{lam} - \v{phi})*1.602e-19/9.109e-31)}{m/s} \]
+    \item \textbf{Réponse :} $v_{\max} = \mathbf{\ResSci{sqrt(2*(1240/\v{lam} - \v{phi})*1.602e-19/9.109e-31)}{m/s}}$, soit \Res{100*sqrt(2*(1240/\v{lam} - \v{phi})*1.602e-19/9.109e-31)/3e8}{\percent} de $c$ : la mécanique classique est justifiée.
+\end{enumerate}
+
+\subsubsection*{Question c) Longueur d'onde de de Broglie}
+\[ \lambda_{dB} = \frac{h}{p} = \frac{h}{m_e v_{\max}} = \frac{\num{6.626e-34}}{\num{9.109e-31} \cdot \ResSci{sqrt(2*(1240/\v{lam} - \v{phi})*1.602e-19/9.109e-31)}{}} = \Res{1e9*6.626e-34/sqrt(2*9.109e-31*(1240/\v{lam} - \v{phi})*1.602e-19)}{nm} \]
+La longueur d'onde de de Broglie est de \textbf{\Res{1e9*6.626e-34/sqrt(2*9.109e-31*(1240/\v{lam} - \v{phi})*1.602e-19)}{nm}}.

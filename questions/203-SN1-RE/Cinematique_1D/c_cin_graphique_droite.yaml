@@ -1,0 +1,11 @@
+title: Graphique de position linéaire
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: Une pente constante sur $x(t)$ signifie une vitesse constante, donc une accélération nulle.
+choices: [Elle est positive et constante, Elle est nulle, Elle est négative, Elle augmente avec le temps]

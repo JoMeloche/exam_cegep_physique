@@ -1,0 +1,16 @@
+title: 'Puissance de deux personnes qui font le même travail'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [puissance]
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Même masse et même hauteur : même travail $m g h$. Anne le fait en deux fois moins de temps, donc sa puissance $P = W/\Delta t$ est deux fois plus grande.'
+choices:
+  - 'Elles font le même travail, mais la puissance d''Anne est deux fois plus grande'
+  - 'Anne fait deux fois plus de travail que Béatrice'
+  - 'Elles développent la même puissance'
+  - 'Béatrice fait plus de travail, parce qu''elle monte plus longtemps'

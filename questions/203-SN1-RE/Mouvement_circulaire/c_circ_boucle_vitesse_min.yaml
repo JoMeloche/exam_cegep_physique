@@ -1,0 +1,11 @@
+title: Sommet d'une boucle à vitesse minimale
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'À la vitesse minimale, la normale s''annule : le poids fournit à lui seul la force centripète, $mg = mv^2/r$.'
+choices: [Seulement son poids, Son poids et une force normale vers le bas, Son poids et une force centrifuge, Aucune force]

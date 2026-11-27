@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Capacité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $A = \qty{\v{A}e-4}{m^2}$, $d = \qty{\vsi{d}}{m}$, $\varepsilon_0 = \qty{8.85e-12}{C^2/N.m^2}$ ; variable recherchée : $C$
+    \item \textbf{Équations pertinentes :}
+    \[ C = \frac{\varepsilon_0A}{d} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ C = \frac{\num{8.85e-12} \cdot \num{\v{A}e-4}}{\num{\vsi{d}}} = \ResSci{8.85e-12*\v{A}*1e-4/\vsi{d}}{F} \]
+    \item \textbf{Réponse :} $C = \mathbf{\Res{1e12*8.85e-12*\v{A}*1e-4/\vsi{d}}{pF}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Charge et énergie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C$, $V = \qty{\v{V}}{V}$ ; variables recherchées : $Q$, $U$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = CV \qquad U = \frac{1}{2}CV^2 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \ResSci{8.85e-12*\v{A}*1e-4/\vsi{d}}{} \cdot \num{\v{V}} = \ResSci{8.85e-12*\v{A}*1e-4/\vsi{d}*\v{V}}{C} \qquad U = \frac{1}{2} \cdot \ResSci{8.85e-12*\v{A}*1e-4/\vsi{d}}{} \cdot (\num{\v{V}})^2 = \ResSci{0.5*8.85e-12*\v{A}*1e-4/\vsi{d}*\v{V}^2}{J} \]
+    \item \textbf{Réponse :} $Q = \mathbf{\ResSci{8.85e-12*\v{A}*1e-4/\vsi{d}*\v{V}}{C}}$ et $U = \mathbf{\ResSci{0.5*8.85e-12*\v{A}*1e-4/\vsi{d}*\v{V}^2}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Champ électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \qty{\v{V}}{V}$, $d = \qty{\vsi{d}}{m}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ V = Ed \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E = \frac{V}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{\num{\v{V}}}{\num{\vsi{d}}} = \Res{\v{V}/\vsi{d}}{V/m} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{\v{V}/\vsi{d}}{V/m}}$.
+\end{enumerate}

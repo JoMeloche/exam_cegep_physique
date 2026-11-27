@@ -1,0 +1,19 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance nette}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \num{0.97}$, $A = \qty{\v{S}}{m^2}$, $T = \qty{\fpeval{\v{Ts}+273}}{K}$, $T_e = \qty{\fpeval{\v{Te}+273}}{K}$ ; variable recherchée : $P_{\text{net}}$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{net}} = e\sigma A\,(T^4 - T_e^4) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_{\text{net}} = \num{0.97} \cdot \num{5.67e-8} \cdot \num{\v{S}} \cdot \left((\num{\fpeval{\v{Ts}+273}})^4 - (\num{\fpeval{\v{Te}+273}})^4\right) = \Res{0.97*5.67e-8*\v{S}*((\v{Ts}+273)^4 - (\v{Te}+273)^4)}{W} \]
+    \item \textbf{Réponse :} la personne perd \textbf{\Res{0.97*5.67e-8*\v{S}*((\v{Ts}+273)^4 - (\v{Te}+273)^4)}{W}} par rayonnement.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie perdue}
+\[ E = P_{\text{net}}\,\Delta t = \Val{0.97*5.67e-8*\v{S}*((\v{Ts}+273)^4 - (\v{Te}+273)^4)} \cdot \num{\vsi{t}} = \ResSci{0.97*5.67e-8*\v{S}*((\v{Ts}+273)^4 - (\v{Te}+273)^4)*\vsi{t}}{J} = \Res{0.97*5.67e-8*\v{S}*((\v{Ts}+273)^4 - (\v{Te}+273)^4)*\vsi{t}/4186}{kcal} \]
+
+\subsubsection*{Question c) Près d'une fenêtre}
+La surface intérieure d'une vitre en hiver est froide. Le corps rayonne vers elle beaucoup plus d'énergie qu'il n'en reçoit, peu importe la température de l'air : la perte nette par rayonnement augmente du côté de la fenêtre.

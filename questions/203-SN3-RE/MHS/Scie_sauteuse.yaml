@@ -1,0 +1,44 @@
+title: Scie sauteuse
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures:
+- scie-sauteuse.png
+variables:
+  Freq:
+    type: integer
+    min: 40
+    max: 65
+    step: 5
+    label: mhsqCinqFreq
+  Course:
+    type: integer
+    min: 4
+    max: 9
+    step: 1
+    label: mhsqCinqCourse
+  Depassement:
+    type: decimal
+    min: 1
+    max: 3.5
+    step: 0.5
+    label: mhsqCinqDepassement
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/MHS/Scie_sauteuse.tex
+original_values:
+  Freq:
+    A: '50'
+    B: '60'
+    C: '45'
+  Course:
+    A: '6'
+    B: '8'
+    C: '5'
+  Depassement:
+    A: '2'
+    B: '3'
+    C: '1.5'
+history: []

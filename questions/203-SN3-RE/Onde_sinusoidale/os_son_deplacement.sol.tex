@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde et nombre d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $f = \qty{\v{f}}{Hz}$, $v = \qty{\v{v}}{m/s}$
+        \item Variables recherchées : $\lambda$ (m) et $k$ (rad/m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \qquad k = \frac{2\pi}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{v}{f} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\num{\v{v}}}{\num{\v{f}}} = \Res{\v{v}/\v{f}}{m} \qquad k = \frac{2\pi}{\Val{\v{v}/\v{f}}} = \Res{2*pi*\v{f}/\v{v}}{rad/m} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{\v{v}/\v{f}}{m}}$ et $k = \mathbf{\Res{2*pi*\v{f}/\v{v}}{rad/m}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Fonction d'onde}
+Avec $\omega = 2\pi f = \Res{2*pi*\v{f}}{rad/s}$ et une propagation vers les $x$ positifs :
+\[ s(x,t) = \num{\vsi{s}}\cos\left(\Val{2*pi*\v{f}/\v{v}}\,x - \Val{2*pi*\v{f}}\,t\right) \quad \text{(en mètres)} \]
+
+\subsubsection*{Question c) Vitesse maximale des molécules}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $s_{\max} = \qty{\vsi{s}}{m}$, $\omega = \Res{2*pi*\v{f}}{rad/s}$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_{\max} = s_{\max}\,\omega \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \num{\vsi{s}} \cdot \Val{2*pi*\v{f}} = \Res{\vsi{s}*2*pi*\v{f}}{m/s} \]
+    \item \textbf{Réponse :} les molécules oscillent à au plus \textbf{\Res{1000*\vsi{s}*2*pi*\v{f}}{mm/s}}, ce qui est beaucoup plus petit que la vitesse du son : la vitesse d'oscillation du milieu et la vitesse de propagation sont deux choses distinctes.
+\end{enumerate}

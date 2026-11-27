@@ -1,0 +1,16 @@
+title: 'Chute de deux balles de masses différentes'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+tags: [chute libre]
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Sans résistance de l''air, tous les objets tombent avec la même accélération $g$, quelle que soit leur masse.'
+choices:
+  - 'La boule de pétanque, parce qu''elle est plus lourde'
+  - 'Les deux touchent le sol en même temps'
+  - 'La bille, parce qu''elle est plus petite'
+  - 'Cela dépend de la hauteur du balcon'

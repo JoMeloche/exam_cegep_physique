@@ -1,0 +1,18 @@
+title: Deux antennes radio émettant en phase
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f: {type: integer, min: 88, max: 108, step: 1, unit: MHz, si: 1e6, label: Fréquence d'émission}
+  D: {type: decimal, min: 5.0, max: 20.0, step: 0.5, unit: m, label: Distance entre les antennes}
+constraints:
+  - abs(D*f/3e8 - round(D*f/3e8)) > 0.15
+solution:
+  mode: manual
+  parts:
+    lam: {expr: "3e8/f", unit: m, label: Longueur d'onde}
+    th1: {expr: "deg(asin(3e8/(f*D)))", unit: deg, label: Angle du premier maximum}
+    nmax: {expr: "2*floor(D*f/3e8) + 1", unit: "", label: Nombre de directions de maximum}
+    th0: {expr: "deg(asin(3e8/(2*f*D)))", unit: deg, label: Angle du premier minimum}

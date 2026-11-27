@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence à l'approche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $f = \qty{\v{f}}{Hz}$, $v_s = \qty{\v{vs}}{m/s}$ (source vers l'observateur), $v_o = 0$, $v = \qty{\v{v}}{m/s}$
+        \item Variable recherchée : $f'$ (Hz)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f' = f\,\frac{v \pm v_o}{v \mp v_s} \]
+    \item \textbf{Isolation de la variable recherchée :} la source s'approche : signe $-$ au dénominateur.
+    \[ f' = f\,\frac{v}{v - v_s} \]
+    \item \textbf{Résolution numérique :}
+    \[ f' = \num{\v{f}} \cdot \frac{\num{\v{v}}}{\num{\v{v}} - \num{\v{vs}}} = \Res{\v{f}*\v{v}/(\v{v}-\v{vs})}{Hz} \]
+    \item \textbf{Réponse :} le piéton perçoit \textbf{\Res{\v{f}*\v{v}/(\v{v}-\v{vs})}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Fréquence à l'éloignement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes données, la source s'éloigne ; variable recherchée : $f''$
+    \item \textbf{Équations pertinentes :}
+    \[ f'' = f\,\frac{v}{v + v_s} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f'' = \num{\v{f}} \cdot \frac{\num{\v{v}}}{\num{\v{v}} + \num{\v{vs}}} = \Res{\v{f}*\v{v}/(\v{v}+\v{vs})}{Hz} \]
+    \item \textbf{Réponse :} le piéton perçoit \textbf{\Res{\v{f}*\v{v}/(\v{v}+\v{vs})}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Chute de fréquence}
+\[ \Delta f = f' - f'' = \Val{\v{f}*\v{v}/(\v{v}-\v{vs})} - \Val{\v{f}*\v{v}/(\v{v}+\v{vs})} = \Res{\v{f}*\v{v}/(\v{v}-\v{vs}) - \v{f}*\v{v}/(\v{v}+\v{vs})}{Hz} \]
+La fréquence chute de \textbf{\Res{\v{f}*\v{v}/(\v{v}-\v{vs}) - \v{f}*\v{v}/(\v{v}+\v{vs})}{Hz}}. La fréquence perçue ne dépend que de la vitesse de la source, qui est constante : elle reste donc constante pendant l'approche. C'est l'intensité qui augmente, parce que la distance diminue.

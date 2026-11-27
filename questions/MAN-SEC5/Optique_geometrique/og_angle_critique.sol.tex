@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle critique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_1 = \num{\v{n}}$, $n_2 = \num{1.00}$, $\theta_2 = \qty{90}{\degree}$ ; variable recherchée : $\theta_c$
+    \item \textbf{Équations pertinentes :} loi de Snell-Descartes avec un rayon réfracté rasant :
+    \[ n_1 \sin\theta_c = n_2 \sin(\qty{90}{\degree}) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_c = \arcsin\left(\frac{n_2}{n_1}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_c = \arcsin\left(\frac{\num{1.00}}{\num{\v{n}}}\right) = \Res{asind(1/\v{n})}{\degree} \]
+    \item \textbf{Réponse :} $\theta_c = \mathbf{\Res{asind(1/\v{n})}{\degree}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Réfraction vers l'air}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_1 = \num{\v{n}}$, $\theta_1 = \qty{\v{thA}}{\degree}$ (plus petit que $\theta_c$), $n_2 = \num{1.00}$ ; variable recherchée : $\theta_2$
+    \item \textbf{Équations pertinentes :}
+    \[ n_1 \sin\theta_1 = n_2 \sin\theta_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_2 = \arcsin\left(\frac{n_1\sin\theta_1}{n_2}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_2 = \arcsin\left(\frac{\num{\v{n}}\cdot\sin(\qty{\v{thA}}{\degree})}{\num{1.00}}\right) = \Res{asind(\v{n}*sind(\v{thA}))}{\degree} \]
+    \item \textbf{Réponse :} le rayon sort dans l'air à \textbf{\Res{asind(\v{n}*sind(\v{thA}))}{\degree}} de la normale (il s'éloigne de la normale).
+\end{enumerate}
+
+\subsubsection*{Question c) Réflexion totale interne}
+L'angle d'incidence \qty{\v{thB}}{\degree} est plus grand que l'angle critique \Res{asind(1/\v{n})}{\degree}, et la lumière va d'un milieu plus réfringent vers un milieu moins réfringent : il y a \textbf{réflexion totale interne}. Aucun rayon ne sort dans l'air. Selon la loi de la réflexion ($\theta_r = \theta_i$), le rayon réfléchi fait \textbf{\qty{\v{thB}}{\degree}} avec la normale.

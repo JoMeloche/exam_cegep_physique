@@ -1,0 +1,59 @@
+school: Cégep de Valleyfield
+professors:
+- Jonathan Meloche-Gagnon
+default_professor: Jonathan Meloche-Gagnon
+courses:
+  203-SN3-RE:
+    title: Physique
+    full_title: Ondes et physique moderne
+    group: groupe 2
+  203-SN1-RE:
+    title: Physique
+    full_title: Mécanique
+    group: ''
+  203-SN2-RE:
+    title: Physique
+    full_title: Électricité et magnétisme
+    group: ''
+  MAN-SEC5:
+    title: Mise à niveau
+    full_title: Physique Sec. 5
+    group: ''
+  MAN-SEC4:
+    title: Mise à niveau
+    full_title: Sec. 4 (ST/STE)
+    group: ''
+topics:
+  Onde_stationnaire: Onde stationnaire / résonnante
+  Intensite: Intensité et puissance sonore
+  Onde_progressive: Onde progressive
+  Onde_sinusoidale: Onde sinusoïdale
+  MHS: Mouvement harmonique simple
+  Doppler: Effet Doppler
+  Cinematique_1D: Cinématique 1D
+  Projectile: Mouvement de projectile
+  Lois_Newton: Lois de Newton
+  Frottement_plan_incline: Frottement et plan incliné
+  Mouvement_circulaire: Mouvement circulaire
+  Travail_energie: Travail et énergie
+  Quantite_mouvement: Quantité de mouvement et collisions
+  Rotation: Rotation et moment de force
+  Equilibre_statique: Équilibre statique
+  Cinematique: Cinématique
+  Dynamique: Dynamique et lois de Newton
+  Energie_mecanique: Énergie mécanique
+  Forces_equilibre: Forces et équilibre
+  Optique_geometrique: Optique géométrique
+  Optique_ondulatoire: Optique ondulatoire
+  Electricite_Ohm: Électricité et loi d'Ohm
+  Electromagnetisme: Électromagnétisme
+  Force_mouvement: Force et mouvement
+  Energie_rendement: Énergie et rendement
+  Proprietes_matiere: Propriétés de la matière
+  Biologie: Biologie
+  Chimie: Chimie
+latex:
+  engine: pdflatex
+  path: ''
+time_margin: 0.2
+default_versions: 3

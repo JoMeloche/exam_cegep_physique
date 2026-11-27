@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie cinétique en joules}
+\[ K = \qty{\v{K}e6}{eV} \times \qty{1.602e-19}{J/eV} = \ResSci{\v{K}*1e6*1.602e-19}{J} \]
+L'énergie cinétique vaut \textbf{\ResSci{\v{K}*1e6*1.602e-19}{J}}.
+
+\subsubsection*{Question b) Distance minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $K_i = \ResSci{\v{K}*1e6*1.602e-19}{J}$, $q_1 = e$, $q_2 = Ze = \num{\v{Z}}e$, $K_f = 0$, $U_i \approx 0$ ; variable recherchée : $r_{\min}$
+    \item \textbf{Équations pertinentes :} conservation de l'énergie :
+    \[ K_i = \frac{k(Ze)(e)}{r_{\min}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r_{\min} = \frac{kZe^2}{K_i} \]
+    \item \textbf{Résolution numérique :}
+    \[ r_{\min} = \frac{\num{8.99e9} \cdot \num{\v{Z}} \cdot (\num{1.602e-19})^2}{\ResSci{\v{K}*1e6*1.602e-19}{}} = \ResSci{8.99e9*\v{Z}*1.602e-19/(\v{K}*1e6)}{m} \]
+    \item \textbf{Réponse :} $r_{\min} = \mathbf{\ResSci{8.99e9*\v{Z}*1.602e-19/(\v{K}*1e6)}{m}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Force à la distance minimale}
+\[ F = \frac{kZe^2}{r_{\min}^2} = \frac{\num{8.99e9} \cdot \num{\v{Z}} \cdot (\num{1.602e-19})^2}{(\ResSci{8.99e9*\v{Z}*1.602e-19/(\v{K}*1e6)}{})^2} = \Res{8.99e9*\v{Z}*(1.602e-19)^2/(8.99e9*\v{Z}*1.602e-19/(\v{K}*1e6))^2}{N} \]
+Au point de rebroussement, le proton subit une force de \textbf{\Res{8.99e9*\v{Z}*(1.602e-19)^2/(8.99e9*\v{Z}*1.602e-19/(\v{K}*1e6))^2}{N}}, énorme pour une particule aussi légère.

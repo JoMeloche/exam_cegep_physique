@@ -1,0 +1,15 @@
+title: "Hauteur du son entendu lors de battements"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le son résultant oscille à la fréquence moyenne $(f_1 + f_2)/2$, avec une amplitude modulée à $|f_1 - f_2|$.'
+choices:
+  - '\qty{303}{Hz}'
+  - '\qty{300}{Hz}'
+  - '\qty{306}{Hz}'
+  - '\qty{6}{Hz}'

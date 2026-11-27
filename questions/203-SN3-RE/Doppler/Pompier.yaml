@@ -1,0 +1,39 @@
+title: Pompier
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables:
+  Camion:
+    type: integer
+    min: 20
+    max: 40
+    step: 5
+    label: doppDeuxCVitCamion
+  Auto:
+    type: integer
+    min: 5
+    max: 25
+    step: 5
+    label: doppDeuxCVitAuto
+solution:
+  mode: none
+choices:
+- La même que la vitesse de propagation des ondes sonores du klaxon de l’auto.
+- Deux fois plus grande que la vitesse de propagation des ondes sonores du klaxon de l’auto.
+- Plus grande que la vitesse de propagation des ondes sonores du klaxon de l’auto, mais pas deux fois plus grande.
+- Deux fois plus petite que la vitesse de propagation des ondes sonores du klaxon de l’auto.
+- Plus petite que la vitesse de propagation des ondes sonores du klaxon de l’auto, mais pas deux fois plus petite.
+needs_review: true
+source: Question_concept/Doppler/Pompier.tex
+original_values:
+  Camion:
+    A: '30'
+    B: '25'
+    C: '35'
+  Auto:
+    A: '15'
+    B: '10'
+    C: '20'
+history: []

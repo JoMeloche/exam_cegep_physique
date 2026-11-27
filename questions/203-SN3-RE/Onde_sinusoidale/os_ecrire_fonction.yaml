@@ -1,0 +1,21 @@
+title: Écrire la fonction d'une onde sinusoïdale
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  A:   {type: decimal, min: 1.0, max: 8.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+  lam: {type: integer, min: 20, max: 200, step: 5, unit: cm, si: 0.01, label: Longueur d'onde}
+  f:   {type: integer, min: 2, max: 50, step: 1, unit: Hz, label: Fréquence}
+  x1:  {type: decimal, min: 0.10, max: 1.50, step: 0.05, unit: m, label: Position évaluée}
+  t1:  {type: decimal, min: 0.01, max: 0.20, step: 0.01, unit: s, label: Instant évalué}
+constraints:
+  - abs(sin(2*pi/lam*x1 + 2*pi*f*t1)) > 0.15
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "2*pi/lam", unit: rad/m, label: Nombre d'onde}
+    a2: {expr: "2*pi*f", unit: rad/s, label: Fréquence angulaire}
+    b: {expr: "lam*f", unit: m/s, label: Vitesse}
+    c: {expr: "A*sin(2*pi/lam*x1 + 2*pi*f*t1)", unit: m, label: Déplacement}

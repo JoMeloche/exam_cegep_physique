@@ -1,0 +1,19 @@
+title: Puissance rayonnée par un radiateur
+type: developpement
+points: 20
+time_min: 15
+difficulty: 4
+figures: []
+variables:
+  S:  {type: decimal, min: 0.5, max: 2.5, step: 0.1, unit: m^2, label: Aire du radiateur}
+  em: {type: decimal, min: 0.80, max: 0.95, step: 0.01, label: Émissivité de la peinture}
+  Tr: {type: integer, min: 50, max: 80, step: 1, unit: \degreeCelsius, label: Température du radiateur}
+  Te: {type: integer, min: 16, max: 22, step: 1, unit: \degreeCelsius, label: Température de la pièce}
+  Pv: {type: integer, min: 300, max: 900, step: 50, unit: W, label: Puissance nette visée}
+constraints:
+  - em*5.67e-8*S*((Tr+273)**4 - (Te+273)**4) < 0.9*Pv
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em*5.67e-8*S*((Tr+273)**4 - (Te+273)**4)", unit: W, label: Puissance nette}
+    e2: {expr: "(Pv/(em*5.67e-8*S) + (Te+273)**4)**0.25 - 273", unit: degC, label: Température requise}

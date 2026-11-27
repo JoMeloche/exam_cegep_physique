@@ -1,0 +1,15 @@
+title: "Réflexion d'une impulsion à une extrémité fixe"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À une extrémité fixe, la corde exerce sur le mur une force et le mur réagit en sens inverse : l''impulsion revient inversée, avec la même vitesse.'
+choices:
+  - 'Elle disparaît, absorbée par le mur'
+  - 'Elle est réfléchie à l''endroit (vers le haut)'
+  - 'Elle est réfléchie inversée (vers le bas)'
+  - 'Elle est réfléchie avec une vitesse plus grande'

@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Module de la vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_1 = \qty{\v{m1}}{kg}$, $\vec v_1 = \qty{\v{v1}}{m/s}\,\hat\imath$, $m_2 = \qty{\v{m2}}{kg}$, $\vec v_2 = \qty{\v{v2}}{m/s}\,\hat\jmath$ ; variable recherchée : $v_f$
+    \item \textbf{Équations pertinentes :} conservation de la quantité de mouvement en $x$ et en $y$ : \[ m_1 v_1 = (m_1 + m_2)v_{fx} \qquad m_2 v_2 = (m_1 + m_2) v_{fy} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_f = \frac{\sqrt{(m_1 v_1)^2 + (m_2 v_2)^2}}{m_1 + m_2} \]
+    \item \textbf{Résolution numérique :} \[ p_x = \Res{\vsi{m1}*\vsi{v1}}{kg.m/s} \qquad p_y = \Res{\vsi{m2}*\vsi{v2}}{kg.m/s} \qquad v_f = \frac{\sqrt{\left(\Val{\vsi{m1}*\vsi{v1}}\right)^2 + \left(\Val{\vsi{m2}*\vsi{v2}}\right)^2}}{\num{\v{m1}} + \num{\v{m2}}} = \Res{(sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2}))}{m/s} \]
+    \item \textbf{Réponse :} $v_f = \mathbf{\Res{(sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2}))}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Direction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $p_x = \Res{\vsi{m1}*\vsi{v1}}{kg.m/s}$, $p_y = \Res{\vsi{m2}*\vsi{v2}}{kg.m/s}$ ; variable recherchée : $\theta$
+    \item \textbf{Équations pertinentes :} \[ \tan\theta = \frac{v_{fy}}{v_{fx}} = \frac{m_2 v_2}{m_1 v_1} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \theta = \arctan\left(\frac{m_2 v_2}{m_1 v_1}\right) \]
+    \item \textbf{Résolution numérique :} \[ \theta = \arctan\left(\frac{\Val{\vsi{m2}*\vsi{v2}}}{\Val{\vsi{m1}*\vsi{v1}}}\right) = \Res{(atand(\vsi{m2}*\vsi{v2}/(\vsi{m1}*\vsi{v1})))}{\degree} \]
+    \item \textbf{Réponse :} $\theta = \mathbf{\Res{(atand(\vsi{m2}*\vsi{v2}/(\vsi{m1}*\vsi{v1})))}{\degree}}$ au nord de l'est.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie cinétique perdue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $K_i = \tfrac{1}{2}m_1v_1^2 + \tfrac{1}{2}m_2v_2^2$, $v_f = \Res{(sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2}))}{m/s}$ ; variable recherchée : $|\Delta K|$
+    \item \textbf{Équations pertinentes :} \[ |\Delta K| = K_i - \tfrac{1}{2}(m_1 + m_2)v_f^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_i = \Res{0.5*\vsi{m1}*\vsi{v1}^2 + 0.5*\vsi{m2}*\vsi{v2}^2}{J} \qquad K_f = \Res{0.5*(\vsi{m1} + \vsi{m2})*((sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2})))^2}{J} \qquad |\Delta K| = \Res{(0.5*\vsi{m1}*\vsi{v1}^2 + 0.5*\vsi{m2}*\vsi{v2}^2 - 0.5*(\vsi{m1} + \vsi{m2})*((sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2})))^2)}{J} \]
+    \item \textbf{Réponse :} $|\Delta K| = \mathbf{\Res{(0.5*\vsi{m1}*\vsi{v1}^2 + 0.5*\vsi{m2}*\vsi{v2}^2 - 0.5*(\vsi{m1} + \vsi{m2})*((sqrt((\vsi{m1}*\vsi{v1})^2 + (\vsi{m2}*\vsi{v2})^2)/(\vsi{m1} + \vsi{m2})))^2)}{J}}$
+\end{enumerate}

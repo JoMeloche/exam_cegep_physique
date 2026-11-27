@@ -1,0 +1,15 @@
+title: 'Énergie cinétique quand la vitesse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$K = \tfrac{1}{2}mv^2$ : doubler $v$ multiplie $K$ par $2^2 = 4$.'
+choices:
+  - 'Par 4'
+  - 'Par 8'
+  - 'Par 2'
+  - 'Par $\sqrt{2}$'

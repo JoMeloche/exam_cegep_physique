@@ -1,0 +1,16 @@
+title: Accorder une corde de guitare avec les battements
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f0: {type: choice, values: [110, 146.8, 196, 246.9, 329.6], unit: Hz, label: Fréquence de référence}
+  fb: {type: integer, min: 2, max: 9, step: 1, unit: Hz, label: Fréquence des battements}
+  F:  {type: integer, min: 50, max: 120, step: 5, unit: N, label: Tension actuelle}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f0 - fb", unit: Hz, label: Fréquence actuelle de la corde}
+    b: {expr: "F*(f0/(f0 - fb))**2", unit: N, label: Tension requise}

@@ -1,0 +1,20 @@
+title: Franges d'interférence dans le maximum central de diffraction
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  sep: {type: integer, min: 100, max: 600, step: 10, unit: \micro\metre, si: 1e-6, label: Distance entre les fentes}
+  larg: {type: integer, min: 20, max: 100, step: 5, unit: \micro\metre, si: 1e-6, label: Largeur de chaque fente}
+  L: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: m, label: Distance fentes-écran}
+constraints:
+  - 2.2 < sep/larg < 10
+  - abs(sep/larg - round(sep/larg)) > 0.12
+solution:
+  mode: manual
+  parts:
+    dy: {expr: "lam*L/sep", unit: m, label: Distance entre franges d'interférence}
+    W: {expr: "2*lam*L/larg", unit: m, label: Largeur du maximum central de diffraction}
+    N: {expr: "2*floor(sep/larg) + 1", unit: "", label: Nombre de franges brillantes dans le maximum central}

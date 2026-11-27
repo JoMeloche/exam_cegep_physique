@@ -1,0 +1,23 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Température de l'atmosphère}
+Vue de l'espace, seule l'atmosphère rayonne vers l'extérieur ; elle doit évacuer toute la puissance solaire absorbée :
+\[ \sigma T_{\text{atm}}^4 = \frac{S(1-a)}{4} = \Res{\v{S}*(1 - \v{al})/4}{W/m^2} \implies T_{\text{atm}} = \left(\frac{\Val{\v{S}*(1 - \v{al})/4}}{\num{5.67e-8}}\right)^{1/4} = \Res{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K} \]
+La couche atmosphérique est à \textbf{\Res{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K}}.
+
+\subsubsection*{Question b) Température du sol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_{\text{atm}} = \Res{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K}$ ; variable recherchée : $T_{\text{sol}}$
+    \item \textbf{Équations pertinentes :} la couche absorbe tout le rayonnement du sol et émet $\sigma T_{\text{atm}}^4$ vers le haut et autant vers le bas :
+    \[ \sigma T_{\text{sol}}^4 = 2\,\sigma T_{\text{atm}}^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_{\text{sol}} = 2^{1/4}\,T_{\text{atm}} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_{\text{sol}} = \Val{2^0.25} \cdot \Val{(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25} = \Res{2^0.25*(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K} \]
+    \item \textbf{Réponse :} le sol est à \textbf{\Res{2^0.25*(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25}{K}} (\qty[round-mode=places,round-precision=0]{\fpeval{2^0.25*(\v{S}*(1 - \v{al})/(4*5.67e-8))^0.25 - 273}}{\degreeCelsius}).
+\end{enumerate}
+
+\subsubsection*{Question c) Puissance rayonnée par le sol}
+\[ \sigma T_{\text{sol}}^4 = 2 \cdot \frac{S(1-a)}{4} = \Res{2*\v{S}*(1 - \v{al})/4}{W/m^2} \]
+Le sol rayonne \textbf{\Res{2*\v{S}*(1 - \v{al})/4}{W/m^2}}, deux fois la puissance solaire qu'il absorbe (\Res{\v{S}*(1 - \v{al})/4}{W/m^2}) : l'autre moitié provient du rayonnement infrarouge renvoyé par l'atmosphère.

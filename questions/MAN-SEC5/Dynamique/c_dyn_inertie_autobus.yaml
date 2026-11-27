@@ -1,0 +1,16 @@
+title: 'Passagers projetés vers l''avant dans un autobus'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+tags: [première loi]
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Par inertie (première loi de Newton), le corps des passagers tend à garder sa vitesse alors que l''autobus ralentit sous eux.'
+choices:
+  - 'Une force vers l''avant pousse les passagers pendant le freinage'
+  - 'La gravité augmente pendant le freinage'
+  - 'Le corps des passagers tend à conserver sa vitesse : c''est l''inertie'
+  - 'Les freins transmettent leur force aux passagers'

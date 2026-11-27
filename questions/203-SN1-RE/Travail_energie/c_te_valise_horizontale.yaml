@@ -1,0 +1,15 @@
+title: 'Travail en portant une valise à vitesse constante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Votre force est verticale (elle compense le poids) et le déplacement est horizontal : $\cos 90^\circ = 0$. D''ailleurs $\Delta K = 0$ et $\Delta U_g = 0$.'
+choices:
+  - 'Un travail positif'
+  - 'Un travail négatif'
+  - 'Un travail nul'
+  - 'Un travail égal à $mgd$, où $d$ est la distance parcourue'

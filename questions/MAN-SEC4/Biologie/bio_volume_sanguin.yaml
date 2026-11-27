@@ -1,0 +1,17 @@
+title: Volume sanguin et globules rouges
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m:  {type: integer, min: 45, max: 95, step: 1, unit: kg, label: Masse de la personne}
+  GR: {type: decimal, min: 4.2, max: 5.8, step: 0.1, unit: millions/mm^3, label: Concentration de globules rouges}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "70*m/1000", unit: L, label: Volume sanguin}
+    b: {expr: "0.55*70*m/1000", unit: L, label: Volume de plasma}
+    c: {expr: "70*m*1000*GR*1e6", unit: globules, label: Nombre de globules rouges}
+    d: {expr: "100*450/(70*m)", unit: "%", label: Part prélevée par un don}

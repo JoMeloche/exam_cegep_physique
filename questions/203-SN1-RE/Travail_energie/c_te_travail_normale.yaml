@@ -1,0 +1,15 @@
+title: 'Travail de la force normale sur un plancher horizontal'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La normale est perpendiculaire au déplacement : $W = nd\cos 90^\circ = 0$.'
+choices:
+  - 'Il est positif'
+  - 'Il est nul'
+  - 'Il est négatif'
+  - 'Il est égal au travail du frottement'

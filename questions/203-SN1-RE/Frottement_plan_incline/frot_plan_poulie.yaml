@@ -1,0 +1,18 @@
+title: Bloc sur un plan incliné tiré par un bloc suspendu
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+variables:
+  m1: {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: kg, label: Masse du bloc sur le plan}
+  m2: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: kg, label: Masse du bloc suspendu}
+  th: {type: integer, unit: \degree, label: Angle du plan incliné, min: 20, max: 40, step: 5}
+  mu: {type: decimal, step: 0.01, label: Coefficient de frottement cinétique, min: 0.1, max: 0.3}
+constraints: [(m2*g - m1*g*sin(rad(th)) - mu*m1*g*cos(rad(th)))/(m1 + m2) > 0.3]
+solution:
+  mode: manual
+  file: frot_plan_poulie.sol.tex
+  parts:
+    b: {expr: (m2*g - m1*g*sin(rad(th)) - mu*m1*g*cos(rad(th)))/(m1 + m2), unit: m/s^2, label: Accélération}
+    c: {expr: m2*(g - (m2*g - m1*g*sin(rad(th)) - mu*m1*g*cos(rad(th)))/(m1 + m2)), unit: N, label: Tension}

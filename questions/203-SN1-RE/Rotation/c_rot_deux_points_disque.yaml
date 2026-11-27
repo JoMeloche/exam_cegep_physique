@@ -1,0 +1,15 @@
+title: 'Deux points d''un disque qui tourne'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Tous les points d''un corps rigide ont le même $\omega$ ; $v = \omega r$ double quand $r$ double.'
+choices:
+  - 'Même vitesse angulaire et même vitesse linéaire'
+  - 'Même vitesse angulaire ; la vitesse linéaire de Q est deux fois celle de P'
+  - 'Même vitesse linéaire ; la vitesse angulaire de Q est deux fois celle de P'
+  - 'Q a une vitesse angulaire et une vitesse linéaire deux fois plus grandes que P'

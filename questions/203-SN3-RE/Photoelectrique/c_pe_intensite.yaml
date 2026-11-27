@@ -1,0 +1,15 @@
+title: "Effet de l'intensité sur l'énergie des photoélectrons"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Plus d''intensité signifie plus de photons de même énergie $hf$ : plus d''électrons sont éjectés, mais leur énergie cinétique maximale $hf - \phi$ ne change pas.'
+choices:
+  - 'L''énergie cinétique maximale des électrons double'
+  - 'Le nombre d''électrons éjectés double, leur énergie cinétique maximale ne change pas'
+  - 'Le potentiel d''arrêt double'
+  - 'Rien ne change'

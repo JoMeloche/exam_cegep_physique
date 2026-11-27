@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie cinétique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $|q| = e = \qty{1.602e-19}{C}$, $|\Delta V| = \qty{\v{dV}}{V}$, $K_i = 0$ ; variable recherchée : $K_f$
+    \item \textbf{Équations pertinentes :} conservation de l'énergie :
+    \[ K_f = -q\Delta V = e|\Delta V| \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ K_f = \num{1.602e-19} \cdot \num{\v{dV}} = \ResSci{1.602e-19*\v{dV}}{J} = \qty{\v{dV}}{eV} \]
+    \item \textbf{Réponse :} les deux particules ont la même énergie cinétique, $K_f = \mathbf{\ResSci{1.602e-19*\v{dV}}{J}}$ $= \qty{\v{dV}}{eV}$, car elles ont la même charge en valeur absolue.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de l'électron}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $K_f$, $m_e = \qty{9.109e-31}{kg}$ ; variable recherchée : $v_e$
+    \item \textbf{Équations pertinentes :}
+    \[ K_f = \frac{1}{2}m_ev_e^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_e = \sqrt{\frac{2K_f}{m_e}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_e = \sqrt{\frac{2 \cdot \ResSci{1.602e-19*\v{dV}}{}}{\num{9.109e-31}}} = \ResSci{sqrt(2*1.602e-19*\v{dV}/9.109e-31)}{m/s} \]
+    \item \textbf{Réponse :} $v_e = \mathbf{\ResSci{sqrt(2*1.602e-19*\v{dV}/9.109e-31)}{m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse du proton}
+\[ v_p = \sqrt{\frac{2K_f}{m_p}} = \sqrt{\frac{2 \cdot \ResSci{1.602e-19*\v{dV}}{}}{\num{1.673e-27}}} = \ResSci{sqrt(2*1.602e-19*\v{dV}/1.673e-27)}{m/s} \qquad \frac{v_e}{v_p} = \sqrt{\frac{m_p}{m_e}} = \Res{sqrt(1.673e-27/9.109e-31)}{} \]
+Le proton atteint \textbf{\ResSci{sqrt(2*1.602e-19*\v{dV}/1.673e-27)}{m/s}} ; l'électron va \textbf{\Res{sqrt(1.673e-27/9.109e-31)}{}} fois plus vite, quelle que soit la tension.

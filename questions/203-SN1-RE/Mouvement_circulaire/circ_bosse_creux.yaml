@@ -1,0 +1,18 @@
+title: Voiture sur une bosse et dans un creux
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 900, max: 1600, step: 50, unit: kg, label: Masse de la voiture}
+  r: {type: integer, min: 20, max: 80, step: 5, unit: m, label: Rayon de courbure}
+  vk: {type: integer, min: 30, max: 70, step: 5, unit: km/h, si: 0.2777777778, label: Vitesse de la voiture}
+constraints: [vk**2 < 0.85*g*r]
+solution:
+  mode: manual
+  file: circ_bosse_creux.sol.tex
+  parts:
+    a: {expr: m*(g - vk**2/r), unit: N, label: Normale au sommet}
+    b: {expr: m*(g + vk**2/r), unit: N, label: Normale au fond du creux}
+    c: {expr: sqrt(g*r), unit: m/s, label: Vitesse de décollage}

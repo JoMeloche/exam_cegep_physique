@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie thermique reçue par l'eau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $c = \qty{4.19}{J/(g.\degreeCelsius)}$, $\Delta T = \num{100} - \num{\v{Ti}} = \qty{\fpeval{100-\v{Ti}}}{\degreeCelsius}$ ; variable recherchée : $Q$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = m c \Delta T \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \num{\v{m}} \times \num{4.19} \times \num{\fpeval{100-\v{Ti}}} = \Res{\v{m}*4.19*(100-\v{Ti})}{J} \]
+    \item \textbf{Réponse :} l'eau doit recevoir \textbf{\Res{\v{m}*4.19*(100-\v{Ti})}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie électrique consommée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_u = Q = \Res{\v{m}*4.19*(100-\v{Ti})}{J}$, rendement \qty{\v{eta}}{\percent} ; variable recherchée : $E_c$
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Rendement} = \frac{E_u}{E_c} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E_c = \frac{E_u \times 100}{\text{Rendement}} \]
+    \item \textbf{Résolution numérique :}
+    \[ E_c = \frac{\Val{\v{m}*4.19*(100-\v{Ti})} \times 100}{\num{\v{eta}}} = \Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}}{J} \]
+    \item \textbf{Réponse :} la bouilloire consomme \textbf{\Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Durée de chauffage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_c = \Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}}{J}$, $P = \qty{\v{P}}{W}$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{E}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{E_c}{P} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\Val{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}}}{\num{\v{P}}} = \Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}/\v{P}}{s} \]
+    \item \textbf{Réponse :} il faut \textbf{\Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}/\v{P}}{s}}, soit environ \Res{\v{m}*4.19*(100-\v{Ti})*100/\v{eta}/\v{P}/60}{min}.
+\end{enumerate}

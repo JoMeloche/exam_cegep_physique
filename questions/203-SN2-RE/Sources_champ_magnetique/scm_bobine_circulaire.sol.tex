@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ au centre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \qty{\vsi{R}}{m}$ ; variable recherchée : $B_0$
+    \item \textbf{Équations pertinentes :}
+    \[ B_0 = \frac{\mu_0 N I}{2R} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ B_0 = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}}}{2 \cdot \num{\vsi{R}}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}/(2*\vsi{R})}{T} \]
+    \item \textbf{Réponse :} $B_0 = \mathbf{\Res{1000*4*pi*1e-7*\v{N}*\v{I}/(2*\vsi{R})}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ sur l'axe}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \qty{\vsi{R}}{m}$, $z = \qty{\vsi{z}}{m}$ ; variable recherchée : $B$
+    \item \textbf{Équations pertinentes :}
+    \[ B = \frac{\mu_0 N I R^2}{2\left(R^2 + z^2\right)^{3/2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ B = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}} \cdot \num{\vsi{R}}^2}{2\left(\num{\vsi{R}}^2 + \num{\vsi{z}}^2\right)^{3/2}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}*\vsi{R}^2/(2*(\vsi{R}^2+\vsi{z}^2)^1.5)}{T} \]
+    \item \textbf{Réponse :} $B = \mathbf{\Res{1000*4*pi*1e-7*\v{N}*\v{I}*\vsi{R}^2/(2*(\vsi{R}^2+\vsi{z}^2)^1.5)}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance où $B = B_0/8$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B/B_0 = 1/8$, $R = \qty{\v{R}}{cm}$ ; variable recherchée : $z$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{B}{B_0} = \frac{R^3}{\left(R^2 + z^2\right)^{3/2}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \left(R^2 + z^2\right)^{3/2} = 8R^3 \quad\Rightarrow\quad R^2 + z^2 = 4R^2 \quad\Rightarrow\quad z = \sqrt{3}\,R \]
+    \item \textbf{Résolution numérique :}
+    \[ z = \sqrt{3} \cdot \num{\v{R}} = \Res{sqrt(3)*\v{R}}{cm} \]
+    \item \textbf{Réponse :} $z = \mathbf{\Res{sqrt(3)*\v{R}}{cm}}$ ; ce résultat ne dépend ni de $N$ ni de $I$.
+\end{enumerate}

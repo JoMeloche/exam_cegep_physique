@@ -1,0 +1,21 @@
+title: 'Skieur sur une pente avec frottement'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m: {type: integer, min: 50, max: 95, step: 5, unit: kg, label: Masse du skieur}
+  L: {type: integer, min: 20, max: 120, step: 5, unit: m, label: Longueur de la pente}
+  th: {type: integer, min: 12, max: 35, step: 1, unit: '\degree', label: Inclinaison de la pente}
+  mu: {type: decimal, min: 0.05, max: 0.15, step: 0.01, label: Coefficient de frottement cinétique}
+  v0: {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: m/s, label: Vitesse initiale}
+constraints:
+  - tan(rad(th)) > 1.5*mu
+solution:
+  mode: manual
+  file: te_skieur_pente.sol.tex
+  parts:
+    a: {expr: "m*g*L*sin(rad(th))", unit: 'J', label: 'Travail de la gravité'}
+    b: {expr: "-mu*m*g*cos(rad(th))*L", unit: 'J', label: 'Travail du frottement'}
+    c: {expr: "sqrt(v0**2 + 2*((m*g*L*sin(rad(th))) + (-mu*m*g*cos(rad(th))*L))/m)", unit: 'm/s', label: 'Vitesse au bas de la pente'}

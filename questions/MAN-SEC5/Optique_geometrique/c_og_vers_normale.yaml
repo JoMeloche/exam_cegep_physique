@@ -1,0 +1,15 @@
+title: 'Sens de déviation à la réfraction'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'L''eau est plus réfringente que l''air ($n_2 > n_1$) : la lumière ralentit et, selon $n_1\sin\theta_1 = n_2\sin\theta_2$, $\theta_2 < \theta_1$.'
+choices:
+  - 'Il se rapproche de la normale'
+  - 'Il s''éloigne de la normale'
+  - 'Il n''est pas dévié'
+  - 'Il est entièrement réfléchi'

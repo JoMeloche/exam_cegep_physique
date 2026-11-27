@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance entre les fentes}
+\[ d = \v{k}\,a = \v{k} \cdot \num{\v{larg}} = \Res{\v{k}*\v{larg}}{\micro\metre} \]
+Les fentes sont séparées de \textbf{\Res{\v{k}*\v{larg}}{\micro\metre}}.
+
+\subsubsection*{Question b) Premier ordre manquant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d = \v{k}\,a$ ; variable recherchée : l'ordre $m$ qui tombe sur un minimum de diffraction
+    \item \textbf{Équations pertinentes :} maximum d'interférence $d\sin\theta = m\lambda$ ; minimum de diffraction $a\sin\theta = m'\lambda$
+    \item \textbf{Isolation de la variable recherchée :} les deux conditions sont vraies au même angle si $\dfrac{m}{m'} = \dfrac{d}{a} = \v{k}$
+    \item \textbf{Résolution numérique :} avec $m' = 1$, $m = \v{k}$
+    \item \textbf{Réponse :} l'ordre \textbf{$m = \v{k}$} manque : la frange d'interférence tombe exactement sur le premier minimum de diffraction, où chaque fente n'envoie aucune lumière.
+\end{enumerate}
+
+\subsubsection*{Question c) Franges dans le maximum central}
+Les ordres $m = -\fpeval{\v{k} - 1}, \dots, 0, \dots, \fpeval{\v{k} - 1}$ sont dans le maximum central, soit $2 \cdot \v{k} - 1 = $ \textbf{\num{\fpeval{2*\v{k} - 1}}} franges brillantes.
+
+\subsubsection*{Question d) Position du premier ordre manquant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$ ; variable recherchée : $y$
+    \item \textbf{Équations pertinentes :} cette position est celle du premier minimum de diffraction : $a\sin\theta = \lambda$, $y \approx L\sin\theta$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ y = \frac{\lambda L}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ y = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+    \item \textbf{Réponse :} le premier ordre manquant est à \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}} du centre.
+\end{enumerate}

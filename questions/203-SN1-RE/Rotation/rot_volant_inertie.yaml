@@ -1,0 +1,19 @@
+title: 'Volant d''inertie qui stocke de l''énergie'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  M: {type: integer, min: 20, max: 200, step: 5, unit: kg, label: Masse du volant}
+  R: {type: decimal, min: 0.20, max: 0.80, step: 0.05, unit: m, label: Rayon du volant}
+  w: {type: integer, min: 1000, max: 6000, step: 100, unit: tr/min, si: 0.10471975511965977, label: Vitesse angulaire}
+  tf: {type: decimal, min: 5.0, max: 50.0, step: 0.5, unit: N.m, label: Moment de force de frottement}
+constraints: []
+solution:
+  mode: manual
+  file: rot_volant_inertie.sol.tex
+  parts:
+    a: {expr: "0.5*M*R**2", unit: 'kg*m^2', label: 'Moment d''inertie'}
+    b: {expr: "0.5*(0.5*M*R**2)*w**2", unit: 'J', label: 'Énergie cinétique de rotation'}
+    c: {expr: "(0.5*M*R**2)*w/tf", unit: 's', label: 'Temps d''arrêt'}

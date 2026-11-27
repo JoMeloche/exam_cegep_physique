@@ -1,0 +1,14 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Bilan de puissance}
+Le satellite capte le rayonnement sur un disque $\pi R^2$ et rayonne par toute sa surface $4\pi R^2$ :
+\[ \alpha S\,\pi R^2 = e\sigma\,4\pi R^2\,T^4 \implies T = \left(\frac{\alpha S}{4e\sigma}\right)^{1/4} \]
+Le rayon s'élimine : la température ne dépend que du rapport $\alpha/e$.
+
+\subsubsection*{Question b) Température d'équilibre}
+\[ T = \left(\frac{\num{\v{ab}} \cdot 1361}{4 \cdot \num{\v{em}} \cdot \num{5.67e-8}}\right)^{1/4} = \Res{(\v{ab}*1361/(4*\v{em}*5.67e-8))^0.25}{K} \]
+Le satellite atteint \textbf{\Res{(\v{ab}*1361/(4*\v{em}*5.67e-8))^0.25}{K}} (\qty[round-mode=places,round-precision=0]{\fpeval{(\v{ab}*1361/(4*\v{em}*5.67e-8))^0.25 - 273}}{\degreeCelsius}).
+
+\subsubsection*{Question c) Corps noir et choix du revêtement}
+Pour un corps noir, $\alpha = e = 1$ : $T = (1361/(4\sigma))^{1/4} = \Res{(1361/(4*5.67e-8))^0.25}{K}$. En choisissant le rapport $\alpha/e$ du revêtement (peintures blanches, feuilles dorées, etc.), les ingénieurs règlent la température des instruments sans chauffage ni refroidissement actif.

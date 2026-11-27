@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance de la sirène}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta_1 = \qty{\v{b1}}{dB}$, $r_1 = \qty{\v{r1}}{m}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ I_1 = I_0\,10^{\beta_1/10} \qquad P = 4\pi r_1^2 I_1 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ I_1 = 10^{-12} \cdot 10^{\v{b1}/10} = \Res{1e-12*10^(\v{b1}/10)}{W/m^2} \qquad P = 4\pi(\num{\v{r1}})^2 \cdot \Val{1e-12*10^(\v{b1}/10)} = \Res{1e-12*10^(\v{b1}/10)*4*pi*\v{r1}^2}{W} \]
+    \item \textbf{Réponse :} la sirène a une puissance de \textbf{\Res{1e-12*10^(\v{b1}/10)*4*pi*\v{r1}^2}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Niveau à \qty{\v{r2}}{m}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta_1$, $r_1$, $r_2 = \qty{\v{r2}}{m}$ ; variable recherchée : $\beta_2$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{I_2}{I_1} = \left(\frac{r_1}{r_2}\right)^2 \qquad \beta_2 - \beta_1 = 10\log\left(\frac{I_2}{I_1}\right) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \beta_2 = \beta_1 - 20\log\left(\frac{r_2}{r_1}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \beta_2 = \num{\v{b1}} - 20\log\left(\frac{\num{\v{r2}}}{\num{\v{r1}}}\right) = \Res{\v{b1} - 20*ln(\v{r2}/\v{r1})/ln(10)}{dB} \]
+    \item \textbf{Réponse :} le niveau sonore est de \textbf{\Res{\v{b1} - 20*ln(\v{r2}/\v{r1})/ln(10)}{dB}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance de sécurité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta = \qty{85}{dB}$ ; variable recherchée : $r$
+    \item \textbf{Équations pertinentes :}
+    \[ 85 = \beta_1 - 20\log\left(\frac{r}{r_1}\right) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r = r_1\,10^{(\beta_1 - 85)/20} \]
+    \item \textbf{Résolution numérique :}
+    \[ r = \num{\v{r1}} \cdot 10^{(\v{b1} - 85)/20} = \Res{\v{r1}*10^((\v{b1}-85)/20)}{m} \]
+    \item \textbf{Réponse :} il faut se tenir à plus de \textbf{\Res{\v{r1}*10^((\v{b1}-85)/20)}{m}} de la sirène.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Astronaute qui lance une clé pour revenir'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La quantité de mouvement totale reste nulle : si l''outil part dans un sens, l''astronaute recule dans l''autre ($m_a v_a = m_o v_o$).'
+choices:
+  - 'Lancer un outil en direction du vaisseau'
+  - 'Lancer un outil dans la direction opposée au vaisseau'
+  - 'Rien : il ne peut pas se déplacer sans force extérieure'
+  - 'Agiter les bras et les jambes vers le vaisseau'

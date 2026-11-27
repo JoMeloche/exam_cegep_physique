@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Maximum d'émission}
+\[ T = \qty{\fpeval{\v{Tc}+273}}{K} \qquad \lambda_{\max} = \frac{\num{2.898e-3}}{\num{\fpeval{\v{Tc}+273}}} = \Res{1e6*2.898e-3/(\v{Tc}+273)}{\micro\metre} \]
+Le maximum est à \textbf{\Res{1e6*2.898e-3/(\v{Tc}+273)}{\micro\metre}}, dans l'infrarouge lointain : c'est là que le corps humain émet le plus, d'où le choix de cette bande pour les caméras thermiques.
+
+\subsubsection*{Question b) Puissance par mètre carré}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \qty{\fpeval{\v{Tc}+273}}{K}$, $e = 1$ ; variable recherchée : $P/A$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{P}{A} = \sigma T^4 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \frac{P}{A} = \num{5.67e-8} \cdot (\num{\fpeval{\v{Tc}+273}})^4 = \Res{5.67e-8*(\v{Tc}+273)^4}{W/m^2} \]
+    \item \textbf{Réponse :} chaque mètre carré émet \textbf{\Res{5.67e-8*(\v{Tc}+273)^4}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Puissance totale}
+\[ P = \Val{5.67e-8*(\v{Tc}+273)^4} \cdot \num{\v{S}} = \Res{5.67e-8*(\v{Tc}+273)^4*\v{S}}{W} \]
+La personne émet \textbf{\Res{5.67e-8*(\v{Tc}+273)^4*\v{S}}{W}}, mais elle absorbe en même temps le rayonnement des murs et des objets qui l'entourent (à environ \qty{20}{\degreeCelsius}) : la perte nette n'est que de l'ordre de \qty{100}{W}.

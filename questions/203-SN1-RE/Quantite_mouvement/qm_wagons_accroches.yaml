@@ -1,0 +1,18 @@
+title: 'Deux wagons qui s''accrochent'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  m1: {type: integer, min: 2000, max: 12000, step: 500, unit: kg, label: Masse du wagon 1}
+  m2: {type: integer, min: 2000, max: 12000, step: 500, unit: kg, label: Masse du wagon 2}
+  v1: {type: decimal, min: 1.0, max: 6.0, step: 0.1, unit: m/s, label: Vitesse initiale du wagon 1}
+constraints: []
+solution:
+  mode: manual
+  file: qm_wagons_accroches.sol.tex
+  parts:
+    a: {expr: "m1*v1/(m1 + m2)", unit: 'm/s', label: 'Vitesse commune'}
+    b: {expr: "0.5*m1*v1**2 - 0.5*(m1 + m2)*((m1*v1/(m1 + m2)))**2", unit: 'J', label: 'Énergie cinétique perdue'}
+    c: {expr: "100*m2/(m1 + m2)", unit: '\percent', label: 'Pourcentage perdu'}

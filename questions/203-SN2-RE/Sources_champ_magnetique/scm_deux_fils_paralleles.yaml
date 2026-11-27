@@ -1,0 +1,18 @@
+title: Deux fils parallèles parcourus par des courants de même sens
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  d: {type: integer, min: 2, max: 20, step: 1, unit: cm, si: 0.01, label: Distance entre les fils}
+  I1: {type: integer, min: 2, max: 30, step: 1, unit: A, label: Courant dans le fil 1}
+  I2: {type: integer, min: 2, max: 30, step: 1, unit: A, label: Courant dans le fil 2}
+constraints:
+  - abs(I1 - I2) >= 3
+solution:
+  mode: manual
+  parts:
+    a: {expr: "4e-7*abs(I1 - I2)/d", unit: T, label: Champ à mi-chemin}
+    b: {expr: "2e-7*I1*I2/d", unit: N/m, label: Force par unité de longueur}
+    c: {expr: "I1*d/(I1 + I2)", unit: m, label: Distance au fil 1 où B = 0}

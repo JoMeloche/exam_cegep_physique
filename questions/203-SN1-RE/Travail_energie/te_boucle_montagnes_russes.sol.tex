@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $h = \qty{\v{h}}{m}$, hauteur du sommet $2R = \Res{2*\vsi{R}}{m}$, $v_i = \qty{0}{m/s}$ ; variable recherchée : $v_s$
+    \item \textbf{Équations pertinentes :} conservation de l'énergie mécanique : \[ mgh = mg(2R) + \tfrac{1}{2}mv_s^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_s = \sqrt{2g(h - 2R)} \]
+    \item \textbf{Résolution numérique :} \[ v_s = \sqrt{2 \cdot \num{9.81} \cdot (\num{\v{h}} - \Val{2*\vsi{R}})} = \Res{(sqrt(2*9.81*(\vsi{h} - 2*\vsi{R})))}{m/s} \]
+    \item \textbf{Réponse :} $v_s = \mathbf{\Res{(sqrt(2*9.81*(\vsi{h} - 2*\vsi{R})))}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Normale au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $v_s = \Res{(sqrt(2*9.81*(\vsi{h} - 2*\vsi{R})))}{m/s}$, $R = \qty{\v{R}}{m}$ ; variable recherchée : $n$
+    \item \textbf{Équations pertinentes :} au sommet, $n$ et $mg$ pointent vers le centre : \[ n + mg = \frac{mv_s^2}{R} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ n = \frac{mv_s^2}{R} - mg \]
+    \item \textbf{Résolution numérique :} \[ n = \frac{\num{\v{m}} \cdot \left(\Val{(sqrt(2*9.81*(\vsi{h} - 2*\vsi{R})))}\right)^2}{\num{\v{R}}} - \num{\v{m}} \cdot \num{9.81} = \Res{(\vsi{m}*(2*9.81*(\vsi{h} - 2*\vsi{R})/\vsi{R} - 9.81))}{N} \]
+    \item \textbf{Réponse :} $n = \mathbf{\Res{(\vsi{m}*(2*9.81*(\vsi{h} - 2*\vsi{R})/\vsi{R} - 9.81))}{N}}$, vers le bas (vers le centre de la boucle).
+\end{enumerate}
+
+\subsubsection*{Question c) Hauteur minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \qty{\v{R}}{m}$ ; condition limite $n = 0$ au sommet ; variable recherchée : $h_{\min}$
+    \item \textbf{Équations pertinentes :} \[ mg = \frac{mv_s^2}{R} \implies v_s^2 = gR \qquad mgh_{\min} = mg(2R) + \tfrac{1}{2}mv_s^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ h_{\min} = 2R + \frac{R}{2} = \frac{5R}{2} \]
+    \item \textbf{Résolution numérique :} \[ h_{\min} = \frac{5 \cdot \num{\v{R}}}{2} = \Res{(2.5*\vsi{R})}{m} \]
+    \item \textbf{Réponse :} $h_{\min} = \mathbf{\Res{(2.5*\vsi{R})}{m}}$
+\end{enumerate}

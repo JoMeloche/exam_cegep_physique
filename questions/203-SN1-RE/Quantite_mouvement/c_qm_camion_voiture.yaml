@@ -1,0 +1,15 @@
+title: 'Forces lors d''une collision camion-voiture'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Troisième loi de Newton : les forces d''interaction sont toujours égales et opposées. C''est l''accélération de la voiture qui est plus grande, car sa masse est plus petite.'
+choices:
+  - 'Elles sont égales'
+  - 'Cela dépend des vitesses des deux véhicules'
+  - 'La force de la voiture sur le camion est plus grande'
+  - 'La force du camion sur la voiture est plus grande'

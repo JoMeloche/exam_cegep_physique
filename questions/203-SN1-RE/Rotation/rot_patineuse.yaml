@@ -1,0 +1,19 @@
+title: 'Patineuse qui ramène les bras'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  I1: {type: decimal, min: 2.5, max: 5.0, step: 0.1, unit: kg.m^2, label: Moment d'inertie bras tendus}
+  I2: {type: decimal, min: 0.8, max: 2.0, step: 0.1, unit: kg.m^2, label: Moment d'inertie bras repliés}
+  f1: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: tr/s, si: 6.283185307179586, label: Vitesse angulaire initiale}
+constraints:
+  - I2 < 0.7*I1
+solution:
+  mode: manual
+  file: rot_patineuse.sol.tex
+  parts:
+    a: {expr: "I1*f1/I2", unit: 'rad/s', label: 'Vitesse angulaire finale'}
+    b: {expr: "0.5*I1*f1**2", unit: 'J', label: 'Énergie cinétique initiale'}
+    c: {expr: "0.5*I2*((I1*f1/I2))**2 - (0.5*I1*f1**2)", unit: 'J', label: 'Variation de l''énergie cinétique'}

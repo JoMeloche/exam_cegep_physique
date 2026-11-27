@@ -1,0 +1,61 @@
+title: Guitar 3e mode
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  Lc:
+    type: integer
+    min: 58
+    max: 72
+    step: 2
+    unit: cm
+    label: QtwoLc
+    si_unit: m
+    si: 0.01
+  Mu:
+    type: decimal
+    min: 0.0009
+    max: 0.0016
+    step: 0.0001
+    unit: kg/m
+    label: QtwoMu
+  Lp:
+    type: integer
+    min: 28
+    max: 42
+    step: 2
+    unit: cm
+    label: QtwoLp
+    si_unit: m
+    si: 0.01
+  Vson:
+    type: integer
+    min: 336
+    max: 347
+    step: 1
+    unit: m/s
+    label: QtwoVson
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Onde_résonnante/Q_guitar_3e_mode.tex
+original_values:
+  Lc:
+    A: '66'
+    B: '60'
+    C: '70'
+  Mu:
+    A: '0.0012'
+    B: '0.0015'
+    C: '0.0010'
+  Lp:
+    A: '36'
+    B: '40'
+    C: '30'
+  Vson:
+    A: '340'
+    B: '340'
+    C: '343'
+history: []

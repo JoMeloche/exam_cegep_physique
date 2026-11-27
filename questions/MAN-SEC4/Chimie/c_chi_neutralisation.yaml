@@ -1,0 +1,15 @@
+title: 'Produits d''une neutralisation'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Acide + base $\rightarrow$ sel + eau : HCl + NaOH $\rightarrow$ NaCl + H$_2$O. C''est une neutralisation acidobasique.'
+choices:
+  - 'Un sel et de l''eau'
+  - 'Un acide plus faible et une base plus faible'
+  - 'Du dioxyde de carbone et de l''eau'
+  - 'Du dihydrogène et du dioxygène'

@@ -1,0 +1,15 @@
+title: "Effet de la tension sur la vitesse d'une onde"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$v = \sqrt{F/\mu}$ : multiplier $F$ par 4 multiplie $v$ par 2.'
+choices:
+  - 'Elle est multipliée par 4'
+  - 'Elle est multipliée par 2'
+  - 'Elle est divisée par 2'
+  - 'Elle est inchangée, car la vitesse ne dépend que de la corde'

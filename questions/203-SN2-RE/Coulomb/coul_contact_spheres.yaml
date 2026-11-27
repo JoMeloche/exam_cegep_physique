@@ -1,0 +1,18 @@
+title: Force entre deux sphères avant et après contact
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  q1: {type: decimal, min: 2.0, max: 9.0, step: 0.5, unit: \micro\coulomb, si: 1e-6, label: Charge de la sphère 1}
+  q2: {type: decimal, min: -6.0, max: -1.0, step: 0.5, unit: \micro\coulomb, si: 1e-6, label: Charge de la sphère 2}
+  r:  {type: integer, min: 5, max: 40, step: 1, unit: cm, si: 0.01, label: Distance entre les centres}
+constraints:
+  - abs(q1 + q2) > 0.9e-6
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.99e9*abs(q1*q2)/r**2", unit: N, label: Force avant le contact}
+    b: {expr: "(q1 + q2)/2", unit: C, label: Charge de chaque sphère après le contact}
+    c: {expr: "8.99e9*((q1 + q2)/2)**2/r**2", unit: N, label: Force après le contact}

@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Activité totale}
+\[ A = C\,V = \num{\v{C}} \cdot \num{\v{V}} = \ResSci{\v{C}*\v{V}}{Bq} \]
+
+\subsubsection*{Question b) Nombre d'atomes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $A = \ResSci{\v{C}*\v{V}}{Bq}$, $T_{1/2} = 3{,}82 \cdot 86400 = \ResSci{3.82*86400}{s}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ A = \lambda N \qquad \lambda = \frac{\ln 2}{T_{1/2}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N = \frac{A\,T_{1/2}}{\ln 2} \]
+    \item \textbf{Résolution numérique :}
+    \[ N = \frac{\ResSci{\v{C}*\v{V}}{} \cdot \ResSci{3.82*86400}{}}{\ln 2} = \ResSci{\v{C}*\v{V}*3.82*86400/ln(2)}{} \]
+    \item \textbf{Réponse :} le sous-sol contient \textbf{\ResSci{\v{C}*\v{V}*3.82*86400/ln(2)}{}} atomes de radon, une masse infime (\ResSci{\v{C}*\v{V}*3.82*86400/ln(2)*222/6.022e23}{g}).
+\end{enumerate}
+
+\subsubsection*{Question c) Retour sous la limite}
+\[ \frac{C}{C_0} = \left(\tfrac{1}{2}\right)^{t/T_{1/2}} \implies t = T_{1/2}\,\frac{\ln(C_0/C)}{\ln 2} = 3{,}82 \cdot \frac{\ln(\v{C}/200)}{\ln 2} = \Res{3.82*ln(\v{C}/200)/ln(2)}{d} \]
+Il faut environ \textbf{\Res{3.82*ln(\v{C}/200)/ln(2)}{jours}}.

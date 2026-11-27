@@ -1,0 +1,17 @@
+title: Balle lancée vers le haut depuis un balcon
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  v0: {type: decimal, min: 8.0, max: 20.0, step: 0.5, unit: m/s, label: Vitesse initiale vers le haut}
+  h: {type: decimal, min: 5.0, max: 25.0, step: 0.5, unit: m, label: Hauteur du balcon}
+constraints: []
+solution:
+  mode: manual
+  file: cin_balle_balcon.sol.tex
+  parts:
+    a: {expr: h + v0**2/(2*g), unit: m, label: Hauteur maximale}
+    b: {expr: (v0 + sqrt(v0**2 + 2*g*h))/g, unit: s, label: Temps de vol}
+    c: {expr: sqrt(v0**2 + 2*g*h), unit: m/s, label: Vitesse à l'impact}

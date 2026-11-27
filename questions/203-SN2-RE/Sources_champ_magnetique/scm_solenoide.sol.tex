@@ -1,0 +1,48 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Spires par mètre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $L = \qty{\vsi{L}}{m}$ ; variable recherchée : $n$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{N}{L} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n = \frac{\v{N}}{\num{\vsi{L}}} = \Res{\v{N}/\vsi{L}}{m^{-1}} \]
+    \item \textbf{Réponse :} $n = \mathbf{\Res{\v{N}/\vsi{L}}{spires/m}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ à l'intérieur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n = \Res{\v{N}/\vsi{L}}{m^{-1}}$, $I = \qty{\v{I}}{A}$ ; variable recherchée : $B$
+    \item \textbf{Équations pertinentes :} théorème d'Ampère appliqué au solénoïde :
+    \[ B = \mu_0 n I \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ B = 4\pi \times 10^{-7} \cdot \Val{\v{N}/\vsi{L}} \cdot \num{\v{I}} = \ResSci{4*pi*1e-7*\v{N}/\vsi{L}*\v{I}}{T} \]
+    \item \textbf{Réponse :} $B = \mathbf{\Res{1000*4*pi*1e-7*\v{N}/\vsi{L}*\v{I}}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Flux à travers une spire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \ResSci{4*pi*1e-7*\v{N}/\vsi{L}*\v{I}}{T}$, $r = \qty{\vsi{r}}{m}$ ; variable recherchée : $\Phi_B$
+    \item \textbf{Équations pertinentes :}
+    \[ \Phi_B = BA\cos\theta \qquad A = \pi r^2 \]
+    \item \textbf{Isolation de la variable recherchée :} le champ est perpendiculaire au plan de la spire ($\theta = 0$) :
+    \[ \Phi_B = B\pi r^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ \Phi_B = \Val{4*pi*1e-7*\v{N}/\vsi{L}*\v{I}} \cdot \pi \cdot \num{\vsi{r}}^2 = \ResSci{(4*pi*1e-7*\v{N}/\vsi{L}*\v{I})*pi*\vsi{r}^2}{Wb} \]
+    \item \textbf{Réponse :} $\Phi_B = \mathbf{\ResSci{(4*pi*1e-7*\v{N}/\vsi{L}*\v{I})*pi*\vsi{r}^2}{Wb}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Courant pour un champ de \qty{\v{Bt}}{mT}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \qty{\vsi{Bt}}{T}$, $n = \Res{\v{N}/\vsi{L}}{m^{-1}}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ B = \mu_0 n I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{B}{\mu_0 n} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\vsi{Bt}}}{4\pi \times 10^{-7} \cdot \Val{\v{N}/\vsi{L}}} = \Res{\vsi{Bt}/(4*pi*1e-7*\v{N}/\vsi{L})}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{\vsi{Bt}/(4*pi*1e-7*\v{N}/\vsi{L})}{A}}$.
+\end{enumerate}

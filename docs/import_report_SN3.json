@@ -1,0 +1,240 @@
+{
+  "imported": [
+    "203-SN3-RE/Doppler/herbe_chat",
+    "203-SN3-RE/Doppler/saxophone",
+    "203-SN3-RE/Doppler/auto-camion",
+    "203-SN3-RE/Doppler/banshee",
+    "203-SN3-RE/Doppler/faucon",
+    "203-SN3-RE/Doppler/flutiste",
+    "203-SN3-RE/Doppler/police",
+    "203-SN3-RE/Doppler/thon",
+    "203-SN3-RE/Doppler/train",
+    "203-SN3-RE/Intensite/ballon_velociraptor",
+    "203-SN3-RE/Intensite/restaurant",
+    "203-SN3-RE/Intensite/soccer",
+    "203-SN3-RE/MHS/Masse-ressort_sachant_E",
+    "203-SN3-RE/MHS/Masse-ressort_sachant_m_k_A",
+    "203-SN3-RE/MHS/Pendule_simple",
+    "203-SN3-RE/MHS/bungee",
+    "203-SN3-RE/MHS/planete_masse",
+    "203-SN3-RE/MHS/Scie_sauteuse",
+    "203-SN3-RE/MHS/chariot",
+    "203-SN3-RE/MHS/mass-ressort_lune",
+    "203-SN3-RE/Onde_stationnaire/guitar-flute",
+    "203-SN3-RE/Onde_stationnaire/guitar_3e_mode",
+    "203-SN3-RE/Onde_stationnaire/contrebasse",
+    "203-SN3-RE/Doppler/1emetteur2recepteur",
+    "203-SN3-RE/Doppler/Pompier",
+    "203-SN3-RE/MHS/balancoire",
+    "203-SN3-RE/MHS/bloc-ressort",
+    "203-SN3-RE/MHS/chariot_briques",
+    "203-SN3-RE/MHS/horloge",
+    "203-SN3-RE/MHS/masse_pousse",
+    "203-SN3-RE/MHS/masse_ressort_moteur",
+    "203-SN3-RE/MHS/pendule_masse-ressort_planete",
+    "203-SN3-RE/MHS/trapeziste",
+    "203-SN3-RE/Onde_progressive/corde_d_different",
+    "203-SN3-RE/Onde_progressive/corde_tendu_freq_varie",
+    "203-SN3-RE/Onde_progressive/eq_onde",
+    "203-SN3-RE/Onde_progressive/corde_mu_different",
+    "203-SN3-RE/Onde_sinusoidale/onde_sin",
+    "203-SN3-RE/Onde_stationnaire/tuyaux_ouvert_temperature",
+    "203-SN3-RE/Intensite/plusieurs_haut-parleurs"
+  ],
+  "skipped": [],
+  "figures": [
+    "1emetteur2recepteur.png",
+    "chariot_deux_briques.png",
+    "masse-ressort_12cm.png",
+    "masse_ressort_general.png",
+    "scie-sauteuse.png"
+  ],
+  "notes": {
+    "203-SN3-RE/Doppler/herbe_chat": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/saxophone": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/auto-camion": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/banshee": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/faucon": [
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/flutiste": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/police": [
+      "VSon: valeur identique dans A, B, C (valeur fixe)",
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/thon": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/train": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Intensite/ballon_velociraptor": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Intensite/restaurant": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Intensite/soccer": [
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/Masse-ressort_sachant_E": [
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/Masse-ressort_sachant_m_k_A": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/Pendule_simple": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/bungee": [
+      "Eq: expression : liste de choix",
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/planete_masse": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/Scie_sauteuse": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/chariot": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/mass-ressort_lune": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_stationnaire/guitar-flute": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_stationnaire/guitar_3e_mode": [
+      "aucune solution : à écrire ou passer en mode automatique",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_stationnaire/contrebasse": [
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/1emetteur2recepteur": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Doppler/Pompier": [
+      "réponse (answer) à indiquer",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/balancoire": [
+      "réponse (answer) à indiquer",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/bloc-ressort": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/chariot_briques": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/horloge": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/masse_pousse": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/masse_ressort_moteur": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/pendule_masse-ressort_planete": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/MHS/trapeziste": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_progressive/corde_d_different": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_progressive/corde_tendu_freq_varie": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_progressive/eq_onde": [
+      "Eq: expression : liste de choix",
+      "réponse (answer) à indiquer",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_progressive/corde_mu_different": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_sinusoidale/onde_sin": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Onde_stationnaire/tuyaux_ouvert_temperature": [
+      "réponse (answer) à indiquer",
+      "temps et difficulté par défaut : à ajuster"
+    ],
+    "203-SN3-RE/Intensite/plusieurs_haut-parleurs": [
+      "réponse (answer) à indiquer",
+      "intervalles déduits des versions A/B/C : à vérifier",
+      "temps et difficulté par défaut : à ajuster"
+    ]
+  }
+}

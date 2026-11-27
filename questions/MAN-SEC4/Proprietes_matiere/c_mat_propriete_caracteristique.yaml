@@ -1,0 +1,15 @@
+title: 'Reconnaître une propriété caractéristique'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Une propriété caractéristique ne dépend pas de la quantité de matière. La masse et le volume dépendent de la taille de l''échantillon ; la masse volumique $\rho = m/V$, elle, est propre à chaque substance.'
+choices:
+  - 'Sa masse'
+  - 'Son volume'
+  - 'Sa masse volumique'
+  - 'Sa température'

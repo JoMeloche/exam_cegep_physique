@@ -1,0 +1,15 @@
+title: 'Champ magnétique autour d''un fil'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Règle de la main droite : le pouce dans le sens du courant (vers le haut, donc vers l''observateur qui regarde de dessus), les doigts s''enroulent dans le sens antihoraire.'
+choices:
+  - 'Elles forment des cercles parcourus dans le sens antihoraire.'
+  - 'Elles forment des cercles parcourus dans le sens horaire.'
+  - 'Elles sont parallèles au fil et pointent vers le haut.'
+  - 'Elles partent du fil en ligne droite, comme des rayons.'

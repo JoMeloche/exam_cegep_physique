@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Concentration diluée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_1 = \qty{\v{C1}}{g/L}$, $V_1 = \qty{\v{V1}}{mL}$, $V_2 = \qty{\v{V2}}{mL}$ ; variable recherchée : $C_2$
+    \item \textbf{Équations pertinentes :}
+    \[ C_1 V_1 = C_2 V_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ C_2 = \frac{C_1 V_1}{V_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ C_2 = \frac{\num{\v{C1}} \times \num{\v{V1}}}{\num{\v{V2}}} = \Res{\v{C1}*\v{V1}/\v{V2}}{g/L} \]
+    \item \textbf{Réponse :} la solution diluée a une concentration de \textbf{\Res{\v{C1}*\v{V1}/\v{V2}}{g/L}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Eau ajoutée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_1 = \qty{\v{V1}}{mL}$, $V_2 = \qty{\v{V2}}{mL}$ ; variable recherchée : $V_{\text{eau}}$
+    \item \textbf{Équations pertinentes :}
+    \[ V_{\text{eau}} = V_2 - V_1 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_{\text{eau}} = \num{\v{V2}} - \num{\v{V1}} = \qty{\fpeval{\v{V2}-\v{V1}}}{mL} \]
+    \item \textbf{Réponse :} on a ajouté \textbf{\qty{\fpeval{\v{V2}-\v{V1}}}{mL}} d'eau.
+\end{enumerate}
+
+\subsubsection*{Question c) Volume de solution mère à prélever}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_1 = \qty{\v{C1}}{g/L}$, $C_3 = \qty{\v{C3}}{g/L}$, $V_3 = \qty{\v{V3}}{mL}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :}
+    \[ C_1 V = C_3 V_3 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V = \frac{C_3 V_3}{C_1} \]
+    \item \textbf{Résolution numérique :}
+    \[ V = \frac{\num{\v{C3}} \times \num{\v{V3}}}{\num{\v{C1}}} = \Res{\v{C3}*\v{V3}/\v{C1}}{mL} \]
+    \item \textbf{Réponse :} il faut prélever \textbf{\Res{\v{C3}*\v{V3}/\v{C1}}{mL}} de solution mère, puis compléter avec de l'eau jusqu'à \qty{\v{V3}}{mL}.
+\end{enumerate}

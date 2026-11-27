@@ -1,0 +1,19 @@
+title: Champ résultant de deux charges sur un axe
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  q1: {type: integer, min: 10, max: 80, step: 5, unit: nC, si: 1e-9, label: Charge 1}
+  q2: {type: integer, min: -60, max: -10, step: 5, unit: nC, si: 1e-9, label: Charge 2}
+  d:  {type: integer, min: 10, max: 40, step: 2, unit: cm, si: 0.01, label: Distance entre les charges}
+  s:  {type: integer, min: 5, max: 20, step: 1, unit: cm, si: 0.01, label: Distance de q2 au point P}
+constraints:
+  - abs(q1/(d + s)**2 + q2/s**2) > 0.1*abs(q2/s**2)
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.99e9*(q1 - q2)/(d/2)**2", unit: N/C, label: "Champ en M (vers +x)"}
+    b: {expr: "8.99e9*(q1/(d + s)**2 + q2/s**2)", unit: N/C, label: "Champ en P (composante x)"}
+    c: {expr: "1.602e-19*8.99e9*(q1 - q2)/(d/2)**2", unit: N, label: "Force sur un proton en M (vers +x)"}

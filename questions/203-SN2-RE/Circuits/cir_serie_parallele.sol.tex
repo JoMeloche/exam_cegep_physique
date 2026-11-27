@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_1 = \qty{\v{R1}}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$, $R_3 = \qty{\v{R3}}{\ohm}$ ; variable recherchée : $R_{\text{éq}}$
+    \item \textbf{Équations pertinentes :}
+    \[ R_{\text{série}} = R_a + R_b \qquad \frac{1}{R_{\parallel}} = \frac{1}{R_a} + \frac{1}{R_b} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ R_{23} = \frac{R_2 R_3}{R_2 + R_3} \qquad R_{\text{éq}} = R_1 + R_{23} \]
+    \item \textbf{Résolution numérique :}
+    \[ R_{23} = \frac{\num{\v{R2}} \cdot \num{\v{R3}}}{\num{\v{R2}} + \num{\v{R3}}} = \Res{\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm} \]
+    \[ R_{\text{éq}} = \num{\v{R1}} + \Val{\v{R2}*\v{R3}/(\v{R2}+\v{R3})} = \Res{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm} \]
+    \item \textbf{Réponse :} $R_{\text{éq}} = \mathbf{\Res{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant fourni par la pile}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $R_{\text{éq}} = \Res{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ \mathcal{E} = R_{\text{éq}}\, I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{\mathcal{E}}{R_{\text{éq}}} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{eps}}}{\Val{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}} = \Res{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A} \]
+    \item \textbf{Réponse :} la pile fournit $I = \mathbf{\Res{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant dans $R_2$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \Res{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A}$, $R_{23} = \Res{\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$ ; variable recherchée : $I_2$
+    \item \textbf{Équations pertinentes :} la tension est la même aux bornes de $R_2$ et de $R_3$ :
+    \[ \Delta V_{23} = R_{23}\, I \qquad \Delta V_{23} = R_2\, I_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I_2 = \frac{R_{23}\, I}{R_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta V_{23} = \Val{\v{R2}*\v{R3}/(\v{R2}+\v{R3})} \cdot \Val{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))} = \Res{\v{eps}*(\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{V} \]
+    \[ I_2 = \frac{\Val{\v{eps}*(\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}}{\num{\v{R2}}} = \Res{\v{eps}*(\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/\v{R2}}{A} \]
+    \item \textbf{Réponse :} $I_2 = \mathbf{\Res{\v{eps}*(\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))/\v{R2}}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Puissance dissipée dans $R_1$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \Res{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A}$, $R_1 = \qty{\v{R1}}{\ohm}$ ; variable recherchée : $P_1$
+    \item \textbf{Équations pertinentes :}
+    \[ P = R I^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_1 = \num{\v{R1}} \cdot \left(\Val{\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}\right)^2 = \Res{\v{R1}*(\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})))^2}{W} \]
+    \item \textbf{Réponse :} $P_1 = \mathbf{\Res{\v{R1}*(\v{eps}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})))^2}{W}}$.
+\end{enumerate}

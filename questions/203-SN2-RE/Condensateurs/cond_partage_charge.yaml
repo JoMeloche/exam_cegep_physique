@@ -1,0 +1,19 @@
+title: Partage de charge entre deux condensateurs
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  C1: {type: decimal, min: 2.0, max: 20.0, step: 0.5, unit: \micro\farad, si: 1e-6, label: Capacité chargée}
+  C2: {type: decimal, min: 1.0, max: 20.0, step: 0.5, unit: \micro\farad, si: 1e-6, label: Capacité déchargée}
+  V0: {type: integer, min: 10, max: 200, step: 5, unit: V, label: Tension initiale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "C1*V0", unit: C, label: Charge initiale}
+    a2: {expr: "0.5*C1*V0**2", unit: J, label: Énergie initiale}
+    b: {expr: "C1*V0/(C1 + C2)", unit: V, label: Tension finale}
+    c1: {expr: "0.5*(C1*V0)**2/(C1 + C2)", unit: J, label: Énergie finale}
+    c2: {expr: "C2/(C1 + C2)", unit: '', label: Fraction perdue}

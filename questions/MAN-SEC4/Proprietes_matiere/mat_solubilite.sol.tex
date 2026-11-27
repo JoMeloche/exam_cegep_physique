@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse maximale dissoute}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $S = \qty{\v{S}}{g}$ par \qty{100}{mL}, $V = \qty{\v{Ve}}{mL}$ ; variable recherchée : $m_{\text{max}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m_{\text{max}} = S \times \frac{V}{\qty{100}{mL}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{max}} = \num{\v{S}} \times \frac{\num{\v{Ve}}}{\num{100}} = \qty{\fpeval{\v{S}*\v{Ve}/100}}{g} \]
+    \item \textbf{Réponse :} au plus \textbf{\qty{\fpeval{\v{S}*\v{Ve}/100}}{g}} de sel peuvent se dissoudre.
+\end{enumerate}
+
+\subsubsection*{Question b) Masse non dissoute}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $m_{\text{max}} = \qty{\fpeval{\v{S}*\v{Ve}/100}}{g}$ ; variable recherchée : $m_{\text{fond}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m_{\text{fond}} = m - m_{\text{max}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{fond}} = \num{\v{m}} - \num{\fpeval{\v{S}*\v{Ve}/100}} = \qty{\fpeval{\v{m}-\v{S}*\v{Ve}/100}}{g} \]
+    \item \textbf{Réponse :} \textbf{\qty{\fpeval{\v{m}-\v{S}*\v{Ve}/100}}{g}} de sel restent au fond ; la solution est \textbf{saturée}.
+\end{enumerate}
+
+\subsubsection*{Question c) Volume d'eau minimal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $S = \qty{\v{S}}{g}$ par \qty{100}{mL} ; variable recherchée : $V_{\text{min}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m = S \times \frac{V_{\text{min}}}{\qty{100}{mL}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V_{\text{min}} = \frac{m \times \qty{100}{mL}}{S} \]
+    \item \textbf{Résolution numérique :}
+    \[ V_{\text{min}} = \frac{\num{\v{m}} \times \num{100}}{\num{\v{S}}} = \Res{100*\v{m}/\v{S}}{mL} \]
+    \item \textbf{Réponse :} il faudrait au moins \textbf{\Res{100*\v{m}/\v{S}}{mL}} d'eau.
+\end{enumerate}

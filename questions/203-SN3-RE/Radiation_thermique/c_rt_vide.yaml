@@ -1,0 +1,15 @@
+title: "Transfert de chaleur à travers le vide"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le rayonnement électromagnétique se propage dans le vide ; la conduction et la convection exigent un milieu matériel.'
+choices:
+  - 'La conduction'
+  - 'La convection'
+  - 'Le rayonnement'
+  - 'Aucun : l''énergie solaire ne traverse pas le vide'

@@ -1,0 +1,20 @@
+title: Franges dans le premier maximum secondaire de diffraction
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  sep: {type: integer, min: 60, max: 400, step: 5, unit: \micro\metre, si: 1e-6, label: Distance entre les fentes}
+  larg: {type: integer, min: 20, max: 100, step: 5, unit: \micro\metre, si: 1e-6, label: Largeur de chaque fente}
+constraints:
+  - 1.5 < sep/larg < 6
+  - abs(sep/larg - round(sep/larg)) > 0.12
+  - abs(2*sep/larg - round(2*sep/larg)) > 0.12
+solution:
+  mode: manual
+  parts:
+    N0: {expr: "2*floor(sep/larg) + 1", unit: "", label: Franges dans le maximum central}
+    N1: {expr: "floor(2*sep/larg) - floor(sep/larg)", unit: "", label: Franges dans un premier maximum secondaire}
+    th1: {expr: "deg(asin(lam/larg))", unit: deg, label: Angle du premier minimum de diffraction}

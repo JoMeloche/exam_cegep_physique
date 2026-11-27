@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Charge électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \qty{\v{I}}{mA} = \qty{\vsi{I}}{A}$, $\Delta t = \qty{\v{t}}{min} = \qty{\vsi{t}}{s}$ ; variable recherchée : $Q$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{Q}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ Q = I\,\Delta t \]
+    \item \textbf{Résolution numérique :}
+    \[ Q = \qty{\vsi{I}}{A} \cdot \qty{\vsi{t}}{s} = \Res{\vsi{I}*\vsi{t}}{C} \]
+    \item \textbf{Réponse :} il a circulé \textbf{\Res{\vsi{I}*\vsi{t}}{C}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre d'électrons}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \Res{\vsi{I}*\vsi{t}}{C}$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = N e \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N = \frac{Q}{e} \]
+    \item \textbf{Résolution numérique :}
+    \[ N = \frac{\Val{\vsi{I}*\vsi{t}}\,\unit{C}}{\qty{1.602e-19}{C}} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{I}*\vsi{t}/1.602e-19}} \]
+    \item \textbf{Réponse :} environ \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{I}*\vsi{t}/1.602e-19}}} électrons.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie fournie}
+\[ E = UQ = UI\,\Delta t = \qty{5}{V} \cdot \Val{\vsi{I}*\vsi{t}}\,\unit{C} = \Res{5*\vsi{I}*\vsi{t}}{J} \]
+La pile reçoit \textbf{\Res{5*\vsi{I}*\vsi{t}}{J}}, soit \Res{5*\vsi{I}*\vsi{t}/3600}{\watt\hour}.

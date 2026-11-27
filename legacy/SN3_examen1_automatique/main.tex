@@ -1,0 +1,120 @@
+\documentclass[11pt,addpoints]{exam}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{patterns,decorations.pathmorphing,arrows.meta}
+\usepackage{ifthen}
+\usepackage{xfp}     % Pour les calculs mathématiques (\fpeval)
+\usepackage{siunitx} % Pour le formatage des nombres et unités
+\sisetup{locale = FR}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% ===================================================
+% SELECTION DE LA VERSION DE L'EXAMEN (A, B ou C)
+% ===================================================
+
+
+\newcommand{\VersionExamen}{B}
+\input{command}
+
+
+\begin{document}
+
+% --- EN-TÊTE ---
+\input{en-tete}
+
+\section{Questions à développement}
+
+% Masse Ressort
+\subsection{(\rule{1cm}{0.4pt}/20 points)}
+
+%\input{Question_dev/MHS/Q_bungee.tex}
+%\input{Question_dev/MHS/Q_planete_masse}
+%\input{Question_dev/MHS/chariot}
+
+\input{Question_dev/MHS/Masse-ressort_sachant_E}
+\input{Solution/MHS/sol_masse-ressort_sachant_E,m,k}
+
+%\input{Question_dev/MHS/Masse-ressort_sachant_m_k_A}
+%\input{Question_dev/MHS/Pendule_simple}
+%\input{Question_dev/MHS/Scie_sauteuse}
+%\input{Question_dev/MHS/q_mass-ressort_lune}
+\vspace{15cm} \ \ \ 
+\newpage
+
+% Corde vs Tuyau
+\subsection{(\rule{1cm}{0.4pt}/20 points)}
+
+%\input{Question_dev/Onde_résonnante/Q_guitar_3e_mode}
+%\input{Question_dev/Onde_résonnante/Q_guitar-flute.tex}
+
+\input{Question_dev/Onde_résonnante/contrebasse}
+\input{Solution/Onde_résonnante/sol_contrebasse}
+
+\newpage
+
+% Puissance
+\subsection{(\rule{1cm}{0.4pt}/20 points)}
+
+\input{Question_dev/Intensité/soccer}
+\input{Solution/Intensité/sol_football}
+
+%\input{Question_dev/Intensité/Q_ballon_velociraptor}
+%\input{Question_dev/Intensité/Q_restaurant.tex}
+\
+\newpage
+
+% Effet doppler
+\subsection{(\rule{1cm}{0.4pt}/20 points)}
+
+%\input{Question_dev/Doppler/Q_saxophone.tex}
+%\input{Question_dev/Doppler/Q_herbe_chat}
+
+\input{Question_dev/Doppler/faucon}
+\input{Solution/Doppler/sol_faucon}
+
+\newpage
+
+%%% Questions conceptuelles choisir 4-5 questions
+\section{Questions conceptuelles (\rule{1cm}{0.4pt}/20 points)}
+
+% Onde progressive
+
+%\input{Question_concept/Onde_progressive/C_corde_tendu_freq_varie}
+\input{Question_concept/Onde_progressive/C_corde_d_different}
+
+
+% MHS
+
+%\input{Question_concept/MHS/masse_ressort_moteur}
+%\input{Question_concept/MHS/chariot_briques}
+%\input{Question_concept/MHS/balancoire}
+%\input{Question_concept/MHS/bloc-ressort}
+%\input{Question_concept/MHS/horloge}
+%\input{Question_concept/MHS/masse_poussé}
+\input{Question_concept/MHS/pendule_masse-ressort_planete}
+\input{Question_concept/MHS/trapéziste}
+
+% Onde stationnaire
+
+\input{Question_concept/Onde_stationnaire/C_tuyaux_ouvert_temperature}
+
+% Doppler
+\input{Question_concept/Doppler/1emetteur2recepteur}
+%\input{Question_concept/Doppler/Pompier}
+
+% Battements
+
+% Onde sinusoidale
+
+% Puissance
+%\input{Question_concept/Puissance/plusieurs_haut-parleurs}
+
+
+\hfill \textbf{Total : 100 points}
+
+\end{document}

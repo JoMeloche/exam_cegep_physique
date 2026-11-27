@@ -1,0 +1,15 @@
+title: 'Masse volumique d''un bloc coupé en deux'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La masse et le volume sont divisés par deux en même temps : leur rapport, la masse volumique, ne change pas. C''est une propriété caractéristique.'
+choices:
+  - '\qty{1.35}{g/cm^3}'
+  - '\qty{2.70}{g/cm^3}'
+  - '\qty{5.40}{g/cm^3}'
+  - '\qty{270}{g/cm^3}'

@@ -1,0 +1,15 @@
+title: 'Effet de la distance sur la force de Coulomb'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$F \propto 1/r^2$ : tripler $r$ divise la force par $3^2 = 9$, soit \qty{4}{N}.'
+choices:
+  - '\qty{12}{N}'
+  - '\qty{4}{N}'
+  - '\qty{108}{N}'
+  - '\qty{324}{N}'

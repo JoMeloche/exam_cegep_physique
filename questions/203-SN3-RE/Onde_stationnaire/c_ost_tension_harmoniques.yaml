@@ -1,0 +1,15 @@
+title: "Effet de la tension sur les fréquences de résonance"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$f_n = \dfrac{n}{2L}\sqrt{F/\mu}$ : quadrupler $F$ double toutes les fréquences de résonance, sans changer les longueurs d''onde $2L/n$.'
+choices:
+  - 'Les fréquences et les longueurs d''onde doublent'
+  - 'Les fréquences doublent, les longueurs d''onde ne changent pas'
+  - 'Les fréquences quadruplent, les longueurs d''onde sont divisées par 4'
+  - 'Les fréquences ne changent pas, les longueurs d''onde doublent'

@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $r = \qty{\vsi{r}}{m}$, $k = \qty{8.99e9}{N.m^2/C^2}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = \frac{k|Q|}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9}}{(\num{\vsi{r}})^2} = \Res{8.99e9*\v{Q}*1e-9/(\vsi{r})^2}{N/C} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{8.99e9*\v{Q}*1e-9/(\vsi{r})^2}{N/C}}$, orienté radialement en s'éloignant de $Q$ (charge positive).
+\end{enumerate}
+
+\subsubsection*{Question b) Force sur l'électron}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E$, $q = -e = -\qty{1.602e-19}{C}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ \vec F = q\vec E \]
+    \item \textbf{Isolation de la variable recherchée :} $F = |q|E$
+    \item \textbf{Résolution numérique :}
+    \[ F = \num{1.602e-19} \cdot \Val{8.99e9*\v{Q}*1e-9/(\vsi{r})^2} = \ResSci{1.602e-19*8.99e9*\v{Q}*1e-9/(\vsi{r})^2}{N} \]
+    \item \textbf{Réponse :} $F = \mathbf{\ResSci{1.602e-19*8.99e9*\v{Q}*1e-9/(\vsi{r})^2}{N}}$, dirigée vers $Q$ (sens opposé au champ, car la charge est négative).
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F$, $m_e = \qty{9.109e-31}{kg}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :}
+    \[ F = m_e a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F}{m_e} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\ResSci{1.602e-19*8.99e9*\v{Q}*1e-9/(\vsi{r})^2}{}}{\num{9.109e-31}} = \ResSci{1.602e-19*8.99e9*\v{Q}*1e-9/(\vsi{r})^2/9.109e-31}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\ResSci{1.602e-19*8.99e9*\v{Q}*1e-9/(\vsi{r})^2/9.109e-31}{m/s^2}}$ : le poids de l'électron est tout à fait négligeable.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Propriété mécanique d''un fil de cuivre'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La ductilité est la capacité d''un matériau à s''étirer sans se rompre. La malléabilité est l''équivalent pour l''aplatissement en feuilles.'
+choices:
+  - 'La dureté'
+  - 'L''élasticité'
+  - 'La ductilité'
+  - 'La fragilité'

@@ -1,0 +1,16 @@
+title: Charge électrique d'une recharge de téléphone
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  I: {type: integer, min: 500, max: 2400, step: 100, unit: mA, si: 0.001, label: Courant de charge}
+  t: {type: integer, min: 20, max: 120, step: 5, unit: min, si: 60, label: Durée de la recharge}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "I*t", unit: C, label: Charge électrique}
+    b: {expr: "I*t/e", unit: '', label: Nombre d'électrons}
+    c: {expr: "5*I*t", unit: J, label: Énergie fournie}

@@ -1,0 +1,18 @@
+title: Corde tendue par une masse suspendue à une poulie
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  M:  {type: decimal, min: 0.5, max: 5.0, step: 0.1, unit: kg, label: Masse suspendue}
+  mu: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: g/m, si: 0.001, label: Masse linéique}
+  L:  {type: decimal, min: 1.0, max: 4.0, step: 0.1, unit: m, label: Longueur horizontale}
+  n:  {type: choice, values: [1.5, 2, 3], label: Facteur de vitesse}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(M*g/mu)", unit: m/s, label: Vitesse}
+    b: {expr: "2*L/sqrt(M*g/mu)", unit: s, label: Temps aller-retour}
+    c: {expr: "n**2*M", unit: kg, label: Nouvelle masse}

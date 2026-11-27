@@ -1,0 +1,18 @@
+title: Balance dans un ascenseur
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 50, max: 95, step: 1, unit: kg, label: Masse de la personne}
+  a1: {type: decimal, min: 0.8, max: 2.5, step: 0.1, unit: m/s^2, label: Accélération au départ (vers le haut)}
+  a2: {type: decimal, min: 0.8, max: 2.5, step: 0.1, unit: m/s^2, label: Décélération à l'arrivée}
+constraints: []
+solution:
+  mode: manual
+  file: newt_ascenseur_balance.sol.tex
+  parts:
+    a: {expr: m*(g + a1), unit: N, label: Normale au démarrage}
+    b: {expr: m*g, unit: N, label: Normale à vitesse constante}
+    c: {expr: m*(g - a2), unit: N, label: Normale au ralentissement}

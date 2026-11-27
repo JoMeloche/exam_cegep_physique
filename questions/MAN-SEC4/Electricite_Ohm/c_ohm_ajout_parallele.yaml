@@ -1,0 +1,15 @@
+title: 'Ajouter un résistor en parallèle'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Chaque branche ajoutée offre un chemin de plus au courant : $R_{\text{éq}}$ passe de \qty{50}{\ohm} à environ \qty{33}{\ohm} et $I_t = U/R_{\text{éq}}$ passe de \qty{0.24}{A} à \qty{0.36}{A}.'
+choices:
+  - 'La résistance équivalente augmente et le courant total diminue.'
+  - 'La résistance équivalente diminue et le courant total augmente.'
+  - 'La résistance équivalente et le courant total ne changent pas.'
+  - 'La résistance équivalente diminue et le courant total diminue.'

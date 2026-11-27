@@ -1,0 +1,15 @@
+title: 'Force résultante à vitesse constante'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'À vitesse constante en ligne droite, l''accélération est nulle, donc $F_R = ma = 0$ : la poussée du moteur compense exactement les frottements.'
+choices:
+  - 'Elle est orientée vers l''avant, sinon la voiture s''arrêterait.'
+  - 'Elle est nulle.'
+  - 'Elle est orientée vers l''arrière à cause du frottement de l''air.'
+  - 'Elle est égale au poids de la voiture.'

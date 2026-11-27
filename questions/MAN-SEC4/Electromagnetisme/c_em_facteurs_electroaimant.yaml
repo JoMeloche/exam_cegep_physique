@@ -1,0 +1,15 @@
+title: 'Facteurs qui influencent un électroaimant'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$B = \mu_0 N I / L$ : écarter les spires augmente $L$ et réduit le nombre de spires par unité de longueur, donc le champ diminue.'
+choices:
+  - 'Augmenter l''intensité du courant dans la bobine.'
+  - 'Ajouter des spires sur la même longueur de bobine.'
+  - 'Insérer un noyau de fer doux dans la bobine.'
+  - 'Étirer la bobine pour écarter les spires, sans en changer le nombre.'

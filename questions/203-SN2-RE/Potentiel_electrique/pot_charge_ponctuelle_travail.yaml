@@ -1,0 +1,19 @@
+title: Potentiel d'une charge ponctuelle et travail
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  Q:  {type: integer, min: 5, max: 90, step: 5, unit: nC, si: 1e-9, label: Charge source}
+  rA: {type: integer, min: 5, max: 20, step: 1, unit: cm, si: 0.01, label: Distance du point A}
+  rB: {type: integer, min: 25, max: 60, step: 5, unit: cm, si: 0.01, label: Distance du point B}
+  q0: {type: integer, min: 1, max: 9, step: 1, unit: nC, si: 1e-9, label: Charge déplacée}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "8.99e9*Q/rA", unit: V, label: Potentiel en A}
+    a2: {expr: "8.99e9*Q/rB", unit: V, label: Potentiel en B}
+    b: {expr: "q0*8.99e9*Q*(1/rA - 1/rB)", unit: J, label: Travail de la force électrique}
+    c: {expr: "-q0*8.99e9*Q*(1/rA - 1/rB)", unit: J, label: Variation d'énergie potentielle}

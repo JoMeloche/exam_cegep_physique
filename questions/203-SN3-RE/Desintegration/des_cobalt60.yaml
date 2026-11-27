@@ -1,0 +1,16 @@
+title: Activité d'une source de cobalt 60
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m: {type: decimal, min: 0.5, max: 20.0, step: 0.5, unit: mg, si: 1e-6, label: Masse de cobalt 60}
+  t: {type: integer, min: 2, max: 30, step: 1, unit: a, label: Durée (années)}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*1000/60*6.022e23", unit: "", label: Nombre de noyaux}
+    b: {expr: "log(2)/(5.27*3.156e7)*m*1000/60*6.022e23", unit: Bq, label: Activité initiale}
+    c: {expr: "log(2)/(5.27*3.156e7)*m*1000/60*6.022e23*0.5**(t/5.27)", unit: Bq, label: Activité après t}

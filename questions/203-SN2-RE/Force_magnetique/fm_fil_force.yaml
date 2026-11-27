@@ -1,0 +1,19 @@
+title: Force magnétique sur un fil et lévitation
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  L: {type: integer, min: 10, max: 80, step: 5, unit: cm, si: 0.01, label: Longueur du fil}
+  I: {type: decimal, min: 1.0, max: 15.0, step: 0.5, unit: A, label: Courant}
+  B: {type: integer, min: 20, max: 500, step: 10, unit: mT, si: 0.001, label: Champ magnétique}
+  th: {type: integer, min: 15, max: 75, step: 5, unit: \degree, label: Angle entre le fil et le champ}
+  m: {type: decimal, min: 0.5, max: 10.0, step: 0.5, unit: g, si: 0.001, label: Masse du fil horizontal}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "I*L*B*sin(rad(th))", unit: N, label: Force sur le fil}
+    b: {expr: "I*L*B", unit: N, label: Force maximale}
+    c: {expr: "m*9.81/(L*B)", unit: A, label: Courant de lévitation}

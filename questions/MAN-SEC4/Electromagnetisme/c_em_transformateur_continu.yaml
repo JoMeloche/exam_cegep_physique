@@ -1,0 +1,15 @@
+title: 'Transformateur et courant continu'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un courant continu crée un champ magnétique constant ; sans variation du champ, il n''y a pas d''induction au secondaire.'
+choices:
+  - 'Une tension plus grande que \qty{9}{V} si le secondaire a plus de spires.'
+  - 'Une tension égale à \qty{9}{V}.'
+  - 'Aucune tension.'
+  - 'Une tension plus petite que \qty{9}{V} si le secondaire a moins de spires.'

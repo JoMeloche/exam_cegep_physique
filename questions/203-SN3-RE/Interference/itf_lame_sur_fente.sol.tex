@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Chemin optique supplémentaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $e = \qty{\vsi{ep}}{m}$, $n = \num{\v{n}}$
+        \item Variable recherchée : $\Delta$, la différence de chemin optique
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} le chemin optique dans un milieu d'indice $n$ est $n e$ ; dans l'air, $e$.
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta = n e - e = (n - 1)e \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta = (\num{\v{n}} - 1) \cdot \num{\v{ep}} = \Res{(\v{n} - 1)*\v{ep}}{\micro\metre} \]
+    \item \textbf{Réponse :} le chemin optique augmente de \textbf{\Res{(\v{n} - 1)*\v{ep}}{\micro\metre}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre de franges}
+Chaque longueur d'onde de différence de chemin déplace la figure d'une frange :
+\[ N = \frac{(n - 1)e}{\lambda} = \frac{\Val{(\v{n} - 1)*\vsi{ep}}}{\num{\vsi{lam}}} = \Res{(\v{n} - 1)*\vsi{ep}/\vsi{lam}}{} \]
+La figure se déplace de \textbf{\Res{(\v{n} - 1)*\vsi{ep}/\vsi{lam}}{}} franges.
+
+\subsubsection*{Question c) Déplacement sur l'écran}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N$, $\Delta y = \lambda L/d = \Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm}$ ; variable recherchée : $s$
+    \item \textbf{Équations pertinentes :} $s = N\,\Delta y$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ s = \frac{(n - 1)e}{\lambda}\cdot\frac{\lambda L}{d} = \frac{(n - 1)e\,L}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ s = \frac{\Val{(\v{n} - 1)*\vsi{ep}} \cdot \num{\v{L}}}{\num{\vsi{sep}}} = \Res{1000*(\v{n} - 1)*\vsi{ep}*\v{L}/\vsi{sep}}{mm} \]
+    \item \textbf{Réponse :} la figure se déplace de \textbf{\Res{1000*(\v{n} - 1)*\vsi{ep}*\v{L}/\vsi{sep}}{mm}}, vers le côté de la fente recouverte : la frange centrale ($\Delta = 0$) se trouve là où le trajet dans l'air depuis l'autre fente compense le retard causé par la lame.
+\end{enumerate}

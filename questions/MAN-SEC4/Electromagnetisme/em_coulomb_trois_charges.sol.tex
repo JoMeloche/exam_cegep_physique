@@ -1,0 +1,23 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force de $q_1$ sur $q_3$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_3 = \qty{\v{q3}e-6}{C}$, $r_{13} = \qty{\vsi{x}}{m}$ ; variable recherchée : $F_{13}$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \frac{k\,|q_a|\,|q_b|}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{13} = \frac{\num{8.99e9} \cdot \num{\v{q1}e-6} \cdot \num{\v{q3}e-6}}{(\num{\vsi{x}})^2} = \Res{8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2}{N} \]
+    \item \textbf{Réponse :} $F_{13} = \mathbf{\Res{8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2}{N}}$, répulsive, donc orientée vers $q_2$ (vers la droite).
+\end{enumerate}
+
+\subsubsection*{Question b) Force de $q_2$ sur $q_3$}
+$r_{23} = \qty{\v{d}}{cm} - \qty{\v{x}}{cm} = \qty{\fpeval{\v{d}-\v{x}}}{cm}$.
+\[ F_{23} = \frac{\num{8.99e9} \cdot \num{\v{q2}e-6} \cdot \num{\v{q3}e-6}}{(\num{\fpeval{\vsi{d}-\vsi{x}}})^2} = \Res{8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2}{N} \]
+Force répulsive, orientée vers $q_1$ (vers la gauche).
+
+\subsubsection*{Question c) Force résultante}
+Les deux forces sont opposées : on soustrait leurs grandeurs.
+\[ F_{\text{rés}} = |F_{13} - F_{23}| = \Res{abs(8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2 - 8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2)}{N} \]
+La force résultante est de \textbf{\Res{abs(8.99e9*\vsi{q1}*\vsi{q3}/\vsi{x}^2 - 8.99e9*\vsi{q2}*\vsi{q3}/(\vsi{d}-\vsi{x})^2)}{N}}, orientée \textbf{\ifthenelse{\lengthtest{\fpeval{\v{q1}/\v{x}^2}pt > \fpeval{\v{q2}/(\v{d}-\v{x})^2}pt}}{vers la droite (vers $q_2$)}{vers la gauche (vers $q_1$)}}, dans le sens de la plus grande des deux forces.

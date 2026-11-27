@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Température}
+\[ T = \frac{b}{\lambda_{\max}} = \frac{\num{2.898e-3}}{\num{\vsi{lm}}} = \Res{2.898e-3/\vsi{lm}}{K} \]
+
+\subsubsection*{Question b) Rayon}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \ResSci{\vsi{Lr}}{W}$, $T = \Res{2.898e-3/\vsi{lm}}{K}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :}
+    \[ L = \sigma\,4\pi R^2\,T^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ R = \sqrt{\frac{L}{4\pi\sigma T^4}} \]
+    \item \textbf{Résolution numérique :}
+    \[ R = \sqrt{\frac{\ResSci{\vsi{Lr}}{}}{4\pi \cdot \num{5.67e-8} \cdot (\Val{2.898e-3/\vsi{lm}})^4}} = \ResSci{sqrt(\vsi{Lr}/(4*pi*5.67e-8*(2.898e-3/\vsi{lm})^4))}{m} \]
+    \item \textbf{Réponse :} $R = \mathbf{\ResSci{sqrt(\vsi{Lr}/(4*pi*5.67e-8*(2.898e-3/\vsi{lm})^4))}{m}}$, soit \textbf{\Res{sqrt(\vsi{Lr}/(4*pi*5.67e-8*(2.898e-3/\vsi{lm})^4))/6.96e8}{}} rayons solaires.
+\end{enumerate}
+
+\subsubsection*{Question c) Naine ou géante}
+\ifthenelse{\lengthtest{\fpeval{sqrt(\vsi{Lr}/(4*pi*5.67e-8*(2.898e-3/\vsi{lm})^4))/6.96e8}pt > 3pt}}{Le rayon est nettement plus grand que celui du Soleil : c'est une \textbf{géante}.}{\ifthenelse{\lengthtest{\fpeval{sqrt(\vsi{Lr}/(4*pi*5.67e-8*(2.898e-3/\vsi{lm})^4))/6.96e8}pt < 0.5pt}}{Le rayon est nettement plus petit que celui du Soleil : c'est une \textbf{naine}.}{Le rayon est comparable à celui du Soleil : c'est une étoile de taille moyenne, \textbf{ni naine ni géante} (séquence principale).}} Une étoile peut être très lumineuse parce qu'elle est chaude ou parce qu'elle est grande : la température seule ne suffit pas à conclure.

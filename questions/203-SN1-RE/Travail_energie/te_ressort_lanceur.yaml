@@ -1,0 +1,19 @@
+title: 'Bille lancée verticalement par un ressort'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  k: {type: integer, min: 200, max: 800, step: 50, unit: N/m, label: Constante du ressort}
+  x: {type: decimal, min: 5.0, max: 20.0, step: 0.5, unit: cm, si: 0.01, label: Compression du ressort}
+  m: {type: integer, min: 50, max: 300, step: 10, unit: g, si: 0.001, label: Masse de la bille}
+constraints:
+  - k*x**2/m > 4*g*x
+solution:
+  mode: manual
+  file: te_ressort_lanceur.sol.tex
+  parts:
+    a: {expr: "0.5*k*x**2", unit: 'J', label: 'Énergie élastique'}
+    b: {expr: "sqrt(k*x**2/m - 2*g*x)", unit: 'm/s', label: 'Vitesse en quittant le ressort'}
+    c: {expr: "k*x**2/(2*m*g)", unit: 'm', label: 'Hauteur maximale'}

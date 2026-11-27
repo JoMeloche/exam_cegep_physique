@@ -1,0 +1,11 @@
+title: Angle de portée maximale
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: $R = v_0^2\sin(2\theta)/g$ est maximale quand $\sin(2\theta) = 1$, soit $\theta = \ang{45}$.
+choices: ['\ang{30}', '\ang{45}', '\ang{60}', '\ang{90}']

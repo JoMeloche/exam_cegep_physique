@@ -1,0 +1,34 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Temps avant le croisement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $D = \qty{\v{D}}{km}$, $v_A = \qty{\v{vA}}{km/h}$, $v_B = \qty{\v{vB}}{km/h}$
+        \item Variable recherchée : $t$ (min)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} MRU pour chaque voiture, avec l'origine au départ de A :
+    \[ x_A = v_A t \qquad x_B = D - v_B t \]
+    \item \textbf{Isolation de la variable recherchée :} au croisement, $x_A = x_B$ :
+    \[ v_A t = D - v_B t \quad\Rightarrow\quad t = \frac{D}{v_A + v_B} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\qty{\v{D}}{km}}{\qty{\v{vA}}{km/h} + \qty{\v{vB}}{km/h}} = \Res{\v{D}/(\v{vA}+\v{vB})}{h} = \Res{60*\v{D}/(\v{vA}+\v{vB})}{min} \]
+    \item \textbf{Réponse :} les voitures se croisent après \textbf{\Res{60*\v{D}/(\v{vA}+\v{vB})}{min}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Position du croisement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_A = \qty{\v{vA}}{km/h}$, $t = \Res{\v{D}/(\v{vA}+\v{vB})}{h}$
+        \item Variable recherchée : $x_A$ (km)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ x_A = v_A t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ x_A = \qty{\v{vA}}{km/h} \cdot \Res{\v{D}/(\v{vA}+\v{vB})}{h} = \Res{\v{vA}*\v{D}/(\v{vA}+\v{vB})}{km} \]
+    \item \textbf{Réponse :} elles se croisent à \textbf{\Res{\v{vA}*\v{D}/(\v{vA}+\v{vB})}{km}} du point de départ de A.
+\end{enumerate}
+
+\subsubsection*{Question c) Graphique}
+La position de A est une droite qui part de \qty{0}{km} avec une pente positive de \qty{\v{vA}}{km/h}. La position de B est une droite qui part de \qty{\v{D}}{km} avec une pente négative de \qty{-\v{vB}}{km/h}. Les deux droites se coupent au point $\left(\Res{60*\v{D}/(\v{vA}+\v{vB})}{min} ;\ \Res{\v{vA}*\v{D}/(\v{vA}+\v{vB})}{km}\right)$.

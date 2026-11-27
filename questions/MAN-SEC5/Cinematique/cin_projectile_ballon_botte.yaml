@@ -1,0 +1,19 @@
+title: Ballon botté avec un angle (projectile oblique)
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+tags: [projectile]
+variables:
+  v0: {type: integer, min: 14, max: 26, step: 1, unit: m/s, label: Vitesse initiale}
+  th: {type: integer, min: 25, max: 60, step: 5, unit: \degree, label: Angle de lancement}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v0*cos(rad(th))", unit: m/s, label: Composante horizontale}
+    b: {expr: "v0*sin(rad(th))", unit: m/s, label: Composante verticale}
+    c: {expr: "2*v0*sin(rad(th))/g", unit: s, label: Temps de vol}
+    d: {expr: "v0*cos(rad(th))*2*v0*sin(rad(th))/g", unit: m, label: Portée}
+    e: {expr: "(v0*sin(rad(th)))**2/(2*g)", unit: m, label: Hauteur maximale}

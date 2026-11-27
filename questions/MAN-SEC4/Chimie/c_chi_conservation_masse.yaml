@@ -1,0 +1,15 @@
+title: 'Conservation de la masse en système fermé'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Dans un système fermé, rien n''entre ni ne sort : selon la loi de conservation de la masse, la masse des produits est égale à celle des réactifs. Les atomes sont seulement réarrangés.'
+choices:
+  - 'Moins de \qty{250}{g}, car du gaz s''est formé'
+  - 'Plus de \qty{250}{g}, car le ballon a gonflé'
+  - 'Exactement \qty{250}{g}'
+  - 'Elle dépend de la température du vinaigre'

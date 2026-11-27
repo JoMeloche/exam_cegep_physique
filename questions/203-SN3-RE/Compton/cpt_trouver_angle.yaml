@@ -1,0 +1,15 @@
+title: Angle de diffusion à partir des longueurs d'onde
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  l0: {type: decimal, min: 10.0, max: 60.0, step: 0.5, unit: pm, si: 1e-12, label: Longueur d'onde incidente}
+  th: {type: integer, min: 35, max: 160, step: 5, unit: \degree, label: Angle (caché)}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "th", unit: deg, label: Angle de diffusion}
+    b: {expr: "6.626e-34*3e8*(1/l0 - 1/(l0 + 6.626e-34/(9.109e-31*3e8)*(1-cos(rad(th)))))/1.602e-19", unit: eV, label: Énergie de l'électron}

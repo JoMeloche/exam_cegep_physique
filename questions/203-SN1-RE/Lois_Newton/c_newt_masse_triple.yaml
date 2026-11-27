@@ -1,0 +1,11 @@
+title: Même force, masse triple
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$a = F/m$ : à force égale, l''accélération est inversement proportionnelle à la masse.'
+choices: [$3a$, $a$, $a/3$, $a/9$]

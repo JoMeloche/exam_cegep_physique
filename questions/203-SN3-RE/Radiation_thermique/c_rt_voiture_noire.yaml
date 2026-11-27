@@ -1,0 +1,15 @@
+title: "Voitures noire et blanche au soleil"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Une surface sombre absorbe une plus grande fraction du rayonnement solaire visible : elle reçoit plus de puissance et atteint une température plus élevée.'
+choices:
+  - 'La noire, car elle absorbe davantage le rayonnement solaire'
+  - 'La blanche, car elle réfléchit la chaleur vers l''intérieur'
+  - 'La noire, car elle émet moins de rayonnement infrarouge'
+  - 'Aucune : elles reçoivent la même puissance solaire'

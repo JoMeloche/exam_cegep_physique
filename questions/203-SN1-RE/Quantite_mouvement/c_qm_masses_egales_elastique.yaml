@@ -1,0 +1,15 @@
+title: 'Collision élastique entre deux masses égales'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Avec $m_1 = m_2$ : $v_{1f} = \frac{m_1 - m_2}{m_1+m_2}v = 0$ et $v_{2f} = \frac{2m_1}{m_1+m_2}v = v$. Seule cette réponse conserve à la fois $p$ et $K$.'
+choices:
+  - 'La première boule rebondit avec la même vitesse et la deuxième reste immobile'
+  - 'Les deux boules avancent ensemble à la moitié de la vitesse initiale'
+  - 'La première boule s''arrête et la deuxième part avec la vitesse initiale de la première'
+  - 'Les deux boules partent en sens opposés avec la moitié de la vitesse initiale'

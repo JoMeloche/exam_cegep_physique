@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie emmagasinée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C = \qty{\v{C}e-6}{F}$, $V = \qty{\v{V}}{V}$ ; variable recherchée : $U$
+    \item \textbf{Équations pertinentes :}
+    \[ U = \frac{1}{2}CV^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ U = \frac{1}{2} \cdot \num{\v{C}e-6} \cdot (\num{\v{V}})^2 = \Res{0.5*\v{C}*1e-6*\v{V}^2}{J} \]
+    \item \textbf{Réponse :} $U = \mathbf{\Res{0.5*\v{C}*1e-6*\v{V}^2}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U$, $\Delta t = \qty{\vsi{t}}{s}$ ; variable recherchée : $P_{\text{moy}}$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{moy}} = \frac{U}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_{\text{moy}} = \frac{\Val{0.5*\v{C}*1e-6*\v{V}^2}}{\num{\vsi{t}}} = \Res{0.5*\v{C}*1e-6*\v{V}^2/\vsi{t}}{W} \]
+    \item \textbf{Réponse :} $P_{\text{moy}} = \mathbf{\Res{0.5*\v{C}*1e-6*\v{V}^2/\vsi{t}}{W}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Tension nécessaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U' = \qty{\v{U2}}{J}$, $C$ ; variable recherchée : $V'$
+    \item \textbf{Équations pertinentes :}
+    \[ U' = \frac{1}{2}CV'^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V' = \sqrt{\frac{2U'}{C}} \]
+    \item \textbf{Résolution numérique :}
+    \[ V' = \sqrt{\frac{2 \cdot \num{\v{U2}}}{\num{\v{C}e-6}}} = \Res{sqrt(2*\v{U2}/(\v{C}*1e-6))}{V} \]
+    \item \textbf{Réponse :} il faudrait $V' = \mathbf{\Res{sqrt(2*\v{U2}/(\v{C}*1e-6))}{V}}$.
+\end{enumerate}

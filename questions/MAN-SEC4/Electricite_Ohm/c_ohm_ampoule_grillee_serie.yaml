@@ -1,0 +1,15 @@
+title: 'Ampoule grillée dans un circuit en série'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'En série, il n''y a qu''un seul chemin pour le courant : un filament brisé ouvre le circuit et le courant devient nul partout.'
+choices:
+  - 'Les trois ampoules s''éteignent.'
+  - 'Seule la deuxième ampoule s''éteint ; les deux autres brillent davantage.'
+  - 'Seule la deuxième ampoule s''éteint ; les deux autres brillent autant qu''avant.'
+  - 'Les deux autres ampoules brillent moins fort.'

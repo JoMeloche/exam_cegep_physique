@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Filtrat produit par jour}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} débit de filtration $\qty{\v{DFG}}{mL/min}$, $\Delta t = \qty{24}{h} = \qty{1440}{min}$ ; variable recherchée : $V_f$ (L)
+    \item \textbf{Équations pertinentes :}
+    \[ V_f = \text{débit} \times \Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_f = \num{\v{DFG}} \times \num{1440} = \qty{\fpeval{\v{DFG}*1440}}{mL} = \Res{\v{DFG}*1440/1000}{L} \]
+    \item \textbf{Réponse :} les reins produisent \textbf{\Res{\v{DFG}*1440/1000}{L}} de filtrat par jour.
+\end{enumerate}
+
+\subsubsection*{Question b) Pourcentage réabsorbé}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_f = \Res{\v{DFG}*1440/1000}{L}$, $V_u = \qty{\v{U}}{L}$ ; variable recherchée : pourcentage réabsorbé
+    \item \textbf{Équations pertinentes :}
+    \[ \% = \frac{V_f - V_u}{V_f} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \% = \frac{\Val{\v{DFG}*1440/1000} - \num{\v{U}}}{\Val{\v{DFG}*1440/1000}} \times 100 = \Res{100*(\v{DFG}*1440/1000-\v{U})/(\v{DFG}*1440/1000)}{\percent} \]
+    \item \textbf{Réponse :} \textbf{\Res{100*(\v{DFG}*1440/1000-\v{U})/(\v{DFG}*1440/1000)}{\percent}} du filtrat retourne dans le sang.
+\end{enumerate}
+
+\subsubsection*{Question c) Glucose filtré}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_f = \Res{\v{DFG}*1440/1000}{L}$, $C = \qty{\v{glu}}{g/L}$ ; variable recherchée : $m$
+    \item \textbf{Équations pertinentes :}
+    \[ C = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m = C \times V_f \]
+    \item \textbf{Résolution numérique :}
+    \[ m = \num{\v{glu}} \times \Val{\v{DFG}*1440/1000} = \Res{\v{DFG}*1440/1000*\v{glu}}{g} \]
+    \item \textbf{Réponse :} \textbf{\Res{\v{DFG}*1440/1000*\v{glu}}{g}} de glucose sont filtrés par jour. Ce glucose est entièrement \textbf{réabsorbé} dans le sang le long du \textbf{tubule} du néphron, parce qu'il est un nutriment utile aux cellules. Seul un excès de glucose (diabète) en laisse passer dans l'urine.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Tige chargée près d''un conducteur neutre'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les électrons libres de la sphère sont repoussés du côté éloigné ; le côté proche devient positif. Comme ce côté est plus près de la tige, l''attraction l''emporte sur la répulsion.'
+choices:
+  - 'La sphère est attirée par la tige'
+  - 'La sphère est repoussée par la tige'
+  - 'Aucune force, car la sphère est neutre'
+  - 'La sphère devient chargée négativement'

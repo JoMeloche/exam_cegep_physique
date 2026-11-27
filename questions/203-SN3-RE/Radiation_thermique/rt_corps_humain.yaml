@@ -1,0 +1,17 @@
+title: Pertes de chaleur par rayonnement d'une personne
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Ts: {type: integer, min: 32, max: 35, step: 1, unit: \degreeCelsius, label: Température de la peau}
+  Te: {type: integer, min: 10, max: 24, step: 1, unit: \degreeCelsius, label: Température des murs}
+  S:  {type: decimal, min: 1.5, max: 2.0, step: 0.1, unit: m^2, label: Surface de la peau}
+  t:  {type: integer, min: 1, max: 8, step: 1, unit: h, si: 3600, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "0.97*5.67e-8*S*((Ts+273)**4 - (Te+273)**4)", unit: W, label: Puissance nette perdue}
+    e2: {expr: "0.97*5.67e-8*S*((Ts+273)**4 - (Te+273)**4)*t/4186", unit: kcal, label: Énergie perdue en Calories}

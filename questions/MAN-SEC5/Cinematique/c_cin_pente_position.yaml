@@ -1,0 +1,16 @@
+title: 'Pente d''un graphique position-temps'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+tags: [graphiques]
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La pente d''un graphique $x(t)$ est $\Delta x / \Delta t$ : c''est la vitesse.'
+choices:
+  - 'La vitesse de l''objet'
+  - 'L''accélération de l''objet'
+  - 'La distance totale parcourue'
+  - 'Le temps écoulé depuis le départ'

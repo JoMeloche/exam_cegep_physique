@@ -1,0 +1,19 @@
+title: Pierre lâchée du haut d'un pont (chute libre)
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+tags: [chute libre, MRUA]
+variables:
+  h:  {type: integer, min: 15, max: 60, step: 5, unit: m, label: Hauteur du pont}
+  t1: {type: decimal, min: 0.5, max: 1.5, step: 0.5, unit: s, label: Instant considéré}
+constraints:
+  - 0.5*g*t1**2 < 0.8*h
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(2*h/g)", unit: s, label: Durée de la chute}
+    b: {expr: "sqrt(2*g*h)", unit: m/s, label: Vitesse à l'impact}
+    c: {expr: "h - 0.5*g*t1**2", unit: m, label: Hauteur au-dessus de l'eau}
+    d: {expr: "sqrt(2*h/g) + h/340", unit: s, label: Instant où le plouf est entendu}

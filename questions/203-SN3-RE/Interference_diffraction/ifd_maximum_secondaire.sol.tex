@@ -1,0 +1,24 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Franges dans le maximum central}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \qty{\v{sep}}{\micro\metre}$, $a = \qty{\v{larg}}{\micro\metre}$
+        \item Variable recherchée : le nombre d'ordres $m$ tels que $|\sin\theta_m| < \lambda/a$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} maximum d'interférence $d\sin\theta = m\lambda$ ; $m$-ième minimum de diffraction $a\sin\theta = m'\lambda$
+    \item \textbf{Isolation de la variable recherchée :} $\dfrac{|m|\lambda}{d} < \dfrac{\lambda}{a}$, donc $|m| < \dfrac{d}{a}$
+    \item \textbf{Résolution numérique :} $d/a = \Val{\v{sep}/\v{larg}}$, donc $|m| \le \num{\fpeval{floor(\v{sep}/\v{larg})}}$
+    \item \textbf{Réponse :} le maximum central contient \textbf{\num{\fpeval{2*floor(\v{sep}/\v{larg}) + 1}}} franges brillantes.
+\end{enumerate}
+
+\subsubsection*{Question b) Franges dans un premier maximum secondaire}
+Le premier maximum secondaire est entre $\sin\theta = \lambda/a$ et $\sin\theta = 2\lambda/a$, donc il contient les ordres
+\[ \frac{d}{a} < m < \frac{2d}{a} \quad\Leftrightarrow\quad \Val{\v{sep}/\v{larg}} < m < \Val{2*\v{sep}/\v{larg}} \]
+soit $m = \num{\fpeval{floor(\v{sep}/\v{larg}) + 1}}$ à $\num{\fpeval{floor(2*\v{sep}/\v{larg})}}$ : \textbf{\num{\fpeval{floor(2*\v{sep}/\v{larg}) - floor(\v{sep}/\v{larg})}}} franges brillantes.
+
+\subsubsection*{Question c) Premier minimum de diffraction}
+\[ \theta_1 = \arcsin\left(\frac{\lambda}{a}\right) = \arcsin\left(\frac{\num{\vsi{lam}}}{\num{\vsi{larg}}}\right) = \Res{asind(\vsi{lam}/\vsi{larg})}{\degree} \]
+Le premier minimum de diffraction est à \textbf{\Res{asind(\vsi{lam}/\vsi{larg})}{\degree}}.

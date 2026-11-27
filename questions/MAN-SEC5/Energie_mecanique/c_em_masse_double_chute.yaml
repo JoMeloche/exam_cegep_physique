@@ -1,0 +1,16 @@
+title: 'Vitesse d''impact quand la masse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+tags: [conservation de l'énergie]
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$m g h = \tfrac{1}{2} m v^2$ donne $v = \sqrt{2gh}$ : la masse s''annule. B a deux fois plus d''énergie, mais la même vitesse.'
+choices:
+  - 'Elles ont la même vitesse'
+  - 'B est deux fois plus rapide'
+  - 'B est $\sqrt{2}$ fois plus rapide'
+  - 'A est deux fois plus rapide'

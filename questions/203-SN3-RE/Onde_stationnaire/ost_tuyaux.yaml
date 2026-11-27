@@ -1,0 +1,16 @@
+title: Harmoniques d'un tuyau ouvert et d'un tuyau fermé
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  L: {type: integer, min: 20, max: 150, step: 5, unit: cm, si: 0.01, label: Longueur du tuyau}
+  T: {type: integer, min: 0, max: 35, step: 1, unit: \degreeCelsius, label: Température}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "331*sqrt((T+273)/273)", unit: m/s, label: Vitesse du son}
+    b: {expr: "331*sqrt((T+273)/273)/(2*L)", unit: Hz, label: Fondamentale tuyau ouvert}
+    c: {expr: "331*sqrt((T+273)/273)/(4*L)", unit: Hz, label: Fondamentale tuyau fermé}

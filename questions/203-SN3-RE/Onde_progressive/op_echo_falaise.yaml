@@ -1,0 +1,18 @@
+title: Écho sur une falaise et température de l'air
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  T:  {type: integer, min: -20, max: 35, step: 1, unit: \degreeCelsius, label: Température de l'air}
+  t:  {type: decimal, min: 0.5, max: 4.0, step: 0.1, unit: s, label: Délai de l'écho}
+  T2: {type: integer, min: -20, max: 35, step: 1, unit: \degreeCelsius, label: Seconde température}
+constraints:
+  - abs(T - T2) >= 15
+solution:
+  mode: manual
+  parts:
+    a: {expr: "331*sqrt((T+273)/273)", unit: m/s, label: Vitesse du son}
+    b: {expr: "331*sqrt((T+273)/273)*t/2", unit: m, label: Distance de la falaise}
+    c: {expr: "331*sqrt((T+273)/273)*t/(331*sqrt((T2+273)/273))", unit: s, label: Nouveau délai}

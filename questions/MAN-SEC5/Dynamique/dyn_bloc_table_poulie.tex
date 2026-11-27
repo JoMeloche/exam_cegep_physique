@@ -1,0 +1,19 @@
+Un bloc A de \qty{\v{m1}}{kg} repose sur une table horizontale sans frottement. Il est relié par une corde légère, qui passe sur une poulie sans frottement fixée au bord de la table, à un bloc B de \qty{\v{m2}}{kg} suspendu dans le vide. On lâche le système à partir du repos. On prend $g = \qty{9.81}{m/s^2}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    \fill[pattern=north east lines] (-0.3,-0.25) rectangle (4,0);
+    \draw[thick] (-0.3,0) -- (4,0) -- (4,-2.6);
+    \draw[thick, fill=gray!20] (0.8,0) rectangle (2.2,0.9) node[midway] {A};
+    \draw[thick] (4.25,0.25) circle (0.25);
+    \draw (2.2,0.5) -- (4.25,0.5);
+    \draw (4.5,0.25) -- (4.5,-1.2);
+    \draw[thick, fill=gray!20] (4.1,-1.2) rectangle (4.9,-2.0) node[midway] {B};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez l'accélération du système.
+    \item Déterminez la tension dans la corde.
+    \item Combien de temps le bloc B met-il pour descendre de \qty{\v{d}}{m} ?
+\end{enumerate}

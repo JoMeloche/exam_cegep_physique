@@ -1,0 +1,27 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_1 = \qty{\v{R1}}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$, $R_3 = \qty{\v{R3}}{\ohm}$ ; variable recherchée : $R_{\text{éq}}$
+    \item \textbf{Équations pertinentes :}
+    \[ R_{23} = \frac{R_2 R_3}{R_2 + R_3} \qquad R_{\text{éq}} = R_1 + R_{23} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ R_{23} = \frac{\num{\v{R2}} \cdot \num{\v{R3}}}{\num{\v{R2}} + \num{\v{R3}}} = \Res{\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm} \qquad R_{\text{éq}} = \qty{\v{R1}}{\ohm} + \Val{\v{R2}*\v{R3}/(\v{R2}+\v{R3})}\,\unit{\ohm} = \Res{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm} \]
+    \item \textbf{Réponse :} $R_{\text{éq}} = \mathbf{\Res{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant total}
+\[ I_t = \frac{U}{R_{\text{éq}}} = \frac{\qty{\v{U}}{V}}{\Val{\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})}\,\unit{\ohm}} = \Res{\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A} \]
+La source fournit \textbf{\Res{\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{A}}.
+
+\subsubsection*{Question c) Tensions}
+Tout le courant passe dans $R_1$ :
+\[ U_1 = R_1 I_t = \Res{\v{R1}*\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{V} \]
+Le reste de la tension se retrouve aux bornes du groupe en parallèle :
+\[ U_{23} = U - U_1 = \Res{\v{U}-\v{R1}*\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}{V} \]
+
+\subsubsection*{Question d) Courant dans $R_2$}
+\[ I_2 = \frac{U_{23}}{R_2} = \frac{\Val{\v{U}-\v{R1}*\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3}))}\,\unit{V}}{\qty{\v{R2}}{\ohm}} = \Res{(\v{U}-\v{R1}*\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})))/\v{R2}}{A} \]
+Le courant dans $R_2$ est de \textbf{\Res{(\v{U}-\v{R1}*\v{U}/(\v{R1}+\v{R2}*\v{R3}/(\v{R2}+\v{R3})))/\v{R2}}{A}}.

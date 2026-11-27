@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du virage : $r = \qty{\v{r}}{m}$
+        \item Angle d'inclinaison : $\theta = \qty{\v{th}}{\degree}$
+        \item Forces : $mg$ et $n$ (perpendiculaire à la route) ; la composante horizontale de $n$ est centripète
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n\cos\theta = mg \qquad n\sin\theta = \frac{m v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \tan\theta = \frac{v^2}{g r} \implies v = \sqrt{g r\tan\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\num{9.81} \cdot \num{\vsi{r}} \cdot \tan(\ang{\v{th}})} = \Res{sqrt(\vsi{r}*9.81*tand(\vsi{th}))}{m/s} = \Res{sqrt(\vsi{r}*9.81*tand(\vsi{th}))*3.6}{km/h} \]
+    \item \textbf{Réponse :} la voiture doit rouler à \textbf{\Res{sqrt(\vsi{r}*9.81*tand(\vsi{th}))}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la voiture : $m = \qty{\v{m}}{kg}$
+        \item Angle d'inclinaison : $\theta = \qty{\v{th}}{\degree}$
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n\cos\theta = mg \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ n = \frac{mg}{\cos\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ n = \frac{\num{\vsi{m}}\cdot\num{9.81}}{\cos(\ang{\v{th}})} = \Res{\vsi{m}*9.81/cosd(\vsi{th})}{N} \]
+    \item \textbf{Réponse :} la normale vaut \textbf{\Res{\vsi{m}*9.81/cosd(\vsi{th})}{N}}, un peu plus que le poids.
+\end{enumerate}
+
+\subsubsection*{Question c) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du virage : $r = \qty{\v{r}}{m}$
+        \item $v = \Res{sqrt(\vsi{r}*9.81*tand(\vsi{th}))}{m/s}$
+        \item Variable recherchée : $T$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2\pi r}{T} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \frac{2\pi r}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{2\pi\cdot\num{\vsi{r}}}{\Val{sqrt(\vsi{r}*9.81*tand(\vsi{th}))}} = \Res{2*pi*\vsi{r}/sqrt(\vsi{r}*9.81*tand(\vsi{th}))}{s} \]
+    \item \textbf{Réponse :} un tour complet prendrait \textbf{\Res{2*pi*\vsi{r}/sqrt(\vsi{r}*9.81*tand(\vsi{th}))}{s}}.
+\end{enumerate}

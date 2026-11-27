@@ -1,0 +1,20 @@
+title: Deux fréquences de résonance successives d'une corde
+type: developpement
+points: 20
+time_min: 15
+difficulty: 4
+figures: []
+variables:
+  f1: {type: integer, min: 50, max: 200, step: 5, unit: Hz, label: Fréquence fondamentale (cachée)}
+  n:  {type: integer, min: 2, max: 6, label: Mode le plus bas observé}
+  L:  {type: decimal, min: 0.80, max: 2.50, step: 0.05, unit: m, label: Longueur de la corde}
+  mu: {type: decimal, min: 1.0, max: 8.0, step: 0.5, unit: g/m, si: 0.001, label: Masse linéique}
+constraints:
+  - 20 < mu*(2*L*f1)**2 < 800
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f1", unit: Hz, label: Fréquence fondamentale}
+    b: {expr: "n", unit: "", label: Numéro du mode}
+    c: {expr: "2*L*f1", unit: m/s, label: Vitesse}
+    d: {expr: "mu*(2*L*f1)**2", unit: N, label: Tension}

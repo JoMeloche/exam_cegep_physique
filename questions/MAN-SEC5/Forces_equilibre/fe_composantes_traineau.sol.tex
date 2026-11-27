@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Composante horizontale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F_x$
+    \item \textbf{Équations pertinentes :}
+    \[ F_x = F\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_x = \qty{\v{F}}{N} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{F}*cosd(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_x = \mathbf{\Res{\v{F}*cosd(\v{th})}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Composante verticale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F_y$
+    \item \textbf{Équations pertinentes :}
+    \[ F_y = F\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_y = \qty{\v{F}}{N} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{\v{F}*sind(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_y = \mathbf{\Res{\v{F}*sind(\v{th})}{N}}$, vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question c) Force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$, $F_y = \Res{\v{F}*sind(\v{th})}{N}$ ; variable recherchée : $F_N$
+    \item \textbf{Équations pertinentes :} le traîneau ne décolle pas et ne s'enfonce pas, donc les forces verticales s'annulent :
+    \[ F_N + F_y - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_N = mg - F_y \]
+    \item \textbf{Résolution numérique :}
+    \[ F_N = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} - \Val{\v{F}*sind(\v{th})}\,\unit{N} = \Res{\v{m}*9.81 - \v{F}*sind(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_N = \mathbf{\Res{\v{m}*9.81 - \v{F}*sind(\v{th})}{N}}$. Elle est plus petite que le poids ($\Res{\v{m}*9.81}{N}$) parce que la corde soulève une partie du traîneau.
+\end{enumerate}

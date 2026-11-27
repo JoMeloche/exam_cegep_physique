@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Quantité de dihydrogène}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{mH}}{g}$, $M = \qty{2.016}{g/mol}$ ; variable recherchée : $n_{\text{H}_2}$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{m}{M} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n_{\text{H}_2} = \frac{\num{\v{mH}}}{\num{2.016}} = \Res{\v{mH}/2.016}{mol} \]
+    \item \textbf{Réponse :} \textbf{\Res{\v{mH}/2.016}{mol}} de dihydrogène réagissent.
+\end{enumerate}
+
+\subsubsection*{Question b) Masse de dioxygène}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_{\text{H}_2} = \Res{\v{mH}/2.016}{mol}$, rapport 2 : 1 ; variable recherchée : $m_{\text{O}_2}$
+    \item \textbf{Équations pertinentes :}
+    \[ n_{\text{O}_2} = \frac{n_{\text{H}_2}}{2} \qquad m = n M \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n_{\text{O}_2} = \frac{\Val{\v{mH}/2.016}}{2} = \Res{\v{mH}/2.016/2}{mol} \qquad m_{\text{O}_2} = \Val{\v{mH}/2.016/2} \times \num{32.00} = \Res{\v{mH}/2.016/2*32}{g} \]
+    \item \textbf{Réponse :} il faut \textbf{\Res{\v{mH}/2.016/2*32}{g}} de dioxygène.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse d'eau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_{\text{H}_2\text{O}} = n_{\text{H}_2} = \Res{\v{mH}/2.016}{mol}$ (rapport 2 : 2) ; variable recherchée : $m_{\text{H}_2\text{O}}$
+    \item \textbf{Équations pertinentes :}
+    \[ m = n M \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{H}_2\text{O}} = \Val{\v{mH}/2.016} \times \num{18.02} = \Res{\v{mH}/2.016*18.02}{g} \]
+    \item \textbf{Réponse :} il se forme \textbf{\Res{\v{mH}/2.016*18.02}{g}} d'eau. Vérification : $\num{\v{mH}} + \Val{\v{mH}/2.016/2*32} = \Res{\v{mH}+\v{mH}/2.016/2*32}{g}$, la même masse (aux arrondis près) : la masse est conservée.
+\end{enumerate}

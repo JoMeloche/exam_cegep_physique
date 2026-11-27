@@ -1,0 +1,16 @@
+title: Photon X diffusé par effet Compton
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  l0: {type: decimal, min: 5.0, max: 80.0, step: 0.5, unit: pm, si: 1e-12, label: Longueur d'onde incidente}
+  th: {type: integer, min: 30, max: 170, step: 5, unit: \degree, label: Angle de diffusion}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))", unit: m, label: Décalage de Compton}
+    b: {expr: "l0 + 6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))", unit: m, label: Longueur d'onde diffusée}
+    c: {expr: "6.626e-34*3e8*(1/l0 - 1/(l0 + 6.626e-34/(9.109e-31*3e8)*(1 - cos(rad(th)))))/1.602e-19", unit: eV, label: Énergie cinétique de l'électron}

@@ -1,0 +1,48 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde et fréquence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $k = \qty{\v{k}}{rad/m}$, $\omega = \qty{\v{w}}{rad/s}$
+        \item Variables recherchées : $\lambda$ (m) et $f$ (Hz)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ k = \frac{2\pi}{\lambda} \qquad \omega = 2\pi f \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{2\pi}{k} \qquad f = \frac{\omega}{2\pi} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{2\pi}{\num{\v{k}}} = \Res{2*pi/\v{k}}{m} \qquad f = \frac{\num{\v{w}}}{2\pi} = \Res{\v{w}/(2*pi)}{Hz} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{2*pi/\v{k}}{m}}$ et $f = \mathbf{\Res{\v{w}/(2*pi)}{Hz}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse et sens de propagation}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $k = \qty{\v{k}}{rad/m}$, $\omega = \qty{\v{w}}{rad/s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f = \frac{\omega}{k} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{\num{\v{w}}}{\num{\v{k}}} = \Res{\v{w}/\v{k}}{m/s} \]
+    \item \textbf{Réponse :} l'onde se propage à \textbf{\Res{\v{w}/\v{k}}{m/s}} \textbf{vers les $x$ positifs} (signes opposés devant $kx$ et $\omega t$).
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse transversale maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $\omega = \qty{\v{w}}{rad/s}$
+        \item Variable recherchée : $v_{y,\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_y = \frac{\partial y}{\partial t} = -A\omega\cos(kx - \omega t) \qquad v_{y,\max} = A\omega \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{y,\max} = \num{\vsi{A}} \cdot \num{\v{w}} = \Res{\vsi{A}*\v{w}}{m/s} \]
+    \item \textbf{Réponse :} $v_{y,\max} = \mathbf{\Res{\vsi{A}*\v{w}}{m/s}}$, soit \Res{100*\vsi{A}*\v{k}}{\percent} de la vitesse de l'onde. Les deux vitesses sont différentes : l'une décrit le mouvement d'un point de la corde, l'autre la propagation de la forme.
+\end{enumerate}

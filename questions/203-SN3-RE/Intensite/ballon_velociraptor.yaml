@@ -1,0 +1,57 @@
+title: Ballon velociraptor
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  P:
+    type: integer
+    min: 2
+    max: 6
+    step: 1
+    unit: W
+    label: QthreeP
+  Beta:
+    type: integer
+    min: 79
+    max: 89
+    step: 1
+    unit: dB
+    label: QthreeBeta
+  R:
+    type: decimal
+    min: 0.002
+    max: 0.0045
+    step: 0.0005
+    unit: m
+    label: QthreeR
+  Musique:
+    type: integer
+    min: 74
+    max: 83
+    step: 1
+    unit: dB
+    label: QthreeMusique
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Intensité/Q_ballon_velociraptor.tex
+original_values:
+  P:
+    A: '4'
+    B: '5'
+    C: '3'
+  Beta:
+    A: '85'
+    B: '80'
+    C: '88'
+  R:
+    A: '0.003'
+    B: '0.004'
+    C: '0.0025'
+  Musique:
+    A: '80'
+    B: '75'
+    C: '82'
+history: []

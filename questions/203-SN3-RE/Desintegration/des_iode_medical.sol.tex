@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse restante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_0 = \qty{\v{m0}}{\micro\gram}$, $t = \qty{\v{t}}{d}$, $T_{1/2} = \qty{8.02}{d}$ ; variable recherchée : $m$
+    \item \textbf{Équations pertinentes :} la masse est proportionnelle au nombre de noyaux :
+    \[ m = m_0 \left(\tfrac{1}{2}\right)^{t/T_{1/2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m = \num{\v{m0}} \cdot (0{,}5)^{\v{t}/8{,}02} = \Res{\v{m0}*0.5^(\v{t}/8.02)}{\micro\gram} \]
+    \item \textbf{Réponse :} il reste \textbf{\Res{\v{m0}*0.5^(\v{t}/8.02)}{\micro\gram}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Activité initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_0 = \qty{\fpeval{\v{m0}*1e-6}}{g}$, $M = \qty{131}{g/mol}$ ; variable recherchée : $A_0$
+    \item \textbf{Équations pertinentes :}
+    \[ N_0 = \frac{m_0}{M} N_A \qquad \lambda = \frac{\ln 2}{T_{1/2}} \qquad A_0 = \lambda N_0 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ N_0 = \frac{\num{\fpeval{\v{m0}*1e-6}}}{131} \cdot \num{6.022e23} = \ResSci{\v{m0}*1e-6/131*6.022e23}{} \qquad \lambda = \frac{\ln 2}{8{,}02 \cdot 86400} = \ResSci{ln(2)/(8.02*86400)}{s^{-1}} \]
+    \[ A_0 = \ResSci{ln(2)/(8.02*86400)*\v{m0}*1e-6/131*6.022e23}{Bq} \]
+    \item \textbf{Réponse :} l'activité initiale est de \textbf{\ResSci{ln(2)/(8.02*86400)*\v{m0}*1e-6/131*6.022e23}{Bq}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Durée pour atteindre \qty{\v{p}}{\percent}}
+\[ \frac{N}{N_0} = \left(\tfrac{1}{2}\right)^{t/T_{1/2}} \implies t = T_{1/2}\,\frac{\ln(N_0/N)}{\ln 2} = 8{,}02 \cdot \frac{\ln(100/\v{p})}{\ln 2} = \Res{8.02*ln(100/\v{p})/ln(2)}{d} \]
+Il faut \textbf{\Res{8.02*ln(100/\v{p})/ln(2)}{jours}}.

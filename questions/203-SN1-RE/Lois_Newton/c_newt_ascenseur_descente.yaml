@@ -1,0 +1,11 @@
+title: Ascenseur qui descend à vitesse constante
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: À vitesse constante, $a = 0$, donc $n = mg$, que l'ascenseur monte ou descende.
+choices: [Elle est plus petite que le poids, Elle est plus grande que le poids, Elle est égale au poids, Elle est nulle]

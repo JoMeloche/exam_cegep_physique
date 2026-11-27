@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde de la seconde lumière}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda_1 = \qty{\v{lam1}}{nm}$, $m_1 = \v{m1}$, $m_2 = \v{m2}$
+        \item Variable recherchée : $\lambda_2$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} les deux minimums sont au même angle :
+    \[ a\sin\theta = m_1\lambda_1 = m_2\lambda_2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda_2 = \frac{m_1\lambda_1}{m_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda_2 = \frac{\v{m1} \cdot \num{\v{lam1}}}{\v{m2}} = \Res{\v{m1}*\v{lam1}/\v{m2}}{nm} \]
+    \item \textbf{Réponse :} la seconde lumière a une longueur d'onde de \textbf{\Res{\v{m1}*\v{lam1}/\v{m2}}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Angle de la coïncidence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a = \qty{\vsi{larg}}{m}$, $m_1\lambda_1 = \Res{\v{m1}*\v{lam1}}{nm}$ ; variable recherchée : $\theta$
+    \item \textbf{Équations pertinentes :} $a\sin\theta = m_1\lambda_1$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta = \arcsin\left(\frac{m_1\lambda_1}{a}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta = \arcsin\left(\frac{\v{m1} \cdot \num{\vsi{lam1}}}{\num{\vsi{larg}}}\right) = \Res{asind(\v{m1}*\vsi{lam1}/\vsi{larg})}{\degree} \]
+    \item \textbf{Réponse :} la coïncidence se produit à \textbf{\Res{asind(\v{m1}*\vsi{lam1}/\vsi{larg})}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Position sur l'écran}
+\[ y = L\tan\theta = \num{\v{L}} \cdot \tan(\Val{asind(\v{m1}*\vsi{lam1}/\vsi{larg})}^\circ) = \Res{100*\v{L}*tand(asind(\v{m1}*\vsi{lam1}/\vsi{larg}))}{cm} \]
+La coïncidence est à \textbf{\Res{100*\v{L}*tand(asind(\v{m1}*\vsi{lam1}/\vsi{larg}))}{cm}} du centre.

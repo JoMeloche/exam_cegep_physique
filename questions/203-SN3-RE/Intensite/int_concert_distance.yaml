@@ -1,0 +1,16 @@
+title: Distance minimale d'une scène de concert
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  P:  {type: integer, min: 5, max: 100, step: 5, unit: W, label: Puissance acoustique d'une enceinte}
+  bl: {type: integer, min: 95, max: 105, step: 1, unit: dB, label: Niveau limite}
+  N:  {type: integer, min: 2, max: 8, step: 1, label: Nombre d'enceintes}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(P/(4*pi*1e-12*10**(bl/10)))", unit: m, label: Distance avec une enceinte}
+    b: {expr: "sqrt(N*P/(4*pi*1e-12*10**(bl/10)))", unit: m, label: Distance avec N enceintes}

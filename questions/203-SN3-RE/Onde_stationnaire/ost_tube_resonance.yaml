@@ -1,0 +1,18 @@
+title: Tube de résonance et diapason
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f:  {type: choice, values: [256, 288, 320, 384, 426.7, 440, 512], unit: Hz, label: Fréquence du diapason}
+  dL: {type: decimal, min: 30.0, max: 70.0, step: 0.1, unit: cm, si: 0.01, label: Distance entre deux résonances}
+constraints:
+  - 331 < 2*dL*f < 352
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*dL", unit: m, label: Longueur d'onde}
+    b: {expr: "2*dL*f", unit: m/s, label: Vitesse du son}
+    c: {expr: "273*(2*dL*f/331)**2 - 273", unit: degC, label: Température}
+    d: {expr: "dL/2", unit: m, label: Première longueur de résonance}

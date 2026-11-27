@@ -1,0 +1,15 @@
+title: "Couleur et température des étoiles"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Selon la loi de Wien, $\lambda_{\max} = b/T$ : l''étoile dont le maximum est aux plus courtes longueurs d''onde (bleue) est la plus chaude.'
+choices:
+  - 'La rouge'
+  - 'La bleue'
+  - 'La jaune'
+  - 'Elles ont la même température'

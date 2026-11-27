@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance entre les fentes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $L = \qty{\v{L}}{m}$, $\Delta y = \qty{\vsi{dy}}{m}$
+        \item Variable recherchée : $d$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pour de petits angles, $\Delta y = \dfrac{\lambda L}{d}$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{\lambda L}{\Delta y} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{dy}}} = \Res{1e6*\vsi{lam}*\v{L}/\vsi{dy}}{\micro\metre} \]
+    \item \textbf{Réponse :} les fentes sont séparées de \textbf{\Res{1e6*\vsi{lam}*\v{L}/\vsi{dy}}{\micro\metre}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Largeur des fentes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $W = \qty{\vsi{W}}{m}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} premier minimum de diffraction à $y_1 = W/2 = \lambda L/a$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{2\lambda L}{W} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{2 \cdot \num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{W}}} = \Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre} \]
+    \item \textbf{Réponse :} chaque fente mesure \textbf{\Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre}} de large.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre de franges}
+Les franges du maximum central respectent $|m| < d/a = \dfrac{W}{2\Delta y} = \Val{\v{W}/(2*\v{dy})}$, donc $|m| \le \num{\fpeval{floor(\v{W}/(2*\v{dy}))}}$. Le maximum central contient \textbf{\num{\fpeval{2*floor(\v{W}/(2*\v{dy})) + 1}}} franges brillantes.

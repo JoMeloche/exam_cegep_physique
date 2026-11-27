@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse du train}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $f_1 = \qty[round-mode=places,round-precision=1]{\fpeval{\v{f}*\v{v}/(\v{v}-\v{vs})}}{Hz}$ (approche), $f_2 = \qty[round-mode=places,round-precision=1]{\fpeval{\v{f}*\v{v}/(\v{v}+\v{vs})}}{Hz}$ (éloignement), $v = \qty{\v{v}}{m/s}$
+        \item Variables recherchées : $v_s$ et $f$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f_1 = f\,\frac{v}{v - v_s} \qquad f_2 = f\,\frac{v}{v + v_s} \]
+    \item \textbf{Isolation de la variable recherchée :} en divisant les deux équations, $f$ s'élimine :
+    \[ \frac{f_1}{f_2} = \frac{v + v_s}{v - v_s} \implies v_s = v\,\frac{f_1 - f_2}{f_1 + f_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_s = \num{\v{v}} \cdot \frac{\Val{\v{f}*\v{v}/(\v{v}-\v{vs})} - \Val{\v{f}*\v{v}/(\v{v}+\v{vs})}}{\Val{\v{f}*\v{v}/(\v{v}-\v{vs})} + \Val{\v{f}*\v{v}/(\v{v}+\v{vs})}} = \Res{\v{vs}}{m/s} \]
+    \item \textbf{Réponse :} le train roule à \textbf{\Res{\v{vs}}{m/s}} (\Res{3.6*\v{vs}}{km/h}).
+\end{enumerate}
+
+\subsubsection*{Question b) Fréquence émise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_1$, $v_s = \Res{\v{vs}}{m/s}$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ f_1 = f\,\frac{v}{v - v_s} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f = f_1\,\frac{v - v_s}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \Val{\v{f}*\v{v}/(\v{v}-\v{vs})} \cdot \frac{\num{\v{v}} - \Val{\v{vs}}}{\num{\v{v}}} = \Res{\v{f}}{Hz} \]
+    \item \textbf{Réponse :} le klaxon émet \textbf{\Res{\v{f}}{Hz}}.
+\end{enumerate}

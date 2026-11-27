@@ -1,0 +1,16 @@
+title: Consommation d'uranium d'un réacteur nucléaire
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  P:   {type: integer, min: 300, max: 1500, step: 50, unit: MW, si: 1e6, label: Puissance électrique}
+  eta: {type: integer, min: 30, max: 38, step: 1, unit: \percent, si: 0.01, label: Rendement}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "P/eta", unit: W, label: Puissance thermique}
+    e2: {expr: "P/eta/(200e6*1.602e-19)", unit: 1/s, label: Fissions par seconde}
+    e3: {expr: "P/eta/(200e6*1.602e-19)*86400/6.022e23*0.235", unit: kg, label: Masse d'uranium 235 par jour}

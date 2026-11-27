@@ -1,0 +1,50 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Profondeur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Temps total jusqu'au bruit : $t = \qty{\v{t}}{s}$
+        \item Vitesse du son : $v_s = \qty{\v{vs}}{m/s}$
+        \item Variable recherchée : $h$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ t = t_{\text{chute}} + t_{\text{son}} \qquad h = \frac{1}{2} g t_{\text{chute}}^2 \qquad h = v_s t_{\text{son}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \sqrt{\frac{2h}{g}} + \frac{h}{v_s}. \text{ Avec } u = \sqrt{h} : \ \frac{1}{v_s}u^2 + \sqrt{\frac{2}{g}}\,u - t = 0 \implies u = \frac{-\sqrt{2/g} + \sqrt{2/g + 4t/v_s}}{2/v_s} \]
+    \item \textbf{Résolution numérique :}
+    \[ u = \Val{(-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs})} \ \mathrm{m^{1/2}} \implies h = u^2 = \Res{((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2}{m} \]
+    \item \textbf{Réponse :} le puits a une profondeur de \textbf{\Res{((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Durée de la chute}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $h = \Res{((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2}{m}$
+        \item Variable recherchée : $t_{\text{chute}}$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ h = \frac{1}{2} g t_{\text{chute}}^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t_{\text{chute}} = \sqrt{\frac{2h}{g}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t_{\text{chute}} = \sqrt{\frac{2 \cdot \Val{((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2}}{\num{9.81}}} = \Res{sqrt(2*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2/9.81)}{s} \]
+    \item \textbf{Réponse :} la chute dure \textbf{\Res{sqrt(2*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2/9.81)}{s}} ; le son remonte en \Res{\vsi{t} - sqrt(2*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2/9.81)}{s}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse à l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $t_{\text{chute}} = \Res{sqrt(2*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2/9.81)}{s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = v_0 + g t_{\text{chute}} \qquad v_0 = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = g t_{\text{chute}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \num{9.81} \cdot \Val{sqrt(2*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2/9.81)} = \Res{sqrt(2*9.81*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2)}{m/s} \]
+    \item \textbf{Réponse :} la pierre frappe l'eau à \textbf{\Res{sqrt(2*9.81*((-sqrt(2/9.81) + sqrt(2/9.81 + 4*\vsi{t}/\vsi{vs}))/(2/\vsi{vs}))^2)}{m/s}}.
+\end{enumerate}

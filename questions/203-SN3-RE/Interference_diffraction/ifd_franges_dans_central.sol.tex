@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance entre franges d'interférence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $d = \qty{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $\Delta y$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} maximums d'interférence $d\sin\theta = m\lambda$ ; petits angles $y_m = m\lambda L/d$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta y = \frac{\lambda L}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta y = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{sep}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm} \]
+    \item \textbf{Réponse :} les franges d'interférence sont séparées de \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Largeur du maximum central de diffraction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a = \qty{\vsi{larg}}{m}$ ; variable recherchée : $W$
+    \item \textbf{Équations pertinentes :} premier minimum de diffraction $a\sin\theta_1 = \lambda$, donc $y_1 = \lambda L/a$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ W = 2y_1 = \frac{2\lambda L}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ W = \frac{2 \cdot \num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{2000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+    \item \textbf{Réponse :} le maximum central de diffraction mesure \textbf{\Res{2000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre de franges dans le maximum central}
+Les franges d'interférence du maximum central de diffraction respectent $|m|\lambda/d < \lambda/a$, soit $|m| < d/a = \Val{\v{sep}/\v{larg}}$. Donc $|m| \le \num{\fpeval{floor(\v{sep}/\v{larg})}}$ et il y a $2 \cdot \num{\fpeval{floor(\v{sep}/\v{larg})}} + 1 = $ \textbf{\num{\fpeval{2*floor(\v{sep}/\v{larg}) + 1}}} franges brillantes dans le maximum central.

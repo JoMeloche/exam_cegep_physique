@@ -1,0 +1,38 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Ventilation pulmonaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_c = \qty{\v{Vc}}{L}$, $f = \qty{\v{FR}}{respirations/min}$ ; variable recherchée : ventilation $V_E$ (L/min)
+    \item \textbf{Équations pertinentes :}
+    \[ V_E = V_c \times f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_E = \num{\v{Vc}} \times \num{\v{FR}} = \Res{\v{Vc}*\v{FR}}{L/min} \]
+    \item \textbf{Réponse :} la ventilation pulmonaire est de \textbf{\Res{\v{Vc}*\v{FR}}{L/min}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Air respiré en une journée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_E = \Res{\v{Vc}*\v{FR}}{L/min}$, $\Delta t = \qty{24}{h} = \qty{1440}{min}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :}
+    \[ V = V_E \times \Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V = \Val{\v{Vc}*\v{FR}} \times \num{1440} = \Res{\v{Vc}*\v{FR}*1440}{L} \]
+    \item \textbf{Réponse :} elle respire environ \textbf{\Res{\v{Vc}*\v{FR}*1440}{L}} d'air par jour.
+\end{enumerate}
+
+\subsubsection*{Question c) Dioxygène absorbé par minute}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_E = \Res{\v{Vc}*\v{FR}}{L/min}$, \qty{21}{\percent} de dioxygène à l'inspiration, \qty{\v{O2e}}{\percent} à l'expiration ; variable recherchée : $V_{O_2}$
+    \item \textbf{Équations pertinentes :}
+    \[ V_{O_2} = V_E \times \frac{\%_{\text{inspiré}} - \%_{\text{expiré}}}{100} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_{O_2} = \Val{\v{Vc}*\v{FR}} \times \frac{\num{21} - \num{\v{O2e}}}{100} = \Res{\v{Vc}*\v{FR}*(21-\v{O2e})/100}{L/min} \]
+    \item \textbf{Réponse :} l'organisme retient \textbf{\Res{\v{Vc}*\v{FR}*(21-\v{O2e})/100}{L/min}} de dioxygène.
+\end{enumerate}
+
+\subsubsection*{Question d) Rôle du dioxygène}
+Le dioxygène passe dans le sang au niveau des \textbf{alvéoles pulmonaires}, entourées de capillaires. Transporté par les globules rouges jusqu'aux cellules, il sert à la \textbf{respiration cellulaire} : glucose + dioxygène $\rightarrow$ dioxyde de carbone + eau + énergie.

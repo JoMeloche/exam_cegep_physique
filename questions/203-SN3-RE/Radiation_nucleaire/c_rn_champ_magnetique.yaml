@@ -1,0 +1,15 @@
+title: "Déviation des rayonnements par un champ magnétique"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les rayons gamma sont des photons sans charge électrique : un champ magnétique ne les dévie pas. Les alphas ($+$) et les bêtas ($-$) sont déviés en sens opposés.'
+choices:
+  - 'Alpha'
+  - 'Bêta moins'
+  - 'Gamma'
+  - 'Ils sont tous déviés'

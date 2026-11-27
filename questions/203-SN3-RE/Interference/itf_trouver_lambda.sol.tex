@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde du laser}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \qty{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $m = \v{N}$, $y_{\v{N}} = \qty{\vsi{dy}}{m}$
+        \item Variable recherchée : $\lambda$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pour de petits angles,
+    \[ y_m = \frac{m\lambda L}{d} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{y_m\,d}{m L} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\num{\vsi{dy}} \cdot \num{\vsi{sep}}}{\v{N} \cdot \num{\v{L}}} = \Res{1e9*\vsi{dy}*\vsi{sep}/(\v{N}*\v{L})}{nm} \]
+    \item \textbf{Réponse :} la longueur d'onde est \textbf{\Res{1e9*\vsi{dy}*\vsi{sep}/(\v{N}*\v{L})}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Deuxième frange sombre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta y = y_{\v{N}}/\v{N} = \Res{\v{dy}/\v{N}}{mm}$ ; variable recherchée : $y$ de la frange sombre $m = 1$
+    \item \textbf{Équations pertinentes :} frange sombre : $d\sin\theta = (m + \tfrac{1}{2})\lambda$, donc $y = (m + \tfrac{1}{2})\dfrac{\lambda L}{d}$
+    \item \textbf{Isolation de la variable recherchée :} la deuxième frange sombre correspond à $m = 1$ : $y = \num{1.5}\,\Delta y$
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{1.5} \cdot \Val{\v{dy}/\v{N}} = \Res{1.5*\v{dy}/\v{N}}{mm} \]
+    \item \textbf{Réponse :} la deuxième frange sombre est à \textbf{\Res{1.5*\v{dy}/\v{N}}{mm}} du centre.
+\end{enumerate}
+
+\subsubsection*{Question c) Montage dans l'eau}
+Dans l'eau, la longueur d'onde devient $\lambda_n = \lambda/n$, donc l'interfrange est divisé par $n$ :
+\[ \Delta y' = \frac{\Delta y}{n} = \frac{\Val{\v{dy}/\v{N}}}{\num{1.33}} = \Res{\v{dy}/\v{N}/1.33}{mm} \]
+Les franges brillantes sont maintenant séparées de \textbf{\Res{\v{dy}/\v{N}/1.33}{mm}}.

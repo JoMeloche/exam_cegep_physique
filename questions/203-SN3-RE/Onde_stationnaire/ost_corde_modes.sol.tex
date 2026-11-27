@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse des ondes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $F = \qty{\v{F}}{N}$, $\mu = \qty{\vsi{mu}}{kg/m}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\frac{\num{\v{F}}}{\num{\vsi{mu}}}} = \Res{sqrt(\v{F}/\vsi{mu})}{m/s} \]
+    \item \textbf{Réponse :} les ondes se propagent à \textbf{\Res{sqrt(\v{F}/\vsi{mu})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Fréquence fondamentale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v = \Res{sqrt(\v{F}/\vsi{mu})}{m/s}$, $L = \qty{\vsi{L}}{m}$
+        \item Variable recherchée : $f_1$ (Hz)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} corde fixée aux deux bouts :
+    \[ f_n = \frac{n v}{2L} \]
+    \item \textbf{Isolation de la variable recherchée :} avec $n = 1$, $f_1 = \dfrac{v}{2L}$.
+    \item \textbf{Résolution numérique :}
+    \[ f_1 = \frac{\Val{sqrt(\v{F}/\vsi{mu})}}{2 \cdot \num{\vsi{L}}} = \Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz} \]
+    \item \textbf{Réponse :} la fréquence fondamentale est de \textbf{\Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Mode $n = \v{n}$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $n = \v{n}$, $f_1 = \Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz}$, $L = \qty{\vsi{L}}{m}$
+        \item Variables recherchées : $f_{\v{n}}$ et $\lambda_{\v{n}}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f_n = n f_1 \qquad \lambda_n = \frac{2L}{n} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ f_{\v{n}} = \v{n} \cdot \Val{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})} = \Res{\v{n}*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz} \qquad \lambda_{\v{n}} = \frac{2 \cdot \num{\vsi{L}}}{\v{n}} = \Res{2*\vsi{L}/\v{n}}{m} \]
+    \item \textbf{Réponse :} $f_{\v{n}} = \mathbf{\Res{\v{n}*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz}}$ et $\lambda_{\v{n}} = \mathbf{\Res{2*\vsi{L}/\v{n}}{m}}$. Le dessin montre \v{n} fuseaux : \textbf{\fpeval{\v{n}+1} nœuds} et \textbf{\v{n} ventres}.
+\end{enumerate}

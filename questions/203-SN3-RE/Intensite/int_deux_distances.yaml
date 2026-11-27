@@ -1,0 +1,17 @@
+title: Niveau sonore à deux distances d'une sirène
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  b1: {type: integer, min: 90, max: 125, step: 1, unit: dB, label: Niveau sonore à r1}
+  r1: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: m, label: Première distance}
+  r2: {type: integer, min: 20, max: 500, step: 10, unit: m, label: Deuxième distance}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1e-12*10**(b1/10)*4*pi*r1**2", unit: W, label: Puissance de la sirène}
+    b: {expr: "b1 - 20*log10(r2/r1)", unit: dB, label: Niveau à r2}
+    c: {expr: "r1*10**((b1-85)/20)", unit: m, label: Distance où le niveau vaut 85 dB}

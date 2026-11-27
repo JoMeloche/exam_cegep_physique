@@ -1,0 +1,15 @@
+title: "Angle donnant le plus grand décalage Compton"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\Delta\lambda = \frac{h}{m_e c}(1 - \cos\theta)$ est maximal quand $\cos\theta = -1$, soit à \qty{180}{\degree} (rétrodiffusion).'
+choices:
+  - '\qty{0}{\degree}'
+  - '\qty{45}{\degree}'
+  - '\qty{90}{\degree}'
+  - '\qty{180}{\degree}'

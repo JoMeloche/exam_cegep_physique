@@ -1,0 +1,15 @@
+title: 'Comparaison de la lumière rouge et violette'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Dans le vide, toutes les couleurs vont à $c$. Le violet ($\approx \qty{400}{nm}$) a une longueur d''onde plus courte que le rouge ($\approx \qty{700}{nm}$), donc une fréquence plus grande ($f = c/\lambda$).'
+choices:
+  - 'Plus grande fréquence et plus petite longueur d''onde'
+  - 'Plus grande fréquence et plus grande longueur d''onde'
+  - 'Plus petite fréquence et plus petite longueur d''onde'
+  - 'Même fréquence, mais plus petite longueur d''onde'

@@ -1,0 +1,38 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Intensité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta = \qty{\v{niv}}{dB}$, $I_0 = \qty{e-12}{W/m^2}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ \beta = 10\log\left(\frac{I}{I_0}\right) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = I_0\,10^{\beta/10} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = 10^{-12} \cdot 10^{\v{niv}/10} = \ResSci{1e-12*10^(\v{niv}/10)}{W/m^2} \]
+    \item \textbf{Réponse :} l'intensité est de \textbf{\ResSci{1e-12*10^(\v{niv}/10)}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance reçue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I$, $S = \qty{\v{S}}{cm^2} = \qty{\vsi{S}}{m^2}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{P}{S} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ P = I S \]
+    \item \textbf{Résolution numérique :}
+    \[ P = \ResSci{1e-12*10^(\v{niv}/10)}{} \cdot \num{\vsi{S}} = \ResSci{1e-12*10^(\v{niv}/10)*\vsi{S}}{W} \]
+    \item \textbf{Réponse :} un tympan reçoit \textbf{\ResSci{1e-12*10^(\v{niv}/10)*\vsi{S}}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie reçue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P$, $\Delta t = \qty{\v{t}}{h} = \qty{\vsi{t}}{s}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{E}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E = P\,\Delta t \]
+    \item \textbf{Résolution numérique :}
+    \[ E = \ResSci{1e-12*10^(\v{niv}/10)*\vsi{S}}{} \cdot \num{\vsi{t}} = \ResSci{1e-12*10^(\v{niv}/10)*\vsi{S}*\vsi{t}}{J} \]
+    \item \textbf{Réponse :} un tympan reçoit \textbf{\ResSci{1e-12*10^(\v{niv}/10)*\vsi{S}*\vsi{t}}{J}}, une énergie minuscule malgré le danger pour l'ouïe.
+\end{enumerate}

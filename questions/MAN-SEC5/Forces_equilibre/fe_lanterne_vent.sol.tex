@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$ ; variable recherchée : $F_g$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = mg \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} $F_g = \mathbf{\Res{\v{m}*9.81}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Angle du câble}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_v = \qty{\v{F}}{N}$ (horizontale), $F_g = \Res{\v{m}*9.81}{N}$ ; variable recherchée : $\theta$ (avec la verticale)
+    \item \textbf{Équations pertinentes :} à l'équilibre, $T\sin\theta = F_v$ et $T\cos\theta = F_g$, donc
+    \[ \tan\theta = \frac{F_v}{F_g} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta = \arctan\left(\frac{F_v}{F_g}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta = \arctan\left(\frac{\qty{\v{F}}{N}}{\Val{\v{m}*9.81}\,\unit{N}}\right) = \Res{atand(\v{F}/(\v{m}*9.81))}{\degree} \]
+    \item \textbf{Réponse :} le câble fait \textbf{\Res{atand(\v{F}/(\v{m}*9.81))}{\degree}} avec la verticale.
+\end{enumerate}
+
+\subsubsection*{Question c) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_v = \qty{\v{F}}{N}$, $F_g = \Res{\v{m}*9.81}{N}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :} la tension équilibre la somme du poids et de la force du vent, qui sont perpendiculaires :
+    \[ T^2 = F_v^2 + F_g^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \sqrt{F_v^2 + F_g^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \sqrt{(\qty{\v{F}}{N})^2 + (\Val{\v{m}*9.81}\,\unit{N})^2} = \Res{sqrt(\v{F}^2 + (\v{m}*9.81)^2)}{N} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{sqrt(\v{F}^2 + (\v{m}*9.81)^2)}{N}}$.
+\end{enumerate}

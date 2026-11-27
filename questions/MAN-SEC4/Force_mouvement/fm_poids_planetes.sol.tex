@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Poids sur la Terre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g_T = \qty{9.8}{N/kg}$ ; variable recherchée : $F_g$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = m g \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \qty{\v{m}}{kg} \cdot \qty{9.8}{N/kg} = \Res{\v{m}*9.8}{N} \]
+    \item \textbf{Réponse :} sur la Terre, l'astronaute pèse \textbf{\Res{\v{m}*9.8}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Sur Mars}
+La masse (quantité de matière) ne change pas : $m = \mathbf{\qty{\v{m}}{kg}}$. Le poids change avec $g$ :
+\[ F_{g,M} = \qty{\v{m}}{kg} \cdot \qty{3.7}{N/kg} = \Res{\v{m}*3.7}{N} \]
+
+\subsubsection*{Question c) Robot}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{g,M} = \qty{\v{Wm}}{N}$, $g_M = \qty{3.7}{N/kg}$ ; variables recherchées : $m$, $F_{g,T}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = m g \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m = \frac{F_{g,M}}{g_M} \]
+    \item \textbf{Résolution numérique :}
+    \[ m = \frac{\qty{\v{Wm}}{N}}{\qty{3.7}{N/kg}} = \Res{\v{Wm}/3.7}{kg} \qquad F_{g,T} = \Val{\v{Wm}/3.7}\,\unit{kg} \cdot \qty{9.8}{N/kg} = \Res{\v{Wm}/3.7*9.8}{N} \]
+    \item \textbf{Réponse :} le robot a une masse de \textbf{\Res{\v{Wm}/3.7}{kg}} et pèserait \textbf{\Res{\v{Wm}/3.7*9.8}{N}} sur la Terre.
+\end{enumerate}

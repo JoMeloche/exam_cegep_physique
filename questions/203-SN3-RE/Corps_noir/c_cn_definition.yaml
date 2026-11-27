@@ -1,0 +1,15 @@
+title: "Définition d'un corps noir"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Un corps noir absorbe tout le rayonnement qu''il reçoit, à toutes les longueurs d''onde ; c''est aussi l''émetteur thermique idéal ($e = 1$). Il peut briller s''il est chaud, comme le Soleil.'
+choices:
+  - 'Un objet qui absorbe tout le rayonnement incident, à toutes les longueurs d''onde'
+  - 'Un objet qui n''émet aucun rayonnement'
+  - 'Un objet qui réfléchit toute la lumière visible'
+  - 'Un objet dont la température est de \qty{0}{K}'

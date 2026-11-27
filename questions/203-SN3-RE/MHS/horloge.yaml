@@ -1,0 +1,17 @@
+title: Horloge
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- 'Rien : l’horloge fonctionnera aussi bien sans aucune modification.'
+- Augmenter la masse du pendule.
+- Diminuer la masse du pendule.
+- Allonger la corde du pendule.
+- Raccourcir la corde du pendule.
+needs_review: true
+source: Question_concept/MHS/horloge.tex
+history: []

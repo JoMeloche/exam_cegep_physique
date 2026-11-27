@@ -1,0 +1,15 @@
+title: "Vitesse et accélération à une position extrême"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À $x = +A$, le bloc s''arrête ($v = 0$) et $a = -\omega^2 x$ est maximale et dirigée vers l''équilibre.'
+choices:
+  - 'La vitesse et l''accélération sont nulles'
+  - 'La vitesse est maximale et l''accélération est nulle'
+  - 'La vitesse est nulle et l''accélération est maximale, dirigée vers la position d''équilibre'
+  - 'La vitesse est nulle et l''accélération est maximale, dirigée vers l''extérieur'

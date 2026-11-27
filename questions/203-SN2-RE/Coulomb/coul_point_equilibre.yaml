@@ -1,0 +1,18 @@
+title: Position d'équilibre entre deux charges
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  q1: {type: decimal, min: 1.0, max: 9.0, step: 0.5, unit: \micro\coulomb, si: 1e-6, label: Charge 1}
+  q2: {type: decimal, min: 1.0, max: 9.0, step: 0.5, unit: \micro\coulomb, si: 1e-6, label: Charge 2}
+  d:  {type: integer, min: 10, max: 60, step: 2, unit: cm, si: 0.01, label: Distance entre les charges}
+  Q:  {type: integer, min: 5, max: 50, step: 5, unit: nC, si: 1e-9, label: Troisième charge}
+constraints:
+  - abs(q1 - q2) > 1.4e-6
+solution:
+  mode: manual
+  parts:
+    b: {expr: "d/(1 + sqrt(q2/q1))", unit: m, label: Distance à partir de q1}
+    c: {expr: "8.99e9*Q*abs(q1 - q2)/(d/2)**2", unit: N, label: Force résultante au milieu}

@@ -1,0 +1,15 @@
+title: 'Centre nerveux d''un réflexe'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Dans un arc réflexe, le message sensitif va à la moelle épinière qui renvoie directement un message moteur au muscle ; le cerveau n''est informé qu''après, d''où la douleur ressentie en retard.'
+choices:
+  - 'Le cerveau'
+  - 'Le cervelet'
+  - 'La moelle épinière'
+  - 'Le bulbe rachidien'

@@ -1,0 +1,19 @@
+title: Énergie et puissance du flash d'un appareil photo
+type: developpement
+points: 20
+time_min: 10
+difficulty: 2
+figures: []
+variables:
+  C:  {type: integer, min: 50, max: 500, step: 10, unit: \micro\farad, si: 1e-6, label: Capacité}
+  V:  {type: integer, min: 150, max: 400, step: 10, unit: V, label: Tension de charge}
+  t:  {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: ms, si: 0.001, label: Durée de l'éclair}
+  U2: {type: integer, min: 5, max: 60, step: 5, unit: J, label: Énergie visée}
+constraints:
+  - abs(U2 - 0.5*C*V**2) > 0.5
+solution:
+  mode: manual
+  parts:
+    a: {expr: "0.5*C*V**2", unit: J, label: Énergie emmagasinée}
+    b: {expr: "0.5*C*V**2/t", unit: W, label: Puissance moyenne}
+    c: {expr: "sqrt(2*U2/C)", unit: V, label: Tension nécessaire}

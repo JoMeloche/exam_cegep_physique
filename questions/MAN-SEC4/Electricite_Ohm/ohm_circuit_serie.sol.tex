@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_1 = \qty{\v{R1}}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$, $R_3 = \qty{\v{R3}}{\ohm}$ ; variable recherchée : $R_{\text{éq}}$
+    \item \textbf{Équations pertinentes :} en série, les résistances s'additionnent :
+    \[ R_{\text{éq}} = R_1 + R_2 + R_3 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ R_{\text{éq}} = \qty{\v{R1}}{\ohm} + \qty{\v{R2}}{\ohm} + \qty{\v{R3}}{\ohm} = \qty{\fpeval{\v{R1}+\v{R2}+\v{R3}}}{\ohm} \]
+    \item \textbf{Réponse :} $R_{\text{éq}} = \mathbf{\qty{\fpeval{\v{R1}+\v{R2}+\v{R3}}}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{\v{U}}{V}$, $R_{\text{éq}} = \qty{\fpeval{\v{R1}+\v{R2}+\v{R3}}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ U = R_{\text{éq}}\,I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{U}{R_{\text{éq}}} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\qty{\v{U}}{V}}{\qty{\fpeval{\v{R1}+\v{R2}+\v{R3}}}{\ohm}} = \Res{\v{U}/(\v{R1}+\v{R2}+\v{R3})}{A} \]
+    \item \textbf{Réponse :} la pile fournit \textbf{\Res{\v{U}/(\v{R1}+\v{R2}+\v{R3})}{A}}, le même courant traverse les trois résistors.
+\end{enumerate}
+
+\subsubsection*{Question c) Tensions}
+Le même courant traverse chaque résistor, donc $U_i = R_i\,I$ :
+\[ U_1 = \Res{\v{R1}*\v{U}/(\v{R1}+\v{R2}+\v{R3})}{V} \qquad U_2 = \Res{\v{R2}*\v{U}/(\v{R1}+\v{R2}+\v{R3})}{V} \qquad U_3 = \Res{\v{R3}*\v{U}/(\v{R1}+\v{R2}+\v{R3})}{V} \]
+Vérification : $U_1 + U_2 + U_3 = \qty{\v{U}}{V}$, la tension de la pile (loi des tensions en série).

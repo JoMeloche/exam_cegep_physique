@@ -1,0 +1,17 @@
+title: Nombre de photons et courant d'une cellule photoélectrique
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  P:   {type: decimal, min: 0.5, max: 10.0, step: 0.5, unit: mW, si: 0.001, label: Puissance lumineuse}
+  lam: {type: integer, min: 250, max: 450, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  eta: {type: decimal, min: 1.0, max: 20.0, step: 0.5, unit: \percent, si: 0.01, label: Rendement quantique}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "6.626e-34*3e8/lam", unit: J, label: Énergie d'un photon}
+    b: {expr: "P*lam/(6.626e-34*3e8)", unit: photons/s, label: Photons par seconde}
+    c: {expr: "eta*P*lam/(6.626e-34*3e8)*1.602e-19", unit: A, label: Courant}

@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance absorbée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $S = \qty{1361}{W/m^2}$, $R = \qty{6.371e6}{m}$, $a = \num{\v{al}}$ ; variable recherchée : $P_{\text{abs}}$
+    \item \textbf{Équations pertinentes :} la Terre intercepte le rayonnement sur un disque :
+    \[ P_{\text{abs}} = S\,\pi R^2\,(1 - a) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P_{\text{abs}} = 1361 \cdot \pi(\num{6.371e6})^2 \cdot (1 - \num{\v{al}}) = \ResSci{1361*pi*6.371e6^2*(1 - \v{al})}{W} \]
+    \item \textbf{Réponse :} $P_{\text{abs}} = \mathbf{\ResSci{1361*pi*6.371e6^2*(1 - \v{al})}{W}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance émise par la surface}
+\[ P_{\text{ém}} = \sigma\,4\pi R^2\,T_s^4 = \num{5.67e-8} \cdot 4\pi(\num{6.371e6})^2 \cdot (\num{\v{Ts}})^4 = \ResSci{5.67e-8*4*pi*6.371e6^2*\v{Ts}^4}{W} \]
+
+\subsubsection*{Question c) Comparaison}
+\[ P_{\text{ém}} - P_{\text{abs}} = \ResSci{5.67e-8*4*pi*6.371e6^2*\v{Ts}^4 - 1361*pi*6.371e6^2*(1 - \v{al})}{W} \qquad \frac{P_{\text{ém}}}{P_{\text{abs}}} = \Res{(5.67e-8*4*pi*6.371e6^2*\v{Ts}^4)/(1361*pi*6.371e6^2*(1 - \v{al}))}{} \]
+La surface émet environ \Res{(5.67e-8*4*pi*6.371e6^2*\v{Ts}^4)/(1361*pi*6.371e6^2*(1 - \v{al}))}{} fois plus qu'elle ne reçoit du Soleil. La différence, \textbf{\ResSci{5.67e-8*4*pi*6.371e6^2*\v{Ts}^4 - 1361*pi*6.371e6^2*(1 - \v{al})}{W}}, provient du rayonnement infrarouge que l'atmosphère (gaz à effet de serre et nuages) renvoie vers la surface.

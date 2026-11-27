@@ -1,0 +1,15 @@
+title: "Effet d'une hausse de l'albédo"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un albédo plus grand signifie qu''une plus grande fraction du rayonnement solaire est réfléchie : la planète absorbe moins de puissance, et sa température d''équilibre baisse.'
+choices:
+  - 'Elle augmente'
+  - 'Elle diminue'
+  - 'Elle ne change pas, car l''énergie solaire reçue est la même'
+  - 'Elle augmente le jour et ne change pas la nuit'

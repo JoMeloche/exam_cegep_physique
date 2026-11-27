@@ -1,0 +1,15 @@
+title: 'Résultante possible de deux forces'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La résultante est comprise entre $40 - 30 = \qty{10}{N}$ (forces opposées) et $40 + 30 = \qty{70}{N}$ (même sens). \qty{80}{N} est impossible.'
+choices:
+  - '\qty{10}{N}'
+  - '\qty{50}{N}'
+  - '\qty{70}{N}'
+  - '\qty{80}{N}'

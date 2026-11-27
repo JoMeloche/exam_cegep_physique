@@ -1,0 +1,17 @@
+title: Deux pendules chargés
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  m:  {type: decimal, min: 1.0, max: 8.0, step: 0.5, unit: g, si: 0.001, label: Masse de chaque boule}
+  L:  {type: integer, min: 20, max: 80, step: 5, unit: cm, si: 0.01, label: Longueur des fils}
+  th: {type: integer, min: 5, max: 20, step: 1, unit: \degree, label: Angle avec la verticale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*L*sin(rad(th))", unit: m, label: Distance entre les boules}
+    b: {expr: "m*9.81*tan(rad(th))", unit: N, label: Force électrique}
+    c: {expr: "2*L*sin(rad(th))*sqrt(m*9.81*tan(rad(th))/8.99e9)", unit: C, label: Charge de chaque boule}

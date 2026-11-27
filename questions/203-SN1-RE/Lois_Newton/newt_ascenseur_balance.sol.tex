@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Démarrage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la personne : $m = \qty{\v{m}}{kg}$
+        \item Accélération au départ (vers le haut) : $a_y = \qty{\v{a1}}{m/s^2}$
+        \item Forces : poids $mg$ vers le bas, normale $n$ vers le haut ; axe $y$ vers le haut
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_y = m a_y \implies n - m g = m a_y \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ n = m(g + a_y) \]
+    \item \textbf{Résolution numérique :}
+    \[ n = \num{\vsi{m}} \cdot (\num{9.81} + \num{\vsi{a1}}) = \Res{\vsi{m}*(9.81 + \vsi{a1})}{N} \]
+    \item \textbf{Réponse :} la balance indique \textbf{\Res{\vsi{m}*(9.81 + \vsi{a1})}{N}}, plus que le poids.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse constante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la personne : $m = \qty{\v{m}}{kg}$
+        \item $a_y = \qty{0}{m/s^2}$
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n - m g = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ n = m g \]
+    \item \textbf{Résolution numérique :}
+    \[ n = \num{\vsi{m}} \cdot \num{9.81} = \Res{\vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} la balance indique le poids, \textbf{\Res{\vsi{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Ralentissement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la personne : $m = \qty{\v{m}}{kg}$
+        \item $a_y = -\qty{\v{a2}}{m/s^2}$ (l'ascenseur monte mais ralentit)
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n - m g = m a_y \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ n = m(g + a_y) = m(g - a_2) \]
+    \item \textbf{Résolution numérique :}
+    \[ n = \num{\vsi{m}} \cdot (\num{9.81} - \num{\vsi{a2}}) = \Res{\vsi{m}*(9.81 - \vsi{a2})}{N} \]
+    \item \textbf{Réponse :} la balance indique \textbf{\Res{\vsi{m}*(9.81 - \vsi{a2})}{N}}, moins que le poids.
+\end{enumerate}

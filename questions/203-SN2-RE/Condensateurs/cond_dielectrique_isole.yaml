@@ -1,0 +1,19 @@
+title: Insertion d'un diélectrique, condensateur isolé
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  C0:  {type: integer, min: 2, max: 50, step: 1, unit: nF, si: 1e-9, label: Capacité initiale}
+  V0:  {type: integer, min: 12, max: 200, step: 4, unit: V, label: Tension initiale}
+  kap: {type: choice, values: [2.1, 2.6, 3.4, 4.5, 5.6], unit: '', label: Constante diélectrique}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "C0*V0", unit: C, label: Charge}
+    a2: {expr: "0.5*C0*V0**2", unit: J, label: Énergie initiale}
+    b1: {expr: "kap*C0", unit: F, label: Nouvelle capacité}
+    b2: {expr: "V0/kap", unit: V, label: Nouvelle tension}
+    c: {expr: "0.5*C0*V0**2/kap", unit: J, label: Nouvelle énergie}

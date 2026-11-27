@@ -1,0 +1,16 @@
+title: Rayonnement infrarouge de la peau humaine
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  Tc: {type: decimal, min: 30.0, max: 37.0, step: 0.5, unit: \degreeCelsius, label: Température de la peau}
+  S:  {type: decimal, min: 1.4, max: 2.2, step: 0.1, unit: m^2, label: Surface de la peau}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "2.898e-3/(Tc + 273)", unit: m, label: Lambda max}
+    e2: {expr: "5.67e-8*(Tc + 273)**4", unit: W/m^2, label: Puissance par unité de surface}
+    e3: {expr: "5.67e-8*(Tc + 273)**4*S", unit: W, label: Puissance totale émise}

@@ -1,0 +1,15 @@
+title: 'Force dirigée vers l''axe de rotation'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La force est parallèle au rayon : $\theta = 180^\circ$ et $\tau = rF\sin\theta = 0$.'
+choices:
+  - 'Il est égal à la force multipliée par la longueur de la clé'
+  - 'Il dépend de la masse de la clé'
+  - 'Il est nul'
+  - 'Il est maximal'

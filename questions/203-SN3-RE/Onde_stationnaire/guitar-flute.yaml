@@ -1,0 +1,52 @@
+title: Guitar-flute
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  Masse:
+    type: decimal
+    min: 0.7
+    max: 0.95
+    step: 0.05
+    unit: g
+    label: QthreeMasse
+    si_unit: kg
+    si: 0.001
+  Lcorde:
+    type: integer
+    min: 55
+    max: 75
+    step: 5
+    unit: cm
+    label: QthreeLcorde
+    si_unit: m
+    si: 0.01
+  Lflute:
+    type: integer
+    min: 45
+    max: 65
+    step: 5
+    unit: cm
+    label: QthreeLflute
+    si_unit: m
+    si: 0.01
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Onde_résonnante/Q_guitar-flute.tex
+original_values:
+  Masse:
+    A: '0.8'
+    B: '0.9'
+    C: '0.75'
+  Lcorde:
+    A: '65'
+    B: '70'
+    C: '60'
+  Lflute:
+    A: '60'
+    B: '50'
+    C: '55'
+history: []

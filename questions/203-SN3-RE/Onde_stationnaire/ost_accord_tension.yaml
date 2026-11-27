@@ -1,0 +1,18 @@
+title: Accorder une corde de violon
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  L:  {type: decimal, min: 30.0, max: 35.0, step: 0.5, unit: cm, si: 0.01, label: Longueur vibrante}
+  m:  {type: decimal, min: 0.20, max: 1.50, step: 0.05, unit: g, si: 0.001, label: Masse de la partie vibrante}
+  f:  {type: choice, values: [196, 293.7, 440, 659.3], unit: Hz, label: Fréquence visée}
+  f2: {type: integer, min: 2, max: 12, step: 1, unit: Hz, label: Écart de fréquence}
+constraints:
+  - m/L*(2*L*f)**2 < 120
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m/L*(2*L*f)**2", unit: N, label: Tension requise}
+    b: {expr: "m/L*(2*L*(f-f2))**2", unit: N, label: Tension si la corde est trop basse}

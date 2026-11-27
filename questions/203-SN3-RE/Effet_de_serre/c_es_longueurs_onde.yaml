@@ -1,0 +1,15 @@
+title: "Longueurs d'onde du rayonnement solaire et terrestre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Selon la loi de Wien, le Soleil (environ \qty{5800}{K}) émet surtout près de \qty{0.5}{\micro\metre}, alors que la Terre (environ \qty{288}{K}) émet surtout près de \qty{10}{\micro\metre}, dans l''infrarouge.'
+choices:
+  - 'Parce que la Terre est beaucoup plus froide que le Soleil'
+  - 'Parce que la Terre est beaucoup plus petite que le Soleil'
+  - 'Parce que l''atmosphère absorbe la lumière visible émise par la Terre'
+  - 'Parce que la Terre n''est pas un corps noir'

@@ -1,0 +1,18 @@
+title: Diffraction par une fente plongée dans un liquide
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde dans l'air}
+  larg: {type: integer, min: 30, max: 120, step: 5, unit: \micro\metre, si: 1e-6, label: Largeur de la fente}
+  L: {type: decimal, min: 0.5, max: 1.5, step: 0.1, unit: m, label: Distance fente-écran}
+  n: {type: choice, values: [1.33, 1.36, 1.47, 1.50], label: Indice de réfraction du liquide}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*lam*L/larg", unit: m, label: Largeur du maximum central dans l'air}
+    b: {expr: "2*lam*L/(n*larg)", unit: m, label: Largeur du maximum central dans le liquide}
+    c: {expr: "deg(asin(2*lam/(n*larg)))", unit: deg, label: Angle du deuxième minimum dans le liquide}

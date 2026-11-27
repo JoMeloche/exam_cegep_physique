@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse volumique de la couronne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $V = \qty{\v{dV}}{mL}$ ; variable recherchée : $\rho$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \rho = \frac{\num{\v{m}}}{\num{\v{dV}}} = \Res{\v{m}/\v{dV}}{g/mL} \]
+    \item \textbf{Réponse :} $\rho = $ \textbf{\Res{\v{m}/\v{dV}}{g/mL}}, ce qui est inférieur à \qty{19.3}{g/mL} : la couronne \textbf{n'est pas en or pur}, elle contient un métal moins dense.
+\end{enumerate}
+
+\subsubsection*{Question b) Volume d'une couronne d'or pur de même masse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $\rho_{\text{or}} = \qty{19.3}{g/mL}$ ; variable recherchée : $V_{\text{or}}$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V_{\text{or}} = \frac{m}{\rho_{\text{or}}} \]
+    \item \textbf{Résolution numérique :}
+    \[ V_{\text{or}} = \frac{\num{\v{m}}}{\num{19.3}} = \Res{\v{m}/19.3}{mL} \]
+    \item \textbf{Réponse :} elle aurait déplacé \textbf{\Res{\v{m}/19.3}{mL}} d'eau, moins que les \qty{\v{dV}}{mL} observés.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse d'une couronne d'or pur de même volume}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \qty{\v{dV}}{mL}$, $\rho_{\text{or}} = \qty{19.3}{g/mL}$ ; variable recherchée : $m_{\text{or}}$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m_{\text{or}} = \rho_{\text{or}} V \]
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{or}} = \num{19.3} \times \num{\v{dV}} = \Res{19.3*\v{dV}}{g} \]
+    \item \textbf{Réponse :} une couronne d'or pur de ce volume aurait une masse de \textbf{\Res{19.3*\v{dV}}{g}}.
+\end{enumerate}

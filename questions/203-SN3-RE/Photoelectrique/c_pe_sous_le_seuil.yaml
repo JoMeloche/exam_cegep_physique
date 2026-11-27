@@ -1,0 +1,15 @@
+title: "Lumière intense sous la fréquence de seuil"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Chaque électron absorbe un seul photon. Si $hf < \phi$, aucun photon n''a assez d''énergie, peu importe le nombre de photons.'
+choices:
+  - 'Des électrons sont éjectés après un certain temps d''accumulation d''énergie'
+  - 'Des électrons sont éjectés immédiatement, avec une faible énergie'
+  - 'Aucun électron n''est éjecté'
+  - 'Des électrons sont éjectés seulement si l''intensité dépasse une valeur critique'

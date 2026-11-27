@@ -1,0 +1,40 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Diagrammes des forces}
+Bloc 1 (sur le plan) : poids $m_1 g$ vertical vers le bas, normale $n$ perpendiculaire au plan, tension $T$ parallèle au plan vers le haut, frottement cinétique $f_c$ parallèle au plan vers le bas (le bloc monte). Bloc 2 : poids $m_2 g$ vers le bas et tension $T$ vers le haut.
+
+\subsubsection*{Question b) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc sur le plan : $m_1 = \qty{\v{m1}}{kg}$
+        \item Masse du bloc suspendu : $m_2 = \qty{\v{m2}}{kg}$
+        \item Angle du plan incliné : $\theta = \qty{\v{th}}{\degree}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Bloc 1 : } T - m_1 g\sin\theta - \mu_c m_1 g\cos\theta = m_1 a \qquad \text{Bloc 2 : } m_2 g - T = m_2 a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{m_2 g - m_1 g\sin\theta - \mu_c m_1 g\cos\theta}{m_1 + m_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\Res{\vsi{m2}*9.81}{N} - \Res{\vsi{m1}*9.81*sind(\vsi{th})}{N} - \Res{\vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th})}{N}}{\Res{\vsi{m1} + \vsi{m2}}{kg}} = \Res{(\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2})}{m/s^2} \]
+    \item \textbf{Réponse :} le système accélère à \textbf{\Res{(\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2})}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc suspendu : $m_2 = \qty{\v{m2}}{kg}$
+        \item $a = \Res{(\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2})}{m/s^2}$
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ m_2 g - T = m_2 a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = m_2 (g - a) \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \num{\vsi{m2}}\,(\num{9.81} - \Val{(\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2})}) = \Res{\vsi{m2}*(9.81 - (\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2}))}{N} \]
+    \item \textbf{Réponse :} la tension vaut \textbf{\Res{\vsi{m2}*(9.81 - (\vsi{m2}*9.81 - \vsi{m1}*9.81*sind(\vsi{th}) - \vsi{mu}*\vsi{m1}*9.81*cosd(\vsi{th}))/(\vsi{m1} + \vsi{m2}))}{N}}.
+\end{enumerate}

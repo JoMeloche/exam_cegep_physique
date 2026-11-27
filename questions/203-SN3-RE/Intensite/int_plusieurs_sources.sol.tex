@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Intensité d'un étudiant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta_1 = \qty{\v{b1}}{dB}$, $I_0 = \qty{e-12}{W/m^2}$ ; variable recherchée : $I_1$
+    \item \textbf{Équations pertinentes :}
+    \[ \beta = 10\log\left(\frac{I}{I_0}\right) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I_1 = I_0\,10^{\beta_1/10} \]
+    \item \textbf{Résolution numérique :}
+    \[ I_1 = 10^{-12} \cdot 10^{\v{b1}/10} = \ResSci{1e-12*10^(\v{b1}/10)}{W/m^2} \]
+    \item \textbf{Réponse :} un étudiant produit \textbf{\ResSci{1e-12*10^(\v{b1}/10)}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Niveau de \v{N} étudiants}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I_1 = \ResSci{1e-12*10^(\v{b1}/10)}{W/m^2}$ ; variable recherchée : $\beta_N$
+    \item \textbf{Équations pertinentes :}
+    \[ I_N = N I_1 \qquad \beta_N = 10\log\left(\frac{I_N}{I_0}\right) = \beta_1 + 10\log N \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \beta_N = \num{\v{b1}} + 10\log(\v{N}) = \Res{\v{b1} + 10*ln(\v{N})/ln(10)}{dB} \]
+    \item \textbf{Réponse :} le niveau sonore est de \textbf{\Res{\v{b1} + 10*ln(\v{N})/ln(10)}{dB}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre maximal d'étudiants}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\beta_{\max} = \qty{\v{bmax}}{dB}$, $\beta_1 = \qty{\v{b1}}{dB}$ ; variable recherchée : $N_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ \beta_{\max} = \beta_1 + 10\log N_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N_{\max} = 10^{(\beta_{\max} - \beta_1)/10} \]
+    \item \textbf{Résolution numérique :}
+    \[ N_{\max} = 10^{(\v{bmax} - \v{b1})/10} = \Val{10^((\v{bmax}-\v{b1})/10)} \]
+    \item \textbf{Réponse :} au plus \textbf{\fpeval{trunc(10^((\v{bmax}-\v{b1})/10))} étudiants} peuvent parler en même temps (on arrondit vers le bas).
+\end{enumerate}

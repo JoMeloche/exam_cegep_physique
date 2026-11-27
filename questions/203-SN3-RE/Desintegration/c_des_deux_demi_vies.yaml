@@ -1,0 +1,15 @@
+title: "Fraction restante après deux demi-vies"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Chaque demi-vie divise le nombre de noyaux par 2 : après deux demi-vies, il reste $\tfrac{1}{2} \cdot \tfrac{1}{2} = \tfrac{1}{4}$.'
+choices:
+  - 'Aucune'
+  - 'La moitié'
+  - 'Le quart'
+  - 'Le huitième'

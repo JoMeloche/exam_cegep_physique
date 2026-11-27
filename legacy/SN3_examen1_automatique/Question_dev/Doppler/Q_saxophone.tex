@@ -1,0 +1,23 @@
+
+Albert et Béatrice ont commencé des leçons de saxophone. Les deux se déplacent vers vous, en jouant la même note, de fréquence $\QtwoFreq\text{ Hz}$. Albert marche à une vitesse de $\QtwoValb\text{ m/s}$, Béatrice à une vitesse de $\QtwoVbea\text{ m/s}$, tandis que vous marchez à $\QtwoVvous\text{ m/s}$ (voir le schéma pour la direction de ces vitesses). Quelle est la fréquence des battements que vous entendrez ?
+
+\textit{(Tracez un schéma définissant clairement vos variables, justifiez vos choix de signes dans les équations, et expliquez pourquoi il y a un battement).}
+
+\vspace{0.8cm}
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Albert
+    \draw[thick, ->] (0,0) -- (1.2,0) node[midway, above] {$\QtwoValb\text{ m/s}$};
+    \node at (0,-0.4) {\textbf{ALBERT}};
+    
+    % Vous
+    \draw[thick, ->] (3.5,0) -- (4.7,0) node[midway, above] {$\QtwoVvous\text{ m/s}$};
+    \node at (3.5,-0.4) {\textbf{VOUS}};
+    
+    % Béatrice
+    \draw[thick, <-] (7,0) -- (8.2,0);
+    \node at (7.6,0.3) {$\QtwoVbea\text{ m/s}$};
+    \node at (7.6,-0.4) {\textbf{BÉATRICE}};
+\end{tikzpicture}
+\end{center}
+\vspace{0.8cm}

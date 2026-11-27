@@ -1,0 +1,49 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+
+\subsubsection*{Question a) Équation de la position}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Amplitude : $A = \qty{\v{A}}{cm} = \Res{\vsi{A}}{m}$
+        \item Fréquence : $f = \qty{\v{f}}{Hz}$
+        \item Variables recherchées : $\omega$ et $\phi$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x(t) = A\cos(\omega t + \phi) \qquad \omega = 2\pi f \]
+    \item \textbf{Isolation de la variable recherchée :} à $t=0$, $x(0) = A$, donc $\cos\phi = 1$ et $\phi = 0$ (le bloc part de l'amplitude positive).
+    \item \textbf{Résolution numérique :}
+    \[ \omega = 2\pi \cdot \num{\v{f}} = \Res{2*pi*\v{f}}{rad/s} \]
+    \item \textbf{Réponse :} $x(t) = \num{\vsi{A}}\cos(\Val{2*pi*\v{f}}\,t)$, avec $x$ en mètres et $t$ en secondes.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse et accélération maximales}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \Res{\vsi{A}}{m}$, $\omega = \Res{2*pi*\v{f}}{rad/s}$
+        \item Variables recherchées : $v_{\max}$ et $a_{\max}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_{\max} = A\omega \qquad a_{\max} = A\omega^2 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \num{\vsi{A}} \cdot \Val{2*pi*\v{f}} = \Res{\vsi{A}*2*pi*\v{f}}{m/s} \]
+    \[ a_{\max} = \num{\vsi{A}} \cdot \left(\Val{2*pi*\v{f}}\right)^2 = \Res{\vsi{A}*(2*pi*\v{f})^2}{m/s^2} \]
+    \item \textbf{Réponse :} $v_{\max} = \mathbf{\Res{\vsi{A}*2*pi*\v{f}}{m/s}}$ et $a_{\max} = \mathbf{\Res{\vsi{A}*(2*pi*\v{f})^2}{m/s^2}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Position à $t = \qty{\v{t1}}{s}$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $t = \qty{\v{t1}}{s}$, équation trouvée en a)
+        \item Variable recherchée : $x(t)$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x(t) = A\cos(\omega t) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (calculatrice en radians).
+    \item \textbf{Résolution numérique :}
+    \[ x = \num{\vsi{A}}\cos(\Val{2*pi*\v{f}} \cdot \num{\v{t1}}) = \Res{\vsi{A}*cos(2*pi*\v{f}*\v{t1})}{m} \]
+    \item \textbf{Réponse :} le bloc est à $x = \mathbf{\Res{\v{A}*cos(2*pi*\v{f}*\v{t1})}{cm}}$ de la position d'équilibre (un signe négatif signifie à gauche).
+\end{enumerate}

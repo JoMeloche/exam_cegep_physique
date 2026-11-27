@@ -1,0 +1,15 @@
+title: 'Vitesse au sol de deux balles lancées différemment'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Même énergie mécanique au départ ($\tfrac{1}{2}mv_0^2 + mgh$) et même hauteur finale : les deux balles ont la même énergie cinétique, donc la même vitesse, au sol.'
+choices:
+  - 'Elles arrivent avec la même vitesse'
+  - 'La balle lancée vers le haut'
+  - 'On ne peut pas le savoir sans la hauteur de l''édifice'
+  - 'La balle lancée horizontalement'

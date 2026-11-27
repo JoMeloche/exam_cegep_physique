@@ -1,0 +1,15 @@
+title: "Pouvoir de pénétration des rayonnements"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les particules alpha, lourdes et doublement chargées, ionisent fortement et perdent vite leur énergie : une feuille de papier ou la peau les arrête. Les bêtas exigent quelques mm d''aluminium, les gammas du plomb ou du béton.'
+choices:
+  - 'Alpha'
+  - 'Bêta moins'
+  - 'Gamma'
+  - 'Rayons X'

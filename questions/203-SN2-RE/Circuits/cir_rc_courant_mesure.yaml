@@ -1,0 +1,22 @@
+title: Capacité déduite d'une mesure de courant (RC)
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+tags: [RC]
+variables:
+  R: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: \kilo\ohm, si: 1000, label: Résistance}
+  eps: {type: integer, min: 6, max: 24, step: 1, unit: V, label: Force électromotrice}
+  t1: {type: integer, min: 5, max: 200, step: 5, unit: ms, si: 0.001, label: Instant de la mesure}
+  I1: {type: decimal, min: 0.20, max: 20.00, step: 0.05, unit: mA, si: 0.001, label: Courant mesuré}
+constraints:
+  - I1 > 0.15*eps/R
+  - I1 < 0.85*eps/R
+solution:
+  mode: manual
+  parts:
+    a: {expr: "eps/R", unit: A, label: Courant initial}
+    b: {expr: "-t1/log(I1*R/eps)", unit: s, label: Constante de temps}
+    c: {expr: "-t1/log(I1*R/eps)/R", unit: F, label: Capacité}
+    d: {expr: "-t1/log(I1*R/eps)/R*eps*(1 - I1*R/eps)", unit: C, label: Charge à t1}

@@ -1,0 +1,11 @@
+title: Force résultante à vitesse constante
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: Vitesse constante en ligne droite $\Rightarrow$ $\vec a = \vec 0$ $\Rightarrow$ $\sum \vec F = \vec 0$ (la poussée du moteur compense les frottements).
+choices: [Elle est dirigée vers l'avant, Elle est nulle, Elle est dirigée vers l'arrière, Elle est égale au poids de la voiture]

@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Accélération angulaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\omega_i = \qty{0}{rad/s}$, $\omega_f = \qty{\v{wf}}{tr/min} = \Res{\vsi{wf}}{rad/s}$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $\alpha$
+    \item \textbf{Équations pertinentes :} \[ \omega_f = \omega_i + \alpha t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \alpha = \frac{\omega_f}{t} \]
+    \item \textbf{Résolution numérique :} \[ \alpha = \frac{\Val{\vsi{wf}}}{\num{\v{t}}} = \Res{(\vsi{wf}/\vsi{t})}{rad/s^2} \]
+    \item \textbf{Réponse :} $\alpha = \mathbf{\Res{(\vsi{wf}/\vsi{t})}{rad/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre de tours}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\omega_f = \Res{\vsi{wf}}{rad/s}$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $\Delta\theta$ (en tours)
+    \item \textbf{Équations pertinentes :} \[ \Delta\theta = \frac{\omega_i + \omega_f}{2}\, t \qquad N = \frac{\Delta\theta}{2\pi} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \Delta\theta = \frac{\Val{\vsi{wf}}}{2} \cdot \num{\v{t}} = \Res{0.5*\vsi{wf}*\vsi{t}}{rad} \qquad N = \frac{\Val{0.5*\vsi{wf}*\vsi{t}}}{2\pi} = \Res{(0.5*\vsi{wf}*\vsi{t}/(2*pi))}{tours} \]
+    \item \textbf{Réponse :} $N = \mathbf{\Res{(0.5*\vsi{wf}*\vsi{t}/(2*pi))}{tours}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse en périphérie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\omega_f = \Res{\vsi{wf}}{rad/s}$, $r = \qty{\vsi{r}}{m}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} \[ v = \omega r \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ v = \Val{\vsi{wf}} \cdot \num{\vsi{r}} = \Res{(\vsi{wf}*\vsi{r})}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{(\vsi{wf}*\vsi{r})}{m/s}}$
+\end{enumerate}

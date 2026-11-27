@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force résultante}
+Les deux forces sont opposées et horizontales :
+\[ F_R = F - f = \qty{\v{F}}{N} - \qty{\v{f}}{N} = \qty{\fpeval{\v{F}-\v{f}}}{N} \]
+dans le sens de la traction.
+
+\subsubsection*{Question b) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_R = \qty{\fpeval{\v{F}-\v{f}}}{N}$, $m = \qty{\v{m}}{kg}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :}
+    \[ F_R = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F_R}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\qty{\fpeval{\v{F}-\v{f}}}{N}}{\qty{\v{m}}{kg}} = \Res{(\v{F}-\v{f})/\v{m}}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{(\v{F}-\v{f})/\v{m}}{m/s^2}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse et distance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = \qty{0}{m/s}$, $a = \Res{(\v{F}-\v{f})/\v{m}}{m/s^2}$, $\Delta t = \qty{\v{t}}{s}$ ; variables recherchées : $v$, $d$
+    \item \textbf{Équations pertinentes :} MRUA à partir du repos :
+    \[ v = v_0 + a\,\Delta t \qquad d = v_0\,\Delta t + \tfrac{1}{2} a\,(\Delta t)^2 \]
+    \item \textbf{Isolation de la variable recherchée :} avec $v_0 = 0$ : $v = a\,\Delta t$ et $d = \tfrac{1}{2} a\,(\Delta t)^2$.
+    \item \textbf{Résolution numérique :}
+    \[ v = \Val{(\v{F}-\v{f})/\v{m}} \cdot \num{\v{t}} = \Res{(\v{F}-\v{f})/\v{m}*\v{t}}{m/s} \qquad d = \tfrac{1}{2} \cdot \Val{(\v{F}-\v{f})/\v{m}} \cdot (\num{\v{t}})^2 = \Res{(\v{F}-\v{f})/\v{m}*\v{t}^2/2}{m} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{(\v{F}-\v{f})/\v{m}*\v{t}}{m/s}}$ et $d = \mathbf{\Res{(\v{F}-\v{f})/\v{m}*\v{t}^2/2}{m}}$.
+\end{enumerate}

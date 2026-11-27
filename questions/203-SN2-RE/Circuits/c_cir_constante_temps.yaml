@@ -1,0 +1,15 @@
+title: "Constante de temps quand R et C changent"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Ce temps est la constante de temps $\tau = RC$. Avec $2R$ et $C/2$, on obtient $\tau'' = (2R)(C/2) = RC$ : le temps ne change pas.'
+choices:
+  - Il double
+  - Il reste le même
+  - Il est divisé par deux
+  - Il est multiplié par quatre

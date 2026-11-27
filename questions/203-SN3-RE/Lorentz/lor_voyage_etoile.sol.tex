@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Durée selon la Terre}
+\[ \Delta t = \frac{D}{v} = \frac{\num{\v{D}}\ \text{al}}{\num{\v{beta}}\,c} = \Res{\v{D}/\v{beta}}{ans} \]
+Selon la Terre, le voyage dure \textbf{\Res{\v{D}/\v{beta}}{ans}}.
+
+\subsubsection*{Question b) Durée selon l'équipage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta t = \Res{\v{D}/\v{beta}}{ans}$, $\gamma = \Res{1/sqrt(1 - \v{beta}^2)}{}$ ; variable recherchée : $\Delta t_0$
+    \item \textbf{Équations pertinentes :} le départ et l'arrivée ont lieu au même point du vaisseau, donc l'équipage mesure le temps propre :
+    \[ \Delta t = \gamma\,\Delta t_0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t_0 = \frac{\Delta t}{\gamma} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t_0 = \frac{\Val{\v{D}/\v{beta}}}{\Val{1/sqrt(1 - \v{beta}^2)}} = \Res{\v{D}/\v{beta}*sqrt(1 - \v{beta}^2)}{ans} \]
+    \item \textbf{Réponse :} l'équipage vieillit de \textbf{\Res{\v{D}/\v{beta}*sqrt(1 - \v{beta}^2)}{ans}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance selon l'équipage}
+\[ L = \frac{L_0}{\gamma} = \num{\v{D}} \cdot \sqrt{1 - (\num{\v{beta}})^2} = \Res{\v{D}*sqrt(1 - \v{beta}^2)}{al} \]
+Selon l'équipage, la distance est de \textbf{\Res{\v{D}*sqrt(1 - \v{beta}^2)}{al}} (années-lumière). Parcourue à $\num{\v{beta}}\,c$, elle prend $\Val{\v{D}*sqrt(1 - \v{beta}^2)} / \num{\v{beta}} = \Res{\v{D}/\v{beta}*sqrt(1 - \v{beta}^2)}{ans}$, ce qui concorde avec b).

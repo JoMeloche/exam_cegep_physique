@@ -1,0 +1,15 @@
+title: 'Écartement des armatures, pile branchée'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$C = \varepsilon_0A/d$ est divisée par 2. La pile maintient $V$ constante, donc $Q = CV$ est aussi divisée par 2.'
+choices:
+  - '$C$ est divisée par 2 et $Q$ ne change pas'
+  - '$C$ et $Q$ sont toutes deux divisées par 2'
+  - '$C$ double et $Q$ double'
+  - '$C$ ne change pas et $Q$ est divisée par 2'

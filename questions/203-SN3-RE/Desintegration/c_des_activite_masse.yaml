@@ -1,0 +1,15 @@
+title: "Activité de deux échantillons du même isotope"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$A = \lambda N$ : pour le même isotope (même $\lambda$), deux fois plus de noyaux donnent deux fois plus d''activité ; la demi-vie est la même.'
+choices:
+  - 'X a une activité deux fois plus grande que Y, et la même demi-vie'
+  - 'X a une demi-vie deux fois plus longue que Y'
+  - 'X et Y ont la même activité'
+  - 'X a une activité quatre fois plus grande que Y'

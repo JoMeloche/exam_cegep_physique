@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Température}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda_{\max} = \qty{\vsi{lm}}{m}$, $b = \qty{2.898e-3}{m.K}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :} loi de Wien :
+    \[ \lambda_{\max} T = b \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \frac{b}{\lambda_{\max}} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{\num{2.898e-3}}{\num{\vsi{lm}}} = \Res{2.898e-3/\vsi{lm}}{K} \]
+    \item \textbf{Réponse :} la température de surface est de \textbf{\Res{2.898e-3/\vsi{lm}}{K}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance par unité de surface}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \Res{2.898e-3/\vsi{lm}}{K}$, $\sigma = \qty{5.67e-8}{W/(m^2.K^4)}$ ; variable recherchée : $P/A$
+    \item \textbf{Équations pertinentes :} loi de Stefan-Boltzmann pour un corps noir ($e = 1$) :
+    \[ \frac{P}{A} = \sigma T^4 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \frac{P}{A} = \num{5.67e-8} \cdot (\Val{2.898e-3/\vsi{lm}})^4 = \ResSci{5.67e-8*(2.898e-3/\vsi{lm})^4}{W/m^2} \]
+    \item \textbf{Réponse :} chaque mètre carré rayonne \textbf{\ResSci{5.67e-8*(2.898e-3/\vsi{lm})^4}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Luminosité}
+\[ L = \sigma T^4 \cdot 4\pi R^2 = \ResSci{5.67e-8*(2.898e-3/\vsi{lm})^4}{} \cdot 4\pi(\ResSci{\vsi{R}}{})^2 = \ResSci{5.67e-8*(2.898e-3/\vsi{lm})^4*4*pi*\vsi{R}^2}{W} \]
+La luminosité est de \textbf{\ResSci{5.67e-8*(2.898e-3/\vsi{lm})^4*4*pi*\vsi{R}^2}{W}}, soit \textbf{\Res{5.67e-8*(2.898e-3/\vsi{lm})^4*4*pi*\vsi{R}^2/3.83e26}{}} fois celle du Soleil.

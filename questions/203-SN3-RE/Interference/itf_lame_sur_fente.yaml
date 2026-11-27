@@ -1,0 +1,19 @@
+title: Lame de verre sur une des fentes de Young
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 650, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  ep: {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: \micro\metre, si: 1e-6, label: Épaisseur de la lame}
+  n: {type: choice, values: [1.45, 1.50, 1.52, 1.58, 1.60], label: Indice de réfraction de la lame}
+  sep: {type: decimal, min: 0.20, max: 0.60, step: 0.05, unit: mm, si: 0.001, label: Distance entre les fentes}
+  L: {type: decimal, min: 1.0, max: 2.5, step: 0.1, unit: m, label: Distance fentes-écran}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "(n - 1)*ep", unit: m, label: Chemin optique supplémentaire}
+    b: {expr: "(n - 1)*ep/lam", unit: "", label: Nombre de franges de décalage}
+    c: {expr: "(n - 1)*ep*L/sep", unit: m, label: Déplacement de la figure sur l'écran}

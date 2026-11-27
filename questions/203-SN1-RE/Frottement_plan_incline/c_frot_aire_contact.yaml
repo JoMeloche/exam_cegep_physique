@@ -1,0 +1,11 @@
+title: Frottement et aire de contact
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: $f_c = \mu_c n$ ne dépend que du coefficient et de la force normale ($mg$ dans les deux cas), pas de l'aire de contact.
+choices: [Plus grande sur la grande face, Plus grande sur la petite face, La même dans les deux cas, Nulle sur la petite face]

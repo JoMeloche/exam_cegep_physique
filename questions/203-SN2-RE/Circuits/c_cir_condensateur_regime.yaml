@@ -1,0 +1,15 @@
+title: "Courant en régime permanent dans un circuit RC"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le condensateur se charge jusqu''à ce que sa tension égale $\mathcal{E}$. La tension aux bornes de la résistance devient alors nulle, donc le courant aussi : en régime permanent, un condensateur bloque le courant continu.'
+choices:
+  - Il est nul
+  - Il vaut $\mathcal{E}/R$
+  - Il vaut $\mathcal{E}/(2R)$
+  - Il est maximal

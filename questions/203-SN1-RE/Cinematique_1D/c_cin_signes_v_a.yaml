@@ -1,0 +1,11 @@
+title: Signes de la vitesse et de l'accélération
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Quand $v_x$ et $a_x$ ont le même signe, l''accélération est dans le sens du mouvement : l''objet accélère (le module de la vitesse augmente).'
+choices: [Il augmente, Il diminue, Il reste constant, Il est nul]

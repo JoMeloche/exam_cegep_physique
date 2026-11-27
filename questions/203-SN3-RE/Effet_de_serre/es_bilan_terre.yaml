@@ -1,0 +1,16 @@
+title: Bilan de puissance de la Terre
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  al: {type: decimal, min: 0.28, max: 0.32, step: 0.01, label: Albédo}
+  Ts: {type: integer, min: 285, max: 291, step: 1, unit: K, label: Température moyenne de la surface}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "1361*pi*6.371e6**2*(1 - al)", unit: W, label: Puissance solaire absorbée}
+    e2: {expr: "5.67e-8*4*pi*6.371e6**2*Ts**4", unit: W, label: Puissance émise par la surface}
+    e3: {expr: "5.67e-8*4*pi*6.371e6**2*Ts**4 - 1361*pi*6.371e6**2*(1 - al)", unit: W, label: Puissance renvoyée par l'atmosphère}

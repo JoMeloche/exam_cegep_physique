@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Équilibre}
+Dans le vide, la sphère ne perd de l'énergie que par rayonnement. Sa température est constante lorsque l'énergie reçue par seconde (chauffage) est égale à l'énergie émise par seconde.
+
+\subsubsection*{Question b) Émissivité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \Res{\v{em}*5.67e-8*4*pi*\vsi{r}^2*\v{T}^4}{W}$, $A = 4\pi r^2 = \ResSci{4*pi*\vsi{r}^2}{m^2}$, $T = \qty{\v{T}}{K}$ ; variable recherchée : $e$
+    \item \textbf{Équations pertinentes :}
+    \[ P = e\sigma A T^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e = \frac{P}{\sigma A T^4} \]
+    \item \textbf{Résolution numérique :}
+    \[ e = \frac{\Val{\v{em}*5.67e-8*4*pi*\vsi{r}^2*\v{T}^4}}{\num{5.67e-8} \cdot \ResSci{4*pi*\vsi{r}^2}{} \cdot (\num{\v{T}})^4} = \Res{\v{em}}{} \]
+    \item \textbf{Réponse :} l'émissivité est de \textbf{\Res{\v{em}}{}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Température doublée}
+\[ P' = P\left(\frac{T'}{T}\right)^4 = \Val{\v{em}*5.67e-8*4*pi*\vsi{r}^2*\v{T}^4} \cdot 2^4 = \Res{16*\v{em}*5.67e-8*4*pi*\vsi{r}^2*\v{T}^4}{W} \]
+Il faudrait \textbf{\Res{16*\v{em}*5.67e-8*4*pi*\vsi{r}^2*\v{T}^4}{W}}, seize fois plus.

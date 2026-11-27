@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Moment de force appliqué}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $r = \qty{\vsi{L}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $\tau$
+    \item \textbf{Équations pertinentes :} \[ \tau = rF\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \tau = \num{\vsi{L}} \cdot \num{\v{F}} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{(\vsi{F}*\vsi{L}*sind(\vsi{th}))}{N.m} \]
+    \item \textbf{Réponse :} $\tau = \mathbf{\Res{(\vsi{F}*\vsi{L}*sind(\vsi{th}))}{N.m}}$ ; on compare à \qty{\v{tau0}}{N.m} : l'écrou se desserre seulement si $\tau \geq \qty{\v{tau0}}{N.m}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Force perpendiculaire minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\tau_0 = \qty{\v{tau0}}{N.m}$, $r = \qty{\vsi{L}}{m}$, $\theta = \qty{90}{\degree}$ ; variable recherchée : $F_{\min}$
+    \item \textbf{Équations pertinentes :} \[ \tau_0 = rF_{\min}\sin 90^\circ = rF_{\min} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_{\min} = \frac{\tau_0}{r} \]
+    \item \textbf{Résolution numérique :} \[ F_{\min} = \frac{\num{\v{tau0}}}{\num{\vsi{L}}} = \Res{(\vsi{tau0}/\vsi{L})}{N} \]
+    \item \textbf{Réponse :} $F_{\min} = \mathbf{\Res{(\vsi{tau0}/\vsi{L})}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Force minimale à l'angle donné}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\tau_0 = \qty{\v{tau0}}{N.m}$, $r = \qty{\vsi{L}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F'_{\min}$
+    \item \textbf{Équations pertinentes :} \[ \tau_0 = rF'_{\min}\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F'_{\min} = \frac{\tau_0}{r\sin\theta} \]
+    \item \textbf{Résolution numérique :} \[ F'_{\min} = \frac{\num{\v{tau0}}}{\num{\vsi{L}} \cdot \sin(\qty{\v{th}}{\degree})} = \Res{(\vsi{tau0}/(\vsi{L}*sind(\vsi{th})))}{N} \]
+    \item \textbf{Réponse :} $F'_{\min} = \mathbf{\Res{(\vsi{tau0}/(\vsi{L}*sind(\vsi{th})))}{N}}$
+\end{enumerate}

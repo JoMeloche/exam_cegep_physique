@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Facteur de Lorentz}
+\[ \gamma = \frac{1}{\sqrt{1 - (\num{\v{beta}})^2}} = \Res{1/sqrt(1 - \v{beta}^2)}{} \]
+
+\subsubsection*{Question b) Coordonnées de B dans S'}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $x_B = \qty{\v{xB}}{m}$, $t_B = \qty{\vsi{tB}}{s}$, $v = \Res{\v{beta}*3e8}{m/s}$, $\gamma = \Res{1/sqrt(1 - \v{beta}^2)}{}$ ; variables recherchées : $x'_B$, $t'_B$
+    \item \textbf{Équations pertinentes :}
+    \[ x' = \gamma(x - vt) \qquad t' = \gamma\left(t - \frac{vx}{c^2}\right) \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ x'_B = \Val{1/sqrt(1 - \v{beta}^2)}\left(\num{\v{xB}} - \Val{\v{beta}*3e8} \cdot \num{\vsi{tB}}\right) = \Res{(\v{xB} - \v{beta}*3e8*\vsi{tB})/sqrt(1 - \v{beta}^2)}{m} \]
+    \[ t'_B = \Val{1/sqrt(1 - \v{beta}^2)}\left(\num{\vsi{tB}} - \frac{\Val{\v{beta}*3e8} \cdot \num{\v{xB}}}{(\num{3e8})^2}\right) = \Res{1e6*(\vsi{tB} - \v{beta}*\v{xB}/3e8)/sqrt(1 - \v{beta}^2)}{\micro\second} \]
+    \item \textbf{Réponse :} $x'_B = \mathbf{\Res{(\v{xB} - \v{beta}*3e8*\vsi{tB})/sqrt(1 - \v{beta}^2)}{m}}$ et $t'_B = \mathbf{\Res{1e6*(\vsi{tB} - \v{beta}*\v{xB}/3e8)/sqrt(1 - \v{beta}^2)}{\micro\second}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Intervalle invariant}
+\[ S : (\Delta x)^2 - (c\Delta t)^2 = (\num{\v{xB}})^2 - (\Val{3e8*\vsi{tB}})^2 = \ResSci{\v{xB}^2 - (3e8*\vsi{tB})^2}{m^2} \]
+\[ S' : (\Delta x')^2 - (c\Delta t')^2 = (\Val{(\v{xB} - \v{beta}*3e8*\vsi{tB})/sqrt(1 - \v{beta}^2)})^2 - (\Val{3e8*(\vsi{tB} - \v{beta}*\v{xB}/3e8)/sqrt(1 - \v{beta}^2)})^2 = \ResSci{((\v{xB} - \v{beta}*3e8*\vsi{tB})/sqrt(1 - \v{beta}^2))^2 - (3e8*(\vsi{tB} - \v{beta}*\v{xB}/3e8)/sqrt(1 - \v{beta}^2))^2}{m^2} \]
+Les deux valeurs sont égales. \ifthenelse{\lengthtest{\fpeval{\v{xB} - 3e8*\vsi{tB}}pt < 0pt}}{L'intervalle est de genre temps ($c\Delta t > \Delta x$) : un signal plus lent que la lumière peut relier A à B, donc un lien de cause à effet est \textbf{possible}.}{L'intervalle est de genre espace ($\Delta x > c\Delta t$) : aucun signal ne peut relier A à B, donc \textbf{aucun lien de cause à effet} n'est possible.}

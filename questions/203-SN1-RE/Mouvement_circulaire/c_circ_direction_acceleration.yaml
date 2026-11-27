@@ -1,0 +1,11 @@
+title: Direction de l'accélération en MCU
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le module de la vitesse est constant mais sa direction change : l''accélération est centripète, $a_c = v^2/r$ vers le centre.'
+choices: ['Tangente à la trajectoire, dans le sens du mouvement', Vers le centre du cercle, Vers l'extérieur du cercle, Il n'y a pas d'accélération]

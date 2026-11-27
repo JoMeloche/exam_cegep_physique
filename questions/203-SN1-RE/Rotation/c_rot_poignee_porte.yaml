@@ -1,0 +1,15 @@
+title: 'Position de la poignée d''une porte'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$\tau = rF\sin\theta$ : plus $r$ est grand, moins il faut de force pour obtenir le même moment de force.'
+choices:
+  - 'Pour diminuer le travail nécessaire pour ouvrir la porte'
+  - 'Pour diminuer le moment d''inertie de la porte'
+  - 'Pour que le bras de levier soit grand, ce qui donne un grand moment de force pour une force donnée'
+  - 'Pour que la force appliquée soit parallèle à la porte'

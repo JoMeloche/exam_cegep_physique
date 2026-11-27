@@ -1,0 +1,11 @@
+title: Frottement sur un livre au repos
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: Le frottement statique s'ajuste à ce qui est nécessaire pour empêcher le glissement ; sans force horizontale, il est nul. $\mu_s n$ n'est que sa valeur maximale.
+choices: ['\qty{3.92}{N}', '\qty{9.81}{N}', '\qty{0}{N}', '\qty{0.4}{N}']

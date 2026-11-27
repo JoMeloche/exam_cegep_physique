@@ -1,0 +1,15 @@
+title: "Valeurs possibles de l'émissivité"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'L''émissivité compare un corps réel à un corps noir à la même température : $0 \le e \le 1$, et $e = 1$ seulement pour un corps noir.'
+choices:
+  - '$0{,}6$'
+  - '$1{,}4$'
+  - '$-0{,}3$'
+  - '$2$'

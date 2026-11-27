@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Potentiel en $P$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_2 = \qty{\v{q2}e-6}{C}$, $r_1 = b = \qty{\vsi{b}}{m}$, $r_2 = \sqrt{a^2 + b^2} = \Res{sqrt((\vsi{a})^2+(\vsi{b})^2)}{m}$ ; variable recherchée : $V_P$
+    \item \textbf{Équations pertinentes :} le potentiel est un scalaire, on additionne avec les signes :
+    \[ V_P = \frac{kq_1}{r_1} + \frac{kq_2}{r_2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_P = \num{8.99e9}\left(\frac{\num{\v{q1}e-6}}{\num{\vsi{b}}} + \frac{\num{\v{q2}e-6}}{\Val{sqrt((\vsi{a})^2+(\vsi{b})^2)}}\right) = \ResSci{8.99e9*1e-6*(\v{q1}/\vsi{b} + \v{q2}/sqrt((\vsi{a})^2+(\vsi{b})^2))}{V} \]
+    \item \textbf{Réponse :} $V_P = \mathbf{\ResSci{8.99e9*1e-6*(\v{q1}/\vsi{b} + \v{q2}/sqrt((\vsi{a})^2+(\vsi{b})^2))}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie potentielle du système}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1$, $q_2$, $a = \qty{\vsi{a}}{m}$ ; variable recherchée : $U_{12}$
+    \item \textbf{Équations pertinentes :}
+    \[ U_{12} = \frac{kq_1q_2}{a} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ U_{12} = \frac{\num{8.99e9} \cdot \num{\v{q1}e-6} \cdot (\num{\v{q2}e-6})}{\num{\vsi{a}}} = \Res{8.99e9*\v{q1}*\v{q2}*1e-12/\vsi{a}}{J} \]
+    \item \textbf{Réponse :} $U_{12} = \mathbf{\Res{8.99e9*\v{q1}*\v{q2}*1e-12/\vsi{a}}{J}}$ (négative : les charges s'attirent, le système est lié).
+\end{enumerate}
+
+\subsubsection*{Question c) Travail pour amener $q_3$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_3 = \qty{\v{q3}e-6}{C}$, $V_P$, $V_\infty = 0$ ; variable recherchée : $W_{\text{ext}}$
+    \item \textbf{Équations pertinentes :} à vitesse constante, $W_{\text{ext}} = \Delta U$ :
+    \[ W_{\text{ext}} = q_3(V_P - V_\infty) \]
+    \item \textbf{Isolation de la variable recherchée :} $W_{\text{ext}} = q_3V_P$
+    \item \textbf{Résolution numérique :}
+    \[ W_{\text{ext}} = \num{\v{q3}e-6} \cdot \ResSci{8.99e9*1e-6*(\v{q1}/\vsi{b} + \v{q2}/sqrt((\vsi{a})^2+(\vsi{b})^2))}{} = \Res{\v{q3}*1e-6*8.99e9*1e-6*(\v{q1}/\vsi{b} + \v{q2}/sqrt((\vsi{a})^2+(\vsi{b})^2))}{J} \]
+    \item \textbf{Réponse :} $W_{\text{ext}} = \mathbf{\Res{\v{q3}*1e-6*8.99e9*1e-6*(\v{q1}/\vsi{b} + \v{q2}/sqrt((\vsi{a})^2+(\vsi{b})^2))}{J}}$ (un travail négatif signifie que l'agent doit retenir la charge).
+\end{enumerate}

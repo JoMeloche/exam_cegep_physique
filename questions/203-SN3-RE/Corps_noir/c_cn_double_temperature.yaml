@@ -1,0 +1,15 @@
+title: "Effet du doublement de la température sur la puissance"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$P = \sigma A T^4$ : doubler la température absolue multiplie la puissance par $2^4 = 16$.'
+choices:
+  - '$2$'
+  - '$4$'
+  - '$8$'
+  - '$16$'

@@ -1,0 +1,11 @@
+title: Chute de deux masses différentes
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: En chute libre, l'accélération vaut $g$ pour tout objet, peu importe sa masse ; les deux positions $y(t)$ sont identiques.
+choices: ['La boule de \qty{5}{kg}', 'La boule de \qty{1}{kg}', Les deux en même temps, Cela dépend de la hauteur de chute]

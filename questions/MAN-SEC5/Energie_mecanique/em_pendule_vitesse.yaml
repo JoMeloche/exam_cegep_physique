@@ -1,0 +1,19 @@
+title: Boule de démolition (pendule et énergie)
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+tags: [conservation de l'énergie, pendule]
+variables:
+  m:  {type: integer, min: 200, max: 1500, step: 100, unit: kg, label: Masse de la boule}
+  L:  {type: decimal, min: 4.0, max: 12.0, step: 0.5, unit: m, label: Longueur du câble}
+  th: {type: integer, min: 20, max: 60, step: 10, unit: \degree, label: Angle initial}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "L*(1 - cos(rad(th)))", unit: m, label: Hauteur initiale}
+    b: {expr: "sqrt(2*g*L*(1 - cos(rad(th))))", unit: m/s, label: Vitesse au point le plus bas}
+    c: {expr: "m*g*L*(1 - cos(rad(th)))", unit: J, label: Énergie cinétique au point le plus bas}
+    d: {expr: "sqrt(2*g*L*(cos(rad(th/2)) - cos(rad(th))))", unit: m/s, label: Vitesse à la moitié de l'angle}

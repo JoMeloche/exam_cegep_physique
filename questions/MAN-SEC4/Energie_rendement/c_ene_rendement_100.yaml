@@ -1,0 +1,15 @@
+title: 'Pourquoi aucun rendement n''atteint 100 %'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'L''énergie ne se crée ni ne se détruit ; elle se transforme. Les frottements et la résistance électrique dissipent une partie de l''énergie en chaleur, qui n''est pas l''énergie recherchée.'
+choices:
+  - 'Parce que de l''énergie est détruite pendant le fonctionnement'
+  - 'Parce qu''une partie de l''énergie consommée est transformée en une forme non utile, surtout de la chaleur'
+  - 'Parce que l''énergie utile est toujours plus grande que l''énergie consommée'
+  - 'Parce que les moteurs fonctionnent toujours trop lentement'

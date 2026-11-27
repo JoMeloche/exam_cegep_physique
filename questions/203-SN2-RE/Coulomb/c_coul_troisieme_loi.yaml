@@ -1,0 +1,15 @@
+title: 'Forces réciproques entre deux charges'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Selon la troisième loi de Newton (et la loi de Coulomb, symétrique en $q_A q_B$), les deux forces ont le même module et des sens opposés.'
+choices:
+  - 'La force sur $B$ est 4 fois plus grande'
+  - 'La force sur $A$ est 4 fois plus grande'
+  - 'Les deux forces ont le même module'
+  - 'La force sur $B$ est 16 fois plus grande'

@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Rapport des puissances}
+\[ \frac{P_{\text{gris}}}{P_{\text{noir}}} = \frac{e\sigma A T^4}{\sigma A T^4} = e = \num{\v{em}} \]
+La sphère grise rayonne \textbf{\Res{100*\v{em}}{\percent}} de la puissance de la sphère noire.
+
+\subsubsection*{Question b) Maximum d'émission}
+Oui : l'émissivité d'un corps gris est la même à toutes les longueurs d'onde, donc la forme du spectre ne change pas, seule son amplitude. Les deux maximums sont à
+\[ \lambda_{\max} = \frac{\num{2.898e-3}}{\num{\v{T}}} = \Res{1e6*2.898e-3/\v{T}}{\micro\metre} \]
+
+\subsubsection*{Question c) Température requise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \num{\v{em}}$, $T_{\text{noir}} = \qty{\v{T}}{K}$ ; variable recherchée : $T'$
+    \item \textbf{Équations pertinentes :}
+    \[ e\sigma A T'^4 = \sigma A T^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T' = \frac{T}{e^{1/4}} \]
+    \item \textbf{Résolution numérique :}
+    \[ T' = \frac{\num{\v{T}}}{(\num{\v{em}})^{1/4}} = \Res{\v{T}/\v{em}^0.25}{K} \]
+    \item \textbf{Réponse :} il faudrait porter la sphère grise à \textbf{\Res{\v{T}/\v{em}^0.25}{K}}.
+\end{enumerate}

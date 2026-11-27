@@ -1,0 +1,49 @@
+title: Eq onde
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables:
+  Eq:
+    type: text
+    values:
+    - 0.02 \sin\left(\pi x + \frac{\pi}{4}t + \frac{3\pi}{2}\right)
+    - 0.03 \sin\left(2\pi x + \frac{\pi}{2}t + \pi\right)
+    - 0.015 \sin\left(\frac{\pi}{2}x + \frac{\pi}{3}t + \frac{\pi}{2}\right)
+    label: QfiveEq
+  Teval:
+    type: integer
+    min: 1
+    max: 4
+    step: 1
+    unit: s
+    label: QfiveTeval
+  Xeval:
+    type: integer
+    min: 2
+    max: 8
+    step: 1
+    unit: m
+    label: QfiveXeval
+solution:
+  mode: none
+choices:
+- Tracez un graphique qui représente le déplacement de la corde en fonction de la position au temps $t = \v{Teval}\text{ s}$. Votre graphique devrait contenir au moins deux cycles de l'onde. Sur votre graphique, indiquez les positions pour lesquelles le déplacement est nul. N'oubliez pas de bien indiquer les unités et la graduation de vos axes !
+- Tracez un graphique qui représente le déplacement de la corde en fonction du temps pour un point situé à $x = \v{Xeval}\text{ m}$. Votre graphique devrait contenir au moins deux cycles d'oscillation. Sur votre graphique, indiquez les temps pour lesquels le déplacement est nul. N'oubliez pas de bien indiquer les unités et la graduation de vos axes !
+needs_review: true
+source: Question_concept/Onde_progressive/C_eq_onde.tex
+original_values:
+  Eq:
+    A: 0.02 \sin\left(\pi x + \frac{\pi}{4}t + \frac{3\pi}{2}\right)
+    B: 0.03 \sin\left(2\pi x + \frac{\pi}{2}t + \pi\right)
+    C: 0.015 \sin\left(\frac{\pi}{2}x + \frac{\pi}{3}t + \frac{\pi}{2}\right)
+  Teval:
+    A: '2'
+    B: '1'
+    C: '3'
+  Xeval:
+    A: '7'
+    B: '3'
+    C: '5'
+history: []

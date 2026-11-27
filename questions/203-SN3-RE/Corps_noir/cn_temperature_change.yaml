@@ -1,0 +1,16 @@
+title: Effet d'une hausse de température sur le rayonnement d'un corps noir
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  T1: {type: integer, min: 800, max: 2000, step: 50, unit: K, label: Température initiale}
+  T2: {type: integer, min: 2100, max: 4000, step: 50, unit: K, label: Température finale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "2.898e-3/T1", unit: m, label: Lambda max initiale}
+    e2: {expr: "2.898e-3/T2", unit: m, label: Lambda max finale}
+    e3: {expr: "(T2/T1)**4", unit: "", label: Rapport des puissances}

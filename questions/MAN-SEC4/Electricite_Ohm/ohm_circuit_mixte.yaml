@@ -1,0 +1,21 @@
+title: Circuit mixte série-parallèle
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  U:  {type: choice, values: [12, 18, 24, 30], unit: V, label: Tension de la source}
+  R1: {type: integer, min: 10, max: 60, step: 5, unit: \ohm, label: Résistance en série}
+  R2: {type: integer, min: 20, max: 120, step: 10, unit: \ohm, label: Résistance 2 (parallèle)}
+  R3: {type: integer, min: 20, max: 120, step: 10, unit: \ohm, label: Résistance 3 (parallèle)}
+constraints:
+  - R2 != R3
+solution:
+  mode: manual
+  parts:
+    a: {expr: "R1 + R2*R3/(R2 + R3)", unit: \ohm, label: Résistance équivalente}
+    b: {expr: "U/(R1 + R2*R3/(R2 + R3))", unit: A, label: Courant total}
+    c1: {expr: "R1*U/(R1 + R2*R3/(R2 + R3))", unit: V, label: Tension aux bornes de R1}
+    c2: {expr: "U - R1*U/(R1 + R2*R3/(R2 + R3))", unit: V, label: Tension du groupe parallèle}
+    d: {expr: "(U - R1*U/(R1 + R2*R3/(R2 + R3)))/R2", unit: A, label: Courant dans R2}

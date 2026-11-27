@@ -1,0 +1,15 @@
+title: 'Fonction du néphron'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le néphron filtre le plasma (glomérule) puis réabsorbe l''eau, le glucose et les sels utiles ; le reste forme l''urine. La vessie stocke l''urine et l''uretère la transporte.'
+choices:
+  - 'Il produit l''urine en filtrant le sang puis en réabsorbant les substances utiles'
+  - 'Il stocke l''urine avant son élimination'
+  - 'Il transporte l''urine du rein à la vessie'
+  - 'Il fabrique les globules rouges'

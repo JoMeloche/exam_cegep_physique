@@ -1,0 +1,17 @@
+title: Sirène d'ambulance qui approche puis s'éloigne
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  f:  {type: integer, min: 600, max: 1500, step: 50, unit: Hz, label: Fréquence de la sirène}
+  vs: {type: integer, min: 15, max: 40, step: 1, unit: m/s, label: Vitesse de l'ambulance}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f*v/(v - vs)", unit: Hz, label: Fréquence à l'approche}
+    b: {expr: "f*v/(v + vs)", unit: Hz, label: Fréquence à l'éloignement}
+    c: {expr: "f*v/(v - vs) - f*v/(v + vs)", unit: Hz, label: Chute de fréquence}

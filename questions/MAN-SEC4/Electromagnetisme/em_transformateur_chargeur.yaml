@@ -1,0 +1,17 @@
+title: Transformateur d'un chargeur
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  Us: {type: choice, values: [5, 6, 9, 12], unit: V, label: Tension au secondaire}
+  Np: {type: choice, values: [1200, 1440, 2400, 3600], unit: '', label: Nombre de spires au primaire}
+  Is: {type: integer, min: 300, max: 2000, step: 100, unit: mA, si: 0.001, label: Courant au secondaire}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "Np*Us/120", unit: '', label: Nombre de spires au secondaire}
+    b: {expr: "Us*Is", unit: W, label: Puissance fournie}
+    c: {expr: "Us*Is/120", unit: A, label: Courant au primaire}

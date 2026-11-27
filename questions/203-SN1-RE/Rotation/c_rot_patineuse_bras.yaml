@@ -1,0 +1,15 @@
+title: 'Patineuse qui ramène les bras : ce qui change'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Sans moment de force extérieur, $L = I\omega$ est conservé ; $I$ diminue, donc $\omega$ augmente.'
+choices:
+  - '$L$ augmente et $\omega$ augmente'
+  - '$L$ reste constant et $\omega$ reste constante'
+  - '$L$ diminue et $\omega$ augmente'
+  - '$L$ reste constant et $\omega$ augmente'

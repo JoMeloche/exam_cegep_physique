@@ -1,0 +1,15 @@
+title: "Ce qui arrive au photon diffusé"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le photon cède de l''énergie à l''électron : son énergie diminue, donc sa fréquence diminue et sa longueur d''onde augmente. Sa vitesse reste $c$.'
+choices:
+  - 'Sa longueur d''onde est plus grande et sa vitesse est la même'
+  - 'Sa longueur d''onde est plus petite et sa vitesse est la même'
+  - 'Sa longueur d''onde est la même et sa vitesse est plus petite'
+  - 'Sa fréquence est plus grande et sa vitesse est plus petite'

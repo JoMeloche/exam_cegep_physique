@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) État initial}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_1 = \qty{\v{C1}e-6}{F}$, $V_0 = \qty{\v{V0}}{V}$ ; variables recherchées : $Q_0$, $U_i$
+    \item \textbf{Équations pertinentes :}
+    \[ Q_0 = C_1V_0 \qquad U_i = \frac{1}{2}C_1V_0^2 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ Q_0 = \num{\v{C1}e-6} \cdot \num{\v{V0}} = \ResSci{\v{C1}*1e-6*\v{V0}}{C} \qquad U_i = \frac{1}{2} \cdot \num{\v{C1}e-6} \cdot (\num{\v{V0}})^2 = \Res{0.5*\v{C1}*1e-6*\v{V0}^2}{J} \]
+    \item \textbf{Réponse :} $Q_0 = \mathbf{\Res{\v{C1}*\v{V0}}{\micro\coulomb}}$ et $U_i = \mathbf{\Res{0.5*\v{C1}*1e-6*\v{V0}^2}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension finale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q_0$, $C_1$, $C_2 = \qty{\v{C2}e-6}{F}$ ; variable recherchée : $V_f$
+    \item \textbf{Équations pertinentes :} la charge totale est conservée et les condensateurs sont en parallèle :
+    \[ Q_0 = (C_1 + C_2)V_f \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V_f = \frac{C_1V_0}{C_1 + C_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ V_f = \frac{\num{\v{C1}} \cdot \num{\v{V0}}}{\num{\v{C1}} + \num{\v{C2}}} = \Res{\v{C1}*\v{V0}/(\v{C1}+\v{C2})}{V} \]
+    \item \textbf{Réponse :} $V_f = \mathbf{\Res{\v{C1}*\v{V0}/(\v{C1}+\v{C2})}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie finale}
+\[ U_f = \frac{1}{2}(C_1 + C_2)V_f^2 = \frac{1}{2} \cdot \Val{(\v{C1}+\v{C2})}\times 10^{-6} \cdot (\Val{\v{C1}*\v{V0}/(\v{C1}+\v{C2})})^2 = \Res{0.5*(\v{C1}*1e-6*\v{V0})^2/((\v{C1}+\v{C2})*1e-6)}{J} \]
+\[ \frac{U_i - U_f}{U_i} = \frac{C_2}{C_1 + C_2} = \Res{\v{C2}/(\v{C1}+\v{C2})}{} \]
+L'énergie finale est de \textbf{\Res{0.5*(\v{C1}*1e-6*\v{V0})^2/((\v{C1}+\v{C2})*1e-6)}{J}} ; une fraction de \textbf{\Res{100*\v{C2}/(\v{C1}+\v{C2})}{\percent}} a été dissipée (chaleur dans les fils et rayonnement) pendant le transfert de charge.

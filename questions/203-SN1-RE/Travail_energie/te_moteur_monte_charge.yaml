@@ -1,0 +1,20 @@
+title: 'Puissance et rendement d''un monte-charge'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 200, max: 1200, step: 50, unit: kg, label: Masse de la charge}
+  v: {type: decimal, min: 0.5, max: 2.5, step: 0.1, unit: m/s, label: Vitesse de montée}
+  h: {type: integer, min: 5, max: 40, step: 1, unit: m, label: Hauteur de montée}
+  eta: {type: integer, min: 60, max: 90, step: 5, unit: '\percent', si: 0.01, label: Rendement du moteur}
+constraints: []
+solution:
+  mode: manual
+  file: te_moteur_monte_charge.sol.tex
+  parts:
+    a: {expr: "m*g*h", unit: 'J', label: 'Travail du moteur'}
+    b: {expr: "h/v", unit: 's', label: 'Durée de la montée'}
+    c: {expr: "m*g*v", unit: 'W', label: 'Puissance mécanique'}
+    d: {expr: "m*g*v/eta", unit: 'W', label: 'Puissance électrique'}

@@ -1,0 +1,40 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Intensité du courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{\v{U}}{V}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :} loi d'Ohm :
+    \[ U = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{U}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\qty{\v{U}}{V}}{\qty{\v{R}}{\ohm}} = \Res{\v{U}/\v{R}}{A} \]
+    \item \textbf{Réponse :} le courant est de \textbf{\Res{\v{U}/\v{R}}{A}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{\v{U}}{V}$, $I = \Res{\v{U}/\v{R}}{A}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ P = UI \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P = \qty{\v{U}}{V} \cdot \Val{\v{U}/\v{R}}\,\unit{A} = \Res{\v{U}^2/\v{R}}{W} \]
+    \item \textbf{Réponse :} la puissance du grille-pain est de \textbf{\Res{\v{U}^2/\v{R}}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie consommée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \Res{\v{U}^2/\v{R}/1000}{kW}$, $\Delta t = 30 \times \qty{\v{t}}{min} = \Res{30*\v{t}/60}{h}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = P\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \Val{\v{U}^2/\v{R}/1000}\,\unit{kW} \cdot \Val{30*\v{t}/60}\,\unit{h} = \Res{\v{U}^2/\v{R}/1000*30*\v{t}/60}{\kilo\watt\hour} \]
+    \item \textbf{Réponse :} le grille-pain consomme \textbf{\Res{\v{U}^2/\v{R}/1000*30*\v{t}/60}{\kilo\watt\hour}} en \qty{30}{jours}.
+\end{enumerate}
+
+\subsubsection*{Question d) Coût}
+\[ \text{Coût} = E \times \text{tarif} = \Val{\v{U}^2/\v{R}/1000*30*\v{t}/60}\,\unit{\kilo\watt\hour} \times \qty{\v{tarif}}{\$\per\kilo\watt\hour} = \Res{\v{U}^2/\v{R}/1000*30*\v{t}/60*\v{tarif}}{\$} \]
+L'utilisation coûte environ \textbf{\Res{\v{U}^2/\v{R}/1000*30*\v{t}/60*\v{tarif}}{\$}} par mois.

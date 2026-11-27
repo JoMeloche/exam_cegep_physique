@@ -1,0 +1,11 @@
+title: Bloc immobile sur un plan incliné
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le bloc est en équilibre : le frottement statique compense exactement la composante du poids le long du plan, $mg\sin\theta$, qui est au plus égale à $\mu_s mg\cos\theta$.'
+choices: [$\mu_s m g\cos\theta$, $m g\sin\theta$, $m g\cos\theta$, $\mu_s m g$]

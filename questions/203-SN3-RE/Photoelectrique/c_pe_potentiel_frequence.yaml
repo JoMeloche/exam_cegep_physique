@@ -1,0 +1,15 @@
+title: "Dépendance du potentiel d'arrêt"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$eV_0 = hf - \phi$ : le potentiel d''arrêt augmente linéairement avec la fréquence, avec une pente $h/e$ identique pour tous les métaux.'
+choices:
+  - 'Augmente linéairement'
+  - 'Diminue'
+  - 'Reste constant'
+  - 'Augmente proportionnellement à l''intensité'

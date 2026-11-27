@@ -1,0 +1,17 @@
+title: Superposition de deux sons de fréquences voisines
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  f1: {type: integer, min: 200, max: 800, step: 10, unit: Hz, label: Fréquence du premier son}
+  df: {type: decimal, min: 1.0, max: 8.0, step: 0.5, unit: Hz, label: Écart de fréquence}
+  t:  {type: integer, min: 10, max: 60, step: 5, unit: s, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f1 + df/2", unit: Hz, label: Fréquence perçue}
+    b: {expr: "1/df", unit: s, label: Période des battements}
+    c: {expr: "df*t", unit: "", label: Nombre de battements}

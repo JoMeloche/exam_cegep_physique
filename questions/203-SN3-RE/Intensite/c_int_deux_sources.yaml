@@ -1,0 +1,15 @@
+title: "Niveau sonore de deux sources identiques"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Deux sources incohérentes identiques doublent l''intensité : $10\log 2 \approx \qty{3}{dB}$ de plus, et non le double du niveau.'
+choices:
+  - '\qty{180}{dB}'
+  - '\qty{90}{dB}'
+  - 'Environ \qty{93}{dB}'
+  - '\qty{100}{dB}'

@@ -1,0 +1,21 @@
+title: Intensité des premières franges d'interférence modulées par la diffraction
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  sep: {type: integer, min: 50, max: 300, step: 5, unit: \micro\metre, si: 1e-6, label: Distance entre les fentes}
+  larg: {type: integer, min: 20, max: 100, step: 5, unit: \micro\metre, si: 1e-6, label: Largeur de chaque fente}
+  I0: {type: decimal, min: 2.0, max: 9.0, step: 0.5, unit: W/m^2, label: Intensité de la frange centrale}
+constraints:
+  - sep/larg > 1.2
+  - abs(sin(pi*larg/sep)) > 0.2
+  - abs(sin(2*pi*larg/sep)) > 0.2
+solution:
+  mode: manual
+  parts:
+    th1: {expr: "deg(asin(lam/sep))", unit: deg, label: Angle de la frange d'ordre 1}
+    I1: {expr: "I0*(sin(pi*larg/sep)/(pi*larg/sep))**2", unit: W/m^2, label: Intensité de la frange d'ordre 1}
+    I2: {expr: "I0*(sin(2*pi*larg/sep)/(2*pi*larg/sep))**2", unit: W/m^2, label: Intensité de la frange d'ordre 2}

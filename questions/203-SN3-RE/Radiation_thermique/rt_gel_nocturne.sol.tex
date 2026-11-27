@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Ciel clair}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \num{\v{em}}$, $T_s = \qty{\fpeval{\v{Tg}+273}}{K}$, $T_c = \qty{\fpeval{\v{Tc}+273}}{K}$ ; variable recherchée : $P_{\text{net}}/A$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{P_{\text{net}}}{A} = e\sigma\,(T_s^4 - T_c^4) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \frac{P_{\text{net}}}{A} = \num{\v{em}} \cdot \num{5.67e-8} \cdot \left((\num{\fpeval{\v{Tg}+273}})^4 - (\num{\fpeval{\v{Tc}+273}})^4\right) = \Res{\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tc}+273)^4)}{W/m^2} \]
+    \item \textbf{Réponse :} le sol perd \textbf{\Res{\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tc}+273)^4)}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Ciel nuageux}
+\[ \frac{P_{\text{net}}}{A} = \num{\v{em}} \cdot \num{5.67e-8} \cdot \left((\num{\fpeval{\v{Tg}+273}})^4 - (\num{\fpeval{\v{Tn}+273}})^4\right) = \Res{\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tn}+273)^4)}{W/m^2} \]
+La perte nette tombe à \textbf{\Res{\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tn}+273)^4)}{W/m^2}}.
+
+\subsubsection*{Question c) Gel par nuit claire}
+Les nuages, plus chauds que le ciel clair, renvoient beaucoup de rayonnement infrarouge vers le sol. Par nuit claire, la perte nette est \Res{(\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tc}+273)^4))/(\v{em}*5.67e-8*((\v{Tg}+273)^4 - (\v{Tn}+273)^4))}{} fois plus grande : la surface du sol peut se refroidir sous \qty{0}{\degreeCelsius} même si l'air reste un peu au-dessus.

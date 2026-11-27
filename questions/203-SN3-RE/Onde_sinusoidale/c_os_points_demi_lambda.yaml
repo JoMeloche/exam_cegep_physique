@@ -1,0 +1,15 @@
+title: "Points séparés d'une demi-longueur d'onde"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Deux points séparés de $\lambda/2$ ont un déphasage $k\,\Delta x = \pi$ : ils sont en opposition de phase et ont toujours des déplacements opposés.'
+choices:
+  - 'Ils ont le même déplacement'
+  - 'L''un est au repos pendant que l''autre bouge'
+  - 'Ils ont des déplacements opposés'
+  - 'Ils ont le même déplacement seulement une fois par période'

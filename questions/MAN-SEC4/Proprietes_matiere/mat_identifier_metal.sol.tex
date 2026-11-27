@@ -1,0 +1,27 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Volume de l'objet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_i = \qty{\v{Vi}}{mL}$, $V_f = \qty{\fpeval{\v{Vi}+\v{dV}}}{mL}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :}
+    \[ V = V_f - V_i \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V = \num{\fpeval{\v{Vi}+\v{dV}}} - \num{\v{Vi}} = \qty{\v{dV}}{mL} \]
+    \item \textbf{Réponse :} l'objet a un volume de \textbf{\qty{\v{dV}}{mL}} ; c'est la méthode par \textbf{déplacement d'eau}.
+\end{enumerate}
+
+\subsubsection*{Question b) Masse volumique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\fpeval{round(\v{rho}*\v{dV},1)}}{g}$, $V = \qty{\v{dV}}{mL}$ ; variable recherchée : $\rho$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \rho = \frac{\num{\fpeval{round(\v{rho}*\v{dV},1)}}}{\num{\v{dV}}} = \Res{round(\v{rho}*\v{dV},1)/\v{dV}}{g/mL} \]
+    \item \textbf{Réponse :} la masse volumique de l'objet est de \textbf{\Res{round(\v{rho}*\v{dV},1)/\v{dV}}{g/mL}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Identification}
+La valeur la plus proche dans le tableau est \qty{\v{rho}}{g/mL} : l'objet est en \textbf{\ifthenelse{\lengthtest{\v{rho}pt < 3pt}}{aluminium}{\ifthenelse{\lengthtest{\v{rho}pt < 8.5pt}}{fer}{\ifthenelse{\lengthtest{\v{rho}pt < 10pt}}{cuivre}{plomb}}}}. La masse volumique est une \textbf{propriété caractéristique} : elle ne dépend pas de la quantité de matière, alors que la masse change avec la taille de l'objet.

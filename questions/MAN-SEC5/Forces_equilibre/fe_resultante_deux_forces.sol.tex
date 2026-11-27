@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Grandeur de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_1 = \qty{\v{F1}}{N}$ (est), $F_2 = \qty{\v{F2}}{N}$ (nord) ; variable recherchée : $F_R$
+    \item \textbf{Équations pertinentes :} les deux forces sont perpendiculaires (théorème de Pythagore) :
+    \[ F_R^2 = F_1^2 + F_2^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_R = \sqrt{F_1^2 + F_2^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ F_R = \sqrt{(\qty{\v{F1}}{N})^2 + (\qty{\v{F2}}{N})^2} = \Res{sqrt(\v{F1}^2 + \v{F2}^2)}{N} \]
+    \item \textbf{Réponse :} $F_R = \mathbf{\Res{sqrt(\v{F1}^2 + \v{F2}^2)}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Orientation de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_1 = \qty{\v{F1}}{N}$, $F_2 = \qty{\v{F2}}{N}$ ; variable recherchée : $\theta$ (à partir de l'est)
+    \item \textbf{Équations pertinentes :}
+    \[ \tan\theta = \frac{F_2}{F_1} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta = \arctan\left(\frac{F_2}{F_1}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta = \arctan\left(\frac{\qty{\v{F2}}{N}}{\qty{\v{F1}}{N}}\right) = \Res{atand(\v{F2}/\v{F1})}{\degree} \]
+    \item \textbf{Réponse :} la résultante est orientée à \textbf{\Res{atand(\v{F2}/\v{F1})}{\degree}} au nord de l'est.
+\end{enumerate}
+
+\subsubsection*{Question c) Équilibrante}
+L'équilibrante a la même grandeur que la résultante et une orientation opposée :
+\[ F_E = \Res{sqrt(\v{F1}^2 + \v{F2}^2)}{N} \qquad \theta_E = \Res{atand(\v{F2}/\v{F1})}{\degree} + \qty{180}{\degree} = \Res{atand(\v{F2}/\v{F1}) + 180}{\degree} \]
+Le troisième enfant doit tirer avec \textbf{\Res{sqrt(\v{F1}^2 + \v{F2}^2)}{N}} vers le sud-ouest, à \textbf{\Res{atand(\v{F2}/\v{F1})}{\degree}} au sud de l'ouest. Cette force s'appelle la \textbf{force équilibrante}.

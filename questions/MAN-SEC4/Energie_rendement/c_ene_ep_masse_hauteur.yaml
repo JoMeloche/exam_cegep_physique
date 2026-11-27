@@ -1,0 +1,15 @@
+title: 'Énergie potentielle avec masse et hauteur modifiées'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$E_p = mgh$ : $\num{10} \times \num{9.8} \times \num{2} = \qty{196}{J}$ et $\num{20} \times \num{9.8} \times \num{1} = \qty{196}{J}$. Le double de masse compense la moitié de hauteur.'
+choices:
+  - '$E_{p,A} = 2\,E_{p,B}$'
+  - '$E_{p,B} = 2\,E_{p,A}$'
+  - '$E_{p,A} = E_{p,B}$'
+  - '$E_{p,B} = 4\,E_{p,A}$'

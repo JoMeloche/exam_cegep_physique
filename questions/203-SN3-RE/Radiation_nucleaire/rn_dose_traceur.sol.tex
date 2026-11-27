@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Nombre de désintégrations}
+\[ N = A\,\Delta t = \ResSci{\vsi{Act}}{Bq} \cdot \num{\vsi{t}} = \ResSci{\vsi{Act}*\vsi{t}}{} \]
+Il se produit \textbf{\ResSci{\vsi{Act}*\vsi{t}}{}} désintégrations.
+
+\subsubsection*{Question b) Énergie absorbée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N$, $E_\gamma = \qty{140}{keV} = \ResSci{140e3*1.602e-19}{J}$, fraction absorbée $\num{\vsi{fr}}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = f\,N\,E_\gamma \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \num{\vsi{fr}} \cdot \ResSci{\vsi{Act}*\vsi{t}}{} \cdot \ResSci{140e3*1.602e-19}{} = \ResSci{\vsi{Act}*\vsi{t}*140e3*1.602e-19*\vsi{fr}}{J} \]
+    \item \textbf{Réponse :} l'organe absorbe \textbf{\Res{1000*\vsi{Act}*\vsi{t}*140e3*1.602e-19*\vsi{fr}}{mJ}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Dose}
+\[ D = \frac{E}{m} = \frac{\ResSci{\vsi{Act}*\vsi{t}*140e3*1.602e-19*\vsi{fr}}{}}{\num{\v{m}}} = \ResSci{\vsi{Act}*\vsi{t}*140e3*1.602e-19*\vsi{fr}/\v{m}}{Gy} \qquad H = w_R D = \textbf{\Res{1000*\vsi{Act}*\vsi{t}*140e3*1.602e-19*\vsi{fr}/\v{m}}{mSv}} \]

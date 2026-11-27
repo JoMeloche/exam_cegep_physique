@@ -1,0 +1,20 @@
+title: Énergie d'un bloc-ressort connaissant une position et une vitesse
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m:  {type: decimal, min: 0.20, max: 2.00, step: 0.05, unit: kg, label: Masse du bloc}
+  k:  {type: integer, min: 10, max: 200, step: 5, unit: N/m, label: Constante de rappel}
+  x0: {type: decimal, min: 2.0, max: 15.0, step: 0.5, unit: cm, si: 0.01, label: Position}
+  v0: {type: decimal, min: 0.20, max: 1.50, step: 0.05, unit: m/s, label: Vitesse à cette position}
+constraints: []
+solution:
+  mode: manual
+  file: mhs_energie_position_vitesse.sol.tex
+  parts:
+    a: {expr: "m*v0**2/2 + k*x0**2/2", unit: J, label: Énergie mécanique}
+    b: {expr: "sqrt((m*v0**2 + k*x0**2)/k)", unit: m, label: Amplitude}
+    c: {expr: "sqrt((m*v0**2 + k*x0**2)/m)", unit: m/s, label: Vitesse maximale}
+    d: {expr: "sqrt(3/4)*sqrt((m*v0**2 + k*x0**2)/m)", unit: m/s, label: Vitesse à x = A/2}

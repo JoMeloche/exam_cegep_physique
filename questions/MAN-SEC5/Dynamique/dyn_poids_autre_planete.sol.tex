@@ -1,0 +1,46 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Poids sur la Terre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$
+        \item Variable recherchée : $F_g$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ F_g = m g \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \num{\v{m}} \cdot \num{9.81} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} sur la Terre, son poids est de \textbf{\Res{\v{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ gravitationnel de la planète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $F_{g,p} = \qty{\v{Wp}}{N}$, $m = \qty{\v{m}}{kg}$
+        \item Variable recherchée : $g_p$ (N/kg)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ F_{g,p} = m g_p \]
+    \item \textbf{Isolation de la variable recherchée :} \[ g_p = \frac{F_{g,p}}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ g_p = \frac{\num{\v{Wp}}}{\num{\v{m}}} = \Res{\v{Wp}/\v{m}}{N/kg} \]
+    \item \textbf{Réponse :} le champ gravitationnel de la planète est de \textbf{\Res{\v{Wp}/\v{m}}{N/kg}} (soit une accélération de chute libre de \Res{\v{Wp}/\v{m}}{m/s^2}).
+\end{enumerate}
+
+\subsubsection*{Question c) Durée de la chute de l'outil}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $h = \qty{\v{h}}{m}$, $v_0 = \qty{0}{m/s}$, $g_p = \Res{\v{Wp}/\v{m}}{m/s^2}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ h = \tfrac{1}{2} g_p t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t = \sqrt{\frac{2h}{g_p}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2 \cdot \num{\v{h}}}{\Val{\v{Wp}/\v{m}}}} = \Res{sqrt(2*\v{h}*\v{m}/\v{Wp})}{s} \]
+    \item \textbf{Réponse :} l'outil touche le sol après \textbf{\Res{sqrt(2*\v{h}*\v{m}/\v{Wp})}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Masse sur la planète}
+Non. La masse mesure la quantité de matière (et l'inertie) : elle reste de \qty{\v{m}}{kg} partout. C'est le poids, la force gravitationnelle $m g$, qui change d'une planète à l'autre.

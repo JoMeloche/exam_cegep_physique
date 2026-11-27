@@ -1,0 +1,16 @@
+title: Mesurer l'émissivité d'une sphère chauffée
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  r:  {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: cm, si: 0.01, label: Rayon}
+  T:  {type: integer, min: 500, max: 1200, step: 50, unit: K, label: Température d'équilibre}
+  em: {type: decimal, min: 0.10, max: 0.90, step: 0.05, label: Émissivité (cachée)}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em", unit: "", label: Émissivité}
+    e2: {expr: "em*5.67e-8*4*pi*r**2*T**4*2**4", unit: W, label: Puissance pour doubler T}

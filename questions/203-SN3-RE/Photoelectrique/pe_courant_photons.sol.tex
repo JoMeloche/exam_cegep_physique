@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie d'un photon}
+\[ E = \frac{hc}{\lambda} = \frac{\num{6.626e-34} \cdot \num{3.00e8}}{\num{\vsi{lam}}} = \ResSci{6.626e-34*3e8/\vsi{lam}}{J} \quad \left(\Res{1240/\v{lam}}{eV}\right) \]
+
+\subsubsection*{Question b) Photons par seconde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\vsi{P}}{W}$, $E = \ResSci{6.626e-34*3e8/\vsi{lam}}{J}$ ; variable recherchée : $N/\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{N E}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \frac{N}{\Delta t} = \frac{P}{E} \]
+    \item \textbf{Résolution numérique :}
+    \[ \frac{N}{\Delta t} = \frac{\num{\vsi{P}}}{\ResSci{6.626e-34*3e8/\vsi{lam}}{}} = \ResSci{\vsi{P}*\vsi{lam}/(6.626e-34*3e8)}{photons/s} \]
+    \item \textbf{Réponse :} \textbf{\ResSci{\vsi{P}*\vsi{lam}/(6.626e-34*3e8)}{}} photons frappent la cathode chaque seconde.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} rendement $\eta = \num{\vsi{eta}}$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{\Delta q}{\Delta t} = \eta\,\frac{N}{\Delta t}\,e \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ I = \num{\vsi{eta}} \cdot \ResSci{\vsi{P}*\vsi{lam}/(6.626e-34*3e8)}{} \cdot \num{1.602e-19} = \ResSci{\vsi{eta}*\vsi{P}*\vsi{lam}/(6.626e-34*3e8)*1.602e-19}{A} \]
+    \item \textbf{Réponse :} le courant est de \textbf{\Res{1e6*\vsi{eta}*\vsi{P}*\vsi{lam}/(6.626e-34*3e8)*1.602e-19}{\micro\ampere}}.
+\end{enumerate}

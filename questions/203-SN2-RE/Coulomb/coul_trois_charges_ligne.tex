@@ -1,0 +1,18 @@
+Trois charges ponctuelles sont placées sur l'axe des $x$ : $q_1 = \qty{\v{q1}}{\micro\coulomb}$ à l'origine, $q_2 = \qty{\v{q2}}{\micro\coulomb}$ à $x = \qty{\v{d1}}{cm}$ et $q_3 = \qty{\v{q3}}{\micro\coulomb}$ à $x = \qty{\fpeval{\v{d1}+\v{d2}}}{cm}$.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[-{Latex}] (-0.5,0) -- (8,0) node[right] {$x$};
+    \fill (0,0) circle (3pt) node[above=3pt] {$q_1$};
+    \fill (3.5,0) circle (3pt) node[above=3pt] {$q_2$};
+    \fill (6.5,0) circle (3pt) node[above=3pt] {$q_3$};
+    \draw[|-|] (0,-0.5) -- node[below] {\qty{\v{d1}}{cm}} (3.5,-0.5);
+    \draw[|-|] (3.5,-0.5) -- node[below] {\qty{\v{d2}}{cm}} (6.5,-0.5);
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez la force (module et sens) exercée par $q_1$ sur $q_3$.
+    \item Déterminez la force (module et sens) exercée par $q_2$ sur $q_3$.
+    \item Déterminez la force électrique résultante sur $q_3$.
+\end{enumerate}

@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Travail de la gravité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $L = \qty{\v{L}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $W_g$
+    \item \textbf{Équations pertinentes :} le skieur descend de $h = L\sin\theta$ : \[ W_g = mgh = mgL\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ W_g = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{L}} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{(\vsi{m}*9.81*\vsi{L}*sind(\vsi{th}))}{J} \]
+    \item \textbf{Réponse :} $W_g = \mathbf{\Res{(\vsi{m}*9.81*\vsi{L}*sind(\vsi{th}))}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Travail du frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mu_c = \num{\v{mu}}$, $n = mg\cos\theta = \Res{\vsi{m}*9.81*cosd(\vsi{th})}{N}$ ; variable recherchée : $W_f$
+    \item \textbf{Équations pertinentes :} \[ W_f = -f_c L = -\mu_c\, mg\cos\theta\, L \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ W_f = -\num{\v{mu}} \cdot \Val{\vsi{m}*9.81*cosd(\vsi{th})} \cdot \num{\v{L}} = \Res{(-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L})}{J} \]
+    \item \textbf{Réponse :} $W_f = \mathbf{\Res{(-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L})}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse au bas de la pente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = \qty{\v{v0}}{m/s}$, $W_g = \Res{(\vsi{m}*9.81*\vsi{L}*sind(\vsi{th}))}{J}$, $W_f = \Res{(-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L})}{J}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} théorème de l'énergie cinétique : \[ W_g + W_f = \tfrac{1}{2}mv^2 - \tfrac{1}{2}mv_0^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \sqrt{v_0^2 + \frac{2(W_g + W_f)}{m}} \]
+    \item \textbf{Résolution numérique :} \[ v = \sqrt{\left(\num{\v{v0}}\right)^2 + \frac{2\,(\Val{(\vsi{m}*9.81*\vsi{L}*sind(\vsi{th}))} + (\Val{(-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L})}))}{\num{\v{m}}}} = \Res{(sqrt(\vsi{v0}^2 + 2*((\vsi{m}*9.81*\vsi{L}*sind(\vsi{th})) + (-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L}))/\vsi{m}))}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{(sqrt(\vsi{v0}^2 + 2*((\vsi{m}*9.81*\vsi{L}*sind(\vsi{th})) + (-\vsi{mu}*\vsi{m}*9.81*cosd(\vsi{th})*\vsi{L}))/\vsi{m}))}{m/s}}$
+\end{enumerate}

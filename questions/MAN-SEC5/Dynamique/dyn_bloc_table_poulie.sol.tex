@@ -1,0 +1,46 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m_A = \qty{\v{m1}}{kg}$, $m_B = \qty{\v{m2}}{kg}$, $g = \qty{9.81}{m/s^2}$
+        \item Bloc A : seule la tension $T$ agit horizontalement. Bloc B : poids $m_B g$ vers le bas, tension $T$ vers le haut.
+        \item Variable recherchée : $a$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} deuxième loi pour chaque bloc (même accélération) :
+    \[ T = m_A a \qquad m_B g - T = m_B a \]
+    \item \textbf{Isolation de la variable recherchée :} en additionnant les deux équations :
+    \[ a = \frac{m_B g}{m_A + m_B} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\v{m2}} \cdot \num{9.81}}{\num{\v{m1}} + \num{\v{m2}}} = \Res{\v{m2}*9.81/(\v{m1}+\v{m2})}{m/s^2} \]
+    \item \textbf{Réponse :} le système accélère à \textbf{\Res{\v{m2}*9.81/(\v{m1}+\v{m2})}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m_A = \qty{\v{m1}}{kg}$, $a = \Res{\v{m2}*9.81/(\v{m1}+\v{m2})}{m/s^2}$
+        \item Variable recherchée : $T$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ T = m_A a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \num{\v{m1}} \cdot \Val{\v{m2}*9.81/(\v{m1}+\v{m2})} = \Res{\v{m1}*\v{m2}*9.81/(\v{m1}+\v{m2})}{N} \]
+    \item \textbf{Réponse :} la tension est de \textbf{\Res{\v{m1}*\v{m2}*9.81/(\v{m1}+\v{m2})}{N}}, plus petite que le poids de B (\Res{\v{m2}*9.81}{N}).
+\end{enumerate}
+
+\subsubsection*{Question c) Durée de la descente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{0}{m/s}$, $a = \Res{\v{m2}*9.81/(\v{m1}+\v{m2})}{m/s^2}$, $d = \qty{\v{d}}{m}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ d = v_0 t + \tfrac{1}{2} a t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t = \sqrt{\frac{2d}{a}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2 \cdot \num{\v{d}}}{\Val{\v{m2}*9.81/(\v{m1}+\v{m2})}}} = \Res{sqrt(2*\v{d}*(\v{m1}+\v{m2})/(\v{m2}*9.81))}{s} \]
+    \item \textbf{Réponse :} le bloc B descend de \qty{\v{d}}{m} en \textbf{\Res{sqrt(2*\v{d}*(\v{m1}+\v{m2})/(\v{m2}*9.81))}{s}}.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: "Ce que démontre l'effet photoélectrique"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Le seuil en fréquence, l''absence de délai et l''indépendance de $K_{\max}$ envers l''intensité s''expliquent si la lumière est formée de photons d''énergie $hf$.'
+choices:
+  - 'Le courant augmente avec l''intensité lumineuse'
+  - 'La lumière se propage à $c$'
+  - 'La lumière peut être polarisée'
+  - 'Aucun électron n''est éjecté sous une certaine fréquence, quelle que soit l''intensité'

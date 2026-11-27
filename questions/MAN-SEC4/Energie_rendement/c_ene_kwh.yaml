@@ -1,0 +1,15 @@
+title: 'Grandeur mesurée en kilowattheures'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$E = P\,\Delta t$ : une puissance (kW) multipliée par une durée (h) donne une énergie. $\qty{1}{kWh} = \qty{3.6e6}{J}$.'
+choices:
+  - 'De puissance'
+  - 'D''énergie'
+  - 'De tension électrique'
+  - 'De courant électrique'

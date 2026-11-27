@@ -1,0 +1,15 @@
+title: "Entendre sans voir derrière un coin"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La diffraction est importante quand la longueur d''onde est comparable à la taille de l''ouverture. Le son a des longueurs d''onde de l''ordre du mètre, comme une porte ; la lumière, de l''ordre de \qty{500}{nm}, beaucoup plus petite.'
+choices:
+  - 'Le son voyage plus lentement que la lumière'
+  - 'La longueur d''onde du son est comparable à la largeur de la porte, celle de la lumière est beaucoup plus petite'
+  - 'Le son se réfléchit sur les murs, mais la lumière est absorbée'
+  - 'La lumière ne peut pas être diffractée'

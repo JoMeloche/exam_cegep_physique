@@ -1,0 +1,15 @@
+title: 'Où va l''énergie perdue par frottement'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'L''énergie totale est conservée : le travail du frottement transforme l''énergie mécanique en énergie thermique ($\Delta E_{\text{th}} = f_c d$).'
+choices:
+  - 'Elle est détruite par le frottement'
+  - 'Elle est transformée en énergie potentielle gravitationnelle'
+  - 'Elle est absorbée par la force normale'
+  - 'Elle est transformée en énergie thermique (chaleur) dans le bloc et la rampe'

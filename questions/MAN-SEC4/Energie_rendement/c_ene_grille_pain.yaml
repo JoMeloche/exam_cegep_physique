@@ -1,0 +1,15 @@
+title: 'Transformation d''énergie dans un grille-pain'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le courant traverse des éléments chauffants résistifs : l''énergie électrique est transformée en énergie thermique (et un peu de rayonnement).'
+choices:
+  - 'Énergie électrique en énergie thermique'
+  - 'Énergie thermique en énergie électrique'
+  - 'Énergie chimique en énergie électrique'
+  - 'Énergie mécanique en énergie thermique'

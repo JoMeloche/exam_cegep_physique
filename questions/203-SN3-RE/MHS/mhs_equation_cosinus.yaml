@@ -1,0 +1,20 @@
+title: Équation de position d'un bloc relâché à l'amplitude
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  A:  {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+  f:  {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: Hz, label: Fréquence}
+  t1: {type: decimal, min: 0.10, max: 0.90, step: 0.05, unit: s, label: Instant évalué}
+constraints:
+  - abs(cos(2*pi*f*t1)) > 0.15
+solution:
+  mode: manual
+  file: mhs_equation_cosinus.sol.tex
+  parts:
+    a: {expr: "2*pi*f", unit: rad/s, label: Fréquence angulaire (phase nulle)}
+    b: {expr: "A*(2*pi*f)", unit: m/s, label: Vitesse maximale}
+    b2: {expr: "A*(2*pi*f)**2", unit: m/s^2, label: Accélération maximale}
+    c: {expr: "A*cos(2*pi*f*t1)", unit: m, label: Position}

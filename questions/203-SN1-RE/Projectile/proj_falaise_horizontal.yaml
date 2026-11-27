@@ -1,0 +1,18 @@
+title: Pierre lancée horizontalement d'une falaise
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  v0: {type: decimal, min: 5.0, max: 20.0, step: 0.5, unit: m/s, label: Vitesse horizontale initiale}
+  h: {type: decimal, min: 10.0, max: 60.0, step: 0.5, unit: m, label: Hauteur de la falaise}
+constraints: []
+solution:
+  mode: manual
+  file: proj_falaise_horizontal.sol.tex
+  parts:
+    a: {expr: sqrt(2*h/g), unit: s, label: Temps de vol}
+    b: {expr: v0*sqrt(2*h/g), unit: m, label: Portée horizontale}
+    c: {expr: sqrt(v0**2 + 2*g*h), unit: m/s, label: Vitesse à l'impact}
+    d: {expr: deg(atan(sqrt(2*g*h)/v0)), unit: \degree, label: Angle sous l'horizontale}

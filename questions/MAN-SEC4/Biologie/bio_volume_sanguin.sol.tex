@@ -1,0 +1,46 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Volume sanguin}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, \qty{70}{mL/kg} ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :}
+    \[ V = \qty{70}{mL/kg} \times m \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V = \num{70} \times \num{\v{m}} = \qty{\fpeval{70*\v{m}}}{mL} = \Res{70*\v{m}/1000}{L} \]
+    \item \textbf{Réponse :} son volume sanguin est d'environ \textbf{\Res{70*\v{m}/1000}{L}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Volume de plasma}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \Res{70*\v{m}/1000}{L}$, plasma : \qty{55}{\percent} ; variable recherchée : $V_p$
+    \item \textbf{Équations pertinentes :}
+    \[ V_p = \num{0.55} \times V \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_p = \num{0.55} \times \Val{70*\v{m}/1000} = \Res{0.55*70*\v{m}/1000}{L} \]
+    \item \textbf{Réponse :} son sang contient \textbf{\Res{0.55*70*\v{m}/1000}{L}} de plasma.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre de globules rouges}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \qty{\fpeval{70*\v{m}}}{mL} = \qty{\fpeval{70*\v{m}*1000}}{mm^3}$, $C = \num{\v{GR}e6}$ globules par \unit{mm^3} ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ N = C \times V \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ N = \num{\v{GR}e6} \times \num{\fpeval{70*\v{m}*1000}} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{70*\v{m}*1000*\v{GR}*1e6}} \]
+    \item \textbf{Réponse :} son sang contient environ \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{70*\v{m}*1000*\v{GR}*1e6}} globules rouges}. Grâce à l'hémoglobine, ils transportent le dioxygène des poumons vers les cellules.
+\end{enumerate}
+
+\subsubsection*{Question d) Part prélevée par un don}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V_{\text{don}} = \qty{450}{mL}$, $V = \qty{\fpeval{70*\v{m}}}{mL}$ ; variable recherchée : pourcentage
+    \item \textbf{Équations pertinentes :}
+    \[ \% = \frac{V_{\text{don}}}{V} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \% = \frac{\num{450}}{\num{\fpeval{70*\v{m}}}} \times 100 = \Res{100*450/(70*\v{m})}{\percent} \]
+    \item \textbf{Réponse :} le don représente \textbf{\Res{100*450/(70*\v{m})}{\percent}} de son volume sanguin.
+\end{enumerate}

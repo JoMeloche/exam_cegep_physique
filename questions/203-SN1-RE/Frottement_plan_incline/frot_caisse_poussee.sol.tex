@@ -1,0 +1,54 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Force minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la caisse : $m = \qty{\v{m}}{kg}$
+        \item Coefficient de frottement statique : $\mu_s = \num{\v{mus}}$
+        \item $n = mg$ (plancher horizontal)
+        \item Variable recherchée : $F_{\min}$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ F_{\min} = f_{s,\max} = \mu_s n \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_{\min} = \mu_s m g \]
+    \item \textbf{Résolution numérique :}
+    \[ F_{\min} = \num{\vsi{mus}} \cdot \num{\vsi{m}} \cdot \num{9.81} = \Res{\vsi{mus}*\vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} il doit pousser avec plus de \textbf{\Res{\vsi{mus}*\vsi{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Force appliquée : $F = \qty{\v{F}}{N}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item Masse de la caisse : $m = \qty{\v{m}}{kg}$
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_x = m a \implies F - \mu_c m g = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F - \mu_c m g}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\vsi{F}} - \num{\vsi{mu}} \cdot \num{\vsi{m}} \cdot \num{9.81}}{\num{\vsi{m}}} = \Res{(\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m}}{m/s^2} \]
+    \item \textbf{Réponse :} la caisse accélère à \textbf{\Res{(\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m}}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance de glissement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_1 = a t = \Res{((\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m})*\vsi{t}}{m/s}$
+        \item Après la poussée : seule $f_c$ agit, $a' = -\mu_c g = \Res{-\vsi{mu}*9.81}{m/s^2}$
+        \item Variable recherchée : $d$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 0 = v_1^2 + 2 a' d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{v_1^2}{2 \mu_c g} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{(\Val{((\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m})*\vsi{t}})^2}{2 \cdot \num{\vsi{mu}} \cdot \num{9.81}} = \Res{(((\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m})*\vsi{t})^2/(2*\vsi{mu}*9.81)}{m} \]
+    \item \textbf{Réponse :} la caisse glisse encore sur \textbf{\Res{(((\vsi{F} - \vsi{mu}*\vsi{m}*9.81)/\vsi{m})*\vsi{t})^2/(2*\vsi{mu}*9.81)}{m}}.
+\end{enumerate}

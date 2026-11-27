@@ -1,0 +1,18 @@
+title: Mesure d'un coefficient de frottement
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  thc: {type: integer, min: 20, max: 38, step: 1, unit: \degree, label: Angle où le bloc commence à glisser}
+  mu: {type: decimal, step: 0.01, label: Coefficient de frottement cinétique, min: 0.1, max: 0.4}
+  L: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: m, label: Longueur de la planche}
+constraints: [tan(rad(thc)) - mu > 0.1]
+solution:
+  mode: manual
+  file: frot_angle_critique.sol.tex
+  parts:
+    a: {expr: tan(rad(thc)), label: Coefficient de frottement statique}
+    b: {expr: g*(sin(rad(thc)) - mu*cos(rad(thc))), unit: m/s^2, label: Accélération}
+    c: {expr: sqrt(2*L/(g*(sin(rad(thc)) - mu*cos(rad(thc))))), unit: s, label: Durée de la descente}

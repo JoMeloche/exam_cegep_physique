@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Moment de force initial}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, bras de levier du poids $L/2 = \Res{\vsi{L}/2}{m}$ ; variable recherchée : $\tau$
+    \item \textbf{Équations pertinentes :} le poids agit au centre de masse : \[ \tau = Mg\,\frac{L}{2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \tau = \num{\v{M}} \cdot \num{9.81} \cdot \Val{\vsi{L}/2} = \Res{(\vsi{M}*9.81*\vsi{L}/2)}{N.m} \]
+    \item \textbf{Réponse :} $\tau = \mathbf{\Res{(\vsi{M}*9.81*\vsi{L}/2)}{N.m}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération angulaire initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\tau = \Res{(\vsi{M}*9.81*\vsi{L}/2)}{N.m}$, $I = \tfrac{1}{3}ML^2 = \Res{\vsi{M}*\vsi{L}^2/3}{kg.m^2}$ ; variable recherchée : $\alpha$
+    \item \textbf{Équations pertinentes :} \[ \tau = I\alpha \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \alpha = \frac{\tau}{I} = \frac{3g}{2L} \]
+    \item \textbf{Résolution numérique :} \[ \alpha = \frac{\Val{(\vsi{M}*9.81*\vsi{L}/2)}}{\Val{\vsi{M}*\vsi{L}^2/3}} = \Res{(3*9.81/(2*\vsi{L}))}{rad/s^2} \]
+    \item \textbf{Réponse :} $\alpha = \mathbf{\Res{(3*9.81/(2*\vsi{L}))}{rad/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse de l'extrémité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} le centre de masse descend de $L/2 = \Res{\vsi{L}/2}{m}$, $I = \Res{\vsi{M}*\vsi{L}^2/3}{kg.m^2}$ ; variable recherchée : $v_{\text{bout}}$
+    \item \textbf{Équations pertinentes :} conservation de l'énergie : \[ Mg\frac{L}{2} = \tfrac{1}{2}\left(\tfrac{1}{3}ML^2\right)\omega^2 \qquad v_{\text{bout}} = \omega L \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \omega = \sqrt{\frac{3g}{L}} \qquad v_{\text{bout}} = \sqrt{3gL} \]
+    \item \textbf{Résolution numérique :} \[ \omega = \sqrt{\frac{3 \cdot \num{9.81}}{\num{\v{L}}}} = \Res{sqrt(3*9.81/\vsi{L})}{rad/s} \qquad v_{\text{bout}} = \Val{sqrt(3*9.81/\vsi{L})} \cdot \num{\v{L}} = \Res{(sqrt(3*9.81*\vsi{L}))}{m/s} \]
+    \item \textbf{Réponse :} $v_{\text{bout}} = \mathbf{\Res{(sqrt(3*9.81*\vsi{L}))}{m/s}}$
+\end{enumerate}

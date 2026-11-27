@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$ ; variable recherchée : $F_g$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = mg \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} $F_g = \mathbf{\Res{\v{m}*9.81}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension dans chaque câble}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_g = \Res{\v{m}*9.81}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :} équilibre vertical, les deux composantes verticales soutiennent le poids :
+    \[ 2T\sin\theta - F_g = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \frac{F_g}{2\sin\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{\Val{\v{m}*9.81}\,\unit{N}}{2\sin(\qty{\v{th}}{\degree})} = \Res{\v{m}*9.81/(2*sind(\v{th}))}{N} \]
+    \item \textbf{Réponse :} chaque câble a une tension de \textbf{\Res{\v{m}*9.81/(2*sind(\v{th}))}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Composante horizontale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \Res{\v{m}*9.81/(2*sind(\v{th}))}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $T_x$
+    \item \textbf{Équations pertinentes :}
+    \[ T_x = T\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T_x = \Val{\v{m}*9.81/(2*sind(\v{th}))}\,\unit{N} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{m}*9.81/(2*tand(\v{th}))}{N} \]
+    \item \textbf{Réponse :} $T_x = \mathbf{\Res{\v{m}*9.81/(2*tand(\v{th}))}{N}}$ ; les deux composantes horizontales s'annulent. Si les câbles étaient horizontaux, ils n'auraient aucune composante verticale pour soutenir le poids : il faudrait une tension infinie ($\sin\theta \to 0$).
+\end{enumerate}

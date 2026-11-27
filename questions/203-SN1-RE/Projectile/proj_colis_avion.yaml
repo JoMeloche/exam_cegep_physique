@@ -1,0 +1,17 @@
+title: Colis largué d'un avion
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+variables:
+  vk: {type: integer, min: 150, max: 300, step: 10, unit: km/h, si: 0.2777777778, label: Vitesse de l'avion}
+  h: {type: integer, min: 100, max: 500, step: 20, unit: m, label: Altitude de l'avion}
+constraints: []
+solution:
+  mode: manual
+  file: proj_colis_avion.sol.tex
+  parts:
+    a: {expr: sqrt(2*h/g), unit: s, label: Durée de la chute}
+    b: {expr: vk*sqrt(2*h/g), unit: m, label: Distance horizontale de largage}
+    c: {expr: sqrt(vk**2 + 2*g*h), unit: m/s, label: Vitesse à l'impact}

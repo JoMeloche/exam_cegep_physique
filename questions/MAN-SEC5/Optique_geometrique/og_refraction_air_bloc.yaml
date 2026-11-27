@@ -1,0 +1,16 @@
+title: 'Réfraction de l''air vers un bloc transparent'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  th1: {type: integer, min: 20, max: 70, step: 5, unit: \degree, label: Angle d'incidence}
+  n:   {type: choice, values: [1.33, 1.47, 1.50, 1.52, 1.65], label: Indice de réfraction du bloc}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "deg(asin(sin(rad(th1))/n))", unit: \degree, label: Angle de réfraction}
+    b: {expr: "c/n", unit: m/s, label: Vitesse de la lumière dans le bloc}
+    c: {expr: "th1 - deg(asin(sin(rad(th1))/n))", unit: \degree, label: Déviation du rayon}

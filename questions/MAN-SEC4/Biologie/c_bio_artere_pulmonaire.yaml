@@ -1,0 +1,15 @@
+title: 'Vaisseau qui mène le sang aux poumons'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Une artère part du cœur. L''artère pulmonaire part du ventricule droit et amène aux poumons le sang pauvre en oxygène : c''est une artère, même si son sang est pauvre en oxygène.'
+choices:
+  - 'L''aorte'
+  - 'La veine pulmonaire'
+  - 'La veine cave'
+  - 'L''artère pulmonaire'

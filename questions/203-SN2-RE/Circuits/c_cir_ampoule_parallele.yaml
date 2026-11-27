@@ -1,0 +1,15 @@
+title: "Ampoule retirée d'un montage en parallèle"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La tension aux bornes de chaque branche reste égale à $\mathcal{E}$ (pile idéale). Le courant dans l''ampoule restante, $I = \mathcal{E}/R$, ne change pas : son éclat reste le même. Seul le courant total fourni par la pile diminue.'
+choices:
+  - Il augmente
+  - Il diminue
+  - Il reste le même
+  - L'ampoule s'éteint aussi

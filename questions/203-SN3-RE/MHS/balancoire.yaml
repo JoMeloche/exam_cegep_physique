@@ -1,0 +1,23 @@
+title: Balancoire
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables:
+  mhsqCinqCPeriode:
+    type: decimal
+    min: 2
+    max: 4
+    step: 0.5
+    label: mhsqCinqCPeriode
+solution:
+  mode: none
+needs_review: true
+source: Question_concept/MHS/balancoire.tex
+original_values:
+  mhsqCinqCPeriode:
+    A: '3.0'
+    B: '2.5'
+    C: '3.5'
+history: []

@@ -1,0 +1,33 @@
+title: Train
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  App:
+    type: integer
+    min: 455
+    max: 505
+    step: 5
+    label: doppOnzeFreqApp
+  Elo:
+    type: integer
+    min: 370
+    max: 430
+    step: 10
+    label: doppOnzeFreqElo
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Doppler/train.tex
+original_values:
+  App:
+    A: '485'
+    B: '500'
+    C: '460'
+  Elo:
+    A: '400'
+    B: '420'
+    C: '380'
+history: []

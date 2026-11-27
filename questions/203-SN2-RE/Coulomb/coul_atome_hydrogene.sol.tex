@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \qty{1.602e-19}{C}$, $r = \qty{\v{r}e-12}{m}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \frac{k e^2}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F = \frac{\num{8.99e9} \cdot (\num{1.602e-19})^2}{(\num{\v{r}e-12})^2} = \ResSci{8.99e9*(1.602e-19)^2/(\v{r}*1e-12)^2}{N} \]
+    \item \textbf{Réponse :} $F = \mathbf{\ResSci{8.99e9*(1.602e-19)^2/(\v{r}*1e-12)^2}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F$, $m_e = \qty{9.109e-31}{kg}$, $r$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} la force électrique est la force centripète :
+    \[ \frac{k e^2}{r^2} = \frac{m_e v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{\frac{k e^2}{m_e r}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\frac{\num{8.99e9} \cdot (\num{1.602e-19})^2}{\num{9.109e-31} \cdot \num{\v{r}e-12}}} = \ResSci{sqrt(8.99e9*(1.602e-19)^2/(9.109e-31*\v{r}*1e-12))}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\ResSci{sqrt(8.99e9*(1.602e-19)^2/(9.109e-31*\v{r}*1e-12))}{m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $r$, $v$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2\pi r}{T} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = \frac{2\pi r}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{2\pi \cdot \num{\v{r}e-12}}{\ResSci{sqrt(8.99e9*(1.602e-19)^2/(9.109e-31*\v{r}*1e-12))}{}} = \ResSci{2*pi*\v{r}*1e-12/sqrt(8.99e9*(1.602e-19)^2/(9.109e-31*\v{r}*1e-12))}{s} \]
+    \item \textbf{Réponse :} $T = \mathbf{\ResSci{2*pi*\v{r}*1e-12/sqrt(8.99e9*(1.602e-19)^2/(9.109e-31*\v{r}*1e-12))}{s}}$.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: "Fréquence au point de passage le plus proche"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'L''effet Doppler ne dépend que de la composante de la vitesse le long de la ligne source-observateur. Au point le plus proche, cette composante est nulle : on entend $f$ (en négligeant le délai de propagation).'
+choices:
+  - 'La fréquence la plus élevée de tout le passage'
+  - 'La fréquence la plus basse de tout le passage'
+  - 'La fréquence émise par le klaxon'
+  - 'Aucun son ne vous parvient de ce point'

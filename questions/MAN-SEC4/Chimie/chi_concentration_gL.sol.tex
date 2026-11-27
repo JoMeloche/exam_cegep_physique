@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Concentration en g/L}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $V = \qty{\v{V}}{mL} = \qty{\fpeval{\v{V}/1000}}{L}$ ; variable recherchée : $C$
+    \item \textbf{Équations pertinentes :}
+    \[ C = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ C = \frac{\num{\v{m}}}{\num{\fpeval{\v{V}/1000}}} = \Res{\v{m}/(\v{V}/1000)}{g/L} \]
+    \item \textbf{Réponse :} la concentration est de \textbf{\Res{\v{m}/(\v{V}/1000)}{g/L}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Concentration en \% m/V}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $V = \qty{\v{V}}{mL}$ ; variable recherchée : $C$ en g/\qty{100}{mL}
+    \item \textbf{Équations pertinentes :}
+    \[ C_{\%} = \frac{m\,(\text{g})}{V\,(\text{mL})} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ C_{\%} = \frac{\num{\v{m}}}{\num{\v{V}}} \times 100 = \Res{100*\v{m}/\v{V}}{\percent} \]
+    \item \textbf{Réponse :} la solution est à \textbf{\Res{100*\v{m}/\v{V}}{\percent} m/V}.
+\end{enumerate}
+
+\subsubsection*{Question c) Concentration après l'ajout d'eau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$ (inchangée), $V_f = \qty{\fpeval{\v{Vf}/1000}}{L}$ ; variable recherchée : $C_f$
+    \item \textbf{Équations pertinentes :}
+    \[ C_f = \frac{m}{V_f} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ C_f = \frac{\num{\v{m}}}{\num{\fpeval{\v{Vf}/1000}}} = \Res{\v{m}/(\v{Vf}/1000)}{g/L} \]
+    \item \textbf{Réponse :} la nouvelle concentration est de \textbf{\Res{\v{m}/(\v{Vf}/1000)}{g/L}}. La masse de sel n'a pas changé : on a seulement ajouté du solvant, c'est une dilution.
+\end{enumerate}

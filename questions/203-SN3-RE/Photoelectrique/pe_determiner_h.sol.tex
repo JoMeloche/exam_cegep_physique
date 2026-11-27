@@ -1,0 +1,26 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Constante de Planck}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $f_1 = c/\lambda_1 = \ResSci{3e8/\vsi{lam1}}{Hz}$, $V_1 = \qty[round-mode=places,round-precision=3]{\fpeval{(1240/\v{lam1} - \v{phi})}}{V}$
+        \item $f_2 = c/\lambda_2 = \ResSci{3e8/\vsi{lam2}}{Hz}$, $V_2 = \qty[round-mode=places,round-precision=3]{\fpeval{(1240/\v{lam2} - \v{phi})}}{V}$
+        \item Variable recherchée : $h$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ eV_0 = hf - \phi \]
+    \item \textbf{Isolation de la variable recherchée :} en soustrayant les deux équations, $\phi$ s'élimine :
+    \[ e(V_1 - V_2) = h(f_1 - f_2) \implies h = \frac{e(V_1 - V_2)}{f_1 - f_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ h = \frac{\num{1.602e-19} \cdot \Val{(1240/\v{lam1} - \v{phi}) - (1240/\v{lam2} - \v{phi})}}{\ResSci{3e8/\vsi{lam1} - 3e8/\vsi{lam2}}{}} = \ResSci{1.602e-19*((1240/\v{lam1} - \v{phi}) - (1240/\v{lam2} - \v{phi}))/(3e8/\vsi{lam1} - 3e8/\vsi{lam2})}{J.s} \]
+    \item \textbf{Réponse :} $h = \mathbf{\ResSci{1.602e-19*((1240/\v{lam1} - \v{phi}) - (1240/\v{lam2} - \v{phi}))/(3e8/\vsi{lam1} - 3e8/\vsi{lam2})}{J.s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Travail d'extraction}
+\[ \phi = hf_1 - eV_1 = \frac{1240}{\num{\v{lam1}}} - \Val{(1240/\v{lam1} - \v{phi})} = \Res{\v{phi}}{eV} \]
+Le travail d'extraction est de \textbf{\Res{\v{phi}}{eV}}.
+
+\subsubsection*{Question c) Graphique}
+$V_0 = \dfrac{h}{e}f - \dfrac{\phi}{e}$ est une droite : la pente vaut $h/e$ et l'abscisse à l'origine est la fréquence de seuil $f_0 = \phi/h = \ResSci{\v{phi}*1.602e-19/6.626e-34}{Hz}$. Sous $f_0$, aucun électron n'est éjecté.

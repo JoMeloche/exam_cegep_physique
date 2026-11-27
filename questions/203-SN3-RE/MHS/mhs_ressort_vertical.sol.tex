@@ -1,0 +1,66 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Constante de rappel}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse : $m = \qty{\v{m}}{g} = \qty{\vsi{m}}{kg}$
+        \item Allongement à l'équilibre : $d = \qty{\v{dx}}{cm} = \qty{\vsi{dx}}{m}$
+        \item Variable recherchée : $k$ (N/m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} à l'équilibre, la force du ressort compense le poids :
+    \[ k d = m g \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ k = \frac{m g}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ k = \frac{\num{\vsi{m}} \cdot \num{9.81}}{\num{\vsi{dx}}} = \Res{\vsi{m}*9.81/\vsi{dx}}{N/m} \]
+    \item \textbf{Réponse :} la constante de rappel est de \textbf{\Res{\vsi{m}*9.81/\vsi{dx}}{N/m}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\vsi{m}}{kg}$, $k = \Res{\vsi{m}*9.81/\vsi{dx}}{N/m}$
+        \item Variable recherchée : $T$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \omega = \sqrt{\frac{k}{m}} \qquad T = \frac{2\pi}{\omega} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = 2\pi\sqrt{\frac{m}{k}} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = 2\pi\sqrt{\frac{\num{\vsi{m}}}{\Val{\vsi{m}*9.81/\vsi{dx}}}} = \Res{2*pi*sqrt(\vsi{dx}/9.81)}{s} \]
+    \item \textbf{Réponse :} la période est de \textbf{\Res{2*pi*sqrt(\vsi{dx}/9.81)}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Premier passage à \qty{\fpeval{\v{A}/2}}{cm} au-dessus de l'équilibre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Axe vers le haut, l'objet part du point le plus bas : $x(0) = -A$ avec $A = \qty{\vsi{A}}{m}$
+        \item $\omega = \Res{sqrt(9.81/\vsi{dx})}{rad/s}$
+        \item Variable recherchée : le premier instant $t$ où $x = +A/2$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ x(t) = -A\cos(\omega t) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \frac{A}{2} = -A\cos(\omega t) \implies \cos(\omega t) = -\frac{1}{2} \implies \omega t = \frac{2\pi}{3} \implies t = \frac{2\pi}{3\omega} = \frac{T}{3} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{2\pi}{3 \cdot \Val{sqrt(9.81/\vsi{dx})}} = \Res{2*pi/(3*sqrt(9.81/\vsi{dx}))}{s} \]
+    \item \textbf{Réponse :} l'objet atteint \qty{\fpeval{\v{A}/2}}{cm} au-dessus de l'équilibre pour la première fois à \textbf{\Res{2*pi/(3*sqrt(9.81/\vsi{dx}))}{s}}, soit le tiers d'une période (graphique : cosinus inversé, point à $T/3$).
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $\omega = \Res{sqrt(9.81/\vsi{dx})}{rad/s}$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_{\max} = A\omega \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \num{\vsi{A}} \cdot \Val{sqrt(9.81/\vsi{dx})} = \Res{\vsi{A}*sqrt(9.81/\vsi{dx})}{m/s} \]
+    \item \textbf{Réponse :} le module de la vitesse maximale est de \textbf{\Res{\vsi{A}*sqrt(9.81/\vsi{dx})}{m/s}}.
+\end{enumerate}

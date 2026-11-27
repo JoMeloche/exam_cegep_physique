@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Moment d'inertie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $R = \qty{\v{R}}{m}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :} \[ I_{\text{disque}} = \tfrac{1}{2}MR^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ I = \tfrac{1}{2} \cdot \num{\v{M}} \cdot \left(\num{\v{R}}\right)^2 = \Res{(0.5*\vsi{M}*\vsi{R}^2)}{kg.m^2} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{(0.5*\vsi{M}*\vsi{R}^2)}{kg.m^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique de rotation}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \Res{(0.5*\vsi{M}*\vsi{R}^2)}{kg.m^2}$, $\omega = \qty{\v{w}}{tr/min} = \Res{\vsi{w}}{rad/s}$ ; variable recherchée : $K_{\text{rot}}$
+    \item \textbf{Équations pertinentes :} \[ K_{\text{rot}} = \tfrac{1}{2}I\omega^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_{\text{rot}} = \tfrac{1}{2} \cdot \Val{(0.5*\vsi{M}*\vsi{R}^2)} \cdot \left(\Val{\vsi{w}}\right)^2 = \Res{(0.5*(0.5*\vsi{M}*\vsi{R}^2)*\vsi{w}^2)}{J} \]
+    \item \textbf{Réponse :} $K_{\text{rot}} = \mathbf{\Res{(0.5*(0.5*\vsi{M}*\vsi{R}^2)*\vsi{w}^2)}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Temps d'arrêt}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \Res{(0.5*\vsi{M}*\vsi{R}^2)}{kg.m^2}$, $\omega_i = \Res{\vsi{w}}{rad/s}$, $\omega_f = 0$, $\tau_f = \qty{\v{tf}}{N.m}$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :} \[ \tau_f = I|\alpha| \qquad \omega_f = \omega_i - |\alpha| t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t = \frac{\omega_i}{|\alpha|} = \frac{I\omega_i}{\tau_f} \]
+    \item \textbf{Résolution numérique :} \[ |\alpha| = \frac{\num{\v{tf}}}{\Val{(0.5*\vsi{M}*\vsi{R}^2)}} = \Res{\vsi{tf}/(0.5*\vsi{M}*\vsi{R}^2)}{rad/s^2} \qquad t = \frac{\Val{(0.5*\vsi{M}*\vsi{R}^2)} \cdot \Val{\vsi{w}}}{\num{\v{tf}}} = \Res{((0.5*\vsi{M}*\vsi{R}^2)*\vsi{w}/\vsi{tf})}{s} \]
+    \item \textbf{Réponse :} $t = \mathbf{\Res{((0.5*\vsi{M}*\vsi{R}^2)*\vsi{w}/\vsi{tf})}{s}}$
+\end{enumerate}

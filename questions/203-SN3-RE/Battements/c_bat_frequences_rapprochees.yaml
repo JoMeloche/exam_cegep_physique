@@ -1,0 +1,15 @@
+title: "Effet du rapprochement des fréquences"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$f_{\text{batt}} = |f_1 - f_2|$ : plus les fréquences sont proches, plus les battements sont lents ; ils disparaissent quand les fréquences sont égales.'
+choices:
+  - 'Ils deviennent plus rapides'
+  - 'Ils deviennent plus forts, mais leur rythme ne change pas'
+  - 'Ils deviennent plus lents'
+  - 'Ils ne changent pas'

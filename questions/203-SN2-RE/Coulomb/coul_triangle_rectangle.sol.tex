@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Forces individuelles}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_2 = \qty{\v{q2}e-6}{C}$, $q_3 = \qty{\v{q3}e-6}{C}$, $a = \qty{\vsi{a}}{m}$, $b = \qty{\vsi{b}}{m}$ ; variables recherchées : $F_{21}$, $F_{31}$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \frac{k\,|q_i q_j|}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{21} = \frac{\num{8.99e9} \cdot \num{\v{q1}e-6} \cdot \num{\v{q2}e-6}}{(\num{\vsi{a}})^2} = \Res{8.99e9*\v{q1}*\v{q2}*1e-12/(\vsi{a})^2}{N} \qquad F_{31} = \frac{\num{8.99e9} \cdot \num{\v{q1}e-6} \cdot \num{\v{q3}e-6}}{(\num{\vsi{b}})^2} = \Res{8.99e9*\v{q1}*\v{q3}*1e-12/(\vsi{b})^2}{N} \]
+    \item \textbf{Réponse :} $F_{21} = \mathbf{\Res{8.99e9*\v{q1}*\v{q2}*1e-12/(\vsi{a})^2}{N}}$ vers les $x$ négatifs et $F_{31} = \mathbf{\Res{8.99e9*\v{q1}*\v{q3}*1e-12/(\vsi{b})^2}{N}}$ vers les $y$ négatifs (forces répulsives).
+\end{enumerate}
+
+\subsubsection*{Question b) Force résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_x = -\Res{8.99e9*\v{q1}*\v{q2}*1e-12/(\vsi{a})^2}{N}$, $F_y = -\Res{8.99e9*\v{q1}*\v{q3}*1e-12/(\vsi{b})^2}{N}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ F = \sqrt{F_x^2 + F_y^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F = \sqrt{(\Val{8.99e9*\v{q1}*\v{q2}*1e-12/(\vsi{a})^2})^2 + (\Val{8.99e9*\v{q1}*\v{q3}*1e-12/(\vsi{b})^2})^2} = \Res{8.99e9*\v{q1}*1e-12*sqrt((\v{q2}/(\vsi{a})^2)^2 + (\v{q3}/(\vsi{b})^2)^2)}{N} \]
+    \item \textbf{Réponse :} $F = \mathbf{\Res{8.99e9*\v{q1}*1e-12*sqrt((\v{q2}/(\vsi{a})^2)^2 + (\v{q3}/(\vsi{b})^2)^2)}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Orientation}
+\[ \theta = \arctan\left(\frac{|F_y|}{|F_x|}\right) = \arctan\left(\frac{\Val{8.99e9*\v{q1}*\v{q3}*1e-12/(\vsi{b})^2}}{\Val{8.99e9*\v{q1}*\v{q2}*1e-12/(\vsi{a})^2}}\right) = \Res{atand((\v{q3}/(\vsi{b})^2)/(\v{q2}/(\vsi{a})^2))}{\degree} \]
+La force résultante pointe vers le bas et vers la gauche, à \textbf{\Res{atand((\v{q3}/(\vsi{b})^2)/(\v{q2}/(\vsi{a})^2))}{\degree}} sous l'axe des $x$ négatifs.

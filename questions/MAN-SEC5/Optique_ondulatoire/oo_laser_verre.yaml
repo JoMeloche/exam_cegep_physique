@@ -1,0 +1,16 @@
+title: 'Lumière laser qui entre dans le verre'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  lam: {type: integer, min: 400, max: 700, step: 5, unit: nm, si: 1e-9, label: Longueur d'onde dans l'air}
+  n:   {type: choice, values: [1.33, 1.46, 1.50, 1.52, 1.60], label: Indice de réfraction du milieu}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "c/lam", unit: Hz, label: Fréquence}
+    b: {expr: "c/n", unit: m/s, label: Vitesse dans le milieu}
+    c: {expr: "1e9*lam/n", unit: nm, label: Longueur d'onde dans le milieu}

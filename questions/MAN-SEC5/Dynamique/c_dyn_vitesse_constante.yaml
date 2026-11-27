@@ -1,0 +1,16 @@
+title: 'Force résultante à vitesse constante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [première loi]
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Vitesse constante signifie accélération nulle, donc, par la deuxième loi, une force résultante nulle : la poussée vers le haut compense exactement le poids.'
+choices:
+  - 'Elle est nulle'
+  - 'Elle est dirigée vers le haut'
+  - 'Elle est dirigée vers le bas'
+  - 'Elle est égale au poids de la montgolfière'

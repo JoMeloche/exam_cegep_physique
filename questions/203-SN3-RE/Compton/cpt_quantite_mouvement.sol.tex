@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Quantités de mouvement du photon}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\vsi{l0}}{m}$, $\theta = \qty{90}{\degree}$ ; variables recherchées : $p$ et $p'$
+    \item \textbf{Équations pertinentes :}
+    \[ p = \frac{h}{\lambda} \qquad \lambda' = \lambda + \frac{h}{m_e c}(1 - \cos 90^\circ) = \lambda + \frac{h}{m_e c} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ \lambda' = \Res{\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)}{pm} \qquad p = \frac{\num{6.626e-34}}{\num{\vsi{l0}}} = \ResSci{6.626e-34/\vsi{l0}}{kg.m/s} \qquad p' = \ResSci{6.626e-34/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8))}{kg.m/s} \]
+    \item \textbf{Réponse :} $p = \mathbf{\ResSci{6.626e-34/\vsi{l0}}{kg.m/s}}$ et $p' = \mathbf{\ResSci{6.626e-34/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8))}{kg.m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Quantité de mouvement de l'électron}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\vec p = p\,\hat\imath$, $\vec p\,' = p'\,\hat\jmath$ ; variable recherchée : $p_e$
+    \item \textbf{Équations pertinentes :}
+    \[ \vec p = \vec p\,' + \vec p_e \implies \vec p_e = p\,\hat\imath - p'\,\hat\jmath \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ p_e = \sqrt{p^2 + p'^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ p_e = \sqrt{\left(\ResSci{6.626e-34/\vsi{l0}}{}\right)^2 + \left(\ResSci{6.626e-34/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8))}{}\right)^2} = \ResSci{sqrt((6.626e-34/\vsi{l0})^2 + (6.626e-34/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8)))^2)}{kg.m/s} \]
+    \item \textbf{Réponse :} $p_e = \mathbf{\ResSci{sqrt((6.626e-34/\vsi{l0})^2 + (6.626e-34/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8)))^2)}{kg.m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Direction de l'électron}
+\[ \tan\phi = \frac{p'}{p} = \frac{\lambda}{\lambda'} \implies \phi = \arctan\left(\frac{\num{\v{l0}}}{\Val{\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)}}\right) = \Res{atand(\v{l0}/(\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)))}{\degree} \]
+L'électron part à \textbf{\Res{atand(\v{l0}/(\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)))}{\degree}} sous l'axe des $x$.

@@ -1,0 +1,15 @@
+title: "Onde transversale ou longitudinale"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Dans une onde sonore, les molécules d''air oscillent dans la direction de propagation : c''est une onde longitudinale. Les trois autres sont transversales.'
+choices:
+  - 'Le son dans l''air'
+  - 'Une onde sur une corde de guitare'
+  - 'Une vague « la ola » dans un stade'
+  - 'La lumière'

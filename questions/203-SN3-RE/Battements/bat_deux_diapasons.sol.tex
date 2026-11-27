@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Valeurs possibles}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_A = \qty{\v{f1}}{Hz}$, $f_{\text{batt}} = \qty{\v{fb}}{Hz}$ ; variable recherchée : $f_B$
+    \item \textbf{Équations pertinentes :}
+    \[ f_{\text{batt}} = |f_A - f_B| \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f_B = f_A \pm f_{\text{batt}} \]
+    \item \textbf{Résolution numérique :}
+    \[ f_B = \num{\v{f1}} \pm \num{\v{fb}} \]
+    \item \textbf{Réponse :} $f_B = \mathbf{\qty{\fpeval{\v{f1}+\v{fb}}}{Hz}}$ ou $f_B = \mathbf{\qty{\fpeval{\v{f1}-\v{fb}}}{Hz}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Effet de la cire}
+La cire diminue $f_B$. Si $f_B$ valait \qty{\fpeval{\v{f1}-\v{fb}}}{Hz}, elle s'éloignerait de $f_A$ et les battements accéléreraient ; si $f_B$ valait \qty{\fpeval{\v{f1}+\v{fb}}}{Hz}, elle se rapprocherait de $f_A$ et les battements ralentiraient. Les battements augmentent, donc $f_B = \mathbf{\qty{\fpeval{\v{f1}-\v{fb}}}{Hz}}$.
+
+\subsubsection*{Question c) Nombre de battements}
+\[ N = f_{\text{batt}}\,\Delta t = \num{\v{fb}} \cdot \num{\v{t}} = \fpeval{\v{fb}*\v{t}} \]
+On entend \textbf{\fpeval{\v{fb}*\v{t}} battements}.

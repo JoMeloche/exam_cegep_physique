@@ -1,0 +1,57 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{0}{m/s}$, $v = \qty{\v{vm}}{m/s}$, $t_1 = \qty{\v{t1}}{s}$
+        \item Variable recherchée : $a$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v = v_0 + a t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{v - v_0}{t_1} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\v{vm}} - 0}{\num{\v{t1}}} = \Res{\v{vm}/\v{t1}}{m/s^2} \]
+    \item \textbf{Réponse :} son accélération est de \textbf{\Res{\v{vm}/\v{t1}}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance d'accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{0}{m/s}$, $v = \qty{\v{vm}}{m/s}$, $t_1 = \qty{\v{t1}}{s}$
+        \item Variable recherchée : $d_1$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ d_1 = \frac{v_0 + v}{2}\, t_1 \]
+    \item \textbf{Isolation de la variable recherchée :} avec $v_0 = 0$ : $d_1 = \frac{v\,t_1}{2}$
+    \item \textbf{Résolution numérique :}
+    \[ d_1 = \frac{\num{\v{vm}} \cdot \num{\v{t1}}}{2} = \Res{\v{vm}*\v{t1}/2}{m} \]
+    \item \textbf{Réponse :} il parcourt \textbf{\Res{\v{vm}*\v{t1}/2}{m}} en accélérant.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps total}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d_2 = \qty{100}{m} - d_1 = \Res{100 - \v{vm}*\v{t1}/2}{m}$ parcourus à $v = \qty{\v{vm}}{m/s}$ constante
+        \item Variable recherchée : $t_{\text{total}}$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ d_2 = v\,t_2 \qquad t_{\text{total}} = t_1 + t_2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t_2 = \frac{d_2}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ t_{\text{total}} = \num{\v{t1}} + \frac{\Val{100 - \v{vm}*\v{t1}/2}}{\num{\v{vm}}} = \Res{\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm}}{s} \]
+    \item \textbf{Réponse :} il termine la course en \textbf{\Res{\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm}}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\Delta x = \qty{100}{m}$, $\Delta t = \Res{\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm}}{s}$
+        \item Variable recherchée : $v_{\text{moy}}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_{\text{moy}} = \frac{\Delta x}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\text{moy}} = \frac{\num{100}}{\Val{\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm}}} = \Res{100/(\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm})}{m/s} \]
+    \item \textbf{Réponse :} sa vitesse moyenne est de \textbf{\Res{100/(\v{t1} + (100 - \v{vm}*\v{t1}/2)/\v{vm})}{m/s}}, plus petite que sa vitesse maximale.
+\end{enumerate}

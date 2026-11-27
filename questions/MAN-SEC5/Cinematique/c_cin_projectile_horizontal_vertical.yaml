@@ -1,0 +1,16 @@
+title: 'Indépendance des mouvements horizontal et vertical'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [projectile]
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le mouvement vertical est le même pour les deux balles (vitesse verticale initiale nulle, accélération $g$) : la vitesse horizontale n''influence pas la durée de la chute.'
+choices:
+  - 'La balle A'
+  - 'Les deux en même temps'
+  - 'La balle B'
+  - 'Cela dépend de la vitesse de lancement de B'

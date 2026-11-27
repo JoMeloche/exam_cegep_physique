@@ -1,0 +1,15 @@
+title: 'Point de champ nul entre deux charges positives'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Entre les charges, les champs sont opposés. $kq/x^2 = 4kq/(d-x)^2$ donne $d - x = 2x$, soit $x = d/3$, plus près de la plus petite charge.'
+choices:
+  - 'À $x = d/2$'
+  - 'À $x = 2d/3$'
+  - 'À $x = -d$'
+  - 'À $x = d/3$'

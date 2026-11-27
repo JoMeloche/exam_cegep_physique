@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse volumique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{g}$, $V = \qty{\v{V}}{cm^3}$ ; variable recherchée : $\rho$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \rho = \frac{\num{\v{m}}}{\num{\v{V}}} = \Res{\v{m}/\v{V}}{g/cm^3} \]
+    \item \textbf{Réponse :} la masse volumique du matériau est de \textbf{\Res{\v{m}/\v{V}}{g/cm^3}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Flotte ou coule}
+$\rho = \Res{\v{m}/\v{V}}{g/cm^3}$ et $\rho_{\text{eau}} = \qty{1.00}{g/cm^3}$ : l'objet \ifthenelse{\lengthtest{\v{m}pt < \v{V}pt}}{\textbf{flotte}, car sa masse volumique est inférieure à celle de l'eau}{\textbf{coule}, car sa masse volumique est supérieure à celle de l'eau}.
+
+\subsubsection*{Question c) Masse du cube}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \Res{\v{m}/\v{V}}{g/cm^3}$, arête $a = \qty{\v{a}}{cm}$ ; variable recherchée : $m_c$
+    \item \textbf{Équations pertinentes :}
+    \[ V_c = a^3 \qquad \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m_c = \rho\,a^3 \]
+    \item \textbf{Résolution numérique :}
+    \[ V_c = \num{\v{a}}^3 = \qty{\fpeval{\v{a}^3}}{cm^3} \qquad m_c = \Val{\v{m}/\v{V}} \times \num{\fpeval{\v{a}^3}} = \Res{\v{m}/\v{V}*\v{a}^3}{g} \]
+    \item \textbf{Réponse :} le cube aurait une masse de \textbf{\Res{\v{m}/\v{V}*\v{a}^3}{g}}.
+\end{enumerate}

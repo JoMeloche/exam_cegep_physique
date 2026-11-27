@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse angulaire finale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_1 = \qty{\v{I1}}{kg.m^2}$, $\omega_1 = \qty{\v{f1}}{tr/s} = \Res{\vsi{f1}}{rad/s}$, $I_2 = \qty{\v{I2}}{kg.m^2}$ ; variable recherchée : $\omega_2$
+    \item \textbf{Équations pertinentes :} aucun moment de force extérieur : le moment cinétique est conservé. \[ I_1\omega_1 = I_2\omega_2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \omega_2 = \frac{I_1\omega_1}{I_2} \]
+    \item \textbf{Résolution numérique :} \[ \omega_2 = \frac{\num{\v{I1}} \cdot \Val{\vsi{f1}}}{\num{\v{I2}}} = \Res{(\vsi{I1}*\vsi{f1}/\vsi{I2})}{rad/s} \]
+    \item \textbf{Réponse :} $\omega_2 = \mathbf{\Res{(\vsi{I1}*\vsi{f1}/\vsi{I2})}{rad/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_1 = \qty{\v{I1}}{kg.m^2}$, $\omega_1 = \Res{\vsi{f1}}{rad/s}$ ; variable recherchée : $K_1$
+    \item \textbf{Équations pertinentes :} \[ K_1 = \tfrac{1}{2}I_1\omega_1^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_1 = \tfrac{1}{2} \cdot \num{\v{I1}} \cdot \left(\Val{\vsi{f1}}\right)^2 = \Res{(0.5*\vsi{I1}*\vsi{f1}^2)}{J} \]
+    \item \textbf{Réponse :} $K_1 = \mathbf{\Res{(0.5*\vsi{I1}*\vsi{f1}^2)}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Variation de l'énergie cinétique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_2 = \qty{\v{I2}}{kg.m^2}$, $\omega_2 = \Res{(\vsi{I1}*\vsi{f1}/\vsi{I2})}{rad/s}$, $K_1 = \Res{(0.5*\vsi{I1}*\vsi{f1}^2)}{J}$ ; variable recherchée : $\Delta K$
+    \item \textbf{Équations pertinentes :} \[ K_2 = \tfrac{1}{2}I_2\omega_2^2 \qquad \Delta K = K_2 - K_1 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_2 = \tfrac{1}{2} \cdot \num{\v{I2}} \cdot \left(\Val{(\vsi{I1}*\vsi{f1}/\vsi{I2})}\right)^2 = \Res{0.5*\vsi{I2}*((\vsi{I1}*\vsi{f1}/\vsi{I2}))^2}{J} \qquad \Delta K = \Res{(0.5*\vsi{I2}*((\vsi{I1}*\vsi{f1}/\vsi{I2}))^2 - (0.5*\vsi{I1}*\vsi{f1}^2))}{J} \]
+    \item \textbf{Réponse :} $\Delta K = \mathbf{\Res{(0.5*\vsi{I2}*((\vsi{I1}*\vsi{f1}/\vsi{I2}))^2 - (0.5*\vsi{I1}*\vsi{f1}^2))}{J}}$ : l'énergie augmente ; elle provient du travail fait par les muscles de la patineuse pour ramener ses bras.
+\end{enumerate}

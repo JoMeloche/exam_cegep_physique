@@ -1,0 +1,15 @@
+title: "Travail de la force magnétique"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La force magnétique est toujours perpendiculaire à la vitesse : elle ne fait aucun travail. L''énergie cinétique, donc la grandeur de la vitesse, reste constante ; seule la direction change.'
+choices:
+  - Elle augmente
+  - Elle diminue
+  - Elle reste constante
+  - Elle oscille entre deux valeurs

@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\v{E}}{N/C}$, $e = \qty{1.602e-19}{C}$, $m_e = \qty{9.109e-31}{kg}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :}
+    \[ F = eE = m_e a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{eE}{m_e} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{1.602e-19} \cdot \num{\v{E}}}{\num{9.109e-31}} = \ResSci{1.602e-19*\v{E}/9.109e-31}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\ResSci{1.602e-19*\v{E}/9.109e-31}{m/s^2}}$ vers le \textbf{bas} (l'électron est négatif, la force est opposée au champ).
+\end{enumerate}
+
+\subsubsection*{Question b) Temps entre les plaques}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\vsi{L}}{m}$, $v_0 = \qty{\v{v0}e6}{m/s}$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :} la vitesse horizontale est constante :
+    \[ L = v_0 t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \frac{L}{v_0} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\num{\vsi{L}}}{\num{\v{v0}e6}} = \ResSci{\vsi{L}/(\v{v0}*1e6)}{s} \]
+    \item \textbf{Réponse :} $t = \mathbf{\ResSci{\vsi{L}/(\v{v0}*1e6)}{s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Déviation verticale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a$, $t$, $v_{0y} = 0$ ; variable recherchée : $\Delta y$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta y = v_{0y}t + \frac{1}{2}at^2 \]
+    \item \textbf{Isolation de la variable recherchée :} $\Delta y = \frac{1}{2}at^2$
+    \item \textbf{Résolution numérique :}
+    \[ \Delta y = \frac{1}{2} \cdot \ResSci{1.602e-19*\v{E}/9.109e-31}{} \cdot (\ResSci{\vsi{L}/(\v{v0}*1e6)}{})^2 = \Res{0.5*(1.602e-19*\v{E}/9.109e-31)*(\vsi{L}/(\v{v0}*1e6))^2}{m} \]
+    \item \textbf{Réponse :} l'électron est dévié de $\mathbf{\Res{1000*0.5*(1.602e-19*\v{E}/9.109e-31)*(\vsi{L}/(\v{v0}*1e6))^2}{mm}}$ vers le bas.
+\end{enumerate}

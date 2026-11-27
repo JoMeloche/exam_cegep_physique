@@ -1,0 +1,16 @@
+title: Identifier un métal par sa masse volumique
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  rho: {type: choice, values: [2.70, 7.87, 8.96, 11.34], unit: g/mL, label: Masse volumique du métal}
+  Vi:  {type: integer, min: 40, max: 60, step: 1, unit: mL, label: Volume d'eau initial}
+  dV:  {type: integer, min: 8, max: 25, step: 1, unit: mL, label: Volume de l'objet}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "dV", unit: mL, label: Volume de l'objet}
+    b: {expr: "rho", unit: g/mL, label: Masse volumique}

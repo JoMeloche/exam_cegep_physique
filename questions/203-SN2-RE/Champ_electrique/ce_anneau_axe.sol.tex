@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ sur l'axe}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $R = \qty{\vsi{R}}{m}$, $z = \qty{\vsi{z}}{m}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :} les composantes perpendiculaires à l'axe s'annulent ; il reste :
+    \[ E = \frac{kQz}{(z^2 + R^2)^{3/2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9} \cdot \num{\vsi{z}}}{((\num{\vsi{z}})^2 + (\num{\vsi{R}})^2)^{3/2}} = \Res{8.99e9*\v{Q}*1e-9*\vsi{z}/((\vsi{z})^2+(\vsi{R})^2)^1.5}{N/C} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{8.99e9*\v{Q}*1e-9*\vsi{z}/((\vsi{z})^2+(\vsi{R})^2)^1.5}{N/C}}$, le long de l'axe, en s'éloignant de l'anneau.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ au centre}
+Au centre ($z = 0$), chaque élément de charge est compensé par l'élément diamétralement opposé, dont le champ a le même module et le sens contraire. Le champ est donc \textbf{nul} : $E = \frac{kQ \cdot 0}{R^3} = \qty{0}{N/C}$.
+
+\subsubsection*{Question c) Champ maximal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $z_{\max} = R/\sqrt 2 = \Res{\vsi{R}/sqrt(2)}{m}$ ; variable recherchée : $E_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ E_{\max} = \frac{kQz_{\max}}{(z_{\max}^2 + R^2)^{3/2}} \]
+    \item \textbf{Isolation de la variable recherchée :} avec $z_{\max}^2 + R^2 = \frac{3}{2}R^2$ :
+    \[ E_{\max} = \frac{2kQ}{3\sqrt{3}\,R^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ E_{\max} = \frac{2 \cdot \num{8.99e9} \cdot \num{\v{Q}e-9}}{3\sqrt 3 \cdot (\num{\vsi{R}})^2} = \Res{2*8.99e9*\v{Q}*1e-9/(3*sqrt(3)*(\vsi{R})^2)}{N/C} \]
+    \item \textbf{Réponse :} $E_{\max} = \mathbf{\Res{2*8.99e9*\v{Q}*1e-9/(3*sqrt(3)*(\vsi{R})^2)}{N/C}}$, à \Res{100*\vsi{R}/sqrt(2)}{cm} du centre.
+\end{enumerate}

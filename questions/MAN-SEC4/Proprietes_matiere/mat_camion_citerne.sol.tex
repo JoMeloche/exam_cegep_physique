@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse du chargement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \qty{\v{rho}}{kg/m^3}$, $V = \qty{\v{V}}{m^3}$ ; variable recherchée : $m$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ m = \rho V \]
+    \item \textbf{Résolution numérique :}
+    \[ m = \num{\v{rho}} \times \num{\v{V}} = \qty{\fpeval{\v{rho}*\v{V}}}{kg} \]
+    \item \textbf{Réponse :} le chargement a une masse de \textbf{\qty{\fpeval{\v{rho}*\v{V}}}{kg}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Masse volumique en g/mL}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \qty{\v{rho}}{kg/m^3}$, $\qty{1}{kg} = \qty{1000}{g}$, $\qty{1}{m^3} = \qty{1e6}{mL}$ ; variable recherchée : $\rho$ (g/mL)
+    \item \textbf{Équations pertinentes :}
+    \[ \rho\,(\text{g/mL}) = \rho\,(\text{kg/m}^3) \times \frac{1000}{\num{1e6}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \rho = \num{\v{rho}} \times \num{0.001} = \qty{\fpeval{\v{rho}/1000}}{g/mL} \]
+    \item \textbf{Réponse :} $\rho = $ \textbf{\qty{\fpeval{\v{rho}/1000}}{g/mL}} ; c'est moins que \qty{1.00}{g/mL}, donc le carburant \textbf{flotte} sur l'eau (s'il ne s'y mélange pas).
+\end{enumerate}
+
+\subsubsection*{Question c) Volume livré}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{mt}}{kg}$, $\rho = \qty{\v{rho}}{kg/m^3}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :}
+    \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V = \frac{m}{\rho} \]
+    \item \textbf{Résolution numérique :}
+    \[ V = \frac{\num{\v{mt}}}{\num{\v{rho}}} = \Res{\v{mt}/\v{rho}}{m^3} = \Res{\v{mt}/\v{rho}*1000}{L} \]
+    \item \textbf{Réponse :} le camion a livré \textbf{\Res{\v{mt}/\v{rho}*1000}{L}} de carburant.
+\end{enumerate}

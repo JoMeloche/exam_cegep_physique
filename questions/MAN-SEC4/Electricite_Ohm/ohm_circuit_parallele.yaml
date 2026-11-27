@@ -1,0 +1,19 @@
+title: Deux résistors en parallèle
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  U:  {type: choice, values: [6, 9, 12, 24], unit: V, label: Tension de la source}
+  R1: {type: integer, min: 10, max: 120, step: 10, unit: \ohm, label: Résistance 1}
+  R2: {type: integer, min: 15, max: 150, step: 15, unit: \ohm, label: Résistance 2}
+constraints:
+  - R1 != R2
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "U/R1", unit: A, label: Courant dans R1}
+    a2: {expr: "U/R2", unit: A, label: Courant dans R2}
+    b: {expr: "U/R1 + U/R2", unit: A, label: Courant total}
+    c: {expr: "R1*R2/(R1 + R2)", unit: \ohm, label: Résistance équivalente}

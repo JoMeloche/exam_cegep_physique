@@ -1,0 +1,18 @@
+title: Amplitude de pression d'une onde sonore
+type: developpement
+points: 20
+time_min: 15
+difficulty: 4
+figures: []
+variables:
+  niv: {type: integer, min: 50, max: 110, step: 5, unit: dB, label: Niveau sonore}
+  f:   {type: integer, min: 100, max: 4000, step: 100, unit: Hz, label: Fréquence}
+  v:   {type: choice, values: [343], unit: m/s, label: Vitesse du son}
+  rho: {type: choice, values: [1.20], unit: kg/m^3, label: Masse volumique de l'air}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1e-12*10**(niv/10)", unit: W/m^2, label: Intensité}
+    b: {expr: "sqrt(2*rho*v*1e-12*10**(niv/10))", unit: Pa, label: Amplitude de pression}
+    c: {expr: "sqrt(2*rho*v*1e-12*10**(niv/10))/(rho*v*2*pi*f)", unit: m, label: Amplitude de déplacement}

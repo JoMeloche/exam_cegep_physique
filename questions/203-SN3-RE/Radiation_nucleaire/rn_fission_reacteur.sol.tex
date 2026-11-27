@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance thermique}
+\[ P_{\text{th}} = \frac{P_{\text{élec}}}{\eta} = \frac{\num{\v{P}}}{\num{\vsi{eta}}} = \Res{\v{P}/\vsi{eta}}{MW} \]
+
+\subsubsection*{Question b) Fissions par seconde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P_{\text{th}} = \ResSci{\vsi{P}/\vsi{eta}}{W}$, $E_f = \qty{200}{MeV} = \ResSci{200e6*1.602e-19}{J}$ ; variable recherchée : $N/\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{th}} = \frac{N}{\Delta t} E_f \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \frac{N}{\Delta t} = \frac{P_{\text{th}}}{E_f} \]
+    \item \textbf{Résolution numérique :}
+    \[ \frac{N}{\Delta t} = \frac{\ResSci{\vsi{P}/\vsi{eta}}{}}{\ResSci{200e6*1.602e-19}{}} = \ResSci{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)}{s^{-1}} \]
+    \item \textbf{Réponse :} il se produit \textbf{\ResSci{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)}{}} fissions par seconde.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse consommée par jour}
+\[ N_{\text{jour}} = \ResSci{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)}{} \cdot 86400 = \ResSci{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)*86400}{} \qquad m = \frac{N_{\text{jour}}}{N_A} M = \frac{\ResSci{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)*86400}{}}{\num{6.022e23}} \cdot \num{235} = \Res{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)*86400/6.022e23*235}{g} \]
+Le réacteur consomme environ \textbf{\Res{\vsi{P}/\vsi{eta}/(200e6*1.602e-19)*86400/6.022e23*235/1000}{kg}} d'uranium 235 par jour.

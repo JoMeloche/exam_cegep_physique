@@ -1,0 +1,11 @@
+title: Tirer ou pousser en angle
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: Tirer vers le haut diminue la force normale ($n = mg - F\sin\theta$), donc le frottement ; pousser vers le bas l'augmente.
+choices: [En poussant la caisse vers l'avant et vers le bas, En tirant la caisse vers l'avant et vers le haut, C'est la même chose dans les deux cas, Cela dépend uniquement de la masse de la caisse]

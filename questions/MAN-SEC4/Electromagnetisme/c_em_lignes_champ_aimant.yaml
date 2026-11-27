@@ -1,0 +1,15 @@
+title: 'Lignes de champ d''un aimant droit'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Par convention, à l''extérieur de l''aimant, le champ sort par le pôle nord et rentre par le pôle sud ; c''est le sens qu''indique le nord d''une boussole.'
+choices:
+  - 'Du pôle nord vers le pôle sud.'
+  - 'Du pôle sud vers le pôle nord.'
+  - 'Perpendiculairement à l''aimant, en s''en éloignant.'
+  - 'Elles tournent en cercles autour du centre de l''aimant.'

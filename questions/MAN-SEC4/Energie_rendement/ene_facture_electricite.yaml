@@ -1,0 +1,17 @@
+title: Coût d'utilisation d'un appareil électrique
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  P:  {type: integer, min: 800, max: 2000, step: 100, unit: W, label: Puissance de l'appareil}
+  h:  {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: h, label: Utilisation par jour}
+  tx: {type: decimal, min: 0.07, max: 0.12, step: 0.01, unit: \$/kWh, label: Tarif}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "P/1000*h*30", unit: kWh, label: Énergie consommée en 30 jours}
+    b: {expr: "P/1000*h*30*3.6e6", unit: J, label: Énergie en joules}
+    c: {expr: "P/1000*h*30*tx", unit: $, label: Coût}

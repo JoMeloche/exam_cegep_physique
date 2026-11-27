@@ -1,0 +1,15 @@
+title: "Effet du doublement de la distance sur le niveau sonore"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$I \propto 1/r^2$ : doubler $r$ divise $I$ par 4, soit $10\log(1/4) \approx -\qty{6}{dB}$.'
+choices:
+  - '\qty{40}{dB}'
+  - 'Environ \qty{74}{dB}'
+  - 'Environ \qty{77}{dB}'
+  - '\qty{20}{dB}'

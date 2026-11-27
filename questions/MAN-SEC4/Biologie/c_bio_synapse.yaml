@@ -1,0 +1,15 @@
+title: 'Transmission de l''influx nerveux entre deux neurones'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Au bout de l''axone, l''influx provoque la libération de neurotransmetteurs dans la fente synaptique ; ils se fixent sur le neurone suivant et y déclenchent un nouvel influx.'
+choices:
+  - 'Par contact direct entre les deux gaines de myéline'
+  - 'Par des neurotransmetteurs libérés dans la synapse'
+  - 'Par le sang qui circule entre les deux neurones'
+  - 'Par un courant électrique qui traverse le liquide entre les neurones'

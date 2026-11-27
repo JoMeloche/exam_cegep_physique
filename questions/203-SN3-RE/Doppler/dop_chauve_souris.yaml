@@ -1,0 +1,17 @@
+title: Écho d'une chauve-souris sur un mur
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  f:  {type: integer, min: 30, max: 90, step: 5, unit: kHz, si: 1000, label: Fréquence émise}
+  vb: {type: decimal, min: 3.0, max: 12.0, step: 0.5, unit: m/s, label: Vitesse de la chauve-souris}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f*v/(v - vb)", unit: Hz, label: Fréquence reçue par le mur}
+    b: {expr: "f*(v + vb)/(v - vb)", unit: Hz, label: Fréquence de l'écho}
+    c: {expr: "f*(v + vb)/(v - vb) - f", unit: Hz, label: Écart de fréquence}

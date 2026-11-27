@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Valeur de $\alpha$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty{\vsi{y}}{m}$
+        \item Variable recherchée : $\alpha$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pour de petits angles, $\sin\theta \approx y/L$ et
+    \[ \alpha = \frac{\pi a\sin\theta}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \alpha = \frac{\pi a\,y}{\lambda L} \]
+    \item \textbf{Résolution numérique :}
+    \[ \alpha = \frac{\pi \cdot \num{\vsi{larg}} \cdot \num{\vsi{y}}}{\num{\vsi{lam}} \cdot \num{\v{L}}} = \Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \]
+    \item \textbf{Réponse :} au point P, $\alpha = $ \textbf{\Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Intensité au point P}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_0 = \qty{\v{I0}}{W/m^2}$, $\alpha$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ I = I_0\left(\frac{\sin\alpha}{\alpha}\right)^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (calculatrice en radians).
+    \item \textbf{Résolution numérique :}
+    \[ I = \num{\v{I0}} \cdot \left(\frac{\sin(\Val{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})})}{\Val{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}}\right)^2 = \Res{\v{I0}*(sin(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L}))/(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})))^2}{W/m^2} \]
+    \item \textbf{Réponse :} l'intensité en P est \textbf{\Res{\v{I0}*(sin(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L}))/(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})))^2}{W/m^2}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Premier minimum}
+\[ y_1 = \frac{\lambda L}{a} = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+Le premier minimum est à \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}} du centre. Le point P est dans le maximum central seulement si $y < y_1$, c'est-à-dire si $\alpha < \pi$ : ici $\alpha = \Val{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}$ \ifthenelse{\lengthtest{\fpeval{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})} pt < 3.14159 pt}}{$< \pi$, donc P est dans le maximum central.}{$> \pi$, donc P est dans un maximum secondaire.}

@@ -1,0 +1,16 @@
+title: 'Vitesse et accélération au sommet d''un lancer vertical'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [chute libre]
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Au sommet la vitesse s''annule, mais la gravité agit toujours : l''accélération reste \qty{9.81}{m/s^2} vers le bas.'
+choices:
+  - 'Vitesse nulle et accélération nulle'
+  - 'Vitesse maximale et accélération nulle'
+  - 'Vitesse nulle et accélération de \qty{9.81}{m/s^2} vers le haut'
+  - 'Vitesse nulle et accélération de \qty{9.81}{m/s^2} vers le bas'

@@ -1,0 +1,19 @@
+title: Modes de résonance d'une corde de guitare
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  L:  {type: integer, min: 55, max: 75, step: 1, unit: cm, si: 0.01, label: Longueur vibrante}
+  mu: {type: decimal, min: 0.5, max: 6.0, step: 0.1, unit: g/m, si: 0.001, label: Masse linéique}
+  F:  {type: integer, min: 40, max: 150, step: 5, unit: N, label: Tension}
+  n:  {type: integer, min: 2, max: 5, label: Mode étudié}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(F/mu)", unit: m/s, label: Vitesse}
+    b: {expr: "sqrt(F/mu)/(2*L)", unit: Hz, label: Fréquence fondamentale}
+    c1: {expr: "n*sqrt(F/mu)/(2*L)", unit: Hz, label: Fréquence du mode n}
+    c2: {expr: "2*L/n", unit: m, label: Longueur d'onde du mode n}

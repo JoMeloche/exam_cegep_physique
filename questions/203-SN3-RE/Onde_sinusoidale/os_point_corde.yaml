@@ -1,0 +1,21 @@
+title: Position, vitesse et accélération d'un point d'une corde
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  A:  {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: cm, si: 0.01, label: Amplitude}
+  k:  {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: rad/m, label: Nombre d'onde}
+  w:  {type: integer, min: 20, max: 200, step: 5, unit: rad/s, label: Fréquence angulaire}
+  x1: {type: decimal, min: 0.10, max: 1.00, step: 0.05, unit: m, label: Position du point}
+  t1: {type: decimal, min: 0.010, max: 0.100, step: 0.005, unit: s, label: Instant}
+constraints:
+  - abs(sin(k*x1 - w*t1)) > 0.2
+  - abs(cos(k*x1 - w*t1)) > 0.2
+solution:
+  mode: manual
+  parts:
+    a: {expr: "A*cos(k*x1 - w*t1)", unit: m, label: Déplacement}
+    b: {expr: "A*w*sin(k*x1 - w*t1)", unit: m/s, label: Vitesse transversale}
+    c: {expr: "-w**2*A*cos(k*x1 - w*t1)", unit: m/s^2, label: Accélération transversale}

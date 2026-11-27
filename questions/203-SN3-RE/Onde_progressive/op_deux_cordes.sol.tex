@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse dans chaque corde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $F = \qty{\v{F}}{N}$, $\mu_1 = \qty{\vsi{mu1}}{kg/m}$, $\mu_2 = \qty{\vsi{mu2}}{kg/m}$
+        \item Variables recherchées : $v_1$ et $v_2$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (même tension dans les deux cordes).
+    \item \textbf{Résolution numérique :}
+    \[ v_1 = \sqrt{\frac{\num{\v{F}}}{\num{\vsi{mu1}}}} = \Res{sqrt(\v{F}/\vsi{mu1})}{m/s} \qquad v_2 = \sqrt{\frac{\num{\v{F}}}{\num{\vsi{mu2}}}} = \Res{sqrt(\v{F}/\vsi{mu2})}{m/s} \]
+    \item \textbf{Réponse :} $v_1 = \mathbf{\Res{sqrt(\v{F}/\vsi{mu1})}{m/s}}$ et $v_2 = \mathbf{\Res{sqrt(\v{F}/\vsi{mu2})}{m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Temps total}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $L_1 = \qty{\v{L1}}{m}$, $L_2 = \qty{\v{L2}}{m}$, $v_1$ et $v_2$ trouvées en a)
+        \item Variable recherchée : $\Delta t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta t = \Delta t_1 + \Delta t_2 = \frac{L_1}{v_1} + \frac{L_2}{v_2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\num{\v{L1}}}{\Val{sqrt(\v{F}/\vsi{mu1})}} + \frac{\num{\v{L2}}}{\Val{sqrt(\v{F}/\vsi{mu2})}} = \Res{\v{L1}/sqrt(\v{F}/\vsi{mu1}) + \v{L2}/sqrt(\v{F}/\vsi{mu2})}{s} \]
+    \item \textbf{Réponse :} l'impulsion atteint l'extrémité de la corde 2 après \textbf{\Res{1000*(\v{L1}/sqrt(\v{F}/\vsi{mu1}) + \v{L2}/sqrt(\v{F}/\vsi{mu2}))}{ms}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Impulsion réfléchie}
+L'impulsion passe d'une corde légère ($\mu_1$) à une corde plus lourde ($\mu_2 > \mu_1$), donc plus lente. La jonction se comporte comme une extrémité partiellement fixe : l'impulsion réfléchie est \textbf{inversée}. L'impulsion transmise, elle, reste à l'endroit.

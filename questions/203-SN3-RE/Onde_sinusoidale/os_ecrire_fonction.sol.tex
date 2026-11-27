@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fonction d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $\lambda = \qty{\vsi{lam}}{m}$, $f = \qty{\v{f}}{Hz}$
+        \item Variables recherchées : $k$, $\omega$, $\phi$ et le signe
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ k = \frac{2\pi}{\lambda} \qquad \omega = 2\pi f \qquad v_y = \frac{\partial y}{\partial t} \]
+    \item \textbf{Isolation de la variable recherchée :} propagation vers les $x$ négatifs : signe $+$ devant $\omega t$. À $(0,0)$ : $y = A\sin\phi = 0$ et $v_y = A\omega\cos\phi > 0$, donc $\phi = 0$.
+    \item \textbf{Résolution numérique :}
+    \[ k = \frac{2\pi}{\num{\vsi{lam}}} = \Res{2*pi/\vsi{lam}}{rad/m} \qquad \omega = 2\pi \cdot \num{\v{f}} = \Res{2*pi*\v{f}}{rad/s} \]
+    \item \textbf{Réponse :} $y(x,t) = \num{\vsi{A}}\sin\left(\Val{2*pi/\vsi{lam}}\,x + \Val{2*pi*\v{f}}\,t\right)$ (en mètres et en secondes).
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de l'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $f = \qty{\v{f}}{Hz}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \num{\vsi{lam}} \cdot \num{\v{f}} = \Res{\vsi{lam}*\v{f}}{m/s} \]
+    \item \textbf{Réponse :} l'onde se propage à \textbf{\Res{\vsi{lam}*\v{f}}{m/s}} vers les $x$ négatifs.
+\end{enumerate}
+
+\subsubsection*{Question c) Déplacement en un point}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $x = \qty{\v{x1}}{m}$, $t = \qty{\v{t1}}{s}$, fonction trouvée en a)
+        \item Variable recherchée : $y$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y = A\sin(kx + \omega t) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (calculatrice en radians).
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{\vsi{A}}\sin\left(\Val{2*pi/\vsi{lam}} \cdot \num{\v{x1}} + \Val{2*pi*\v{f}} \cdot \num{\v{t1}}\right) = \Res{\vsi{A}*sin(2*pi/\vsi{lam}*\v{x1} + 2*pi*\v{f}*\v{t1})}{m} \]
+    \item \textbf{Réponse :} le déplacement est de \textbf{\Res{\v{A}*sin(2*pi/\vsi{lam}*\v{x1} + 2*pi*\v{f}*\v{t1})}{cm}}.
+\end{enumerate}

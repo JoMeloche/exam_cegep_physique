@@ -1,0 +1,15 @@
+title: "Diffraction de la lumière rouge et bleue"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Comme $\sin\theta_1 = \lambda/a$, la lumière de plus grande longueur d''onde (rouge) donne un maximum central plus large que la lumière bleue.'
+choices:
+  - 'La lumière bleue'
+  - 'Les deux donnent la même largeur'
+  - 'Cela dépend de l''intensité de chaque lumière'
+  - 'La lumière rouge'

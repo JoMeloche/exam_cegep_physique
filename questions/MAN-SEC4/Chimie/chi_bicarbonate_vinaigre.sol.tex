@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Masse de dioxyde de carbone}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_i = \qty{\v{m1}}{g}$, $m_f = \qty{\fpeval{\v{m1}-\v{dm}}}{g}$ ; variable recherchée : $m_{\text{CO}_2}$
+    \item \textbf{Équations pertinentes :}
+    \[ m_{\text{CO}_2} = m_i - m_f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m_{\text{CO}_2} = \num{\v{m1}} - \num{\fpeval{\v{m1}-\v{dm}}} = \qty{\v{dm}}{g} \]
+    \item \textbf{Réponse :} \textbf{\qty{\v{dm}}{g}} de CO$_2$ se sont échappés. Le bécher est un système ouvert : le gaz produit quitte le bécher et n'est plus pesé. La masse totale des produits (gaz compris) reste égale à celle des réactifs.
+\end{enumerate}
+
+\subsubsection*{Question b) Quantité de CO$_2$}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{dm}}{g}$, $M = \qty{44.01}{g/mol}$ ; variable recherchée : $n$
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{m}{M} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n = \frac{\num{\v{dm}}}{\num{44.01}} = \Res{\v{dm}/44.01}{mol} \]
+    \item \textbf{Réponse :} il s'est formé \textbf{\Res{\v{dm}/44.01}{mol}} de CO$_2$.
+\end{enumerate}
+
+\subsubsection*{Question c) Masse de bicarbonate}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_{\text{CO}_2} = \Res{\v{dm}/44.01}{mol}$, rapport 1 : 1, $M = \qty{84.01}{g/mol}$ ; variable recherchée : $m_{\text{NaHCO}_3}$
+    \item \textbf{Équations pertinentes :}
+    \[ n_{\text{NaHCO}_3} = n_{\text{CO}_2} \qquad m = n M \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ m = \Val{\v{dm}/44.01} \times \num{84.01} = \Res{\v{dm}/44.01*84.01}{g} \]
+    \item \textbf{Réponse :} \textbf{\Res{\v{dm}/44.01*84.01}{g}} de bicarbonate de soude ont réagi.
+\end{enumerate}

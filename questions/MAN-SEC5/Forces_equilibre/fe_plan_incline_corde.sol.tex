@@ -1,0 +1,38 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Composantes du poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$, $\theta = \qty{\v{th}}{\degree}$ ; variables recherchées : $F_{g\parallel}$, $F_{g\perp}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = mg \qquad F_{g\parallel} = mg\sin\theta \qquad F_{g\perp} = mg\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ F_{g\parallel} = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{\v{m}*9.81*sind(\v{th})}{N} \]
+    \[ F_{g\perp} = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{m}*9.81*cosd(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_{g\parallel} = \mathbf{\Res{\v{m}*9.81*sind(\v{th})}{N}}$ vers le bas du plan et $F_{g\perp} = \mathbf{\Res{\v{m}*9.81*cosd(\v{th})}{N}}$ vers le plan.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension et force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{g\parallel} = \Res{\v{m}*9.81*sind(\v{th})}{N}$, $F_{g\perp} = \Res{\v{m}*9.81*cosd(\v{th})}{N}$ ; variables recherchées : $T$, $F_N$
+    \item \textbf{Équations pertinentes :} le bloc est en équilibre dans les deux directions :
+    \[ T - F_{g\parallel} = 0 \qquad F_N - F_{g\perp} = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = F_{g\parallel} \qquad F_N = F_{g\perp} \]
+    \item \textbf{Résolution numérique :}
+    \[ T = \Res{\v{m}*9.81*sind(\v{th})}{N} \qquad F_N = \Res{\v{m}*9.81*cosd(\v{th})}{N} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{\v{m}*9.81*sind(\v{th})}{N}}$ vers le haut du plan et $F_N = \mathbf{\Res{\v{m}*9.81*cosd(\v{th})}{N}}$, perpendiculaire au plan.
+\end{enumerate}
+
+\subsubsection*{Question c) Coefficient de frottement minimal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{g\parallel} = \Res{\v{m}*9.81*sind(\v{th})}{N}$, $F_N = \Res{\v{m}*9.81*cosd(\v{th})}{N}$ ; variable recherchée : $\mu_s$
+    \item \textbf{Équations pertinentes :} le frottement statique doit remplacer la corde, et il ne peut pas dépasser sa valeur maximale :
+    \[ F_{fs} = F_{g\parallel} \qquad F_{fs,\max} = \mu_s F_N \]
+    \item \textbf{Isolation de la variable recherchée :} à la limite, $\mu_s F_N = F_{g\parallel}$ :
+    \[ \mu_s = \frac{F_{g\parallel}}{F_N} = \tan\theta \]
+    \item \textbf{Résolution numérique :}
+    \[ \mu_s = \frac{\Val{\v{m}*9.81*sind(\v{th})}\,\unit{N}}{\Val{\v{m}*9.81*cosd(\v{th})}\,\unit{N}} = \num[round-mode=figures,round-precision=3]{\fpeval{tand(\v{th})}} \]
+    \item \textbf{Réponse :} il faut un coefficient de frottement statique d'au moins \textbf{\num[round-mode=figures,round-precision=3]{\fpeval{tand(\v{th})}}} (sans unité). Il ne dépend pas de la masse du bloc.
+\end{enumerate}

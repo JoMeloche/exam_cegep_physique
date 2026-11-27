@@ -1,0 +1,18 @@
+title: Dose reçue par un organe lors d'un examen au technétium
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Act: {type: integer, min: 100, max: 800, step: 50, unit: MBq, si: 1e6, label: Activité dans l'organe}
+  t:   {type: decimal, min: 0.5, max: 3.0, step: 0.5, unit: h, si: 3600, label: Durée}
+  fr:  {type: integer, min: 20, max: 60, step: 5, unit: \percent, si: 0.01, label: Fraction absorbée}
+  m:   {type: decimal, min: 0.3, max: 1.8, step: 0.1, unit: kg, label: Masse de l'organe}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "Act*t", unit: "", label: Nombre de désintégrations}
+    e2: {expr: "Act*t*140e3*1.602e-19*fr", unit: J, label: Énergie absorbée}
+    e3: {expr: "Act*t*140e3*1.602e-19*fr/m", unit: Gy, label: Dose absorbée}

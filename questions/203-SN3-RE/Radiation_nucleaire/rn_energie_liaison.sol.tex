@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\def\rnlZ{\ifcase\v{nuc}\or 6\or 8\or 26\or 92\fi}%
+\def\rnlA{\ifcase\v{nuc}\or 12\or 16\or 56\or 238\fi}%
+\def\rnlM{\ifcase\v{nuc}\or 12.000000\or 15.994915\or 55.934937\or 238.050788\fi}%
+\subsubsection*{Question a) Composition}
+$Z = \rnlZ$ protons et $N = A - Z = \fpeval{\rnlA - \rnlZ}$ neutrons ($A = \rnlA$).
+
+\subsubsection*{Question b) Défaut de masse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Z = \rnlZ$, $N = \fpeval{\rnlA - \rnlZ}$, $M = \qty{\rnlM}{u}$ ; variable recherchée : $\Delta m$
+    \item \textbf{Équations pertinentes :} avec les masses atomiques (les électrons s'annulent) :
+    \[ \Delta m = Z m_{\mathrm{H}} + N m_n - M \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta m = \rnlZ(\num{1.007825}) + \fpeval{\rnlA - \rnlZ}(\num{1.008665}) - \num{\rnlM} = \qty[round-mode=places,round-precision=6]{\fpeval{\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM}}{u} \]
+    \item \textbf{Réponse :} le défaut de masse est de \textbf{\qty[round-mode=places,round-precision=6]{\fpeval{\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM}}{u}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie de liaison}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta m$ ; variables recherchées : $E_\ell$ et $E_\ell/A$
+    \item \textbf{Équations pertinentes :}
+    \[ E_\ell = \Delta m\,c^2 \qquad \qty{1}{u}\,c^2 = \qty{931.5}{MeV} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_\ell = \Val{\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM} \cdot \num{931.5} = \Res{(\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM)*931.5}{MeV} \qquad \frac{E_\ell}{A} = \Res{(\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM)*931.5/\rnlA}{MeV} \]
+    \item \textbf{Réponse :} $E_\ell = \mathbf{\Res{(\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM)*931.5}{MeV}}$, soit \textbf{\Res{(\rnlZ*1.007825 + (\rnlA - \rnlZ)*1.008665 - \rnlM)*931.5/\rnlA}{MeV}} par nucléon.
+\end{enumerate}

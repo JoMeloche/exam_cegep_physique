@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Conversion}
+On divise par 3,6 :
+\[ v_C = \frac{\qty{\v{vT}}{km/h}}{3.6} = \Res{\v{vT}/3.6}{m/s} \qquad v_V = \frac{\qty{\v{vV}}{km/h}}{3.6} = \Res{\v{vV}/3.6}{m/s} \]
+
+\subsubsection*{Question b) Temps de rattrapage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_C = \Res{\v{vT}/3.6}{m/s}$, $v_V = \Res{\v{vV}/3.6}{m/s}$, $d_0 = \qty{\v{d}}{m}$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :} en MRU, $x = x_0 + v\,\Delta t$. Avec la voiture partant de $x = 0$ et le camion de $x = d_0$ :
+    \[ v_V\,\Delta t = d_0 + v_C\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{d_0}{v_V - v_C} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\qty{\v{d}}{m}}{\Val{\v{vV}/3.6}\,\unit{m/s} - \Val{\v{vT}/3.6}\,\unit{m/s}} = \Res{\v{d}*3.6/(\v{vV}-\v{vT})}{s} \]
+    \item \textbf{Réponse :} la voiture rattrape le camion après \textbf{\Res{\v{d}*3.6/(\v{vV}-\v{vT})}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance parcourue}
+\[ d_V = v_V\,\Delta t = \Val{\v{vV}/3.6}\,\unit{m/s} \cdot \Val{\v{d}*3.6/(\v{vV}-\v{vT})}\,\unit{s} = \Res{\v{vV}*\v{d}/(\v{vV}-\v{vT})}{m} \]
+La voiture parcourt \textbf{\Res{\v{vV}*\v{d}/(\v{vV}-\v{vT})}{m}} (\Res{\v{vV}*\v{d}/(\v{vV}-\v{vT})/1000}{km}).

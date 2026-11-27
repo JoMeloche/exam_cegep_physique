@@ -1,0 +1,15 @@
+title: "Déplacement du maximum avec la température"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$\lambda_{\max} T$ est constant : si $T$ est multiplié par 3, $\lambda_{\max}$ est divisé par 3.'
+choices:
+  - 'À \qty{8.7}{\micro\metre}'
+  - 'À \qty{2.9}{\micro\metre}'
+  - 'À environ \qty{0.97}{\micro\metre}'
+  - 'À \qty{0.32}{\micro\metre}'

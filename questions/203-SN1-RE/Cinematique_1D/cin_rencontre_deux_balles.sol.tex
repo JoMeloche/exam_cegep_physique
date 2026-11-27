@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Instant de la rencontre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Hauteur de la balle A : $y_{A0} = \qty{\v{H}}{m}$
+        \item Vitesse initiale de la balle B : $v_{B0} = \qty{\v{v0}}{m/s}$
+        \item Axe $y$ vers le haut, origine au sol
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y_A = H - \frac{1}{2} g t^2 \qquad y_B = v_{B0} t - \frac{1}{2} g t^2 \qquad y_A = y_B \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ H = v_{B0} t \implies t = \frac{H}{v_{B0}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\num{\vsi{H}}}{\num{\vsi{v0}}} = \Res{\vsi{H}/\vsi{v0}}{s} \]
+    \item \textbf{Réponse :} les balles se croisent à \textbf{\Res{\vsi{H}/\vsi{v0}}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Hauteur de la rencontre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Hauteur de la balle A : $H = \qty{\v{H}}{m}$
+        \item $t = \Res{\vsi{H}/\vsi{v0}}{s}$
+        \item Variable recherchée : $y$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y_A = H - \frac{1}{2} g t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{\vsi{H}} - \frac{1}{2} \cdot \num{9.81} \cdot (\Val{\vsi{H}/\vsi{v0}})^2 = \Res{\vsi{H} - 9.81*(\vsi{H}/\vsi{v0})^2/2}{m} \]
+    \item \textbf{Réponse :} elles se croisent à \textbf{\Res{\vsi{H} - 9.81*(\vsi{H}/\vsi{v0})^2/2}{m}} au-dessus du sol.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse de B}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale de la balle B : $v_{B0} = \qty{\v{v0}}{m/s}$
+        \item $t = \Res{\vsi{H}/\vsi{v0}}{s}$
+        \item Variable recherchée : $v_{By}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_{By} = v_{B0} - g t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{By} = \num{\vsi{v0}} - \num{9.81} \cdot \Val{\vsi{H}/\vsi{v0}} = \Res{\vsi{v0} - 9.81*\vsi{H}/\vsi{v0}}{m/s} \]
+    \item \textbf{Réponse :} $v_{By} = $ \textbf{\Res{\vsi{v0} - 9.81*\vsi{H}/\vsi{v0}}{m/s}} : si cette valeur est positive, B monte encore ; si elle est négative, B redescend déjà.
+\end{enumerate}

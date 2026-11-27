@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Durée de la première partie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_1 = \qty{\v{d1}}{km}$, $v_1 = \qty{\v{v1}}{km/h}$ ; variable recherchée : $\Delta t_1$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{d}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t_1 = \frac{d_1}{v_1} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t_1 = \frac{\qty{\v{d1}}{km}}{\qty{\v{v1}}{km/h}} = \Res{\v{d1}/\v{v1}}{h} = \Res{60*\v{d1}/\v{v1}}{min} \]
+    \item \textbf{Réponse :} la première partie dure \textbf{\Res{60*\v{d1}/\v{v1}}{min}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse dans la côte}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_2 = \qty{\v{d2}}{km}$, $\Delta t_2 = \qty{\v{t2}}{min} = \Res{\v{t2}/60}{h}$ ; variable recherchée : $v_2$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{d}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_2 = \frac{\qty{\v{d2}}{km}}{\Val{\v{t2}/60}\,\unit{h}} = \Res{\v{d2}*60/\v{t2}}{km/h} \]
+    \item \textbf{Réponse :} $v_2 = \mathbf{\Res{\v{d2}*60/\v{t2}}{km/h}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse moyenne du trajet}
+La vitesse moyenne est la distance totale divisée par le temps total (et non la moyenne des deux vitesses) :
+\[ v_{\text{moy}} = \frac{d_1 + d_2}{\Delta t_1 + \Delta t_2} = \frac{\qty{\fpeval{\v{d1}+\v{d2}}}{km}}{\Val{\v{d1}/\v{v1}+\v{t2}/60}\,\unit{h}} = \Res{(\v{d1}+\v{d2})/(\v{d1}/\v{v1}+\v{t2}/60)}{km/h} \]
+En m/s : $v_{\text{moy}} = \Res{(\v{d1}+\v{d2})/(\v{d1}/\v{v1}+\v{t2}/60)/3.6}{m/s}$.

@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie consommée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $E_c$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{E}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E_c = P\,\Delta t \]
+    \item \textbf{Résolution numérique :}
+    \[ E_c = \num{\v{P}} \times \num{\v{t}} = \qty{\fpeval{\v{P}*\v{t}}}{J} \]
+    \item \textbf{Réponse :} le moteur consomme \textbf{\qty{\fpeval{\v{P}*\v{t}}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie utile}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.8}{N/kg}$, $h = \qty{\v{h}}{m}$ ; variable recherchée : $E_u = \Delta E_p$
+    \item \textbf{Équations pertinentes :}
+    \[ E_p = m g h \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_u = \num{\v{m}} \times \num{9.8} \times \num{\v{h}} = \Res{\v{m}*9.8*\v{h}}{J} \]
+    \item \textbf{Réponse :} l'énergie utile est de \textbf{\Res{\v{m}*9.8*\v{h}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Rendement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_u = \Res{\v{m}*9.8*\v{h}}{J}$, $E_c = \qty{\fpeval{\v{P}*\v{t}}}{J}$ ; variable recherchée : rendement
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Rendement} = \frac{E_u}{E_c} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \text{Rendement} = \frac{\Val{\v{m}*9.8*\v{h}}}{\num{\fpeval{\v{P}*\v{t}}}} \times 100 = \Res{100*\v{m}*9.8*\v{h}/(\v{P}*\v{t})}{\percent} \]
+    \item \textbf{Réponse :} le rendement du treuil est de \textbf{\Res{100*\v{m}*9.8*\v{h}/(\v{P}*\v{t})}{\percent}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Énergie non utile}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_c = \qty{\fpeval{\v{P}*\v{t}}}{J}$, $E_u = \Res{\v{m}*9.8*\v{h}}{J}$ ; variable recherchée : $E_{\text{perdue}}$
+    \item \textbf{Équations pertinentes :}
+    \[ E_{\text{perdue}} = E_c - E_u \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_{\text{perdue}} = \num{\fpeval{\v{P}*\v{t}}} - \Val{\v{m}*9.8*\v{h}} = \Res{\v{P}*\v{t}-\v{m}*9.8*\v{h}}{J} \]
+    \item \textbf{Réponse :} \textbf{\Res{\v{P}*\v{t}-\v{m}*9.8*\v{h}}{J}} ne sont pas utiles ; cette énergie est surtout transformée en \textbf{chaleur} (frottements, résistance des fils du moteur) et un peu en son.
+\end{enumerate}

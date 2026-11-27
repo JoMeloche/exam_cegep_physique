@@ -1,0 +1,18 @@
+title: Débit cardiaque au repos et à l'effort
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  FC:   {type: integer, min: 60, max: 85, step: 1, unit: battements/min, label: Fréquence cardiaque au repos}
+  VES:  {type: integer, min: 60, max: 85, step: 5, unit: mL, label: Volume d'éjection au repos}
+  FCe:  {type: integer, min: 140, max: 180, step: 5, unit: battements/min, label: Fréquence cardiaque à l'effort}
+  VESe: {type: integer, min: 95, max: 120, step: 5, unit: mL, label: Volume d'éjection à l'effort}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "FC*VES/1000", unit: L/min, label: Débit cardiaque au repos}
+    b: {expr: "5/(FC*VES/1000)", unit: min, label: Temps pour faire circuler 5 L}
+    c: {expr: "FCe*VESe/1000", unit: L/min, label: Débit cardiaque à l'effort}

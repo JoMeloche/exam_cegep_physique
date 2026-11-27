@@ -1,0 +1,13 @@
+title: Le cheval et la charrette
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: Une paire action-réaction ne s'annule jamais, car ses deux forces agissent sur des corps différents. Le mouvement du cheval dépend de toutes les forces sur le cheval, dont le frottement du
+  sol vers l'avant.
+choices: [La force du cheval sur la charrette est en réalité un peu plus grande, Les deux forces agissent sur des objets différents ; le cheval avance grâce à la force que le sol exerce sur ses sabots,
+  La charrette n'exerce aucune force sur le cheval une fois en mouvement, La troisième loi ne s'applique pas aux objets en mouvement]

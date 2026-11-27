@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie en kWh}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W} = \qty{\fpeval{\v{P}/1000}}{kW}$, $\Delta t = \num{\v{h}} \times \num{30} = \qty{\fpeval{\v{h}*30}}{h}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = P\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \num{\fpeval{\v{P}/1000}} \times \num{\fpeval{\v{h}*30}} = \Res{\v{P}/1000*\v{h}*30}{kWh} \]
+    \item \textbf{Réponse :} le radiateur consomme \textbf{\Res{\v{P}/1000*\v{h}*30}{kWh}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie en joules}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \Res{\v{P}/1000*\v{h}*30}{kWh}$, $\qty{1}{kWh} = \qty{3.6e6}{J}$ ; variable recherchée : $E$ (J)
+    \item \textbf{Équations pertinentes :}
+    \[ E\,(\text{J}) = E\,(\text{kWh}) \times \num{3.6e6} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \Val{\v{P}/1000*\v{h}*30} \times \num{3.6e6} = \ResSci{\v{P}/1000*\v{h}*30*3.6e6}{J} \]
+    \item \textbf{Réponse :} cela correspond à \textbf{\ResSci{\v{P}/1000*\v{h}*30*3.6e6}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Coût}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \Res{\v{P}/1000*\v{h}*30}{kWh}$, tarif \qty{\v{tx}}{\$/kWh} ; variable recherchée : coût
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Coût} = E \times \text{tarif} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \text{Coût} = \Val{\v{P}/1000*\v{h}*30} \times \num{\v{tx}} = \qty[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*\v{h}*30*\v{tx}}}{\$} \]
+    \item \textbf{Réponse :} l'utilisation coûte \textbf{\qty[round-mode=places,round-precision=2]{\fpeval{\v{P}/1000*\v{h}*30*\v{tx}}}{\$}}.
+\end{enumerate}

@@ -1,0 +1,16 @@
+title: Proton accéléré puis dévié par un champ magnétique
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+variables:
+  dV: {type: decimal, min: 0.5, max: 20.0, step: 0.5, unit: kV, si: 1000, label: Différence de potentiel accélératrice}
+  B: {type: integer, min: 50, max: 800, step: 10, unit: mT, si: 0.001, label: Champ magnétique}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(2*1.602e-19*dV/1.673e-27)", unit: m/s, label: Vitesse du proton}
+    b: {expr: "1.673e-27*sqrt(2*1.602e-19*dV/1.673e-27)/(1.602e-19*B)", unit: m, label: Rayon de la trajectoire}
+    c: {expr: "2*pi*1.673e-27/(1.602e-19*B)", unit: s, label: Période}

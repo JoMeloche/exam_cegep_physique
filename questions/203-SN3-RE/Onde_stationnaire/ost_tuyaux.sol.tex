@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse du son}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T = \qty{\fpeval{\v{T}+273}}{K}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ v = 331\sqrt{\frac{T}{273}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = 331\sqrt{\frac{\fpeval{\v{T}+273}}{273}} = \Res{331*sqrt((\v{T}+273)/273)}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{331*sqrt((\v{T}+273)/273)}{m/s}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Tuyau ouvert aux deux bouts}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \Res{331*sqrt((\v{T}+273)/273)}{m/s}$, $L = \qty{\vsi{L}}{m}$ ; variables recherchées : $f_1$, $f_2$, $f_3$
+    \item \textbf{Équations pertinentes :} ventre de déplacement aux deux bouts :
+    \[ f_n = \frac{n v}{2L}, \quad n = 1, 2, 3, \dots \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f_1 = \frac{\Val{331*sqrt((\v{T}+273)/273)}}{2 \cdot \num{\vsi{L}}} = \Res{331*sqrt((\v{T}+273)/273)/(2*\vsi{L})}{Hz} \]
+    \item \textbf{Réponse :} $f_1 = \mathbf{\Res{331*sqrt((\v{T}+273)/273)/(2*\vsi{L})}{Hz}}$, $f_2 = \mathbf{\Res{2*331*sqrt((\v{T}+273)/273)/(2*\vsi{L})}{Hz}}$, $f_3 = \mathbf{\Res{3*331*sqrt((\v{T}+273)/273)/(2*\vsi{L})}{Hz}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Tuyau fermé à un bout}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes $v$ et $L$ ; variables recherchées : les trois premières fréquences
+    \item \textbf{Équations pertinentes :} nœud de déplacement au bout fermé, ventre au bout ouvert :
+    \[ f_n = \frac{n v}{4L}, \quad n = 1, 3, 5, \dots \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f_1 = \frac{\Val{331*sqrt((\v{T}+273)/273)}}{4 \cdot \num{\vsi{L}}} = \Res{331*sqrt((\v{T}+273)/273)/(4*\vsi{L})}{Hz} \]
+    \item \textbf{Réponse :} $f_1 = \mathbf{\Res{331*sqrt((\v{T}+273)/273)/(4*\vsi{L})}{Hz}}$, $f_3 = \mathbf{\Res{3*331*sqrt((\v{T}+273)/273)/(4*\vsi{L})}{Hz}}$, $f_5 = \mathbf{\Res{5*331*sqrt((\v{T}+273)/273)/(4*\vsi{L})}{Hz}}$. Les harmoniques pairs disparaissent, car un nœud à un bout et un ventre à l'autre imposent un nombre impair de quarts de longueur d'onde dans le tuyau.
+\end{enumerate}

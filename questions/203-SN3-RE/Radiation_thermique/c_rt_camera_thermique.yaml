@@ -1,0 +1,15 @@
+title: "Ce que détecte une caméra thermique"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Les objets à température ambiante émettent surtout près de \qty{10}{\micro\metre}. La caméra mesure ce rayonnement infrarouge émis, ce qui permet de voir des différences de température même dans le noir.'
+choices:
+  - 'Elle émet un faisceau infrarouge qui est réfléchi par la personne'
+  - 'Elle amplifie la faible lumière visible présente'
+  - 'Elle détecte les ondes sonores émises par la personne'
+  - 'Elle détecte le rayonnement infrarouge émis par le corps de la personne'

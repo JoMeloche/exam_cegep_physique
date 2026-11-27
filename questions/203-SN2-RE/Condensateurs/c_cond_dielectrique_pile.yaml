@@ -1,0 +1,15 @@
+title: 'Diélectrique inséré, pile branchée'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La pile garde $V$ constante et la capacité est multipliée par $\kappa$ : la charge $Q = \kappa C_0V$ est multipliée par 3.'
+choices:
+  - 'Elle est divisée par 3'
+  - 'Elle ne change pas'
+  - 'Elle est multipliée par 9'
+  - 'Elle est multipliée par 3'

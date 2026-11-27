@@ -1,0 +1,17 @@
+title: Deux voitures qui roulent l'une vers l'autre (MRU)
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+tags: [MRU]
+variables:
+  D:  {type: integer, min: 20, max: 80, step: 5, unit: km, si: 1000, label: Distance initiale entre les voitures}
+  vA: {type: integer, min: 60, max: 100, step: 5, unit: km/h, si: 0.277777777778, label: Vitesse de la voiture A}
+  vB: {type: integer, min: 50, max: 90, step: 5, unit: km/h, si: 0.277777777778, label: Vitesse de la voiture B}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "D/(vA + vB)/60", unit: min, label: Temps avant le croisement}
+    b: {expr: "vA*D/(vA + vB)/1000", unit: km, label: Position du croisement}

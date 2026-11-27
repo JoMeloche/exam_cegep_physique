@@ -1,0 +1,27 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Facteur de Lorentz}
+\[ \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} = \frac{1}{\sqrt{1 - (\num{\v{beta}})^2}} = \Res{1/sqrt(1 - \v{beta}^2)}{} \]
+
+\subsubsection*{Question b) Longueur mesurée par la station}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L_0 = \qty{\v{L0}}{m}$, $\gamma = \Res{1/sqrt(1 - \v{beta}^2)}{}$ ; variable recherchée : $L$
+    \item \textbf{Équations pertinentes :}
+    \[ L = \frac{L_0}{\gamma} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ L = \frac{\num{\v{L0}}}{\Val{1/sqrt(1 - \v{beta}^2)}} = \Res{\v{L0}*sqrt(1 - \v{beta}^2)}{m} \]
+    \item \textbf{Réponse :} la station mesure un vaisseau de \textbf{\Res{\v{L0}*sqrt(1 - \v{beta}^2)}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Durée du passage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \Res{\v{L0}*sqrt(1 - \v{beta}^2)}{m}$, $v = \Res{\v{beta}*3e8}{m/s}$ ; variables recherchées : $\Delta t_{\text{station}}$ et $\Delta t_{\text{vaisseau}}$
+    \item \textbf{Équations pertinentes :} dans chaque référentiel, durée = longueur mesurée dans ce référentiel / vitesse relative :
+    \[ \Delta t_{\text{station}} = \frac{L}{v} \qquad \Delta t_{\text{vaisseau}} = \frac{L_0}{v} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t_{\text{station}} = \frac{\Val{\v{L0}*sqrt(1 - \v{beta}^2)}}{\Val{\v{beta}*3e8}} = \Res{1e9*\v{L0}*sqrt(1 - \v{beta}^2)/(\v{beta}*3e8)}{ns} \qquad \Delta t_{\text{vaisseau}} = \frac{\num{\v{L0}}}{\Val{\v{beta}*3e8}} = \Res{1e9*\v{L0}/(\v{beta}*3e8)}{ns} \]
+    \item \textbf{Réponse :} \textbf{\Res{1e9*\v{L0}*sqrt(1 - \v{beta}^2)/(\v{beta}*3e8)}{ns}} selon la station (temps propre : les deux événements ont lieu au même point de la station) et \textbf{\Res{1e9*\v{L0}/(\v{beta}*3e8)}{ns}} selon l'équipage.
+\end{enumerate}

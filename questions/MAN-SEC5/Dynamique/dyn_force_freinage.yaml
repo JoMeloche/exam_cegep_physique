@@ -1,0 +1,20 @@
+title: Force de freinage d'une voiture
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+tags: [deuxième loi, frottement, MRUA]
+variables:
+  m:  {type: integer, min: 1000, max: 2000, step: 100, unit: kg, label: Masse de la voiture}
+  v0: {type: integer, min: 50, max: 100, step: 10, unit: km/h, si: 0.277777777778, label: Vitesse initiale}
+  d:  {type: integer, min: 25, max: 70, step: 5, unit: m, label: Distance de freinage}
+constraints:
+  - v0**2/(2*d) < 0.9*g
+  - v0**2/(2*d) > 2
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v0**2/(2*d)", unit: m/s^2, label: Décélération}
+    b: {expr: "m*v0**2/(2*d)", unit: N, label: Force de freinage}
+    c: {expr: "v0**2/(2*d*g)", unit: '', label: Coefficient de frottement minimal}

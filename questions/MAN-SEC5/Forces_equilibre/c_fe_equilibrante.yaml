@@ -1,0 +1,15 @@
+title: 'Définition de la force équilibrante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'L''équilibrante a la même grandeur que la résultante et une orientation opposée, pour que la somme des forces soit nulle.'
+choices:
+  - '\qty{50}{N} vers l''est'
+  - '\qty{50}{N} vers l''ouest'
+  - '\qty{100}{N} vers l''ouest'
+  - '\qty{25}{N} vers l''ouest'

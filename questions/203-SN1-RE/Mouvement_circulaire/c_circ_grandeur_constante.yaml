@@ -1,0 +1,11 @@
+title: Grandeur constante en MCU
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: Seul le module de la vitesse est constant ; les vecteurs vitesse, accélération et position changent continuellement de direction.
+choices: [Le vecteur vitesse, Le vecteur accélération, Le module de la vitesse, Le vecteur position]

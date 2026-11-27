@@ -1,0 +1,15 @@
+title: 'Image donnée par une lentille divergente'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Avec $f < 0$ et $d_o > 0$, on obtient toujours $d_i < 0$ et $0 < G < 1$ : image virtuelle, droite et réduite.'
+choices:
+  - 'Réelle, renversée et réduite'
+  - 'Virtuelle, droite et agrandie'
+  - 'Virtuelle, droite et réduite'
+  - 'Réelle, droite et de même taille'

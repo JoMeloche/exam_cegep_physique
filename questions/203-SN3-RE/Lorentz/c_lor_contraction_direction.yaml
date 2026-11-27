@@ -1,0 +1,15 @@
+title: "Direction de la contraction des longueurs"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La contraction des longueurs ne se produit que dans la direction du mouvement relatif ; les dimensions perpendiculaires ne changent pas.'
+choices:
+  - '\qty{0.6}{m}'
+  - '\qty{1.67}{m}'
+  - '\qty{1}{m}'
+  - '\qty{0.8}{m}'

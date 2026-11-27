@@ -1,0 +1,15 @@
+title: "Effet de la longueur d'onde sur l'interfrange"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Pour de petits angles, $\Delta y = \lambda L/d$ : l''interfrange est proportionnel à $\lambda$. Le rouge a une plus grande longueur d''onde que le vert, donc les franges s''écartent.'
+choices:
+  - 'Elle augmente'
+  - 'Elle diminue'
+  - 'Elle ne change pas'
+  - 'Les franges disparaissent'

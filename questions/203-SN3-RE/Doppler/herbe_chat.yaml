@@ -1,0 +1,57 @@
+title: Herbe chat
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  Vr:
+    type: integer
+    min: 6
+    max: 14
+    step: 2
+    unit: m/s
+    label: QfourVr
+  Vc:
+    type: decimal
+    min: 8.3
+    max: 13.5
+    step: 0.1
+    unit: m/s
+    label: QfourVc
+  Freq:
+    type: integer
+    min: 1730
+    max: 2570
+    step: 10
+    unit: Hz
+    label: QfourFreq
+  Vson:
+    type: integer
+    min: 336
+    max: 347
+    step: 1
+    unit: m/s
+    label: QfourVson
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Doppler/Q_herbe_chat.tex
+original_values:
+  Vr:
+    A: '10'
+    B: '12'
+    C: '8'
+  Vc:
+    A: '10.5'
+    B: '13.0'
+    C: '8.8'
+  Freq:
+    A: '2000'
+    B: '2500'
+    C: '1800'
+  Vson:
+    A: '340'
+    B: '340'
+    C: '343'
+history: []

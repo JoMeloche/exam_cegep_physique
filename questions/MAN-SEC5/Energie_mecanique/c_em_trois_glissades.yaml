@@ -1,0 +1,16 @@
+title: 'Vitesse au bas de trois glissades de formes différentes'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [conservation de l'énergie]
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Sans frottement, $m g h = \tfrac{1}{2} m v^2$ : la vitesse au bas ne dépend que de la hauteur, pas de la forme ni de la longueur du parcours.'
+choices:
+  - 'La glissade droite'
+  - 'La glissade courbe'
+  - 'La glissade en spirale'
+  - 'Les trois donnent la même vitesse'

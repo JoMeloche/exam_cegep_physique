@@ -1,0 +1,16 @@
+title: Datation au carbone 14
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  r:  {type: integer, min: 5, max: 90, step: 1, unit: \percent, si: 0.01, label: Fraction d'activité restante}
+  A0: {type: choice, values: [0.23, 0.25], unit: Bq/g, label: Activité spécifique du carbone vivant}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "log(2)/(5730*3.156e7)", unit: 1/s, label: Constante de désintégration}
+    b: {expr: "-5730*log(r)/log(2)", unit: a, label: Âge de l'échantillon}
+    c: {expr: "A0*r", unit: Bq/g, label: Activité spécifique de l'échantillon}

@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse après l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $h = \qty{\vsi{h}}{m}$, $v_{\text{haut}} = \qty{0}{m/s}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :} après l'impact, l'énergie mécanique est conservée pendant la remontée : \[ \tfrac{1}{2}(m+M)V^2 = (m+M)gh \]
+    \item \textbf{Isolation de la variable recherchée :} \[ V = \sqrt{2gh} \]
+    \item \textbf{Résolution numérique :} \[ V = \sqrt{2 \cdot \num{9.81} \cdot \num{\vsi{h}}} = \Res{(sqrt(2*9.81*\vsi{h}))}{m/s} \]
+    \item \textbf{Réponse :} $V = \mathbf{\Res{(sqrt(2*9.81*\vsi{h}))}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de la balle}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{mb}}{kg}$, $M = \qty{\v{M}}{kg}$, $V = \Res{(sqrt(2*9.81*\vsi{h}))}{m/s}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} pendant l'impact, la quantité de mouvement est conservée : \[ mv = (m + M)V \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \frac{m + M}{m}\, V \]
+    \item \textbf{Résolution numérique :} \[ v = \frac{\num{\vsi{mb}} + \num{\v{M}}}{\num{\vsi{mb}}} \cdot \Val{(sqrt(2*9.81*\vsi{h}))} = \Res{((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h})))}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h})))}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie dissipée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m$, $v = \Res{((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h})))}{m/s}$, $(m+M)gh$ ; variable recherchée : $E_{\text{diss}}$
+    \item \textbf{Équations pertinentes :} \[ E_{\text{diss}} = K_{\text{balle}} - K_{\text{après}} = \tfrac{1}{2}mv^2 - (m+M)gh \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ E_{\text{diss}} = \tfrac{1}{2} \cdot \num{\vsi{mb}} \cdot \left(\Val{((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h})))}\right)^2 - \Val{(\vsi{mb} + \vsi{M})*9.81*\vsi{h}} = \Res{(0.5*\vsi{mb}*(((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h}))))^2 - (\vsi{mb} + \vsi{M})*9.81*\vsi{h})}{J} \]
+    \item \textbf{Réponse :} $E_{\text{diss}} = \mathbf{\Res{(0.5*\vsi{mb}*(((\vsi{mb} + \vsi{M})/\vsi{mb}*(sqrt(2*9.81*\vsi{h}))))^2 - (\vsi{mb} + \vsi{M})*9.81*\vsi{h})}{J}}$, soit presque toute l'énergie de la balle.
+\end{enumerate}

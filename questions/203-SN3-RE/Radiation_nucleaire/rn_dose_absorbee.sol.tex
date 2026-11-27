@@ -1,0 +1,19 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Dose absorbée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\vsi{E}}{J}$, $m = \qty{\v{m}}{kg}$ ; variable recherchée : $D$
+    \item \textbf{Équations pertinentes :}
+    \[ D = \frac{E}{m} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ D = \frac{\num{\vsi{E}}}{\num{\v{m}}} = \ResSci{\vsi{E}/\v{m}}{Gy} \]
+    \item \textbf{Réponse :} la dose absorbée est de \textbf{\ResSci{\vsi{E}/\v{m}}{Gy}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Dose équivalente}
+\[ H = w_R\,D = \v{Q} \cdot \ResSci{\vsi{E}/\v{m}}{} = \ResSci{\v{Q}*\vsi{E}/\v{m}}{Sv} = \Res{1000*\v{Q}*\vsi{E}/\v{m}}{mSv} \]
+
+\subsubsection*{Question c) Comparaison et type de rayonnement}
+\ifthenelse{\lengthtest{\fpeval{1000*\v{Q}*\vsi{E}/\v{m}}pt > 50pt}}{La dose équivalente \textbf{dépasse} la limite de \qty{50}{mSv}.}{La dose équivalente \textbf{ne dépasse pas} la limite de \qty{50}{mSv}.} \ifthenelse{\v{Q} = 1}{Un facteur de 1 correspond aux rayons gamma, aux rayons X ou aux électrons (bêta).}{\ifthenelse{\v{Q} = 10}{Un facteur de 10 correspond à des neutrons d'énergie intermédiaire.}{Un facteur de 20 correspond aux particules alpha.}}

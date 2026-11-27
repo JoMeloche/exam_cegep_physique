@@ -1,0 +1,40 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Déplacement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $k = \qty{\v{k}}{rad/m}$, $\omega = \qty{\v{w}}{rad/s}$, $x = \qty{\v{x1}}{m}$, $t = \qty{\v{t1}}{s}$
+        \item Phase : $kx - \omega t = \Res{\v{k}*\v{x1} - \v{w}*\v{t1}}{rad}$
+        \item Variable recherchée : $y$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y = A\cos(kx - \omega t) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée (calculatrice en radians).
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{\v{A}}\cos(\Val{\v{k}*\v{x1} - \v{w}*\v{t1}}) = \Res{\v{A}*cos(\v{k}*\v{x1} - \v{w}*\v{t1})}{cm} \]
+    \item \textbf{Réponse :} le déplacement est de \textbf{\Res{\v{A}*cos(\v{k}*\v{x1} - \v{w}*\v{t1})}{cm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse transversale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes données ; variable recherchée : $v_y$ (m/s)
+    \item \textbf{Équations pertinentes :}
+    \[ v_y = \frac{\partial y}{\partial t} = A\omega\sin(kx - \omega t) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_y = \num{\vsi{A}} \cdot \num{\v{w}} \sin(\Val{\v{k}*\v{x1} - \v{w}*\v{t1}}) = \Res{\vsi{A}*\v{w}*sin(\v{k}*\v{x1} - \v{w}*\v{t1})}{m/s} \]
+    \item \textbf{Réponse :} $v_y = \mathbf{\Res{\vsi{A}*\v{w}*sin(\v{k}*\v{x1} - \v{w}*\v{t1})}{m/s}}$ : le point \textbf{\ifthenelse{\lengthtest{\fpeval{sin(\v{k}*\v{x1} - \v{w}*\v{t1})}pt > 0pt}}{monte}{descend}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération transversale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes données ; variable recherchée : $a_y$ (m/s²)
+    \item \textbf{Équations pertinentes :}
+    \[ a_y = \frac{\partial^2 y}{\partial t^2} = -A\omega^2\cos(kx - \omega t) = -\omega^2 y \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ a_y = -(\num{\v{w}})^2 \cdot \Val{\vsi{A}*cos(\v{k}*\v{x1} - \v{w}*\v{t1})} = \Res{-\v{w}^2*\vsi{A}*cos(\v{k}*\v{x1} - \v{w}*\v{t1})}{m/s^2} \]
+    \item \textbf{Réponse :} l'accélération transversale est de \textbf{\Res{-\v{w}^2*\vsi{A}*cos(\v{k}*\v{x1} - \v{w}*\v{t1})}{m/s^2}}.
+\end{enumerate}

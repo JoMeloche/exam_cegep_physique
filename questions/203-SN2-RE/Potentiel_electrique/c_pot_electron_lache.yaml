@@ -1,0 +1,15 @@
+title: 'Mouvement d''un électron selon le potentiel'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La force sur une charge négative est opposée au champ, donc vers les potentiels plus élevés ; son énergie potentielle $U = qV$ diminue pendant que son énergie cinétique augmente.'
+choices:
+  - 'Vers les potentiels plus faibles, et son énergie potentielle augmente'
+  - 'Le long d''une équipotentielle'
+  - 'Vers les potentiels plus faibles, et son énergie potentielle diminue'
+  - 'Vers les potentiels plus élevés, et son énergie potentielle diminue'

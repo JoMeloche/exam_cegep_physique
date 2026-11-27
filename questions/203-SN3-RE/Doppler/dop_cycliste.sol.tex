@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Approche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{Hz}$, $v_o = \qty{\v{vo}}{m/s}$ (vers la source), $v_s = 0$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $f'$
+    \item \textbf{Équations pertinentes :}
+    \[ f' = f\,\frac{v \pm v_o}{v \mp v_s} \]
+    \item \textbf{Isolation de la variable recherchée :} observateur qui s'approche : signe $+$ au numérateur.
+    \[ f' = f\,\frac{v + v_o}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ f' = \num{\v{f}} \cdot \frac{\num{\v{v}} + \num{\v{vo}}}{\num{\v{v}}} = \Res{\v{f}*(\v{v}+\v{vo})/\v{v}}{Hz} \]
+    \item \textbf{Réponse :} elle perçoit \textbf{\Res{\v{f}*(\v{v}+\v{vo})/\v{v}}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Éloignement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes données, observateur qui s'éloigne ; variable recherchée : $f''$
+    \item \textbf{Équations pertinentes :}
+    \[ f'' = f\,\frac{v - v_o}{v} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f'' = \num{\v{f}} \cdot \frac{\num{\v{v}} - \num{\v{vo}}}{\num{\v{v}}} = \Res{\v{f}*(\v{v}-\v{vo})/\v{v}}{Hz} \]
+    \item \textbf{Réponse :} elle perçoit \textbf{\Res{\v{f}*(\v{v}-\v{vo})/\v{v}}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse requise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f' - f = \qty{\v{fp}}{Hz}$ ; variable recherchée : $v_o$
+    \item \textbf{Équations pertinentes :}
+    \[ f' = f\,\frac{v + v_o}{v} \implies f' - f = f\,\frac{v_o}{v} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_o = \frac{(f' - f)\,v}{f} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_o = \frac{\num{\v{fp}} \cdot \num{\v{v}}}{\num{\v{f}}} = \Res{\v{fp}*\v{v}/\v{f}}{m/s} \]
+    \item \textbf{Réponse :} elle devrait rouler à \textbf{\Res{\v{fp}*\v{v}/\v{f}}{m/s}} (\Res{3.6*\v{fp}*\v{v}/\v{f}}{km/h}).
+\end{enumerate}

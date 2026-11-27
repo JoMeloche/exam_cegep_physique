@@ -1,0 +1,16 @@
+title: Quantité de mouvement de l'électron dans une diffusion à 90°
+type: developpement
+points: 20
+time_min: 20
+difficulty: 5
+figures: []
+variables:
+  l0: {type: decimal, min: 5.0, max: 40.0, step: 0.5, unit: pm, si: 1e-12, label: Longueur d'onde incidente}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "6.626e-34/l0", unit: kg*m/s, label: Quantité de mouvement incidente}
+    a2: {expr: "6.626e-34/(l0 + 6.626e-34/(9.109e-31*3e8))", unit: kg*m/s, label: Quantité de mouvement diffusée}
+    b: {expr: "sqrt((6.626e-34/l0)**2 + (6.626e-34/(l0 + 6.626e-34/(9.109e-31*3e8)))**2)", unit: kg*m/s, label: Quantité de mouvement de l'électron}
+    c: {expr: "deg(atan((l0)/(l0 + 6.626e-34/(9.109e-31*3e8))))", unit: deg, label: Angle de l'électron}

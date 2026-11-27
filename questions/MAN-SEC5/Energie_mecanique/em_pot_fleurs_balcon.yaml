@@ -1,0 +1,20 @@
+title: Pot de fleurs qui tombe d'un balcon (conservation de l'énergie)
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+tags: [conservation de l'énergie]
+variables:
+  m:  {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: kg, label: Masse du pot}
+  h:  {type: decimal, min: 8.0, max: 20.0, step: 0.5, unit: m, label: Hauteur du balcon}
+  h1: {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: m, label: Hauteur de la fenêtre}
+constraints:
+  - h1 < 0.7*h
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g*h", unit: J, label: Énergie potentielle initiale}
+    b: {expr: "sqrt(2*g*h)", unit: m/s, label: Vitesse au sol}
+    c: {expr: "sqrt(2*g*(h - h1))", unit: m/s, label: Vitesse à la fenêtre}
+    d: {expr: "m*g*(h - h1)", unit: J, label: Énergie cinétique à la fenêtre}

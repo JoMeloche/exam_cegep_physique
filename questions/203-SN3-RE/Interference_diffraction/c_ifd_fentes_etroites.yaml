@@ -1,0 +1,15 @@
+title: "Rétrécir les fentes sans changer leur écartement"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La position des franges dépend de $d$, qui ne change pas. L''enveloppe de diffraction dépend de $a$ : si $a$ diminue, le maximum central s''élargit ($\sin\theta_1 = \lambda/a$) et contient plus de franges (environ $2d/a$).'
+choices:
+  - 'Moins de franges, plus espacées'
+  - 'Plus de franges, avec le même espacement'
+  - 'Le même nombre de franges, plus rapprochées'
+  - 'Plus de franges, plus rapprochées'

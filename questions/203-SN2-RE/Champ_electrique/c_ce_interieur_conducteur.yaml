@@ -1,0 +1,15 @@
+title: 'Champ à l''intérieur d''un conducteur'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'En équilibre électrostatique, la charge se place sur la surface extérieure et le champ est nul dans le conducteur ; d''après la loi de Gauss, il est aussi nul dans une cavité sans charge.'
+choices:
+  - 'Il est nul partout à l''intérieur'
+  - 'Il est maximal au centre'
+  - 'Il pointe vers le centre'
+  - 'Il est le même qu''à l''extérieur, juste à la surface'

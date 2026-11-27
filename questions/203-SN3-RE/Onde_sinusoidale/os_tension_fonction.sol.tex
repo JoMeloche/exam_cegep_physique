@@ -1,0 +1,48 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse et sens}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $k = \qty{\v{k}}{rad/m}$, $\omega = \qty{\v{w}}{rad/s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{\omega}{k} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{\num{\v{w}}}{\num{\v{k}}} = \Res{\v{w}/\v{k}}{m/s} \]
+    \item \textbf{Réponse :} l'onde se propage à \textbf{\Res{\v{w}/\v{k}}{m/s}} \textbf{vers les $x$ négatifs} (même signe devant $kx$ et $\omega t$).
+\end{enumerate}
+
+\subsubsection*{Question b) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v = \Res{\v{w}/\v{k}}{m/s}$, $\mu = \qty{\vsi{mu}}{kg/m}$
+        \item Variable recherchée : $F$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F = \mu v^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ F = \num{\vsi{mu}} \cdot (\Val{\v{w}/\v{k}})^2 = \Res{\vsi{mu}*(\v{w}/\v{k})^2}{N} \]
+    \item \textbf{Réponse :} la tension est de \textbf{\Res{\vsi{mu}*(\v{w}/\v{k})^2}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération transversale maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $\omega = \qty{\v{w}}{rad/s}$
+        \item Variable recherchée : $a_{y,\max}$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ a_{y,\max} = A\omega^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ a_{y,\max} = \num{\vsi{A}} \cdot (\num{\v{w}})^2 = \Res{\vsi{A}*\v{w}^2}{m/s^2} \]
+    \item \textbf{Réponse :} l'accélération transversale maximale est de \textbf{\Res{\vsi{A}*\v{w}^2}{m/s^2}}.
+\end{enumerate}

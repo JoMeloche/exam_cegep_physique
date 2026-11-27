@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence reçue par le mur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\vsi{f}}{Hz}$, $v_s = \qty{\v{vb}}{m/s}$ (vers le mur), $v_o = 0$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $f_m$
+    \item \textbf{Équations pertinentes :}
+    \[ f' = f\,\frac{v \pm v_o}{v \mp v_s} \]
+    \item \textbf{Isolation de la variable recherchée :} source qui s'approche d'un observateur immobile :
+    \[ f_m = f\,\frac{v}{v - v_s} \]
+    \item \textbf{Résolution numérique :}
+    \[ f_m = \num{\vsi{f}} \cdot \frac{\num{\v{v}}}{\num{\v{v}} - \num{\v{vb}}} = \Res{\vsi{f}*\v{v}/(\v{v}-\v{vb})}{Hz} \]
+    \item \textbf{Réponse :} le mur reçoit \textbf{\Res{\v{f}*\v{v}/(\v{v}-\v{vb})}{kHz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Fréquence de l'écho}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} le mur devient une source immobile de fréquence $f_m$ ; la chauve-souris est un observateur qui s'approche à $v_o = \qty{\v{vb}}{m/s}$ ; variable recherchée : $f_e$
+    \item \textbf{Équations pertinentes :}
+    \[ f_e = f_m\,\frac{v + v_o}{v} \]
+    \item \textbf{Isolation de la variable recherchée :} en combinant avec a) :
+    \[ f_e = f\,\frac{v + v_b}{v - v_b} \]
+    \item \textbf{Résolution numérique :}
+    \[ f_e = \num{\vsi{f}} \cdot \frac{\num{\v{v}} + \num{\v{vb}}}{\num{\v{v}} - \num{\v{vb}}} = \Res{\vsi{f}*(\v{v}+\v{vb})/(\v{v}-\v{vb})}{Hz} \]
+    \item \textbf{Réponse :} la chauve-souris entend un écho de \textbf{\Res{\v{f}*(\v{v}+\v{vb})/(\v{v}-\v{vb})}{kHz}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Écart de fréquence}
+\[ \Delta f = f_e - f = \Res{\vsi{f}*(\v{v}+\v{vb})/(\v{v}-\v{vb}) - \vsi{f}}{Hz} \]
+L'écho est plus aigu de \textbf{\Res{\vsi{f}*(\v{v}+\v{vb})/(\v{v}-\v{vb}) - \vsi{f}}{Hz}}. Cet écart dépend de sa vitesse relative par rapport à l'obstacle : la chauve-souris s'en sert pour savoir si elle s'approche d'un obstacle (ou d'une proie) et à quelle vitesse.

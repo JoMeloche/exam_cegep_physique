@@ -1,0 +1,15 @@
+title: "Ce que transporte une onde"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Une onde transporte de l''énergie (et de la quantité de mouvement) sans transport net de matière : chaque élément du milieu oscille autour de sa position d''équilibre.'
+choices:
+  - 'De l''eau, qui se déplace avec la vague'
+  - 'De l''eau et de l''énergie'
+  - 'De l''énergie, sans déplacement net de l''eau'
+  - 'Rien : le bouchon reste parfaitement immobile'

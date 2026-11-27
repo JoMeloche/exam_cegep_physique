@@ -1,0 +1,17 @@
+title: Proton se déplaçant près d'un fil parcouru par un courant
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  I: {type: integer, min: 5, max: 100, step: 5, unit: A, label: Courant dans le fil}
+  r: {type: decimal, min: 0.5, max: 10.0, step: 0.5, unit: cm, si: 0.01, label: Distance au fil}
+  v: {type: decimal, min: 1.0, max: 9.0, step: 0.5, unit: 10^5 m/s, si: 1e5, label: Vitesse du proton}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2e-7*I/r", unit: T, label: Champ du fil}
+    b: {expr: "1.602e-19*v*2e-7*I/r", unit: N, label: Force sur le proton}
+    d: {expr: "1.602e-19*v*2e-7*I/r/1.673e-27", unit: m/s^2, label: Accélération du proton}

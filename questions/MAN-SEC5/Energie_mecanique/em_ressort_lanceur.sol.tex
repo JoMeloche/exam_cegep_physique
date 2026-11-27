@@ -1,0 +1,44 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Énergie potentielle élastique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $k = \qty{\v{k}}{N/m}$, $x = \qty{\v{x}}{cm} = \qty{\vsi{x}}{m}$
+        \item Variable recherchée : $E_{pé}$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_{pé} = \tfrac{1}{2} k x^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_{pé} = \tfrac{1}{2} \cdot \num{\v{k}} \cdot (\num{\vsi{x}})^2 = \Res{\v{k}*\vsi{x}^2/2}{J} \]
+    \item \textbf{Réponse :} le ressort emmagasine \textbf{\Res{\v{k}*\vsi{x}^2/2}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de lancement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E_{pé} = \Res{\v{k}*\vsi{x}^2/2}{J}$, $m = \qty{\v{m}}{g} = \qty{\vsi{m}}{kg}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} toute l'énergie élastique devient de l'énergie cinétique :
+    \[ \tfrac{1}{2} k x^2 = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = x \sqrt{\frac{k}{m}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \num{\vsi{x}} \cdot \sqrt{\frac{\num{\v{k}}}{\num{\vsi{m}}}} = \Res{\vsi{x}*sqrt(\v{k}/\vsi{m})}{m/s} \]
+    \item \textbf{Réponse :} la bille quitte le ressort à \textbf{\Res{\vsi{x}*sqrt(\v{k}/\vsi{m})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Hauteur maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E_{pé} = \Res{\v{k}*\vsi{x}^2/2}{J}$, $m = \qty{\vsi{m}}{kg}$, au sommet $v = \qty{0}{m/s}$
+        \item Variable recherchée : $h$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \tfrac{1}{2} k x^2 = m g h \]
+    \item \textbf{Isolation de la variable recherchée :} \[ h = \frac{k x^2}{2 m g} \]
+    \item \textbf{Résolution numérique :}
+    \[ h = \frac{\num{\v{k}} \cdot (\num{\vsi{x}})^2}{2 \cdot \num{\vsi{m}} \cdot \num{9.81}} = \Res{\v{k}*\vsi{x}^2/(2*\vsi{m}*9.81)}{m} \]
+    \item \textbf{Réponse :} la bille monte à \textbf{\Res{\v{k}*\vsi{x}^2/(2*\vsi{m}*9.81)}{m}} au-dessus du point de lancement.
+\end{enumerate}

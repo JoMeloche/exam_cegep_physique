@@ -1,0 +1,16 @@
+title: 'Enseigne suspendue à deux câbles symétriques'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  m:  {type: decimal, min: 5.0, max: 40.0, step: 0.5, unit: kg, label: Masse de l'enseigne}
+  th: {type: integer, min: 20, max: 70, step: 5, unit: \degree, label: Angle des câbles avec l'horizontale}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m*g", unit: N, label: Poids de l'enseigne}
+    b: {expr: "m*g/(2*sin(rad(th)))", unit: N, label: Tension dans chaque câble}
+    c: {expr: "m*g/(2*tan(rad(th)))", unit: N, label: Composante horizontale de la tension}

@@ -1,0 +1,15 @@
+title: "Dépendance du décalage Compton"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le décalage ne dépend que de l''angle et de la masse de la particule cible : $\Delta\lambda = \frac{h}{m_e c}(1-\cos\theta)$, sans $\lambda$.'
+choices:
+  - 'Il est 3,5 fois plus grand'
+  - 'Il ne change pas'
+  - 'Il est 3,5 fois plus petit'
+  - 'Il devient nul'

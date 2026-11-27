@@ -1,0 +1,16 @@
+title: Proton entre deux plaques parallèles
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  d:  {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: mm, si: 0.001, label: Distance entre les plaques}
+  dV: {type: integer, min: 50, max: 1500, step: 50, unit: V, label: Différence de potentiel}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "dV/d", unit: V/m, label: Champ électrique}
+    b: {expr: "1.602e-19*dV/d", unit: N, label: Force sur le proton}
+    c: {expr: "sqrt(2*1.602e-19*dV/1.673e-27)", unit: m/s, label: Vitesse finale du proton}

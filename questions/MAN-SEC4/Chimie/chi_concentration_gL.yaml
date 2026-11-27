@@ -1,0 +1,17 @@
+title: Concentration d'une solution saline
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m:  {type: integer, min: 5, max: 40, step: 1, unit: g, label: Masse de sel}
+  V:  {type: integer, min: 250, max: 750, step: 50, unit: mL, label: Volume de solution}
+  Vf: {type: integer, min: 1000, max: 2000, step: 100, unit: mL, label: Volume final après ajout d'eau}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m/(V/1000)", unit: g/L, label: Concentration}
+    b: {expr: "100*m/V", unit: "% m/V", label: Concentration en pourcentage}
+    c: {expr: "m/(Vf/1000)", unit: g/L, label: Concentration après dilution}

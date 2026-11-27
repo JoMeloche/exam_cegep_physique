@@ -1,0 +1,15 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence perçue}
+\[ f_{\text{moy}} = \frac{f_1 + f_2}{2} = \frac{\num{\v{f1}} + \num{\fpeval{\v{f1}+\v{df}}}}{2} = \Res{\v{f1} + \v{df}/2}{Hz} \]
+On perçoit un son de \textbf{\Res{\v{f1} + \v{df}/2}{Hz}}.
+
+\subsubsection*{Question b) Période des battements}
+L'amplitude $2A\cos(2\pi\,\tfrac{\Delta f}{2}\,t)$ oscille à $\Delta f/2$, mais l'intensité dépend du carré de l'amplitude : elle est maximale à la fois quand le cosinus vaut $+1$ et $-1$, donc deux fois par période de l'enveloppe. La fréquence des battements est donc $f_{\text{batt}} = f_2 - f_1 = \qty{\v{df}}{Hz}$.
+\[ T_{\text{batt}} = \frac{1}{f_{\text{batt}}} = \frac{1}{\num{\v{df}}} = \Res{1/\v{df}}{s} \]
+Deux maximums consécutifs sont séparés de \textbf{\Res{1/\v{df}}{s}}.
+
+\subsubsection*{Question c) Nombre de battements}
+\[ N = f_{\text{batt}}\,\Delta t = \num{\v{df}} \cdot \num{\v{t}} = \fpeval{\v{df}*\v{t}} \]
+On entend \textbf{\fpeval{\v{df}*\v{t}} battements}.

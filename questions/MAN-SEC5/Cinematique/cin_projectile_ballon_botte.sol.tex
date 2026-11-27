@@ -1,0 +1,72 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Composante horizontale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{\v{v0}}{m/s}$, $\theta = \ang{\v{th}}$
+        \item Variable recherchée : $v_{0x}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_{0x} = v_0 \cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{0x} = \num{\v{v0}} \cdot \cos(\ang{\v{th}}) = \Res{\v{v0}*cosd(\v{th})}{m/s} \]
+    \item \textbf{Réponse :} la composante horizontale est de \textbf{\Res{\v{v0}*cosd(\v{th})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Composante verticale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{\v{v0}}{m/s}$, $\theta = \ang{\v{th}}$
+        \item Variable recherchée : $v_{0y}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_{0y} = v_0 \sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{0y} = \num{\v{v0}} \cdot \sin(\ang{\v{th}}) = \Res{\v{v0}*sind(\v{th})}{m/s} \]
+    \item \textbf{Réponse :} la composante verticale est de \textbf{\Res{\v{v0}*sind(\v{th})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps de vol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_{0y} = \Res{\v{v0}*sind(\v{th})}{m/s}$, $a_y = \qty{-9.81}{m/s^2}$, retour au sol : $\Delta y = \qty{0}{m}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \Delta y = v_{0y} t - \tfrac{1}{2} g t^2 = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} en écartant $t = 0$ :
+    \[ t = \frac{2 v_{0y}}{g} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{2 \cdot \Val{\v{v0}*sind(\v{th})}}{\num{9.81}} = \Res{2*\v{v0}*sind(\v{th})/9.81}{s} \]
+    \item \textbf{Réponse :} le ballon reste \textbf{\Res{2*\v{v0}*sind(\v{th})/9.81}{s}} dans les airs.
+\end{enumerate}
+
+\subsubsection*{Question d) Portée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_{0x} = \Res{\v{v0}*cosd(\v{th})}{m/s}$ (constante), $t = \Res{2*\v{v0}*sind(\v{th})/9.81}{s}$
+        \item Variable recherchée : $\Delta x$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \Delta x = v_{0x} t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta x = \Val{\v{v0}*cosd(\v{th})} \cdot \Val{2*\v{v0}*sind(\v{th})/9.81} = \Res{\v{v0}*cosd(\v{th})*2*\v{v0}*sind(\v{th})/9.81}{m} \]
+    \item \textbf{Réponse :} le ballon retombe à \textbf{\Res{\v{v0}*cosd(\v{th})*2*\v{v0}*sind(\v{th})/9.81}{m}} du joueur.
+\end{enumerate}
+
+\subsubsection*{Question e) Hauteur maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_{0y} = \Res{\v{v0}*sind(\v{th})}{m/s}$, au sommet $v_y = \qty{0}{m/s}$, $a_y = \qty{-9.81}{m/s^2}$
+        \item Variable recherchée : $h_{\max}$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_y^2 = v_{0y}^2 + 2 a_y \Delta y \]
+    \item \textbf{Isolation de la variable recherchée :} \[ h_{\max} = \frac{v_{0y}^2}{2g} \]
+    \item \textbf{Résolution numérique :}
+    \[ h_{\max} = \frac{(\Val{\v{v0}*sind(\v{th})})^2}{2 \cdot \num{9.81}} = \Res{(\v{v0}*sind(\v{th}))^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} le ballon monte jusqu'à \textbf{\Res{(\v{v0}*sind(\v{th}))^2/(2*9.81)}{m}}.
+\end{enumerate}

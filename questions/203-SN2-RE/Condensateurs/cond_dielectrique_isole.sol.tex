@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Avant l'insertion}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_0 = \qty{\v{C0}e-9}{F}$, $V_0 = \qty{\v{V0}}{V}$ ; variables recherchées : $Q$, $U_0$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = C_0V_0 \qquad U_0 = \frac{1}{2}C_0V_0^2 \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \num{\v{C0}e-9} \cdot \num{\v{V0}} = \ResSci{\v{C0}*1e-9*\v{V0}}{C} \qquad U_0 = \frac{1}{2} \cdot \num{\v{C0}e-9} \cdot (\num{\v{V0}})^2 = \ResSci{0.5*\v{C0}*1e-9*\v{V0}^2}{J} \]
+    \item \textbf{Réponse :} $Q = \mathbf{\ResSci{\v{C0}*1e-9*\v{V0}}{C}}$ et $U_0 = \mathbf{\ResSci{0.5*\v{C0}*1e-9*\v{V0}^2}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Nouvelle capacité et nouvelle tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\kappa = \num{\v{kap}}$ ; le condensateur est isolé, donc $Q$ est conservée ; variables recherchées : $C$, $V$
+    \item \textbf{Équations pertinentes :}
+    \[ C = \kappa C_0 \qquad Q = CV \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ V = \frac{Q}{C} = \frac{V_0}{\kappa} \]
+    \item \textbf{Résolution numérique :}
+    \[ C = \num{\v{kap}} \cdot \qty{\v{C0}}{nF} = \Res{\v{kap}*\v{C0}}{nF} \qquad V = \frac{\num{\v{V0}}}{\num{\v{kap}}} = \Res{\v{V0}/\v{kap}}{V} \]
+    \item \textbf{Réponse :} $C = \mathbf{\Res{\v{kap}*\v{C0}}{nF}}$ et $V = \mathbf{\Res{\v{V0}/\v{kap}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Nouvelle énergie}
+\[ U = \frac{Q^2}{2C} = \frac{U_0}{\kappa} = \frac{\ResSci{0.5*\v{C0}*1e-9*\v{V0}^2}{}}{\num{\v{kap}}} = \ResSci{0.5*\v{C0}*1e-9*\v{V0}^2/\v{kap}}{J} \]
+L'énergie diminue à \textbf{\ResSci{0.5*\v{C0}*1e-9*\v{V0}^2/\v{kap}}{J}}. Comme le système perd de l'énergie, c'est le champ qui fait un travail positif sur le diélectrique : le diélectrique est \textbf{attiré} entre les armatures.

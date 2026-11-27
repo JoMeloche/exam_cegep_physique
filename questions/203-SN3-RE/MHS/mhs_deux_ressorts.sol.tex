@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Constante équivalente et fréquence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $k_1 = \qty{\v{k1}}{N/m}$, $k_2 = \qty{\v{k2}}{N/m}$
+        \item Variables recherchées : $k_{\text{éq}}$ et $f$ (Hz)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pour un déplacement $x$ vers la droite, le ressort de gauche s'étire et le ressort de droite se comprime ; les deux forces sont vers la gauche :
+    \[ F = -k_1 x - k_2 x = -(k_1 + k_2)x \qquad f = \frac{1}{2\pi}\sqrt{\frac{k_{\text{éq}}}{m}} \]
+    \item \textbf{Isolation de la variable recherchée :} $k_{\text{éq}} = k_1 + k_2$, donc
+    \[ f = \frac{1}{2\pi}\sqrt{\frac{k_1 + k_2}{m}} \]
+    \item \textbf{Résolution numérique :}
+    \[ k_{\text{éq}} = \num{\v{k1}} + \num{\v{k2}} = \qty{\fpeval{\v{k1}+\v{k2}}}{N/m} \qquad f = \frac{1}{2\pi}\sqrt{\frac{\fpeval{\v{k1}+\v{k2}}}{\num{\v{m}}}} = \Res{sqrt((\v{k1}+\v{k2})/\v{m})/(2*pi)}{Hz} \]
+    \item \textbf{Réponse :} la fréquence d'oscillation est de \textbf{\Res{sqrt((\v{k1}+\v{k2})/\v{m})/(2*pi)}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Fréquence avec un seul ressort}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $k_1 = \qty{\v{k1}}{N/m}$
+        \item Variable recherchée : $f'$ (Hz)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f' = \frac{1}{2\pi}\sqrt{\frac{k_1}{m}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f' = \frac{1}{2\pi}\sqrt{\frac{\num{\v{k1}}}{\num{\v{m}}}} = \Res{sqrt(\v{k1}/\v{m})/(2*pi)}{Hz} \]
+    \item \textbf{Réponse :} la nouvelle fréquence est de \textbf{\Res{sqrt(\v{k1}/\v{m})/(2*pi)}{Hz}} (plus basse, car le système est moins rigide).
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $A = \qty{\vsi{A}}{m}$, $\omega = \sqrt{k_{\text{éq}}/m} = \Res{sqrt((\v{k1}+\v{k2})/\v{m})}{rad/s}$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v_{\max} = A\omega \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \num{\vsi{A}} \cdot \Val{sqrt((\v{k1}+\v{k2})/\v{m})} = \Res{\vsi{A}*sqrt((\v{k1}+\v{k2})/\v{m})}{m/s} \]
+    \item \textbf{Réponse :} le module de la vitesse maximale est de \textbf{\Res{\vsi{A}*sqrt((\v{k1}+\v{k2})/\v{m})}{m/s}}.
+\end{enumerate}

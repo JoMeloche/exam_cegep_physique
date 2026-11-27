@@ -1,0 +1,17 @@
+title: 'Se regarder dans un miroir plan'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  H: {type: integer, min: 150, max: 195, step: 1, unit: cm, si: 0.01, label: Taille de la personne}
+  d: {type: decimal, min: 0.5, max: 4.0, step: 0.1, unit: m, label: Distance entre la personne et le miroir}
+  v: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: m/s, label: Vitesse de marche}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2*d", unit: m, label: Distance entre la personne et son image}
+    b: {expr: "100*H/2", unit: cm, label: Hauteur minimale du miroir}
+    c: {expr: "2*v", unit: m/s, label: Vitesse de l'image par rapport à la personne}

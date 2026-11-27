@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Position de l'image}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{cm}$, $d_o = \qty{\v{dob}}{cm}$ ; variable recherchée : $d_i$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d_i = \frac{1}{\frac{1}{f} - \frac{1}{d_o}} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_i = \frac{1}{\frac{1}{\qty{\v{f}}{cm}} - \frac{1}{\qty{\v{dob}}{cm}}} = \Res{1/(1/\v{f} - 1/\v{dob})}{cm} \]
+    \item \textbf{Réponse :} $d_i = \mathbf{\Res{1/(1/\v{f} - 1/\v{dob})}{cm}}$. Le signe négatif indique une image \textbf{virtuelle}, du même côté que le timbre (l'objet est entre le foyer et la lentille).
+\end{enumerate}
+
+\subsubsection*{Question b) Grandissement et hauteur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_i = \Res{1/(1/\v{f} - 1/\v{dob})}{cm}$, $d_o = \qty{\v{dob}}{cm}$, $h_o = \qty{\v{ho}}{cm}$ ; variables recherchées : $G$, $h_i$
+    \item \textbf{Équations pertinentes :}
+    \[ G = -\frac{d_i}{d_o} = \frac{h_i}{h_o} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ h_i = G\,h_o \]
+    \item \textbf{Résolution numérique :}
+    \[ G = -\frac{\Val{1/(1/\v{f} - 1/\v{dob})}\,\unit{cm}}{\qty{\v{dob}}{cm}} = \num[round-mode=figures,round-precision=3]{\fpeval{-(1/(1/\v{f} - 1/\v{dob}))/\v{dob}}} \qquad h_i = \Val{-(1/(1/\v{f} - 1/\v{dob}))/\v{dob}} \cdot \qty{\v{ho}}{cm} = \Res{-\v{ho}*(1/(1/\v{f} - 1/\v{dob}))/\v{dob}}{cm} \]
+    \item \textbf{Réponse :} $G = \mathbf{\num[round-mode=figures,round-precision=3]{\fpeval{-(1/(1/\v{f} - 1/\v{dob}))/\v{dob}}}}$ et $h_i = \mathbf{\Res{-\v{ho}*(1/(1/\v{f} - 1/\v{dob}))/\v{dob}}{cm}}$. $G > 0$ : l'image est \textbf{droite} et agrandie.
+\end{enumerate}
+
+\subsubsection*{Question c) Puissance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{cm} = \qty{\vsi{f}}{m}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{1}{f} \quad (f \text{ en mètres}) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P = \frac{1}{\qty{\vsi{f}}{m}} = \Res{1/\vsi{f}}{D} \]
+    \item \textbf{Réponse :} la loupe a une puissance de \textbf{\Res{1/\vsi{f}}{D}} (dioptries).
+\end{enumerate}

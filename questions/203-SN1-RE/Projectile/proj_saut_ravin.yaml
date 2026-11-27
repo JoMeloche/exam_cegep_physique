@@ -1,0 +1,17 @@
+title: Cascadeur au-dessus d'un ravin
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  th: {type: integer, unit: \degree, label: Angle du tremplin, min: 15, max: 40, step: 5}
+  D: {type: decimal, min: 15.0, max: 40.0, step: 0.5, unit: m, label: Largeur du ravin}
+constraints: []
+solution:
+  mode: manual
+  file: proj_saut_ravin.sol.tex
+  parts:
+    a: {expr: sqrt(g*D/sin(rad(2*th))), unit: m/s, label: Vitesse minimale}
+    b: {expr: 2*sqrt(g*D/sin(rad(2*th)))*sin(rad(th))/g, unit: s, label: Durée du saut}
+    c: {expr: (sqrt(g*D/sin(rad(2*th)))*sin(rad(th)))**2/(2*g), unit: m, label: Hauteur maximale}

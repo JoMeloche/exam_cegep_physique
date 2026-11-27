@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie d'un photon}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\v{lam}}{nm}$, $hc = \qty{1240}{eV.nm}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ E = hf = \frac{hc}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{1240}{\num{\v{lam}}} = \Res{1240/\v{lam}}{eV} \]
+    \item \textbf{Réponse :} chaque photon transporte \textbf{\Res{1240/\v{lam}}{eV}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \Res{1240/\v{lam}}{eV}$, $\phi = \qty{\v{phi}}{eV}$ ; variable recherchée : $K_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ K_{\max} = hf - \phi \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ K_{\max} = \Val{1240/\v{lam}} - \num{\v{phi}} = \Res{1240/\v{lam} - \v{phi}}{eV} \]
+    \item \textbf{Réponse :} $K_{\max} = \mathbf{\Res{1240/\v{lam} - \v{phi}}{eV}}$, soit \ResSci{(1240/\v{lam} - \v{phi})*1.602e-19}{J}.
+\end{enumerate}
+
+\subsubsection*{Question c) Potentiel d'arrêt}
+\[ eV_0 = K_{\max} \implies V_0 = \frac{K_{\max}}{e} = \Res{1240/\v{lam} - \v{phi}}{V} \]
+Le potentiel d'arrêt est de \textbf{\Res{1240/\v{lam} - \v{phi}}{V}}.

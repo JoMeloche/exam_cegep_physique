@@ -1,0 +1,15 @@
+title: 'Effet de doubler la tension'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$I = U/R$ double (de \qty{0.12}{A} à \qty{0.24}{A}) et $P = U^2/R$ est multipliée par 4 (de \qty{0.72}{W} à \qty{2.88}{W}).'
+choices:
+  - 'Le courant double et la puissance double.'
+  - 'Le courant double et la puissance quadruple.'
+  - 'Le courant reste le même et la puissance double.'
+  - 'Le courant est divisé par deux et la puissance reste la même.'

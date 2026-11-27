@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Différence de marche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \qty{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty{\vsi{y}}{m}$
+        \item Variable recherchée : $\Delta r$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pour de petits angles, $\sin\theta \approx \tan\theta = y/L$ et
+    \[ \Delta r = d\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta r = \frac{d\,y}{L} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta r = \frac{\num{\vsi{sep}} \cdot \num{\vsi{y}}}{\num{\v{L}}} = \Res{1e9*\vsi{sep}*\vsi{y}/\v{L}}{nm} \]
+    \item \textbf{Réponse :} la différence de marche est \textbf{\Res{1e9*\vsi{sep}*\vsi{y}/\v{L}}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Déphasage}
+\[ \phi = 2\pi\,\frac{\Delta r}{\lambda} = 2\pi \cdot \frac{\Val{1e9*\vsi{sep}*\vsi{y}/\v{L}}}{\num{\v{lam}}} = \Res{2*pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \]
+Le déphasage est de \textbf{\Res{2*pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}{rad}}.
+
+\subsubsection*{Question c) Intensité au point P}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_{\max} = \qty{\v{Imax}}{W/m^2}$, $\phi = \Res{2*pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}{rad}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ I = I_{\max}\cos^2\left(\frac{\phi}{2}\right) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ I = \num{\v{Imax}} \cdot \cos^2\left(\frac{\Val{2*pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}}{2}\right) = \Res{\v{Imax}*cos(pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L}))^2}{W/m^2} \]
+    \item \textbf{Réponse :} l'intensité en P est \textbf{\Res{\v{Imax}*cos(pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L}))^2}{W/m^2}}.
+\end{enumerate}

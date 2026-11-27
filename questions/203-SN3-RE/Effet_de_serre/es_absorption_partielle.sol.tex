@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Cas limites}
+Pour $\varepsilon = 0$ : $T_{\text{sol}} = T_e(2/2)^{1/4} = T_e$, sans effet de serre. Pour $\varepsilon = 1$ : $T_{\text{sol}} = 2^{1/4}T_e$, le modèle à couche totalement absorbante.
+
+\subsubsection*{Question b) Température du sol}
+\[ T_{\text{sol}} = \num{\v{Te}}\left(\frac{2}{2 - \num{\v{eps}}}\right)^{1/4} = \Res{\v{Te}*(2/(2 - \v{eps}))^0.25}{K} \]
+Le sol est à \textbf{\Res{\v{Te}*(2/(2 - \v{eps}))^0.25}{K}} (\qty[round-mode=places,round-precision=1]{\fpeval{\v{Te}*(2/(2 - \v{eps}))^0.25 - 273}}{\degreeCelsius}).
+
+\subsubsection*{Question c) Hausse de température}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\varepsilon' = \num{\v{eps2}}$, $T_e$ ; variable recherchée : $\Delta T$
+    \item \textbf{Équations pertinentes :}
+    \[ T'_{\text{sol}} = T_e\left(\frac{2}{2 - \varepsilon'}\right)^{1/4} \qquad \Delta T = T'_{\text{sol}} - T_{\text{sol}} \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ T'_{\text{sol}} = \num{\v{Te}}\left(\frac{2}{2 - \num{\v{eps2}}}\right)^{1/4} = \Res{\v{Te}*(2/(2 - \v{eps2}))^0.25}{K} \qquad \Delta T = \Res{\v{Te}*(2/(2 - \v{eps2}))^0.25 - (\v{Te}*(2/(2 - \v{eps}))^0.25)}{K} \]
+    \item \textbf{Réponse :} la température du sol augmente de \textbf{\Res{\v{Te}*(2/(2 - \v{eps2}))^0.25 - (\v{Te}*(2/(2 - \v{eps}))^0.25)}{K}}.
+\end{enumerate}

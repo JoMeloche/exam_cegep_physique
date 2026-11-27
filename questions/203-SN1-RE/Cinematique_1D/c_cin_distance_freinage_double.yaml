@@ -1,0 +1,11 @@
+title: Distance de freinage et vitesse doublée
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$d = v_0^2/(2a)$ : la distance est proportionnelle au carré de la vitesse initiale, donc $2^2 = 4$.'
+choices: ['$\sqrt{2}$', $2$, $4$, $8$]

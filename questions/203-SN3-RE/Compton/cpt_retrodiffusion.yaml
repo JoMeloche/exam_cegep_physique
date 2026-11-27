@@ -1,0 +1,15 @@
+title: Rétrodiffusion Compton et énergie perdue
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  E0: {type: integer, min: 20, max: 500, step: 10, unit: keV, si: 1.602e-16, label: Énergie du photon incident}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "6.626e-34*3e8/E0", unit: m, label: Longueur d'onde incidente}
+    b: {expr: "6.626e-34*3e8/E0 + 2*6.626e-34/(9.109e-31*3e8)", unit: m, label: Longueur d'onde rétrodiffusée}
+    c: {expr: "1 - (6.626e-34*3e8/E0)/(6.626e-34*3e8/E0 + 2*6.626e-34/(9.109e-31*3e8))", unit: "", label: Fraction d'énergie perdue}

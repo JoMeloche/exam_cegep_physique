@@ -1,0 +1,15 @@
+title: "Relativité de la simultanéité"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Deux événements séparés dans l''espace et simultanés dans un référentiel ne le sont pas dans un autre référentiel en mouvement le long de la ligne qui les joint.'
+choices:
+  - 'Les deux explosions sont simultanées'
+  - 'Les deux explosions sont simultanées, mais plus rapprochées'
+  - 'Les explosions ne sont pas simultanées, mais l''ordre dépend de la position de l''arbitre'
+  - 'L''explosion située à l''avant de la sonde se produit en premier'

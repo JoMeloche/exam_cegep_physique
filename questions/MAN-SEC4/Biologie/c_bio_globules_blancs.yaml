@@ -1,0 +1,15 @@
+title: 'Constituant du sang qui défend l''organisme'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Les globules blancs (leucocytes) reconnaissent et détruisent les micro-organismes. Les plaquettes servent à la coagulation, les globules rouges au transport de l''oxygène.'
+choices:
+  - 'Les globules rouges'
+  - 'Les globules blancs'
+  - 'Les plaquettes'
+  - 'Le plasma'

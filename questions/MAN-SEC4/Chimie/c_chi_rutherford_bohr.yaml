@@ -1,0 +1,15 @@
+title: 'Modèle de Rutherford-Bohr du chlore'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La première couche peut contenir 2 électrons, la deuxième 8 : il en reste $17 - 10 = 7$ sur la troisième couche. Le chlore a donc 7 électrons de valence (famille des halogènes).'
+choices:
+  - '2, 8, 7'
+  - '2, 7, 8'
+  - '8, 8, 1'
+  - '2, 2, 13'

@@ -1,0 +1,21 @@
+title: Force résultante sur une charge entre deux autres
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  q1: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: \micro C, si: 1e-6, label: Charge 1}
+  q2: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: \micro C, si: 1e-6, label: Charge 2}
+  q3: {type: decimal, min: 0.5, max: 3.0, step: 0.5, unit: \micro C, si: 1e-6, label: Charge 3}
+  d:  {type: integer, min: 20, max: 60, step: 5, unit: cm, si: 0.01, label: Position de q2}
+  x:  {type: integer, min: 5, max: 50, step: 1, unit: cm, si: 0.01, label: Position de q3}
+constraints:
+  - x < d - 0.04
+  - abs(q1/x**2 - q2/(d - x)**2) > 0.15*(q1/x**2)
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.99e9*q1*q3/x**2", unit: N, label: Force de q1 sur q3}
+    b: {expr: "8.99e9*q2*q3/(d - x)**2", unit: N, label: Force de q2 sur q3}
+    c: {expr: "abs(8.99e9*q1*q3/x**2 - 8.99e9*q2*q3/(d - x)**2)", unit: N, label: Force résultante}

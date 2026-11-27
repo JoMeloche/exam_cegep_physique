@@ -1,0 +1,15 @@
+title: 'Œuf qui tombe sur un coussin ou sur le sol'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Dans les deux cas $\Delta p = mv$ (l''œuf s''arrête). Comme $F_{\text{moy}} = \Delta p / \Delta t$, une durée plus longue donne une force plus petite.'
+choices:
+  - 'Le coussin diminue l''impulsion reçue par l''œuf'
+  - 'Le coussin diminue la quantité de mouvement de l''œuf avant le choc'
+  - 'L''impulsion est la même, mais elle est répartie sur une plus longue durée, donc la force moyenne est plus petite'
+  - 'Le coussin augmente la durée du choc et l''impulsion reçue'

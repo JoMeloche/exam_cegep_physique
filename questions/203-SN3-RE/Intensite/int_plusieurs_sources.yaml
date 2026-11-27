@@ -1,0 +1,19 @@
+title: Niveau sonore de plusieurs sources identiques
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  b1: {type: integer, min: 50, max: 85, step: 1, unit: dB, label: Niveau sonore d'une source}
+  N:  {type: integer, min: 2, max: 12, step: 1, label: Nombre de sources}
+  bmax: {type: integer, min: 85, max: 100, step: 5, unit: dB, label: Niveau maximal permis}
+constraints:
+  - b1 + 10*log10(N) < bmax
+  - 3 < bmax - b1 <= 15
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1e-12*10**(b1/10)", unit: W/m^2, label: Intensité d'une source}
+    b: {expr: "b1 + 10*log10(N)", unit: dB, label: Niveau total}
+    c: {expr: "10**((bmax - b1)/10)", unit: "", label: Nombre maximal de sources (arrondir vers le bas)}

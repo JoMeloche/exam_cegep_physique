@@ -1,0 +1,15 @@
+title: Énergie d'un photon gamma après diffusion Compton
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  E0: {type: integer, min: 100, max: 1500, step: 50, unit: keV, label: Énergie incidente}
+  th: {type: integer, min: 20, max: 180, step: 10, unit: \degree, label: Angle de diffusion}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "E0/(1 + E0/511*(1 - cos(rad(th))))", unit: keV, label: Énergie diffusée}
+    b: {expr: "E0 - E0/(1 + E0/511*(1 - cos(rad(th))))", unit: keV, label: Énergie de l'électron}

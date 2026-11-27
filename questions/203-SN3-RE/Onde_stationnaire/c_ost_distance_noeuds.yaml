@@ -1,0 +1,15 @@
+title: "Distance entre deux nœuds voisins"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Dans une onde stationnaire, deux nœuds voisins sont séparés d''une demi-longueur d''onde ; un nœud et le ventre voisin, d''un quart.'
+choices:
+  - '$\lambda/4$'
+  - '$\lambda/2$'
+  - '$\lambda$'
+  - '$2\lambda$'

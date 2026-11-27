@@ -1,0 +1,16 @@
+title: Fréquence inconnue d'un diapason par battements
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  f1: {type: choice, values: [256, 320, 384, 440, 512], unit: Hz, label: Fréquence du diapason de référence}
+  fb: {type: integer, min: 2, max: 8, step: 1, unit: Hz, label: Fréquence des battements}
+  t:  {type: integer, min: 5, max: 20, step: 1, unit: s, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f1 - fb", unit: Hz, label: Fréquence du diapason B (après b)}
+    b: {expr: "fb*t", unit: "", label: Nombre de battements}

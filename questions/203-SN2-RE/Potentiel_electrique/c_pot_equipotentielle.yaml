@@ -1,0 +1,15 @@
+title: 'Travail le long d''une équipotentielle'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$W = -q\Delta V$ et $\Delta V = 0$ sur une équipotentielle : le travail est nul (le champ est perpendiculaire au déplacement).'
+choices:
+  - '\qty{0}{J}'
+  - '\qty{1.5e-3}{J}'
+  - '\qty{3e-4}{J}'
+  - '\qty{-1.5e-3}{J}'

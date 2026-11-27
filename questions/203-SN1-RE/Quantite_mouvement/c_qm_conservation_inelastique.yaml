@@ -1,0 +1,15 @@
+title: 'Ce qui est conservé lors d''une collision inélastique'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Sans force extérieure horizontale, la quantité de mouvement est conservée dans toute collision ; une partie de l''énergie cinétique est toujours perdue lorsque les objets restent collés.'
+choices:
+  - 'Seulement l''énergie cinétique totale'
+  - 'Ni la quantité de mouvement ni l''énergie cinétique'
+  - 'La quantité de mouvement totale et l''énergie cinétique totale'
+  - 'Seulement la quantité de mouvement totale'

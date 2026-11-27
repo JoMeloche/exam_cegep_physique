@@ -1,0 +1,17 @@
+title: Résultante de deux forces perpendiculaires
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  F1: {type: integer, min: 50, max: 400, step: 10, unit: N, label: Force vers l'est}
+  F2: {type: integer, min: 50, max: 400, step: 10, unit: N, label: Force vers le nord}
+constraints:
+  - F1 != F2
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(F1**2 + F2**2)", unit: N, label: Force résultante}
+    b: {expr: "deg(atan(F2/F1))", unit: \degree, label: Orientation par rapport à l'est}
+    c: {expr: "sqrt(F1**2 + F2**2)", unit: N, label: Force équilibrante}

@@ -1,0 +1,15 @@
+title: "Source en mouvement ou observateur en mouvement"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Source qui approche : $f'' = f\,v/(v - u)$ ; observateur qui approche : $f'' = f\,(v+u)/v$. Pour $u > 0$, $v/(v-u) > (v+u)/v$ : le décalage est plus grand quand c''est la source qui bouge.'
+choices:
+  - 'Situation 1'
+  - 'Situation 2'
+  - 'La même dans les deux situations'
+  - 'Cela dépend de la fréquence émise'

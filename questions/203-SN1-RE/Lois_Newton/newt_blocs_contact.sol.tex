@@ -1,0 +1,52 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Force appliquée : $F = \qty{\v{F}}{N}$
+        \item Masse du bloc A : $m_A = \qty{\v{m1}}{kg}$
+        \item Masse du bloc B : $m_B = \qty{\v{m2}}{kg}$
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_x = (m_A + m_B) a \quad \text{(système des deux blocs)} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F}{m_A + m_B} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\vsi{F}}}{\num{\vsi{m1}} + \num{\vsi{m2}}} = \Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2} \]
+    \item \textbf{Réponse :} les blocs accélèrent à \textbf{\Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force de contact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc B : $m_B = \qty{\v{m2}}{kg}$
+        \item $a = \Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2}$
+        \item Seule force horizontale sur B : $F_{AB}$
+        \item Variable recherchée : $F_{AB}$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ F_{AB} = m_B a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{AB} = \num{\vsi{m2}} \cdot \Val{\vsi{F}/(\vsi{m1} + \vsi{m2})} = \Res{\vsi{m2}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N} \]
+    \item \textbf{Réponse :} la force de contact vaut \textbf{\Res{\vsi{m2}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) On pousse B}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse du bloc A : $m_A = \qty{\v{m1}}{kg}$
+        \item $a = \Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2}$ (inchangée)
+        \item Variable recherchée : $F_{BA}$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ F_{BA} = m_A a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{BA} = \num{\vsi{m1}} \cdot \Val{\vsi{F}/(\vsi{m1} + \vsi{m2})} = \Res{\vsi{m1}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N} \]
+    \item \textbf{Réponse :} la force de contact devient \textbf{\Res{\vsi{m1}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N}} : elle est égale à la masse du bloc poussé par le contact fois l'accélération.
+\end{enumerate}

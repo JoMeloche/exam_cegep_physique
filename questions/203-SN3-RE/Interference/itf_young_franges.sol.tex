@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle de la frange brillante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\vsi{lam}}{m}$, $d = \qty{\vsi{sep}}{m}$, $m = \v{m}$
+        \item Variable recherchée : $\theta_{\v{m}}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} condition d'interférence constructive :
+    \[ d\sin\theta = m\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta = \arcsin\left(\frac{m\lambda}{d}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta = \arcsin\left(\frac{\v{m} \cdot \num{\vsi{lam}}}{\num{\vsi{sep}}}\right) = \Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree} \]
+    \item \textbf{Réponse :} la frange brillante d'ordre \v{m} est à \textbf{\Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Position sur l'écran}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\v{L}}{m}$, $\theta = \Res{asind(\v{m}*\vsi{lam}/\vsi{sep})}{\degree}$ ; variable recherchée : $y$
+    \item \textbf{Équations pertinentes :}
+    \[ \tan\theta = \frac{y}{L} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ y = L\tan\theta \]
+    \item \textbf{Résolution numérique :}
+    \[ y = \num{\v{L}} \cdot \tan(\Val{asind(\v{m}*\vsi{lam}/\vsi{sep})}^\circ) = \Res{1000*\v{L}*tand(asind(\v{m}*\vsi{lam}/\vsi{sep}))}{mm} \]
+    \item \textbf{Réponse :} la frange est à \textbf{\Res{1000*\v{L}*tand(asind(\v{m}*\vsi{lam}/\vsi{sep}))}{mm}} du centre.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance entre deux franges voisines}
+Pour de petits angles, $y_m \approx m\lambda L/d$, donc
+\[ \Delta y = \frac{\lambda L}{d} = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{sep}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm} \]
+Deux franges brillantes voisines sont séparées de \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{sep}}{mm}}.

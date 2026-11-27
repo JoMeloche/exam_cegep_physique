@@ -1,0 +1,24 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie du photon diffusé}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\v{E0}}{keV}$, $\theta = \qty{\v{th}}{\degree}$, $m_e c^2 = \qty{511}{keV}$ ; variable recherchée : $E'$
+    \item \textbf{Équations pertinentes :}
+    \[ \lambda' - \lambda = \frac{h}{m_e c}(1 - \cos\theta) \qquad E = \frac{hc}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :} en multipliant par $1/(hc)$ :
+    \[ \frac{1}{E'} = \frac{1}{E} + \frac{1 - \cos\theta}{m_e c^2} \implies E' = \frac{E}{1 + \dfrac{E}{m_e c^2}(1 - \cos\theta)} \]
+    \item \textbf{Résolution numérique :}
+    \[ E' = \frac{\num{\v{E0}}}{1 + \dfrac{\num{\v{E0}}}{511}(1 - \cos \v{th}^\circ)} = \Res{\v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))}{keV} \]
+    \item \textbf{Réponse :} le photon diffusé a une énergie de \textbf{\Res{\v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))}{keV}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie transférée}
+\[ K_e = E - E' = \num{\v{E0}} - \Val{\v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))} = \Res{\v{E0} - \v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))}{keV} \]
+L'électron reçoit \textbf{\Res{\v{E0} - \v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))}{keV}}.
+
+\subsubsection*{Question c) Vérification avec les longueurs d'onde}
+Avec $hc = \qty{1240}{keV.pm}$ :
+\[ \lambda = \frac{1240}{\num{\v{E0}}} = \Res{1240/\v{E0}}{pm} \qquad \lambda' = \frac{1240}{\Val{\v{E0}/(1 + \v{E0}/511*(1 - cosd(\v{th})))}} = \Res{1240*(1 + \v{E0}/511*(1 - cosd(\v{th})))/\v{E0}}{pm} \]
+\[ \lambda' - \lambda = \Res{1240/511*(1 - cosd(\v{th}))}{pm} \qquad \frac{h}{m_e c}(1 - \cos\theta) = \num{2.43}\,(1 - \cos \v{th}^\circ) = \Res{2.426*(1 - cosd(\v{th}))}{pm} \]
+Les deux valeurs concordent.

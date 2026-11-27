@@ -1,0 +1,17 @@
+title: Électroaimant alimenté par une pile
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  N: {type: integer, min: 100, max: 600, step: 25, unit: '', label: Nombre de spires}
+  L: {type: integer, min: 4, max: 15, step: 1, unit: cm, si: 0.01, label: Longueur de la bobine}
+  R: {type: decimal, min: 1.5, max: 8.0, step: 0.5, unit: \ohm, label: Résistance du fil}
+  U: {type: choice, values: [1.5, 3, 4.5, 6, 9], unit: V, label: Tension de la pile}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "U/R", unit: A, label: Courant}
+    b: {expr: "1.257e-6*N*U/R/L*1000", unit: mT, label: Champ magnétique}

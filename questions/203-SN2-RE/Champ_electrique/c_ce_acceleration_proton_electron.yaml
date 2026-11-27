@@ -1,0 +1,15 @@
+title: 'Accélération d''un proton et d''un électron'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les deux subissent une force de même module $eE$ (sens opposés), mais l''électron est environ 1836 fois moins massif : son accélération est environ 1836 fois plus grande.'
+choices:
+  - 'Elles sont égales'
+  - 'Celle du proton est environ 1836 fois plus grande'
+  - 'Celle de l''électron est environ 1836 fois plus grande'
+  - 'Elles sont égales en module mais de sens opposés, car les forces sont différentes'

@@ -1,0 +1,15 @@
+title: 'Effet d''une dilution sur le pH d''un acide'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'L''échelle de pH est logarithmique : diluer 10 fois un acide fort divise par 10 la concentration d''ions H$^+$ et augmente le pH de 1 unité. Le pH se rapproche de 7 sans le dépasser.'
+choices:
+  - '\num{2}'
+  - '\num{3}'
+  - '\num{4}'
+  - '\num{30}'

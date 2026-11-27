@@ -1,0 +1,17 @@
+title: Trapéziste
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- La vitesse des trapézistes à leur point le plus bas.
+- La période d’oscillation des trapézistes.
+- L’amplitude d’oscillation des trapézistes.
+- Ces quantités seront toutes inchangées.
+pin_last: 1
+needs_review: true
+source: Question_concept/MHS/trapéziste.tex
+history: []

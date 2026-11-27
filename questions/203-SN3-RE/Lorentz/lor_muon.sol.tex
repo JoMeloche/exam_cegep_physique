@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Temps de trajet au sol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $h = \qty{\vsi{h}}{m}$, $v = \num{\v{beta}}\,c = \Res{\v{beta}*3e8}{m/s}$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta t = \frac{h}{v} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\num{\vsi{h}}}{\Val{\v{beta}*3e8}} = \Res{1e6*\vsi{h}/(\v{beta}*3e8)}{\micro\second} \]
+    \item \textbf{Réponse :} au sol, le trajet dure \textbf{\Res{1e6*\vsi{h}/(\v{beta}*3e8)}{\micro\second}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Temps propre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta t$, $\gamma = 1/\sqrt{1 - \num{\v{beta}}^2} = \Res{1/sqrt(1 - \v{beta}^2)}{}$ ; variable recherchée : $\Delta t_0$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta t = \gamma\,\Delta t_0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t_0 = \frac{\Delta t}{\gamma} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t_0 = \frac{\Val{1e6*\vsi{h}/(\v{beta}*3e8)}}{\Val{1/sqrt(1 - \v{beta}^2)}} = \Res{1e6*\vsi{h}/(\v{beta}*3e8)*sqrt(1 - \v{beta}^2)}{\micro\second} \]
+    \item \textbf{Réponse :} selon les muons, il s'écoule \textbf{\Res{1e6*\vsi{h}/(\v{beta}*3e8)*sqrt(1 - \v{beta}^2)}{\micro\second}}. C'est le temps propre, car la production et l'arrivée ont lieu au même endroit dans le référentiel du muon.
+\end{enumerate}
+
+\subsubsection*{Question c) Fraction de survivants}
+\[ \frac{N}{N_0} = e^{-\Delta t_0/\tau_0} = e^{-\Val{1e6*\vsi{h}/(\v{beta}*3e8)*sqrt(1 - \v{beta}^2)}/2.2} = \Res{100*exp(-\vsi{h}/(\v{beta}*3e8)*sqrt(1 - \v{beta}^2)/2.2e-6)}{\percent} \]
+Avec la relativité, \textbf{\Res{100*exp(-\vsi{h}/(\v{beta}*3e8)*sqrt(1 - \v{beta}^2)/2.2e-6)}{\percent}} des muons atteignent le sol. Sans relativité, on utiliserait $\Delta t$ au lieu de $\Delta t_0$ et seulement \ResSci{100*exp(-\vsi{h}/(\v{beta}*3e8)/2.2e-6)}{\percent} survivraient ; l'observation d'un grand nombre de muons au sol confirme la dilatation du temps.

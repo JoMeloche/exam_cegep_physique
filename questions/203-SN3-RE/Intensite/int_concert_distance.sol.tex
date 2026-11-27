@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance avec une enceinte}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $\beta_\ell = \qty{\v{bl}}{dB}$ ; variable recherchée : $r$
+    \item \textbf{Équations pertinentes :}
+    \[ I_\ell = I_0\,10^{\beta_\ell/10} \qquad I = \frac{P}{4\pi r^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r = \sqrt{\frac{P}{4\pi I_\ell}} \]
+    \item \textbf{Résolution numérique :}
+    \[ I_\ell = \Res{1e-12*10^(\v{bl}/10)}{W/m^2} \qquad r = \sqrt{\frac{\num{\v{P}}}{4\pi \cdot \Val{1e-12*10^(\v{bl}/10)}}} = \Res{sqrt(\v{P}/(4*pi*1e-12*10^(\v{bl}/10)))}{m} \]
+    \item \textbf{Réponse :} le public doit être à au moins \textbf{\Res{sqrt(\v{P}/(4*pi*1e-12*10^(\v{bl}/10)))}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance avec \v{N} enceintes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} puissance totale $NP = \qty{\fpeval{\v{N}*\v{P}}}{W}$ ; variable recherchée : $r'$
+    \item \textbf{Équations pertinentes :}
+    \[ I_\ell = \frac{NP}{4\pi r'^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r' = \sqrt{\frac{NP}{4\pi I_\ell}} = \sqrt{N}\,r \]
+    \item \textbf{Résolution numérique :}
+    \[ r' = \sqrt{\v{N}} \cdot \Val{sqrt(\v{P}/(4*pi*1e-12*10^(\v{bl}/10)))} = \Res{sqrt(\v{N}*\v{P}/(4*pi*1e-12*10^(\v{bl}/10)))}{m} \]
+    \item \textbf{Réponse :} la zone du public doit commencer à \textbf{\Res{sqrt(\v{N}*\v{P}/(4*pi*1e-12*10^(\v{bl}/10)))}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Augmentation du niveau}
+\[ \Delta\beta = 10\log\left(\frac{N I}{I}\right) = 10\log(\v{N}) = \Res{10*ln(\v{N})/ln(10)}{dB} \]
+Le niveau augmente de \textbf{\Res{10*ln(\v{N})/ln(10)}{dB}}.

@@ -1,0 +1,17 @@
+title: Effet de serre avec une absorption partielle de l'infrarouge
+type: developpement
+points: 20
+time_min: 18
+difficulty: 5
+figures: []
+variables:
+  eps: {type: decimal, min: 0.50, max: 0.95, step: 0.05, label: Fraction de l'infrarouge absorbée par l'atmosphère}
+  Te:  {type: integer, min: 250, max: 260, step: 1, unit: K, label: Température d'équilibre sans atmosphère}
+  eps2: {type: decimal, min: 0.55, max: 1.00, step: 0.05, label: Nouvelle fraction absorbée}
+constraints:
+  - eps2 > eps
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "Te*(2/(2 - eps))**0.25", unit: K, label: Température du sol}
+    e2: {expr: "Te*(2/(2 - eps2))**0.25 - Te*(2/(2 - eps))**0.25", unit: K, label: Hausse de température}

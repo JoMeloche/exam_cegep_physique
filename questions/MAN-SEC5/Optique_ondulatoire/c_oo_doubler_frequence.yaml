@@ -1,0 +1,15 @@
+title: 'Effet de doubler la fréquence'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La vitesse dépend du milieu et ne change pas. Avec $v = \lambda f$, si $f$ double, $\lambda$ est divisée par deux.'
+choices:
+  - 'Elle double'
+  - 'Elle est divisée par deux'
+  - 'Elle ne change pas'
+  - 'Elle est multipliée par quatre'

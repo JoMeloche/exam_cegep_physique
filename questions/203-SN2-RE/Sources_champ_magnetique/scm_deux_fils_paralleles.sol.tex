@@ -1,0 +1,38 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ à mi-chemin}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_1 = \qty{\v{I1}}{A}$, $I_2 = \qty{\v{I2}}{A}$, $r = d/2 = \Res{\vsi{d}/2}{m}$ ; variable recherchée : $B$
+    \item \textbf{Équations pertinentes :} champ d'un long fil : $B = \dfrac{\mu_0 I}{2\pi r}$. Entre deux courants de même sens, les deux champs sont de sens opposés :
+    \[ B = |B_1 - B_2| = \frac{\mu_0}{2\pi r}\,|I_1 - I_2| \]
+    \item \textbf{Isolation de la variable recherchée :} avec $r = d/2$,
+    \[ B = \frac{\mu_0\,|I_1 - I_2|}{\pi d} \]
+    \item \textbf{Résolution numérique :}
+    \[ B = \frac{4\pi \times 10^{-7} \cdot |\num{\v{I1}} - \num{\v{I2}}|}{\pi \cdot \num{\vsi{d}}} = \ResSci{4e-7*abs(\v{I1}-\v{I2})/\vsi{d}}{T} \]
+    \item \textbf{Réponse :} $B = \mathbf{\ResSci{4e-7*abs(\v{I1}-\v{I2})/\vsi{d}}{T}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Force par unité de longueur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_1 = \qty{\v{I1}}{A}$, $I_2 = \qty{\v{I2}}{A}$, $d = \qty{\vsi{d}}{m}$ ; variable recherchée : $F/L$
+    \item \textbf{Équations pertinentes :}
+    \[ F = I_2 L B_1 \qquad B_1 = \frac{\mu_0 I_1}{2\pi d} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d} \]
+    \item \textbf{Résolution numérique :}
+    \[ \frac{F}{L} = \frac{4\pi \times 10^{-7} \cdot \num{\v{I1}} \cdot \num{\v{I2}}}{2\pi \cdot \num{\vsi{d}}} = \ResSci{2e-7*\v{I1}*\v{I2}/\vsi{d}}{N/m} \]
+    \item \textbf{Réponse :} $F/L = \mathbf{\ResSci{2e-7*\v{I1}*\v{I2}/\vsi{d}}{N/m}}$ ; la force est \textbf{attractive} (courants de même sens).
+\end{enumerate}
+
+\subsubsection*{Question c) Point où le champ est nul}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I_1 = \qty{\v{I1}}{A}$, $I_2 = \qty{\v{I2}}{A}$, $d = \qty{\v{d}}{cm}$ ; variable recherchée : $x$ (distance au fil 1)
+    \item \textbf{Équations pertinentes :} entre les fils, les champs sont opposés ; ils s'annulent si
+    \[ \frac{\mu_0 I_1}{2\pi x} = \frac{\mu_0 I_2}{2\pi (d - x)} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I_1 (d - x) = I_2 x \quad\Rightarrow\quad x = \frac{I_1\, d}{I_1 + I_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ x = \frac{\num{\v{I1}} \cdot \num{\v{d}}}{\num{\v{I1}} + \num{\v{I2}}} = \Res{\v{I1}*\v{d}/(\v{I1}+\v{I2})}{cm} \]
+    \item \textbf{Réponse :} le champ est nul à $\mathbf{\Res{\v{I1}*\v{d}/(\v{I1}+\v{I2})}{cm}}$ du fil 1 (plus près du fil qui porte le plus petit courant).
+\end{enumerate}

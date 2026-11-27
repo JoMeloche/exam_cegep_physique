@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Différence de marche}
+\[ \Delta r = r_2 - r_1 = \num{\v{r2}} - \num{\v{r1}} = \Res{\v{r2} - \v{r1}}{m} \]
+La différence de marche est de \textbf{\Res{\v{r2} - \v{r1}}{m}}.
+
+\subsubsection*{Question b) Plus basse fréquence destructive}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\Delta r = \Res{\v{r2} - \v{r1}}{m}$, $v = \qty{\v{v}}{m/s}$
+        \item Variable recherchée : $f$ pour $m = 0$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} sources en phase, interférence destructive :
+    \[ \Delta r = \left(m + \tfrac{1}{2}\right)\lambda, \qquad v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} avec $m = 0$, $\lambda = 2\Delta r$ et
+    \[ f = \frac{v}{2\Delta r} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\num{\v{v}}}{2 \cdot \Val{\v{r2} - \v{r1}}} = \Res{\v{v}/(2*(\v{r2} - \v{r1}))}{Hz} \]
+    \item \textbf{Réponse :} la plus basse fréquence destructive est \textbf{\Res{\v{v}/(2*(\v{r2} - \v{r1}))}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Plus basse fréquence constructive}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta r$, $v$ ; variable recherchée : $f$ pour $m = 1$
+    \item \textbf{Équations pertinentes :} $\Delta r = m\lambda$
+    \item \textbf{Isolation de la variable recherchée :} avec $m = 1$, $\lambda = \Delta r$ et $f = \dfrac{v}{\Delta r}$
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\num{\v{v}}}{\Val{\v{r2} - \v{r1}}} = \Res{\v{v}/(\v{r2} - \v{r1})}{Hz} \]
+    \item \textbf{Réponse :} la plus basse fréquence constructive est \textbf{\Res{\v{v}/(\v{r2} - \v{r1})}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Sources déphasées de $\pi$}
+Le déphasage de $\pi$ entre les sources échange les conditions : il y a interférence constructive quand $\Delta r = (m + \tfrac{1}{2})\lambda$. La plus basse fréquence constructive est donc celle trouvée en b) :
+\[ f = \frac{v}{2\Delta r} = \Res{\v{v}/(2*(\v{r2} - \v{r1}))}{Hz} \]
+La réponse est \textbf{\Res{\v{v}/(2*(\v{r2} - \v{r1}))}{Hz}}.

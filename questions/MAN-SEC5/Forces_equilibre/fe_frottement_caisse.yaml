@@ -1,0 +1,20 @@
+title: 'Frottement statique et cinétique sur une caisse'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m:   {type: integer, min: 20, max: 80, step: 1, unit: kg, label: Masse de la caisse}
+  mus: {type: decimal, min: 0.40, max: 0.70, step: 0.05, label: Coefficient de frottement statique}
+  muk: {type: decimal, min: 0.15, max: 0.35, step: 0.05, label: Coefficient de frottement cinétique}
+  F:   {type: integer, min: 200, max: 900, step: 10, unit: N, label: Force de poussée}
+constraints:
+  - 'F > 1.1*mus*m*g'
+  - 'F < 2.5*mus*m*g'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "mus*m*g", unit: N, label: Force minimale pour mettre en mouvement}
+    b: {expr: "muk*m*g", unit: N, label: Force pour garder une vitesse constante}
+    c: {expr: "(F - muk*m*g)/m", unit: m/s^2, label: Accélération avec la poussée F}

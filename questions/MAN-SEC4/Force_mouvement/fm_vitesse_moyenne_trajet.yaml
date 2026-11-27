@@ -1,0 +1,19 @@
+title: Vitesse moyenne d'un trajet en deux parties
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  d1: {type: decimal, min: 5.0, max: 20.0, step: 0.5, unit: km, si: 1000, label: Distance de la première partie}
+  v1: {type: integer, min: 18, max: 32, step: 1, unit: km/h, si: 0.2777777777777778, label: Vitesse de la première partie}
+  d2: {type: decimal, min: 1.5, max: 6.0, step: 0.5, unit: km, si: 1000, label: Distance de la côte}
+  t2: {type: integer, min: 10, max: 30, step: 1, unit: min, si: 60, label: Durée de la côte}
+constraints:
+  - d2/t2 < 0.8*v1
+solution:
+  mode: manual
+  parts:
+    a: {expr: "d1/v1/60", unit: min, label: Durée de la première partie}
+    b: {expr: "d2/t2*3.6", unit: km/h, label: Vitesse dans la côte}
+    c: {expr: "(d1 + d2)/(d1/v1 + t2)*3.6", unit: km/h, label: Vitesse moyenne du trajet}

@@ -1,0 +1,15 @@
+title: "Gray et sievert"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Le sievert tient compte de l''effet biologique : $H = w_R D$. À dose absorbée égale, les alphas ($w_R = 20$) causent 20 fois plus de dommages que les gammas ($w_R = 1$).'
+choices:
+  - 'Les deux tissus reçoivent la même dose équivalente'
+  - 'Le tissu exposé aux gammas reçoit une dose équivalente plus élevée'
+  - 'On ne peut pas comparer les deux expositions'
+  - 'Le tissu exposé aux alphas reçoit une dose équivalente environ 20 fois plus élevée'

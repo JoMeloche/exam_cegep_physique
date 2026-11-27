@@ -1,0 +1,43 @@
+title: Auto-camion
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  VAuto:
+    type: integer
+    min: 25
+    max: 45
+    step: 5
+    label: doppSixVAuto
+  VCamion:
+    type: integer
+    min: 5
+    max: 25
+    step: 5
+    label: doppSixVCamion
+  Freq:
+    type: integer
+    min: 370
+    max: 460
+    step: 10
+    label: doppSixFreq
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Doppler/auto-camion.tex
+original_values:
+  VAuto:
+    A: '40'
+    B: '35'
+    C: '30'
+  VCamion:
+    A: '15'
+    B: '20'
+    C: '10'
+  Freq:
+    A: '400'
+    B: '450'
+    C: '380'
+history: []

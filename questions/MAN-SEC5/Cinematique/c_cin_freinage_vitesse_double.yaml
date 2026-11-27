@@ -1,0 +1,16 @@
+title: 'Distance de freinage quand la vitesse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+tags: [MRUA]
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'D''après $v_0^2 = 2ad$, la distance est proportionnelle au carré de la vitesse initiale : $2^2 = 4$.'
+choices:
+  - 'Elle reste la même'
+  - 'Elle double'
+  - 'Elle est quatre fois plus grande'
+  - 'Elle est deux fois plus petite'

@@ -1,0 +1,11 @@
+title: Force normale sur un plan incliné
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: Perpendiculairement au plan, $n = mg\cos\theta < mg$ pour tout angle non nul.
+choices: [Il est plus grand que le poids, Il est égal au poids, Il est plus petit que le poids, Il est nul]

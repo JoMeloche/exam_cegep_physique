@@ -1,0 +1,19 @@
+title: Sélecteur de vitesse
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  d: {type: integer, min: 4, max: 20, step: 1, unit: mm, si: 0.001, label: Distance entre les plaques}
+  dV: {type: integer, min: 50, max: 2000, step: 50, unit: V, label: Différence de potentiel}
+  B: {type: integer, min: 20, max: 400, step: 10, unit: mT, si: 0.001, label: Champ magnétique}
+constraints:
+  - dV/(d*B) > 1e4
+  - dV/(d*B) < 2e7
+solution:
+  mode: manual
+  parts:
+    a: {expr: "dV/d", unit: V/m, label: Champ électrique}
+    b: {expr: "dV/(d*B)", unit: m/s, label: Vitesse sélectionnée}
+    c: {expr: "1.673e-27*dV/(d*B)/(1.602e-19*B)", unit: m, label: Rayon de la trajectoire}

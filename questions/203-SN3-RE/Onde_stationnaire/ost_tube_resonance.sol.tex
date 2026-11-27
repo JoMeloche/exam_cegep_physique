@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+La colonne d'air est fermée par l'eau (nœud) et ouverte en haut (ventre) : il y a résonance pour $L = \lambda/4, 3\lambda/4, 5\lambda/4, \dots$ Deux résonances successives diffèrent donc de $\lambda/2$.
+\[ \lambda = 2\,\Delta L = 2 \cdot \num{\vsi{dL}} = \Res{2*\vsi{dL}}{m} \]
+
+\subsubsection*{Question b) Vitesse du son}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \Res{2*\vsi{dL}}{m}$, $f = \qty{\v{f}}{Hz}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \Val{2*\vsi{dL}} \cdot \num{\v{f}} = \Res{2*\vsi{dL}*\v{f}}{m/s} \]
+    \item \textbf{Réponse :} le son se propage à \textbf{\Res{2*\vsi{dL}*\v{f}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Température}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \Res{2*\vsi{dL}*\v{f}}{m/s}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ v = 331\sqrt{\frac{T}{273}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T = 273\left(\frac{v}{331}\right)^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ T = 273\left(\frac{\Val{2*\vsi{dL}*\v{f}}}{331}\right)^2 = \Res{273*(2*\vsi{dL}*\v{f}/331)^2}{K} \]
+    \item \textbf{Réponse :} la température est d'environ \textbf{\qty[round-mode=places,round-precision=1]{\fpeval{273*(2*\vsi{dL}*\v{f}/331)^2 - 273}}{\degreeCelsius}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Plus petite longueur de résonance}
+\[ L_1 = \frac{\lambda}{4} = \frac{\Val{2*\vsi{dL}}}{4} = \Res{\vsi{dL}/2}{m} \]
+La première résonance se produit pour une colonne d'air de \textbf{\Res{\v{dL}/2}{cm}}.

@@ -1,0 +1,15 @@
+title: 'Force électrique et distance'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La force varie comme $1/r^2$ : doubler $r$ divise la force par 4, soit $\qty{36}{N}/4 = \qty{9}{N}$.'
+choices:
+  - '\qty{72}{N}'
+  - '\qty{18}{N}'
+  - '\qty{9}{N}'
+  - '\qty{144}{N}'

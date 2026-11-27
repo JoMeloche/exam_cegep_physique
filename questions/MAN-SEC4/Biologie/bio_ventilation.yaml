@@ -1,0 +1,17 @@
+title: Ventilation pulmonaire et dioxygène absorbé
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  Vc:  {type: decimal, min: 0.40, max: 0.60, step: 0.05, unit: L, label: Volume courant}
+  FR:  {type: integer, min: 12, max: 20, step: 1, unit: respirations/min, label: Fréquence respiratoire}
+  O2e: {type: decimal, min: 15.0, max: 17.0, step: 0.5, unit: \percent, label: Dioxygène dans l'air expiré}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "Vc*FR", unit: L/min, label: Ventilation pulmonaire}
+    b: {expr: "Vc*FR*1440", unit: L, label: Air respiré en 24 h}
+    c: {expr: "Vc*FR*(21 - O2e)/100", unit: L/min, label: Dioxygène absorbé}

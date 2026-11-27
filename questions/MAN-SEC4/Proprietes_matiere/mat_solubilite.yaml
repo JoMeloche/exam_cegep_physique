@@ -1,0 +1,19 @@
+title: Solubilité et solution saturée
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  S:  {type: integer, min: 20, max: 80, step: 2, unit: g/100 mL, label: Solubilité}
+  Ve: {type: integer, min: 100, max: 500, step: 50, unit: mL, label: Volume d'eau}
+  m:  {type: integer, min: 50, max: 500, step: 10, unit: g, label: Masse de soluté ajoutée}
+constraints:
+  - m > 1.15*S*Ve/100
+  - m < 2.5*S*Ve/100
+solution:
+  mode: manual
+  parts:
+    a: {expr: "S*Ve/100", unit: g, label: Masse maximale dissoute}
+    b: {expr: "m - S*Ve/100", unit: g, label: Masse non dissoute}
+    c: {expr: "100*m/S", unit: mL, label: Volume d'eau minimal}

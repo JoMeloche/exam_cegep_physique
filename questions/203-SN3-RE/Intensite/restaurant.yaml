@@ -1,0 +1,37 @@
+title: Restaurant
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  Niveau:
+    type: integer
+    min: 69
+    max: 79
+    step: 1
+    unit: dB
+    label: QfourNiveau
+  Dist:
+    type: integer
+    min: 70
+    max: 95
+    step: 5
+    unit: cm
+    label: QfourDist
+    si_unit: m
+    si: 0.01
+solution:
+  mode: none
+needs_review: true
+source: Question_dev/Intensité/Q_restaurant.tex
+original_values:
+  Niveau:
+    A: '75'
+    B: '70'
+    C: '78'
+  Dist:
+    A: '80'
+    B: '90'
+    C: '75'
+history: []

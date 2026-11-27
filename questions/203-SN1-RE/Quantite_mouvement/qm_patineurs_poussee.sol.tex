@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse du patineur 2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_1 = \qty{\v{m1}}{kg}$, $v_1 = \qty{\v{v1}}{m/s}$, $m_2 = \qty{\v{m2}}{kg}$, $p_i = 0$ ; variable recherchée : $v_2$
+    \item \textbf{Équations pertinentes :} aucune force extérieure horizontale : \[ 0 = m_1 \vec v_1 + m_2 \vec v_2 \]
+    \item \textbf{Isolation de la variable recherchée :} en module : \[ v_2 = \frac{m_1 v_1}{m_2} \]
+    \item \textbf{Résolution numérique :} \[ v_2 = \frac{\num{\v{m1}} \cdot \num{\v{v1}}}{\num{\v{m2}}} = \Res{(\vsi{m1}*\vsi{v1}/\vsi{m2})}{m/s} \]
+    \item \textbf{Réponse :} $v_2 = \mathbf{\Res{(\vsi{m1}*\vsi{v1}/\vsi{m2})}{m/s}}$, en sens opposé au patineur 1.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_1 = \qty{\v{v1}}{m/s}$, $v_2 = \Res{(\vsi{m1}*\vsi{v1}/\vsi{m2})}{m/s}$ ; variable recherchée : $K_{\text{tot}}$
+    \item \textbf{Équations pertinentes :} \[ K_{\text{tot}} = \tfrac{1}{2}m_1 v_1^2 + \tfrac{1}{2}m_2 v_2^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K_{\text{tot}} = \Res{0.5*\vsi{m1}*\vsi{v1}^2}{J} + \Res{0.5*\vsi{m2}*((\vsi{m1}*\vsi{v1}/\vsi{m2}))^2}{J} = \Res{(0.5*\vsi{m1}*\vsi{v1}^2 + 0.5*\vsi{m2}*((\vsi{m1}*\vsi{v1}/\vsi{m2}))^2)}{J} \]
+    \item \textbf{Réponse :} $K_{\text{tot}} = \mathbf{\Res{(0.5*\vsi{m1}*\vsi{v1}^2 + 0.5*\vsi{m2}*((\vsi{m1}*\vsi{v1}/\vsi{m2}))^2)}{J}}$, fournie par le travail musculaire des patineurs.
+\end{enumerate}
+
+\subsubsection*{Question c) Force moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta p_1 = m_1 v_1 = \Res{\vsi{m1}*\vsi{v1}}{kg.m/s}$, $\Delta t = \qty{\v{dt}}{s}$ ; variable recherchée : $F_{\text{moy}}$
+    \item \textbf{Équations pertinentes :} \[ F_{\text{moy}} = \frac{\Delta p}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ F_{\text{moy}} = \frac{\Val{\vsi{m1}*\vsi{v1}}}{\num{\v{dt}}} = \Res{(\vsi{m1}*\vsi{v1}/\vsi{dt})}{N} \]
+    \item \textbf{Réponse :} $F_{\text{moy}} = \mathbf{\Res{(\vsi{m1}*\vsi{v1}/\vsi{dt})}{N}}$, la même sur chaque patineur (troisième loi de Newton).
+\end{enumerate}

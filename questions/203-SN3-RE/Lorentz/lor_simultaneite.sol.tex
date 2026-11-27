@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Facteur de Lorentz}
+\[ \gamma = \frac{1}{\sqrt{1 - (\num{\v{beta}})^2}} = \Res{1/sqrt(1 - \v{beta}^2)}{} \]
+
+\subsubsection*{Question b) Écart de temps dans le train}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} dans le référentiel du quai, $\Delta x = x_B - x_A = \qty{\v{L}}{m}$, $\Delta t = 0$, $v = \num{\v{beta}}\,c$ ; variable recherchée : $\Delta t'$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta t' = \gamma\left(\Delta t - \frac{v\,\Delta x}{c^2}\right) \]
+    \item \textbf{Isolation de la variable recherchée :} avec $\Delta t = 0$ :
+    \[ \Delta t' = t'_B - t'_A = -\gamma\,\frac{v\,\Delta x}{c^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t' = -\Val{1/sqrt(1 - \v{beta}^2)} \cdot \frac{\num{\v{beta}} \cdot \num{\v{L}}}{\num{3e8}} = -\Res{1e9*\v{beta}*\v{L}/3e8/sqrt(1 - \v{beta}^2)}{ns} \]
+    \item \textbf{Réponse :} non : $t'_B < t'_A$, donc selon le passager l'éclair \textbf{B (à l'avant)} frappe en premier, \textbf{\Res{1e9*\v{beta}*\v{L}/3e8/sqrt(1 - \v{beta}^2)}{ns}} avant l'éclair A.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance entre les marques sur le train}
+\[ \Delta x' = \gamma(\Delta x - v\,\Delta t) = \gamma\,\Delta x = \Val{1/sqrt(1 - \v{beta}^2)} \cdot \num{\v{L}} = \Res{\v{L}/sqrt(1 - \v{beta}^2)}{m} \]
+Les marques sur le train sont immobiles pour le passager : leur distance est une longueur propre dans le train, \textbf{\Res{\v{L}/sqrt(1 - \v{beta}^2)}{m}}. Vérification : vue du quai, cette longueur est contractée à $\gamma L / \gamma = \qty{\v{L}}{m}$, la distance entre les impacts sur le quai.

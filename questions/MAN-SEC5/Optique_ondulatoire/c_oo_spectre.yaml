@@ -1,0 +1,15 @@
+title: 'Ordre du spectre électromagnétique'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Du plus long au plus court : radio, micro-ondes, infrarouge, visible, ultraviolet, rayons X, rayons gamma.'
+choices:
+  - 'Les rayons X'
+  - 'La lumière visible'
+  - 'Les ondes radio'
+  - 'Les rayons ultraviolets'

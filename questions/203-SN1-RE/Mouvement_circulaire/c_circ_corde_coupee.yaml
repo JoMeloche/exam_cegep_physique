@@ -1,0 +1,11 @@
+title: Corde qui se rompt
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: Sans force horizontale, la balle garde sa vitesse (première loi de Newton), qui est tangente au cercle.
+choices: [Une droite dirigée vers le centre, Une droite dirigée radialement vers l'extérieur, Une droite tangente au cercle au point de rupture, Elle continue sur le cercle]

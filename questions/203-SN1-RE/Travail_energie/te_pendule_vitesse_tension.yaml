@@ -1,0 +1,20 @@
+title: 'Vitesse et tension d''un pendule lâché d''un angle'
+type: developpement
+points: 20
+time_min: 18
+difficulty: 3
+figures: []
+variables:
+  L: {type: decimal, min: 0.5, max: 2.5, step: 0.1, unit: m, label: Longueur du fil}
+  m: {type: decimal, min: 0.2, max: 2.0, step: 0.1, unit: kg, label: Masse}
+  th0: {type: integer, min: 30, max: 70, step: 1, unit: '\degree', label: Angle initial}
+  th1: {type: integer, min: 10, max: 25, step: 1, unit: '\degree', label: Angle intermédiaire}
+constraints:
+  - th1 < th0 - 10
+solution:
+  mode: manual
+  file: te_pendule_vitesse_tension.sol.tex
+  parts:
+    a: {expr: "sqrt(2*g*L*(1 - cos(rad(th0))))", unit: 'm/s', label: 'Vitesse au point le plus bas'}
+    b: {expr: "m*g*(3 - 2*cos(rad(th0)))", unit: 'N', label: 'Tension au point le plus bas'}
+    c: {expr: "sqrt(2*g*L*(cos(rad(th1)) - cos(rad(th0))))", unit: 'm/s', label: 'Vitesse à l''angle intermédiaire'}

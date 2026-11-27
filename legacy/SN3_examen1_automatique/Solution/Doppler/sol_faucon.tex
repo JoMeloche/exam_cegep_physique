@@ -1,0 +1,169 @@
+\begin{center}
+\begin{tikzpicture}[scale=0.95, >=Stealth]
+    % Sol du couloir
+    \draw[thick] (-0.5,0) -- (11.0,0);
+    \fill[gray!20] (-0.5,-0.2) rectangle (11.0,0);
+
+
+    % Faucon sur trottinette (à gauche)
+    \draw[thick, fill=gray!80] (0.5,0.2) circle (0.18);
+    \draw[thick, fill=gray!80] (1.9,0.2) circle (0.18);
+    \draw[ultra thick, blue!80!black] (0.5,0.2) -- (1.9,0.2);
+    \draw[ultra thick, blue!80!black] (1.9,0.2) -- (1.9,1.5) -- (1.6,1.5);
+    
+    \draw[fill=orange!30, thick] (1.0,1.4) ellipse (0.45 and 0.3);
+    \node[font=\small\bfseries] at (1.0,1.4) {Faucon};
+    
+    \draw[ultra thick, ->, blue!80!black] (1.0,2.1) -- (2.3,2.1) 
+        node[midway, above, font=\small] {$v_f = \qty{\FauconVitesse}{m/s}$};
+
+    % Étudiant immobile (au centre)
+    \draw[thick, fill=green!20] (5.2,0.8) circle (0.25);
+    \draw[thick] (5.2,0.55) -- (5.2,0.15);
+    \draw[thick] (5.2,0.15) -- (5.0,0);
+    \draw[thick] (5.2,0.15) -- (5.4,0);
+    \draw[thick] (4.9,0.4) -- (5.5,0.4);
+    \node[font=\small\bfseries, above] at (5.2,1.1) {Étudiant ($v_{\text{obs}}=0$)};
+
+    % Robot-aspirateur (à droite)
+    \draw[thick, fill=red!20] (8.2,0) arc (180:0:0.8 and 0.5) -- cycle;
+    \draw[thick, fill=black] (8.5,0.1) circle (0.08);
+    \draw[thick, fill=black] (9.5,0.1) circle (0.08);
+    \node[font=\small\bfseries] at (9.0,0.25) {Robot};
+
+    \draw[ultra thick, ->, red!80!black] (9.0,1.0) -- (10.2,1.0) 
+        node[midway, above, font=\small] {$v_r = \qty{\CibleVitesse}{m/s}$};
+
+    % Trajets des ondes sonores
+    \draw[thick, cyan, ->] (1.9,1.2) -- (4.8,0.8) 
+        node[midway, above, font=\scriptsize] {Direct ($f_{\text{dir}}$)};
+    
+    \draw[thick, cyan, dashed, ->] (1.9,1.5) .. controls (5.2,1.8) .. (8.2,0.8);
+
+    \draw[thick, magenta, <-] (5.6,0.6) -- (8.2,0.4) 
+        node[midway, below, font=\scriptsize] {Écho ($f_{\text{réfl}}$)};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.3cm}
+
+% ------------------------------------------------------------------------------
+% QUESTION A
+% ------------------------------------------------------------------------------
+\subsection*{a) Fréquence du son direct perçu par l'étudiant}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label=$\bullet$]
+        \item Fréquence propre émise par le faucon : $f_0 = \qty{\OiseauFreq}{Hz}$
+        \item Vitesse du faucon (source) : $v_{\text{source}} = v_f = \qty{\FauconVitesse}{m/s}$
+        \item Vitesse de l'étudiant (observateur) : $v_{\text{obs}} = \qty{0}{m/s}$
+        \item Vitesse du son dans le couloir : $v_s = \qty{\DopplerVson}{m/s}$
+        \item Variable recherchée : Fréquence du son direct $f_{\text{dir}} \text{ (Hz)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \[
+    f' = f_0 \left( \frac{v_s \pm v_{\text{obs}}}{v_s \mp v_{\text{source}}} \right)
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    L'étudiant est immobile ($v_{\text{obs}} = 0$) et le faucon (source) s'approche de lui. La fréquence perçue doit donc être supérieure à la fréquence émise, ce qui impose un signe négatif $(-)$ au dénominateur :
+    \[
+    f_{\text{dir}} = f_0 \left( \frac{v_s}{v_s - v_f} \right)
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    f_{\text{dir}} = \OiseauFreq \cdot \left( \frac{\DopplerVson}{\DopplerVson - \FauconVitesse} \right) = \qty{\fpeval{round(\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse)), 2)}}{Hz}
+    \]
+
+    \item \textbf{Réponse à la question :}
+    La fréquence du son direct provenant du faucon et perçue par l'étudiant est de \textbf{\qty{\fpeval{round(\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse)), 2)}}{Hz}}.
+\end{enumerate}
+
+
+
+% ------------------------------------------------------------------------------
+% QUESTION B
+% ------------------------------------------------------------------------------
+\subsection*{b) Fréquence de l'écho provenant du robot-aspirateur et perçue par l'étudiant}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label=$\bullet$]
+        \item Fréquence initiale du faucon : $f_0 = \qty{\OiseauFreq}{Hz}$
+        \item Vitesse du faucon : $v_f = \qty{\FauconVitesse}{m/s}$
+        \item Vitesse du robot-aspirateur : $v_r = \qty{\CibleVitesse}{m/s}$
+        \item Vitesse du son : $v_s = \qty{\DopplerVson}{m/s}$
+        \item Variable recherchée : Fréquence de l'écho perçu par l'étudiant $f_{\text{réfl}} \text{ (Hz)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    \begin{itemize}[label=-]
+        \item \textit{Étape 1 (Faucon $\rightarrow$ Robot) :} Fréquence $f_r$ captée par le robot. Le faucon (source) s'approche $(-)$ et le robot (observateur) s'éloigne $(-)$ :
+        \[
+        f_r = f_0 \left( \frac{v_s - v_r}{v_s - v_f} \right)
+        \]
+        \item \textit{Étape 2 (Robot $\rightarrow$ Étudiant) :} Le robot réfléchit l'onde et agit comme une source émettant à la fréquence $f_r$ en s'éloignant $(+)$ de l'étudiant immobile ($v_{\text{obs}} = 0$) :
+        \[
+        f_{\text{réfl}} = f_r \left( \frac{v_s}{v_s + v_r} \right)
+        \]
+    \end{itemize}
+
+    \item \textbf{Isolation de la variable recherchée :}
+    En substituant $f_r$ dans la seconde équation, nous obtenons l'expression globale :
+    \[
+    f_{\text{réfl}} = f_0 \left( \frac{v_s - v_r}{v_s - v_f} \right) \left( \frac{v_s}{v_s + v_r} \right)
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \begin{itemize}[label=-]
+        \item Fréquence reçue par le robot :
+        \[
+        f_r = \OiseauFreq \cdot \left( \frac{\DopplerVson - \CibleVitesse}{\DopplerVson - \FauconVitesse} \right) = \qty{\fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)), 2)}}{Hz}
+        \]
+        \item Fréquence de l'écho réfléchie vers l'étudiant :
+        \[
+        f_{\text{réfl}} = \fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)), 2)} \cdot \left( \frac{\DopplerVson}{\DopplerVson + \CibleVitesse} \right) = \qty{\fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)), 2)}}{Hz}
+        \]
+    \end{itemize}
+
+    \item \textbf{Réponse à la question :}
+    La fréquence de l'écho provenant du robot-aspirateur et perçue par l'étudiant est de \textbf{\qty{\fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)), 2)}}{Hz}}.
+\end{enumerate}
+
+
+
+% ------------------------------------------------------------------------------
+% QUESTION C
+% ------------------------------------------------------------------------------
+\subsection*{c) Nom du phénomène acoustique et fréquence de répétition}
+
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label=$\bullet$]
+        \item Fréquence du son direct : $f_{\text{dir}} = \qty{\fpeval{round(\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse)), 2)}}{Hz}$
+        \item Fréquence du son réfléchi : $f_{\text{réfl}} = \qty{\fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)), 2)}}{Hz}$
+        \item Variables recherchées : Nom du phénomène et fréquence des battements $f_{\text{batt}} \text{ (Hz)}$
+    \end{itemize}
+
+    \item \textbf{Équations pertinentes :}
+    La superposition de deux ondes sonores de fréquences légèrement différentes engendre une variation périodique d'amplitude appelée \textbf{battements}.
+    \[
+    f_{\text{batt}} = |f_1 - f_2| = |f_{\text{dir}} - f_{\text{réfl}}|
+    \]
+
+    \item \textbf{Isolation de la variable recherchée :}
+    \[
+    f_{\text{batt}} = \left| f_0 \left( \frac{v_s}{v_s - v_f} \right) - f_0 \left( \frac{v_s - v_r}{v_s - v_f} \right) \left( \frac{v_s}{v_s + v_r} \right) \right|
+    \]
+
+    \item \textbf{Résolution numérique :}
+    \[
+    f_{\text{batt}} = \left| \fpeval{round(\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse)), 2)} - \fpeval{round(\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)), 2)} \right| = \qty{\fpeval{round(abs((\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse))) - (\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)))), 1)}}{Hz}
+    \]
+
+    \item \textbf{Réponse à la question :}
+    Le phénomène acoustique s'appelle le \textbf{phénomène de battements}. Les moments de faible et de forte intensité sonore se répètent à une fréquence de \textbf{\qty{\fpeval{round(abs((\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse))) - (\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)))), 1)}}{Hz}} (soit \fpeval{round(abs((\OiseauFreq * (\DopplerVson / (\DopplerVson - \FauconVitesse))) - (\OiseauFreq * ((\DopplerVson - \CibleVitesse) / (\DopplerVson - \FauconVitesse)) * (\DopplerVson / (\DopplerVson + \CibleVitesse)))), 1)} fois par seconde).
+\end{enumerate}

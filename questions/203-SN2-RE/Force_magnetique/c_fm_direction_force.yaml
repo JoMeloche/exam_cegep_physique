@@ -1,0 +1,15 @@
+title: "Orientation de la force magnétique (règle de la main droite)"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$\vec{F} = q\,\vec{v}\times\vec{B}$ avec $q > 0$ : $\vec{\imath}\times\vec{\jmath} = \vec{k}$, donc la force est orientée selon $+z$.'
+choices:
+  - $-z$
+  - $+y$
+  - $+z$
+  - $-x$

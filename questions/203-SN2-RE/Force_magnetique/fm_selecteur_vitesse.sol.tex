@@ -1,0 +1,41 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta V = \qty{\v{dV}}{V}$, $d = \qty{\vsi{d}}{m}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta V = E d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E = \frac{\Delta V}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ E = \frac{\num{\v{dV}}}{\num{\vsi{d}}} = \ResSci{\v{dV}/\vsi{d}}{V/m} \]
+    \item \textbf{Réponse :} $E = \mathbf{\ResSci{\v{dV}/\vsi{d}}{V/m}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse sélectionnée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \ResSci{\v{dV}/\vsi{d}}{V/m}$, $B = \qty{\vsi{B}}{T}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} sans déviation, les forces électrique et magnétique s'annulent :
+    \[ eE = evB \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \frac{E}{B} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{\Val{\v{dV}/\vsi{d}}}{\num{\vsi{B}}} = \ResSci{\v{dV}/(\vsi{d}*\vsi{B})}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\ResSci{\v{dV}/(\vsi{d}*\vsi{B})}{m/s}}$ ; cette vitesse ne dépend pas de la charge ni de la masse.
+\end{enumerate}
+
+\subsubsection*{Question c) Rayon de la trajectoire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \ResSci{\v{dV}/(\vsi{d}*\vsi{B})}{m/s}$, $B = \qty{\vsi{B}}{T}$, $m_p$, $e$ ; variable recherchée : $r$
+    \item \textbf{Équations pertinentes :}
+    \[ evB = \frac{m_p v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ r = \frac{m_p v}{eB} \]
+    \item \textbf{Résolution numérique :}
+    \[ r = \frac{\num{1.673e-27} \cdot \Val{\v{dV}/(\vsi{d}*\vsi{B})}}{\num{1.602e-19} \cdot \num{\vsi{B}}} = \ResSci{1.673e-27*(\v{dV}/(\vsi{d}*\vsi{B}))/(1.602e-19*\vsi{B})}{m} \]
+    \item \textbf{Réponse :} $r = \mathbf{\Res{100*1.673e-27*(\v{dV}/(\vsi{d}*\vsi{B}))/(1.602e-19*\vsi{B})}{cm}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Proton plus rapide}
+La force électrique $eE$ ne dépend pas de la vitesse, alors que la force magnétique $evB$ augmente avec $v$. Pour un proton plus rapide, $evB > eE$ : il est dévié \textbf{du côté où la force magnétique le pousse}.

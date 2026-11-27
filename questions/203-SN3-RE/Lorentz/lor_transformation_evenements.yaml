@@ -1,0 +1,20 @@
+title: Transformation de Lorentz de deux événements
+type: developpement
+points: 20
+time_min: 20
+difficulty: 4
+figures: []
+variables:
+  beta: {type: decimal, min: 0.40, max: 0.90, step: 0.05, label: Vitesse de S' en fraction de c}
+  xB:   {type: integer, min: 200, max: 3000, step: 100, unit: m, label: Position de l'événement B}
+  tB:   {type: decimal, min: 1.0, max: 12.0, step: 0.5, unit: \micro\second, si: 1e-6, label: Instant de l'événement B}
+constraints:
+  - abs(tB - beta*xB/3e8) > 0.5e-6
+  - abs(xB - beta*3e8*tB) > 100
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1/sqrt(1 - beta**2)", unit: "", label: Facteur gamma}
+    b1: {expr: "(xB - beta*3e8*tB)/sqrt(1 - beta**2)", unit: m, label: Position x' de B}
+    b2: {expr: "(tB - beta*xB/3e8)/sqrt(1 - beta**2)", unit: s, label: Instant t' de B}
+    c: {expr: "xB**2 - (3e8*tB)**2", unit: m^2, label: Intervalle invariant}

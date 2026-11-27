@@ -1,0 +1,11 @@
+title: Temps de vol et angle
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$t = 2v_0\sin\theta/g$ : plus la composante verticale initiale est grande, plus le vol dure.'
+choices: ['Celui lancé à \ang{30}', 'Celui lancé à \ang{60}', Les deux restent le même temps, Cela dépend de la masse des projectiles]

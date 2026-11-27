@@ -1,0 +1,19 @@
+title: Ballon lancé verticalement vers le haut
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+tags: [chute libre, MRUA]
+variables:
+  v0: {type: decimal, min: 8.0, max: 16.0, step: 0.5, unit: m/s, label: Vitesse initiale}
+  h1: {type: decimal, min: 1.5, max: 6.0, step: 0.5, unit: m, label: Hauteur considérée}
+constraints:
+  - h1 < 0.85*v0**2/(2*g)
+solution:
+  mode: manual
+  parts:
+    a: {expr: "v0/g", unit: s, label: Temps de montée}
+    b: {expr: "v0**2/(2*g)", unit: m, label: Hauteur maximale}
+    c: {expr: "2*v0/g", unit: s, label: Durée totale du vol}
+    d: {expr: "sqrt(v0**2 - 2*g*h1)", unit: m/s, label: Vitesse à la hauteur donnée}

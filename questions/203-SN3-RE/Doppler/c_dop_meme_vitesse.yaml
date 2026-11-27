@@ -1,0 +1,15 @@
+title: "Source et observateur à la même vitesse"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'S''ils se déplacent ensemble dans de l''air immobile, les facteurs $(v+u)$ au numérateur et $(v+u)$ au dénominateur se compensent : aucune variation de fréquence.'
+choices:
+  - 'Plus élevée que la fréquence jouée'
+  - 'Plus basse que la fréquence jouée'
+  - 'Impossible à déterminer sans la vitesse du son'
+  - 'Égale à la fréquence jouée'

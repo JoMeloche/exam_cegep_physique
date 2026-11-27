@@ -1,0 +1,17 @@
+title: Bicarbonate et vinaigre en système ouvert
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+tags: [STE]
+variables:
+  m1: {type: decimal, min: 250.0, max: 300.0, step: 0.5, unit: g, label: Masse initiale}
+  dm: {type: decimal, min: 1.0, max: 5.0, step: 0.1, unit: g, label: Masse de gaz perdue}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "dm", unit: g, label: Masse de CO2 dégagée}
+    b: {expr: "dm/44.01", unit: mol, label: Quantité de CO2}
+    c: {expr: "dm/44.01*84.01", unit: g, label: Masse de bicarbonate ayant réagi}

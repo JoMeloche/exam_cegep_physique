@@ -1,0 +1,17 @@
+title: Déterminer la constante de Planck et le travail d'extraction
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  phi:  {type: choice, values: [2.28, 2.36, 2.75, 3.66, 4.08, 4.26], unit: eV, label: Travail d'extraction (caché)}
+  lam1: {type: integer, min: 150, max: 250, step: 10, unit: nm, si: 1e-9, label: Première longueur d'onde}
+  lam2: {type: integer, min: 260, max: 400, step: 10, unit: nm, si: 1e-9, label: Seconde longueur d'onde}
+constraints:
+  - 1240/(lam2*1e9) > phi + 0.2
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1.602e-19*((1240/(lam1*1e9) - phi) - (1240/(lam2*1e9) - phi))/(3e8/lam1 - 3e8/lam2)", unit: J*s, label: Constante de Planck}
+    b: {expr: "phi", unit: eV, label: Travail d'extraction}

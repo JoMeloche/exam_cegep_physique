@@ -1,0 +1,15 @@
+title: 'Énergie et tension d''un condensateur'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$U = \frac{1}{2}CV^2$ : doubler $V$ multiplie l''énergie par $2^2 = 4$.'
+choices:
+  - '2'
+  - '$\sqrt 2$'
+  - '4'
+  - '8'

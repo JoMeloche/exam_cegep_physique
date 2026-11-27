@@ -1,0 +1,18 @@
+title: Pendule simple sur Terre et sur une autre planète
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  L:  {type: decimal, min: 0.40, max: 2.00, step: 0.05, unit: m, label: Longueur du pendule}
+  gp: {type: decimal, min: 3.0, max: 25.0, step: 0.5, unit: m/s^2, label: Champ gravitationnel de la planète}
+constraints:
+  - abs(gp - 9.81) > 1.5
+solution:
+  mode: manual
+  file: mhs_pendule_planete.sol.tex
+  parts:
+    a: {expr: "2*pi*sqrt(L/g)", unit: s, label: Période sur Terre}
+    b: {expr: "2*pi*sqrt(L/gp)", unit: s, label: Période sur la planète}
+    c: {expr: "L*gp/g", unit: m, label: Longueur pour la même période}

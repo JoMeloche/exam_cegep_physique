@@ -1,0 +1,52 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du rotor : $r = \qty{\v{r}}{m}$
+        \item Période de rotation : $T = \qty{\v{Tp}}{s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2\pi r}{T} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \frac{2\pi\cdot\num{\vsi{r}}}{\num{\vsi{Tp}}} = \Res{2*pi*\vsi{r}/\vsi{Tp}}{m/s} \]
+    \item \textbf{Réponse :} la personne se déplace à \textbf{\Res{2*pi*\vsi{r}/\vsi{Tp}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force normale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la personne : $m = \qty{\v{m}}{kg}$
+        \item Rayon du rotor : $r = \qty{\v{r}}{m}$
+        \item $v = \Res{2*pi*\vsi{r}/\vsi{Tp}}{m/s}$
+        \item La normale (horizontale, vers l'axe) est la force centripète
+        \item Variable recherchée : $n$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n = \frac{m v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ n = \frac{\num{\vsi{m}}\cdot(\Val{2*pi*\vsi{r}/\vsi{Tp}})^2}{\num{\vsi{r}}} = \Res{\vsi{m}*(2*pi*\vsi{r}/\vsi{Tp})^2/\vsi{r}}{N} \]
+    \item \textbf{Réponse :} la paroi pousse la personne avec \textbf{\Res{\vsi{m}*(2*pi*\vsi{r}/\vsi{Tp})^2/\vsi{r}}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Coefficient minimal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $n = \Res{\vsi{m}*(2*pi*\vsi{r}/\vsi{Tp})^2/\vsi{r}}{N}$
+        \item Verticalement : $f_s = mg \le \mu_s n$
+        \item Variable recherchée : $\mu_{s,\min}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ mg = \mu_{s,\min}\,\frac{m v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \mu_{s,\min} = \frac{g r}{v^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ \mu_{s,\min} = \frac{\num{9.81}\cdot\num{\vsi{r}}}{(\Val{2*pi*\vsi{r}/\vsi{Tp}})^2} = \num[round-mode=figures,round-precision=3]{\fpeval{9.81*\vsi{r}/(2*pi*\vsi{r}/\vsi{Tp})^2}} \]
+    \item \textbf{Réponse :} il faut $\mu_s \ge$ \textbf{\num[round-mode=figures,round-precision=3]{\fpeval{9.81*\vsi{r}/(2*pi*\vsi{r}/\vsi{Tp})^2}}} (indépendant de la masse).
+\end{enumerate}

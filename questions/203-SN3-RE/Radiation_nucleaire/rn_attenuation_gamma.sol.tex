@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Épaisseur de demi-atténuation}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mu = \qty{\v{mu}}{cm^{-1}}$ ; variable recherchée : $x_{1/2}$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{I}{I_0} = e^{-\mu x} \]
+    \item \textbf{Isolation de la variable recherchée :} avec $I/I_0 = 1/2$ :
+    \[ x_{1/2} = \frac{\ln 2}{\mu} \]
+    \item \textbf{Résolution numérique :}
+    \[ x_{1/2} = \frac{\ln 2}{\num{\v{mu}}} = \Res{ln(2)/\v{mu}}{cm} \]
+    \item \textbf{Réponse :} l'épaisseur de demi-atténuation est de \textbf{\Res{ln(2)/\v{mu}}{cm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Fraction transmise}
+\[ \frac{I}{I_0} = e^{-\num{\v{mu}} \cdot \num{\v{x}}} = \Res{100*exp(-\v{mu}*\v{x})}{\percent} \]
+Le blindage laisse passer \textbf{\Res{100*exp(-\v{mu}*\v{x})}{\percent}} du rayonnement.
+
+\subsubsection*{Question c) Épaisseur requise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I/I_0 = \num{\fpeval{\v{p}/100}}$, $\mu$ ; variable recherchée : $x$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{I}{I_0} = e^{-\mu x} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ x = \frac{1}{\mu}\ln\left(\frac{I_0}{I}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ x = \frac{\ln(100/\v{p})}{\num{\v{mu}}} = \Res{ln(100/\v{p})/\v{mu}}{cm} \]
+    \item \textbf{Réponse :} il faut \textbf{\Res{ln(100/\v{p})/\v{mu}}{cm}} de plomb.
+\end{enumerate}

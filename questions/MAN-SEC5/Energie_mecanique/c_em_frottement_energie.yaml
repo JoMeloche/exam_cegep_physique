@@ -1,0 +1,16 @@
+title: 'Énergie mécanique avec frottement'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [frottement, conservation de l'énergie]
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le frottement transforme une partie de l''énergie mécanique en énergie thermique. L''énergie totale, elle, est conservée.'
+choices:
+  - 'Les deux restent constantes'
+  - 'Les deux diminuent'
+  - 'L''énergie mécanique diminue, mais l''énergie totale est conservée'
+  - 'L''énergie mécanique reste constante, mais l''énergie totale diminue'

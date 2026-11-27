@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Intensité}
+\[ I = I_0\,10^{\beta/10} = 10^{-12} \cdot 10^{\v{niv}/10} = \ResSci{1e-12*10^(\v{niv}/10)}{W/m^2} \]
+L'intensité est de \textbf{\ResSci{1e-12*10^(\v{niv}/10)}{W/m^2}}.
+
+\subsubsection*{Question b) Amplitude de pression}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I$, $\rho = \qty{\v{rho}}{kg/m^3}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $\Delta p_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ I = \frac{\Delta p_{\max}^2}{2\rho v} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta p_{\max} = \sqrt{2\rho v I} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta p_{\max} = \sqrt{2 \cdot \num{\v{rho}} \cdot \num{\v{v}} \cdot \ResSci{1e-12*10^(\v{niv}/10)}{}} = \ResSci{sqrt(2*\v{rho}*\v{v}*1e-12*10^(\v{niv}/10))}{Pa} \]
+    \item \textbf{Réponse :} l'amplitude de pression est de \textbf{\ResSci{sqrt(2*\v{rho}*\v{v}*1e-12*10^(\v{niv}/10))}{Pa}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Amplitude de déplacement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta p_{\max}$, $\omega = 2\pi f = \Res{2*pi*\v{f}}{rad/s}$ ; variable recherchée : $s_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta p_{\max} = \rho v \omega s_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ s_{\max} = \frac{\Delta p_{\max}}{\rho v \omega} \]
+    \item \textbf{Résolution numérique :}
+    \[ s_{\max} = \frac{\ResSci{sqrt(2*\v{rho}*\v{v}*1e-12*10^(\v{niv}/10))}{}}{\num{\v{rho}} \cdot \num{\v{v}} \cdot \Val{2*pi*\v{f}}} = \ResSci{sqrt(2*\v{rho}*\v{v}*1e-12*10^(\v{niv}/10))/(\v{rho}*\v{v}*2*pi*\v{f})}{m} \]
+    \item \textbf{Réponse :} les molécules oscillent avec une amplitude de \textbf{\ResSci{sqrt(2*\v{rho}*\v{v}*1e-12*10^(\v{niv}/10))/(\v{rho}*\v{v}*2*pi*\v{f})}{m}}.
+\end{enumerate}

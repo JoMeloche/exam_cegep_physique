@@ -1,0 +1,17 @@
+title: Pendule masse-ressort planete
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- Le pendule
+- Le système masse-ressort
+- La fréquence sera la même pour les deux
+- Impossible de le savoir
+pin_last: 1
+needs_review: true
+source: Question_concept/MHS/pendule_masse-ressort_planete.tex
+history: []

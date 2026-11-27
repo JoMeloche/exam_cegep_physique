@@ -1,0 +1,12 @@
+title: Passager dans un virage
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Dans le référentiel du sol, il n''y a pas de force vers l''extérieur : par inertie, la passagère tend à aller tout droit, et la portière exerce sur elle une force normale vers le centre.'
+choices: [Une force centrifuge la pousse vers l'extérieur du virage, Son corps tend à continuer en ligne droite ; la portière la pousse vers le centre du virage, Le poids de la passagère change de direction
+    dans le virage, Le frottement du siège la pousse vers la droite]

@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Nombre de noyaux}
+\[ N = \frac{m}{M} N_A = \frac{\num{\fpeval{\v{m}/1000}}}{\num{60.0}} \cdot \num{6.022e23} = \ResSci{\vsi{m}*1000/60*6.022e23}{} \]
+La source contient \textbf{\ResSci{\vsi{m}*1000/60*6.022e23}{}} noyaux.
+
+\subsubsection*{Question b) Activité}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \ResSci{\vsi{m}*1000/60*6.022e23}{}$, $T_{1/2} = 5{,}27 \cdot \num{3.156e7} = \ResSci{5.27*3.156e7}{s}$ ; variable recherchée : $A$
+    \item \textbf{Équations pertinentes :}
+    \[ \lambda = \frac{\ln 2}{T_{1/2}} \qquad A = \lambda N \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \ResSci{ln(2)/(5.27*3.156e7)}{s^{-1}} \qquad A = \ResSci{ln(2)/(5.27*3.156e7)}{} \cdot \ResSci{\vsi{m}*1000/60*6.022e23}{} = \ResSci{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23}{Bq} \]
+    \item \textbf{Réponse :} $A = \mathbf{\ResSci{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23}{Bq}}$, soit \textbf{\Res{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23/3.7e10}{Ci}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Activité après \num{\v{t}} ans}
+\[ A = A_0 \left(\tfrac{1}{2}\right)^{t/T_{1/2}} = \ResSci{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23}{} \cdot (0{,}5)^{\v{t}/5{,}27} = \ResSci{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23*0.5^(\v{t}/5.27)}{Bq} \]
+L'activité tombe à \textbf{\ResSci{ln(2)/(5.27*3.156e7)*\vsi{m}*1000/60*6.022e23*0.5^(\v{t}/5.27)}{Bq}} (\Res{100*0.5^(\v{t}/5.27)}{\percent} de l'activité initiale). Le débit de dose diminue au même rythme, ce qui allonge les traitements : il faut remplacer la source quand son activité devient trop faible.

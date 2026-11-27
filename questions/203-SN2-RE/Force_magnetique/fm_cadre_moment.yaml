@@ -1,0 +1,21 @@
+title: Moment de force sur une bobine rectangulaire
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  N: {type: integer, min: 20, max: 200, step: 10, unit: '', label: Nombre de spires}
+  a: {type: integer, min: 2, max: 15, step: 1, unit: cm, si: 0.01, label: Longueur du rectangle}
+  b: {type: integer, min: 2, max: 10, step: 1, unit: cm, si: 0.01, label: Largeur du rectangle}
+  I: {type: decimal, min: 0.2, max: 5.0, step: 0.1, unit: A, label: Courant}
+  B: {type: decimal, min: 0.05, max: 1.00, step: 0.05, unit: T, label: Champ magnétique}
+  th: {type: integer, min: 20, max: 160, step: 10, unit: \degree, label: Angle entre la normale et le champ}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "N*I*a*b", unit: A.m^2, label: Moment magnétique}
+    b: {expr: "N*I*a*b*B*sin(rad(th))", unit: N.m, label: Moment de force}
+    c: {expr: "N*I*a*b*B", unit: N.m, label: Moment de force maximal}
+    d: {expr: "N*I*a*b*B*(1 - cos(rad(th)))", unit: J, label: Travail extérieur}

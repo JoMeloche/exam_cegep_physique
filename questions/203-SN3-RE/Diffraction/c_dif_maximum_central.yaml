@@ -1,0 +1,15 @@
+title: "Largeur du maximum central et des maximums secondaires"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Pour de petits angles, les minimums sont à $y_m = m\lambda L/a$ avec $m = \pm1, \pm2, \dots$ Le maximum central va de $m = -1$ à $m = 1$ (largeur $2\lambda L/a$) ; un maximum secondaire va de $m$ à $m+1$ (largeur $\lambda L/a$).'
+choices:
+  - 'Elle est la même'
+  - 'Elle est la moitié'
+  - 'Elle est le double'
+  - 'Elle est le quadruple'

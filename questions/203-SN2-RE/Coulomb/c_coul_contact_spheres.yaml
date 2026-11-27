@@ -1,0 +1,15 @@
+title: 'Partage de charge par contact'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La charge totale $+\qty{4}{\micro\coulomb}$ est conservée et se partage également entre deux sphères identiques : $+\qty{2}{\micro\coulomb}$ chacune.'
+choices:
+  - '$+\qty{4}{\micro\coulomb}$ chacune'
+  - '$+\qty{3}{\micro\coulomb}$ et $-\qty{1}{\micro\coulomb}$'
+  - '$+\qty{8}{\micro\coulomb}$ et $-\qty{4}{\micro\coulomb}$'
+  - '$+\qty{2}{\micro\coulomb}$ chacune'

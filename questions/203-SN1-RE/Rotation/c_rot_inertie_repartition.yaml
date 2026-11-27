@@ -1,0 +1,15 @@
+title: 'Moment d''inertie et répartition de la masse'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$I = \sum m r^2$ est plus petit pour A ; avec $\alpha = \tau/I$, A a la plus grande accélération angulaire.'
+choices:
+  - 'La roue A'
+  - 'Les deux ont la même accélération angulaire'
+  - 'La roue B'
+  - 'Cela dépend de la vitesse angulaire initiale'

@@ -1,0 +1,17 @@
+title: Rencontre de deux balles
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  H: {type: decimal, min: 10.0, max: 30.0, step: 0.5, unit: m, label: Hauteur de la balle A}
+  v0: {type: decimal, min: 12.0, max: 25.0, step: 0.5, unit: m/s, label: Vitesse initiale de la balle B}
+constraints: [H - g*(H/v0)**2/2 > 1, abs(v0 - g*H/v0) > 1]
+solution:
+  mode: manual
+  file: cin_rencontre_deux_balles.sol.tex
+  parts:
+    a: {expr: H/v0, unit: s, label: Instant de la rencontre}
+    b: {expr: H - g*(H/v0)**2/2, unit: m, label: Hauteur de la rencontre}
+    c: {expr: v0 - g*H/v0, unit: m/s, label: Vitesse de B (positive vers le haut)}

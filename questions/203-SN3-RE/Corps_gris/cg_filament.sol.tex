@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Aire du filament}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $T = \qty{\v{T}}{K}$, $e = \num{\v{em}}$ ; variable recherchée : $A$
+    \item \textbf{Équations pertinentes :}
+    \[ P = e\sigma A T^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ A = \frac{P}{e\sigma T^4} \]
+    \item \textbf{Résolution numérique :}
+    \[ A = \frac{\num{\v{P}}}{\num{\v{em}} \cdot \num{5.67e-8} \cdot (\num{\v{T}})^4} = \ResSci{\v{P}/(\v{em}*5.67e-8*\v{T}^4)}{m^2} \]
+    \item \textbf{Réponse :} le filament a une aire de \textbf{\Res{1e6*\v{P}/(\v{em}*5.67e-8*\v{T}^4)}{mm^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Maximum d'émission}
+\[ \lambda_{\max} = \frac{\num{2.898e-3}}{\num{\v{T}}} = \Res{1e9*2.898e-3/\v{T}}{nm} \]
+Le maximum est à \textbf{\Res{1e9*2.898e-3/\v{T}}{nm}}, dans l'infrarouge : la majeure partie de la puissance est émise sous forme de chaleur et non de lumière visible.
+
+\subsubsection*{Question c) Corps noir équivalent}
+\[ A_{\text{noir}} = \frac{P}{\sigma T^4} = e\,A = \num{\v{em}} \cdot \ResSci{\v{P}/(\v{em}*5.67e-8*\v{T}^4)}{} = \Res{1e6*\v{em}*\v{P}/(\v{em}*5.67e-8*\v{T}^4)}{mm^2} \]
+Un corps noir n'aurait besoin que de \textbf{\Res{1e6*\v{em}*\v{P}/(\v{em}*5.67e-8*\v{T}^4)}{mm^2}}, car il rayonne plus efficacement ($e = 1$).

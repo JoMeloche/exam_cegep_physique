@@ -1,0 +1,19 @@
+title: 'Angle critique et réflexion totale interne'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  n:   {type: choice, values: [1.33, 1.46, 1.50, 1.52, 1.60], label: Indice de réfraction du milieu}
+  thA: {type: integer, min: 10, max: 32, step: 1, unit: \degree, label: Premier angle d'incidence}
+  thB: {type: integer, min: 52, max: 80, step: 1, unit: \degree, label: Deuxième angle d'incidence}
+constraints:
+  - 'thA < deg(asin(1/n)) - 3'
+  - 'thB > deg(asin(1/n)) + 3'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "deg(asin(1/n))", unit: \degree, label: Angle critique}
+    b: {expr: "deg(asin(n*sin(rad(thA))))", unit: \degree, label: Angle de réfraction dans l'air}
+    c: {expr: "thB", unit: \degree, label: Angle du rayon réfléchi (réflexion totale)}

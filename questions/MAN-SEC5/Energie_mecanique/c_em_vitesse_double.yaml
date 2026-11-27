@@ -1,0 +1,16 @@
+title: 'Énergie cinétique quand la vitesse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [énergie cinétique]
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$E_c = \tfrac{1}{2} m v^2$ : si la vitesse double, l''énergie cinétique est multipliée par $2^2 = 4$.'
+choices:
+  - 'Elle reste la même'
+  - 'Elle double'
+  - 'Elle est quatre fois plus grande'
+  - 'Elle est huit fois plus grande'

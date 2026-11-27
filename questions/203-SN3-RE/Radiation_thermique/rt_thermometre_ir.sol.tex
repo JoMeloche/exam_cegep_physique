@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Puissance par mètre carré}
+\[ \frac{P}{A} = e\sigma T^4 = \num{\v{em}} \cdot \num{5.67e-8} \cdot (\num{\fpeval{(\v{Tv}+273)}})^4 = \Res{\v{em}*5.67e-8*(\v{Tv}+273)^4}{W/m^2} \]
+
+\subsubsection*{Question b) Température affichée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P/A = \Res{\v{em}*5.67e-8*(\v{Tv}+273)^4}{W/m^2}$, émissivité supposée 1 ; variable recherchée : $T_a$
+    \item \textbf{Équations pertinentes :} le thermomètre résout
+    \[ \frac{P}{A} = \sigma T_a^4 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_a = \left(\frac{P/A}{\sigma}\right)^{1/4} = e^{1/4}\,T \]
+    \item \textbf{Résolution numérique :}
+    \[ T_a = (\num{\v{em}})^{1/4} \cdot \num{\fpeval{(\v{Tv}+273)}} = \Res{\v{em}^0.25*(\v{Tv}+273)}{K} \]
+    \item \textbf{Réponse :} le thermomètre affiche \textbf{\qty[round-mode=places,round-precision=0]{\fpeval{\v{em}^0.25*(\v{Tv}+273) - 273}}{\degreeCelsius}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Type d'erreur}
+C'est une \textbf{sous-estimation} de \Res{(\v{Tv}+273)*(1 - \v{em}^0.25)}{K}, car une surface d'émissivité inférieure à 1 rayonne moins qu'un corps noir à la même température. On corrige en réglant l'émissivité de l'appareil à \num{\v{em}} (ou en collant un ruban noir mat sur la surface).

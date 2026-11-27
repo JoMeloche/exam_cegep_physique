@@ -1,0 +1,70 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération à la montée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Angle du plan incliné : $\theta = \qty{\v{th}}{\degree}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item En montant, le poids ($mg\sin\theta$) et le frottement pointent tous deux vers le bas du plan
+        \item Variable recherchée : $a_m$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ n = mg\cos\theta \qquad mg\sin\theta + \mu_c n = m a_m \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a_m = g(\sin\theta + \mu_c\cos\theta) \]
+    \item \textbf{Résolution numérique :}
+    \[ a_m = \num{9.81}\,(\sin(\ang{\v{th}}) + \num{\vsi{mu}}\cos(\ang{\v{th}})) = \Res{9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))}{m/s^2} \]
+    \item \textbf{Réponse :} le bloc ralentit à raison de \textbf{\Res{9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance parcourue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{v0}}{m/s}$
+        \item $a_m = \Res{9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))}{m/s^2}$
+        \item Variable recherchée : $d$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 0 = v_0^2 - 2 a_m d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{v_0^2}{2 a_m} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{(\num{\vsi{v0}})^2}{2 \cdot \Val{9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))}} = \Res{\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th})))}{m} \]
+    \item \textbf{Réponse :} le bloc monte de \textbf{\Res{\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th})))}{m}} le long du plan.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération à la descente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Angle du plan incliné : $\theta = \qty{\v{th}}{\degree}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item En descendant, le frottement pointe vers le haut du plan
+        \item Variable recherchée : $a_d$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ mg\sin\theta - \mu_c mg\cos\theta = m a_d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a_d = g(\sin\theta - \mu_c\cos\theta) \]
+    \item \textbf{Résolution numérique :}
+    \[ a_d = \num{9.81}\,(\sin(\ang{\v{th}}) - \num{\vsi{mu}}\cos(\ang{\v{th}})) = \Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2} \]
+    \item \textbf{Réponse :} le bloc descend avec une accélération de \textbf{\Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse au retour}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a_d = \Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2}$, $d = \Res{\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th})))}{m}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v^2 = 2 a_d d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{2 a_d d} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{2 \cdot \Val{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))} \cdot \Val{\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th})))}} = \Res{sqrt(2*9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))*\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))))}{m/s} \]
+    \item \textbf{Réponse :} le bloc revient à \textbf{\Res{sqrt(2*9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))*\vsi{v0}^2/(2*9.81*(sind(\vsi{th}) + \vsi{mu}*cosd(\vsi{th}))))}{m/s}}, moins vite qu'au départ à cause du frottement.
+\end{enumerate}

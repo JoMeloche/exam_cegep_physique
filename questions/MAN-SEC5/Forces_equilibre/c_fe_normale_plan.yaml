@@ -1,0 +1,15 @@
+title: 'Force normale sur un plan incliné'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La normale équilibre seulement la composante perpendiculaire du poids : $F_N = mg\cos\theta < mg$.'
+choices:
+  - 'Elle est plus grande que le poids'
+  - 'Elle est égale au poids'
+  - 'Elle est plus petite que le poids'
+  - 'Elle est nulle'

@@ -1,0 +1,15 @@
+title: 'Facteurs qui influencent la résistance d''un fil'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La résistance augmente avec la longueur et diminue quand la section (le diamètre) augmente : le fil le plus long et le plus mince résiste le plus.'
+choices:
+  - 'Un fil de \qty{1}{m} de long et de \qty{2}{mm} de diamètre.'
+  - 'Un fil de \qty{2}{m} de long et de \qty{2}{mm} de diamètre.'
+  - 'Un fil de \qty{1}{m} de long et de \qty{1}{mm} de diamètre.'
+  - 'Un fil de \qty{2}{m} de long et de \qty{1}{mm} de diamètre.'

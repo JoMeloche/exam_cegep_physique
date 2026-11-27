@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Capacité équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_1 = \qty{\v{C1}}{\micro\farad}$, $C_2 = \qty{\v{C2}}{\micro\farad}$, $C_3 = \qty{\v{C3}}{\micro\farad}$ ; variable recherchée : $C_{\text{éq}}$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{1}{C_{\text{éq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ C_{\text{éq}} = \left(\frac{1}{C_1} + \frac{1}{C_2} + \frac{1}{C_3}\right)^{-1} \]
+    \item \textbf{Résolution numérique :}
+    \[ C_{\text{éq}} = \left(\frac{1}{\num{\v{C1}}} + \frac{1}{\num{\v{C2}}} + \frac{1}{\num{\v{C3}}}\right)^{-1} = \Res{1/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})}{\micro\farad} \]
+    \item \textbf{Réponse :} $C_{\text{éq}} = \mathbf{\Res{1/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})}{\micro\farad}}$ (plus petite que la plus petite des capacités).
+\end{enumerate}
+
+\subsubsection*{Question b) Charge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C_{\text{éq}}$, $V = \qty{\v{V}}{V}$ ; variable recherchée : $Q$
+    \item \textbf{Équations pertinentes :} en série, tous les condensateurs portent la même charge que le condensateur équivalent :
+    \[ Q = C_{\text{éq}}V \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \Val{1/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})}\times 10^{-6} \cdot \num{\v{V}} = \Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})}{\micro\coulomb} \]
+    \item \textbf{Réponse :} chaque condensateur porte $Q = \mathbf{\Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})}{\micro\coulomb}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Tensions}
+\[ V_1 = \frac{Q}{C_1} = \Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C1}}{V} \qquad V_2 = \frac{Q}{C_2} = \Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C2}}{V} \qquad V_3 = \frac{Q}{C_3} = \Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C3}}{V} \]
+Les tensions sont $V_1 = \mathbf{\Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C1}}{V}}$, $V_2 = \mathbf{\Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C2}}{V}}$ et $V_3 = \mathbf{\Res{\v{V}/(1/\v{C1} + 1/\v{C2} + 1/\v{C3})/\v{C3}}{V}}$ ; leur somme redonne \qty{\v{V}}{V}. Le plus petit condensateur a la plus grande tension.

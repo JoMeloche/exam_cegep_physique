@@ -1,0 +1,15 @@
+title: "Signification d'une hausse de 10 dB"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$\Delta\beta = 10\log(I_2/I_1)$ : une hausse de \qty{10}{dB} correspond à une intensité multipliée par 10.'
+choices:
+  - '$1{,}17$'
+  - '$2$'
+  - '$10$'
+  - '$100$'

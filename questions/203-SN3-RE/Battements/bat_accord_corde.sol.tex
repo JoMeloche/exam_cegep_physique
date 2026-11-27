@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence actuelle}
+Augmenter la tension augmente la fréquence de la corde. Comme les battements ralentissent, la fréquence de la corde se rapproche de \qty{\v{f0}}{Hz} par le bas : la corde est \textbf{trop grave}.
+\[ f = f_0 - f_{\text{batt}} = \num{\v{f0}} - \num{\v{fb}} = \Res{\v{f0}-\v{fb}}{Hz} \]
+
+\subsubsection*{Question b) Tension requise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \Res{\v{f0}-\v{fb}}{Hz}$, $f_0 = \qty{\v{f0}}{Hz}$, $F = \qty{\v{F}}{N}$ ; variable recherchée : $F'$
+    \item \textbf{Équations pertinentes :} avec $L$ et $\mu$ fixes,
+    \[ f_1 = \frac{1}{2L}\sqrt{\frac{F}{\mu}} \implies \frac{f_0}{f} = \sqrt{\frac{F'}{F}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F' = F\left(\frac{f_0}{f}\right)^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ F' = \num{\v{F}} \cdot \left(\frac{\num{\v{f0}}}{\Val{\v{f0}-\v{fb}}}\right)^2 = \Res{\v{F}*(\v{f0}/(\v{f0}-\v{fb}))^2}{N} \]
+    \item \textbf{Réponse :} il doit appliquer une tension de \textbf{\Res{\v{F}*(\v{f0}/(\v{f0}-\v{fb}))^2}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Corde accordée}
+Les deux fréquences sont égales : $f_{\text{batt}} = 0$. Il n'entend \textbf{plus aucun battement}, seulement un son stable.

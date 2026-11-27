@@ -1,0 +1,18 @@
+title: Position des franges brillantes de Young
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  lam: {type: integer, min: 400, max: 700, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  sep: {type: decimal, min: 0.10, max: 0.50, step: 0.05, unit: mm, si: 0.001, label: Distance entre les fentes}
+  L: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: m, label: Distance fentes-écran}
+  m: {type: integer, min: 2, max: 5, label: Ordre de la frange}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "deg(asin(m*lam/sep))", unit: deg, label: Angle de la frange brillante}
+    b: {expr: "L*tan(asin(m*lam/sep))", unit: m, label: Position sur l'écran}
+    c: {expr: "lam*L/sep", unit: m, label: Distance entre deux franges brillantes voisines}

@@ -1,0 +1,15 @@
+title: 'Chute libre de deux masses'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Dans le vide, tous les objets tombent avec la même accélération $g = \qty{9.8}{m/s^2}$, quelle que soit leur masse.'
+choices:
+  - 'La bille d''acier, car elle est plus lourde.'
+  - 'La bille de plastique, car elle offre moins de résistance.'
+  - 'Les deux touchent le sol en même temps.'
+  - 'On ne peut pas savoir sans connaître la hauteur.'

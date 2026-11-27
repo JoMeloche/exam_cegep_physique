@@ -1,0 +1,17 @@
+title: Bloc-ressort
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- Une fois
+- Deux fois
+- Quatre fois
+- Cela ne se produit jamais au cours d’un cycle.
+pin_last: 1
+needs_review: true
+source: Question_concept/MHS/bloc-ressort.tex
+history: []

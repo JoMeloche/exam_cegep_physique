@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Constante de désintégration}
+\[ \lambda = \frac{\ln 2}{T_{1/2}} = \frac{\ln 2}{5730 \cdot \num{3.156e7}} = \ResSci{ln(2)/(5730*3.156e7)}{s^{-1}} \]
+
+\subsubsection*{Question b) Âge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $A/A_0 = \num{\vsi{r}}$, $T_{1/2} = \num{5730}$ ans ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :}
+    \[ A = A_0\,e^{-\lambda t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = -\frac{1}{\lambda}\ln\left(\frac{A}{A_0}\right) = -\frac{T_{1/2}}{\ln 2}\ln\left(\frac{A}{A_0}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ t = -\frac{5730}{\ln 2}\ln(\num{\vsi{r}}) = \Res{-5730*ln(\vsi{r})/ln(2)}{ans} \]
+    \item \textbf{Réponse :} le fragment a environ \textbf{\Res{-5730*ln(\vsi{r})/ln(2)}{ans}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Activité spécifique}
+\[ A = \num{\vsi{r}} \cdot \num{\v{A0}} = \Res{\v{A0}*\vsi{r}}{Bq/g} \]
+Un gramme de carbone du fragment a une activité de \textbf{\Res{\v{A0}*\vsi{r}}{Bq}}, soit \Res{60*\v{A0}*\vsi{r}}{} désintégrations par minute.

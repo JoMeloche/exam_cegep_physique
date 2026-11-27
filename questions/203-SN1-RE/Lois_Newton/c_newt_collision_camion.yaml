@@ -1,0 +1,12 @@
+title: Collision camion-voiture
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Troisième loi de Newton : les forces d''action et de réaction ont toujours le même module et des sens opposés. C''est l''accélération de la voiture qui est plus grande, car sa masse est plus
+  petite.'
+choices: [La force sur la voiture est plus grande, La force sur le camion est plus grande, Les deux forces ont le même module, Cela dépend des vitesses des véhicules]

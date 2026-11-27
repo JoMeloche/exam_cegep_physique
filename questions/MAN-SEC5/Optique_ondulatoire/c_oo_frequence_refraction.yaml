@@ -1,0 +1,15 @@
+title: 'Grandeur conservée quand la lumière change de milieu'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La fréquence est imposée par la source. La vitesse diminue dans l''eau, donc la longueur d''onde diminue aussi ($\lambda = v/f$).'
+choices:
+  - 'La vitesse'
+  - 'La longueur d''onde'
+  - 'La fréquence'
+  - 'La direction de propagation'

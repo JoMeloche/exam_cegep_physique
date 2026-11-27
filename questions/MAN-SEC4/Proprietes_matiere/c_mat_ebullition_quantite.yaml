@@ -1,0 +1,15 @@
+title: 'Point d''ébullition et quantité d''eau'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le point d''ébullition est une propriété caractéristique : il ne dépend pas de la quantité. Il faut plus d''énergie (et de temps) pour chauffer 3 L, mais l''eau bout toujours à \qty{100}{\degreeCelsius}.'
+choices:
+  - '\qty{33}{\degreeCelsius}'
+  - '\qty{100}{\degreeCelsius}'
+  - '\qty{300}{\degreeCelsius}'
+  - 'Plus de \qty{100}{\degreeCelsius}, car il faut plus d''énergie'

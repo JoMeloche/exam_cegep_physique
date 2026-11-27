@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du virage : $r = \qty{\v{r}}{m}$
+        \item Coefficient de frottement statique : $\mu_s = \num{\v{mus}}$
+        \item Le frottement statique, dirigé vers le centre, fournit la force centripète ; $n = mg$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ f_{s,\max} = \frac{m v_{\max}^2}{r} \implies \mu_s m g = \frac{m v_{\max}^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_{\max} = \sqrt{\mu_s g r} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \sqrt{\num{\vsi{mus}} \cdot \num{9.81} \cdot \num{\vsi{r}}} = \Res{sqrt(\vsi{mus}*9.81*\vsi{r})}{m/s} = \Res{sqrt(\vsi{mus}*9.81*\vsi{r})*3.6}{km/h} \]
+    \item \textbf{Réponse :} la vitesse maximale est de \textbf{\Res{sqrt(\vsi{mus}*9.81*\vsi{r})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération centripète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse de la voiture : $v = \qty{\v{vk}}{km/h}$ $= \qty{\vsi{vk}}{m/s}$
+        \item Rayon du virage : $r = \qty{\v{r}}{m}$
+        \item Variable recherchée : $a_c$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ a_c = \frac{v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ a_c = \frac{(\Val{\vsi{vk}})^2}{\num{\vsi{r}}} = \Res{\vsi{vk}^2/\vsi{r}}{m/s^2} \]
+    \item \textbf{Réponse :} l'accélération centripète vaut \textbf{\Res{\vsi{vk}^2/\vsi{r}}{m/s^2}}, vers le centre du virage.
+\end{enumerate}
+
+\subsubsection*{Question c) Force de frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la voiture : $m = \qty{\v{m}}{kg}$
+        \item $a_c = \Res{\vsi{vk}^2/\vsi{r}}{m/s^2}$
+        \item Variable recherchée : $f_s$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_c = m a_c \implies f_s = m a_c \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f_s = \num{\vsi{m}} \cdot \Val{\vsi{vk}^2/\vsi{r}} = \Res{\vsi{m}*\vsi{vk}^2/\vsi{r}}{N} \]
+    \item \textbf{Réponse :} le frottement vaut \textbf{\Res{\vsi{m}*\vsi{vk}^2/\vsi{r}}{N}} (inférieur au maximum \Res{\vsi{mus}*\vsi{m}*9.81}{N}, donc pas de dérapage).
+\end{enumerate}

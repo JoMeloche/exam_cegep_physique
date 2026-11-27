@@ -1,0 +1,16 @@
+title: Relativité de la simultanéité de deux éclairs
+type: developpement
+points: 20
+time_min: 15
+difficulty: 4
+figures: []
+variables:
+  L:    {type: integer, min: 100, max: 2000, step: 50, unit: m, label: Distance entre les éclairs}
+  beta: {type: decimal, min: 0.30, max: 0.90, step: 0.05, label: Vitesse du train (fraction de c)}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1/sqrt(1 - beta**2)", unit: "", label: Facteur gamma}
+    b: {expr: "beta*L/3e8/sqrt(1 - beta**2)", unit: s, label: Écart de temps dans le train}
+    c: {expr: "L/sqrt(1 - beta**2)", unit: m, label: Distance entre les éclairs dans le train}

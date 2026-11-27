@@ -1,0 +1,16 @@
+title: 'Grandeur commune en série'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'En série, la charge qui quitte une armature arrive sur la suivante : les trois condensateurs portent la même charge. Les tensions, elles, se partagent selon $V = Q/C$.'
+choices:
+  - 'La charge'
+  - 'La différence de potentiel'
+  - 'L''énergie emmagasinée'
+  - 'Aucune de ces réponses'
+pin_last: 1

@@ -1,0 +1,17 @@
+course: 203-SN1-RE
+number: 3
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Quantite_mouvement, count: 1, points: 20}
+      - {topic: Rotation, count: 2, points: 20}
+      - {topic: Equilibre_statique, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Quantite_mouvement, count: 1}
+      - {topic: Rotation, count: 2}
+      - {topic: Equilibre_statique, count: 2}

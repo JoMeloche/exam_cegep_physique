@@ -1,0 +1,41 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence fondamentale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_n = \qty{\fpeval{\v{n}*\v{f1}}}{Hz}$ et $f_{n+1} = \qty{\fpeval{(\v{n}+1)*\v{f1}}}{Hz}$ ; variable recherchée : $f_1$
+    \item \textbf{Équations pertinentes :}
+    \[ f_n = n f_1 \implies f_{n+1} - f_n = f_1 \]
+    \item \textbf{Isolation de la variable recherchée :} $f_1 = f_{n+1} - f_n$.
+    \item \textbf{Résolution numérique :}
+    \[ f_1 = \num{\fpeval{(\v{n}+1)*\v{f1}}} - \num{\fpeval{\v{n}*\v{f1}}} = \qty{\v{f1}}{Hz} \]
+    \item \textbf{Réponse :} la fréquence fondamentale est de \textbf{\qty{\v{f1}}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Numéros des modes}
+\[ n = \frac{f_n}{f_1} = \frac{\num{\fpeval{\v{n}*\v{f1}}}}{\num{\v{f1}}} = \v{n} \]
+Les résonances correspondent aux modes \textbf{$n = \v{n}$} et \textbf{$n = \fpeval{\v{n}+1}$}.
+
+\subsubsection*{Question c) Vitesse des ondes}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_1 = \qty{\v{f1}}{Hz}$, $L = \qty{\v{L}}{m}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ f_1 = \frac{v}{2L} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = 2 L f_1 \]
+    \item \textbf{Résolution numérique :}
+    \[ v = 2 \cdot \num{\v{L}} \cdot \num{\v{f1}} = \Res{2*\v{L}*\v{f1}}{m/s} \]
+    \item \textbf{Réponse :} les ondes se propagent à \textbf{\Res{2*\v{L}*\v{f1}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Tension}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v = \Res{2*\v{L}*\v{f1}}{m/s}$, $\mu = \qty{\vsi{mu}}{kg/m}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F = \mu v^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ F = \num{\vsi{mu}} \cdot (\Val{2*\v{L}*\v{f1}})^2 = \Res{\vsi{mu}*(2*\v{L}*\v{f1})^2}{N} \]
+    \item \textbf{Réponse :} la tension est de \textbf{\Res{\vsi{mu}*(2*\v{L}*\v{f1})^2}{N}}.
+\end{enumerate}

@@ -1,0 +1,17 @@
+title: Énergie sonore reçue par un tympan
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  niv: {type: integer, min: 60, max: 120, step: 5, unit: dB, label: Niveau sonore}
+  S:  {type: decimal, min: 0.50, max: 0.80, step: 0.05, unit: cm^2, si: 0.0001, label: Aire du tympan}
+  t:  {type: integer, min: 1, max: 8, step: 1, unit: h, si: 3600, label: Durée d'exposition}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1e-12*10**(niv/10)", unit: W/m^2, label: Intensité}
+    b: {expr: "1e-12*10**(niv/10)*S", unit: W, label: Puissance reçue}
+    c: {expr: "1e-12*10**(niv/10)*S*t", unit: J, label: Énergie reçue}

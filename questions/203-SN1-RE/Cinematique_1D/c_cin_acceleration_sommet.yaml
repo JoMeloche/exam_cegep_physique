@@ -1,0 +1,11 @@
+title: Accélération au sommet de la trajectoire
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La seule force est la gravité pendant tout le vol : l''accélération reste $g$ vers le bas, même quand la vitesse s''annule.'
+choices: [Elle est nulle, 'Elle vaut \qty{9.81}{m/s^2} vers le bas', 'Elle vaut \qty{9.81}{m/s^2} vers le haut', Elle dépend de la masse de la balle]

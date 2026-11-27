@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Température initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $S = \qty{1361}{W/m^2}$, $a = \num{\v{a1}}$ ; variable recherchée : $T_e$
+    \item \textbf{Équations pertinentes :}
+    \[ \sigma T_e^4 = \frac{S(1-a)}{4} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ T_e = \left(\frac{S(1-a)}{4\sigma}\right)^{1/4} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_e = \left(\frac{1361(1 - \num{\v{a1}})}{4 \cdot \num{5.67e-8}}\right)^{1/4} = \qty[round-mode=places,round-precision=1]{\fpeval{(1361*(1 - \v{a1})/(4*5.67e-8))^0.25}}{K} \]
+    \item \textbf{Réponse :} $T_e = \mathbf{\qty[round-mode=places,round-precision=1]{\fpeval{(1361*(1 - \v{a1})/(4*5.67e-8))^0.25}}{K}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Nouvelle température}
+\[ a' = \num{\v{a1}} - \num{\v{da}} = \num{\fpeval{\v{a1} - \v{da}}} \qquad T'_e = \left(\frac{1361(1 - \num{\fpeval{\v{a1} - \v{da}}})}{4 \cdot \num{5.67e-8}}\right)^{1/4} = \qty[round-mode=places,round-precision=1]{\fpeval{(1361*(1 - \v{a1} + \v{da})/(4*5.67e-8))^0.25}}{K} \]
+
+\subsubsection*{Question c) Hausse et rétroaction}
+\[ \Delta T = \Res{(1361*(1 - \v{a1} + \v{da})/(4*5.67e-8))^0.25 - (1361*(1 - \v{a1})/(4*5.67e-8))^0.25}{K} \]
+La température d'équilibre augmente de \textbf{\Res{(1361*(1 - \v{a1} + \v{da})/(4*5.67e-8))^0.25 - (1361*(1 - \v{a1})/(4*5.67e-8))^0.25}{K}}. Le réchauffement fait fondre davantage de glace, ce qui diminue encore l'albédo et augmente le réchauffement : l'effet amplifie sa propre cause, c'est une rétroaction positive.

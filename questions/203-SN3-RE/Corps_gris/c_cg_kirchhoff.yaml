@@ -1,0 +1,15 @@
+title: "Bon absorbeur, bon émetteur"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Selon la loi de Kirchhoff, l''absorptivité égale l''émissivité : une surface sombre et mate qui absorbe bien rayonne aussi bien.'
+choices:
+  - 'La plaque polie'
+  - 'La plaque noire mate'
+  - 'Elles rayonnent la même puissance, car elles sont à la même température'
+  - 'Aucune des deux ne rayonne, car elles sont en équilibre'

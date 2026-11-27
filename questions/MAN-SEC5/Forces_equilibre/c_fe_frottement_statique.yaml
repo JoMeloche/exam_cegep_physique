@@ -1,0 +1,15 @@
+title: 'Frottement sur une caisse qui ne bouge pas'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La caisse est en équilibre, donc le frottement statique compense exactement la poussée : \qty{80}{N}. La valeur de \qty{200}{N} n''est qu''un maximum.'
+choices:
+  - '\qty{0}{N}'
+  - '\qty{80}{N}'
+  - '\qty{120}{N}'
+  - '\qty{200}{N}'

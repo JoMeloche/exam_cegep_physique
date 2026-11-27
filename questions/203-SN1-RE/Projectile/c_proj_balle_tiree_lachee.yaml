@@ -1,0 +1,11 @@
+title: Balle tirée et balle lâchée
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le mouvement vertical est indépendant du mouvement horizontal : les deux balles partent avec $v_{0y} = 0$ et subissent la même accélération $g$.'
+choices: [La balle lâchée, La balle tirée, Les deux en même temps, Cela dépend de la vitesse de la balle tirée]

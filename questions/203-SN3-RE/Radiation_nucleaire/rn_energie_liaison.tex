@@ -1,0 +1,10 @@
+\def\rnlNom{\ifcase\v{nuc}\or carbone 12\or oxygène 16\or fer 56\or uranium 238\fi}%
+\def\rnlSym{\ifcase\v{nuc}\or $^{12}_{\phantom{1}6}\mathrm{C}$\or $^{16}_{\phantom{1}8}\mathrm{O}$\or $^{56}_{26}\mathrm{Fe}$\or $^{238}_{\phantom{2}92}\mathrm{U}$\fi}%
+\def\rnlM{\ifcase\v{nuc}\or 12.000000\or 15.994915\or 55.934937\or 238.050788\fi}%
+On étudie le noyau de \rnlNom{} (\rnlSym). La masse de l'atome neutre est de \qty{\rnlM}{u}. On donne : masse de l'atome d'hydrogène $m_{\mathrm{H}} = \qty{1.007825}{u}$, masse du neutron $m_n = \qty{1.008665}{u}$ et $\qty{1}{u} = \qty{931.5}{MeV}/c^2$.
+
+\begin{enumerate}[label=\alph*)]
+    \item Combien de protons et de neutrons ce noyau contient-il ?
+    \item Déterminez le défaut de masse du noyau, en unités de masse atomique.
+    \item Déterminez l'énergie de liaison totale et l'énergie de liaison par nucléon, en MeV.
+\end{enumerate}

@@ -1,0 +1,19 @@
+title: Masse volumique, flottaison et masse d'un cube
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 50, max: 500, step: 10, unit: g, label: Masse de l'objet}
+  V: {type: integer, min: 50, max: 600, step: 10, unit: cm^3, label: Volume de l'objet}
+  a: {type: integer, min: 2, max: 10, step: 1, unit: cm, label: Arête du cube}
+constraints:
+  - abs(m/V - 1) > 0.1
+  - m/V > 0.3
+  - m/V < 3
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m/V", unit: g/cm^3, label: Masse volumique}
+    c: {expr: "m/V*a**3", unit: g, label: Masse du cube}

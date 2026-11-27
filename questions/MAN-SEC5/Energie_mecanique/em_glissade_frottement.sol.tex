@@ -1,0 +1,58 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Énergie mécanique au sommet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $h = \qty{\v{h}}{m}$, $v_0 = \qty{0}{m/s}$
+        \item Variable recherchée : $E_{m,\text{haut}}$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_m = m g h + \tfrac{1}{2} m v_0^2 \]
+    \item \textbf{Isolation de la variable recherchée :} avec $v_0 = 0$ : $E_m = m g h$
+    \item \textbf{Résolution numérique :}
+    \[ E_{m,\text{haut}} = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{h}} = \Res{\v{m}*9.81*\v{h}}{J} \]
+    \item \textbf{Réponse :} au sommet, l'énergie mécanique est de \textbf{\Res{\v{m}*9.81*\v{h}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie cinétique au bas}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $v = \qty{\v{v}}{m/s}$
+        \item Variable recherchée : $E_c$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_c = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_c = \tfrac{1}{2} \cdot \num{\v{m}} \cdot (\num{\v{v}})^2 = \Res{\v{m}*\v{v}^2/2}{J} \]
+    \item \textbf{Réponse :} au bas, son énergie cinétique est de \textbf{\Res{\v{m}*\v{v}^2/2}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie dissipée par le frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E_{m,\text{haut}} = \Res{\v{m}*9.81*\v{h}}{J}$, $E_{m,\text{bas}} = E_c = \Res{\v{m}*\v{v}^2/2}{J}$
+        \item Variable recherchée : $E_{\text{th}}$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_{m,\text{haut}} = E_{m,\text{bas}} + E_{\text{th}} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ E_{\text{th}} = E_{m,\text{haut}} - E_{m,\text{bas}} \]
+    \item \textbf{Résolution numérique :}
+    \[ E_{\text{th}} = \Val{\v{m}*9.81*\v{h}} - \Val{\v{m}*\v{v}^2/2} = \Res{\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2}{J} \]
+    \item \textbf{Réponse :} le frottement a transformé \textbf{\Res{\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2}{J}} en énergie thermique.
+\end{enumerate}
+
+\subsubsection*{Question d) Force de frottement moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E_{\text{th}} = \Res{\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2}{J}$, $d = L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $f$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} l'énergie dissipée est égale au travail de la force de frottement :
+    \[ E_{\text{th}} = f\,d \]
+    \item \textbf{Isolation de la variable recherchée :} \[ f = \frac{E_{\text{th}}}{d} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\Val{\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2}}{\num{\v{L}}} = \Res{(\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2)/\v{L}}{N} \]
+    \item \textbf{Réponse :} la force de frottement moyenne est de \textbf{\Res{(\v{m}*9.81*\v{h} - \v{m}*\v{v}^2/2)/\v{L}}{N}}.
+\end{enumerate}

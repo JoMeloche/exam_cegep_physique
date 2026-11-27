@@ -1,0 +1,20 @@
+title: Énergie fournie par un repas
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  gl: {type: integer, min: 40, max: 120, step: 5, unit: g, label: Masse de glucides}
+  li: {type: integer, min: 10, max: 45, step: 1, unit: g, label: Masse de lipides}
+  pr: {type: integer, min: 10, max: 40, step: 1, unit: g, label: Masse de protéines}
+  B:  {type: integer, min: 8000, max: 12000, step: 500, unit: kJ, label: Besoin énergétique quotidien}
+  Pm: {type: integer, min: 900, max: 1300, step: 50, unit: kJ/h, label: Dépense énergétique de la marche}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "17*gl + 37*li + 17*pr", unit: kJ, label: Énergie du repas}
+    b: {expr: "100*37*li/(17*gl + 37*li + 17*pr)", unit: "%", label: Part des lipides}
+    c: {expr: "100*(17*gl + 37*li + 17*pr)/B", unit: "%", label: Part du besoin quotidien}
+    d: {expr: "(17*gl + 37*li + 17*pr)/Pm", unit: h, label: Durée de marche}

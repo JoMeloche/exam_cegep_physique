@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{Hz}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $\lambda$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{v}{f} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\qty{\v{v}}{m/s}}{\qty{\v{f}}{Hz}} = \Res{\v{v}/\v{f}}{m} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{\v{v}/\v{f}}{m}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{Hz}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ T = \frac{1}{f} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{1}{\qty{\v{f}}{Hz}} = \Res{1/\v{f}}{s} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{1/\v{f}}{s}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Parcours de la corde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\v{L}}{m}$, $v = \qty{\v{v}}{m/s}$, $\lambda = \Res{\v{v}/\v{f}}{m}$ ; variables recherchées : $t$, $N$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{L}{t} \qquad N = \frac{L}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \frac{L}{v} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\qty{\v{L}}{m}}{\qty{\v{v}}{m/s}} = \Res{\v{L}/\v{v}}{s} \qquad N = \frac{\qty{\v{L}}{m}}{\Val{\v{v}/\v{f}}\,\unit{m}} = \num[round-mode=figures,round-precision=3]{\fpeval{\v{L}*\v{f}/\v{v}}} \]
+    \item \textbf{Réponse :} la crête met \textbf{\Res{\v{L}/\v{v}}{s}} à parcourir la corde, qui contient alors \textbf{\num[round-mode=figures,round-precision=3]{\fpeval{\v{L}*\v{f}/\v{v}}}} longueurs d'onde.
+\end{enumerate}

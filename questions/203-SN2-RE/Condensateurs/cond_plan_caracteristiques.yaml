@@ -1,0 +1,18 @@
+title: Capacité, charge et énergie d'un condensateur plan
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  A: {type: integer, min: 50, max: 500, step: 10, unit: cm^2, si: 1e-4, label: Aire des plaques}
+  d: {type: decimal, min: 0.5, max: 5.0, step: 0.1, unit: mm, si: 0.001, label: Distance entre les plaques}
+  V: {type: integer, min: 6, max: 240, step: 6, unit: V, label: Tension de la pile}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.85e-12*A/d", unit: F, label: Capacité}
+    b1: {expr: "8.85e-12*A/d*V", unit: C, label: Charge}
+    b2: {expr: "0.5*8.85e-12*A/d*V**2", unit: J, label: Énergie emmagasinée}
+    c: {expr: "V/d", unit: V/m, label: Champ électrique}

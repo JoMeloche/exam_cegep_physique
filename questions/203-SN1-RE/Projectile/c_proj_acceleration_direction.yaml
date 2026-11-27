@@ -1,0 +1,11 @@
+title: Accélération d'un projectile
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La seule force est le poids : l''accélération vaut $g$, verticale vers le bas, en tout point de la trajectoire.'
+choices: [Toujours tangente à la trajectoire, 'Vers le haut pendant la montée, vers le bas pendant la descente', Toujours verticale vers le bas, 'Nulle au sommet, verticale ailleurs']

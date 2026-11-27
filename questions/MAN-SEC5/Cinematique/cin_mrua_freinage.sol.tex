@@ -1,0 +1,59 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Distance de réaction}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{\v{v0}}{km/h} = \frac{\num{\v{v0}}}{\num{3.6}}\,\unit{m/s} = \Res{\v{v0}/3.6}{m/s}$
+        \item $t_r = \qty{\v{tr}}{s}$
+        \item Variable recherchée : $d_r$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} pendant la réaction, MRU :
+    \[ d_r = v_0 t_r \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ d_r = \Val{\v{v0}/3.6}\,\unit{m/s} \cdot \qty{\v{tr}}{s} = \Res{\v{v0}/3.6*\v{tr}}{m} \]
+    \item \textbf{Réponse :} la voiture parcourt \textbf{\Res{\v{v0}/3.6*\v{tr}}{m}} avant que le freinage commence.
+\end{enumerate}
+
+\subsubsection*{Question b) Durée du freinage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \Res{\v{v0}/3.6}{m/s}$, $v_f = \qty{0}{m/s}$, $a = \qty{-\v{a}}{m/s^2}$
+        \item Variable recherchée : $t_f$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_f = v_0 + a t \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t_f = \frac{v_f - v_0}{a} = \frac{0 - v_0}{a} \]
+    \item \textbf{Résolution numérique :}
+    \[ t_f = \frac{0 - \Val{\v{v0}/3.6}}{\num{-\v{a}}} = \Res{\v{v0}/3.6/\v{a}}{s} \]
+    \item \textbf{Réponse :} le freinage dure \textbf{\Res{\v{v0}/3.6/\v{a}}{s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance de freinage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \Res{\v{v0}/3.6}{m/s}$, $v_f = \qty{0}{m/s}$, $a = \qty{-\v{a}}{m/s^2}$
+        \item Variable recherchée : $d_f$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v_f^2 = v_0^2 + 2 a d \]
+    \item \textbf{Isolation de la variable recherchée :} \[ d_f = \frac{v_f^2 - v_0^2}{2a} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_f = \frac{0 - (\Val{\v{v0}/3.6})^2}{2 \cdot (\num{-\v{a}})} = \Res{(\v{v0}/3.6)^2/(2*\v{a})}{m} \]
+    \item \textbf{Réponse :} la distance de freinage est de \textbf{\Res{(\v{v0}/3.6)^2/(2*\v{a})}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Distance d'arrêt totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d_r = \Res{\v{v0}/3.6*\v{tr}}{m}$, $d_f = \Res{(\v{v0}/3.6)^2/(2*\v{a})}{m}$
+        \item Variable recherchée : $d_{\text{arrêt}}$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ d_{\text{arrêt}} = d_r + d_f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ d_{\text{arrêt}} = \Val{\v{v0}/3.6*\v{tr}}\,\unit{m} + \Val{(\v{v0}/3.6)^2/(2*\v{a})}\,\unit{m} = \Res{\v{v0}/3.6*\v{tr} + (\v{v0}/3.6)^2/(2*\v{a})}{m} \]
+    \item \textbf{Réponse :} la voiture s'arrête \textbf{\Res{\v{v0}/3.6*\v{tr} + (\v{v0}/3.6)^2/(2*\v{a})}{m}} après que la conductrice a aperçu le chevreuil.
+\end{enumerate}

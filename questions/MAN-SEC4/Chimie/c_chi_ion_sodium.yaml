@@ -1,0 +1,15 @@
+title: 'Formation de l''ion sodium'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un ion positif a plus de protons que d''électrons. Le sodium perd son électron de valence (couche externe) pour atteindre une couche externe complète.'
+choices:
+  - 'Il a gagné un proton'
+  - 'Il a perdu un électron'
+  - 'Il a gagné un électron'
+  - 'Il a perdu un neutron'

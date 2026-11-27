@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Constante de désintégration}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_{1/2} = \qty{\v{T}}{h} = \qty{\vsi{T}}{s}$ ; variable recherchée : $\lambda$
+    \item \textbf{Équations pertinentes :}
+    \[ T_{1/2} = \frac{\ln 2}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{\ln 2}{T_{1/2}} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\ln 2}{\num{\vsi{T}}} = \ResSci{ln(2)/\vsi{T}}{s^{-1}} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\ResSci{ln(2)/\vsi{T}}{s^{-1}}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Activité initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda$, $N_0 = \num{\v{N0}}$ ; variable recherchée : $A_0$
+    \item \textbf{Équations pertinentes :}
+    \[ A = \lambda N \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ A_0 = \ResSci{ln(2)/\vsi{T}}{} \cdot \num{\v{N0}} = \ResSci{ln(2)/\vsi{T}*\v{N0}}{Bq} \]
+    \item \textbf{Réponse :} l'activité initiale est de \textbf{\ResSci{ln(2)/\vsi{T}*\v{N0}}{Bq}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Après \qty{\v{t}}{h}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $t = \qty{\v{t}}{h}$, $T_{1/2} = \qty{\v{T}}{h}$ ; variables recherchées : $N$ et $A$
+    \item \textbf{Équations pertinentes :}
+    \[ N = N_0\,e^{-\lambda t} = N_0 \left(\tfrac{1}{2}\right)^{t/T_{1/2}} \qquad A = \lambda N \]
+    \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
+    \item \textbf{Résolution numérique :}
+    \[ N = \num{\v{N0}} \cdot (0{,}5)^{\v{t}/\v{T}} = \ResSci{\v{N0}*0.5^(\v{t}/\v{T})}{} \qquad A = \ResSci{ln(2)/\vsi{T}*\v{N0}*0.5^(\v{t}/\v{T})}{Bq} \]
+    \item \textbf{Réponse :} il reste \textbf{\ResSci{\v{N0}*0.5^(\v{t}/\v{T})}{}} noyaux et l'activité est de \textbf{\ResSci{ln(2)/\vsi{T}*\v{N0}*0.5^(\v{t}/\v{T})}{Bq}}.
+\end{enumerate}

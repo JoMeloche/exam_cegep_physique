@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse de la rondelle 1}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_1 = \qty{\v{m1}}{kg}$, $m_2 = \qty{\v{m2}}{kg}$, $v_{1i} = \qty{\v{v1}}{m/s}$, $v_{2i} = \qty{0}{m/s}$ ; variable recherchée : $v_{1f}$
+    \item \textbf{Équations pertinentes :} quantité de mouvement et énergie cinétique conservées : \[ m_1 v_{1i} = m_1 v_{1f} + m_2 v_{2f} \qquad \tfrac{1}{2}m_1 v_{1i}^2 = \tfrac{1}{2}m_1 v_{1f}^2 + \tfrac{1}{2}m_2 v_{2f}^2 \]
+    \item \textbf{Isolation de la variable recherchée :} en résolvant le système (ou avec $v_{1i} - v_{2i} = -(v_{1f} - v_{2f})$) : \[ v_{1f} = \frac{m_1 - m_2}{m_1 + m_2}\, v_{1i} \]
+    \item \textbf{Résolution numérique :} \[ v_{1f} = \frac{\num{\v{m1}} - \num{\v{m2}}}{\num{\v{m1}} + \num{\v{m2}}} \cdot \num{\v{v1}} = \Res{((\vsi{m1} - \vsi{m2})/(\vsi{m1} + \vsi{m2})*\vsi{v1})}{m/s} \]
+    \item \textbf{Réponse :} $v_{1f} = \mathbf{\Res{((\vsi{m1} - \vsi{m2})/(\vsi{m1} + \vsi{m2})*\vsi{v1})}{m/s}}$ (positif : la rondelle 1 continue vers l'avant ; négatif : elle rebondit vers l'arrière).
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse de la rondelle 2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} mêmes données ; variable recherchée : $v_{2f}$
+    \item \textbf{Équations pertinentes :} même système qu'en a).
+    \item \textbf{Isolation de la variable recherchée :} \[ v_{2f} = \frac{2m_1}{m_1 + m_2}\, v_{1i} \]
+    \item \textbf{Résolution numérique :} \[ v_{2f} = \frac{2 \cdot \num{\v{m1}}}{\num{\v{m1}} + \num{\v{m2}}} \cdot \num{\v{v1}} = \Res{(2*\vsi{m1}/(\vsi{m1} + \vsi{m2})*\vsi{v1})}{m/s} \]
+    \item \textbf{Réponse :} $v_{2f} = \mathbf{\Res{(2*\vsi{m1}/(\vsi{m1} + \vsi{m2})*\vsi{v1})}{m/s}}$ vers l'avant.
+\end{enumerate}
+
+\subsubsection*{Question c) Pourcentage transféré}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $K_i = \Res{0.5*\vsi{m1}*\vsi{v1}^2}{J}$, $v_{2f} = \Res{(2*\vsi{m1}/(\vsi{m1} + \vsi{m2})*\vsi{v1})}{m/s}$ ; variable recherchée : $K_{2f}/K_i$
+    \item \textbf{Équations pertinentes :} \[ K_{2f} = \tfrac{1}{2}m_2 v_{2f}^2 \qquad \% = \frac{K_{2f}}{K_i}\times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \% = \frac{4m_1 m_2}{(m_1 + m_2)^2} \times 100 \]
+    \item \textbf{Résolution numérique :} \[ K_{2f} = \Res{0.5*\vsi{m2}*((2*\vsi{m1}/(\vsi{m1} + \vsi{m2})*\vsi{v1}))^2}{J} \qquad \% = \frac{\Val{0.5*\vsi{m2}*((2*\vsi{m1}/(\vsi{m1} + \vsi{m2})*\vsi{v1}))^2}}{\Val{0.5*\vsi{m1}*\vsi{v1}^2}} \times 100 = \Res{(400*\vsi{m1}*\vsi{m2}/(\vsi{m1} + \vsi{m2})^2)}{\percent} \]
+    \item \textbf{Réponse :} $\mathbf{\Res{(400*\vsi{m1}*\vsi{m2}/(\vsi{m1} + \vsi{m2})^2)}{\percent}}$ de l'énergie cinétique est transférée à la rondelle 2.
+\end{enumerate}

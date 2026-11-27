@@ -1,0 +1,16 @@
+title: Erreur d'un thermomètre infrarouge mal réglé
+type: developpement
+points: 20
+time_min: 15
+difficulty: 4
+figures: []
+variables:
+  Tv: {type: integer, min: 50, max: 300, step: 10, unit: \degreeCelsius, label: Température réelle}
+  em: {type: decimal, min: 0.30, max: 0.80, step: 0.05, label: Émissivité réelle de la surface}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "5.67e-8*em*(Tv+273)**4", unit: W/m^2, label: Puissance émise par m2}
+    e2: {expr: "em**0.25*(Tv+273)", unit: K, label: Température affichée}
+    e3: {expr: "(Tv+273) - em**0.25*(Tv+273)", unit: K, label: Erreur}

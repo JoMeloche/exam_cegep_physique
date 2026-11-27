@@ -1,0 +1,19 @@
+course: 203-SN1-RE
+number: 1
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Cinematique_1D, count: 1, points: 20}
+      - {topic: Projectile, count: 1, points: 20}
+      - {topic: Lois_Newton, count: 1, points: 20}
+      - {topic: Frottement_plan_incline, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Cinematique_1D, count: 1}
+      - {topic: Projectile, count: 1}
+      - {topic: Lois_Newton, count: 2}
+      - {topic: Frottement_plan_incline, count: 1}

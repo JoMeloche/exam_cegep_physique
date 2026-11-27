@@ -1,0 +1,18 @@
+title: Bille qui roule au bord d'une table (projectile horizontal)
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+tags: [projectile]
+variables:
+  vx: {type: decimal, min: 1.0, max: 4.0, step: 0.1, unit: m/s, label: Vitesse horizontale}
+  h:  {type: decimal, min: 0.75, max: 1.20, step: 0.05, unit: m, label: Hauteur de la table}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(2*h/g)", unit: s, label: Temps de vol}
+    b: {expr: "vx*sqrt(2*h/g)", unit: m, label: Portée horizontale}
+    c: {expr: "sqrt(2*g*h)", unit: m/s, label: Vitesse verticale à l'impact}
+    d: {expr: "sqrt(vx**2 + 2*g*h)", unit: m/s, label: Module de la vitesse à l'impact}

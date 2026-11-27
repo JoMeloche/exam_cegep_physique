@@ -1,0 +1,16 @@
+title: 'Travail en portant une boîte à l''horizontale'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+tags: [travail]
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La force des bras est verticale et le déplacement est horizontal : l''angle est de \ang{90}, donc $W = F d \cos 90^\circ = 0$.'
+choices:
+  - '\qty{1962}{J}'
+  - '\qty{0}{J}'
+  - '\qty{200}{J}'
+  - '\qty{196}{J}'

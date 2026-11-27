@@ -1,0 +1,15 @@
+title: 'Lieu des échanges gazeux'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les alvéoles ont une paroi très mince entourée de capillaires : l''oxygène y diffuse vers le sang et le dioxyde de carbone vers l''air.'
+choices:
+  - 'Dans la trachée'
+  - 'Dans les bronches'
+  - 'Dans les alvéoles pulmonaires'
+  - 'Dans le diaphragme'

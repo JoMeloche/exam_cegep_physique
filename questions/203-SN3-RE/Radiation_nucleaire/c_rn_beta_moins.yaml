@@ -1,0 +1,15 @@
+title: "Effet d'une désintégration bêta moins sur le noyau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'En bêta moins, un neutron devient un proton (avec émission d''un électron et d''un antineutrino) : $Z$ augmente de 1 et $A$ ne change pas.'
+choices:
+  - '$Z$ diminue de 1, $A$ ne change pas'
+  - '$Z$ augmente de 1, $A$ ne change pas'
+  - '$Z$ diminue de 2, $A$ diminue de 4'
+  - '$Z$ et $A$ ne changent pas'

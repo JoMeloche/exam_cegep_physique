@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Décélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item Route horizontale : $n = mg$
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_x = m a \implies \mu_c m g = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \mu_c g \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \num{\vsi{mu}} \cdot \num{9.81} = \Res{\vsi{mu}*9.81}{m/s^2} \]
+    \item \textbf{Réponse :} la voiture décélère à \textbf{\Res{\vsi{mu}*9.81}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Traces sur route sèche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{vk}}{km/h}$ $= \qty{\vsi{vk}}{m/s}$
+        \item $a = \Res{\vsi{mu}*9.81}{m/s^2}$
+        \item Variable recherchée : $d$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 0 = v_0^2 - 2 a d \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{v_0^2}{2\mu_c g} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{(\Val{\vsi{vk}})^2}{2\cdot\Val{\vsi{mu}*9.81}} = \Res{\vsi{vk}^2/(2*\vsi{mu}*9.81)}{m} \]
+    \item \textbf{Réponse :} les traces mesurent \textbf{\Res{\vsi{vk}^2/(2*\vsi{mu}*9.81)}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Traces sur la glace}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse initiale : $v_0 = \qty{\v{vk}}{km/h}$ $= \qty{\vsi{vk}}{m/s}$
+        \item Coefficient de frottement cinétique sur la glace : $\mu_c' = \num{\v{mu2}}$
+        \item Variable recherchée : $d'$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ d' = \frac{v_0^2}{2\mu_c' g} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ d' = \frac{(\Val{\vsi{vk}})^2}{2\cdot\num{\vsi{mu2}}\cdot\num{9.81}} = \Res{\vsi{vk}^2/(2*\vsi{mu2}*9.81)}{m} \]
+    \item \textbf{Réponse :} les traces mesureraient \textbf{\Res{\vsi{vk}^2/(2*\vsi{mu2}*9.81)}{m}}.
+\end{enumerate}

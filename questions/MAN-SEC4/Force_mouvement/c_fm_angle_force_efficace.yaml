@@ -1,0 +1,15 @@
+title: 'Angle et force efficace'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$F_{\text{eff}} = F\cos\theta$ et $\cos\theta$ est maximal (égal à 1) pour $\theta = \qty{0}{\degree}$ : toute la force est alors parallèle au déplacement.'
+choices:
+  - '\qty{0}{\degree}'
+  - '\qty{30}{\degree}'
+  - '\qty{45}{\degree}'
+  - '\qty{60}{\degree}'

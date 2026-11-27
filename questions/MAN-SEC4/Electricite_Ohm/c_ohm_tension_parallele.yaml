@@ -1,0 +1,15 @@
+title: 'Tension dans des branches en parallèle'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Des éléments en parallèle sont branchés entre les deux mêmes points : ils ont tous la tension de la pile. Ce sont les courants qui diffèrent (\qty{1.2}{A} et \qty{0.30}{A}).'
+choices:
+  - '$U_{10} = U_{40} = \qty{12}{V}$'
+  - '$U_{10} = \qty{2.4}{V}$ et $U_{40} = \qty{9.6}{V}$'
+  - '$U_{10} = \qty{9.6}{V}$ et $U_{40} = \qty{2.4}{V}$'
+  - '$U_{10} = U_{40} = \qty{6}{V}$'

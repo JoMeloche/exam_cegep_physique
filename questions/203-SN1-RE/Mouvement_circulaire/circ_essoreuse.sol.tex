@@ -1,0 +1,49 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse angulaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Vitesse de rotation : $f = \qty{\v{N}}{tr/min}$
+        \item $1$ tour $= 2\pi$ rad, $1$ min $= \qty{60}{s}$
+        \item Variable recherchée : $\omega$ (rad/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \omega = 2\pi f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \omega = \frac{2\pi \cdot \num{\v{N}}}{\num{60}} = \Res{2*pi*\vsi{N}/60}{rad/s} \]
+    \item \textbf{Réponse :} le tambour tourne à \textbf{\Res{2*pi*\vsi{N}/60}{rad/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Rayon du tambour : $r = \qty{\v{r}}{cm}$ $= \qty{\vsi{r}}{m}$
+        \item $\omega = \Res{2*pi*\vsi{N}/60}{rad/s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = \omega r \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \Val{2*pi*\vsi{N}/60}\cdot\num{\vsi{r}} = \Res{2*pi*\vsi{N}/60*\vsi{r}}{m/s} \]
+    \item \textbf{Réponse :} le vêtement se déplace à \textbf{\Res{2*pi*\vsi{N}/60*\vsi{r}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération centripète}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\omega = \Res{2*pi*\vsi{N}/60}{rad/s}$
+        \item Rayon du tambour : $r = \qty{\v{r}}{cm}$ $= \qty{\vsi{r}}{m}$
+        \item Variable recherchée : $a_c$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ a_c = \omega^2 r = \frac{v^2}{r} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ a_c = (\Val{2*pi*\vsi{N}/60})^2\cdot\num{\vsi{r}} = \Res{(2*pi*\vsi{N}/60)^2*\vsi{r}}{m/s^2} = \num[round-mode=figures,round-precision=3]{\fpeval{(2*pi*\vsi{N}/60)^2*\vsi{r}/9.81}}\,g \]
+    \item \textbf{Réponse :} l'accélération centripète est de \textbf{\Res{(2*pi*\vsi{N}/60)^2*\vsi{r}}{m/s^2}}, soit environ \num[round-mode=figures,round-precision=3]{\fpeval{(2*pi*\vsi{N}/60)^2*\vsi{r}/9.81}} fois $g$.
+\end{enumerate}

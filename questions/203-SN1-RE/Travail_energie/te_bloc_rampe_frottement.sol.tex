@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse au bas de la rampe}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{m}}{kg}$, $h = \qty{\vsi{h}}{m}$, $v_i = \qty{0}{m/s}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} aucune force non conservative ne travaille sur la rampe : \[ mgh = \tfrac{1}{2}mv^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \sqrt{2gh} \]
+    \item \textbf{Résolution numérique :} \[ v = \sqrt{2 \cdot \qty{9.81}{m/s^2} \cdot \qty{\vsi{h}}{m}} = \Res{(sqrt(2*9.81*\vsi{h}))}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{(sqrt(2*9.81*\vsi{h}))}{m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Distance de freinage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = \Res{(sqrt(2*9.81*\vsi{h}))}{m/s}$, $v_f = \qty{0}{m/s}$, $\mu_c = \num{\v{mu}}$ ; variable recherchée : $d$
+    \item \textbf{Équations pertinentes :} théorème de l'énergie cinétique, avec $f_c = \mu_c n = \mu_c mg$ : \[ -\mu_c m g d = 0 - \tfrac{1}{2}mv_i^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ d = \frac{v_i^2}{2\mu_c g} \]
+    \item \textbf{Résolution numérique :} \[ d = \frac{\left(\Val{(sqrt(2*9.81*\vsi{h}))}\right)^2}{2 \cdot \num{\v{mu}} \cdot \num{9.81}} = \Res{(\vsi{h}/\vsi{mu})}{m} \]
+    \item \textbf{Réponse :} $d = \mathbf{\Res{(\vsi{h}/\vsi{mu})}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Travail du frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mu_c = \num{\v{mu}}$, $m = \qty{\vsi{m}}{kg}$, $d = \Res{(\vsi{h}/\vsi{mu})}{m}$ ; variable recherchée : $W_f$
+    \item \textbf{Équations pertinentes :} \[ W_f = -f_c\, d = -\mu_c m g d \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ W_f = -\num{\v{mu}} \cdot \num{\vsi{m}} \cdot \num{9.81} \cdot \Val{(\vsi{h}/\vsi{mu})} = \Res{(-\vsi{m}*9.81*\vsi{h})}{J} \]
+    \item \textbf{Réponse :} $W_f = \mathbf{\Res{(-\vsi{m}*9.81*\vsi{h})}{J}}$ : toute l'énergie potentielle initiale $mgh$ est dissipée par le frottement.
+\end{enumerate}

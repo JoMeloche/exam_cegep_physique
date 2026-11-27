@@ -1,0 +1,17 @@
+title: 'Image par une lentille divergente'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  f:  {type: integer, min: 10, max: 40, step: 1, unit: cm, si: 0.01, label: Valeur absolue de la distance focale}
+  dob: {type: integer, min: 10, max: 100, step: 1, unit: cm, si: 0.01, label: Distance de l'objet}
+  ho: {type: decimal, min: 2.0, max: 10.0, step: 0.5, unit: cm, si: 0.01, label: Hauteur de l'objet}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "100/(-1/f - 1/dob)", unit: cm, label: Distance de l'image}
+    b: {expr: "-(1/(-1/f - 1/dob))/dob", unit: "", label: Grandissement}
+    c: {expr: "-100*ho*(1/(-1/f - 1/dob))/dob", unit: cm, label: Hauteur de l'image}

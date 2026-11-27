@@ -1,0 +1,15 @@
+title: 'Énergie d''un ressort comprimé deux fois plus'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$U_r = \tfrac{1}{2}kx^2$ : doubler $x$ multiplie $U_r$ par 4.'
+choices:
+  - 'Par 4'
+  - 'Par 3'
+  - 'Par 2'
+  - 'Elle reste la même'

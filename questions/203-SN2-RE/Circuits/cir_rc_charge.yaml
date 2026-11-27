@@ -1,0 +1,22 @@
+title: Charge d'un condensateur dans un circuit RC
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+tags: [RC]
+variables:
+  C: {type: integer, min: 10, max: 100, step: 5, unit: \micro\farad, si: 1e-6, label: Capacité}
+  R: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: \kilo\ohm, si: 1000, label: Résistance}
+  eps: {type: integer, min: 6, max: 24, step: 1, unit: V, label: Force électromotrice}
+  t: {type: integer, min: 10, max: 900, step: 10, unit: ms, si: 0.001, label: Instant considéré}
+constraints:
+  - t > 0.3*R*C
+  - t < 2.5*R*C
+solution:
+  mode: manual
+  parts:
+    a: {expr: "R*C", unit: s, label: Constante de temps}
+    b: {expr: "C*eps*(1 - exp(-t/(R*C)))", unit: C, label: Charge à l'instant t}
+    c: {expr: "eps/R*exp(-t/(R*C))", unit: A, label: Courant à l'instant t}
+    d: {expr: "-R*C*log(0.1)", unit: s, label: Temps pour 90 % de la charge}

@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence de seuil}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\phi = \qty{\v{phi}}{eV} = \ResSci{\v{phi}*1.602e-19}{J}$, $h = \qty{6.626e-34}{J.s}$ ; variable recherchée : $f_0$
+    \item \textbf{Équations pertinentes :} au seuil, $K_{\max} = 0$ :
+    \[ hf_0 = \phi \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f_0 = \frac{\phi}{h} \]
+    \item \textbf{Résolution numérique :}
+    \[ f_0 = \frac{\ResSci{\v{phi}*1.602e-19}{}}{\num{6.626e-34}} = \ResSci{\v{phi}*1.602e-19/6.626e-34}{Hz} \]
+    \item \textbf{Réponse :} $f_0 = \mathbf{\ResSci{\v{phi}*1.602e-19/6.626e-34}{Hz}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Longueur d'onde de seuil}
+\[ \lambda_0 = \frac{hc}{\phi} = \frac{1240}{\num{\v{phi}}} = \Res{1240/\v{phi}}{nm} \]
+$\lambda_0 = \mathbf{\Res{1240/\v{phi}}{nm}}$, dans \ifthenelse{\lengthtest{\fpeval{1240/\v{phi}}pt < 400pt}}{l'\textbf{ultraviolet}}{le \textbf{visible}}.
+
+\subsubsection*{Question c) Lumière de \qty{\v{lam}}{nm}}
+\ifthenelse{\lengthtest{\fpeval{\v{lam}}pt < \fpeval{1240/\v{phi}}pt}}{Oui : $\lambda < \lambda_0$, donc l'énergie d'un photon, $1240/\num{\v{lam}} = \Res{1240/\v{lam}}{eV}$, dépasse $\phi$. Les électrons sont éjectés avec au plus $K_{\max} = \Val{1240/\v{lam}} - \num{\v{phi}} = \mathbf{\Res{1240/\v{lam} - \v{phi}}{eV}}$.}{Non : $\lambda > \lambda_0$, donc chaque photon n'a que $1240/\num{\v{lam}} = \Res{1240/\v{lam}}{eV} < \phi$. Une lumière plus intense apporterait plus de photons, mais chacun aurait toujours trop peu d'énergie : \textbf{aucun électron} ne serait éjecté.}

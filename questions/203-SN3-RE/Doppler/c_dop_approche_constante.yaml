@@ -1,0 +1,15 @@
+title: "Fréquence perçue d'une source qui approche à vitesse constante"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La fréquence perçue dépend de la vitesse de la source, pas de sa distance : elle est constante et plus aiguë que la fréquence émise. C''est l''intensité qui augmente.'
+choices:
+  - 'Une fréquence qui augmente de plus en plus à mesure que le train s''approche'
+  - 'Une fréquence constante, plus élevée que la fréquence émise'
+  - 'Une fréquence constante, égale à la fréquence émise'
+  - 'Une fréquence constante, plus basse que la fréquence émise'

@@ -1,0 +1,20 @@
+title: Bille lancée par un ressort
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+tags: [énergie élastique, conservation de l'énergie]
+variables:
+  m: {type: integer, min: 20, max: 100, step: 10, unit: g, si: 0.001, label: Masse de la bille}
+  k: {type: integer, min: 100, max: 500, step: 25, unit: N/m, label: Constante du ressort}
+  x: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: cm, si: 0.01, label: Compression du ressort}
+constraints:
+  - k*x**2/(2*m*g) < 30
+  - k*x**2/(2*m*g) > 0.5
+solution:
+  mode: manual
+  parts:
+    a: {expr: "k*x**2/2", unit: J, label: Énergie élastique}
+    b: {expr: "x*sqrt(k/m)", unit: m/s, label: Vitesse de lancement}
+    c: {expr: "k*x**2/(2*m*g)", unit: m, label: Hauteur maximale}

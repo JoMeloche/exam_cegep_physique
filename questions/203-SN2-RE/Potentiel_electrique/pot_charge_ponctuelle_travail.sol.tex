@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Potentiels}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $r_A = \qty{\vsi{rA}}{m}$, $r_B = \qty{\vsi{rB}}{m}$ ; variables recherchées : $V_A$, $V_B$
+    \item \textbf{Équations pertinentes :}
+    \[ V = \frac{kQ}{r} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_A = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9}}{\num{\vsi{rA}}} = \Res{8.99e9*\v{Q}*1e-9/\vsi{rA}}{V} \qquad V_B = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9}}{\num{\vsi{rB}}} = \Res{8.99e9*\v{Q}*1e-9/\vsi{rB}}{V} \]
+    \item \textbf{Réponse :} $V_A = \mathbf{\Res{8.99e9*\v{Q}*1e-9/\vsi{rA}}{V}}$ et $V_B = \mathbf{\Res{8.99e9*\v{Q}*1e-9/\vsi{rB}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Travail de la force électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_0 = \qty{\v{q0}e-9}{C}$, $V_A$, $V_B$ ; variable recherchée : $W_{A\to B}$
+    \item \textbf{Équations pertinentes :}
+    \[ W_{A\to B} = -\Delta U = q_0(V_A - V_B) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ W_{A\to B} = \num{\v{q0}e-9} \cdot (\Val{8.99e9*\v{Q}*1e-9/\vsi{rA}} - \Val{8.99e9*\v{Q}*1e-9/\vsi{rB}}) = \ResSci{\v{q0}*1e-9*8.99e9*\v{Q}*1e-9*(1/\vsi{rA} - 1/\vsi{rB})}{J} \]
+    \item \textbf{Réponse :} $W_{A\to B} = \mathbf{\ResSci{\v{q0}*1e-9*8.99e9*\v{Q}*1e-9*(1/\vsi{rA} - 1/\vsi{rB})}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Variation d'énergie potentielle}
+\[ \Delta U = -W_{A\to B} = -\ResSci{\v{q0}*1e-9*8.99e9*\v{Q}*1e-9*(1/\vsi{rA} - 1/\vsi{rB})}{J} \]
+L'énergie potentielle \textbf{diminue} de \textbf{\ResSci{\v{q0}*1e-9*8.99e9*\v{Q}*1e-9*(1/\vsi{rA} - 1/\vsi{rB})}{J}} : la force électrique fait un travail positif (deux charges positives se repoussent), le déplacement se fait spontanément.

@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fondamentale de la corde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\vsi{L}}{m}$, $\mu = \qty{\vsi{mu}}{kg/m}$, $F = \qty{\v{F}}{N}$ ; variable recherchée : $f_1$
+    \item \textbf{Équations pertinentes :}
+    \[ v_c = \sqrt{\frac{F}{\mu}} \qquad f_1 = \frac{v_c}{2L} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f_1 = \frac{1}{2L}\sqrt{\frac{F}{\mu}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_c = \Res{sqrt(\v{F}/\vsi{mu})}{m/s} \qquad f_1 = \frac{\Val{sqrt(\v{F}/\vsi{mu})}}{2 \cdot \num{\vsi{L}}} = \Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz} \]
+    \item \textbf{Réponse :} la fondamentale de la corde est de \textbf{\Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Longueur du tuyau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \Res{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}{Hz}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $L_t$
+    \item \textbf{Équations pertinentes :} tuyau fermé à un bout :
+    \[ f_1 = \frac{v}{4L_t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ L_t = \frac{v}{4 f_1} \]
+    \item \textbf{Résolution numérique :}
+    \[ L_t = \frac{\num{\v{v}}}{4 \cdot \Val{sqrt(\v{F}/\vsi{mu})/(2*\vsi{L})}} = \Res{\v{v}/(4*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L}))}{m} \]
+    \item \textbf{Réponse :} le tuyau doit mesurer \textbf{\Res{100*\v{v}/(4*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L}))}{cm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Coïncidence avec le 3\textsuperscript{e} harmonique}
+Pour un tuyau fermé, $f_3 = \dfrac{3v}{4L_t'}$. En posant $f_3 = f_1^{\text{corde}}$ :
+\[ L_t' = \frac{3v}{4 f_1^{\text{corde}}} = 3 L_t = \Res{3*\v{v}/(4*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L}))}{m} \]
+Le tuyau devrait mesurer \textbf{\Res{300*\v{v}/(4*sqrt(\v{F}/\vsi{mu})/(2*\vsi{L}))}{cm}}.

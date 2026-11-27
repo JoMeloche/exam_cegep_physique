@@ -1,0 +1,18 @@
+title: Puissance nette échangée par rayonnement avec l'environnement
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  em: {type: decimal, min: 0.20, max: 0.95, step: 0.05, label: Émissivité}
+  S:  {type: decimal, min: 0.10, max: 2.00, step: 0.05, unit: m^2, label: Aire}
+  T:  {type: integer, min: 60, max: 400, step: 10, unit: \degreeCelsius, label: Température de l'objet}
+  Te: {type: integer, min: 0, max: 30, step: 1, unit: \degreeCelsius, label: Température de l'environnement}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em*5.67e-8*S*(T+273)**4", unit: W, label: Puissance émise}
+    e2: {expr: "em*5.67e-8*S*(Te+273)**4", unit: W, label: Puissance absorbée}
+    e3: {expr: "em*5.67e-8*S*((T+273)**4 - (Te+273)**4)", unit: W, label: Puissance nette}

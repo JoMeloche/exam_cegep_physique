@@ -1,0 +1,15 @@
+title: "Effet d'une masse quatre fois plus grande sur la période"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$T = 2\pi\sqrt{m/k}$ : multiplier $m$ par 4 multiplie $T$ par $\sqrt{4} = 2$.'
+choices:
+  - 'Elle est multipliée par 4'
+  - 'Elle est multipliée par 2'
+  - 'Elle est divisée par 2'
+  - 'Elle est inchangée'

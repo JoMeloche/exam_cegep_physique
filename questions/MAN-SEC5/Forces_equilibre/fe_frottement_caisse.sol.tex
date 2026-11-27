@@ -1,0 +1,38 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force pour mettre en mouvement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $\mu_s = \num{\v{mus}}$, $g = \qty{9.81}{N/kg}$ ; variable recherchée : $F_{\min}$
+    \item \textbf{Équations pertinentes :} sur un plancher horizontal $F_N = mg$, et
+    \[ F_{fs,\max} = \mu_s F_N \]
+    \item \textbf{Isolation de la variable recherchée :} il faut vaincre le frottement statique maximal :
+    \[ F_{\min} = \mu_s m g \]
+    \item \textbf{Résolution numérique :}
+    \[ F_{\min} = \num{\v{mus}} \cdot \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\v{mus}*\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} il faut pousser avec plus de \textbf{\Res{\v{mus}*\v{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse constante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $\mu_c = \num{\v{muk}}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :} à vitesse constante, la force résultante est nulle :
+    \[ F - F_{fc} = 0 \qquad F_{fc} = \mu_c F_N = \mu_c m g \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F = \mu_c m g \]
+    \item \textbf{Résolution numérique :}
+    \[ F = \num{\v{muk}} \cdot \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\v{muk}*\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} il faut pousser avec \textbf{\Res{\v{muk}*\v{m}*9.81}{N}}, moins que pour la mettre en mouvement.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $F_{fc} = \Res{\v{muk}*\v{m}*9.81}{N}$, $m = \qty{\v{m}}{kg}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} deuxième loi de Newton :
+    \[ F - F_{fc} = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F - F_{fc}}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\qty{\v{F}}{N} - \Val{\v{muk}*\v{m}*9.81}\,\unit{N}}{\qty{\v{m}}{kg}} = \Res{(\v{F} - \v{muk}*\v{m}*9.81)/\v{m}}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{(\v{F} - \v{muk}*\v{m}*9.81)/\v{m}}{m/s^2}}$ (la poussée dépasse bien $F_{\min}$, la caisse se met en mouvement).
+\end{enumerate}

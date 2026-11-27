@@ -1,0 +1,15 @@
+title: "Corps gris en équilibre thermique avec son environnement"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'À l''équilibre, $P_{\text{net}} = e\sigma A (T^4 - T_e^4) = 0$ : le corps émet et absorbe la même puissance, ce qui est vrai pour toute émissivité.'
+choices:
+  - 'Il ne rayonne plus du tout'
+  - 'Il rayonne plus qu''il n''absorbe, car son émissivité est faible'
+  - 'Il absorbe plus qu''il ne rayonne'
+  - 'Il rayonne autant de puissance qu''il en absorbe'

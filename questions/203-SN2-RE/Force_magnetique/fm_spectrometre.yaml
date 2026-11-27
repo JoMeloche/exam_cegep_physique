@@ -1,0 +1,18 @@
+title: Séparation de deux isotopes dans un spectromètre de masse
+type: developpement
+points: 20
+time_min: 16
+difficulty: 3
+figures: []
+variables:
+  dV: {type: decimal, min: 1.0, max: 20.0, step: 0.5, unit: kV, si: 1000, label: Tension accélératrice}
+  B: {type: decimal, min: 0.10, max: 1.00, step: 0.05, unit: T, label: Champ magnétique}
+  m1: {type: integer, min: 6, max: 60, step: 1, unit: u, si: 1.661e-27, label: Masse de l'isotope léger}
+  dm: {type: integer, min: 1, max: 4, step: 1, unit: u, si: 1.661e-27, label: Écart de masse entre les isotopes}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "sqrt(2*1.602e-19*dV/m1)", unit: m/s, label: Vitesse de l'isotope léger}
+    b: {expr: "sqrt(2*m1*dV/1.602e-19)/B", unit: m, label: Rayon de l'isotope léger}
+    c: {expr: "2*(sqrt(2*(m1 + dm)*dV/1.602e-19) - sqrt(2*m1*dV/1.602e-19))/B", unit: m, label: Distance entre les impacts}

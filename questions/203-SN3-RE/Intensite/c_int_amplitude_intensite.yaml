@@ -1,0 +1,15 @@
+title: "Lien entre amplitude et intensité"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'L''intensité d''une onde est proportionnelle au carré de son amplitude : doubler l''amplitude multiplie $I$ par 4.'
+choices:
+  - '$\sqrt{2}$'
+  - '$1$ (elle ne change pas)'
+  - '$2$'
+  - '$4$'

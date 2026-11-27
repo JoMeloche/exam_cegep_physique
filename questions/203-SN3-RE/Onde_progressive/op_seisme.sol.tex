@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance du séisme}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_P = \qty{\vsi{vP}}{m/s}$, $v_S = \qty{\vsi{vS}}{m/s}$, $\Delta t = t_S - t_P = \qty{\v{dt}}{s}$
+        \item Variable recherchée : $d$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ t_P = \frac{d}{v_P} \qquad t_S = \frac{d}{v_S} \qquad \Delta t = \frac{d}{v_S} - \frac{d}{v_P} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{\Delta t}{\dfrac{1}{v_S} - \dfrac{1}{v_P}} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{\num{\v{dt}}}{\dfrac{1}{\num{\vsi{vS}}} - \dfrac{1}{\num{\vsi{vP}}}} = \Res{\v{dt}/(1/\vsi{vS} - 1/\vsi{vP})}{m} \]
+    \item \textbf{Réponse :} le séisme s'est produit à \textbf{\Res{\v{dt}/(1/\v{vS} - 1/\v{vP})}{km}} de la station.
+\end{enumerate}
+
+\subsubsection*{Question b) Arrivée des ondes P}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \Res{\v{dt}/(1/\vsi{vS} - 1/\vsi{vP})}{m}$, $v_P = \qty{\vsi{vP}}{m/s}$
+        \item Variable recherchée : $t_P$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ t_P = \frac{d}{v_P} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ t_P = \frac{\Val{\v{dt}/(1/\vsi{vS} - 1/\vsi{vP})}}{\num{\vsi{vP}}} = \Res{\v{dt}/(1/\vsi{vS} - 1/\vsi{vP})/\vsi{vP}}{s} \]
+    \item \textbf{Réponse :} les ondes P sont arrivées \textbf{\Res{\v{dt}/(1/\vsi{vS} - 1/\vsi{vP})/\vsi{vP}}{s}} après le séisme.
+\end{enumerate}
+
+\subsubsection*{Question c) Ondes S et noyau liquide}
+Une onde transversale exige que le milieu résiste au cisaillement (une force de rappel perpendiculaire à la propagation). Un liquide ne résiste pas au cisaillement : les ondes S (transversales) ne s'y propagent pas, alors que les ondes P (longitudinales, de compression) s'y propagent.

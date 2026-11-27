@@ -1,0 +1,58 @@
+title: Soccer
+type: developpement
+points: 20
+time_min: 20
+difficulty: 3
+figures: []
+variables:
+  PneuPuissance:
+    type: integer
+    min: 40
+    max: 90
+    step: 10
+    unit: W
+    label: PneuPuissance
+  PneuNiveaudB:
+    type: integer
+    min: 91
+    max: 99
+    step: 1
+    unit: dB
+    label: PneuNiveaudB
+  OreilleRayon:
+    type: decimal
+    min: 0.0025
+    max: 0.0045
+    step: 0.0005
+    unit: m
+    label: OreilleRayon
+  MusiqueNiveaudB:
+    type: integer
+    min: 87
+    max: 95
+    step: 1
+    unit: dB
+    label: MusiqueNiveaudB
+solution:
+  mode: manual
+  file: soccer.sol.tex
+needs_review: true
+source: Question_dev/Intensité/soccer.tex
+original_values:
+  PneuPuissance:
+    A: '60'
+    B: '80'
+    C: '50'
+  PneuNiveaudB:
+    A: '95'
+    B: '98'
+    C: '92'
+  OreilleRayon:
+    A: '0.0035'
+    B: '0.0040'
+    C: '0.0030'
+  MusiqueNiveaudB:
+    A: '88'
+    B: '89'
+    C: '94'
+history: []

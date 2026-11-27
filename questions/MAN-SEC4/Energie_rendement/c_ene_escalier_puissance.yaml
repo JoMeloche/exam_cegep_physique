@@ -1,0 +1,15 @@
+title: 'Même escalier, durées différentes'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le travail contre la gravité est $mgh$, le même pour les deux. La puissance $P = W/\Delta t$ est deux fois plus grande pour celui qui met deux fois moins de temps.'
+choices:
+  - 'Alex fait plus de travail que Sam'
+  - 'Sam fait plus de travail qu''Alex'
+  - 'Ils font le même travail, mais la puissance d''Alex est deux fois plus grande'
+  - 'Ils font le même travail et développent la même puissance'

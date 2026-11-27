@@ -1,0 +1,18 @@
+title: 'Cylindre plein qui roule sur un plan incliné'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m: {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: kg, label: Masse du cylindre}
+  R: {type: decimal, min: 3.0, max: 15.0, step: 0.5, unit: cm, si: 0.01, label: Rayon du cylindre}
+  h: {type: decimal, min: 0.3, max: 2.0, step: 0.1, unit: m, label: Hauteur de départ}
+constraints: []
+solution:
+  mode: manual
+  file: rot_cylindre_roule.sol.tex
+  parts:
+    a: {expr: "sqrt(4*g*h/3)", unit: 'm/s', label: 'Vitesse du centre'}
+    b: {expr: "(sqrt(4*g*h/3))/R", unit: 'rad/s', label: 'Vitesse angulaire'}
+    c: {expr: "m*g*h/3", unit: 'J', label: 'Énergie cinétique de rotation'}

@@ -1,0 +1,19 @@
+title: Traîneau tiré par une corde inclinée
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 15, max: 60, step: 1, unit: kg, label: Masse du traîneau}
+  T: {type: integer, min: 40, max: 150, step: 5, unit: N, label: Tension dans la corde}
+  th: {type: integer, min: 15, max: 45, step: 5, unit: \degree, label: Angle de la corde}
+  t: {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: s, label: Durée}
+constraints: [m*g - T*sin(rad(th)) > 10]
+solution:
+  mode: manual
+  file: newt_traineau_corde.sol.tex
+  parts:
+    a: {expr: T*cos(rad(th))/m, unit: m/s^2, label: Accélération}
+    b: {expr: m*g - T*sin(rad(th)), unit: N, label: Force normale}
+    c: {expr: T*cos(rad(th))/m*t, unit: m/s, label: Vitesse}

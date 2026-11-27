@@ -1,0 +1,58 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Énergie potentielle initiale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $h = \qty{\v{h}}{m}$, $g = \qty{9.81}{m/s^2}$
+        \item Variable recherchée : $E_p$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_p = m g h \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_p = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{h}} = \Res{\v{m}*9.81*\v{h}}{J} \]
+    \item \textbf{Réponse :} au départ, le pot a \textbf{\Res{\v{m}*9.81*\v{h}}{J}} d'énergie potentielle.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse au sol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Départ : $E_p = \Res{\v{m}*9.81*\v{h}}{J}$, $E_c = \qty{0}{J}$ ; arrivée : $E_p = \qty{0}{J}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} sans frottement, l'énergie mécanique se conserve :
+    \[ m g h = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \sqrt{2 g h} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{2 \cdot \num{9.81} \cdot \num{\v{h}}} = \Res{sqrt(2*9.81*\v{h})}{m/s} \]
+    \item \textbf{Réponse :} le pot touche le trottoir à \textbf{\Res{sqrt(2*9.81*\v{h})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse à la fenêtre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $h = \qty{\v{h}}{m}$, $h_1 = \qty{\v{h1}}{m}$, $v_0 = \qty{0}{m/s}$
+        \item Variable recherchée : $v_1$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ m g h = m g h_1 + \tfrac{1}{2} m v_1^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_1 = \sqrt{2 g (h - h_1)} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_1 = \sqrt{2 \cdot \num{9.81} \cdot (\num{\v{h}} - \num{\v{h1}})} = \Res{sqrt(2*9.81*(\v{h}-\v{h1}))}{m/s} \]
+    \item \textbf{Réponse :} le pot passe devant la fenêtre à \textbf{\Res{sqrt(2*9.81*(\v{h}-\v{h1}))}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Énergie cinétique à la fenêtre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $v_1 = \Res{sqrt(2*9.81*(\v{h}-\v{h1}))}{m/s}$
+        \item Variable recherchée : $E_c$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_c = \tfrac{1}{2} m v_1^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_c = \tfrac{1}{2} \cdot \num{\v{m}} \cdot (\Val{sqrt(2*9.81*(\v{h}-\v{h1}))})^2 = \Res{\v{m}*9.81*(\v{h}-\v{h1})}{J} \]
+    \item \textbf{Réponse :} à la fenêtre, l'énergie cinétique est de \textbf{\Res{\v{m}*9.81*(\v{h}-\v{h1})}{J}} (c'est l'énergie potentielle perdue depuis le balcon).
+\end{enumerate}

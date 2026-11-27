@@ -1,0 +1,16 @@
+title: 'Vitesse moyenne d''un aller-retour'
+type: conceptuel
+points: 4
+time_min: 5
+difficulty: 3
+figures: []
+tags: [MRU]
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Montée : $\frac{6}{12} = \qty{0.5}{h}$, descente : $\frac{6}{36} = \frac{1}{6}\,\unit{h}$. Distance totale \qty{12}{km} en $\frac{2}{3}\,\unit{h}$, soit \qty{18}{km/h}. La moyenne des vitesses (\qty{24}{km/h}) ne convient pas parce qu''il passe plus de temps à monter.'
+choices:
+  - '\qty{18}{km/h}'
+  - '\qty{24}{km/h}'
+  - '\qty{20}{km/h}'
+  - '\qty{30}{km/h}'

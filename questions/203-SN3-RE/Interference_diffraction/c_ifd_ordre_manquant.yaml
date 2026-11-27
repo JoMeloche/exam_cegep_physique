@@ -1,0 +1,15 @@
+title: "Premier ordre manquant quand d = 3a"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un maximum d''interférence ($d\sin\theta = m\lambda$) tombe sur le premier minimum de diffraction ($a\sin\theta = \lambda$) si $m = d/a = 3$. Cette frange n''apparaît donc pas.'
+choices:
+  - '$m = 1$'
+  - '$m = 2$'
+  - '$m = 3$'
+  - '$m = 6$'

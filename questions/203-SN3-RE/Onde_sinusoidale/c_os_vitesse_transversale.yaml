@@ -1,0 +1,15 @@
+title: "Ce qui modifie la vitesse transversale maximale"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$v_{y,\max} = A\omega$ augmente avec l''amplitude, alors que la vitesse de l''onde $\sqrt{F/\mu}$ ne dépend pas de $A$.'
+choices:
+  - 'La vitesse transversale maximale des points de la corde'
+  - 'La vitesse de propagation de l''onde'
+  - 'La longueur d''onde'
+  - 'La période'

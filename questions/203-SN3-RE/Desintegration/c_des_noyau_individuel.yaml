@@ -1,0 +1,15 @@
+title: "Prévoir la désintégration d'un noyau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La désintégration est aléatoire : la demi-vie décrit un grand nombre de noyaux. Un noyau donné a une probabilité de \qty{50}{\percent} de se désintégrer pendant la prochaine demi-vie, quel que soit son âge.'
+choices:
+  - 'Plus de \qty{50}{\percent}, car il est déjà « vieux »'
+  - '\qty{50}{\percent}'
+  - 'Moins de \qty{50}{\percent}'
+  - '\qty{100}{\percent}'

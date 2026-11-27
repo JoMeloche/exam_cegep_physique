@@ -1,0 +1,18 @@
+title: Battements entre deux tuyaux d'orgue
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  L1: {type: decimal, min: 40.0, max: 120.0, step: 0.5, unit: cm, si: 0.01, label: Longueur du tuyau 1}
+  dL: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: cm, si: 0.01, label: Écart de longueur}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "v/(2*L1)", unit: Hz, label: Fondamentale du tuyau 1}
+    a2: {expr: "v/(2*(L1 + dL))", unit: Hz, label: Fondamentale du tuyau 2}
+    b: {expr: "v/(2*L1) - v/(2*(L1 + dL))", unit: Hz, label: Fréquence des battements}
+    c: {expr: "(v/(2*L1) + v/(2*(L1 + dL)))/2", unit: Hz, label: Fréquence perçue}

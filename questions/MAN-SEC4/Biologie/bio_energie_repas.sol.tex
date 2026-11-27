@@ -1,0 +1,47 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie du repas}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_g = \qty{\v{gl}}{g}$, $m_l = \qty{\v{li}}{g}$, $m_p = \qty{\v{pr}}{g}$ ; variable recherchée : $E$ (kJ)
+    \item \textbf{Équations pertinentes :}
+    \[ E = m_g \times \qty{17}{kJ/g} + m_l \times \qty{37}{kJ/g} + m_p \times \qty{17}{kJ/g} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = \num{\v{gl}} \times \num{17} + \num{\v{li}} \times \num{37} + \num{\v{pr}} \times \num{17} = \num{\fpeval{17*\v{gl}}} + \num{\fpeval{37*\v{li}}} + \num{\fpeval{17*\v{pr}}} = \qty{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}{kJ} \]
+    \item \textbf{Réponse :} le repas fournit \textbf{\qty{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}{kJ}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Part des lipides}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_l = \qty{\fpeval{37*\v{li}}}{kJ}$, $E = \qty{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}{kJ}$ ; variable recherchée : pourcentage
+    \item \textbf{Équations pertinentes :}
+    \[ \% = \frac{E_l}{E} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \% = \frac{\num{\fpeval{37*\v{li}}}}{\num{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}} \times 100 = \Res{100*37*\v{li}/(17*\v{gl}+37*\v{li}+17*\v{pr})}{\percent} \]
+    \item \textbf{Réponse :} \textbf{\Res{100*37*\v{li}/(17*\v{gl}+37*\v{li}+17*\v{pr})}{\percent}} de l'énergie vient des lipides.
+\end{enumerate}
+
+\subsubsection*{Question c) Part du besoin quotidien}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}{kJ}$, $B = \qty{\v{B}}{kJ}$ ; variable recherchée : pourcentage
+    \item \textbf{Équations pertinentes :}
+    \[ \% = \frac{E}{B} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \% = \frac{\num{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}}{\num{\v{B}}} \times 100 = \Res{100*(17*\v{gl}+37*\v{li}+17*\v{pr})/\v{B}}{\percent} \]
+    \item \textbf{Réponse :} le repas fournit \textbf{\Res{100*(17*\v{gl}+37*\v{li}+17*\v{pr})/\v{B}}{\percent}} du besoin quotidien.
+\end{enumerate}
+
+\subsubsection*{Question d) Durée de marche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E = \qty{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}{kJ}$, $P = \qty{\v{Pm}}{kJ/h}$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{E}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{E}{P} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\num{\fpeval{17*\v{gl}+37*\v{li}+17*\v{pr}}}}{\num{\v{Pm}}} = \Res{(17*\v{gl}+37*\v{li}+17*\v{pr})/\v{Pm}}{h} \]
+    \item \textbf{Réponse :} il faut marcher environ \textbf{\Res{(17*\v{gl}+37*\v{li}+17*\v{pr})/\v{Pm}}{h}}.
+\end{enumerate}

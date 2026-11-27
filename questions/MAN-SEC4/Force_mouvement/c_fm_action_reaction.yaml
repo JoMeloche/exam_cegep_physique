@@ -1,0 +1,15 @@
+title: 'Action et réaction'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Troisième loi de Newton : les forces d''action et de réaction sont égales et opposées. Avec la même force, la plus petite masse subit la plus grande accélération.'
+choices:
+  - 'La patineuse exerce une force plus grande sur le patineur que celui-ci sur elle.'
+  - 'Le patineur exerce une force plus grande sur la patineuse, car il est plus lourd.'
+  - 'Les deux forces ont la même grandeur et des sens opposés ; la patineuse acquiert la plus grande vitesse.'
+  - 'Seul le patineur se met en mouvement, puisque c''est lui qui est poussé.'

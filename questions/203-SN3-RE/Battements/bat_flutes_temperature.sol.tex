@@ -1,0 +1,21 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Fréquence de la flûte chaude}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_1 = \qty{\v{f}}{Hz}$ à $T_1 = \qty{293}{K}$, $T_2 = \qty{\fpeval{\v{T2}+273}}{K}$ ; variable recherchée : $f_2$
+    \item \textbf{Équations pertinentes :} pour une flûte (tuyau ouvert) de longueur $L$ fixe,
+    \[ f = \frac{n v}{2L} \qquad v = 331\sqrt{\frac{T}{273}} \implies f \propto \sqrt{T} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ f_2 = f_1\sqrt{\frac{T_2}{T_1}} \]
+    \item \textbf{Résolution numérique :}
+    \[ f_2 = \num{\v{f}} \cdot \sqrt{\frac{\fpeval{\v{T2}+273}}{293}} = \qty[round-mode=places,round-precision=1]{\fpeval{\v{f}*sqrt((\v{T2}+273)/293)}}{Hz} \]
+    \item \textbf{Réponse :} la flûte de Samuel produit \textbf{\qty[round-mode=places,round-precision=1]{\fpeval{\v{f}*sqrt((\v{T2}+273)/293)}}{Hz}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Battements}
+\[ f_{\text{batt}} = f_2 - f_1 = \Res{\v{f}*sqrt((\v{T2}+273)/293) - \v{f}}{Hz} \]
+On entend \textbf{\Res{\v{f}*sqrt((\v{T2}+273)/293) - \v{f}}{Hz}} de battements.
+
+\subsubsection*{Question c) Correction}
+La flûte de Samuel est trop aiguë. Comme $f = nv/(2L)$, il doit \textbf{allonger} sa flûte pour abaisser sa fréquence jusqu'à \qty{\v{f}}{Hz}.

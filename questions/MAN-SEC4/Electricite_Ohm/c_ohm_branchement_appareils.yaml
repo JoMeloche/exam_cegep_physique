@@ -1,0 +1,15 @@
+title: 'Branchement de l''ampèremètre et du voltmètre'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Le courant doit traverser l''ampèremètre (en série) ; le voltmètre compare le potentiel des deux bornes de l''ampoule (en parallèle).'
+choices:
+  - 'L''ampèremètre et le voltmètre en série avec l''ampoule.'
+  - 'L''ampèremètre et le voltmètre en parallèle avec l''ampoule.'
+  - 'L''ampèremètre en série avec l''ampoule et le voltmètre en parallèle avec l''ampoule.'
+  - 'L''ampèremètre en parallèle avec l''ampoule et le voltmètre en série avec l''ampoule.'

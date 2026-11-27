@@ -1,0 +1,15 @@
+title: 'Contrainte subie par un tournevis'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Les deux extrémités de la tige tournent en sens opposés (la main d''un côté, la vis qui résiste de l''autre) : la tige est tordue, c''est la torsion.'
+choices:
+  - 'La traction'
+  - 'La compression'
+  - 'La flexion'
+  - 'La torsion'

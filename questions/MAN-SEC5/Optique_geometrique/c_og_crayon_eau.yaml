@@ -1,0 +1,15 @@
+title: 'Crayon brisé dans un verre d''eau'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Les rayons venant de la partie immergée changent de direction en sortant de l''eau (réfraction) ; l''œil les prolonge en ligne droite et voit la partie immergée à une autre position.'
+choices:
+  - 'La réflexion de la lumière sur la surface de l''eau'
+  - 'La diffraction de la lumière'
+  - 'La réfraction de la lumière'
+  - 'L''absorption de la lumière par l''eau'

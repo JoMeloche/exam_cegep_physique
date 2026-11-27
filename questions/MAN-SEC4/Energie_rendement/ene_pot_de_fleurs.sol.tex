@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie potentielle}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.8}{N/kg}$, $h = \qty{\v{h}}{m}$ ; variable recherchée : $E_p$
+    \item \textbf{Équations pertinentes :}
+    \[ E_p = m g h \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_p = \num{\v{m}} \times \num{9.8} \times \num{\v{h}} = \Res{\v{m}*9.8*\v{h}}{J} \]
+    \item \textbf{Réponse :} le pot a une énergie potentielle de \textbf{\Res{\v{m}*9.8*\v{h}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse sans frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_p = \Res{\v{m}*9.8*\v{h}}{J}$, toute l'énergie devient cinétique ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ E_p = E_k = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{\frac{2 E_k}{m}} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{\frac{2 \times \Val{\v{m}*9.8*\v{h}}}{\num{\v{m}}}} = \Res{sqrt(2*9.8*\v{h})}{m/s} \]
+    \item \textbf{Réponse :} le pot touche le sol à \textbf{\Res{sqrt(2*9.8*\v{h})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Avec la résistance de l'air}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_p = \Res{\v{m}*9.8*\v{h}}{J}$, \qty{\v{pe}}{\percent} perdus ; variables recherchées : $E_k$ et $v$
+    \item \textbf{Équations pertinentes :}
+    \[ E_k = E_p \times \frac{100 - \%_{\text{perdu}}}{100} \qquad E_k = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{\frac{2 E_k}{m}} \]
+    \item \textbf{Résolution numérique :}
+    \[ E_k = \Val{\v{m}*9.8*\v{h}} \times \num{\fpeval{(100-\v{pe})/100}} = \Res{\v{m}*9.8*\v{h}*(100-\v{pe})/100}{J} \qquad v = \sqrt{\frac{2 \times \Val{\v{m}*9.8*\v{h}*(100-\v{pe})/100}}{\num{\v{m}}}} = \Res{sqrt(2*9.8*\v{h}*(100-\v{pe})/100)}{m/s} \]
+    \item \textbf{Réponse :} juste avant le sol, $E_k = $ \textbf{\Res{\v{m}*9.8*\v{h}*(100-\v{pe})/100}{J}} et $v = $ \textbf{\Res{sqrt(2*9.8*\v{h}*(100-\v{pe})/100)}{m/s}}.
+\end{enumerate}

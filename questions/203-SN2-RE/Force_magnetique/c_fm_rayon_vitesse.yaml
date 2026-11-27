@@ -1,0 +1,15 @@
+title: "Rayon de la trajectoire quand la vitesse double"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'De $|q|vB = mv^2/r$, on tire $r = mv/(|q|B)$ : le rayon est proportionnel à la vitesse, il devient $2r$. (La période, elle, ne change pas.)'
+choices:
+  - $2r$
+  - $r$
+  - $r/2$
+  - $4r$

@@ -1,0 +1,15 @@
+title: 'Nature d''une solution selon son pH'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un pH inférieur à 7 indique une solution acide. Les acides en solution sont des électrolytes : le jus de citron conduit l''électricité.'
+choices:
+  - 'Le jus de citron est une solution basique'
+  - 'Le jus de citron est une solution neutre'
+  - 'Le jus de citron est une solution acide'
+  - 'Le jus de citron ne conduit pas l''électricité'

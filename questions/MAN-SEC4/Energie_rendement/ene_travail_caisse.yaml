@@ -1,0 +1,18 @@
+title: Travail et puissance pour pousser une caisse
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  F:   {type: integer, min: 50, max: 300, step: 10, unit: N, label: Force appliquée}
+  d:   {type: decimal, min: 2.0, max: 20.0, step: 0.5, unit: m, label: Déplacement}
+  t:   {type: integer, min: 5, max: 40, step: 1, unit: s, label: Durée}
+  eta: {type: integer, min: 20, max: 30, step: 1, unit: \percent, label: Rendement du corps humain}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "F*d", unit: J, label: Travail}
+    b: {expr: "F*d/t", unit: W, label: Puissance}
+    c: {expr: "F*d*100/eta", unit: J, label: Énergie chimique dépensée}

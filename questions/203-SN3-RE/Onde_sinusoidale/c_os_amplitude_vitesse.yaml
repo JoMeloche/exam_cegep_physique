@@ -1,0 +1,15 @@
+title: "Effet de l'amplitude sur la vitesse d'une onde"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La vitesse d''une onde sur une corde ne dépend que de $F$ et $\mu$ ($v = \sqrt{F/\mu}$), pas de l''amplitude.'
+choices:
+  - 'Elle est multipliée par 2'
+  - 'Elle est multipliée par 4'
+  - 'Elle est inchangée'
+  - 'Elle est divisée par 2'

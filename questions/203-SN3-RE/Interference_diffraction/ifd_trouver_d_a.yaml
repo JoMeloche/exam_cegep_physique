@@ -1,0 +1,20 @@
+title: Retrouver la distance et la largeur des fentes à partir de la figure
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  lam: {type: choice, values: [532, 633, 650], unit: nm, si: 1e-9, label: Longueur d'onde du laser}
+  L: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: m, label: Distance fentes-écran}
+  dy: {type: decimal, min: 1.0, max: 6.0, step: 0.1, unit: mm, si: 0.001, label: Distance entre franges d'interférence}
+  W: {type: integer, min: 10, max: 60, step: 1, unit: mm, si: 0.001, label: Largeur du maximum central de diffraction}
+constraints:
+  - 2.2 < W/(2*dy) < 10
+  - abs(W/(2*dy) - round(W/(2*dy))) > 0.12
+solution:
+  mode: manual
+  parts:
+    dd: {expr: "lam*L/dy", unit: m, label: Distance entre les fentes}
+    aa: {expr: "2*lam*L/W", unit: m, label: Largeur des fentes}
+    N: {expr: "2*floor(W/(2*dy)) + 1", unit: "", label: Nombre de franges brillantes dans le maximum central}

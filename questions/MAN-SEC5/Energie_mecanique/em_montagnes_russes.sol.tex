@@ -1,0 +1,57 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Énergie mécanique au point A}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $h_A = \qty{\v{hA}}{m}$, $v_A = \qty{\v{vA}}{m/s}$, $g = \qty{9.81}{m/s^2}$
+        \item Variable recherchée : $E_m$ (J)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ E_m = E_p + E_c = m g h_A + \tfrac{1}{2} m v_A^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_m = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{hA}} + \tfrac{1}{2} \cdot \num{\v{m}} \cdot (\num{\v{vA}})^2 = \Res{\v{m}*9.81*\v{hA} + \v{m}*\v{vA}^2/2}{J} \]
+    \item \textbf{Réponse :} l'énergie mécanique du wagon est de \textbf{\Res{\v{m}*9.81*\v{hA} + \v{m}*\v{vA}^2/2}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse au point B}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $E_m = \Res{\v{m}*9.81*\v{hA} + \v{m}*\v{vA}^2/2}{J}$, $h_B = \qty{0}{m}$
+        \item Variable recherchée : $v_B$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ m g h_A + \tfrac{1}{2} m v_A^2 = \tfrac{1}{2} m v_B^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_B = \sqrt{v_A^2 + 2 g h_A} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_B = \sqrt{(\num{\v{vA}})^2 + 2 \cdot \num{9.81} \cdot \num{\v{hA}}} = \Res{sqrt(\v{vA}^2 + 2*9.81*\v{hA})}{m/s} \]
+    \item \textbf{Réponse :} au point B, le wagon roule à \textbf{\Res{sqrt(\v{vA}^2 + 2*9.81*\v{hA})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse au sommet C}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $h_A = \qty{\v{hA}}{m}$, $v_A = \qty{\v{vA}}{m/s}$, $h_C = \qty{\v{hC}}{m}$
+        \item Variable recherchée : $v_C$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ m g h_A + \tfrac{1}{2} m v_A^2 = m g h_C + \tfrac{1}{2} m v_C^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_C = \sqrt{v_A^2 + 2 g (h_A - h_C)} \]
+    \item \textbf{Résolution numérique :}
+    \[ v_C = \sqrt{(\num{\v{vA}})^2 + 2 \cdot \num{9.81} \cdot (\num{\v{hA}} - \num{\v{hC}})} = \Res{sqrt(\v{vA}^2 + 2*9.81*(\v{hA}-\v{hC}))}{m/s} \]
+    \item \textbf{Réponse :} au sommet C, le wagon roule à \textbf{\Res{sqrt(\v{vA}^2 + 2*9.81*(\v{hA}-\v{hC}))}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Hauteur maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $h_A = \qty{\v{hA}}{m}$, $v_A = \qty{\v{vA}}{m/s}$, à la hauteur maximale $v = \qty{0}{m/s}$
+        \item Variable recherchée : $h_{\max}$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ m g h_A + \tfrac{1}{2} m v_A^2 = m g h_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ h_{\max} = h_A + \frac{v_A^2}{2g} \]
+    \item \textbf{Résolution numérique :}
+    \[ h_{\max} = \num{\v{hA}} + \frac{(\num{\v{vA}})^2}{2 \cdot \num{9.81}} = \Res{\v{hA} + \v{vA}^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} le wagon pourrait monter jusqu'à \textbf{\Res{\v{hA} + \v{vA}^2/(2*9.81)}{m}} du sol.
+\end{enumerate}

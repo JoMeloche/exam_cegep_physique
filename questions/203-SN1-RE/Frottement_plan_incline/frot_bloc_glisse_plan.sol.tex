@@ -1,0 +1,54 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Angle du plan incliné : $\theta = \qty{\v{th}}{\degree}$
+        \item Coefficient de frottement cinétique : $\mu_c = \num{\v{mu}}$
+        \item Axe $x$ le long du plan vers le bas ; forces : $mg$, $n$, $f_c$ vers le haut du plan
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_y = 0 \implies n = mg\cos\theta \qquad \sum F_x = ma \implies mg\sin\theta - \mu_c n = m a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = g(\sin\theta - \mu_c\cos\theta) \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \num{9.81}\,(\sin(\ang{\v{th}}) - \num{\vsi{mu}}\cos(\ang{\v{th}})) = \Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2} \]
+    \item \textbf{Réponse :} le bloc accélère à \textbf{\Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2}} le long du plan (la masse se simplifie).
+\end{enumerate}
+
+\subsubsection*{Question b) Vitesse au bas du plan}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a = \Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2}$
+        \item Longueur du plan : $L = \qty{\v{L}}{m}$
+        \item $v_0 = 0$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v^2 = v_0^2 + 2 a L \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v = \sqrt{2 a L} \]
+    \item \textbf{Résolution numérique :}
+    \[ v = \sqrt{2 \cdot \Val{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))} \cdot \num{\vsi{L}}} = \Res{sqrt(2*9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))*\vsi{L})}{m/s} \]
+    \item \textbf{Réponse :} le bloc arrive en bas à \textbf{\Res{sqrt(2*9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))*\vsi{L})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Durée de la descente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a = \Res{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}{m/s^2}$
+        \item Longueur du plan : $L = \qty{\v{L}}{m}$
+        \item Variable recherchée : $t$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ L = \frac{1}{2} a t^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ t = \sqrt{\frac{2L}{a}} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \sqrt{\frac{2 \cdot \num{\vsi{L}}}{\Val{9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))}}} = \Res{sqrt(2*\vsi{L}/(9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))))}{s} \]
+    \item \textbf{Réponse :} la descente dure \textbf{\Res{sqrt(2*\vsi{L}/(9.81*(sind(\vsi{th}) - \vsi{mu}*cosd(\vsi{th}))))}{s}}.
+\end{enumerate}

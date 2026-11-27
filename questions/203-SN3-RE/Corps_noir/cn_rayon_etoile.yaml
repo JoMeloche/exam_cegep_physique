@@ -1,0 +1,16 @@
+title: Rayon d'une étoile à partir de sa luminosité et de son spectre
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  Lr: {type: sigfig, min: 0.01, max: 1000, sigfigs: 2, unit: L_soleil, si: 3.83e26, label: Luminosité}
+  lm: {type: integer, min: 200, max: 1200, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde du maximum}
+constraints:
+  - 0.05 < sqrt(Lr/(4*pi*5.67e-8*(2.898e-3/lm)**4))/6.96e8 < 300
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "2.898e-3/lm", unit: K, label: Température}
+    e2: {expr: "sqrt(Lr/(4*pi*5.67e-8*(2.898e-3/lm)**4))", unit: m, label: Rayon}

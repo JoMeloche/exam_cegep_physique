@@ -1,0 +1,22 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Grandeur de la résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_1 = \qty{\v{F1}}{N}$ (est), $F_2 = \qty{\v{F2}}{N}$ (nord) ; variable recherchée : $F_R$
+    \item \textbf{Équations pertinentes :} les forces sont perpendiculaires, donc (Pythagore) :
+    \[ F_R^2 = F_1^2 + F_2^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_R = \sqrt{F_1^2 + F_2^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ F_R = \sqrt{(\qty{\v{F1}}{N})^2 + (\qty{\v{F2}}{N})^2} = \Res{sqrt(\v{F1}^2+\v{F2}^2)}{N} \]
+    \item \textbf{Réponse :} $F_R = \mathbf{\Res{sqrt(\v{F1}^2+\v{F2}^2)}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Orientation}
+\[ \tan\theta = \frac{F_2}{F_1} \quad\Rightarrow\quad \theta = \arctan\left(\frac{\num{\v{F2}}}{\num{\v{F1}}}\right) = \Res{atand(\v{F2}/\v{F1})}{\degree} \]
+La résultante pointe à \textbf{\Res{atand(\v{F2}/\v{F1})}{\degree} au nord de l'est}.
+
+\subsubsection*{Question c) Force équilibrante}
+L'équilibrante a la même grandeur que la résultante et l'orientation opposée :
+\[ F_{\text{éq}} = \Res{sqrt(\v{F1}^2+\v{F2}^2)}{N}, \qquad \text{orientée à } \Res{atand(\v{F2}/\v{F1})}{\degree} \text{ au sud de l'ouest} \]

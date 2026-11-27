@@ -1,0 +1,17 @@
+title: Deux véhicules qui se croisent
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f:  {type: integer, min: 300, max: 900, step: 10, unit: Hz, label: Fréquence du klaxon}
+  vs: {type: integer, min: 15, max: 35, step: 1, unit: m/s, label: Vitesse du camion}
+  vo: {type: integer, min: 15, max: 35, step: 1, unit: m/s, label: Vitesse de l'auto}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "f*(v + vo)/(v - vs)", unit: Hz, label: Fréquence avant le croisement}
+    b: {expr: "f*(v - vo)/(v + vs)", unit: Hz, label: Fréquence après le croisement}

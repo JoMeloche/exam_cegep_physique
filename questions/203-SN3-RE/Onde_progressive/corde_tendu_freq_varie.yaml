@@ -1,0 +1,17 @@
+title: Corde tendu freq varie
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- $k$ seulement
+- $\omega$ seulement
+- $k$ et $\omega$
+- $k$, $\omega$ et $A$
+- $\omega$ et $A$
+needs_review: true
+source: Question_concept/Onde_progressive/C_corde_tendu_freq_varie.tex
+history: []

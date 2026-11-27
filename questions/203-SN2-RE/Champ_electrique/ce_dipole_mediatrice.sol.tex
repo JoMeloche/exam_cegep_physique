@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Champ de chaque charge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q = \qty{\v{q}e-9}{C}$, $a = \qty{\vsi{a}}{m}$, $y = \qty{\vsi{y}}{m}$ ; variable recherchée : $E_+ = E_-$
+    \item \textbf{Équations pertinentes :} chaque charge est à $r = \sqrt{a^2 + y^2}$ de $P$ :
+    \[ E_\pm = \frac{k q}{r^2} = \frac{kq}{a^2 + y^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E_\pm = \frac{\num{8.99e9} \cdot \num{\v{q}e-9}}{(\num{\vsi{a}})^2 + (\num{\vsi{y}})^2} = \Res{8.99e9*\v{q}*1e-9/((\vsi{a})^2+(\vsi{y})^2)}{N/C} \]
+    \item \textbf{Réponse :} chaque charge produit $E_\pm = \mathbf{\Res{8.99e9*\v{q}*1e-9/((\vsi{a})^2+(\vsi{y})^2)}{N/C}}$ en $P$.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ résultant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_\pm$, $\cos\theta = a/r$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :} les composantes verticales s'annulent, les composantes horizontales (vers $-q$) s'additionnent :
+    \[ E = 2E_\pm\cos\theta = 2E_\pm\frac{a}{\sqrt{a^2 + y^2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ E = 2 \cdot \Val{8.99e9*\v{q}*1e-9/((\vsi{a})^2+(\vsi{y})^2)} \cdot \frac{\num{\vsi{a}}}{\Val{sqrt((\vsi{a})^2+(\vsi{y})^2)}} = \Res{2*8.99e9*\v{q}*1e-9*\vsi{a}/((\vsi{a})^2+(\vsi{y})^2)^1.5}{N/C} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{2*8.99e9*\v{q}*1e-9*\vsi{a}/((\vsi{a})^2+(\vsi{y})^2)^1.5}{N/C}}$, parallèle à l'axe du dipôle, dirigé de $+q$ vers $-q$.
+\end{enumerate}
+
+\subsubsection*{Question c) Force sur la charge}
+\[ F = q_0 E = \num{\v{q0}e-9} \cdot \Val{2*8.99e9*\v{q}*1e-9*\vsi{a}/((\vsi{a})^2+(\vsi{y})^2)^1.5} = \ResSci{\v{q0}*1e-9*2*8.99e9*\v{q}*1e-9*\vsi{a}/((\vsi{a})^2+(\vsi{y})^2)^1.5}{N} \]
+La force vaut \textbf{\ResSci{\v{q0}*1e-9*2*8.99e9*\v{q}*1e-9*\vsi{a}/((\vsi{a})^2+(\vsi{y})^2)^1.5}{N}}, dans le même sens que le champ (de $+q$ vers $-q$), car $q_0 > 0$.

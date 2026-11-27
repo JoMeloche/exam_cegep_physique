@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Travail}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $d = \qty{\v{d}}{m}$ (force parallèle au déplacement) ; variable recherchée : $W$
+    \item \textbf{Équations pertinentes :}
+    \[ W = F\,d \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ W = \num{\v{F}} \times \num{\v{d}} = \qty{\fpeval{\v{F}*\v{d}}}{J} \]
+    \item \textbf{Réponse :} le déménageur effectue un travail de \textbf{\qty{\fpeval{\v{F}*\v{d}}}{J}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Puissance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $W = \qty{\fpeval{\v{F}*\v{d}}}{J}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{W}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P = \frac{\num{\fpeval{\v{F}*\v{d}}}}{\num{\v{t}}} = \Res{\v{F}*\v{d}/\v{t}}{W} \]
+    \item \textbf{Réponse :} il développe une puissance moyenne de \textbf{\Res{\v{F}*\v{d}/\v{t}}{W}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie chimique dépensée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_u = W = \qty{\fpeval{\v{F}*\v{d}}}{J}$, rendement \qty{\v{eta}}{\percent} ; variable recherchée : $E_c$
+    \item \textbf{Équations pertinentes :}
+    \[ \text{Rendement} = \frac{E_u}{E_c} \times 100 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ E_c = \frac{E_u \times 100}{\text{Rendement}} \]
+    \item \textbf{Résolution numérique :}
+    \[ E_c = \frac{\num{\fpeval{\v{F}*\v{d}}} \times 100}{\num{\v{eta}}} = \Res{\v{F}*\v{d}*100/\v{eta}}{J} \]
+    \item \textbf{Réponse :} il dépense \textbf{\Res{\v{F}*\v{d}*100/\v{eta}}{J}} d'énergie chimique. Le reste est surtout transformé en \textbf{chaleur} : c'est pourquoi on a chaud pendant un effort.
+\end{enumerate}

@@ -1,0 +1,49 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Vitesse du son}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $T = \qty{\v{T}}{\degreeCelsius} = \qty{\fpeval{\v{T}+273}}{K}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = 331\sqrt{\frac{T}{273}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = 331\sqrt{\frac{\fpeval{\v{T}+273}}{273}} = \Res{331*sqrt((\v{T}+273)/273)}{m/s} \]
+    \item \textbf{Réponse :} le son se propage à \textbf{\Res{331*sqrt((\v{T}+273)/273)}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance de la falaise}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v = \Res{331*sqrt((\v{T}+273)/273)}{m/s}$, $\Delta t = \qty{\v{t}}{s}$ (aller-retour)
+        \item Variable recherchée : $d$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 2d = v\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{v\,\Delta t}{2} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{\Val{331*sqrt((\v{T}+273)/273)} \cdot \num{\v{t}}}{2} = \Res{331*sqrt((\v{T}+273)/273)*\v{t}/2}{m} \]
+    \item \textbf{Réponse :} la falaise est à \textbf{\Res{331*sqrt((\v{T}+273)/273)*\v{t}/2}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Délai à \qty{\v{T2}}{\degreeCelsius}}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \Res{331*sqrt((\v{T}+273)/273)*\v{t}/2}{m}$, $T' = \qty{\fpeval{\v{T2}+273}}{K}$
+        \item Variable recherchée : $\Delta t'$ (s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v' = 331\sqrt{\frac{T'}{273}} \qquad 2d = v'\,\Delta t' \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t' = \frac{2d}{v'} \]
+    \item \textbf{Résolution numérique :}
+    \[ v' = \Res{331*sqrt((\v{T2}+273)/273)}{m/s} \qquad \Delta t' = \frac{2 \cdot \Val{331*sqrt((\v{T}+273)/273)*\v{t}/2}}{\Val{331*sqrt((\v{T2}+273)/273)}} = \Res{\v{t}*sqrt((\v{T}+273)/(\v{T2}+273))}{s} \]
+    \item \textbf{Réponse :} elle entendrait l'écho après \textbf{\Res{\v{t}*sqrt((\v{T}+273)/(\v{T2}+273))}{s}}.
+\end{enumerate}

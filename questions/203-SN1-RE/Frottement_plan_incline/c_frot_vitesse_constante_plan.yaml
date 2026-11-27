@@ -1,0 +1,11 @@
+title: Glissement à vitesse constante
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: $a = 0 \Rightarrow mg\sin\theta = \mu_c mg\cos\theta \Rightarrow \mu_c = \tan\theta$.
+choices: [$\sin\theta$, $\cos\theta$, $\tan\theta$, $1/\tan\theta$]

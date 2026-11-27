@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Courant dans chaque résistor}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{\v{U}}{V}$ (la même aux bornes des deux résistors en parallèle), $R_1 = \qty{\v{R1}}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$ ; variables recherchées : $I_1$, $I_2$
+    \item \textbf{Équations pertinentes :} loi d'Ohm :
+    \[ U = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{U}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I_1 = \frac{\qty{\v{U}}{V}}{\qty{\v{R1}}{\ohm}} = \Res{\v{U}/\v{R1}}{A} \qquad I_2 = \frac{\qty{\v{U}}{V}}{\qty{\v{R2}}{\ohm}} = \Res{\v{U}/\v{R2}}{A} \]
+    \item \textbf{Réponse :} $I_1 = \mathbf{\Res{\v{U}/\v{R1}}{A}}$ et $I_2 = \mathbf{\Res{\v{U}/\v{R2}}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant total}
+En parallèle, les courants des branches s'additionnent :
+\[ I_t = I_1 + I_2 = \Val{\v{U}/\v{R1}}\,\unit{A} + \Val{\v{U}/\v{R2}}\,\unit{A} = \Res{\v{U}/\v{R1}+\v{U}/\v{R2}}{A} \]
+La source fournit \textbf{\Res{\v{U}/\v{R1}+\v{U}/\v{R2}}{A}}.
+
+\subsubsection*{Question c) Résistance équivalente}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_1 = \qty{\v{R1}}{\ohm}$, $R_2 = \qty{\v{R2}}{\ohm}$ ; variable recherchée : $R_{\text{éq}}$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{1}{R_{\text{éq}}} = \frac{1}{R_1} + \frac{1}{R_2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ R_{\text{éq}} = \frac{R_1 R_2}{R_1 + R_2} \]
+    \item \textbf{Résolution numérique :}
+    \[ R_{\text{éq}} = \frac{\qty{\v{R1}}{\ohm} \cdot \qty{\v{R2}}{\ohm}}{\qty{\v{R1}}{\ohm} + \qty{\v{R2}}{\ohm}} = \Res{\v{R1}*\v{R2}/(\v{R1}+\v{R2})}{\ohm} \]
+    \item \textbf{Réponse :} $R_{\text{éq}} = \mathbf{\Res{\v{R1}*\v{R2}/(\v{R1}+\v{R2})}{\ohm}}$, plus petite que \qty{\fpeval{min(\v{R1},\v{R2})}}{\ohm}. On vérifie aussi $U/I_t = R_{\text{éq}}$.
+\end{enumerate}

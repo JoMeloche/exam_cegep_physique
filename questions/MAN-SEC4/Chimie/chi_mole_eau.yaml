@@ -1,0 +1,16 @@
+title: Moles et molécules dans une masse d'eau
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+tags: [STE]
+variables:
+  m: {type: integer, min: 10, max: 200, step: 5, unit: g, label: Masse d'eau}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "m/18.02", unit: mol, label: Quantité d'eau}
+    b: {expr: "m/18.02*6.022e23", unit: molécules, label: Nombre de molécules}
+    c: {expr: "m*2.016/18.02", unit: g, label: Masse d'hydrogène}

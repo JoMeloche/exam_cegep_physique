@@ -1,0 +1,16 @@
+title: Électron et proton accélérés par une même tension
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  dV: {type: integer, min: 100, max: 5000, step: 50, unit: V, label: Différence de potentiel}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1.602e-19*dV", unit: J, label: Énergie cinétique de chaque particule}
+    b: {expr: "sqrt(2*1.602e-19*dV/9.109e-31)", unit: m/s, label: Vitesse de l'électron}
+    c: {expr: "sqrt(2*1.602e-19*dV/1.673e-27)", unit: m/s, label: Vitesse du proton}
+    c2: {expr: "sqrt(1.673e-27/9.109e-31)", unit: '', label: Rapport des vitesses}

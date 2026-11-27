@@ -1,0 +1,16 @@
+title: 'Longueur d''onde et période d''une station FM'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  f: {type: decimal, min: 88.1, max: 107.9, step: 0.2, unit: MHz, si: 1e6, label: Fréquence de la station}
+  d: {type: integer, min: 20, max: 200, step: 5, unit: km, si: 1000, label: Distance de l'émetteur}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "c/f", unit: m, label: Longueur d'onde}
+    b: {expr: "1e9/f", unit: ns, label: Période}
+    c: {expr: "1e6*d/c", unit: \micro\second, label: Durée du trajet du signal}

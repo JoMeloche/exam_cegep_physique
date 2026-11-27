@@ -1,0 +1,15 @@
+title: "Qui mesure le temps propre"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le temps propre est mesuré par une horloge présente aux deux événements (immobile par rapport à eux) ; c''est l''intervalle le plus court.'
+choices:
+  - 'L''observateur terrestre mesure le temps propre, qui est le plus court'
+  - 'L''astronaute mesure le temps propre, qui est le plus court'
+  - 'L''astronaute mesure le temps propre, qui est le plus long'
+  - 'Les deux mesurent le même intervalle'

@@ -1,0 +1,19 @@
+Une charge $q_1 = \qty{\v{q1}}{\micro\coulomb}$ est placée à l'origine et une charge $q_2 = \qty{\v{q2}}{\micro\coulomb}$ est placée à $(\qty{\v{a}}{cm}, 0)$. Le point $P$ est situé à $(0, \qty{\v{b}}{cm})$.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[dashed] (0,0) -- (4,0) -- (4,3) -- (0,3) -- cycle;
+    \draw[dashed] (4,0) -- (0,3);
+    \fill (0,0) circle (3pt) node[below left] {$q_1$};
+    \fill (4,0) circle (3pt) node[below right] {$q_2$};
+    \draw (0,3) node {$\times$} node[above left] {$P$};
+    \node[below] at (2,0) {\qty{\v{a}}{cm}};
+    \node[left] at (0,1.5) {\qty{\v{b}}{cm}};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez le potentiel électrique au point $P$.
+    \item Déterminez l'énergie potentielle électrique du système formé par $q_1$ et $q_2$.
+    \item Quel travail un agent extérieur doit-il fournir pour amener une charge $q_3 = \qty{\v{q3}}{\micro\coulomb}$ de l'infini jusqu'au point $P$, à vitesse constante ?
+\end{enumerate}

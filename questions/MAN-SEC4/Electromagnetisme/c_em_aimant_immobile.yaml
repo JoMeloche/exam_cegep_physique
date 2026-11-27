@@ -1,0 +1,15 @@
+title: 'Induction électromagnétique'
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un courant n''est induit que si le champ magnétique qui traverse la bobine varie, donc s''il y a un mouvement relatif entre l''aimant et la bobine.'
+choices:
+  - 'On enfonce rapidement un aimant dans la bobine.'
+  - 'On retire l''aimant de la bobine.'
+  - 'L''aimant reste immobile à l''intérieur de la bobine.'
+  - 'On déplace la bobine vers l''aimant immobile.'

@@ -1,0 +1,57 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{g} = \qty{\vsi{m}}{kg}$, $g = \qty{9.81}{m/s^2}$
+        \item Variable recherchée : $F_g$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ F_g = m g \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \num{\vsi{m}} \cdot \num{9.81} = \Res{\vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} le poids de la fusée est de \textbf{\Res{\vsi{m}*9.81}{N}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Poussée $F = \qty{\v{F}}{N}$ (vers le haut), poids $F_g = \Res{\vsi{m}*9.81}{N}$ (vers le bas)
+        \item Variable recherchée : $\sum F$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F - F_g \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \sum F_y = \num{\v{F}} - \Val{\vsi{m}*9.81} = \Res{\v{F} - \vsi{m}*9.81}{N} \]
+    \item \textbf{Réponse :} la force résultante est de \textbf{\Res{\v{F} - \vsi{m}*9.81}{N}} vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question c) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\sum F_y = \Res{\v{F} - \vsi{m}*9.81}{N}$, $m = \qty{\vsi{m}}{kg}$
+        \item Variable recherchée : $a$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = m a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{\sum F_y}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\Val{\v{F} - \vsi{m}*9.81}}{\num{\vsi{m}}} = \Res{(\v{F} - \vsi{m}*9.81)/\vsi{m}}{m/s^2} \]
+    \item \textbf{Réponse :} la fusée accélère à \textbf{\Res{(\v{F} - \vsi{m}*9.81)/\vsi{m}}{m/s^2}} vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question d) Vitesse à l'extinction du moteur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{0}{m/s}$, $a = \Res{(\v{F} - \vsi{m}*9.81)/\vsi{m}}{m/s^2}$, $t = \qty{\v{t}}{s}$
+        \item Variable recherchée : $v$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v = v_0 + a t \]
+    \item \textbf{Isolation de la variable recherchée :} avec $v_0 = 0$ : $v = a t$
+    \item \textbf{Résolution numérique :}
+    \[ v = \Val{(\v{F} - \vsi{m}*9.81)/\vsi{m}} \cdot \num{\v{t}} = \Res{(\v{F} - \vsi{m}*9.81)/\vsi{m}*\v{t}}{m/s} \]
+    \item \textbf{Réponse :} lorsque le moteur s'éteint, la fusée monte à \textbf{\Res{(\v{F} - \vsi{m}*9.81)/\vsi{m}*\v{t}}{m/s}}.
+\end{enumerate}

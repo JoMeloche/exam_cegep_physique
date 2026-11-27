@@ -1,0 +1,15 @@
+title: 'Impulsion d''une balle qui rebondit ou qui colle'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Pour A, $\Delta p = 2mv$ ; pour B, $\Delta p = mv$. La balle qui rebondit reçoit une impulsion deux fois plus grande.'
+choices:
+  - 'Aucune des deux ne reçoit d''impulsion'
+  - 'Elles reçoivent la même impulsion'
+  - 'La balle A'
+  - 'La balle B'

@@ -1,0 +1,56 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Vitesse maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Accélération au départ : $a_1 = \qty{\v{a1}}{m/s^2}$
+        \item Durée de l'accélération : $t_1 = \qty{\v{t1}}{s}$
+        \item $v_0 = \qty{0}{m/s}$
+        \item Variable recherchée : $v_{\max}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ v = v_0 + a t \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ v_{\max} = a_1 t_1 \]
+    \item \textbf{Résolution numérique :}
+    \[ v_{\max} = \num{\vsi{a1}} \cdot \num{\vsi{t1}} = \Res{\vsi{a1}*\vsi{t1}}{m/s} \]
+    \item \textbf{Réponse :} la vitesse maximale est de \textbf{\Res{\vsi{a1}*\vsi{t1}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Durée à vitesse constante : $t_2 = \qty{\v{t2}}{s}$
+        \item Décélération à l'arrivée : $a_3 = \qty{\v{a3}}{m/s^2}$
+        \item $v_{\max} = \Res{\vsi{a1}*\vsi{t1}}{m/s}$
+        \item Variable recherchée : $d = d_1 + d_2 + d_3$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ d_1 = \frac{1}{2} a_1 t_1^2 \qquad d_2 = v_{\max} t_2 \qquad 0 = v_{\max}^2 - 2 a_3 d_3 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d = \frac{1}{2} a_1 t_1^2 + v_{\max} t_2 + \frac{v_{\max}^2}{2 a_3} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \Res{\vsi{a1}*\vsi{t1}^2/2}{m} + \Res{\vsi{a1}*\vsi{t1}*\vsi{t2}}{m} + \Res{(\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3})}{m} = \Res{\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3})}{m} \]
+    \item \textbf{Réponse :} les stations sont séparées de \textbf{\Res{\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3})}{m}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \Res{\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3})}{m}$
+        \item Durée du freinage : $t_3 = v_{\max}/a_3 = \Res{\vsi{a1}*\vsi{t1}/\vsi{a3}}{s}$
+        \item Variable recherchée : $\bar{v}$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \bar{v} = \frac{d}{t_1 + t_2 + t_3} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \bar{v} = \frac{\Val{\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3})}}{\Val{\vsi{t1} + \vsi{t2} + \vsi{a1}*\vsi{t1}/\vsi{a3}}} = \Res{(\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3}))/(\vsi{t1} + \vsi{t2} + \vsi{a1}*\vsi{t1}/\vsi{a3})}{m/s} \]
+    \item \textbf{Réponse :} la vitesse moyenne est de \textbf{\Res{(\vsi{a1}*\vsi{t1}^2/2 + \vsi{a1}*\vsi{t1}*\vsi{t2} + (\vsi{a1}*\vsi{t1})^2/(2*\vsi{a3}))/(\vsi{t1} + \vsi{t2} + \vsi{a1}*\vsi{t1}/\vsi{a3})}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question d) Graphique}
+Le graphique $v(t)$ est un trapèze : une droite montante de $0$ à $v_{\max}$ entre $t = 0$ et $t_1$ (pente $a_1$), un plateau horizontal de durée $t_2$, puis une droite descendante jusqu'à $v = 0$ (pente $-a_3$). L'aire sous la courbe est la distance trouvée en b).

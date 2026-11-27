@@ -1,0 +1,15 @@
+title: 'Énergie cinétique quand la vitesse double'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$E_k = \tfrac{1}{2} m v^2$ : l''énergie cinétique est proportionnelle au carré de la vitesse. Doubler $v$ multiplie $E_k$ par $2^2 = 4$.'
+choices:
+  - '\num{2}'
+  - '\num{4}'
+  - '\num{1.41}'
+  - '\num{8}'

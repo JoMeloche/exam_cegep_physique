@@ -1,0 +1,18 @@
+title: Pendule conique
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  m: {type: decimal, min: 0.2, max: 2.0, step: 0.1, unit: kg, label: Masse}
+  L: {type: decimal, min: 0.5, max: 2.0, step: 0.1, unit: m, label: Longueur de la corde}
+  th: {type: integer, min: 15, max: 50, step: 5, unit: \degree, label: Angle avec la verticale}
+constraints: []
+solution:
+  mode: manual
+  file: circ_pendule_conique.sol.tex
+  parts:
+    a: {expr: m*g/cos(rad(th)), unit: N, label: Tension}
+    b: {expr: sqrt(g*L*sin(rad(th))*tan(rad(th))), unit: m/s, label: Vitesse}
+    c: {expr: 2*pi*sqrt(L*cos(rad(th))/g), unit: s, label: Période}

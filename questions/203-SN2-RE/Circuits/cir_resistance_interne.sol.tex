@@ -1,0 +1,48 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $r = \qty{\v{r}}{\ohm}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :} loi des mailles :
+    \[ \mathcal{E} - rI - RI = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{\mathcal{E}}{R + r} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{eps}}}{\num{\v{R}} + \num{\v{r}}} = \Res{\v{eps}/(\v{R}+\v{r})}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{\v{eps}/(\v{R}+\v{r})}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Tension aux bornes de la pile}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $r = \qty{\v{r}}{\ohm}$, $I = \Res{\v{eps}/(\v{R}+\v{r})}{A}$ ; variable recherchée : $\Delta V$
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta V = \mathcal{E} - rI \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta V = \num{\v{eps}} - \num{\v{r}} \cdot \Val{\v{eps}/(\v{R}+\v{r})} = \Res{\v{eps}*\v{R}/(\v{R}+\v{r})}{V} \]
+    \item \textbf{Réponse :} $\Delta V = \mathbf{\Res{\v{eps}*\v{R}/(\v{R}+\v{r})}{V}}$ (c'est aussi $RI$).
+\end{enumerate}
+
+\subsubsection*{Question c) Puissance dans la résistance externe}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \qty{\v{R}}{\ohm}$, $I = \Res{\v{eps}/(\v{R}+\v{r})}{A}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ P = RI^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ P = \num{\v{R}} \cdot \Val{\v{eps}/(\v{R}+\v{r})}^2 = \Res{\v{R}*(\v{eps}/(\v{R}+\v{r}))^2}{W} \]
+    \item \textbf{Réponse :} $P = \mathbf{\Res{\v{R}*(\v{eps}/(\v{R}+\v{r}))^2}{W}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Puissance maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $r = \qty{\v{r}}{\ohm}$ ; variables recherchées : $R_{\text{opt}}$ et $P_{\max}$
+    \item \textbf{Équations pertinentes :}
+    \[ P(R) = \frac{R\,\mathcal{E}^2}{(R + r)^2} \qquad \frac{dP}{dR} = \mathcal{E}^2\,\frac{r - R}{(R + r)^3} = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} la dérivée s'annule pour $R_{\text{opt}} = r$, d'où
+    \[ P_{\max} = \frac{r\,\mathcal{E}^2}{(2r)^2} = \frac{\mathcal{E}^2}{4r} \]
+    \item \textbf{Résolution numérique :}
+    \[ P_{\max} = \frac{\num{\v{eps}}^2}{4 \cdot \num{\v{r}}} = \Res{\v{eps}^2/(4*\v{r})}{W} \]
+    \item \textbf{Réponse :} il faudrait $R = \mathbf{\qty{\v{r}}{\ohm}}$, ce qui donnerait $P_{\max} = \mathbf{\Res{\v{eps}^2/(4*\v{r})}{W}}$.
+\end{enumerate}

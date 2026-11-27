@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Travail de la corde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $\theta = \qty{\v{th}}{\degree}$, $d = \qty{\v{d}}{m}$ ; variable recherchée : $W_F$
+    \item \textbf{Équations pertinentes :} \[ W_F = Fd\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ W_F = \num{\v{F}} \cdot \num{\v{d}} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{(\vsi{F}*\vsi{d}*cosd(\vsi{th}))}{J} \]
+    \item \textbf{Réponse :} $W_F = \mathbf{\Res{(\vsi{F}*\vsi{d}*cosd(\vsi{th}))}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Travail du frottement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $\mu_c = \num{\v{mu}}$, $F\sin\theta = \Res{\vsi{F}*sind(\vsi{th})}{N}$ ; variable recherchée : $W_f$
+    \item \textbf{Équations pertinentes :} selon $y$ : $n + F\sin\theta - mg = 0$, et $f_c = \mu_c n$, $W_f = -f_c d$.
+    \item \textbf{Isolation de la variable recherchée :} \[ n = mg - F\sin\theta \qquad W_f = -\mu_c (mg - F\sin\theta)\, d \]
+    \item \textbf{Résolution numérique :} \[ n = \Res{\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th})}{N} \qquad W_f = -\num{\v{mu}} \cdot \Val{\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th})} \cdot \num{\v{d}} = \Res{(-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d})}{J} \]
+    \item \textbf{Réponse :} $W_f = \mathbf{\Res{(-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d})}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse finale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $W_F = \Res{(\vsi{F}*\vsi{d}*cosd(\vsi{th}))}{J}$, $W_f = \Res{(-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d})}{J}$, $v_i = \qty{0}{m/s}$ ; variable recherchée : $v_f$
+    \item \textbf{Équations pertinentes :} théorème de l'énergie cinétique (la normale et le poids ne travaillent pas) : \[ W_F + W_f = \tfrac{1}{2}mv_f^2 - 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v_f = \sqrt{\frac{2(W_F + W_f)}{m}} \]
+    \item \textbf{Résolution numérique :} \[ v_f = \sqrt{\frac{2\,(\Val{(\vsi{F}*\vsi{d}*cosd(\vsi{th}))} + (\Val{(-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d})}))}{\num{\v{m}}}} = \Res{(sqrt(2*((\vsi{F}*\vsi{d}*cosd(\vsi{th})) + (-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d}))/\vsi{m}))}{m/s} \]
+    \item \textbf{Réponse :} $v_f = \mathbf{\Res{(sqrt(2*((\vsi{F}*\vsi{d}*cosd(\vsi{th})) + (-\vsi{mu}*(\vsi{m}*9.81 - \vsi{F}*sind(\vsi{th}))*\vsi{d}))/\vsi{m}))}{m/s}}$
+\end{enumerate}

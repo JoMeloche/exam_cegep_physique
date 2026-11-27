@@ -1,0 +1,16 @@
+title: 'Aire sous un graphique vitesse-temps'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+tags: [graphiques]
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'L''aire sous $v(t)$ vaut $v \cdot \Delta t$ par tranche : c''est le déplacement.'
+choices:
+  - 'L''accélération moyenne'
+  - 'La vitesse moyenne'
+  - 'Le déplacement de l''objet'
+  - 'La variation de vitesse'

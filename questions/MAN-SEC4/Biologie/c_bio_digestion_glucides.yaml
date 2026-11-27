@@ -1,0 +1,15 @@
+title: 'Début de la digestion chimique des glucides'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'L''amylase salivaire commence à transformer l''amidon en sucres plus simples dès la bouche.'
+choices:
+  - 'La bouche'
+  - 'L''estomac'
+  - 'L''intestin grêle'
+  - 'Le gros intestin'

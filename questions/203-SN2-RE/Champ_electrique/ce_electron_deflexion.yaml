@@ -1,0 +1,18 @@
+title: Déviation d'un électron entre deux plaques
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  v0: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: m/s, si: 1e6, label: "Vitesse initiale (en 10^6 m/s)"}
+  L:  {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: cm, si: 0.01, label: Longueur des plaques}
+  E:  {type: integer, min: 200, max: 2000, step: 50, unit: N/C, label: Champ électrique}
+constraints:
+  - 0.5*(1.602e-19*E/9.109e-31)*(L/v0)**2 < 0.02
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1.602e-19*E/9.109e-31", unit: m/s^2, label: "Accélération (vers le bas)"}
+    b: {expr: "L/v0", unit: s, label: Temps entre les plaques}
+    c: {expr: "0.5*(1.602e-19*E/9.109e-31)*(L/v0)**2", unit: m, label: Déviation verticale}

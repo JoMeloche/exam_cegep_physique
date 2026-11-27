@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance entre les boules}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\vsi{L}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $r$
+    \item \textbf{Équations pertinentes :} chaque boule est écartée de $L\sin\theta$ de la verticale :
+    \[ r = 2L\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ r = 2 \cdot \num{\vsi{L}} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{2*\vsi{L}*sind(\v{th})}{m} \]
+    \item \textbf{Réponse :} $r = \mathbf{\Res{2*\vsi{L}*sind(\v{th})}{m}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Force électrique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\vsi{m}}{kg}$, $g = \qty{9.81}{m/s^2}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F_e$. Forces sur une boule : poids $mg$ vers le bas, tension $T$ le long du fil, force électrique $F_e$ horizontale (répulsion).
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_x : T\sin\theta - F_e = 0 \qquad \sum F_y : T\cos\theta - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ F_e = mg\tan\theta \]
+    \item \textbf{Résolution numérique :}
+    \[ F_e = \num{\vsi{m}} \cdot \num{9.81} \cdot \tan(\qty{\v{th}}{\degree}) = \ResSci{\vsi{m}*9.81*tand(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_e = \mathbf{\ResSci{\vsi{m}*9.81*tand(\v{th})}{N}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Charge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_e$, $r$, $k = \qty{8.99e9}{N.m^2/C^2}$ ; variable recherchée : $q$
+    \item \textbf{Équations pertinentes :}
+    \[ F_e = \frac{k q^2}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ q = r\sqrt{\frac{F_e}{k}} \]
+    \item \textbf{Résolution numérique :}
+    \[ q = \Val{2*\vsi{L}*sind(\v{th})} \cdot \sqrt{\frac{\ResSci{\vsi{m}*9.81*tand(\v{th})}{}}{\num{8.99e9}}} = \ResSci{2*\vsi{L}*sind(\v{th})*sqrt(\vsi{m}*9.81*tand(\v{th})/8.99e9)}{C} \]
+    \item \textbf{Réponse :} $q = \mathbf{\Res{1e9*2*\vsi{L}*sind(\v{th})*sqrt(\vsi{m}*9.81*tand(\v{th})/8.99e9)}{nC}}$ (le signe ne peut pas être déterminé : les deux boules ont simplement le même signe).
+\end{enumerate}

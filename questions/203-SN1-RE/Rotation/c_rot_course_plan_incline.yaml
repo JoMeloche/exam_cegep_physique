@@ -1,0 +1,15 @@
+title: 'Course de trois objets qui roulent'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$v = \sqrt{2gh/(1 + I/mR^2)}$ : la sphère a le plus petit rapport $I/mR^2$ ($\tfrac{2}{5}$, contre $\tfrac{1}{2}$ et 1), donc la plus grande vitesse.'
+choices:
+  - 'L''anneau'
+  - 'La sphère pleine'
+  - 'Le cylindre plein'
+  - 'Ils arrivent tous en même temps'

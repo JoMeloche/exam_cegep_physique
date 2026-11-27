@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Énergie potentielle totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_1 = \qty{\v{q1}e-6}{C}$, $q_2 = \qty{\v{q2}e-6}{C}$, $q_3 = \qty{\v{q3}e-6}{C}$, $a = \qty{\vsi{a}}{m}$ ; variable recherchée : $U$
+    \item \textbf{Équations pertinentes :} somme sur les trois paires :
+    \[ U = \frac{k}{a}\left(q_1q_2 + q_1q_3 + q_2q_3\right) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ U = \frac{\num{8.99e9}}{\num{\vsi{a}}}\left(\Val{\v{q1}*\v{q2}} + (\Val{\v{q1}*\v{q3}}) + (\Val{\v{q2}*\v{q3}})\right)\times 10^{-12} = \Res{8.99e9*(\v{q1}*\v{q2} + \v{q1}*\v{q3} + \v{q2}*\v{q3})*1e-12/\vsi{a}}{J} \]
+    \item \textbf{Réponse :} $U = \mathbf{\Res{8.99e9*(\v{q1}*\v{q2} + \v{q1}*\v{q3} + \v{q2}*\v{q3})*1e-12/\vsi{a}}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Potentiel au centre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $r = a/\sqrt 3 = \Res{\vsi{a}/sqrt(3)}{m}$ ; variable recherchée : $V_C$
+    \item \textbf{Équations pertinentes :}
+    \[ V_C = \frac{k(q_1 + q_2 + q_3)}{r} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ V_C = \frac{\num{8.99e9} \cdot \Val{(\v{q1}+\v{q2}+\v{q3})}\times 10^{-6}}{\Val{\vsi{a}/sqrt(3)}} = \ResSci{8.99e9*(\v{q1}+\v{q2}+\v{q3})*1e-6*sqrt(3)/\vsi{a}}{V} \]
+    \item \textbf{Réponse :} $V_C = \mathbf{\ResSci{8.99e9*(\v{q1}+\v{q2}+\v{q3})*1e-6*sqrt(3)/\vsi{a}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Travail pour amener $q_4$}
+\[ W_{\text{ext}} = q_4V_C = \num{\v{q4}e-9} \cdot \ResSci{8.99e9*(\v{q1}+\v{q2}+\v{q3})*1e-6*sqrt(3)/\vsi{a}}{} = \ResSci{\v{q4}*1e-9*8.99e9*(\v{q1}+\v{q2}+\v{q3})*1e-6*sqrt(3)/\vsi{a}}{J} \]
+L'agent extérieur doit fournir \textbf{\ResSci{\v{q4}*1e-9*8.99e9*(\v{q1}+\v{q2}+\v{q3})*1e-6*sqrt(3)/\vsi{a}}{J}} (un travail négatif signifie qu'il doit retenir la charge).

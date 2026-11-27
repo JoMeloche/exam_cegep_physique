@@ -1,0 +1,18 @@
+title: Refroidissement nocturne et gel au sol
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Tg: {type: integer, min: 2, max: 10, step: 1, unit: \degreeCelsius, label: Température du sol}
+  Tc: {type: integer, min: -50, max: -20, step: 5, unit: \degreeCelsius, label: Température effective du ciel}
+  em: {type: choice, values: [0.90, 0.95], label: Émissivité du sol}
+  Tn: {type: integer, min: -30, max: 0, step: 5, unit: \degreeCelsius, label: Température effective du ciel nuageux}
+constraints:
+  - Tn > Tc + 10
+solution:
+  mode: manual
+  parts:
+    e1: {expr: "em*5.67e-8*((Tg+273)**4 - (Tc+273)**4)", unit: W/m^2, label: Perte nette par ciel clair}
+    e2: {expr: "em*5.67e-8*((Tg+273)**4 - (Tn+273)**4)", unit: W/m^2, label: Perte nette par ciel nuageux}

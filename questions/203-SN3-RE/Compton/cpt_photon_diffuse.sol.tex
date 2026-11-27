@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Décalage de Compton}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\theta = \qty{\v{th}}{\degree}$, $h = \qty{6.626e-34}{J.s}$, $m_e = \qty{9.109e-31}{kg}$, $c = \qty{3.00e8}{m/s}$
+        \item Variable recherchée : $\Delta\lambda$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \Delta\lambda = \frac{h}{m_e c}(1 - \cos\theta) \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée ; $\dfrac{h}{m_e c} = \qty{2.425e-12}{m}$.
+    \item \textbf{Résolution numérique :}
+    \[ \Delta\lambda = \num{2.425e-12} \cdot (1 - \cos \v{th}^\circ) = \Res{1e12*6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))}{pm} \]
+    \item \textbf{Réponse :} le décalage est de \textbf{\Res{1e12*6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))}{pm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Longueur d'onde diffusée}
+\[ \lambda' = \lambda + \Delta\lambda = \num{\v{l0}} + \Val{1e12*6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))} = \Res{\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))}{pm} \]
+Le photon diffusé a une longueur d'onde de \textbf{\Res{\v{l0} + 1e12*6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))}{pm}}.
+
+\subsubsection*{Question c) Énergie cinétique de l'électron}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\vsi{l0}}{m}$, $\lambda' = \ResSci{\vsi{l0} + 6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))}{m}$ ; variable recherchée : $K_e$
+    \item \textbf{Équations pertinentes :} conservation de l'énergie :
+    \[ \frac{hc}{\lambda} = \frac{hc}{\lambda'} + K_e \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ K_e = hc\left(\frac{1}{\lambda} - \frac{1}{\lambda'}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ K_e = \ResSci{6.626e-34*3e8*(1/\vsi{l0} - 1/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))))}{J} \]
+    \item \textbf{Réponse :} l'électron reçoit \textbf{\Res{6.626e-34*3e8*(1/\vsi{l0} - 1/(\vsi{l0} + 6.626e-34/(9.109e-31*3e8)*(1 - cosd(\v{th}))))/1.602e-19}{eV}} d'énergie cinétique.
+\end{enumerate}

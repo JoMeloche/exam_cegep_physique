@@ -1,0 +1,21 @@
+title: Profondeur d'un puits
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  t: {type: decimal, min: 1.5, max: 4.0, step: 0.1, unit: s, label: Temps total jusqu'au bruit}
+  vs:
+    type: choice
+    values: [340, 343]
+    unit: m/s
+    label: Vitesse du son
+constraints: []
+solution:
+  mode: manual
+  file: cin_pierre_puits.sol.tex
+  parts:
+    a: {expr: ((-sqrt(2/g) + sqrt(2/g + 4*t/vs))/(2/vs))**2, unit: m, label: Profondeur}
+    b: {expr: sqrt(2*((-sqrt(2/g) + sqrt(2/g + 4*t/vs))/(2/vs))**2/g), unit: s, label: Durée de la chute}
+    c: {expr: sqrt(2*g*((-sqrt(2/g) + sqrt(2/g + 4*t/vs))/(2/vs))**2), unit: m/s, label: Vitesse à l'impact}

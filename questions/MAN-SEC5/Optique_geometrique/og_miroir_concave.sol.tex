@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance focale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \qty{\v{R}}{cm}$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ f = \frac{R}{2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\qty{\v{R}}{cm}}{2} = \Res{\v{R}/2}{cm} \]
+    \item \textbf{Réponse :} $f = \mathbf{\Res{\v{R}/2}{cm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Position de l'image}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \Res{\v{R}/2}{cm}$, $d_o = \qty{\v{dob}}{cm}$ ; variable recherchée : $d_i$
+    \item \textbf{Équations pertinentes :} équation des miroirs :
+    \[ \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ d_i = \frac{1}{\frac{1}{f} - \frac{1}{d_o}} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_i = \frac{1}{\frac{1}{\Val{\v{R}/2}\,\unit{cm}} - \frac{1}{\qty{\v{dob}}{cm}}} = \Res{1/(2/\v{R} - 1/\v{dob})}{cm} \]
+    \item \textbf{Réponse :} l'image se forme à \textbf{\Res{1/(2/\v{R} - 1/\v{dob})}{cm}} devant le miroir.
+\end{enumerate}
+
+\subsubsection*{Question c) Hauteur et caractéristiques}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_i = \Res{1/(2/\v{R} - 1/\v{dob})}{cm}$, $d_o = \qty{\v{dob}}{cm}$, $h_o = \qty{\v{ho}}{cm}$ ; variable recherchée : $h_i$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{h_i}{h_o} = -\frac{d_i}{d_o} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ h_i = -h_o\,\frac{d_i}{d_o} \]
+    \item \textbf{Résolution numérique :}
+    \[ h_i = -\qty{\v{ho}}{cm} \cdot \frac{\Val{1/(2/\v{R} - 1/\v{dob})}\,\unit{cm}}{\qty{\v{dob}}{cm}} = \Res{-\v{ho}*(1/(2/\v{R} - 1/\v{dob}))/\v{dob}}{cm} \]
+    \item \textbf{Réponse :} $h_i = \mathbf{\Res{-\v{ho}*(1/(2/\v{R} - 1/\v{dob}))/\v{dob}}{cm}}$. L'objet est au-delà du foyer : l'image est \textbf{réelle} (devant le miroir) et \textbf{renversée} ($h_i < 0$).
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Caractéristiques de l''image dans un miroir plan'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un miroir plan donne une image virtuelle, droite, de même taille, symétrique de l''objet par rapport au miroir.'
+choices:
+  - 'Elle est réelle et de même taille que l''objet'
+  - 'Elle est virtuelle et plus petite que l''objet'
+  - 'Elle est virtuelle, de même taille et aussi loin derrière le miroir que l''objet est devant'
+  - 'Elle est réelle et se forme sur la surface du miroir'

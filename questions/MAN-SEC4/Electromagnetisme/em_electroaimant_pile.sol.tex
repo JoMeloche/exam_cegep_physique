@@ -1,0 +1,28 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{\v{U}}{V}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ U = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{U}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\qty{\v{U}}{V}}{\qty{\v{R}}{\ohm}} = \Res{\v{U}/\v{R}}{A} \]
+    \item \textbf{Réponse :} le courant est de \textbf{\Res{\v{U}/\v{R}}{A}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ magnétique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \num{\v{N}}$, $L = \qty{\vsi{L}}{m}$, $I = \Res{\v{U}/\v{R}}{A}$ ; variable recherchée : $B$
+    \item \textbf{Équations pertinentes :}
+    \[ B = \frac{\mu_0 N I}{L} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ B = \frac{\num{1.257e-6} \cdot \num{\v{N}} \cdot \Val{\v{U}/\v{R}}}{\num{\vsi{L}}} = \ResSci{1.257e-6*\v{N}*\v{U}/\v{R}/\vsi{L}}{T} \]
+    \item \textbf{Réponse :} $B = \mathbf{\Res{1.257e-3*\v{N}*\v{U}/\v{R}/\vsi{L}}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Augmenter le champ}
+Deux moyens parmi : ajouter un noyau de fer doux dans la bobine ; ajouter des spires sur la même longueur ; resserrer les spires (réduire la longueur de la bobine) ; utiliser un fil de plus faible résistance (plus gros ou plus court) pour augmenter le courant.

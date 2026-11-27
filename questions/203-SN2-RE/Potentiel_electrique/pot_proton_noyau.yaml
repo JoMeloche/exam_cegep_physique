@@ -1,0 +1,16 @@
+title: Distance minimale d'approche d'un proton
+type: developpement
+points: 20
+time_min: 12
+difficulty: 3
+figures: []
+variables:
+  K: {type: decimal, min: 1.0, max: 8.0, step: 0.5, unit: MeV, label: Énergie cinétique du proton}
+  Z: {type: choice, values: [29, 47, 50, 79, 82], unit: '', label: Numéro atomique du noyau}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "K*1e6*1.602e-19", unit: J, label: Énergie cinétique}
+    b: {expr: "8.99e9*Z*(1.602e-19)**2/(K*1e6*1.602e-19)", unit: m, label: Distance minimale}
+    c: {expr: "8.99e9*Z*(1.602e-19)**2/(8.99e9*Z*(1.602e-19)**2/(K*1e6*1.602e-19))**2", unit: N, label: Force à la distance minimale}

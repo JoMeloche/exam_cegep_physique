@@ -1,0 +1,18 @@
+title: Corde mu different
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+solution:
+  mode: none
+choices:
+- La fréquence et la longueur d'onde augmentent
+- La fréquence est inchangée et la longueur d'onde augmente
+- La fréquence est inchangée et la longueur d'onde diminue
+- La fréquence et la longueur d'onde diminuent
+- La fréquence augmente et la longueur d'onde est inchangée
+- La fréquence diminue et la longueur d'onde est inchangée
+needs_review: true
+source: Question_concept/Onde_progressive/c_corde_mu_different.tex
+history: []

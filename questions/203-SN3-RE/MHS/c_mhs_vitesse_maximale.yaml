@@ -1,0 +1,15 @@
+title: "Position où la vitesse est maximale"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'À la position d''équilibre, toute l''énergie est cinétique ($U = 0$), donc la vitesse est maximale.'
+choices:
+  - 'Aux deux positions extrêmes, $x = \pm A$'
+  - 'À la position d''équilibre, $x = 0$'
+  - 'À mi-chemin entre l''équilibre et une position extrême, $x = \pm A/2$'
+  - 'Le module de la vitesse est le même partout'

@@ -1,0 +1,53 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item Masse de la fusée : $M = \qty{\v{M}}{kg}$
+        \item Poussée des moteurs : $F = \qty{\v{F}}{kN}$ $= \qty{\vsi{F}}{N}$
+        \item Forces : poussée $F$ vers le haut, poids $Mg$ vers le bas
+        \item Variable recherchée : $a$ (m/s$^2$)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \sum F_y = M a \implies F - M g = M a \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ a = \frac{F}{M} - g \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{\num{\vsi{F}}}{\num{\vsi{M}}} - \num{9.81} = \Res{\vsi{F}/\vsi{M} - 9.81}{m/s^2} \]
+    \item \textbf{Réponse :} la fusée accélère à \textbf{\Res{\vsi{F}/\vsi{M} - 9.81}{m/s^2}} vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question b) Altitude et vitesse à l'arrêt des moteurs}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $a = \Res{\vsi{F}/\vsi{M} - 9.81}{m/s^2}$
+        \item Durée de la poussée : $t = \qty{\v{t}}{s}$
+        \item Départ du repos
+        \item Variables recherchées : $y_1$ (m) et $v_1$ (m/s)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ y = \frac{1}{2} a t^2 \qquad v = a t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ y_1 = \frac{1}{2}\cdot \Val{\vsi{F}/\vsi{M} - 9.81} \cdot (\num{\vsi{t}})^2 = \Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2}{m} \qquad v_1 = \Val{\vsi{F}/\vsi{M} - 9.81} \cdot \num{\vsi{t}} = \Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}}{m/s} \]
+    \item \textbf{Réponse :} les moteurs s'arrêtent à \textbf{\Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2}{m}} d'altitude, à \textbf{\Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}}{m/s}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Altitude maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $y_1 = \Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2}{m}$, $v_1 = \Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}}{m/s}$
+        \item Après l'arrêt : $a = -g$ ; au sommet $v = 0$
+        \item Variable recherchée : $y_{\max}$ (m)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ 0 = v_1^2 - 2 g (y_{\max} - y_1) \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ y_{\max} = y_1 + \frac{v_1^2}{2g} \]
+    \item \textbf{Résolution numérique :}
+    \[ y_{\max} = \Val{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2} + \frac{(\Val{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}})^2}{2\cdot\num{9.81}} = \Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2 + ((\vsi{F}/\vsi{M} - 9.81)*\vsi{t})^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} la fusée monte jusqu'à \textbf{\Res{(\vsi{F}/\vsi{M} - 9.81)*\vsi{t}^2/2 + ((\vsi{F}/\vsi{M} - 9.81)*\vsi{t})^2/(2*9.81)}{m}}.
+\end{enumerate}

@@ -1,0 +1,16 @@
+title: Champ d'une charge ponctuelle et force sur un électron
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  Q: {type: integer, min: 2, max: 90, step: 1, unit: nC, si: 1e-9, label: Charge source}
+  r: {type: integer, min: 5, max: 60, step: 1, unit: cm, si: 0.01, label: Distance au point P}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "8.99e9*Q/r**2", unit: N/C, label: Champ électrique en P}
+    b: {expr: "1.602e-19*8.99e9*Q/r**2", unit: N, label: Force sur l'électron}
+    c: {expr: "1.602e-19*8.99e9*Q/r**2/9.109e-31", unit: m/s^2, label: Accélération de l'électron}

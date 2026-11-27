@@ -1,0 +1,19 @@
+title: 'Loupe : image virtuelle d''une lentille convergente'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f:  {type: decimal, min: 5.0, max: 15.0, step: 0.5, unit: cm, si: 0.01, label: Distance focale de la loupe}
+  dob: {type: decimal, min: 2.0, max: 12.0, step: 0.5, unit: cm, si: 0.01, label: Distance du timbre}
+  ho: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: cm, si: 0.01, label: Hauteur du timbre}
+constraints:
+  - 'dob < 0.8*f'
+solution:
+  mode: manual
+  parts:
+    a: {expr: "100/(1/f - 1/dob)", unit: cm, label: Distance de l'image}
+    b1: {expr: "-(1/(1/f - 1/dob))/dob", unit: "", label: Grandissement}
+    b2: {expr: "-100*ho*(1/(1/f - 1/dob))/dob", unit: cm, label: Hauteur de l'image}
+    c: {expr: "1/f", unit: D, label: Puissance de la loupe}

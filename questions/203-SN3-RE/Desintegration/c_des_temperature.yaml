@@ -1,0 +1,15 @@
+title: "Effet de la température sur la désintégration"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La désintégration est un processus nucléaire aléatoire : la constante $\lambda$ ne dépend pas de la température, de la pression ni de l''état chimique.'
+choices:
+  - 'Elle diminue, car les noyaux sont plus agités'
+  - 'Elle augmente'
+  - 'Elle diminue seulement si l''uranium fond'
+  - 'Elle ne change pas'

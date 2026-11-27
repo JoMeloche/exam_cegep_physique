@@ -1,0 +1,16 @@
+title: Trouver la vitesse d'une source à partir de deux fréquences perçues
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  f:  {type: integer, min: 300, max: 1200, step: 10, unit: Hz, label: Fréquence émise (cachée)}
+  vs: {type: integer, min: 10, max: 45, step: 1, unit: m/s, label: Vitesse de la source (cachée)}
+  v:  {type: choice, values: [340], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "vs", unit: m/s, label: Vitesse du train}
+    b: {expr: "f", unit: Hz, label: Fréquence émise}

@@ -1,0 +1,15 @@
+title: "Vitesse de la lumière émise par une source en mouvement"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Selon le second postulat d''Einstein, la lumière se propage à $c$ dans tous les référentiels inertiels, quelle que soit la vitesse de la source.'
+choices:
+  - '$c$'
+  - '$1{,}5c$'
+  - '$0{,}5c$'
+  - '$0{,}75c$'

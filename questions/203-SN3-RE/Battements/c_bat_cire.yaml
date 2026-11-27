@@ -1,0 +1,15 @@
+title: "Sens de la correction d'après les battements"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Si les battements accélèrent quand $f_B$ diminue, c''est que $f_B$ s''éloigne de $f_A$ : $f_B$ était donc déjà plus basse que $f_A$, soit \qty{437}{Hz}.'
+choices:
+  - '\qty{443}{Hz}'
+  - '\qty{440}{Hz}'
+  - '\qty{446}{Hz}'
+  - '\qty{437}{Hz}'

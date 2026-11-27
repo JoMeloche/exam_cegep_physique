@@ -1,0 +1,18 @@
+title: 'Sonar d''un bateau : profondeur et longueurs d''onde'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  f:  {type: integer, min: 20, max: 80, step: 1, unit: kHz, si: 1000, label: Fréquence du sonar}
+  vw: {type: choice, values: [1480, 1500, 1530], unit: m/s, label: Vitesse du son dans l'eau}
+  t:  {type: decimal, min: 0.10, max: 2.00, step: 0.05, unit: s, label: Durée de l'aller-retour}
+  va: {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son dans l'air}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a: {expr: "vw*t/2", unit: m, label: Profondeur}
+    b: {expr: "1000*vw/f", unit: mm, label: Longueur d'onde dans l'eau}
+    c: {expr: "1000*va/f", unit: mm, label: Longueur d'onde dans l'air}

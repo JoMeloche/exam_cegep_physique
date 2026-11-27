@@ -1,0 +1,21 @@
+title: Intensité en un point d'une figure de diffraction
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 680, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  larg: {type: integer, min: 40, max: 150, step: 5, unit: \micro\metre, si: 1e-6, label: Largeur de la fente}
+  L: {type: decimal, min: 1.0, max: 2.5, step: 0.1, unit: m, label: Distance fente-écran}
+  y: {type: decimal, min: 2.0, max: 30.0, step: 0.5, unit: mm, si: 0.001, label: Position du point sur l'écran}
+  I0: {type: decimal, min: 2.0, max: 9.0, step: 0.5, unit: W/m^2, label: Intensité au centre}
+constraints:
+  - 0.5 < pi*larg*y/(lam*L) < 3*pi
+  - abs(sin(pi*larg*y/(lam*L))) > 0.25
+solution:
+  mode: manual
+  parts:
+    a: {expr: "pi*larg*y/(lam*L)", unit: rad, label: Demi-déphasage alpha}
+    b: {expr: "I0*(sin(pi*larg*y/(lam*L))/(pi*larg*y/(lam*L)))**2", unit: W/m^2, label: Intensité au point P}
+    c: {expr: "lam*L/larg", unit: m, label: Position du premier minimum}

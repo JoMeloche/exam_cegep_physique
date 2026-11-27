@@ -1,0 +1,44 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\subsubsection*{Question a) Décélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $v_0 = \qty{\v{v0}}{km/h} = \Res{\v{v0}/3.6}{m/s}$, $v = \qty{0}{m/s}$, $d = \qty{\v{d}}{m}$
+        \item Variable recherchée : $a$ (m/s²)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ v^2 = v_0^2 + 2 a d \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{v^2 - v_0^2}{2d} \]
+    \item \textbf{Résolution numérique :}
+    \[ a = \frac{0 - (\Val{\v{v0}/3.6})^2}{2 \cdot \num{\v{d}}} = \Res{-(\v{v0}/3.6)^2/(2*\v{d})}{m/s^2} \]
+    \item \textbf{Réponse :} la décélération est de \textbf{\Res{(\v{v0}/3.6)^2/(2*\v{d})}{m/s^2}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Force de freinage}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $m = \qty{\v{m}}{kg}$, $|a| = \Res{(\v{v0}/3.6)^2/(2*\v{d})}{m/s^2}$
+        \item Variable recherchée : $f$ (N)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} la seule force horizontale est le frottement :
+    \[ \sum F_x = -f = m a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ f = m |a| \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \num{\v{m}} \cdot \Val{(\v{v0}/3.6)^2/(2*\v{d})} = \Res{\v{m}*(\v{v0}/3.6)^2/(2*\v{d})}{N} \]
+    \item \textbf{Réponse :} la force de freinage est de \textbf{\Res{\v{m}*(\v{v0}/3.6)^2/(2*\v{d})}{N}}, vers l'arrière.
+\end{enumerate}
+
+\subsubsection*{Question c) Coefficient de frottement minimal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $f = \Res{\v{m}*(\v{v0}/3.6)^2/(2*\v{d})}{N}$, $F_N = m g = \Res{\v{m}*9.81}{N}$
+        \item Variable recherchée : $\mu$ (sans unité)
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} \[ f \le \mu F_N \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \mu_{\min} = \frac{f}{m g} \]
+    \item \textbf{Résolution numérique :}
+    \[ \mu_{\min} = \frac{\Val{\v{m}*(\v{v0}/3.6)^2/(2*\v{d})}}{\Val{\v{m}*9.81}} = \num[round-mode=figures,round-precision=3]{\fpeval{(\v{v0}/3.6)^2/(2*\v{d}*9.81)}} \]
+    \item \textbf{Réponse :} il faut un coefficient de frottement d'au moins \textbf{\num[round-mode=figures,round-precision=3]{\fpeval{(\v{v0}/3.6)^2/(2*\v{d}*9.81)}}}.
+\end{enumerate}
