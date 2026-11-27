@@ -1,0 +1,15 @@
+title: 'Origine de la première frange sombre d''une fente'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'À la première frange sombre, $a\sin\theta = \lambda$ : deux ondelettes séparées de $a/2$ ont une différence de marche de $\lambda/2$, et on peut ainsi apparier toutes les ondelettes.'
+choices:
+  - 'Aucune lumière ne passe par la fente dans cette direction'
+  - 'Les ondelettes des deux bords de la fente arrivent en phase'
+  - 'La lumière est absorbée par les bords de la fente'
+  - 'Chaque ondelette de la moitié supérieure de la fente est annulée par une ondelette de la moitié inférieure, qui arrive en opposition de phase'

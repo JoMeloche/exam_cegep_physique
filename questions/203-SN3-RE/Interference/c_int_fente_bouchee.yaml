@@ -1,0 +1,15 @@
+title: 'Une des deux fentes de Young bouchée'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Il faut deux sources cohérentes pour interférer. Avec une seule fente, seule la diffraction par cette fente subsiste : une large tache centrale.'
+choices:
+  - 'Les franges restent les mêmes, mais deux fois moins intenses'
+  - 'Les franges deviennent deux fois plus rapprochées'
+  - 'L''écran devient complètement noir'
+  - 'Les franges d''interférence disparaissent ; il reste la figure de diffraction d''une seule fente'

@@ -1,0 +1,15 @@
+title: 'Noyau après une désintégration bêta moins'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Un neutron se transforme en proton : $n \to p + e^- + \bar\nu_e$. Le nombre de nucléons est conservé, la charge du noyau augmente de $e$.'
+choices:
+  - '$Z$ augmente de 1 et $A$ ne change pas'
+  - '$Z$ diminue de 1 et $A$ ne change pas'
+  - '$Z$ diminue de 2 et $A$ diminue de 4'
+  - '$Z$ ne change pas et $A$ diminue de 1'

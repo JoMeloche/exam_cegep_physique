@@ -1,0 +1,15 @@
+title: 'Rayonnement du corps humain'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Loi de Wien : $\lambda_{\max} = \frac{\qty{2.898e-3}{m.K}}{\qty{306}{K}} \approx \qty{9.5}{\micro\metre}$, dans l''infrarouge (d''où les caméras thermiques).'
+choices:
+  - 'Le visible'
+  - 'L''infrarouge'
+  - 'L''ultraviolet'
+  - 'Les rayons X'

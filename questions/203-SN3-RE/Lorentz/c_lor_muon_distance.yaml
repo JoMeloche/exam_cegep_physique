@@ -1,0 +1,15 @@
+title: 'Le muon qui atteint le sol, vu par le muon'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Dans son propre référentiel, le muon vit sa durée de vie propre ; c''est la distance jusqu''au sol, en mouvement par rapport à lui, qui est contractée d''un facteur $\gamma$. La dilatation du temps est l''explication dans le référentiel de la Terre.'
+choices:
+  - 'Le temps s''écoule plus lentement pour le muon'
+  - 'L''épaisseur d''atmosphère à traverser est contractée'
+  - 'Le muon se déplace plus vite que la lumière'
+  - 'La durée de vie du muon augmente avec l''altitude'
