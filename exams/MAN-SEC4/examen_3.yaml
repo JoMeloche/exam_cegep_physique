@@ -1,0 +1,17 @@
+course: MAN-SEC4
+number: 3
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Force_mouvement, count: 2, points: 20}
+      - {topic: Energie_rendement, count: 1, points: 20}
+      - {topic: Electricite_Ohm, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Force_mouvement, count: 2}
+      - {topic: Energie_rendement, count: 2}
+      - {topic: Electricite_Ohm, count: 1}

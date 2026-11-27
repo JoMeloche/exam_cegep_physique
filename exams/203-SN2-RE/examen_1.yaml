@@ -1,0 +1,17 @@
+course: 203-SN2-RE
+number: 1
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Coulomb, count: 2, points: 20}
+      - {topic: Champ_electrique, count: 1, points: 20}
+      - {topic: Potentiel_electrique, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Coulomb, count: 2}
+      - {topic: Champ_electrique, count: 2}
+      - {topic: Potentiel_electrique, count: 1}

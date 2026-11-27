@@ -1,0 +1,17 @@
+course: MAN-SEC5
+number: 2
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Cinematique, count: 2, points: 20}
+      - {topic: Forces_equilibre, count: 1, points: 20}
+      - {topic: Dynamique, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Cinematique, count: 2}
+      - {topic: Forces_equilibre, count: 2}
+      - {topic: Dynamique, count: 1}

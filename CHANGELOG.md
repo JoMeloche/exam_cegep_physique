@@ -15,6 +15,8 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
 - Examens produits : téléchargement en ZIP (tout, examens seulement ou solutionnaires seulement), suppression d'un
   examen, filtre par cours, date de l'examen, professeur et nombre de versions.
 - Version mobile et tablette : barre du haut et menu coulissant.
+- Structures proposées pour les examens 1 à 3 de 203-SN2-RE, MAN-SEC4 et MAN-SEC5 (4 questions à développement
+  et 5 conceptuelles, 100 points, environ 80 minutes de travail sur 2 h). Modifiables dans l'écran Générer.
 
 ### Modifié / Changed
 - Les PDF s'ouvrent dans le navigateur au lieu d'être téléchargés ; chaque examen est affiché à côté de son

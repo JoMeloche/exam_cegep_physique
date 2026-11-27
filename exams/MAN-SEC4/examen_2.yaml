@@ -1,0 +1,15 @@
+course: MAN-SEC4
+number: 2
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Electricite_Ohm, count: 2, points: 20}
+      - {topic: Electromagnetisme, count: 2, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Electricite_Ohm, count: 3}
+      - {topic: Electromagnetisme, count: 2}

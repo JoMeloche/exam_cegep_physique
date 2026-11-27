@@ -1,0 +1,17 @@
+course: 203-SN2-RE
+number: 2
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Condensateurs, count: 2, points: 20}
+      - {topic: Courant_resistance, count: 1, points: 20}
+      - {topic: Circuits, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Condensateurs, count: 2}
+      - {topic: Courant_resistance, count: 2}
+      - {topic: Circuits, count: 1}

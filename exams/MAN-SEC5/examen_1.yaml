@@ -1,0 +1,15 @@
+course: MAN-SEC5
+number: 1
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Optique_geometrique, count: 2, points: 20}
+      - {topic: Optique_ondulatoire, count: 2, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Optique_geometrique, count: 3}
+      - {topic: Optique_ondulatoire, count: 2}
