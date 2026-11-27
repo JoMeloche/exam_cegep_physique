@@ -1,14 +1,17 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Moment magnétique}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $A = \num{\vsi{a}} \cdot \num{\vsi{b}} = \Res{\vsi{a}*\vsi{b}}{m^2}$ ; variable recherchée : $\mu$
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $A = \NumT{\vsi{a}} \cdot \NumT{\vsi{b}} = \Res{\vsi{a}*\vsi{b}}{m^2}$ ; variable recherchée : $\mu$
     \item \textbf{Équations pertinentes :}
     \[ \mu = NIA \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ \mu = \v{N} \cdot \num{\v{I}} \cdot \Val{\vsi{a}*\vsi{b}} = \Res{\v{N}*\v{I}*\vsi{a}*\vsi{b}}{A.m^2} \]
+    \[ \mu = \v{N} \cdot \num{\v{I}} \cdot \Valt{\vsi{a}*\vsi{b}} = \Res{\v{N}*\v{I}*\vsi{a}*\vsi{b}}{A.m^2} \]
     \item \textbf{Réponse :} $\mu = \mathbf{\Res{\v{N}*\v{I}*\vsi{a}*\vsi{b}}{A.m^2}}$.
 \end{enumerate}
 
@@ -19,13 +22,13 @@
     \[ \vec{\tau} = \vec{\mu} \times \vec{B} \qquad \tau = \mu B \sin\theta \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ \tau = \Val{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*sind(\v{th})}{N.m} \]
+    \[ \tau = \Valt{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*sind(\v{th})}{N.m} \]
     \item \textbf{Réponse :} $\tau = \mathbf{\Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*sind(\v{th})}{N.m}}$.
 \end{enumerate}
 
 \subsubsection*{Question c) Moment de force maximal}
 Le moment est maximal lorsque $\sin\theta = 1$ (normale perpendiculaire au champ) :
-\[ \tau_{\max} = \mu B = \Val{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} = \mathbf{\Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}}{N.m}} \]
+\[ \tau_{\max} = \mu B = \Valt{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} = \mathbf{\Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}}{N.m}} \]
 
 \subsubsection*{Question d) Travail pour tourner la bobine}
 \begin{enumerate}[label=\arabic*)]
@@ -35,6 +38,6 @@ Le moment est maximal lorsque $\sin\theta = 1$ (normale perpendiculaire au champ
     \item \textbf{Isolation de la variable recherchée :}
     \[ W_{\text{ext}} = -\mu B\cos\theta_f - (-\mu B\cos\theta_i) = \mu B\,(1 - \cos\theta_f) \]
     \item \textbf{Résolution numérique :}
-    \[ W_{\text{ext}} = \Val{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} \cdot \left(1 - \cos(\qty{\v{th}}{\degree})\right) = \Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*(1-cosd(\v{th}))}{J} \]
+    \[ W_{\text{ext}} = \Valt{\v{N}*\v{I}*\vsi{a}*\vsi{b}} \cdot \num{\v{B}} \cdot \left(1 - \cos(\qty{\v{th}}{\degree})\right) = \Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*(1-cosd(\v{th}))}{J} \]
     \item \textbf{Réponse :} $W_{\text{ext}} = \mathbf{\Res{(\v{N}*\v{I}*\vsi{a}*\vsi{b})*\v{B}*(1-cosd(\v{th}))}{J}}$.
 \end{enumerate}

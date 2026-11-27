@@ -1,25 +1,28 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Champ au centre}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \qty{\vsi{R}}{m}$ ; variable recherchée : $B_0$
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \QtyT{\vsi{R}}{m}$ ; variable recherchée : $B_0$
     \item \textbf{Équations pertinentes :}
     \[ B_0 = \frac{\mu_0 N I}{2R} \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ B_0 = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}}}{2 \cdot \num{\vsi{R}}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}/(2*\vsi{R})}{T} \]
+    \[ B_0 = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}}}{2 \cdot \NumT{\vsi{R}}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}/(2*\vsi{R})}{T} \]
     \item \textbf{Réponse :} $B_0 = \mathbf{\Res{1000*4*pi*1e-7*\v{N}*\v{I}/(2*\vsi{R})}{mT}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Champ sur l'axe}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \qty{\vsi{R}}{m}$, $z = \qty{\vsi{z}}{m}$ ; variable recherchée : $B$
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $R = \QtyT{\vsi{R}}{m}$, $z = \QtyT{\vsi{z}}{m}$ ; variable recherchée : $B$
     \item \textbf{Équations pertinentes :}
     \[ B = \frac{\mu_0 N I R^2}{2\left(R^2 + z^2\right)^{3/2}} \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ B = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}} \cdot \num{\vsi{R}}^2}{2\left(\num{\vsi{R}}^2 + \num{\vsi{z}}^2\right)^{3/2}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}*\vsi{R}^2/(2*(\vsi{R}^2+\vsi{z}^2)^1.5)}{T} \]
+    \[ B = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}} \cdot \left(\NumT{\vsi{R}}\right)^2}{2\left(\left(\NumT{\vsi{R}}\right)^2 + \left(\NumT{\vsi{z}}\right)^2\right)^{3/2}} = \ResSci{4*pi*1e-7*\v{N}*\v{I}*\vsi{R}^2/(2*(\vsi{R}^2+\vsi{z}^2)^1.5)}{T} \]
     \item \textbf{Réponse :} $B = \mathbf{\Res{1000*4*pi*1e-7*\v{N}*\v{I}*\vsi{R}^2/(2*(\vsi{R}^2+\vsi{z}^2)^1.5)}{mT}}$.
 \end{enumerate}
 

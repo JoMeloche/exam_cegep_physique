@@ -1,0 +1,15 @@
+title: "Puissance dissipée quand la vitesse de la tige double"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\mathcal{E} = BLv$ double, donc $I = \mathcal{E}/R$ double aussi, et $P = RI^2 = (BLv)^2/R$ est multipliée par 4.'
+choices:
+  - 1 (elle ne change pas)
+  - $\sqrt{2}$
+  - 2
+  - 4

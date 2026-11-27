@@ -1,0 +1,20 @@
+title: 'Addition de deux forces obliques par composantes'
+type: developpement
+points: 20
+time_min: 16
+difficulty: 4
+figures: []
+variables:
+  F1: {type: integer, min: 40, max: 120, step: 1, unit: N, label: Force de la première corde}
+  a1: {type: integer, min: 10, max: 40, step: 1, unit: \degree, label: Angle de F1 au nord de l'est}
+  F2: {type: integer, min: 20, max: 80, step: 1, unit: N, label: Force de la seconde corde}
+  a2: {type: integer, min: 30, max: 70, step: 1, unit: \degree, label: Angle de F2 au nord de l'ouest}
+constraints:
+  - 'F1*cos(rad(a1)) - F2*cos(rad(a2)) > 8'
+solution:
+  mode: manual
+  parts:
+    ax: {expr: "F1*cos(rad(a1)) - F2*cos(rad(a2))", unit: N, label: Composante est-ouest de la résultante}
+    ay: {expr: "F1*sin(rad(a1)) + F2*sin(rad(a2))", unit: N, label: Composante nord-sud de la résultante}
+    b: {expr: "sqrt((F1*cos(rad(a1)) - F2*cos(rad(a2)))**2 + (F1*sin(rad(a1)) + F2*sin(rad(a2)))**2)", unit: N, label: Grandeur de la résultante}
+    c: {expr: "deg(atan((F1*sin(rad(a1)) + F2*sin(rad(a2)))/(F1*cos(rad(a1)) - F2*cos(rad(a2)))))", unit: \degree, label: Orientation au nord de l'est}

@@ -1,0 +1,15 @@
+title: 'Deux enfants sur une balançoire à bascule'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$m_1 g d_1 = m_2 g d_2 \implies d_2 = \frac{30 \cdot 2.0}{40} = \qty{1.5}{m}$.'
+choices:
+  - '\qty{2.0}{m}'
+  - '\qty{2.7}{m}'
+  - '\qty{1.5}{m}'
+  - '\qty{1.0}{m}'

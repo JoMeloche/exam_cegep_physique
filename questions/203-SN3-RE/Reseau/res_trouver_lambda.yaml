@@ -1,0 +1,18 @@
+title: Longueur d'onde mesurée avec un réseau
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Ncm: {type: integer, min: 2000, max: 8000, step: 500, unit: traits/cm, label: Nombre de traits par centimètre}
+  th2: {type: integer, min: 20, max: 75, step: 1, unit: \degree, label: Angle du maximum d'ordre 2}
+constraints:
+  - 400e-9 < 0.01/Ncm*sin(rad(th2))/2 < 700e-9
+  - abs(2/sin(rad(th2)) - round(2/sin(rad(th2)))) > 0.1
+solution:
+  mode: manual
+  parts:
+    lam: {expr: "0.01/Ncm*sin(rad(th2))/2", unit: m, label: Longueur d'onde}
+    th1: {expr: "deg(asin(sin(rad(th2))/2))", unit: deg, label: Angle du maximum d'ordre 1}
+    mmax: {expr: "floor(2/sin(rad(th2)))", unit: "", label: Ordre maximal observable}

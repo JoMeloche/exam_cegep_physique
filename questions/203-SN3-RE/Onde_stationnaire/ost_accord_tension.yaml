@@ -10,7 +10,7 @@ variables:
   f:  {type: choice, values: [196, 293.7, 440, 659.3], unit: Hz, label: Fréquence visée}
   f2: {type: integer, min: 2, max: 12, step: 1, unit: Hz, label: Écart de fréquence}
 constraints:
-  - m/L*(2*L*f)**2 < 120
+  - 30 < m/L*(2*L*f)**2 < 120   # violin strings run at about 30-120 N
 solution:
   mode: manual
   parts:

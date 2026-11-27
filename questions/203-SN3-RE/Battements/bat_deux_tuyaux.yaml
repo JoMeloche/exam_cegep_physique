@@ -8,7 +8,8 @@ variables:
   L1: {type: decimal, min: 40.0, max: 120.0, step: 0.5, unit: cm, si: 0.01, label: Longueur du tuyau 1}
   dL: {type: decimal, min: 0.5, max: 3.0, step: 0.1, unit: cm, si: 0.01, label: Écart de longueur}
   v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
-constraints: []
+constraints:
+  - v/(2*L1) - v/(2*(L1 + dL)) <= 10   # beats above ~10 Hz are no longer heard as beats
 solution:
   mode: manual
   parts:

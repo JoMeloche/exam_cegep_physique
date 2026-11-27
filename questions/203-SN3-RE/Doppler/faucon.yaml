@@ -1,4 +1,4 @@
-title: Faucon
+title: Faucon en trottinette et robot-aspirateur
 type: developpement
 points: 20
 time_min: 20
@@ -11,32 +11,44 @@ variables:
     max: 13.1
     step: 0.1
     unit: m/s
-    label: FauconVitesse
+    label: Vitesse du faucon
   CibleVitesse:
     type: integer
     min: 6
     max: 10
     step: 1
     unit: m/s
-    label: CibleVitesse
+    label: Vitesse du robot-aspirateur
   OiseauFreq:
     type: integer
     min: 1540
     max: 2260
     step: 10
     unit: Hz
-    label: OiseauFreq
+    label: Fréquence du cri
   DopplerVson:
     type: integer
     min: 334
     max: 347
     step: 1
     unit: m/s
-    label: DopplerVson
+    label: Vitesse du son
 solution:
   mode: manual
   file: faucon.sol.tex
-needs_review: true
+  parts:
+    a:
+      expr: OiseauFreq*DopplerVson/(DopplerVson - FauconVitesse)
+      unit: Hz
+      label: Son direct
+    b:
+      expr: OiseauFreq*(DopplerVson - CibleVitesse)/(DopplerVson - FauconVitesse)*DopplerVson/(DopplerVson + CibleVitesse)
+      unit: Hz
+      label: Écho
+    c:
+      expr: OiseauFreq*DopplerVson/(DopplerVson - FauconVitesse) - OiseauFreq*(DopplerVson - CibleVitesse)/(DopplerVson - FauconVitesse)*DopplerVson/(DopplerVson + CibleVitesse)
+      unit: Hz
+      label: Fréquence des battements
 source: Question_dev/Doppler/faucon.tex
 original_values:
   FauconVitesse:

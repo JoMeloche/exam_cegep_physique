@@ -1,0 +1,15 @@
+title: "Couleur du maximum central d'un réseau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À l''ordre $m = 0$, $\sin\theta = 0$ pour toutes les longueurs d''onde : toutes les couleurs se superposent au centre, qui reste blanc.'
+choices:
+  - 'Rouge'
+  - 'Violet'
+  - 'Blanc'
+  - 'Noir, car les couleurs s''annulent'

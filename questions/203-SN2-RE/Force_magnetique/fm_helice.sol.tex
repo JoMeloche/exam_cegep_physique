@@ -1,39 +1,42 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Composantes de la vitesse}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $v = \qty{\vsi{v}}{m/s}$, $\theta = \qty{\v{th}}{\degree}$ ; variables recherchées : $v_\parallel$ et $v_\perp$
+    \item \textbf{Variables connues et recherchées :} $v = \QtyT{\vsi{v}}{m/s}$, $\theta = \qty{\v{th}}{\degree}$ ; variables recherchées : $v_\parallel$ et $v_\perp$
     \item \textbf{Équations pertinentes :}
     \[ v_\parallel = v\cos\theta \qquad v_\perp = v\sin\theta \]
     \item \textbf{Isolation de la variable recherchée :} les équations sont déjà isolées.
     \item \textbf{Résolution numérique :}
-    \[ v_\parallel = \num{\vsi{v}} \cos(\qty{\v{th}}{\degree}) = \ResSci{\vsi{v}*cosd(\v{th})}{m/s} \]
-    \[ v_\perp = \num{\vsi{v}} \sin(\qty{\v{th}}{\degree}) = \ResSci{\vsi{v}*sind(\v{th})}{m/s} \]
+    \[ v_\parallel = \NumT{\vsi{v}} \cos(\qty{\v{th}}{\degree}) = \ResSci{\vsi{v}*cosd(\v{th})}{m/s} \]
+    \[ v_\perp = \NumT{\vsi{v}} \sin(\qty{\v{th}}{\degree}) = \ResSci{\vsi{v}*sind(\v{th})}{m/s} \]
     \item \textbf{Réponse :} $v_\parallel = \mathbf{\ResSci{\vsi{v}*cosd(\v{th})}{m/s}}$ et $v_\perp = \mathbf{\ResSci{\vsi{v}*sind(\v{th})}{m/s}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Rayon de l'hélice}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $v_\perp = \ResSci{\vsi{v}*sind(\v{th})}{m/s}$, $B = \qty{\vsi{B}}{T}$, $m_e$, $e$ ; variable recherchée : $r$
+    \item \textbf{Variables connues et recherchées :} $v_\perp = \ResSci{\vsi{v}*sind(\v{th})}{m/s}$, $B = \QtyT{\vsi{B}}{T}$, $m_e$, $e$ ; variable recherchée : $r$
     \item \textbf{Équations pertinentes :} seule $v_\perp$ contribue à la force magnétique :
     \[ e v_\perp B = \frac{m_e v_\perp^2}{r} \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ r = \frac{m_e v_\perp}{eB} \]
     \item \textbf{Résolution numérique :}
-    \[ r = \frac{\num{9.109e-31} \cdot \Val{\vsi{v}*sind(\v{th})}}{\num{1.602e-19} \cdot \num{\vsi{B}}} = \ResSci{9.109e-31*\vsi{v}*sind(\v{th})/(1.602e-19*\vsi{B})}{m} \]
+    \[ r = \frac{\num{9.109e-31} \cdot \Valt{\vsi{v}*sind(\v{th})}}{\num{1.602e-19} \cdot \NumT{\vsi{B}}} = \ResSci{9.109e-31*\vsi{v}*sind(\v{th})/(1.602e-19*\vsi{B})}{m} \]
     \item \textbf{Réponse :} $r = \mathbf{\Res{1000*9.109e-31*\vsi{v}*sind(\v{th})/(1.602e-19*\vsi{B})}{mm}}$.
 \end{enumerate}
 
 \subsubsection*{Question c) Pas de l'hélice}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $v_\parallel = \ResSci{\vsi{v}*cosd(\v{th})}{m/s}$, $B = \qty{\vsi{B}}{T}$ ; variable recherchée : $p$
+    \item \textbf{Variables connues et recherchées :} $v_\parallel = \ResSci{\vsi{v}*cosd(\v{th})}{m/s}$, $B = \QtyT{\vsi{B}}{T}$ ; variable recherchée : $p$
     \item \textbf{Équations pertinentes :}
     \[ T = \frac{2\pi m_e}{eB} \qquad p = v_\parallel T \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ p = \frac{2\pi m_e v_\parallel}{eB} \]
     \item \textbf{Résolution numérique :}
-    \[ T = \frac{2\pi \cdot \num{9.109e-31}}{\num{1.602e-19} \cdot \num{\vsi{B}}} = \ResSci{2*pi*9.109e-31/(1.602e-19*\vsi{B})}{s} \]
-    \[ p = \Val{\vsi{v}*cosd(\v{th})} \cdot \Val{2*pi*9.109e-31/(1.602e-19*\vsi{B})} = \ResSci{2*pi*9.109e-31*\vsi{v}*cosd(\v{th})/(1.602e-19*\vsi{B})}{m} \]
+    \[ T = \frac{2\pi \cdot \num{9.109e-31}}{\num{1.602e-19} \cdot \NumT{\vsi{B}}} = \ResSci{2*pi*9.109e-31/(1.602e-19*\vsi{B})}{s} \]
+    \[ p = \Valt{\vsi{v}*cosd(\v{th})} \cdot \Valt{2*pi*9.109e-31/(1.602e-19*\vsi{B})} = \ResSci{2*pi*9.109e-31*\vsi{v}*cosd(\v{th})/(1.602e-19*\vsi{B})}{m} \]
     \item \textbf{Réponse :} $p = \mathbf{\Res{1000*2*pi*9.109e-31*\vsi{v}*cosd(\v{th})/(1.602e-19*\vsi{B})}{mm}}$.
 \end{enumerate}

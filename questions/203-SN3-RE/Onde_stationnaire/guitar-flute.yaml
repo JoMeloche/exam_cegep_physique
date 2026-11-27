@@ -1,4 +1,4 @@
-title: Guitar-flute
+title: Corde de guitare et flûte
 type: developpement
 points: 20
 time_min: 20
@@ -11,8 +11,7 @@ variables:
     max: 0.95
     step: 0.05
     unit: g
-    label: QthreeMasse
-    si_unit: kg
+    label: Masse de la corde
     si: 0.001
   Lcorde:
     type: integer
@@ -20,8 +19,7 @@ variables:
     max: 75
     step: 5
     unit: cm
-    label: QthreeLcorde
-    si_unit: m
+    label: Longueur de la corde
     si: 0.01
   Lflute:
     type: integer
@@ -29,12 +27,23 @@ variables:
     max: 65
     step: 5
     unit: cm
-    label: QthreeLflute
-    si_unit: m
+    label: Longueur de la flûte
     si: 0.01
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    b:
+      expr: Masse/Lcorde*(343/(2*Lflute)*Lcorde)**2
+      unit: N
+      label: Tension
+    c1:
+      expr: 343/(4*Lflute)
+      unit: Hz
+      label: Fréquence fondamentale
+    c2:
+      expr: 2*Lcorde
+      unit: m
+      label: Longueur d'onde sur la corde
 source: Question_dev/Onde_résonnante/Q_guitar-flute.tex
 original_values:
   Masse:

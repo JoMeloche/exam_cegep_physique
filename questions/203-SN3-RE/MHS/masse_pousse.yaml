@@ -1,4 +1,4 @@
-title: Masse poussé
+title: Poussée qui augmente l'amplitude
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,6 +6,6 @@ difficulty: 2
 figures: []
 solution:
   mode: none
-needs_review: true
+explanation: 'Inchangée : la période d''un système masse-ressort, $T = 2\pi\sqrt{m/k}$, ne dépend pas de l''amplitude.'
 source: Question_concept/MHS/masse_poussé.tex
 history: []

@@ -1,0 +1,22 @@
+title: Champ magnétique d'un câble coaxial (théorème d'Ampère)
+type: developpement
+points: 20
+time_min: 14
+difficulty: 4
+figures: []
+tags: [Ampère]
+variables:
+  I: {type: integer, min: 1, max: 30, step: 1, unit: A, label: Courant}
+  a: {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: mm, si: 0.001, label: Rayon du conducteur central}
+  b: {type: integer, min: 6, max: 15, step: 1, unit: mm, si: 0.001, label: Rayon de la gaine}
+  r1: {type: decimal, min: 0.5, max: 4.5, step: 0.5, unit: mm, si: 0.001, label: Distance à l'axe (point intérieur)}
+  r2: {type: decimal, min: 2.0, max: 14.0, step: 0.5, unit: mm, si: 0.001, label: Distance à l'axe (entre conducteurs)}
+constraints:
+  - r1 < a
+  - r2 > a
+  - r2 < b
+solution:
+  mode: manual
+  parts:
+    a: {expr: "2e-7*I*r1/a**2", unit: T, label: Champ dans le conducteur central}
+    b: {expr: "2e-7*I/r2", unit: T, label: Champ entre les conducteurs}

@@ -1,0 +1,15 @@
+title: 'Résistance et puissance nominale'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$P = V^2/R$ à $V$ fixe : la plus faible puissance correspond à la plus grande résistance, donc l''ampoule de \qty{60}{W} ($R = \qty{240}{\ohm}$ contre \qty{144}{\ohm}).'
+choices:
+  - 'L''ampoule de \qty{60}{W}'
+  - 'L''ampoule de \qty{100}{W}'
+  - 'Elles ont la même résistance'
+  - 'On ne peut pas le savoir sans connaître le courant'

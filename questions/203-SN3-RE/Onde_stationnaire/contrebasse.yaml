@@ -1,4 +1,4 @@
-title: Contrebasse
+title: Contrebasse et tuyau d'orgue
 type: developpement
 points: 20
 time_min: 20
@@ -11,8 +11,7 @@ variables:
     max: 104
     step: 1
     unit: cm
-    label: CordeLongueur
-    si_unit: m
+    label: Longueur de la corde
     si: 0.01
   CordeMasseLin:
     type: decimal
@@ -20,15 +19,14 @@ variables:
     max: 0.0064
     step: 0.0001
     unit: kg/m
-    label: CordeMasseLin
+    label: Masse linéique de la corde
   TuyauLongueur:
     type: integer
     min: 182
     max: 207
     step: 1
     unit: cm
-    label: TuyauLongueur
-    si_unit: m
+    label: Longueur du tuyau
     si: 0.01
   CordeVitesseSon:
     type: integer
@@ -36,11 +34,23 @@ variables:
     max: 350
     step: 2
     unit: m/s
-    label: CordeVitesseSon
+    label: Vitesse du son
 solution:
   mode: manual
   file: contrebasse.sol.tex
-needs_review: true
+  parts:
+    b:
+      expr: CordeMasseLin*(5*CordeVitesseSon/(4*TuyauLongueur)*CordeLongueur)**2
+      unit: N
+      label: Tension
+    c1:
+      expr: 5*CordeVitesseSon/(4*TuyauLongueur)
+      unit: Hz
+      label: Fréquence
+    c2:
+      expr: 4*TuyauLongueur/5
+      unit: m
+      label: Longueur d'onde dans l'air
 source: Question_dev/Onde_résonnante/contrebasse.tex
 original_values:
   CordeLongueur:

@@ -1,0 +1,20 @@
+title: 'Force du biceps qui tient une charge'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  d: {type: decimal, min: 3.0, max: 6.0, step: 0.5, unit: cm, si: 0.01, label: Distance coude-biceps}
+  Lc: {type: decimal, min: 13.0, max: 18.0, step: 0.5, unit: cm, si: 0.01, label: Distance coude-centre de masse}
+  L: {type: integer, min: 30, max: 40, step: 1, unit: cm, si: 0.01, label: Distance coude-main}
+  mf: {type: decimal, min: 1.0, max: 2.5, step: 0.1, unit: kg, label: Masse de l'avant-bras}
+  m: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: kg, label: Masse tenue}
+constraints: []
+solution:
+  mode: manual
+  file: eq_avant_bras.sol.tex
+  parts:
+    a: {expr: "g*(mf*Lc + m*L)/d", unit: 'N', label: 'Force du biceps'}
+    b: {expr: "(g*(mf*Lc + m*L)/d) - (mf + m)*g", unit: 'N', label: 'Force du coude (vers le bas)'}
+    c: {expr: "(g*(mf*Lc + m*L)/d)/(m*g)", unit: '', label: 'Rapport force du biceps / poids'}

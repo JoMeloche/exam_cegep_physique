@@ -1,0 +1,15 @@
+title: 'Échelle qui glisse quand on monte'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le bras de levier du poids de la personne autour du pied de l''échelle augmente : $n_m$ augmente, et $f_s = n_m$ doit augmenter, alors que $n_s = (M+m)g$ et donc $\mu_s n_s$ restent constants.'
+choices:
+  - 'Le coefficient de frottement du sol diminue'
+  - 'Le moment de force du poids de la personne augmente, donc la normale du mur et le frottement nécessaire au sol augmentent'
+  - 'Le poids de la personne augmente avec la hauteur'
+  - 'La force normale du sol diminue'

@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force de l'appui}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $m = \qty{\v{m}}{kg}$, $L = \qty{\v{L}}{m}$, $d = \qty{\v{d}}{m}$ ; variable recherchée : $F_A$
+    \item \textbf{Équations pertinentes :} moments de force par rapport au boulon (sens antihoraire positif) : \[ \sum\tau = F_A d - Mg\frac{L}{2} - mgL = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_A = \frac{g\left(M\frac{L}{2} + mL\right)}{d} \]
+    \item \textbf{Résolution numérique :} \[ F_A = \frac{\num{9.81} \cdot (\num{\v{M}} \cdot \Val{\vsi{L}/2} + \num{\v{m}} \cdot \num{\v{L}})}{\num{\v{d}}} = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d})}{N} \]
+    \item \textbf{Réponse :} $F_A = \mathbf{\Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d})}{N}}$ vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question b) Force du boulon}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_A = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d})}{N}$, $(M + m)g = \Res{(\vsi{M} + \vsi{m})*9.81}{N}$ ; variable recherchée : $F_B$ (vers le bas)
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_A - F_B - Mg - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_B = F_A - (M + m)g \]
+    \item \textbf{Résolution numérique :} \[ F_B = \Val{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d})} - \Val{(\vsi{M} + \vsi{m})*9.81} = \Res{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d}) - (\vsi{M} + \vsi{m})*9.81)}{N} \]
+    \item \textbf{Réponse :} $F_B = \mathbf{\Res{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{L})/\vsi{d}) - (\vsi{M} + \vsi{m})*9.81)}{N}}$ vers le bas : le boulon doit retenir le tremplin.
+\end{enumerate}

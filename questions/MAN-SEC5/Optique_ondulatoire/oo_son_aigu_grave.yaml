@@ -1,0 +1,18 @@
+title: 'Comparer un son aigu et un son grave'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  f1: {type: integer, min: 60, max: 200, step: 5, unit: Hz, label: Fréquence de la note grave}
+  f2: {type: integer, min: 800, max: 4000, step: 50, unit: Hz, label: Fréquence de la note aiguë}
+  v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    a1: {expr: "v/f1", unit: m, label: Longueur d'onde de la note grave}
+    a2: {expr: "100*v/f2", unit: cm, label: Longueur d'onde de la note aiguë}
+    b: {expr: "f2/f1", unit: "", label: Rapport des longueurs d'onde (grave / aiguë)}
+    c: {expr: "1000/f1", unit: ms, label: Période de la note grave}

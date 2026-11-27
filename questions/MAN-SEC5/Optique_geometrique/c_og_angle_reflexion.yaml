@@ -1,0 +1,15 @@
+title: 'Angle de réflexion mesuré par rapport à la normale'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Les angles se mesurent par rapport à la normale : l''angle d''incidence vaut $90 - 30 = \qty{60}{\degree}$, et l''angle de réflexion lui est égal.'
+choices:
+  - '\qty{30}{\degree}'
+  - '\qty{60}{\degree}'
+  - '\qty{90}{\degree}'
+  - '\qty{120}{\degree}'

@@ -1,0 +1,15 @@
+title: 'Deux personnes qui portent une planche'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Avec les moments de force autour d''un porteur, la force de l''autre est inversement proportionnelle à sa distance au centre de masse : le porteur le plus proche du centre porte le plus.'
+choices:
+  - 'Cela dépend de la masse de la planche'
+  - 'Alice, car elle est au bout de la planche'
+  - 'Bruno, car il est plus près du centre de masse'
+  - 'Ils supportent la même force'

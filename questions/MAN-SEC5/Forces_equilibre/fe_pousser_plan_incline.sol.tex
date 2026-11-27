@@ -1,0 +1,34 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Composante parallèle du poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $F_{g\parallel}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{g\parallel} = mg\sin\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{g\parallel} = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} \cdot \sin(\qty{\v{th}}{\degree}) = \Res{\v{m}*9.81*sind(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_{g\parallel} = \mathbf{\Res{\v{m}*9.81*sind(\v{th})}{N}}$, vers le bas de la rampe.
+\end{enumerate}
+\subsubsection*{Question b) Frottement cinétique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mu_c = \num{\v{muk}}$, $F_N = mg\cos\theta$ ; variable recherchée : $F_{fc}$
+    \item \textbf{Équations pertinentes :}
+    \[ F_{fc} = \mu_c F_N = \mu_c\,mg\cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_{fc} = \num{\v{muk}} \cdot \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{muk}*\v{m}*9.81*cosd(\v{th})}{N} \]
+    \item \textbf{Réponse :} $F_{fc} = \mathbf{\Res{\v{muk}*\v{m}*9.81*cosd(\v{th})}{N}}$, vers le bas de la rampe (opposé au mouvement).
+\end{enumerate}
+\subsubsection*{Question c) Poussée à vitesse constante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_{g\parallel} = \Res{\v{m}*9.81*sind(\v{th})}{N}$, $F_{fc} = \Res{\v{muk}*\v{m}*9.81*cosd(\v{th})}{N}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :}
+    \[ \textstyle\sum F_{\parallel} = F - F_{g\parallel} - F_{fc} = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ F = F_{g\parallel} + F_{fc} \]
+    \item \textbf{Résolution numérique :}
+    \[ F = \Val{\v{m}*9.81*sind(\v{th})}\,\unit{N} + \Val{\v{muk}*\v{m}*9.81*cosd(\v{th})}\,\unit{N} = \Res{\v{m}*9.81*(sind(\v{th}) + \v{muk}*cosd(\v{th}))}{N} \]
+    \item \textbf{Réponse :} le déménageur doit pousser avec \textbf{\Res{\v{m}*9.81*(sind(\v{th}) + \v{muk}*cosd(\v{th}))}{N}}.
+\end{enumerate}

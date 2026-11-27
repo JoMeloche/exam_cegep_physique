@@ -1,0 +1,15 @@
+title: "Spire en translation dans un champ uniforme"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le flux $\Phi_B = BA$ ne change pas (même champ, même aire, même orientation) : $d\Phi_B/dt = 0$, donc aucune force électromotrice ni aucun courant n''est induit.'
+choices:
+  - Aucun courant
+  - Un courant constant
+  - Un courant qui augmente avec le temps
+  - Un courant alternatif

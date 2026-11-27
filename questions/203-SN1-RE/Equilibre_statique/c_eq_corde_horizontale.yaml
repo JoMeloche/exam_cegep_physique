@@ -1,0 +1,15 @@
+title: 'Corde à linge parfaitement horizontale'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$2T\sin\theta = mg$ : si $\theta \to 0$, $T = mg/(2\sin\theta) \to \infty$. Une composante verticale est nécessaire pour soutenir le poids.'
+choices:
+  - 'Oui, si la tension est égale au poids du vêtement'
+  - 'Non, il faudrait une tension infinie'
+  - 'Oui, si la tension est égale à la moitié du poids du vêtement'
+  - 'Oui, si la corde a une masse négligeable'

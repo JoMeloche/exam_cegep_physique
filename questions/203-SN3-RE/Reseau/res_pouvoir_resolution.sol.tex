@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Pouvoir de résolution nécessaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda_{\text{moy}} = \qty{589.3}{nm}$, $\Delta\lambda = \qty{0.6}{nm}$
+        \item Variable recherchée : $R$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ R = \frac{\lambda_{\text{moy}}}{\Delta\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ R = \frac{\num{589.3}}{\num{0.6}} = \Res{589.3/0.6}{} \]
+    \item \textbf{Réponse :} il faut un pouvoir de résolution d'au moins \textbf{\Res{589.3/0.6}{}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Nombre minimal de traits}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \Res{589.3/0.6}{}$, $m = \v{m}$ ; variable recherchée : $N_{\min}$
+    \item \textbf{Équations pertinentes :} pour un réseau, $R = mN$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ N_{\min} = \frac{R}{m} \]
+    \item \textbf{Résolution numérique :}
+    \[ N_{\min} = \frac{\Val{589.3/0.6}}{\v{m}} = \Res{589.3/(0.6*\v{m})}{} \]
+    \item \textbf{Réponse :} il faut éclairer au moins \textbf{\Res{589.3/(0.6*\v{m})}{}} traits.
+\end{enumerate}
+
+\subsubsection*{Question c) Traits éclairés}
+\[ N = \num{\v{Nmm}}~\text{traits/mm} \cdot \qty{\v{W}}{mm} = \Res{\v{Nmm}*\v{W}}{} \text{ traits} \]
+On éclaire \textbf{\Res{\v{Nmm}*\v{W}}{}} traits, donc $R = mN = \Res{\v{m}*\v{Nmm}*\v{W}}{}$. \ifthenelse{\lengthtest{\fpeval{\v{m}*\v{Nmm}*\v{W}} pt > \fpeval{589.3/0.6} pt}}{C'est plus que nécessaire : \textbf{les raies sont séparées}.}{C'est moins que nécessaire : \textbf{les raies ne sont pas séparées}.}
+
+\subsubsection*{Question d) Plus petit écart résolu}
+\[ \Delta\lambda_{\min} = \frac{\lambda}{mN} = \frac{\num{589.3}}{\v{m} \cdot \Val{\v{Nmm}*\v{W}}} = \Res{589.3/(\v{m}*\v{Nmm}*\v{W})}{nm} \]
+Le montage résout un écart de \textbf{\Res{589.3/(\v{m}*\v{Nmm}*\v{W})}{nm}}.

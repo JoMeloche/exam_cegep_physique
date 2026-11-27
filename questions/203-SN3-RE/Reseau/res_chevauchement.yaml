@@ -1,0 +1,16 @@
+title: Chevauchement des spectres d'ordre 2 et 3
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  Nmm: {type: integer, min: 200, max: 500, step: 20, unit: traits/mm, label: Nombre de traits par millimètre}
+  lr: {type: integer, min: 650, max: 750, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde rouge extrême}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    tr2: {expr: "deg(asin(2*lr*Nmm*1e3))", unit: deg, label: Angle du rouge à l'ordre 2}
+    tv3: {expr: "deg(asin(3*400e-9*Nmm*1e3))", unit: deg, label: Angle du violet à l'ordre 3}
+    l3: {expr: "2*lr/3", unit: m, label: Longueur d'onde d'ordre 3 au même angle que le rouge d'ordre 2}

@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $m = 1$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $a = \qty[exponent-mode=threshold]{\vsi{larg}}{m}$, $m = 1$
         \item Variable recherchée : $\theta_1$
     \end{itemize}
     \item \textbf{Équations pertinentes :} minimums de diffraction d'une fente :
@@ -13,7 +13,7 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \theta_1 = \arcsin\left(\frac{\lambda}{a}\right) \]
     \item \textbf{Résolution numérique :}
-    \[ \theta_1 = \arcsin\left(\frac{\num{\vsi{lam}}}{\num{\vsi{larg}}}\right) = \Res{asind(\vsi{lam}/\vsi{larg})}{\degree} \]
+    \[ \theta_1 = \arcsin\left(\frac{\num[exponent-mode=threshold]{\vsi{lam}}}{\num[exponent-mode=threshold]{\vsi{larg}}}\right) = \Res{asind(\vsi{lam}/\vsi{larg})}{\degree} \]
     \item \textbf{Réponse :} le premier minimum est à \textbf{\Res{asind(\vsi{lam}/\vsi{larg})}{\degree}}.
 \end{enumerate}
 
@@ -30,5 +30,5 @@
 
 \subsubsection*{Question c) Largeur d'un maximum secondaire}
 Pour de petits angles, $y_m \approx m\lambda L/a$, donc deux minimums voisins sont séparés de
-\[ \Delta y = \frac{\lambda L}{a} = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+\[ \Delta y = \frac{\lambda L}{a} = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
 Un maximum secondaire mesure \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}}, soit la moitié de la largeur du maximum central.

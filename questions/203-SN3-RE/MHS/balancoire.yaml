@@ -1,22 +1,23 @@
-title: Balancoire
+title: Balançoire avec un passager de plus
 type: conceptuel
 points: 4
 time_min: 4
 difficulty: 2
 figures: []
 variables:
-  mhsqCinqCPeriode:
+  Periode:
     type: decimal
     min: 2
     max: 4
     step: 0.5
-    label: mhsqCinqCPeriode
+    label: Période
+    unit: s
 solution:
   mode: none
-needs_review: true
+explanation: 'Inchangée : la période d''un pendule simple, $T = 2\pi\sqrt{L/g}$, ne dépend pas de la masse.'
 source: Question_concept/MHS/balancoire.tex
 original_values:
-  mhsqCinqCPeriode:
+  Periode:
     A: '3.0'
     B: '2.5'
     C: '3.5'

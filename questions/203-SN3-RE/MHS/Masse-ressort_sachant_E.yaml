@@ -1,4 +1,4 @@
-title: Masse-ressort sachant E
+title: Masse-ressort sachant E, m et k
 type: developpement
 points: 20
 time_min: 20
@@ -11,15 +11,14 @@ variables:
     max: 0.35
     step: 0.05
     unit: J
-    label: mhsqSixEm
+    label: Énergie mécanique
   Masse:
     type: integer
     min: 90
     max: 160
     step: 10
     unit: g
-    label: mhsqSixMasse
-    si_unit: kg
+    label: Masse du bloc
     si: 0.001
   K:
     type: integer
@@ -27,18 +26,32 @@ variables:
     max: 60
     step: 10
     unit: N/m
-    label: mhsqSixK
+    label: Constante de rappel
   Vit:
     type: decimal
     min: 0.9
     max: 1.6
     step: 0.1
     unit: m/s
-    label: mhsqSixVit
+    label: Vitesse
+constraints:
+- Vit < 0.95*sqrt(2*Em/Masse)
 solution:
   mode: manual
   file: Masse-ressort_sachant_E.sol.tex
-needs_review: true
+  parts:
+    a:
+      expr: sqrt(2*Em/K)
+      unit: m
+      label: Amplitude
+    b:
+      expr: sqrt(2*Em/Masse)
+      unit: m/s
+      label: Vitesse maximale
+    c:
+      expr: sqrt((2*Em - Masse*Vit**2)/K)
+      unit: m
+      label: Position (±)
 source: Question_dev/MHS/Masse-ressort_sachant_E.tex
 original_values:
   Em:

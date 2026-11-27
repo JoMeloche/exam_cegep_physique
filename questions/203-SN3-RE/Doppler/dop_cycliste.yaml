@@ -10,7 +10,7 @@ variables:
   v:  {type: choice, values: [340, 343], unit: m/s, label: Vitesse du son}
   fp: {type: integer, min: 10, max: 60, step: 5, unit: Hz, label: Augmentation visée}
 constraints:
-  - fp*v/f < 40
+  - fp*v/f <= 15   # a cyclist cannot ride much faster than 15 m/s (54 km/h)
 solution:
   mode: manual
   parts:

@@ -1,0 +1,36 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} la réflexion air-savon (vers un milieu d'indice plus grand) donne un déphasage de $\lambda/2$ ; la réflexion savon-air n'en donne pas. Il y a donc un seul déphasage de $\lambda/2$.
+
+\subsubsection*{Question a) Longueurs d'onde fortement réfléchies}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $n = \num{\v{n}}$, $e = \qty{\v{ep}}{nm}$
+        \item Variable recherchée : $\lambda$ pour $m = 0, 1, 2$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} avec un seul déphasage, l'interférence est constructive quand
+    \[ 2ne = \left(m + \tfrac{1}{2}\right)\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{4ne}{2m + 1} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda_0 = 4 \cdot \num{\v{n}} \cdot \num{\v{ep}} = \Res{4*\v{n}*\v{ep}}{nm}, \quad \lambda_1 = \frac{\Val{4*\v{n}*\v{ep}}}{3} = \Res{4*\v{n}*\v{ep}/3}{nm}, \quad \lambda_2 = \frac{\Val{4*\v{n}*\v{ep}}}{5} = \Res{4*\v{n}*\v{ep}/5}{nm} \]
+    \item \textbf{Réponse :} les longueurs d'onde fortement réfléchies sont \textbf{\Res{4*\v{n}*\v{ep}}{nm}}, \textbf{\Res{4*\v{n}*\v{ep}/3}{nm}} et \textbf{\Res{4*\v{n}*\v{ep}/5}{nm}} ; seules celles comprises entre \qty{400}{nm} et \qty{700}{nm} sont visibles.
+\end{enumerate}
+
+\subsubsection*{Question b) Plus grande longueur d'onde éteinte}
+Interférence destructive : $2ne = m\lambda$ avec $m \ge 1$. La plus grande longueur d'onde correspond à $m = 1$ :
+\[ \lambda = 2ne = 2 \cdot \num{\v{n}} \cdot \num{\v{ep}} = \Res{2*\v{n}*\v{ep}}{nm} \]
+La plus grande longueur d'onde absente est \textbf{\Res{2*\v{n}*\v{ep}}{nm}}.
+
+\subsubsection*{Question c) Épaisseur minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\v{lam}}{nm}$, $n = \num{\v{n}}$, $m = 0$ ; variable recherchée : $e_{\min}$
+    \item \textbf{Équations pertinentes :} $2ne = \left(m + \tfrac{1}{2}\right)\lambda$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e_{\min} = \frac{\lambda}{4n} \]
+    \item \textbf{Résolution numérique :}
+    \[ e_{\min} = \frac{\num{\v{lam}}}{4 \cdot \num{\v{n}}} = \Res{\v{lam}/(4*\v{n})}{nm} \]
+    \item \textbf{Réponse :} l'épaisseur minimale est \textbf{\Res{\v{lam}/(4*\v{n})}{nm}}.
+\end{enumerate}

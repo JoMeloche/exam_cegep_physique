@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $d = \qty{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $m = \v{N}$, $y_{\v{N}} = \qty{\vsi{dy}}{m}$
+        \item $d = \qty[exponent-mode=threshold]{\vsi{sep}}{m}$, $L = \qty{\v{L}}{m}$, $m = \v{N}$, $y_{\v{N}} = \qty[exponent-mode=threshold]{\vsi{dy}}{m}$
         \item Variable recherchée : $\lambda$
     \end{itemize}
     \item \textbf{Équations pertinentes :} pour de petits angles,
@@ -13,7 +13,7 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \lambda = \frac{y_m\,d}{m L} \]
     \item \textbf{Résolution numérique :}
-    \[ \lambda = \frac{\num{\vsi{dy}} \cdot \num{\vsi{sep}}}{\v{N} \cdot \num{\v{L}}} = \Res{1e9*\vsi{dy}*\vsi{sep}/(\v{N}*\v{L})}{nm} \]
+    \[ \lambda = \frac{\num[exponent-mode=threshold]{\vsi{dy}} \cdot \num[exponent-mode=threshold]{\vsi{sep}}}{\v{N} \cdot \num{\v{L}}} = \Res{1e9*\vsi{dy}*\vsi{sep}/(\v{N}*\v{L})}{nm} \]
     \item \textbf{Réponse :} la longueur d'onde est \textbf{\Res{1e9*\vsi{dy}*\vsi{sep}/(\v{N}*\v{L})}{nm}}.
 \end{enumerate}
 

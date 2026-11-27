@@ -8,7 +8,7 @@ tags: [frottement]
 variables: {}
 solution: {mode: none}
 answer: B
-explanation: 'La force de frottement vaut $\mu_c F_N$ : elle dépend de la normale (ici le poids) et des surfaces en contact, pas de l''aire de contact.'
+explanation: 'La force de frottement vaut $\mu_c F_N$ : elle dépend de la force normale (ici le poids) et de la nature des surfaces en contact, pas de l''aire de contact.'
 choices:
   - 'Elle est plus petite sur la petite face'
   - 'Elle reste la même'

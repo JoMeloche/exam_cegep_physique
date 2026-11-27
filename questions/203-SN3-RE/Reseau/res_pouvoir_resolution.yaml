@@ -1,0 +1,19 @@
+title: Séparer le doublet du sodium avec un réseau
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  m: {type: integer, min: 1, max: 3, label: Ordre utilisé}
+  Nmm: {type: integer, min: 100, max: 600, step: 50, unit: traits/mm, label: Nombre de traits par millimètre}
+  W: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: mm, si: 0.001, label: Largeur éclairée du réseau}
+constraints:
+  - abs(m*Nmm*W*1e3 - 589.3/0.6) > 150
+solution:
+  mode: manual
+  parts:
+    R: {expr: "589.3/0.6", unit: "", label: Pouvoir de résolution nécessaire}
+    Nmin: {expr: "589.3/(0.6*m)", unit: "", label: Nombre minimal de traits éclairés}
+    Ntot: {expr: "Nmm*W*1e3", unit: "", label: Nombre de traits éclairés}
+    dl: {expr: "589.3e-9/(m*Nmm*W*1e3)", unit: m, label: Plus petit écart résolu}

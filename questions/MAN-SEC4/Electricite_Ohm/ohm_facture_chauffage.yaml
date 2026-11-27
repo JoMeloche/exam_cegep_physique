@@ -14,5 +14,5 @@ solution:
   parts:
     a: {expr: "P/240", unit: A, label: Intensité du courant}
     b: {expr: "240**2/P", unit: \ohm, label: Résistance}
-    c: {expr: "P*h*30/1000", unit: \kilo\watt\hour, label: Énergie consommée}
+    c: {expr: "P*h*30/1000", unit: kWh, label: Énergie consommée}
     d: {expr: "P*h*30/1000*tarif", unit: \$, label: Coût}

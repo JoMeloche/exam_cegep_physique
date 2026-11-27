@@ -1,0 +1,19 @@
+title: Maximums d'un réseau de diffraction
+type: developpement
+points: 20
+time_min: 15
+difficulty: 2
+figures: []
+variables:
+  Nmm: {type: integer, min: 200, max: 1200, step: 50, unit: traits/mm, label: Nombre de traits par millimètre}
+  lam: {type: integer, min: 400, max: 700, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+constraints:
+  - 2*lam*Nmm*1e3 < 0.95
+  - abs(1/(lam*Nmm*1e3) - round(1/(lam*Nmm*1e3))) > 0.1
+solution:
+  mode: manual
+  parts:
+    dd: {expr: "1e-3/Nmm", unit: m, label: Distance entre deux traits}
+    th1: {expr: "deg(asin(lam*Nmm*1e3))", unit: deg, label: Angle du maximum d'ordre 1}
+    th2: {expr: "deg(asin(2*lam*Nmm*1e3))", unit: deg, label: Angle du maximum d'ordre 2}
+    mmax: {expr: "floor(1/(lam*Nmm*1e3))", unit: "", label: Ordre maximal observable}

@@ -6,7 +6,7 @@ difficulty: 4
 figures: []
 variables:
   f:  {type: choice, values: [440, 523.3, 587.3, 659.3], unit: Hz, label: Fréquence à 20 °C}
-  T2: {type: integer, min: 24, max: 35, step: 1, unit: \degreeCelsius, label: Température de la flûte chaude}
+  T2: {type: integer, min: 24, max: 30, step: 1, unit: \degreeCelsius, label: Température de la flûte chaude}
 constraints: []
 solution:
   mode: manual

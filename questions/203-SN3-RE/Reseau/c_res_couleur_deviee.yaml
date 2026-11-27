@@ -1,0 +1,15 @@
+title: "Couleur la plus déviée par un réseau"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$\sin\theta = m\lambda/d$ : la déviation augmente avec la longueur d''onde. Le rouge est donc plus dévié que le violet, contrairement à un prisme.'
+choices:
+  - 'Le violet'
+  - 'Le vert'
+  - 'Toutes les couleurs sont déviées du même angle'
+  - 'Le rouge'

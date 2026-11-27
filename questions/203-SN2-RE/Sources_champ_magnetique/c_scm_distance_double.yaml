@@ -1,0 +1,15 @@
+title: "Champ d'un long fil à distance double"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$B = \dfrac{\mu_0 I}{2\pi r}$ est inversement proportionnel à $r$ (et non à $r^2$) : à $2r$, le champ vaut $B/2$.'
+choices:
+  - $B/4$
+  - $B/2$
+  - $B$
+  - $2B$

@@ -1,4 +1,4 @@
-title: Soccer
+title: Sirène de but au stade
 type: developpement
 points: 20
 time_min: 20
@@ -11,32 +11,44 @@ variables:
     max: 90
     step: 10
     unit: W
-    label: PneuPuissance
+    label: Puissance sonore de la sirène
   PneuNiveaudB:
     type: integer
     min: 91
     max: 99
     step: 1
     unit: dB
-    label: PneuNiveaudB
+    label: Niveau sonore mesuré
   OreilleRayon:
     type: decimal
     min: 0.0025
     max: 0.0045
     step: 0.0005
     unit: m
-    label: OreilleRayon
+    label: Rayon du conduit auditif
   MusiqueNiveaudB:
     type: integer
     min: 87
     max: 95
     step: 1
     unit: dB
-    label: MusiqueNiveaudB
+    label: Niveau sonore de la musique
 solution:
   mode: manual
   file: soccer.sol.tex
-needs_review: true
+  parts:
+    a:
+      expr: sqrt(PneuPuissance/(4*pi*1e-12*10**(PneuNiveaudB/10)))
+      unit: m
+      label: Distance de la sirène
+    b:
+      expr: 1e-12*10**(PneuNiveaudB/10)*pi*OreilleRayon**2
+      unit: W
+      label: Puissance reçue par le tympan
+    c:
+      expr: 10*log10(10**(PneuNiveaudB/10) + 10**(MusiqueNiveaudB/10))
+      unit: dB
+      label: Niveau total
 source: Question_dev/Intensité/soccer.tex
 original_values:
   PneuPuissance:

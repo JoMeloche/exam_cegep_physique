@@ -1,0 +1,21 @@
+title: Spire carrée qui sort d'un champ magnétique
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  a: {type: integer, min: 5, max: 30, step: 1, unit: cm, si: 0.01, label: Côté de la spire}
+  R: {type: decimal, min: 0.1, max: 5.0, step: 0.1, unit: \ohm, label: Résistance de la spire}
+  v: {type: decimal, min: 0.5, max: 5.0, step: 0.5, unit: m/s, label: Vitesse}
+  B: {type: decimal, min: 0.10, max: 1.50, step: 0.05, unit: T, label: Champ magnétique}
+constraints:
+  - B*a*v/R >= 0.05
+  - B*a*v/R <= 10
+solution:
+  mode: manual
+  parts:
+    a: {expr: "B*a*v", unit: V, label: Force électromotrice induite}
+    b: {expr: "B*a*v/R", unit: A, label: Courant induit}
+    c: {expr: "B**2*a**2*v/R", unit: N, label: Force à exercer}
+    d: {expr: "B**2*a**3*v/R", unit: J, label: Énergie dissipée}

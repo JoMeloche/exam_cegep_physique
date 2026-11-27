@@ -1,4 +1,4 @@
-title: 1emetteur2recepteur
+title: Un émetteur et deux récepteurs en mouvement
 type: conceptuel
 points: 4
 time_min: 4
@@ -7,12 +7,13 @@ figures:
 - 1emetteur2recepteur.png
 solution:
   mode: none
+answer: B
+explanation: 'R1 suit E à la même vitesse : aucune vitesse relative, il perçoit la fréquence émise. R2 et E se rapprochent : R2 perçoit une fréquence plus élevée.'
 choices:
 - Le récepteur R1.
 - Le récepteur R2.
 - Les deux récepteurs reçoivent un son avec une fréquence identique.
 - Impossible de le savoir sans connaître la valeur de la vitesse $v$.
 pin_last: 1
-needs_review: true
 source: Question_concept/Doppler/1emetteur2recepteur.tex
 history: []

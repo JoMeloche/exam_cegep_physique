@@ -1,28 +1,29 @@
-title: Plusieurs haut-parleurs
+title: Dix haut-parleurs identiques
 type: conceptuel
 points: 4
 time_min: 4
 difficulty: 2
 figures: []
 variables:
-  doppUnCIntensite:
+  BetaTot:
     type: integer
     min: 34
     max: 52
     step: 2
     unit: dB
-    label: doppUnCIntensite
+    label: Niveau sonore total
 solution:
   mode: none
+answer: C
+explanation: Diviser l'intensité par 10 retire $10\log(10) = \qty{10}{dB}$.
 choices:
-- $25\text{ dB}$
-- $27\text{ dB}$
-- $30\text{ dB}$
-- $33\text{ dB}$
-needs_review: true
+- \qty{\fpeval{\v{BetaTot}-15}}{dB}
+- \qty{\fpeval{\v{BetaTot}-13}}{dB}
+- \qty{\fpeval{\v{BetaTot}-10}}{dB}
+- \qty{\fpeval{\v{BetaTot}-7}}{dB}
 source: Question_concept/Puissance/plusieurs_haut-parleurs.tex
 original_values:
-  doppUnCIntensite:
+  BetaTot:
     A: '40'
     B: '36'
     C: '50'

@@ -1,0 +1,18 @@
+title: Distinguer des détails sur la Lune avec un télescope
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  Dt: {type: integer, min: 10, max: 100, step: 5, unit: cm, si: 0.01, label: Diamètre de l'objectif}
+  lam: {type: integer, min: 450, max: 650, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  s: {type: integer, min: 50, max: 500, step: 10, unit: m, label: Taille du détail visé}
+constraints:
+  - s < 0.8*1.22*lam*3.84e8/Dt
+solution:
+  mode: manual
+  parts:
+    th: {expr: "1.22*lam/Dt", unit: rad, label: Angle limite de résolution}
+    smin: {expr: "1.22*lam*3.84e8/Dt", unit: m, label: Plus petit détail résolu sur la Lune}
+    Dmin: {expr: "1.22*lam*3.84e8/s", unit: m, label: Diamètre nécessaire}

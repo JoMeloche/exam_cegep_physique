@@ -1,0 +1,17 @@
+Un projecteur de \qty{\v{m}}{kg} est suspendu au plafond par deux câbles. Le câble 1, à gauche, fait un angle de \qty{\v{t1}}{\degree} avec l'horizontale ; le câble 2, à droite, fait un angle de \qty{\v{t2}}{\degree} avec l'horizontale.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  \fill[pattern=north east lines] (-0.5,0) rectangle (5.5,0.3); \draw[thick] (-0.5,0) -- (5.5,0);
+  \draw (0,0) -- (2,-1.6) -- (5,0);
+  \draw[fill=gray!40] (1.7,-1.6) rectangle (2.3,-2.1);
+  \draw (0.7,0) arc (0:-38.7:0.7); \node at (1.0,-0.3) {$\theta_1$};
+  \draw (4.2,0) arc (180:208:0.8); \node at (3.8,-0.3) {$\theta_2$};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez la tension dans le câble 1.
+    \item Déterminez la tension dans le câble 2.
+    \item Chaque câble peut supporter au plus \qty{\v{Tmax}}{N}. Avec les mêmes angles, quelle est la masse maximale que l'on pourrait suspendre ?
+\end{enumerate}

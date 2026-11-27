@@ -11,6 +11,7 @@ variables:
 constraints:
   - abs(tB - beta*xB/3e8) > 0.5e-6
   - abs(xB - beta*3e8*tB) > 100
+  - abs(xB - 3e8*tB) > 100   # avoid a lightlike interval (invariant = 0)
 solution:
   mode: manual
   parts:

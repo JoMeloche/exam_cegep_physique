@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{MHz} = \qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\vsi{f}}{Hz}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $\lambda$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ \lambda = \frac{v}{f} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\qty{\v{v}}{m/s}}{\qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\vsi{f}}{Hz}} = \ResSci{\v{v}/\vsi{f}}{m} = \Res{1000*\v{v}/\vsi{f}}{mm} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{1000*\v{v}/\vsi{f}}{mm}}$. Plus la fréquence est grande, plus on distingue de petits détails.
+\end{enumerate}
+\subsubsection*{Question b) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\vsi{f}}{Hz}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ T = \frac{1}{f} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{1}{\qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\vsi{f}}{Hz}} = \ResSci{1/\vsi{f}}{s} = \Res{1e9/\vsi{f}}{ns} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{1e9/\vsi{f}}{ns}}$.
+\end{enumerate}
+\subsubsection*{Question c) Profondeur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta t = \qty{\v{t}}{\micro\second} = \qty{\v{t}e-6}{s}$ (aller-retour), $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $d$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \frac{2d}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ d = \frac{v\,\Delta t}{2} \]
+    \item \textbf{Résolution numérique :}
+    \[ d = \frac{\qty{\v{v}}{m/s} \cdot \qty{\v{t}e-6}{s}}{2} = \Res{\v{v}*\vsi{t}/2}{m} = \Res{100*\v{v}*\vsi{t}/2}{cm} \]
+    \item \textbf{Réponse :} la paroi est à \textbf{\Res{100*\v{v}*\vsi{t}/2}{cm}} sous la peau.
+\end{enumerate}

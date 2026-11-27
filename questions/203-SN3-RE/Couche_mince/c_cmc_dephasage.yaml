@@ -1,0 +1,15 @@
+title: "Déphasage à la réflexion"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Une onde lumineuse qui se réfléchit sur un milieu d''indice plus élevé subit un déphasage de $\pi$ (équivalent à $\lambda/2$). Sur un milieu d''indice plus faible, il n''y a pas de déphasage.'
+choices:
+  - 'Quand elle se réfléchit sur un milieu d''indice de réfraction plus élevé que celui où elle voyage'
+  - 'Quand elle se réfléchit sur un milieu d''indice de réfraction plus faible que celui où elle voyage'
+  - 'À chaque réflexion, quels que soient les indices'
+  - 'Jamais : seule la transmission produit un déphasage'

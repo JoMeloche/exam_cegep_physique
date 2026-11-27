@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance à chaud}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_0 = \qty{\v{R0}}{\ohm}$, $\alpha = \qty{4.5e-3}{\celsius^{-1}}$, $T_0 = \qty{20}{\celsius}$, $T = \qty{\v{T}}{\celsius}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :}
+    \[ R = R_0\left[1 + \alpha(T - T_0)\right] \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ R = \num{\v{R0}}\left[1 + \num{4.5e-3}(\num{\v{T}} - \num{20})\right] = \Res{\v{R0}*(1 + 4.5e-3*(\v{T} - 20))}{\ohm} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{\v{R0}*(1 + 4.5e-3*(\v{T} - 20))}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant et puissance en fonctionnement}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \qty{120}{V}$, $R$ ; variables recherchées : $I$, $P$
+    \item \textbf{Équations pertinentes :}
+    \[ V = RI \qquad P = VI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{V}{R} \qquad P = \frac{V^2}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{120}}{\Val{\v{R0}*(1 + 4.5e-3*(\v{T} - 20))}} = \Res{120/(\v{R0}*(1 + 4.5e-3*(\v{T} - 20)))}{A} \qquad P = \frac{(\num{120})^2}{\Val{\v{R0}*(1 + 4.5e-3*(\v{T} - 20))}} = \Res{120^2/(\v{R0}*(1 + 4.5e-3*(\v{T} - 20)))}{W} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{120/(\v{R0}*(1 + 4.5e-3*(\v{T} - 20)))}{A}}$ et $P = \mathbf{\Res{120^2/(\v{R0}*(1 + 4.5e-3*(\v{T} - 20)))}{W}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant à l'allumage}
+\[ I_0 = \frac{V}{R_0} = \frac{\num{120}}{\num{\v{R0}}} = \Res{120/\v{R0}}{A} \]
+Au démarrage, le courant vaut \textbf{\Res{120/\v{R0}}{A}}, soit \Res{1 + 4.5e-3*(\v{T} - 20)}{} fois le courant de fonctionnement. Ce pic de courant (et de puissance) échauffe brutalement le filament froid, ce qui le fait souvent céder à l'allumage.

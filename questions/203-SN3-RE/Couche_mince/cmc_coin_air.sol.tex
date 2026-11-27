@@ -1,0 +1,32 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} la réflexion verre-air (haut du coin) n'en donne pas ; la réflexion air-verre (bas du coin) donne un déphasage de $\lambda/2$. Il y a donc un seul déphasage : la frange est sombre quand $2e = m\lambda$, et la ligne de contact ($e = 0$) est sombre.
+
+\subsubsection*{Question a) Angle du coin}
+\[ \theta \approx \tan\theta = \frac{h}{L} = \frac{\num[exponent-mode=threshold]{\vsi{hc}}}{\num[exponent-mode=threshold]{\vsi{Lp}}} = \ResSci{\vsi{hc}/\vsi{Lp}}{rad} \]
+L'angle du coin est \textbf{\ResSci{\vsi{hc}/\vsi{Lp}}{rad}}.
+
+\subsubsection*{Question b) Distance entre franges sombres}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $\theta = \ResSci{\vsi{hc}/\vsi{Lp}}{rad}$
+        \item Variable recherchée : $\Delta x$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} franges sombres à $2e = m\lambda$, avec $e = x\theta$ à la distance $x$ de la ligne de contact
+    \item \textbf{Isolation de la variable recherchée :} $x_m = \dfrac{m\lambda}{2\theta}$, donc
+    \[ \Delta x = \frac{\lambda}{2\theta} = \frac{\lambda L}{2h} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta x = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num[exponent-mode=threshold]{\vsi{Lp}}}{2 \cdot \num[exponent-mode=threshold]{\vsi{hc}}} = \Res{1000*\vsi{lam}*\vsi{Lp}/(2*\vsi{hc})}{mm} \]
+    \item \textbf{Réponse :} les franges sombres sont séparées de \textbf{\Res{1000*\vsi{lam}*\vsi{Lp}/(2*\vsi{hc})}{mm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Nombre de franges sombres}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $h = \qty[exponent-mode=threshold]{\vsi{hc}}{m}$ ; variable recherchée : le nombre de valeurs de $m$
+    \item \textbf{Équations pertinentes :} $2e = m\lambda$ avec $0 \le e \le h$
+    \item \textbf{Isolation de la variable recherchée :} $0 \le m \le \dfrac{2h}{\lambda}$
+    \item \textbf{Résolution numérique :} $\dfrac{2h}{\lambda} = \dfrac{2 \cdot \num[exponent-mode=threshold]{\vsi{hc}}}{\num[exponent-mode=threshold]{\vsi{lam}}} = \Val{2*\v{hc}*1000/\v{lam}}$, donc $m = 0, 1, \dots, \num{\fpeval{floor(2*\v{hc}*1000/\v{lam})}}$
+    \item \textbf{Réponse :} on observe \textbf{\num{\fpeval{floor(2*\v{hc}*1000/\v{lam}) + 1}}} franges sombres (en comptant la ligne de contact).
+\end{enumerate}

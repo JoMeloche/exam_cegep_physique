@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Durée du trajet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d = \qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\v{D}}{m}$, $c = \qty{3.00e8}{m/s}$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :}
+    \[ c = \frac{d}{t} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ t = \frac{d}{c} \]
+    \item \textbf{Résolution numérique :}
+    \[ t = \frac{\qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\v{D}}{m}}{\qty{3.00e8}{m/s}} = \Res{\vsi{D}/3e8}{s} = \Res{\vsi{D}/3e8/60}{min} \]
+    \item \textbf{Réponse :} la lumière met \textbf{\Res{\vsi{D}/3e8}{s}}, soit \textbf{\Res{\vsi{D}/3e8/60}{min}}. On voit donc le Soleil tel qu'il était il y a environ \qty{8}{min}.
+\end{enumerate}
+\subsubsection*{Question b) Fréquence}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\v{lam}}{nm} = \qty{\v{lam}e-9}{m}$, $c = \qty{3.00e8}{m/s}$ ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ c = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ f = \frac{c}{\lambda} \]
+    \item \textbf{Résolution numérique :}
+    \[ f = \frac{\qty{3.00e8}{m/s}}{\qty{\v{lam}e-9}{m}} = \ResSci{3e8/\vsi{lam}}{Hz} \]
+    \item \textbf{Réponse :} $f = \mathbf{\ResSci{3e8/\vsi{lam}}{Hz}}$.
+\end{enumerate}
+\subsubsection*{Question c) Nombre de longueurs d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d = \qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\v{D}}{m}$, $\lambda = \qty{\v{lam}e-9}{m}$ ; variable recherchée : $N$
+    \item \textbf{Équations pertinentes :}
+    \[ N = \frac{d}{\lambda} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ N = \frac{\qty[exponent-mode=scientific,round-mode=figures,round-precision=3]{\v{D}}{m}}{\qty{\v{lam}e-9}{m}} = \num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{D}/\vsi{lam}}} \]
+    \item \textbf{Réponse :} environ \textbf{\num[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{\vsi{D}/\vsi{lam}}}} longueurs d'onde.
+\end{enumerate}

@@ -1,0 +1,18 @@
+\begin{minipage}{0.6\linewidth}
+Une échelle uniforme de \qty{\v{M}}{kg} et de \qty{\v{L}}{m} est appuyée contre un mur vertical sans frottement et fait un angle de \qty{\v{th}}{\degree} avec le sol horizontal. Une personne de \qty{\v{m}}{kg} est montée de \qty{\v{s}}{m} le long de l'échelle. L'échelle ne glisse pas.
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+  \fill[pattern=north east lines] (-0.5,-0.3) rectangle (3.1,0); \draw[thick] (-0.5,0) -- (3.1,0);
+  \fill[pattern=north east lines] (2.5,0) rectangle (2.8,4); \draw[thick] (2.5,0) -- (2.5,4);
+  \draw[line width=2pt] (0.9,0) -- (2.5,3.6);
+  \draw (1.5,0) arc (0:66:0.6); \node at (1.8,0.35) {$\theta$};
+\end{tikzpicture}
+\end{minipage}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez la force normale exercée par le mur sur l'échelle.
+    \item Déterminez la force normale et la force de frottement exercées par le sol sur l'échelle.
+    \item Déterminez le coefficient de frottement statique minimal entre l'échelle et le sol.
+\end{enumerate}

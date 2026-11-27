@@ -1,4 +1,4 @@
-title: Horloge
+title: Horloge à pendule sur la Lune
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: E
+explanation: '$T = 2\pi\sqrt{L/g}$ : $g$ plus petit allonge la période, il faut donc raccourcir la corde.'
 choices:
 - 'Rien : l’horloge fonctionnera aussi bien sans aucune modification.'
 - Augmenter la masse du pendule.
 - Diminuer la masse du pendule.
 - Allonger la corde du pendule.
 - Raccourcir la corde du pendule.
-needs_review: true
 source: Question_concept/MHS/horloge.tex
 history: []

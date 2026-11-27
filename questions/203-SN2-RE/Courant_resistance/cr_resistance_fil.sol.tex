@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \qty{1.68e-8}{\ohm.m}$, $L = \qty{\v{L}}{m}$, $r = d/2 = \ResSci{\vsi{d}/2}{m}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :}
+    \[ R = \frac{\rho L}{A} \qquad A = \pi r^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ R = \frac{\rho L}{\pi r^2} \]
+    \item \textbf{Résolution numérique :}
+    \[ A = \pi(\ResSci{\vsi{d}/2}{})^2 = \ResSci{pi*(\vsi{d}/2)^2}{m^2} \qquad R = \frac{\num{1.68e-8} \cdot \num{\v{L}}}{\ResSci{pi*(\vsi{d}/2)^2}{}} = \Res{1.68e-8*\v{L}/(pi*(\vsi{d}/2)^2)}{\ohm} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{1.68e-8*\v{L}/(pi*(\vsi{d}/2)^2)}{\ohm}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $V = \qty{\v{V}}{V}$, $R$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ V = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{V}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{V}}}{\Val{1.68e-8*\v{L}/(pi*(\vsi{d}/2)^2)}} = \Res{\v{V}*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{\v{V}*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Densité de courant et puissance}
+\[ J = \frac{I}{A} = \frac{\Val{\v{V}*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})}}{\ResSci{pi*(\vsi{d}/2)^2}{}} = \ResSci{\v{V}/(1.68e-8*\v{L})}{A/m^2} \qquad P = VI = \num{\v{V}} \cdot \Val{\v{V}*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})} = \Res{\v{V}^2*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})}{W} \]
+La densité de courant est de \textbf{\ResSci{\v{V}/(1.68e-8*\v{L})}{A/m^2}} et le fil dissipe \textbf{\Res{\v{V}^2*pi*(\vsi{d}/2)^2/(1.68e-8*\v{L})}{W}}.

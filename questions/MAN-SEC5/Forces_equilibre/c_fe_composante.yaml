@@ -1,0 +1,15 @@
+title: 'Grandeur possible d''une composante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$F_x = F\cos\theta$ et $|\cos\theta| \le 1$ : une composante ne peut jamais dépasser la grandeur de la force.'
+choices:
+  - '\qty{0}{N}'
+  - '\qty{25}{N}'
+  - '\qty{50}{N}'
+  - '\qty{60}{N}'
