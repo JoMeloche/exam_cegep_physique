@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Composante horizontale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \qty{\v{F}}{N}$, $\theta = \ang{\v{th}}$ ; variable recherchée : $F_x$
+    \item \textbf{Équations pertinentes :} \[ F_x = F \cos\theta \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ F_x = \num{\v{F}} \cos(\ang{\v{th}}) = \Res{\vsi{F}*cosd(\vsi{th})}{N} \]
+    \item \textbf{Réponse :} $F_x = \mathbf{\Res{\vsi{F}*cosd(\vsi{th})}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_x = \Res{\v{F}*cosd(\v{th})}{N}$, $m = \qty{\v{m}}{kg}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} seule $F_x$ est horizontale (le poids, la normale et $F_y$ se compensent verticalement) :\[ F_x = m\,a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{F_x}{m} \]
+    \item \textbf{Résolution numérique :} \[ a = \frac{\Val{\v{F}*cosd(\v{th})}}{\num{\v{m}}} = \Res{\vsi{F}*cosd(\vsi{th})/\vsi{m}}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{\vsi{F}*cosd(\vsi{th})/\vsi{m}}{m/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse atteinte}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = 0$, $a = \Res{\v{F}*cosd(\v{th})/\v{m}}{m/s^2}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $v_f$
+    \item \textbf{Équations pertinentes :} \[ v_f = v_i + a\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ v_f = 0 + \Val{\v{F}*cosd(\v{th})/\v{m}} \cdot \num{\v{t}} = \Res{\vsi{F}*cosd(\vsi{th})/\vsi{m}*\vsi{t}}{m/s} \]
+    \item \textbf{Réponse :} $v_f = \mathbf{\Res{\vsi{F}*cosd(\vsi{th})/\vsi{m}*\vsi{t}}{m/s}}$
+\end{enumerate}

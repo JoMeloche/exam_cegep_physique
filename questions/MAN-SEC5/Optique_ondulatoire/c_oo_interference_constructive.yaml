@@ -1,0 +1,15 @@
+title: 'Rencontre de deux crêtes'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Principe de superposition : les déplacements s''additionnent (interférence constructive), puis chaque onde poursuit sa route inchangée.'
+choices:
+  - 'Elles s''annulent et disparaissent'
+  - 'Elles forment une crête de \qty{4}{cm}, puis continuent leur chemin sans être modifiées'
+  - 'Elles rebondissent l''une sur l''autre'
+  - 'Elles forment une crête de \qty{2}{cm} et s''arrêtent'

@@ -1,0 +1,15 @@
+title: 'Énergie mécanique d''une balle lancée vers le haut'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Sans frottement, l''énergie mécanique $E_m = E_k + E_p$ est conservée : l''énergie cinétique se transforme en énergie potentielle et inversement.'
+choices:
+  - 'Elle est la même en tout point de la trajectoire'
+  - 'Au moment du lancer'
+  - 'Au sommet de la trajectoire'
+  - 'Juste avant de retomber dans la main'

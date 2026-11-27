@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Énergie mécanique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $h = \qty{\v{h}}{m}$, $v_0 = \qty{\v{v0}}{m/s}$ ; variable recherchée : $E_m$
+    \item \textbf{Équations pertinentes :} \[ E_m = E_p + E_k = m g h + \tfrac{1}{2} m v_0^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ E_m = \num{\v{m}} \cdot \num{9.81} \cdot \num{\v{h}} + \tfrac{1}{2} \cdot \num{\v{m}} \cdot (\num{\v{v0}})^2 = \Res{\vsi{m}*9.81*\vsi{h} + \vsi{m}*\vsi{v0}^2/2}{J} \]
+    \item \textbf{Réponse :} $E_m = \mathbf{\Res{\vsi{m}*9.81*\vsi{h} + \vsi{m}*\vsi{v0}^2/2}{J}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Hauteur maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_m = \Res{\v{m}*9.81*\v{h} + \v{m}*\v{v0}^2/2}{J}$, $v = 0$ au sommet ; variable recherchée : $h_{\max}$
+    \item \textbf{Équations pertinentes :} \[ E_m = m g h_{\max} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ h_{\max} = \frac{E_m}{m g} = h + \frac{v_0^2}{2g} \]
+    \item \textbf{Résolution numérique :} \[ h_{\max} = \num{\v{h}} + \frac{(\num{\v{v0}})^2}{2 \cdot \num{9.81}} = \Res{\vsi{h} + \vsi{v0}^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} $h_{\max} = \mathbf{\Res{\vsi{h} + \vsi{v0}^2/(2*9.81)}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse d'entrée dans l'eau}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $E_m = \Res{\v{m}*9.81*\v{h} + \v{m}*\v{v0}^2/2}{J}$, $h = 0$ à la surface ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :} \[ E_m = \tfrac{1}{2} m v^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ v = \sqrt{\frac{2E_m}{m}} = \sqrt{v_0^2 + 2 g h} \]
+    \item \textbf{Résolution numérique :} \[ v = \sqrt{(\num{\v{v0}})^2 + 2 \cdot \num{9.81} \cdot \num{\v{h}}} = \Res{sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h})}{m/s} \]
+    \item \textbf{Réponse :} $v = \mathbf{\Res{sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h})}{m/s}}$
+\end{enumerate}

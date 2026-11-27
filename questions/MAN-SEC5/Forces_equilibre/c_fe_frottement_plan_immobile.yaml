@@ -1,0 +1,15 @@
+title: 'Frottement sur une boîte immobile sur un plan incliné'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La composante du poids parallèle au plan tire la boîte vers le bas de la pente ; le frottement statique s''y oppose pour assurer l''équilibre.'
+choices:
+  - 'Parallèle au plan, vers le bas de la pente'
+  - 'Perpendiculaire au plan'
+  - 'Parallèle au plan, vers le haut de la pente'
+  - 'Verticale, vers le haut'

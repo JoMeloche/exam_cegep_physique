@@ -1,0 +1,15 @@
+title: 'Pourquoi voit-on un livre ?'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'La réflexion diffuse sur une surface rugueuse renvoie la lumière dans toutes les directions : chaque point du livre devient une source secondaire visible de partout.'
+choices:
+  - 'Nos yeux émettent des rayons qui l''éclairent'
+  - 'Il absorbe toute la lumière qu''il reçoit'
+  - 'La lumière le traverse et forme une image derrière lui'
+  - 'Il réfléchit dans toutes les directions une partie de la lumière qu''il reçoit, et une partie de cette lumière entre dans nos yeux'

@@ -1,0 +1,15 @@
+title: 'Pèse-personne dans un ascenseur à vitesse constante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À vitesse constante, l''accélération est nulle : la force normale égale le poids. Le pèse-personne ne change d''indication que pendant les phases d''accélération.'
+choices:
+  - 'Une valeur plus grande que son poids'
+  - 'Une valeur plus petite que son poids'
+  - 'La même valeur que son poids'
+  - 'Zéro'
