@@ -27,9 +27,20 @@ if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) {
   $hdr = @{}
   if ($env:GITHUB_TOKEN) { $hdr["Authorization"] = "Bearer $env:GITHUB_TOKEN" }  # avoids API rate limits on CI
   $rel = Invoke-RestMethod "https://api.github.com/repos/rstudio/tinytex-releases/releases/latest" -Headers $hdr
-  $asset = $rel.assets | Where-Object { $_.name -match '^TinyTeX-1-v.*\.zip$' } | Select-Object -First 1
-  Invoke-WebRequest $asset.browser_download_url -OutFile packaging\build\tinytex.zip
-  Expand-Archive packaging\build\tinytex.zip -DestinationPath packaging\build -Force
+  # Windows bundle: older releases name it TinyTeX-1-v<date>.zip, newer ones TinyTeX-1-windows-v<date>.zip/.exe
+  $win = $rel.assets | Where-Object { $_.name -match '^TinyTeX-1-' -and $_.name -match '\.(zip|exe)$' -and $_.name -notmatch 'linux|darwin|mac' }
+  $asset = ($win | Where-Object { $_.name -match '\.zip$' } | Select-Object -First 1)
+  if (-not $asset) { $asset = $win | Select-Object -First 1 }
+  if (-not $asset) { throw "No Windows TinyTeX-1 asset in release $($rel.tag_name): $(($rel.assets.name) -join ', ')" }
+  Write-Host "    $($asset.name)"
+  if ($asset.name -match '\.zip$') {
+    Invoke-WebRequest $asset.browser_download_url -OutFile packaging\build\tinytex.zip
+    Expand-Archive packaging\build\tinytex.zip -DestinationPath packaging\build -Force
+  } else {  # 7-Zip self-extracting archive
+    Invoke-WebRequest $asset.browser_download_url -OutFile packaging\build\tinytex.exe
+    & packaging\build\tinytex.exe -y "-opackaging\build"; Check "TinyTeX extract"
+  }
+  if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) { throw "TinyTeX extracted but $tt\bin\windows\pdflatex.exe is missing" }
 }
 $tlmgr = "$tt\bin\windows\tlmgr.bat"
 & $tlmgr option repository ctan; Check "tlmgr option"
