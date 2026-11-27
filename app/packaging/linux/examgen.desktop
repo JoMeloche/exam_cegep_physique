@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ExamGen
+GenericName=Générateur d'examens
+Comment=Banque de questions LaTeX, examens versionnés, solutions et PDF
+Exec=examgen %U
+Icon=examgen
+Terminal=false
+Categories=Education;Office;
+Keywords=exam;examen;latex;physique;
+StartupWMClass=ExamGen
