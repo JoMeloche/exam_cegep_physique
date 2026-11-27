@@ -2,23 +2,43 @@ import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { CheckCircle2, Plus, Save, Trash2, XCircle } from 'lucide-react'
 import { PageHeader } from '@/App'
+import { LatexEditor } from '@/components/LatexEditor'
+import { CoursesEditor, LogoEditor, ProfessorsEditor, bankFoldersOf } from '@/components/ConfigEditors'
 import { Button } from '@/components/ui/button'
 import { Card, CardBody, CardHeader } from '@/components/ui/card'
 import { Field, Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { api, type Config } from '@/lib/api'
+import { fileBaseName, sessionCode } from '@/lib/utils'
+
+const MONTHS = ['jan', 'fév', 'mar', 'avr', 'mai', 'juin', 'juil', 'août', 'sep', 'oct', 'nov', 'déc']
 
 export default function Settings() {
   const [cfg, setCfg] = useState<Config | null>(null)
   const [health, setHealth] = useState<{ root: string; latex: string | null; version: string } | null>(null)
-  const [newCourse, setNewCourse] = useState('')
-  useEffect(() => { api.config().then(setCfg); api.health().then(setHealth) }, [])
+  const [folders, setFolders] = useState<string[]>([])
+  useEffect(() => {
+    api.config().then(setCfg); api.health().then(setHealth)
+    api.courses().then((cs) => setFolders(cs.filter((c) => c.topics.length).map((c) => c.code)))
+  }, [])
   if (!cfg) return null
   const set = (patch: Partial<Config>) => setCfg({ ...cfg, ...patch })
+  const today = new Date()
+  const firstCourse = Object.keys(cfg.courses)[0] ?? '203-NYA-05'
+  const preview = fileBaseName(cfg.naming.file_pattern, { course: firstCourse, exam: 1, session: sessionCode(today, cfg.sessions), version: 1, date: today })
 
   async function save() {
-    try { setCfg(await api.saveConfig(cfg!)); setHealth(await api.health()); toast.success('Paramètres enregistrés') } catch (e) { toast.error((e as Error).message) }
+    try { setCfg(await api.saveConfig({ ...cfg!, professors: cfg!.professors.filter((p) => p.trim()) })); setHealth(await api.health()); toast.success('Paramètres enregistrés') } catch (e) { toast.error((e as Error).message) }
   }
+
+  function monthOwner(m: number) { return Object.entries(cfg!.sessions).find(([, ms]) => ms.includes(m))?.[0] ?? '' }
+  function setMonth(m: number, letter: string) {
+    const s: Record<string, number[]> = {}
+    for (const [k, ms] of Object.entries(cfg!.sessions)) s[k] = ms.filter((x) => x !== m)
+    if (letter) s[letter] = [...(s[letter] ?? []), m].sort((a, b) => a - b)
+    set({ sessions: s })
+  }
+  const letters = Object.keys(cfg.sessions)
 
   return (
     <div>
@@ -29,17 +49,8 @@ export default function Settings() {
           <CardHeader title="Établissement et professeurs" />
           <CardBody className="space-y-4">
             <Field label="Établissement"><Input value={cfg.school} onChange={(e) => set({ school: e.target.value })} /></Field>
-            <Field label="Professeurs">
-              <div className="space-y-2">
-                {cfg.professors.map((p, i) => (
-                  <div key={i} className="flex gap-2">
-                    <Input value={p} onChange={(e) => set({ professors: cfg.professors.map((x, j) => (j === i ? e.target.value : x)) })} />
-                    <Button size="icon" variant="ghost" onClick={() => set({ professors: cfg.professors.filter((_, j) => j !== i) })}><Trash2 className="h-4 w-4" /></Button>
-                  </div>
-                ))}
-                <Button size="sm" variant="ghost" className="text-primary" onClick={() => set({ professors: [...cfg.professors, ''] })}><Plus className="h-3.5 w-3.5" />Ajouter</Button>
-              </div>
-            </Field>
+            <Field label="Logo (page couverture)"><LogoEditor value={cfg.logo} onChange={(logo) => set({ logo })} /></Field>
+            <Field label="Professeurs"><ProfessorsEditor value={cfg.professors} onChange={(professors) => set({ professors })} /></Field>
             <Field label="Professeur par défaut">
               <Select value={cfg.default_professor} onChange={(v) => set({ default_professor: v })} options={cfg.professors.filter(Boolean).map((p) => ({ value: p, label: p }))} />
             </Field>
@@ -47,40 +58,79 @@ export default function Settings() {
         </Card>
 
         <Card>
-          <CardHeader title="LaTeX et génération" />
+          <CardHeader title="Noms des fichiers et sessions" />
           <CardBody className="space-y-4">
-            <div className="flex items-center gap-2 rounded-lg bg-muted p-3 text-sm">
-              {health?.latex ? <CheckCircle2 className="h-4 w-4 text-success" /> : <XCircle className="h-4 w-4 text-danger" />}
-              <span className="truncate font-mono text-xs">{health?.latex ?? 'Aucune installation LaTeX trouvée'}</span>
-            </div>
-            <Field label="Chemin de LaTeX (optionnel)" hint="Laisser vide pour utiliser le LaTeX inclus avec l'application.">
-              <Input value={cfg.latex.path} onChange={(e) => set({ latex: { ...cfg.latex, path: e.target.value } })} placeholder="C:\\…\\bin\\windows" />
+            <Field label="Modèle de nom de fichier" hint={<>Variables : {'{course} {exam} {session} {version} {date} {year}'}</>}>
+              <Input className="font-mono text-sm" value={cfg.naming.file_pattern} onChange={(e) => set({ naming: { ...cfg.naming, file_pattern: e.target.value } })} />
             </Field>
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="Marge de temps" hint="Temps estimé visé = durée × (1 − marge)">
-                <Input type="number" step="0.05" min="0" max="0.6" value={cfg.time_margin} onChange={(e) => set({ time_margin: Number(e.target.value) })} />
-              </Field>
-              <Field label="Versions par défaut"><Input type="number" min="1" max="8" value={cfg.default_versions} onChange={(e) => set({ default_versions: Number(e.target.value) })} /></Field>
+            <div className="rounded-lg bg-muted px-3 py-2 font-mono text-xs">{preview}.pdf · {preview}{cfg.naming.solution_suffix}.pdf</div>
+            <div className="grid grid-cols-3 gap-3">
+              <Field label="Suffixe solution"><Input value={cfg.naming.solution_suffix} onChange={(e) => set({ naming: { ...cfg.naming, solution_suffix: e.target.value } })} /></Field>
+              <Field label="Mot « Examen »"><Input value={cfg.naming.exam_label} onChange={(e) => set({ naming: { ...cfg.naming, exam_label: e.target.value } })} /></Field>
+              <Field label="Mot « Version »"><Input value={cfg.naming.version_label} onChange={(e) => set({ naming: { ...cfg.naming, version_label: e.target.value } })} /></Field>
+            </div>
+            <Field label="Lettre de session par mois" hint="Ex. A = automne, H = hiver, E = été. Ajoutez une lettre si votre cégep en utilise d'autres.">
+              <div className="grid grid-cols-6 gap-2">
+                {MONTHS.map((mn, i) => (
+                  <div key={mn} className="flex flex-col items-center gap-1 rounded-lg border p-1.5">
+                    <span className="text-[11px] text-muted-foreground">{mn}</span>
+                    <select className="w-full rounded-md bg-muted text-center text-sm" value={monthOwner(i + 1)} onChange={(e) => setMonth(i + 1, e.target.value)}>
+                      <option value="">–</option>
+                      {letters.map((l) => <option key={l} value={l}>{l}</option>)}
+                    </select>
+                  </div>
+                ))}
+              </div>
+            </Field>
+            <div className="flex items-center gap-2">
+              {letters.map((l) => (
+                <span key={l} className="flex items-center gap-1 rounded-md bg-muted px-2 py-1 text-xs">{l}
+                  <button className="cursor-pointer" title="Retirer" onClick={() => { const s = { ...cfg.sessions }; delete s[l]; set({ sessions: s }) }}><Trash2 className="h-3 w-3" /></button>
+                </span>
+              ))}
+              <form className="flex gap-1" onSubmit={(e) => { e.preventDefault(); const v = (new FormData(e.currentTarget).get('l') as string || '').trim().toUpperCase(); if (v && !cfg.sessions[v]) set({ sessions: { ...cfg.sessions, [v]: [] } }); e.currentTarget.reset() }}>
+                <Input name="l" className="h-7 w-14 px-2 text-xs" placeholder="P" maxLength={3} />
+                <Button size="sm" variant="ghost" type="submit"><Plus className="h-3.5 w-3.5" />Lettre</Button>
+              </form>
             </div>
           </CardBody>
         </Card>
 
         <Card className="lg:col-span-2">
-          <CardHeader title="Cours" description="Le code apparaît dans le nom des fichiers ; le titre et le groupe sur la page couverture." />
-          <CardBody className="space-y-2">
-            {Object.entries(cfg.courses).map(([code, c]) => (
-              <div key={code} className="grid grid-cols-12 items-center gap-2">
-                <div className="col-span-3 font-mono text-sm">{code}</div>
-                <Input className="col-span-3" value={c.title ?? ''} placeholder="Titre (ex. Physique)" onChange={(e) => set({ courses: { ...cfg.courses, [code]: { ...c, title: e.target.value } } })} />
-                <Input className="col-span-3" value={c.full_title ?? ''} placeholder="Nom complet" onChange={(e) => set({ courses: { ...cfg.courses, [code]: { ...c, full_title: e.target.value } } })} />
-                <Input className="col-span-2" value={c.group ?? ''} placeholder="groupe 2" onChange={(e) => set({ courses: { ...cfg.courses, [code]: { ...c, group: e.target.value } } })} />
-                <Button size="icon" variant="ghost" onClick={() => { const cs = { ...cfg.courses }; delete cs[code]; set({ courses: cs }) }}><Trash2 className="h-4 w-4" /></Button>
+          <CardHeader title="Cours" description="Le code apparaît dans le nom des fichiers ; la discipline, le nom et le groupe sur la page couverture." />
+          <CardBody><CoursesEditor value={cfg.courses} onChange={(courses) => set({ courses })} bankFolders={bankFoldersOf(cfg, folders)} /></CardBody>
+        </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader title="Page couverture" description="Texte LaTeX imprimé sous l'en-tête de chaque examen." />
+          <CardBody className="space-y-4">
+            <div className="grid grid-cols-2 gap-3 md:w-1/2">
+              <Field label="Mot « Professeur »"><Input value={cfg.cover.professor_label} onChange={(e) => set({ cover: { ...cfg.cover, professor_label: e.target.value } })} /></Field>
+              <Field label="Mot « NOM »"><Input value={cfg.cover.name_label} onChange={(e) => set({ cover: { ...cfg.cover, name_label: e.target.value } })} /></Field>
+            </div>
+            <Field label="Consignes"><LatexEditor value={cfg.cover.instructions} onChange={(v) => set({ cover: { ...cfg.cover, instructions: v } })} minHeight="180px" /></Field>
+            <Field label="Note en gras (sous le résumé)"><LatexEditor value={cfg.cover.note} onChange={(v) => set({ cover: { ...cfg.cover, note: v } })} minHeight="60px" /></Field>
+          </CardBody>
+        </Card>
+
+        <Card className="lg:col-span-2">
+          <CardHeader title="LaTeX et génération" />
+          <CardBody className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 rounded-lg bg-muted p-3 text-sm">
+                {health?.latex ? <CheckCircle2 className="h-4 w-4 text-success" /> : <XCircle className="h-4 w-4 text-danger" />}
+                <span className="truncate font-mono text-xs">{health?.latex ?? 'Aucune installation LaTeX trouvée'}</span>
               </div>
-            ))}
-            <form className="flex gap-2 pt-2" onSubmit={(e) => { e.preventDefault(); if (newCourse) { set({ courses: { ...cfg.courses, [newCourse]: { title: '', group: '' } } }); setNewCourse('') } }}>
-              <Input className="w-56 font-mono" value={newCourse} onChange={(e) => setNewCourse(e.target.value.replace(/[^A-Za-z0-9_-]/g, ''))} placeholder="203-NYA-05" />
-              <Button type="submit" variant="outline"><Plus className="h-4 w-4" />Ajouter un cours</Button>
-            </form>
+              <Field label="Chemin de LaTeX (optionnel)" hint="Laisser vide pour utiliser le LaTeX inclus ou celui du système.">
+                <Input value={cfg.latex.path} onChange={(e) => set({ latex: { ...cfg.latex, path: e.target.value } })} placeholder="C:\…\bin\windows" />
+              </Field>
+            </div>
+            <div className="grid grid-cols-2 gap-3 self-start">
+              <Field label="Marge de temps" hint="Temps visé = durée × (1 − marge)">
+                <Input type="number" step="0.05" min="0" max="0.6" value={cfg.time_margin} onChange={(e) => set({ time_margin: Number(e.target.value) })} />
+              </Field>
+              <Field label="Versions par défaut"><Input type="number" min="1" max="8" value={cfg.default_versions} onChange={(e) => set({ default_versions: Number(e.target.value) })} /></Field>
+            </div>
           </CardBody>
         </Card>
       </div>
