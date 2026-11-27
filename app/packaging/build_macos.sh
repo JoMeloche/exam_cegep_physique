@@ -42,11 +42,17 @@ TLBIN="$TT/bin/universal-darwin"
 "$TLBIN/fmtutil-sys" --byfmt pdflatex >/dev/null
 # quick self-test of the bundled TeX with the packages the exams use
 mkdir -p "$BUILD/textest"
-cat > "$BUILD/textest/t.tex" <<'TEX'
-\documentclass{exam}\usepackage[french]{babel}\usepackage{siunitx,xfp,enumitem,tikz,amsmath,lmodern}
-\begin{document}Test \SI{9.81}{m/s^2} $\fpeval{2*3}$\end{document}
+# the app's own preamble (with the version placeholders filled) and a little of everything the exams use
+sed 's/<<[a-z_]*>>/1/g' backend/examgen/templates/preamble.tex > "$BUILD/textest/t.tex"
+cat >> "$BUILD/textest/t.tex" <<'TEX'
+\begin{document}
+\begin{questions}\question[2] Test \SI{9.81}{\meter\per\second\squared}, $\fpeval{2*3}$, $\alpha \leq \mathbb{R}$
+\begin{enumerate}[label=\Alph*)]\item é \item à\end{enumerate}
+\tikz \draw[pattern=north east lines,-Stealth] (0,0) rectangle (1,1);
+\end{questions}
+\end{document}
 TEX
-(cd "$BUILD/textest" && "$TLBIN/pdflatex" -interaction=nonstopmode -halt-on-error t.tex >/dev/null)
+(cd "$BUILD/textest" && "$TLBIN/pdflatex" -interaction=nonstopmode -halt-on-error t.tex >/dev/null) || { tail -40 "$BUILD/textest/t.log"; exit 1; }
 echo "     TinyTeX OK"
 
 echo "4/7  Starter question bank"
