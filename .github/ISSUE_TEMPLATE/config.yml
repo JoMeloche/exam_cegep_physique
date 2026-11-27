@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Questions et discussions / Questions & discussions
+    url: https://github.com/JoMeloche/exam_cegep_physique/discussions
+    about: Pour une question d'utilisation ou une idée à discuter. / For usage questions or ideas to discuss.
+  - name: 🔒 Problème de sécurité / Security issue
+    url: https://github.com/JoMeloche/exam_cegep_physique/security/advisories/new
+    about: Signalez-le en privé, pas dans un ticket public. / Report it privately, not in a public issue.
