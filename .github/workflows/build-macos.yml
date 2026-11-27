@@ -1,0 +1,84 @@
+name: Build macOS app
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+  pull_request:
+    paths:
+      - "app/**"
+      - ".github/workflows/build-macos.yml"
+
+permissions:
+  contents: write   # attach the .dmg files to the release on v* tags
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15         # Apple Silicon
+            arch: arm64
+          - runner: macos-15-intel   # Intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: app/frontend/package-lock.json
+
+      - name: Cache TinyTeX
+        uses: actions/cache@v4
+        with:
+          path: app/packaging/build/TinyTeX
+          key: tinytex-macos-${{ matrix.arch }}-${{ hashFiles('app/packaging/tex-packages.txt') }}
+
+      - name: Version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then v="${GITHUB_REF_NAME#v}"
+          else v="$(python -c 'import tomllib;print(tomllib.load(open("backend/pyproject.toml","rb"))["project"]["version"])')"; fi
+          echo "EXAMGEN_VERSION=$v" >> "$GITHUB_ENV"
+
+      - name: Build .app and .dmg
+        run: bash packaging/build_macos.sh
+
+      - name: Smoke test (app starts its server and finds LaTeX)
+        run: |
+          APP=packaging/dist/ExamGen.app
+          test -x "$APP/Contents/Resources/tinytex/bin/universal-darwin/pdflatex"
+          test -d "$APP/Contents/Frameworks/seed/questions"
+          file "$APP/Contents/MacOS/ExamGen"
+          du -sh "$APP" packaging/dist/*.dmg
+          export EXAM_APP_HOME="$RUNNER_TEMP/exam_home"
+          "$APP/Contents/MacOS/ExamGen" > "$RUNNER_TEMP/app.log" 2>&1 &
+          pid=$!
+          sleep 25
+          cat "$RUNNER_TEMP/app.log" || true
+          ls "$EXAM_APP_HOME/questions" | head
+          kill -0 $pid   # still running = server and window came up without crashing
+          kill $pid || true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ExamGen-macos-${{ matrix.arch }}
+          path: app/packaging/dist/*.dmg
+          if-no-files-found: error
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/packaging/dist/*.dmg
