@@ -47,6 +47,7 @@ PDF de solutionnaire par version, par exemple `203-NYC-05_Examen_1_A26_v1.pdf` e
 | 🏫 **Pour n'importe quel cégep** | Établissement, logo, professeurs, cours, consignes de la page couverture, noms des fichiers et lettres de session se règlent dans l'application. |
 | 📚 **Banque de départ** | Plus de 650 questions de physique (mécanique, électricité et magnétisme, ondes et physique moderne, mises à niveau) à modifier, compléter ou remplacer. |
 | 🌗 **Interface moderne** | Interface web en français, mode clair et sombre. |
+| 👥 **Comptes et partage** | Version web multi-utilisateur : demandes de compte approuvées par un administrateur, une banque par enseignant, partage de questions avec tous ou avec des collègues choisis, examens avec ou sans questions partagées. |
 | 🔒 **Vos données restent chez vous** | Tout fonctionne sur votre ordinateur ou votre serveur ; aucun service en ligne. |
 
 <table>
@@ -84,7 +85,15 @@ Pour un usage dans le navigateur, sur votre poste ou sur un serveur partagé par
    docker compose up -d
    ```
    Le premier lancement prend 5 à 10 minutes (installation de LaTeX). Ouvrez ensuite
-   **http://localhost:8765**. Un écran de bienvenue vous demande votre établissement, vos professeurs et vos cours.
+   **http://localhost:8765**.
+4. Créez le compte administrateur avec le code affiché par `docker compose logs examgen`
+   (ou mettez `EXAMGEN_ADMIN_EMAIL` et `EXAMGEN_ADMIN_PASSWORD` dans `.env`). Un écran de bienvenue vous demande
+   ensuite votre établissement, vos professeurs et vos cours.
+
+**Comptes** : n'importe qui peut demander un compte en expliquant pourquoi ; un administrateur approuve ou
+refuse la demande dans **Utilisateurs**. Chaque enseignant a sa propre banque et peut partager des questions
+avec tous ou avec des collègues choisis. Pour mettre l'application en ligne en HTTPS, voir
+[docs/securite.md](docs/securite.md).
 
 Vos questions, vos examens et vos PDF sont conservés dans le dossier **`mes_examens`** à côté de
 `docker-compose.yml`. Sauvegardez ce dossier ; vous pouvez le partager avec vos collègues.
@@ -152,7 +161,7 @@ questions ? [Proposez-les](CONTRIBUTING.md#proposer-des-questions) pour la banqu
 
 Les contributions sont les bienvenues : questions, corrections, traductions, code. Lisez le
 [guide de contribution](CONTRIBUTING.md) et le [code de conduite](CODE_OF_CONDUCT.md).
-Pour signaler un problème de sécurité, voir [SECURITY.md](SECURITY.md).
+Pour signaler un problème de sécurité, voir [SECURITY.md](SECURITY.md) ; le modèle de sécurité de la version web est décrit dans [docs/securite.md](docs/securite.md).
 
 - 🐛 [Signaler un bogue](https://github.com/JoMeloche/exam_cegep_physique/issues/new?template=bug_report.yml)
 - 💡 [Proposer une idée](https://github.com/JoMeloche/exam_cegep_physique/issues/new?template=feature_request.yml)
@@ -186,6 +195,8 @@ The interface is in French; it was built for Québec cégeps but works for any c
 - 🏫 **Any institution**: school, logo, professors, courses, cover-page text, file naming and session letters
   are all set in the app.
 - 📚 **Starter bank**: 650+ physics questions (mechanics, E&M, waves & modern physics, upgrading courses).
+- 👥 **Accounts and sharing** (web app): account requests approved by an administrator, one bank per teacher,
+  share questions with everyone or chosen colleagues, build exams with or without shared questions.
 - 🔒 **Local first**: runs on your computer or your own server; no online service.
 
 ## 🚀 Install
@@ -202,7 +213,13 @@ cd exam_cegep_physique
 docker compose up -d        # first start takes 5–10 minutes (installs LaTeX)
 ```
 
-Open **http://localhost:8765**. A welcome screen asks for your institution, professors and courses.
+Open **http://localhost:8765** and create the administrator account with the code shown by
+`docker compose logs examgen` (or set `EXAMGEN_ADMIN_EMAIL`/`EXAMGEN_ADMIN_PASSWORD` in `.env`); a welcome
+screen then asks for your institution, professors and courses.
+
+**Accounts**: anyone can request an account with a reason; an administrator approves or rejects it under
+**Utilisateurs**. Each teacher gets their own bank and can share questions with everyone or chosen colleagues.
+HTTPS deployment and the security model: [docs/securite.md](docs/securite.md) (French).
 Your library and PDFs live in the **`mes_examens`** folder next to `docker-compose.yml`.
 Stop: `docker compose down`. Update: `git pull` then `docker compose up -d --build`.
 Port and data folder: copy `.env.example` to `.env`.
