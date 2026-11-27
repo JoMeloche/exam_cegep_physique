@@ -6,6 +6,7 @@ import { PageHeader } from '@/App'
 import { Button } from '@/components/ui/button'
 import { Badge, Card, Difficulty } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import { Dialog } from '@/components/ui/dialog'
 import { Select } from '@/components/ui/select'
 import { Segmented } from '@/components/ui/switch'
 import { api, shareApi, type Course, type QuestionSummary } from '@/lib/api'
@@ -26,6 +27,7 @@ export default function Library() {
   const [sort, setSort] = useState<'topic' | 'unused' | 'difficulty'>('topic')
   const [items, setItems] = useState<QuestionSummary[] | null>(null)
   const [previewing, setPreviewing] = useState<string | null>(null)
+  const [pdf, setPdf] = useState<{ url: string; title: string } | null>(null)
   const { state: auth } = useAuth()
   const [scope, setScope] = useState<'mine' | 'shared'>('mine')
   const [sharing, setSharing] = useState<{ target: string; title: string } | null>(null)
@@ -67,7 +69,7 @@ export default function Library() {
     try {
       const full = await api.question(q.id)
       const r = await api.testQuestion({ course: full.course, topic: full.topic, name: full.name, meta: full.meta, body: full.body, solution_tex: full.solution_tex, draws: 1 })
-      if (r.pdf) window.open(`/api/previews/${r.pdf}.pdf`, '_blank')
+      if (r.pdf) setPdf({ url: `/api/previews/${r.pdf}.pdf`, title: q.title })
       else toast.error(r.problems.join(' · '))
     } catch (e) { toast.error((e as Error).message) } finally { setPreviewing(null) }
   }
@@ -82,7 +84,7 @@ export default function Library() {
           {auth.sharing && <Button variant="outline" onClick={() => setSharing({ target: '*', title: '' })}><Share2 className="h-4 w-4" />Partager ma banque</Button>}
           <Button onClick={() => nav('/question/new')}><Plus className="h-4 w-4" />Nouvelle question</Button>
         </>} />
-      <div className="space-y-6 p-8">
+      <div className="space-y-6 p-4 sm:p-6 lg:p-8">
         {auth.sharing && (
           <Segmented value={scope} onChange={setScope} options={[
             { value: 'mine', label: 'Ma banque' },
@@ -90,15 +92,15 @@ export default function Library() {
           ]} />
         )}
         <Card className="flex flex-wrap items-center gap-3 p-3">
-          <div className="relative min-w-[240px] flex-1">
+          <div className="relative w-full min-w-0 flex-1 sm:min-w-[240px]">
             <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input className="pl-9" placeholder="Rechercher dans le titre ou le texte…" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <Input className="pl-9" aria-label="Rechercher une question" type="search" placeholder="Rechercher dans le titre ou le texte…" value={search} onChange={(e) => setSearch(e.target.value)} />
           </div>
-          <Select className="w-44" value={course} onChange={(v) => { setCourse(v); setTopic('') }} options={courses.map((c) => ({ value: c.code, label: c.code }))} />
-          <Select className="w-56" value={topic || '__all'} onChange={(v) => setTopic(v === '__all' ? '' : v)}
+          <Select className="w-full sm:w-44" aria-label="Cours" value={course} onChange={(v) => { setCourse(v); setTopic('') }} options={courses.map((c) => ({ value: c.code, label: c.code }))} />
+          <Select className="w-full sm:w-56" aria-label="Thème" value={topic || '__all'} onChange={(v) => setTopic(v === '__all' ? '' : v)}
             options={[{ value: '__all', label: 'Tous les thèmes' }, ...(courseObj?.topics ?? []).map((t) => ({ value: t.name, label: `${t.label} (${t.n_dev + t.n_concept})` }))]} />
           <Segmented value={type} onChange={setType} options={[{ value: 'all', label: 'Toutes' }, { value: 'developpement', label: 'Développement' }, { value: 'conceptuel', label: 'Conceptuelles' }]} />
-          <Select className="w-48" value={sort} onChange={(v) => setSort(v as typeof sort)} options={[{ value: 'topic', label: 'Par thème' }, { value: 'unused', label: 'Moins utilisées d\'abord' }, { value: 'difficulty', label: 'Par difficulté' }]} />
+          <Select className="w-full sm:w-48" aria-label="Ordre" value={sort} onChange={(v) => setSort(v as typeof sort)} options={[{ value: 'topic', label: 'Par thème' }, { value: 'unused', label: 'Moins utilisées d\'abord' }, { value: 'difficulty', label: 'Par difficulté' }]} />
           {reviewCount > 0 && (
             <button onClick={() => setReview(!review)} className={cn('flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm cursor-pointer', review ? 'bg-warning/15 text-warning' : 'text-muted-foreground hover:bg-muted')}>
               <AlertTriangle className="h-4 w-4" />À réviser ({reviewCount})
@@ -150,6 +152,10 @@ export default function Library() {
         ))}
         {items && !shown.length && <p className="py-16 text-center text-muted-foreground">
           {scope === 'shared' ? 'Aucun collègue ne vous a encore partagé de questions pour ce cours.' : 'Aucune question ne correspond.'}</p>}
+        <Dialog open={!!pdf} onOpenChange={(v) => !v && setPdf(null)} title={pdf?.title ?? ''} className="max-w-4xl"
+          description={<>Aperçu avec un jeu de valeurs tiré au hasard. <a href={pdf?.url} target="_blank" rel="noreferrer" className="text-primary hover:underline">Ouvrir dans un onglet</a></>}>
+          {pdf && <iframe title={`Aperçu PDF : ${pdf.title}`} src={pdf.url} className="h-[70vh] w-full rounded-lg border bg-white" />}
+        </Dialog>
         <ShareDialog open={!!sharing} onOpenChange={(v) => !v && setSharing(null)} target={sharing?.target ?? '*'} title={sharing?.title ?? ''}
           onChanged={() => setReloadKey((k) => k + 1)} />
       </div>

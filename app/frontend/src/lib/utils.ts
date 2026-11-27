@@ -31,3 +31,8 @@ export function durationText(min: number) {
   if (h) return `${h} h`
   return `${m} min`
 }
+
+/** Numbers the French way: 2,7 rather than 2.7. */
+export function frNumber(x: number, digits = 1) {
+  return x.toLocaleString('fr-CA', { minimumFractionDigits: digits, maximumFractionDigits: digits })
+}

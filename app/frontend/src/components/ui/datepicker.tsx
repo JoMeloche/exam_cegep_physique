@@ -6,11 +6,11 @@ import { CalendarDays } from 'lucide-react'
 import { useState } from 'react'
 import 'react-day-picker/style.css'
 
-export function DatePicker({ value, onChange }: { value: Date; onChange: (d: Date) => void }) {
+export function DatePicker({ value, onChange, ...aria }: { value: Date; onChange: (d: Date) => void; id?: string; 'aria-describedby'?: string }) {
   const [open, setOpen] = useState(false)
   return (
     <RP.Root open={open} onOpenChange={setOpen}>
-      <RP.Trigger className="flex h-9 w-full items-center gap-2 rounded-lg border bg-card px-3 text-left text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer">
+      <RP.Trigger {...aria} className="flex h-9 w-full items-center gap-2 rounded-lg border bg-card px-3 text-left text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer">
         <CalendarDays className="h-4 w-4 text-muted-foreground" />
         {format(value, 'EEEE d MMMM yyyy', { locale: fr })}
       </RP.Trigger>

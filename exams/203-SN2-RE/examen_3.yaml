@@ -1,0 +1,17 @@
+course: 203-SN2-RE
+number: 3
+duration_min: 120
+sections:
+  - title: Questions à développement
+    type: developpement
+    slots:
+      - {topic: Force_magnetique, count: 2, points: 20}
+      - {topic: Sources_champ_magnetique, count: 1, points: 20}
+      - {topic: Induction, count: 1, points: 20}
+  - title: Questions conceptuelles
+    type: conceptuel
+    points: 20
+    slots:
+      - {topic: Force_magnetique, count: 2}
+      - {topic: Sources_champ_magnetique, count: 2}
+      - {topic: Induction, count: 1}

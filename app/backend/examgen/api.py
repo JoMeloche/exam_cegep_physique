@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 import platform
 import random
@@ -413,7 +414,7 @@ def export(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
     p = plan_exam(L, req)
     res = export_exam(L, p, record_usage=bool(payload.get("record_usage", True)))
     rel = res.folder.relative_to(L.exports_dir)
-    return {"folder": str(res.folder), "files": [{"name": f.name, "url": f"/api/exports/{rel.as_posix()}/{f.name}",
+    return {"folder": str(res.folder), "course": rel.parts[0], "name": rel.parts[-1], "files": [{"name": f.name, "url": f"/api/exports/{rel.as_posix()}/{f.name}",
                                                   "path": str(f)} for f in res.files],
             "warnings": res.warnings, "seed": p.seed}
 
@@ -426,18 +427,94 @@ def list_exports() -> list[dict[str, Any]]:
         for d in sorted(L.exports_dir.glob("*/*"), key=lambda p: p.stat().st_mtime, reverse=True):
             if d.is_dir():
                 pdfs = sorted(f.name for f in d.glob("*.pdf"))
-                out.append({"course": d.parent.name, "name": d.name, "files": pdfs,
+                info: dict[str, Any] = {}
+                rec = d / "record.json"
+                if rec.is_file():
+                    try:
+                        r = json.loads(rec.read_text(encoding="utf-8"))
+                        rq = r.get("request") or {}
+                        info = {"date": rq.get("date"), "professor": rq.get("professor"),
+                                "n_versions": len(r.get("versions") or []) or None}
+                    except (OSError, ValueError):
+                        pass
+                out.append({"course": d.parent.name, "name": d.name, "files": pdfs, **info,
+                            "pairs": _pair_pdfs(pdfs, _sol_suffix(L)),
                             "folder": str(d), "modified": dt.datetime.fromtimestamp(d.stat().st_mtime).isoformat()})
     return out
+
+
+def _pair_pdfs(names: list[str], suffix: str) -> list[dict[str, str | None]]:
+    """[{exam, solution}] per version, using the configured solution suffix."""
+    suffix = suffix or "_solution"
+    sols = {n for n in names if Path(n).stem.endswith(suffix)}
+    pairs: list[dict[str, str | None]] = []
+    for n in names:
+        if n in sols:
+            continue
+        sol = f"{Path(n).stem}{suffix}.pdf"
+        pairs.append({"exam": n, "solution": sol if sol in sols else None})
+    paired = {p["solution"] for p in pairs}
+    pairs += [{"exam": None, "solution": n} for n in sorted(sols - paired)]
+    return pairs
+
+
+def _sol_suffix(L: Library) -> str:
+    return (L.config.get("naming") or {}).get("solution_suffix") or "_solution"
+
+
+def _export_folder(L: Library, course: str, folder: str) -> Path:
+    base = L.exports_dir.resolve()
+    d = (base / course / folder).resolve()
+    if d.parent.parent != base or not d.is_dir():
+        raise HTTPException(404, "Examen introuvable")
+    return d
+
+
+@app.get("/api/exports/{course}/{folder}.zip")
+def zip_export(course: str, folder: str, which: str = Query("all", pattern="^(all|exams|solutions)$")):
+    """All the PDFs of one generated exam in a ZIP (exams, solutions or both)."""
+    L = lib()
+    d = _export_folder(L, course, folder)
+    suffix = _sol_suffix(L)
+    pdfs = sorted(d.glob("*.pdf"))
+    if which == "exams":
+        pdfs = [f for f in pdfs if not f.stem.endswith(suffix)]
+    elif which == "solutions":
+        pdfs = [f for f in pdfs if f.stem.endswith(suffix)]
+    if not pdfs:
+        raise HTTPException(404, "Aucun PDF dans cet examen")
+    import zipfile
+    tmp = tempfile.NamedTemporaryFile(prefix="examgen-", suffix=".zip", delete=False)
+    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
+        for f in pdfs:
+            z.write(f, f.name)
+    tmp.close()
+    label = {"all": "", "exams": "_examens", "solutions": "_solutions"}[which]
+    from starlette.background import BackgroundTask
+    return FileResponse(tmp.name, media_type="application/zip", filename=f"{course}_{folder}{label}.zip",
+                        background=BackgroundTask(os.unlink, tmp.name))
+
+
+@app.delete("/api/exports/{course}/{folder}")
+def delete_export(course: str, folder: str) -> dict[str, bool]:
+    """Delete one generated exam (its PDFs and LaTeX sources). Usage history is kept."""
+    L = lib()
+    d = _export_folder(L, course, folder)
+    shutil.rmtree(d)
+    if d.parent.is_dir() and not any(d.parent.iterdir()):
+        d.parent.rmdir()
+    return {"ok": True}
 
 
 @app.get("/api/exports/{course}/{folder}/{name}")
 def get_export(course: str, folder: str, name: str):
     L = lib()
-    p = (L.exports_dir / course / folder / name).resolve()
-    if not str(p).startswith(str(L.exports_dir.resolve())) or not p.exists():
+    d = _export_folder(L, course, folder)
+    p = (d / name).resolve()
+    if p.parent != d or not p.is_file():
         raise HTTPException(404)
-    return FileResponse(p, media_type="application/pdf", filename=p.name if p.suffix == ".pdf" else None)
+    # inline: the PDF opens in a browser tab; its real name is kept when the teacher saves it
+    return FileResponse(p, media_type="application/pdf", filename=p.name, content_disposition_type="inline")
 
 
 @app.post("/api/open")
@@ -467,6 +544,8 @@ if (_STATIC / "index.html").exists():
 
     @app.get("/{full_path:path}", include_in_schema=False)
     def spa(full_path: str):
+        if full_path == "api" or full_path.startswith("api/"):
+            raise HTTPException(404, "Adresse inconnue")
         f = _STATIC / full_path
         if full_path and f.is_file() and _STATIC in f.resolve().parents:
             return FileResponse(f)

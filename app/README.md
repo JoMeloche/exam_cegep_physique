@@ -61,5 +61,8 @@ python -m examgen import-folder <old exam folder> --course 203-SN3-RE
 
 ## Tests
 ```
-cd backend && python -m pytest tests
+cd backend && python -m pytest tests          # uses a copy of the repository's question bank
+python ../../tools/docker_smoke.py http://127.0.0.1:8765 admin@example.org 'password'   # a running web app
 ```
+CI runs both (`.github/workflows/ci.yml`, `.github/workflows/docker.yml`: builds the Docker image, signs in,
+exports an exam and downloads the ZIP).

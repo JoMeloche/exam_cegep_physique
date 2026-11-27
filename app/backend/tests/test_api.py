@@ -5,13 +5,13 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-SRC = Path(os.environ.get("EXAMGEN_TEST_LIB", "/tmp/apilib"))
+from conftest import SRC, copy_library
 
 
 @pytest.fixture()
 def client(tmp_path, monkeypatch):
     root = tmp_path / "lib"
-    shutil.copytree(SRC, root)
+    copy_library(root)
     monkeypatch.setenv("EXAMGEN_AUTH", "0")  # accounts are covered in test_auth.py
     os.environ["EXAM_APP_HOME"] = str(root)
     from examgen.api import app
@@ -78,3 +78,25 @@ def test_plan_and_export(client):
     names = [f["name"] for f in ex["files"]]
     assert "203-SN3-RE_Examen_1_A26_v1.pdf" in names and "203-SN3-RE_Examen_1_A26_v2_solution.pdf" in names
     assert client.get(ex["files"][0]["url"]).status_code == 200
+    # Listing, ZIP download and deletion of a generated exam.
+    listed = client.get("/api/exports").json()
+    item = next(e for e in listed if e["name"] == ex["name"])
+    assert item["course"] == ex["course"] == "203-SN3-RE" and item["n_versions"] == 2 and item["date"] == "2026-09-28"
+    import io
+    import zipfile
+    for which, n in (("all", 4), ("exams", 2), ("solutions", 2)):
+        r = client.get(f"/api/exports/{ex['course']}/{ex['name']}.zip", params={"which": which})
+        assert r.status_code == 200 and r.headers["content-type"] == "application/zip"
+        assert len(zipfile.ZipFile(io.BytesIO(r.content)).namelist()) == n
+    assert client.get(f"/api/exports/{ex['course']}/..%2F..%2Fconfig.yaml/x.pdf").status_code == 404
+    assert client.delete(f"/api/exports/{ex['course']}/{ex['name']}").status_code == 200
+    assert client.get(ex["files"][0]["url"]).status_code == 404
+    assert all(e["name"] != ex["name"] for e in client.get("/api/exports").json())
+
+
+def test_pair_pdfs():
+    from examgen.api import _pair_pdfs
+    names = ["X_v1.pdf", "X_v1_corrige.pdf", "X_v2.pdf", "Y_corrige.pdf"]
+    assert _pair_pdfs(names, "_corrige") == [
+        {"exam": "X_v1.pdf", "solution": "X_v1_corrige.pdf"}, {"exam": "X_v2.pdf", "solution": None},
+        {"exam": None, "solution": "Y_corrige.pdf"}]

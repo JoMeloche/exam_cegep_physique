@@ -4,17 +4,20 @@ import { cn } from '@/lib/utils'
 
 export interface Option { value: string; label: React.ReactNode }
 
-export function Select({ value, onChange, options, placeholder, className, footer }: {
+export function Select({ value, onChange, options, placeholder, className, footer, ...aria }: {
   value: string | undefined
   onChange: (v: string) => void
   options: Option[]
   placeholder?: string
   className?: string
   footer?: React.ReactNode
+  id?: string
+  'aria-label'?: string
+  'aria-describedby'?: string
 }) {
   return (
     <RS.Root value={value || undefined} onValueChange={onChange}>
-      <RS.Trigger className={cn('flex h-9 w-full items-center justify-between gap-2 rounded-lg border bg-card px-3 text-left text-sm [&>span]:truncate focus:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[placeholder]:text-muted-foreground cursor-pointer', className)}>
+      <RS.Trigger {...aria} className={cn('flex h-9 w-full items-center justify-between gap-2 rounded-lg border bg-card px-3 text-left text-sm [&>span]:truncate focus:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[placeholder]:text-muted-foreground cursor-pointer', className)}>
         <RS.Value placeholder={placeholder} />
         <RS.Icon><ChevronDown className="h-4 w-4 opacity-60" /></RS.Icon>
       </RS.Trigger>

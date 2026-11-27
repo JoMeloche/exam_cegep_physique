@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { Ban, Check, Copy, KeyRound, Loader2, RotateCcw, Shield, ShieldOff, Trash2, UserCheck, Users, X } from 'lucide-react'
 import { PageHeader } from '@/App'
+import { useConfirm } from '@/components/ui/confirm'
 import { Button } from '@/components/ui/button'
 import { Badge, Card } from '@/components/ui/card'
 import { Dialog } from '@/components/ui/dialog'
@@ -26,6 +27,7 @@ function initials(name: string) {
 export default function Admin() {
   const { state, refresh } = useAuth()
   const [tab, setTab] = useState<UserStatus>('pending')
+  const [confirmDialog, ask] = useConfirm()
   const [users, setUsers] = useState<AdminUser[] | null>(null)
   const [counts, setCounts] = useState<Record<UserStatus, number> | null>(null)
   const [busy, setBusy] = useState<number | null>(null)
@@ -50,7 +52,7 @@ export default function Admin() {
   }
 
   async function remove(u: AdminUser) {
-    if (!confirm(`Supprimer le compte de ${u.name} ? Ses questions restent sur le serveur.`)) return
+    if (!(await ask({ title: `Supprimer le compte de ${u.name} ?`, description: 'La personne ne pourra plus se connecter. Ses questions restent sur le serveur.', confirmLabel: 'Supprimer le compte' }))) return
     try { await authApi.remove(u.id); toast.success('Compte supprimé'); load(); refresh() } catch (e) { toast.error((e as Error).message) }
   }
 
@@ -59,7 +61,7 @@ export default function Admin() {
     <div>
       <PageHeader title="Utilisateurs" subtitle="Approuvez les demandes de compte et gérez les accès."
         actions={<Segmented value={tab} onChange={setTab} options={TABS.map((t) => ({ value: t.value, label: <span className="flex items-center gap-1.5">{t.label}{counts && counts[t.value] > 0 && <span className="rounded-full bg-primary/10 px-1.5 text-xs text-primary">{counts[t.value]}</span>}</span> }))} />} />
-      <div className="space-y-3 p-8">
+      <div className="space-y-3 p-4 sm:p-6 lg:p-8">
         {!users && <div className="py-20 text-center"><Loader2 className="mx-auto h-6 w-6 animate-spin text-muted-foreground" /></div>}
         {users && !users.length && (
           <div className="py-20 text-center text-muted-foreground">
@@ -126,10 +128,11 @@ export default function Admin() {
         description={`Transmettez-le à ${temp?.user.name ?? ''} de façon privée. Il ne sera plus affiché. Ses sessions ouvertes ont été fermées.`}>
         <div className="flex items-center gap-2 rounded-lg border bg-muted px-3 py-2 font-mono text-sm">
           <span className="flex-1 select-all">{temp?.password}</span>
-          <Button size="sm" variant="ghost" onClick={() => { navigator.clipboard?.writeText(temp!.password); toast.success('Copié') }}><Copy className="h-3.5 w-3.5" /></Button>
+          <Button size="sm" variant="ghost" aria-label="Copier le mot de passe" title="Copier" onClick={() => { navigator.clipboard?.writeText(temp!.password); toast.success('Copié') }}><Copy className="h-3.5 w-3.5" /></Button>
         </div>
         <p className="mt-3 text-xs text-muted-foreground">La personne pourra le changer dans Paramètres → Mon compte.</p>
       </Dialog>
+      {confirmDialog}
     </div>
   )
 }

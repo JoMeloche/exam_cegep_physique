@@ -11,8 +11,8 @@ export function ProfessorsEditor({ value, onChange }: { value: string[]; onChang
     <div className="space-y-2">
       {value.map((p, i) => (
         <div key={i} className="flex gap-2">
-          <Input value={p} placeholder="Prénom Nom" onChange={(e) => onChange(value.map((x, j) => (j === i ? e.target.value : x)))} />
-          <Button size="icon" variant="ghost" onClick={() => onChange(value.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
+          <Input value={p} placeholder="Prénom Nom" aria-label={`Professeur ${i + 1}`} onChange={(e) => onChange(value.map((x, j) => (j === i ? e.target.value : x)))} />
+          <Button size="icon" variant="ghost" aria-label={`Retirer ${p || 'ce professeur'}`} title="Retirer" onClick={() => onChange(value.filter((_, j) => j !== i))}><Trash2 className="h-4 w-4" /></Button>
         </div>
       ))}
       <Button size="sm" variant="ghost" className="text-primary" onClick={() => onChange([...value, ''])}><Plus className="h-3.5 w-3.5" />Ajouter un professeur</Button>
@@ -32,23 +32,23 @@ export function CoursesEditor({ value, onChange, bankFolders }: { value: Record<
       {Object.entries(value).map(([c, info]) => (
         <div key={c} className="grid grid-cols-12 items-center gap-2">
           <div className="col-span-12 font-mono text-sm md:col-span-2">{c}</div>
-          <Input className="col-span-6 md:col-span-2" value={info.title ?? ''} placeholder="Physique" onChange={(e) => set(c, { title: e.target.value })} />
-          <Input className="col-span-6 md:col-span-3" value={info.full_title ?? ''} placeholder="Mécanique" onChange={(e) => set(c, { full_title: e.target.value })} />
-          <Input className="col-span-5 md:col-span-2" value={info.group ?? ''} placeholder="groupe 1" onChange={(e) => set(c, { group: e.target.value })} />
+          <Input className="col-span-6 md:col-span-2" value={info.title ?? ''} placeholder="Physique" aria-label={`Discipline de ${c}`} onChange={(e) => set(c, { title: e.target.value })} />
+          <Input className="col-span-6 md:col-span-3" value={info.full_title ?? ''} placeholder="Mécanique" aria-label={`Nom du cours ${c}`} title={info.full_title} onChange={(e) => set(c, { full_title: e.target.value })} />
+          <Input className="col-span-5 md:col-span-2" value={info.group ?? ''} placeholder="groupe 1" aria-label={`Groupe de ${c}`} onChange={(e) => set(c, { group: e.target.value })} />
           <div className="col-span-6 flex flex-wrap items-center gap-1 md:col-span-2">
             {(info.questions_from ?? []).map((f) => (
-              <Badge key={f}>{f}<button className="cursor-pointer" onClick={() => set(c, { questions_from: (info.questions_from ?? []).filter((x) => x !== f) })}><X className="h-3 w-3" /></button></Badge>
+              <Badge key={f}>{f}<button className="cursor-pointer" aria-label={`Ne plus utiliser la banque ${f}`} onClick={() => set(c, { questions_from: (info.questions_from ?? []).filter((x) => x !== f) })}><X className="h-3 w-3" /></button></Badge>
             ))}
-            <select className="h-7 rounded-md border bg-card px-1 text-xs" value="" onChange={(e) => e.target.value && set(c, { questions_from: Array.from(new Set([...(info.questions_from ?? []), e.target.value])) })}>
+            <select aria-label={`Utiliser aussi la banque d'un autre dossier pour ${c}`} className="h-7 cursor-pointer rounded-md border bg-card px-1 text-xs" value="" onChange={(e) => e.target.value && set(c, { questions_from: Array.from(new Set([...(info.questions_from ?? []), e.target.value])) })}>
               <option value="">+ banque…</option>
               {bankFolders.filter((f) => f !== c).map((f) => <option key={f} value={f}>{f}</option>)}
             </select>
           </div>
-          <Button size="icon" variant="ghost" className="col-span-1" onClick={() => { const v = { ...value }; delete v[c]; onChange(v) }}><Trash2 className="h-4 w-4" /></Button>
+          <Button size="icon" variant="ghost" className="col-span-1" aria-label={`Retirer le cours ${c}`} title="Retirer le cours" onClick={() => { const v = { ...value }; delete v[c]; onChange(v) }}><Trash2 className="h-4 w-4" /></Button>
         </div>
       ))}
-      <form className="flex gap-2 pt-1" onSubmit={(e) => { e.preventDefault(); if (code) { onChange({ ...value, [code]: { title: '', full_title: '', group: '' } }); setCode('') } }}>
-        <Input className="w-56 font-mono" value={code} onChange={(e) => setCode(e.target.value.replace(/[^A-Za-z0-9_-]/g, ''))} placeholder="203-NYA-05" />
+      <form className="flex flex-wrap gap-2 pt-1" onSubmit={(e) => { e.preventDefault(); const k = code.trim().toUpperCase(); if (!k) return; if (value[k]) { toast.error(`Le cours ${k} existe déjà`); return } onChange({ ...value, [k]: { title: '', full_title: '', group: '' } }); setCode('') }}>
+        <Input className="w-full font-mono sm:w-56" aria-label="Code du nouveau cours" value={code} onChange={(e) => setCode(e.target.value.replace(/[^A-Za-z0-9_-]/g, ''))} placeholder="203-NYA-05" />
         <Button type="submit" variant="outline"><Plus className="h-4 w-4" />Ajouter un cours</Button>
       </form>
       <p className="text-xs text-muted-foreground">« Utilise aussi la banque de » permet, par exemple, à votre cours 203-NYC-05 de piger dans les questions du dossier 203-SN3-RE.</p>
@@ -64,7 +64,7 @@ export function LogoEditor({ value, onChange }: { value: string; onChange: (v: s
   return (
     <div className="flex items-center gap-3">
       <div className="grid h-16 w-28 place-items-center overflow-hidden rounded-lg border bg-white">
-        {value ? <img src={`/api/figures/${encodeURIComponent(value)}`} alt="logo" className="max-h-14 max-w-24 object-contain" /> : <span className="text-xs text-muted-foreground">aucun logo</span>}
+        {value ? <img src={`/api/figures/${encodeURIComponent(value)}`} alt="Logo de l'établissement" className="max-h-14 max-w-24 object-contain" /> : <span className="text-xs text-muted-foreground">aucun logo</span>}
       </div>
       <input ref={ref} type="file" accept=".png,.jpg,.jpeg,.pdf" className="hidden" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
       <Button size="sm" variant="outline" onClick={() => ref.current?.click()}><ImagePlus className="h-3.5 w-3.5" />{value ? 'Changer' : 'Téléverser'}</Button>
