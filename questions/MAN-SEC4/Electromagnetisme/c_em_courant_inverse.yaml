@@ -1,0 +1,15 @@
+title: 'Courant inversé dans un électroaimant'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Le sens du champ magnétique dépend du sens du courant (règle de la main droite) : les pôles changent de côté, l''intensité reste la même.'
+choices:
+  - 'Son champ magnétique disparaît'
+  - 'Son champ magnétique devient deux fois plus intense'
+  - 'Rien ne change'
+  - 'Ses pôles nord et sud s''inversent'

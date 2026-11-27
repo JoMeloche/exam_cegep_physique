@@ -1,0 +1,18 @@
+title: 'Cycliste qui monte une côte'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m: {type: integer, min: 60, max: 95, step: 5, unit: kg, label: Masse du cycliste et du vélo}
+  h: {type: integer, min: 20, max: 80, step: 5, unit: m, label: Dénivelé}
+  t: {type: integer, min: 60, max: 300, step: 15, unit: s, label: Durée de la montée}
+constraints: []
+solution:
+  mode: manual
+  file: er_cycliste_cote.sol.tex
+  parts:
+    a: {expr: 'm*9.8*h', unit: 'J', label: 'Énergie potentielle gagnée'}
+    b: {expr: 'm*9.8*h/t', unit: 'W', label: 'Puissance utile'}
+    c: {expr: 'm*9.8*h/0.25', unit: 'J', label: 'Énergie dépensée'}

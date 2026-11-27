@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Masse du liquide}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_{\mathrm{total}} = \qty{\fpeval{\v{m0} + round(\v{rho}*\v{V}, 2)}}{g}$, $m_{\mathrm{cylindre}} = \qty{\v{m0}}{g}$ ; variable recherchée : $m$
+    \item \textbf{Équations pertinentes :} \[ m = m_{\mathrm{total}} - m_{\mathrm{cylindre}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ m = \num{\fpeval{\v{m0} + round(\v{rho}*\v{V}, 2)}} - \num{\v{m0}} = \Res{\vsi{rho}*\vsi{V}}{g} \]
+    \item \textbf{Réponse :} $m = \mathbf{\Res{\vsi{rho}*\vsi{V}}{g}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Masse volumique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \Res{\v{rho}*\v{V}}{g}$, $V = \qty{\v{V}}{mL}$ ; variable recherchée : $\rho$
+    \item \textbf{Équations pertinentes :} \[ \rho = \frac{m}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \rho = \frac{\Val{\v{rho}*\v{V}}}{\num{\v{V}}} = \Res{\vsi{rho}}{g/mL} \]
+    \item \textbf{Réponse :} $\rho = \mathbf{\Res{\vsi{rho}}{g/mL}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Masse de 2,5 L}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\rho = \qty{\v{rho}}{g/mL}$, $V' = \qty{2.5}{L} = \qty{2500}{mL}$ ; variable recherchée : $m'$
+    \item \textbf{Équations pertinentes :} \[ \rho = \frac{m'}{V'} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ m' = \rho\,V' \]
+    \item \textbf{Résolution numérique :} \[ m' = \num{\v{rho}} \cdot \num{2500} = \Res{\v{rho}*2500}{g} = \Res{\vsi{rho}*2.5}{kg} \]
+    \item \textbf{Réponse :} $m' = \mathbf{\Res{\vsi{rho}*2.5}{kg}}$
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Liaison dans le chlorure de sodium'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Un métal (Na) cède un électron à un non-métal (Cl) : les ions $\mathrm{Na^+}$ et $\mathrm{Cl^-}$ s''attirent, c''est une liaison ionique.'
+choices:
+  - 'Une liaison covalente, par partage d''une paire d''électrons'
+  - 'Une liaison ionique, par transfert d''un électron du sodium au chlore'
+  - 'Une liaison métallique'
+  - 'Aucune liaison : c''est un mélange'

@@ -1,0 +1,15 @@
+title: 'Pourquoi un glaçon flotte'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un objet flotte dans un liquide si sa masse volumique est inférieure à celle du liquide. Celle de la glace (environ \qty{0.92}{g/mL}) est plus petite que celle de l''eau (\qty{1.00}{g/mL}).'
+choices:
+  - 'La glace est plus légère parce qu''elle est solide'
+  - 'La masse volumique de la glace est plus grande que celle de l''eau'
+  - 'La masse volumique de la glace est plus petite que celle de l''eau liquide'
+  - 'La glace contient de l''air, ce qui la rend sans masse'

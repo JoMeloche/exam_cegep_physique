@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Intensité du courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $U = \qty{120}{V}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :} \[ P = U\,I \]
+    \item \textbf{Isolation de la variable recherchée :} \[ I = \frac{P}{U} \]
+    \item \textbf{Résolution numérique :} \[ I = \frac{\num{\v{P}}}{\num{120}} = \Res{\vsi{P}/120}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{\vsi{P}/120}{A}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Résistance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $U = \qty{120}{V}$, $I = \Res{\v{P}/120}{A}$ ; variable recherchée : $R$
+    \item \textbf{Équations pertinentes :} \[ U = R\,I \]
+    \item \textbf{Isolation de la variable recherchée :} \[ R = \frac{U}{I} \]
+    \item \textbf{Résolution numérique :} \[ R = \frac{\num{120}}{\Val{\v{P}/120}} = \Res{120^2/\vsi{P}}{\ohm} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{120^2/\vsi{P}}{\ohm}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie consommée en 30 jours}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W} = \qty{\fpeval{\v{P}/1000}}{kW}$, $\Delta t = 30 \times \qty{\v{tj}}{min} = \qty{\fpeval{30*\v{tj}/60}}{h}$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :} \[ E = P\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ E = \num{\fpeval{\v{P}/1000}} \cdot \num{\fpeval{30*\v{tj}/60}} = \Res{\vsi{P}/1000*\vsi{tj}/60*30}{kW.h} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{\vsi{P}/1000*\vsi{tj}/60*30}{kW.h}}$
+\end{enumerate}

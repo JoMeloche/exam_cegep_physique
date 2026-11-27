@@ -1,0 +1,15 @@
+title: 'Énergie thermique de deux casseroles'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'La température mesure l''agitation moyenne des particules ; l''énergie thermique dépend aussi du nombre de particules. Deux fois plus d''eau à la même température contient deux fois plus d''énergie thermique.'
+choices:
+  - 'Celle qui contient \qty{2}{L}'
+  - 'Celle qui contient \qty{1}{L}'
+  - 'Elles en contiennent autant, puisqu''elles sont à la même température'
+  - 'On ne peut pas le savoir sans thermomètre'
