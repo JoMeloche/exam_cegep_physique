@@ -36,7 +36,9 @@ if [ ! -x "$TT/bin/universal-darwin/pdflatex" ]; then
 fi
 TLBIN="$TT/bin/universal-darwin"
 "$TLBIN/tlmgr" option repository ctan
-"$TLBIN/tlmgr" install $(cat $PKG/tex-packages.txt) || "$TLBIN/tlmgr" install $(cat $PKG/tex-packages.txt)
+# packages merged into others in recent TeX Live (l3backend, xfp -> l3kernel) are reported "not present";
+# that is not fatal, the self-test below checks that everything the exams need compiles.
+"$TLBIN/tlmgr" install $(cat $PKG/tex-packages.txt) || echo "     (tlmgr reported missing packages, checking with a test document)"
 "$TLBIN/fmtutil-sys" --byfmt pdflatex >/dev/null
 # quick self-test of the bundled TeX with the packages the exams use
 mkdir -p "$BUILD/textest"
