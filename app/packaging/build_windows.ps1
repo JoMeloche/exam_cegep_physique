@@ -21,11 +21,11 @@ Remove-Item -Recurse -Force backend\examgen\static -ErrorAction SilentlyContinue
 Copy-Item -Recurse frontend\dist backend\examgen\static
 
 Write-Host "3/6  TinyTeX"
-$tt = "packaging\build\TinyTeX"
+$tt = Join-Path $App "packaging\build\TinyTeX"  # absolute: fmtutil/kpsewhich fail with a relative path
 if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) {
   New-Item -ItemType Directory -Force packaging\build | Out-Null
-  # TinyTeX-1 (small bundle) stopped being published after v2026.03; pin that one (TeX Live 2026,
-  # tlmgr then updates against current CTAN). Override with $env:TINYTEX_URL.
+  # TinyTeX-1 (small bundle) stopped being published after v2026.03; pin that one (it is TeX Live 2025;
+  # see the package step below). Override with $env:TINYTEX_URL.
   $url = if ($env:TINYTEX_URL) { $env:TINYTEX_URL } else {
     "https://github.com/rstudio/tinytex-releases/releases/download/v2026.03/TinyTeX-1-v2026.03.zip" }
   Write-Host "    $url"
@@ -34,9 +34,20 @@ if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) {
   if (-not (Test-Path "$tt\bin\windows\pdflatex.exe")) { throw "TinyTeX extracted but $tt\bin\windows\pdflatex.exe is missing" }
 }
 $tlmgr = "$tt\bin\windows\tlmgr.bat"
-& $tlmgr option repository ctan; Check "tlmgr option"
-& $tlmgr install (Get-Content packaging\tex-packages.txt | Where-Object { $_.Trim() }); Check "tlmgr install"
-& "$tt\bin\windows\fmtutil-sys.exe" --byfmt pdflatex | Out-Null
+# The pinned TinyTeX is TeX Live 2025, and tlmgr refuses to install from a newer year's repository,
+# so install packages from the frozen TL2025 archive. Override with $env:TEXLIVE_REPO.
+$repos = if ($env:TEXLIVE_REPO) { @($env:TEXLIVE_REPO) } else { @(
+  "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/tlnet-final",
+  "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2025/tlnet-final") }
+$pkgs = Get-Content packaging\tex-packages.txt | Where-Object { $_.Trim() }
+$ok = $false
+foreach ($r in $repos) {
+  Write-Host "    packages from $r"
+  cmd /c "`"$tlmgr`" --repository $r install $pkgs"
+  if ($LASTEXITCODE -eq 0) { $ok = $true; break }
+}
+if (-not $ok) { throw "tlmgr install failed from every repository" }
+cmd /c "`"$tt\bin\windows\fmtutil-sys.exe`" --byfmt pdflatex >NUL"; Check "fmtutil"
 
 Write-Host "4/6  Starter question bank"
 # Done in PowerShell (same as make_seed.sh) so the build does not need sh.
