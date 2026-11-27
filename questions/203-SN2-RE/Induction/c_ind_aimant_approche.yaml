@@ -1,0 +1,15 @@
+title: "Loi de Lenz : aimant approché d'une spire"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le flux augmente dans la spire. Le courant induit crée un champ opposé : la face de la spire tournée vers l''aimant devient un pôle nord, qui repousse le pôle nord de l''aimant. La spire s''oppose à la cause de l''induction.'
+choices:
+  - Elle attire l'aimant
+  - Elle repousse l'aimant
+  - Elle n'exerce aucune force sur l'aimant
+  - Elle exerce une force perpendiculaire à l'axe de l'aimant

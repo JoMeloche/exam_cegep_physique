@@ -1,0 +1,21 @@
+title: Résistance, courant et densité de courant dans un fil
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  L:   {type: integer, min: 5, max: 100, step: 5, unit: m, label: Longueur du fil}
+  d:   {type: decimal, min: 0.2, max: 2.0, step: 0.1, unit: mm, si: 0.001, label: Diamètre du fil}
+  V:   {type: decimal, min: 0.2, max: 3.0, step: 0.2, unit: V, label: Différence de potentiel}
+constraints:
+  - V/(1.68e-8*L) <= 1e7
+  - V*pi*(d/2)**2/(1.68e-8*L) <= 20
+  - V*pi*(d/2)**2/(1.68e-8*L) >= 0.05
+solution:
+  mode: manual
+  parts:
+    a: {expr: "1.68e-8*L/(pi*(d/2)**2)", unit: \ohm, label: Résistance}
+    b: {expr: "V*pi*(d/2)**2/(1.68e-8*L)", unit: A, label: Courant}
+    c1: {expr: "V/(1.68e-8*L)", unit: A/m^2, label: Densité de courant}
+    c2: {expr: "V**2*pi*(d/2)**2/(1.68e-8*L)", unit: W, label: Puissance dissipée}

@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance focale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R = \qty{\v{R}}{m}$, miroir convexe (foyer virtuel) ; variable recherchée : $f$
+    \item \textbf{Équations pertinentes :}
+    \[ f = -\frac{R}{2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ f = -\frac{\qty{\v{R}}{m}}{2} = \Res{-\v{R}/2}{m} \]
+    \item \textbf{Réponse :} $f = \mathbf{\Res{-\v{R}/2}{m}}$.
+\end{enumerate}
+\subsubsection*{Question b) Position de l'image}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \Res{-\v{R}/2}{m}$, $d_o = \qty{\v{dob}}{m}$ ; variable recherchée : $d_i$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ d_i = \frac{1}{\frac{1}{f} - \frac{1}{d_o}} \]
+    \item \textbf{Résolution numérique :}
+    \[ d_i = \frac{1}{\frac{1}{\Res{-\v{R}/2}{m}} - \frac{1}{\qty{\v{dob}}{m}}} = \Res{1/(-2/\v{R} - 1/\v{dob})}{m} \]
+    \item \textbf{Réponse :} $d_i = \mathbf{\Res{1/(-2/\v{R} - 1/\v{dob})}{m}}$ : l'image est virtuelle, derrière le miroir, tout près du foyer.
+\end{enumerate}
+\subsubsection*{Question c) Hauteur et caractéristiques}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d_i = \Res{1/(-2/\v{R} - 1/\v{dob})}{m}$, $d_o = \qty{\v{dob}}{m}$, $h_o = \qty{\v{ho}}{m}$ ; variable recherchée : $h_i$
+    \item \textbf{Équations pertinentes :}
+    \[ \frac{h_i}{h_o} = -\frac{d_i}{d_o} \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ h_i = -h_o\,\frac{d_i}{d_o} \]
+    \item \textbf{Résolution numérique :}
+    \[ h_i = -\qty{\v{ho}}{m} \cdot \frac{\Val{1/(-2/\v{R} - 1/\v{dob})}\,\unit{m}}{\qty{\v{dob}}{m}} = \Res{-\v{ho}*(1/(-2/\v{R} - 1/\v{dob}))/\v{dob}}{m} = \Res{-100*\v{ho}*(1/(-2/\v{R} - 1/\v{dob}))/\v{dob}}{cm} \]
+    \item \textbf{Réponse :} $h_i = \mathbf{\Res{-100*\v{ho}*(1/(-2/\v{R} - 1/\v{dob}))/\v{dob}}{cm}}$ : image \textbf{virtuelle}, \textbf{droite} et très \textbf{réduite}. Le cerveau associe une petite image à un objet éloigné, d'où l'avertissement.
+\end{enumerate}

@@ -1,4 +1,4 @@
-title: Police
+title: Voiture de police et camion (écho)
 type: developpement
 points: 20
 time_min: 20
@@ -10,27 +10,41 @@ variables:
     min: 25
     max: 45
     step: 5
-    label: doppCinqVPolice
+    label: Vitesse de la voiture de police
+    unit: m/s
   Freq:
     type: integer
     min: 540
     max: 660
     step: 10
-    label: doppCinqFreq
+    label: Fréquence de la sirène
+    unit: Hz
   VCamion:
     type: integer
     min: 5
     max: 25
     step: 5
-    label: doppCinqVCamion
+    label: Vitesse du camion
+    unit: m/s
   VSon:
     type: choice
     values:
     - 343
-    label: doppCinqVSon
+    label: Vitesse du son
+    unit: m/s
+constraints:
+- VPolice > VCamion
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: Freq*(VSon - VCamion)/(VSon - VPolice)
+      unit: Hz
+      label: Fréquence perçue par le camion
+    b:
+      expr: Freq*(VSon - VCamion)/(VSon - VPolice)*(VSon + VPolice)/(VSon + VCamion)
+      unit: Hz
+      label: Fréquence réfléchie perçue par la police
 source: Question_dev/Doppler/police.tex
 original_values:
   VPolice:

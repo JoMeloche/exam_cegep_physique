@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angles des raies}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \dfrac{\num{1e-3}}{\num{\v{Nmm}}} = \Res{1e-3/\v{Nmm}}{m}$, $\lambda_1 = \qty[exponent-mode=threshold]{\vsi{lam1}}{m}$, $\lambda_2 = \qty[exponent-mode=threshold]{\vsi{lam2}}{m}$, $m = 1$
+        \item Variables recherchées : $\theta_1$, $\theta_2$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} $d\sin\theta = m\lambda$
+    \item \textbf{Isolation de la variable recherchée :} $\theta = \arcsin(\lambda/d)$
+    \item \textbf{Résolution numérique :}
+    \[ \theta_1 = \arcsin\left(\frac{\num[exponent-mode=threshold]{\vsi{lam1}}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(\vsi{lam1}*\v{Nmm}*1e3)}{\degree}, \qquad \theta_2 = \arcsin\left(\frac{\num[exponent-mode=threshold]{\vsi{lam2}}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(\vsi{lam2}*\v{Nmm}*1e3)}{\degree} \]
+    \item \textbf{Réponse :} \textbf{$\theta_1 = $ \Res{asind(\vsi{lam1}*\v{Nmm}*1e3)}{\degree}} et \textbf{$\theta_2 = $ \Res{asind(\vsi{lam2}*\v{Nmm}*1e3)}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Positions sur l'écran}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $L = \qty{\v{L}}{m}$, $\theta_1$, $\theta_2$ ; variables recherchées : $y_1$, $y_2$
+    \item \textbf{Équations pertinentes :} $\tan\theta = y/L$ (les angles ne sont pas petits, on n'utilise pas d'approximation)
+    \item \textbf{Isolation de la variable recherchée :} $y = L\tan\theta$
+    \item \textbf{Résolution numérique :}
+    \[ y_1 = \num{\v{L}} \cdot \tan(\Val{asind(\vsi{lam1}*\v{Nmm}*1e3)}^\circ) = \Res{100*\v{L}*tand(asind(\vsi{lam1}*\v{Nmm}*1e3))}{cm}, \qquad y_2 = \num{\v{L}} \cdot \tan(\Val{asind(\vsi{lam2}*\v{Nmm}*1e3)}^\circ) = \Res{100*\v{L}*tand(asind(\vsi{lam2}*\v{Nmm}*1e3))}{cm} \]
+    \item \textbf{Réponse :} \textbf{$y_1 = $ \Res{100*\v{L}*tand(asind(\vsi{lam1}*\v{Nmm}*1e3))}{cm}} et \textbf{$y_2 = $ \Res{100*\v{L}*tand(asind(\vsi{lam2}*\v{Nmm}*1e3))}{cm}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Distance entre les raies}
+\[ \Delta y = y_1 - y_2 = \Res{100*\v{L}*(tand(asind(\vsi{lam1}*\v{Nmm}*1e3)) - tand(asind(\vsi{lam2}*\v{Nmm}*1e3)))}{cm} \]
+Les deux raies sont séparées de \textbf{\Res{100*\v{L}*(tand(asind(\vsi{lam1}*\v{Nmm}*1e3)) - tand(asind(\vsi{lam2}*\v{Nmm}*1e3)))}{cm}} sur l'écran.

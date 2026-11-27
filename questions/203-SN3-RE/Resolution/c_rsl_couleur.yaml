@@ -1,0 +1,15 @@
+title: "Couleur donnant la meilleure résolution"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$\theta_{\min} = 1{,}22\,\lambda/D$ : plus la longueur d''onde est courte, plus l''angle limite est petit, donc meilleure est la résolution.'
+choices:
+  - 'La lumière bleue'
+  - 'La lumière rouge'
+  - 'La lumière jaune'
+  - 'La couleur n''a aucune influence'

@@ -1,4 +1,4 @@
-title: Bloc-ressort
+title: Énergie cinétique égale à l'énergie mécanique
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: B
+explanation: '$K = E$ quand $U = 0$, soit à chaque passage à la position d''équilibre : deux fois par cycle.'
 choices:
 - Une fois
 - Deux fois
 - Quatre fois
 - Cela ne se produit jamais au cours d’un cycle.
 pin_last: 1
-needs_review: true
 source: Question_concept/MHS/bloc-ressort.tex
 history: []

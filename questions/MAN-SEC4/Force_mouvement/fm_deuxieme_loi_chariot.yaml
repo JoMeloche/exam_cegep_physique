@@ -11,6 +11,8 @@ variables:
   t: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: s, label: Durée}
 constraints:
   - F > f + 15
+  - (F - f)/m > 0.5
+  - (F - f)/m < 4
 solution:
   mode: manual
   parts:

@@ -1,0 +1,15 @@
+title: 'Condition d''équilibre de translation'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Un objet est en équilibre de translation lorsque la somme vectorielle des forces est nulle. Il peut alors être immobile ou se déplacer à vitesse constante en ligne droite, même si plusieurs forces agissent sur lui.'
+choices:
+  - 'Aucune force n''agit sur l''objet'
+  - 'L''objet est immobile'
+  - 'La somme vectorielle des forces qui agissent sur l''objet est nulle'
+  - 'Toutes les forces qui agissent sur l''objet ont la même grandeur'

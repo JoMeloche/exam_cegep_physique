@@ -5,8 +5,8 @@ time_min: 15
 difficulty: 2
 figures: []
 variables:
-  m1: {type: integer, min: 2000, max: 12000, step: 500, unit: kg, label: Masse du wagon 1}
-  m2: {type: integer, min: 2000, max: 12000, step: 500, unit: kg, label: Masse du wagon 2}
+  m1: {type: integer, min: 15000, max: 40000, step: 1000, unit: kg, label: Masse du wagon 1}
+  m2: {type: integer, min: 15000, max: 40000, step: 1000, unit: kg, label: Masse du wagon 2}
   v1: {type: decimal, min: 1.0, max: 6.0, step: 0.1, unit: m/s, label: Vitesse initiale du wagon 1}
 constraints: []
 solution:

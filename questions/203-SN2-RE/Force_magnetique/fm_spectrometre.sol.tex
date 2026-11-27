@@ -1,28 +1,31 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Vitesse de l'isotope léger}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $\Delta V = \qty{\vsi{dV}}{V}$, $m_1 = \v{m1} \cdot \num{1.661e-27} = \ResSci{\v{m1}*1.661e-27}{kg}$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $v_1$
+    \item \textbf{Variables connues et recherchées :} $\Delta V = \QtyT{\vsi{dV}}{V}$, $m_1 = \v{m1} \cdot \num{1.661e-27} = \ResSci{\v{m1}*1.661e-27}{kg}$, $e = \qty{1.602e-19}{C}$ ; variable recherchée : $v_1$
     \item \textbf{Équations pertinentes :}
     \[ e\,\Delta V = \tfrac{1}{2} m_1 v_1^2 \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ v_1 = \sqrt{\frac{2e\,\Delta V}{m_1}} \]
     \item \textbf{Résolution numérique :}
-    \[ v_1 = \sqrt{\frac{2 \cdot \num{1.602e-19} \cdot \num{\vsi{dV}}}{\Val{\v{m1}*1.661e-27}}} = \ResSci{sqrt(2*1.602e-19*\vsi{dV}/(\v{m1}*1.661e-27))}{m/s} \]
+    \[ v_1 = \sqrt{\frac{2 \cdot \num{1.602e-19} \cdot \NumT{\vsi{dV}}}{\Valt{\v{m1}*1.661e-27}}} = \ResSci{sqrt(2*1.602e-19*\vsi{dV}/(\v{m1}*1.661e-27))}{m/s} \]
     \item \textbf{Réponse :} $v_1 = \mathbf{\ResSci{sqrt(2*1.602e-19*\vsi{dV}/(\v{m1}*1.661e-27))}{m/s}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Rayons des trajectoires}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $m_1 = \ResSci{\v{m1}*1.661e-27}{kg}$, $m_2 = \ResSci{(\v{m1}+\v{dm})*1.661e-27}{kg}$, $\Delta V = \qty{\vsi{dV}}{V}$, $B = \qty{\v{B}}{T}$ ; variables recherchées : $r_1$ et $r_2$
+    \item \textbf{Variables connues et recherchées :} $m_1 = \ResSci{\v{m1}*1.661e-27}{kg}$, $m_2 = \ResSci{(\v{m1}+\v{dm})*1.661e-27}{kg}$, $\Delta V = \QtyT{\vsi{dV}}{V}$, $B = \qty{\v{B}}{T}$ ; variables recherchées : $r_1$ et $r_2$
     \item \textbf{Équations pertinentes :}
     \[ e v B = \frac{m v^2}{r} \qquad v = \sqrt{\frac{2e\,\Delta V}{m}} \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ r = \frac{m v}{e B} = \frac{1}{B}\sqrt{\frac{2 m\,\Delta V}{e}} \]
     \item \textbf{Résolution numérique :}
-    \[ r_1 = \frac{1}{\num{\v{B}}}\sqrt{\frac{2 \cdot \Val{\v{m1}*1.661e-27} \cdot \num{\vsi{dV}}}{\num{1.602e-19}}} = \Res{sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{m} \]
-    \[ r_2 = \frac{1}{\num{\v{B}}}\sqrt{\frac{2 \cdot \Val{(\v{m1}+\v{dm})*1.661e-27} \cdot \num{\vsi{dV}}}{\num{1.602e-19}}} = \Res{sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{m} \]
+    \[ r_1 = \frac{1}{\num{\v{B}}}\sqrt{\frac{2 \cdot \Valt{\v{m1}*1.661e-27} \cdot \NumT{\vsi{dV}}}{\num{1.602e-19}}} = \Res{sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{m} \]
+    \[ r_2 = \frac{1}{\num{\v{B}}}\sqrt{\frac{2 \cdot \Valt{(\v{m1}+\v{dm})*1.661e-27} \cdot \NumT{\vsi{dV}}}{\num{1.602e-19}}} = \Res{sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{m} \]
     \item \textbf{Réponse :} $r_1 = \mathbf{\Res{100*sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{cm}}$ et $r_2 = \mathbf{\Res{100*sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}{cm}}$.
 \end{enumerate}
 
@@ -33,6 +36,6 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \Delta x = 2r_2 - 2r_1 = 2(r_2 - r_1) \]
     \item \textbf{Résolution numérique :}
-    \[ \Delta x = 2\left(\Val{sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}} - \Val{sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}\right) = \ResSci{2*(sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}-sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B})}{m} \]
+    \[ \Delta x = 2\left(\Valt{sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}} - \Valt{sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}}\right) = \ResSci{2*(sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}-sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B})}{m} \]
     \item \textbf{Réponse :} $\Delta x = \mathbf{\Res{1000*2*(sqrt(2*(\v{m1}+\v{dm})*1.661e-27*\vsi{dV}/1.602e-19)/\v{B}-sqrt(2*\v{m1}*1.661e-27*\vsi{dV}/1.602e-19)/\v{B})}{mm}}$.
 \end{enumerate}

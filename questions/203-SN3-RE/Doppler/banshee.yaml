@@ -1,4 +1,4 @@
-title: Banshee
+title: Banshee marche vers un mur (battements)
 type: developpement
 points: 20
 time_min: 20
@@ -10,22 +10,30 @@ variables:
     min: 5
     max: 16
     step: 1
-    label: doppDeuxTemp
+    label: Température de l'air
+    unit: \degreeCelsius
   Vit:
     type: decimal
     min: 0.4
     max: 1.1
     step: 0.1
-    label: doppDeuxVit
+    label: Vitesse de Banshee
+    unit: m/s
   Freq:
     type: integer
     min: 19
     max: 26
     step: 1
-    label: doppDeuxFreq
+    label: Fréquence de l'ultrason
+    unit: kHz
+    si: 1000
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: Freq*(331*sqrt((Temp+273)/273) + Vit)/(331*sqrt((Temp+273)/273) - Vit) - Freq
+      unit: Hz
+      label: Fréquence des battements
 source: Question_dev/Doppler/banshee.tex
 original_values:
   Temp:

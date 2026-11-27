@@ -1,0 +1,11 @@
+.git
+mes_examens
+app/frontend/node_modules
+app/frontend/dist
+app/backend/examgen/static
+app/seed
+app/packaging
+legacy
+exports
+**/__pycache__
+**/*.pyc

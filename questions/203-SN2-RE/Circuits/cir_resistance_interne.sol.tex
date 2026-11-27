@@ -1,6 +1,9 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Courant}
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $r = \qty{\v{r}}{\ohm}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
@@ -20,7 +23,7 @@
     \[ \Delta V = \mathcal{E} - rI \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ \Delta V = \num{\v{eps}} - \num{\v{r}} \cdot \Val{\v{eps}/(\v{R}+\v{r})} = \Res{\v{eps}*\v{R}/(\v{R}+\v{r})}{V} \]
+    \[ \Delta V = \num{\v{eps}} - \num{\v{r}} \cdot \Valt{\v{eps}/(\v{R}+\v{r})} = \Res{\v{eps}*\v{R}/(\v{R}+\v{r})}{V} \]
     \item \textbf{Réponse :} $\Delta V = \mathbf{\Res{\v{eps}*\v{R}/(\v{R}+\v{r})}{V}}$ (c'est aussi $RI$).
 \end{enumerate}
 
@@ -31,7 +34,7 @@
     \[ P = RI^2 \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ P = \num{\v{R}} \cdot \Val{\v{eps}/(\v{R}+\v{r})}^2 = \Res{\v{R}*(\v{eps}/(\v{R}+\v{r}))^2}{W} \]
+    \[ P = \num{\v{R}} \cdot \left(\Valt{\v{eps}/(\v{R}+\v{r})}\right)^2 = \Res{\v{R}*(\v{eps}/(\v{R}+\v{r}))^2}{W} \]
     \item \textbf{Réponse :} $P = \mathbf{\Res{\v{R}*(\v{eps}/(\v{R}+\v{r}))^2}{W}}$.
 \end{enumerate}
 

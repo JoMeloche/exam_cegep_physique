@@ -1,0 +1,29 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Normale du mur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $m = \qty{\v{m}}{kg}$, $L = \qty{\v{L}}{m}$, $s = \qty{\v{s}}{m}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $n_m$
+    \item \textbf{Équations pertinentes :} moments de force par rapport au pied de l'échelle ; les poids ont des bras de levier horizontaux $\frac{L}{2}\cos\theta$ et $s\cos\theta$, la normale du mur a un bras de levier vertical $L\sin\theta$ : \[ n_m L\sin\theta - Mg\frac{L}{2}\cos\theta - mgs\cos\theta = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ n_m = \frac{g\left(M\frac{L}{2} + ms\right)}{L\tan\theta} \]
+    \item \textbf{Résolution numérique :} \[ n_m = \frac{\num{9.81} \cdot (\num{\v{M}} \cdot \Val{\vsi{L}/2} + \num{\v{m}} \cdot \num{\v{s}})}{\num{\v{L}} \cdot \tan(\qty{\v{th}}{\degree})} = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th})))}{N} \]
+    \item \textbf{Réponse :} $n_m = \mathbf{\Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th})))}{N}}$, horizontale, dirigée vers l'extérieur du mur.
+\end{enumerate}
+
+\subsubsection*{Question b) Forces exercées par le sol}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_m = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th})))}{N}$, $(M + m)g = \Res{((\vsi{M} + \vsi{m})*9.81)}{N}$ ; variables recherchées : $n_s$ et $f_s$
+    \item \textbf{Équations pertinentes :} \[ \sum F_x = f_s - n_m = 0 \qquad \sum F_y = n_s - Mg - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ f_s = n_m \qquad n_s = (M + m)g \]
+    \item \textbf{Résolution numérique :} \[ f_s = \Res{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th}))))}{N} \qquad n_s = (\num{\v{M}} + \num{\v{m}}) \cdot \num{9.81} = \Res{((\vsi{M} + \vsi{m})*9.81)}{N} \]
+    \item \textbf{Réponse :} $n_s = \mathbf{\Res{((\vsi{M} + \vsi{m})*9.81)}{N}}$ vers le haut et $f_s = \mathbf{\Res{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th}))))}{N}}$ vers le mur.
+\end{enumerate}
+
+\subsubsection*{Question c) Coefficient de frottement minimal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f_s = \Res{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th}))))}{N}$, $n_s = \Res{((\vsi{M} + \vsi{m})*9.81)}{N}$ ; variable recherchée : $\mu_{s,\min}$
+    \item \textbf{Équations pertinentes :} \[ f_s \leq \mu_s n_s \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \mu_{s,\min} = \frac{f_s}{n_s} \]
+    \item \textbf{Résolution numérique :} \[ \mu_{s,\min} = \frac{\Val{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th}))))}}{\Val{((\vsi{M} + \vsi{m})*9.81)}} = \num[round-mode=figures,round-precision=3]{\fpeval{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th})))/((\vsi{M} + \vsi{m})*9.81))}} \]
+    \item \textbf{Réponse :} $\mu_{s,\min} = \mathbf{\num[round-mode=figures,round-precision=3]{\fpeval{((9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{s})/(\vsi{L}*tand(\vsi{th})))/((\vsi{M} + \vsi{m})*9.81))}}}$
+\end{enumerate}

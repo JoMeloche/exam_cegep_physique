@@ -1,0 +1,24 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Maximum d'ordre 1}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \qty[exponent-mode=threshold]{\vsi{pas}}{m}$, $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $m = 1$
+        \item Variable recherchée : $\theta_1$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} comme pour un réseau par transmission,
+    \[ d\sin\theta = m\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_1 = \arcsin\left(\frac{\lambda}{d}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_1 = \arcsin\left(\frac{\num[exponent-mode=threshold]{\vsi{lam}}}{\num[exponent-mode=threshold]{\vsi{pas}}}\right) = \Res{asind(\vsi{lam}/\vsi{pas})}{\degree} \]
+    \item \textbf{Réponse :} le maximum d'ordre 1 est à \textbf{\Res{asind(\vsi{lam}/\vsi{pas})}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Ordre maximal}
+$m \le d/\lambda = \Val{\vsi{pas}/\vsi{lam}}$, donc l'ordre le plus élevé est \textbf{$m = \num{\fpeval{floor(\vsi{pas}/\vsi{lam})}}$}.
+
+\subsubsection*{Question c) Nombre total de taches}
+Les ordres $m = -\num{\fpeval{floor(\vsi{pas}/\vsi{lam})}}$ à $\num{\fpeval{floor(\vsi{pas}/\vsi{lam})}}$ donnent $2 \cdot \num{\fpeval{floor(\vsi{pas}/\vsi{lam})}} + 1 = $ \textbf{\num{\fpeval{2*floor(\vsi{pas}/\vsi{lam}) + 1}}} taches.

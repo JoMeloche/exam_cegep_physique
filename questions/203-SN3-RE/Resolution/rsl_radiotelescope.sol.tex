@@ -1,0 +1,32 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle limite de résolution}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lamr}}{m}$, $D = \qty{\v{Dm}}{m}$
+        \item Variable recherchée : $\theta_{\min}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ \theta_{\min} = \frac{1{,}22\,\lambda}{D} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée ; on convertit ensuite en degrés.
+    \item \textbf{Résolution numérique :}
+    \[ \theta_{\min} = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lamr}}}{\num{\v{Dm}}} = \ResSci{1.22*\vsi{lamr}/\v{Dm}}{rad} = \Res{1.22*\vsi{lamr}/\v{Dm}*180/pi}{\degree} \]
+    \item \textbf{Réponse :} l'angle limite de résolution est \textbf{\Res{1.22*\vsi{lamr}/\v{Dm}*180/pi}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Plus petit détail dans Andromède}
+\[ s = r\,\theta_{\min} = \num{2.4e22} \cdot \Val{1.22*\vsi{lamr}/\v{Dm}} = \ResSci{1.22*\vsi{lamr}/\v{Dm}*2.4e22}{m} \]
+Le plus petit détail distinguable mesure \textbf{\ResSci{1.22*\vsi{lamr}/\v{Dm}*2.4e22}{m}}.
+
+\subsubsection*{Question c) Télescope optique équivalent}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda' = \qty{550e-9}{m}$, même $\theta_{\min}$ ; variable recherchée : $D'$
+    \item \textbf{Équations pertinentes :} $\dfrac{1{,}22\,\lambda}{D} = \dfrac{1{,}22\,\lambda'}{D'}$
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ D' = D\,\frac{\lambda'}{\lambda} \]
+    \item \textbf{Résolution numérique :}
+    \[ D' = \num{\v{Dm}} \cdot \frac{\num{550e-9}}{\num[exponent-mode=threshold]{\vsi{lamr}}} = \Res{1000*\v{Dm}*550e-9/\vsi{lamr}}{mm} \]
+    \item \textbf{Réponse :} un télescope optique de seulement \textbf{\Res{1000*\v{Dm}*550e-9/\vsi{lamr}}{mm}} aurait la même résolution. Les ondes radio ont des longueurs d'onde environ \num{1e5} fois plus grandes que la lumière visible, donc il faut des antennes énormes pour obtenir une résolution acceptable.
+\end{enumerate}

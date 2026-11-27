@@ -11,18 +11,61 @@ import yaml
 
 from .model import Question, QuestionError
 
+DEFAULT_COVER_INSTRUCTIONS = r"""\textbf{CONSIGNES POUR L'EXAMEN :} les éléments suivants sont exigés dans les solutions de problèmes :
+\begin{itemize}[leftmargin=*, noitemsep]
+    \item schéma de la situation avec identification des variables ;
+    \item données initiales ;
+    \item exposé clair de chaque étape de la solution avec titre ou courte phrase explicative, équations utilisées, résolution algébrique et calculs numériques (avec unités).
+    \begin{itemize}
+        \item Isolez algébriquement la variable recherchée avant de remplacer par les valeurs numériques.
+        \item Faites le moins d'approximations possible lors de vos calculs.
+        \item Donnez les réponses finales avec au moins trois chiffres significatifs.
+    \end{itemize}
+\end{itemize}
+Les calculatrices programmables, téléphones cellulaires et autres appareils multimédias sont interdits.\\
+Lorsque vous aurez terminé, brochez le questionnaire sur le dessus de votre examen."""
+
+DEFAULT_COVER_NOTE = (r"Note importante : Si vous ne réussissez pas à trouver la réponse à une partie d'une question et "
+                      r"vous avez besoin de cette réponse pour les parties suivantes, vous pouvez inventer une valeur "
+                      r"pour poursuivre le problème et vous ne serez pas pénalisé.e tant que votre démarche reste "
+                      r"cohérente à la valeur inventée!")
+
 DEFAULT_CONFIG: dict[str, Any] = {
-    "school": "Cégep de Valleyfield",
-    "professors": ["Jonathan Meloche-Gagnon"],
-    "default_professor": "Jonathan Meloche-Gagnon",
-    "courses": {
-        "203-SN3-RE": {"title": "Physique", "full_title": "Ondes et physique moderne", "group": "groupe 2"},
-    },
-    "topics": {},  # optional pretty labels: {Onde_stationnaire: "Onde stationnaire / résonnante"}
+    "setup_done": False,
+    "school": "",
+    "logo": "",                 # image file in figures/, printed on the cover page
+    "professors": [],
+    "default_professor": "",
+    # code -> {title, full_title, group, questions_from: [other course folders whose questions it may use]}
+    "courses": {},
+    "topics": {},               # optional pretty labels: {Onde_stationnaire: "Onde stationnaire / résonnante"}
     "latex": {"engine": "pdflatex", "path": ""},
     "time_margin": 0.2,
     "default_versions": 3,
+    "naming": {
+        # placeholders: {course} {exam} {session} {version} {date} {year}
+        "file_pattern": "{course}_Examen_{exam}_{session}_v{version}",
+        "solution_suffix": "_solution",
+        "exam_label": "Examen",
+        "version_label": "Version",
+    },
+    # session letter -> months (1-12). Québec default: Automne, Hiver, Été.
+    "sessions": {"A": [8, 9, 10, 11, 12], "H": [1, 2, 3, 4, 5], "E": [6, 7]},
+    "cover": {"instructions": DEFAULT_COVER_INSTRUCTIONS, "note": DEFAULT_COVER_NOTE,
+              "professor_label": "Professeur", "name_label": "NOM"},
 }
+
+
+def merged_config(user: dict[str, Any]) -> dict[str, Any]:
+    """Defaults + user values; nested dicts (naming, cover, latex) are merged key by key."""
+    import copy
+    cfg = copy.deepcopy(DEFAULT_CONFIG)
+    for k, v in (user or {}).items():
+        if isinstance(v, dict) and isinstance(cfg.get(k), dict) and k in {"naming", "cover", "latex"}:
+            cfg[k] = {**cfg[k], **v}
+        else:
+            cfg[k] = v
+    return cfg
 
 
 def default_root() -> Path:
@@ -107,9 +150,10 @@ class Library:
     @property
     def config(self) -> dict[str, Any]:
         p = self.root / "config.yaml"
-        cfg = dict(DEFAULT_CONFIG)
-        if p.exists():
-            cfg.update(yaml.safe_load(p.read_text(encoding="utf-8")) or {})
+        user = yaml.safe_load(p.read_text(encoding="utf-8")) if p.exists() else {}
+        cfg = merged_config(user or {})
+        if user and "setup_done" not in user and user.get("school") and user.get("professors"):
+            cfg["setup_done"] = True  # libraries created before the setup screen existed
         return cfg
 
     def save_config(self, cfg: dict[str, Any]) -> None:
@@ -141,10 +185,19 @@ class Library:
         self._load_all()
         return self._errors
 
+    def course_sources(self, course: str) -> list[str]:
+        """Question folders a course draws from: its own, plus `questions_from` in config."""
+        info = (self.config.get("courses") or {}).get(course) or {}
+        extra = info.get("questions_from") or []
+        if isinstance(extra, str):
+            extra = [extra]
+        return [course] + [c for c in extra if c != course]
+
     def questions(self, course: str | None = None, topic: str | None = None, qtype: str | None = None) -> list[Question]:
         out = []
+        sources = set(self.course_sources(course)) if course else None
         for q in self._load_all().values():
-            if course and q.course != course:
+            if sources is not None and q.course not in sources:
                 continue
             if topic and q.topic != topic:
                 continue
@@ -178,8 +231,12 @@ class Library:
         return sorted(found | set(self.config.get("courses", {})))
 
     def topics(self, course: str) -> list[str]:
-        d = self.questions_dir / course
-        return sorted(p.name for p in d.iterdir() if p.is_dir()) if d.exists() else []
+        out: set[str] = set()
+        for c in self.course_sources(course):
+            d = self.questions_dir / c
+            if d.exists():
+                out |= {p.name for p in d.iterdir() if p.is_dir()}
+        return sorted(out)
 
     # ------------------------------------------------------------------ exams
     def exam_path(self, course: str, number: int) -> Path:
@@ -189,6 +246,11 @@ class Library:
         p = self.exam_path(course, number)
         if p.exists():
             return ExamDef.from_dict(yaml.safe_load(p.read_text(encoding="utf-8")))
+        for src in self.course_sources(course)[1:]:  # borrow the structure of the bank it draws from
+            sp = self.exam_path(src, number)
+            if sp.exists():
+                d = yaml.safe_load(sp.read_text(encoding="utf-8"))
+                return ExamDef.from_dict({**d, "course": course, "number": number})
         # default: one development question per topic, 20 points each
         topics = self.topics(course)
         dev = [t for t in topics if self.questions(course, t, "developpement")]

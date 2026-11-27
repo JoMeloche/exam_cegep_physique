@@ -10,7 +10,8 @@ variables:
   ab: {type: decimal, min: 0.85, max: 0.97, step: 0.01, label: Absorptivité}
   em: {type: decimal, min: 0.10, max: 0.90, step: 0.05, label: Émissivité dans l'infrarouge}
   Te: {type: integer, min: 10, max: 30, step: 1, unit: \degreeCelsius, label: Température ambiante}
-constraints: []
+constraints:
+  - (ab*I/(em*5.67e-8) + (Te+273)**4)**0.25 < 500   # real stagnation temperatures stay below about 230 C
 solution:
   mode: manual
   parts:

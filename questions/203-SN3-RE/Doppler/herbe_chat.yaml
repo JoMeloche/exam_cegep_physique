@@ -1,4 +1,4 @@
-title: Herbe chat
+title: Chat et vélociraptor (écho et battements)
 type: developpement
 points: 20
 time_min: 20
@@ -11,31 +11,42 @@ variables:
     max: 14
     step: 2
     unit: m/s
-    label: QfourVr
+    label: Vitesse du vélociraptor
   Vc:
     type: decimal
     min: 8.3
     max: 13.5
     step: 0.1
     unit: m/s
-    label: QfourVc
+    label: Vitesse du chat
   Freq:
     type: integer
     min: 1730
     max: 2570
     step: 10
     unit: Hz
-    label: QfourFreq
+    label: Fréquence du miaulement
   Vson:
     type: integer
     min: 336
     max: 347
     step: 1
     unit: m/s
-    label: QfourVson
+    label: Vitesse du son
+constraints:
+- abs(Vc - Vr) >= 1
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: Freq*(Vson - Vr)/(Vson - Vc)*(Vson + Vc)/(Vson + Vr)
+      unit: Hz
+      label: Fréquence de l'écho (4 chiffres significatifs)
+      sigfigs: 4
+    b:
+      expr: abs(Freq*(Vson - Vr)/(Vson - Vc)*(Vson + Vc)/(Vson + Vr) - Freq)
+      unit: Hz
+      label: Fréquence des battements
 source: Question_dev/Doppler/Q_herbe_chat.tex
 original_values:
   Vr:

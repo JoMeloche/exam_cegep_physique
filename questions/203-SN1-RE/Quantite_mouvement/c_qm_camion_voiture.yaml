@@ -1,4 +1,4 @@
-title: 'Forces lors d''une collision camion-voiture'
+title: 'Variation de quantité de mouvement camion-voiture'
 type: conceptuel
 points: 4
 time_min: 4
@@ -7,9 +7,9 @@ figures: []
 variables: {}
 solution: {mode: none}
 answer: A
-explanation: 'Troisième loi de Newton : les forces d''interaction sont toujours égales et opposées. C''est l''accélération de la voiture qui est plus grande, car sa masse est plus petite.'
+explanation: 'Les forces d''interaction sont égales et opposées et agissent pendant la même durée : les impulsions, donc les variations de quantité de mouvement, ont le même module ($\Delta\vec p_{\text{camion}} = -\Delta\vec p_{\text{voiture}}$). C''est la variation de vitesse de la voiture qui est plus grande, car sa masse est plus petite.'
 choices:
-  - 'Elles sont égales'
+  - 'Elles ont le même module'
+  - 'Celle de la voiture est plus grande'
+  - 'Celle du camion est plus grande'
   - 'Cela dépend des vitesses des deux véhicules'
-  - 'La force de la voiture sur le camion est plus grande'
-  - 'La force du camion sur la voiture est plus grande'

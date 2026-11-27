@@ -1,0 +1,20 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Force de l'appui de droite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $L = \qty{\v{L}}{m}$, $m = \qty{\v{m}}{kg}$, $x = \qty{\v{x}}{m}$ ; variable recherchée : $F_D$
+    \item \textbf{Équations pertinentes :} somme des moments de force par rapport à l'appui de gauche (sens antihoraire positif) : \[ \sum\tau_G = F_D L - Mg\frac{L}{2} - mgx = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_D = \frac{g\left(M\frac{L}{2} + mx\right)}{L} \]
+    \item \textbf{Résolution numérique :} \[ F_D = \frac{\num{9.81} \cdot (\num{\v{M}} \cdot \Val{\vsi{L}/2} + \num{\v{m}} \cdot \num{\v{x}})}{\num{\v{L}}} = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L})}{N} \]
+    \item \textbf{Réponse :} $F_D = \mathbf{\Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L})}{N}}$ vers le haut.
+\end{enumerate}
+
+\subsubsection*{Question b) Force de l'appui de gauche}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_D = \Res{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L})}{N}$, poids total $(M+m)g = \Res{(\vsi{M} + \vsi{m})*9.81}{N}$ ; variable recherchée : $F_G$
+    \item \textbf{Équations pertinentes :} \[ \sum F_y = F_G + F_D - Mg - mg = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ F_G = (M + m)g - F_D \]
+    \item \textbf{Résolution numérique :} \[ F_G = \Val{(\vsi{M} + \vsi{m})*9.81} - \Val{(9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L})} = \Res{((\vsi{M} + \vsi{m})*9.81 - (9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L}))}{N} \]
+    \item \textbf{Réponse :} $F_G = \mathbf{\Res{((\vsi{M} + \vsi{m})*9.81 - (9.81*(\vsi{M}*\vsi{L}/2 + \vsi{m}*\vsi{x})/\vsi{L}))}{N}}$ vers le haut.
+\end{enumerate}

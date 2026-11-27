@@ -9,9 +9,8 @@ app/
   backend/            Python package `examgen` (engine, importer, API, desktop launcher), tests/
   frontend/           React + Tailwind UI (built into backend/examgen/static/)
   packaging/          Windows build: PyInstaller spec, TinyTeX package list, Inno Setup script
-  Dockerfile          web app image (UI + API + TeX Live)
-  docker-compose.yml
-  seed/               starter library shipped in the installer and the image (refresh: sh make_seed.sh)
+  Dockerfile          web app image (UI + API + TeX Live), built from the repo root
+  seed/               (generated) starter library for the Windows installer: sh make_seed.sh
 ```
 
 The library lives in `~/exam_app` (override with `EXAM_APP_HOME`), format in `../docs/question_format.md`:
@@ -24,13 +23,11 @@ The library lives in `~/exam_app` (override with `EXAM_APP_HOME`), format in `..
 
 ## Run it
 
-### Web app in Docker (Jo)
-```
-cd app
-docker compose up -d --build        # then open http://localhost:8765
-```
-`~/exam_app` is mounted at `/data`; on first start an empty library gets the starter bank.
-If Docker Hub rate-limits you: `docker build --build-arg REGISTRY=mirror.gcr.io/library -t examgen .`
+### Web app in Docker
+From the repository root: `docker compose up -d`, then open http://localhost:8765.
+The library is kept in `./mes_examens` (mounted at `/data`); on first start an empty library gets the
+repository's question bank. The image is built from the repository root with `app/Dockerfile`.
+If Docker Hub rate-limits you: `docker compose build --build-arg REGISTRY=mirror.gcr.io/library`.
 
 ### Windows desktop app (colleagues)
 On a Windows PC with Python 3.12, Node 20+ and Inno Setup 6:

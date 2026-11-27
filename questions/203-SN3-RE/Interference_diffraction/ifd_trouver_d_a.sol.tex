@@ -5,25 +5,25 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $L = \qty{\v{L}}{m}$, $\Delta y = \qty{\vsi{dy}}{m}$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $L = \qty{\v{L}}{m}$, $\Delta y = \qty[exponent-mode=threshold]{\vsi{dy}}{m}$
         \item Variable recherchée : $d$
     \end{itemize}
     \item \textbf{Équations pertinentes :} pour de petits angles, $\Delta y = \dfrac{\lambda L}{d}$
     \item \textbf{Isolation de la variable recherchée :}
     \[ d = \frac{\lambda L}{\Delta y} \]
     \item \textbf{Résolution numérique :}
-    \[ d = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{dy}}} = \Res{1e6*\vsi{lam}*\v{L}/\vsi{dy}}{\micro\metre} \]
+    \[ d = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{dy}}} = \Res{1e6*\vsi{lam}*\v{L}/\vsi{dy}}{\micro\metre} \]
     \item \textbf{Réponse :} les fentes sont séparées de \textbf{\Res{1e6*\vsi{lam}*\v{L}/\vsi{dy}}{\micro\metre}}.
 \end{enumerate}
 
 \subsubsection*{Question b) Largeur des fentes}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $W = \qty{\vsi{W}}{m}$ ; variable recherchée : $a$
+    \item \textbf{Variables connues et recherchées :} $W = \qty[exponent-mode=threshold]{\vsi{W}}{m}$ ; variable recherchée : $a$
     \item \textbf{Équations pertinentes :} premier minimum de diffraction à $y_1 = W/2 = \lambda L/a$
     \item \textbf{Isolation de la variable recherchée :}
     \[ a = \frac{2\lambda L}{W} \]
     \item \textbf{Résolution numérique :}
-    \[ a = \frac{2 \cdot \num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{W}}} = \Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre} \]
+    \[ a = \frac{2 \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{W}}} = \Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre} \]
     \item \textbf{Réponse :} chaque fente mesure \textbf{\Res{1e6*2*\vsi{lam}*\v{L}/\vsi{W}}{\micro\metre}} de large.
 \end{enumerate}
 

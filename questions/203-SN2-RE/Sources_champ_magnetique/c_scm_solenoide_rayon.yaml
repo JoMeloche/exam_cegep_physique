@@ -1,0 +1,15 @@
+title: "Champ d'un solénoïde et rayon"
+type: conceptuel
+points: 4
+time_min: 3
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Pour un long solénoïde, $B = \mu_0 n I$ ne dépend pas du rayon. Les champs sont égaux ; seul le flux (proportionnel à l''aire) est quatre fois plus grand dans le second.'
+choices:
+  - Le champ du second est quatre fois plus faible
+  - Le champ du second est deux fois plus faible
+  - Le champ du second est deux fois plus grand
+  - Les champs sont égaux

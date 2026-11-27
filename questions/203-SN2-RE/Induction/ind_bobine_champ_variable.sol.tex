@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Variation du flux}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B_i = \QtyT{\vsi{B1}}{T}$, $B_f = \QtyT{\vsi{B2}}{T}$, $r = \QtyT{\vsi{r}}{m}$ ; variable recherchée : $\Delta\Phi_B$
+    \item \textbf{Équations pertinentes :}
+    \[ \Phi_B = BA\cos\theta \qquad A = \pi r^2 \]
+    \item \textbf{Isolation de la variable recherchée :} avec $\theta = 0$,
+    \[ \Delta\Phi_B = (B_f - B_i)\,\pi r^2 \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta\Phi_B = (\NumT{\vsi{B2}} - \NumT{\vsi{B1}}) \cdot \pi \cdot \left(\NumT{\vsi{r}}\right)^2 = \ResSci{(\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2}{Wb} \]
+    \item \textbf{Réponse :} $\Delta\Phi_B = \mathbf{\ResSci{(\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2}{Wb}}$ par spire.
+\end{enumerate}
+
+\subsubsection*{Question b) Force électromotrice induite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $\Delta\Phi_B = \ResSci{(\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2}{Wb}$, $\Delta t = \QtyT{\vsi{dt}}{s}$ ; variable recherchée : $\mathcal{E}$
+    \item \textbf{Équations pertinentes :} loi de Faraday :
+    \[ \mathcal{E} = -N\frac{\Delta\Phi_B}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} on cherche la grandeur : $|\mathcal{E}| = N\dfrac{|\Delta\Phi_B|}{\Delta t}$.
+    \item \textbf{Résolution numérique :}
+    \[ |\mathcal{E}| = \v{N} \cdot \frac{\Valt{abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)}}{\NumT{\vsi{dt}}} = \Res{\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt}}{V} \]
+    \item \textbf{Réponse :} $|\mathcal{E}| = \mathbf{\Res{\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Courant induit}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $|\mathcal{E}| = \Res{\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt}}{V}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ \mathcal{E} = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{|\mathcal{E}|}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\Valt{\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt}}}{\num{\v{R}}} = \ResSci{(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{1000*(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}}{mA}}$.
+\end{enumerate}
+
+\subsubsection*{Question d) Charge totale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \ResSci{(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}}{A}$, $\Delta t = \QtyT{\vsi{dt}}{s}$ ; variable recherchée : $Q$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = I\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée ; on remarque que $Q = N|\Delta\Phi_B|/R$ ne dépend pas de $\Delta t$.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \Valt{(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}} \cdot \NumT{\vsi{dt}} = \ResSci{(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}*\vsi{dt}}{C} \]
+    \item \textbf{Réponse :} $Q = \mathbf{\ResSci{(\v{N}*abs((\vsi{B2}-\vsi{B1})*pi*\vsi{r}^2)/\vsi{dt})/\v{R}*\vsi{dt}}{C}}$.
+\end{enumerate}

@@ -1,0 +1,26 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Angle à résoudre}
+\[ \theta = \frac{s}{H} = \frac{\num[exponent-mode=threshold]{\vsi{s}}}{\num[exponent-mode=threshold]{\vsi{H}}} = \ResSci{\vsi{s}/\vsi{H}}{rad} \]
+Le télescope doit résoudre un angle de \textbf{\ResSci{\vsi{s}/\vsi{H}}{rad}}.
+
+\subsubsection*{Question b) Diamètre minimal du miroir}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\theta_{\min} = \ResSci{\vsi{s}/\vsi{H}}{rad}$, $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$
+        \item Variable recherchée : $D$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} critère de Rayleigh :
+    \[ \theta_{\min} = \frac{1{,}22\,\lambda}{D} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ D = \frac{1{,}22\,\lambda}{\theta_{\min}} = \frac{1{,}22\,\lambda H}{s} \]
+    \item \textbf{Résolution numérique :}
+    \[ D = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num[exponent-mode=threshold]{\vsi{H}}}{\num[exponent-mode=threshold]{\vsi{s}}} = \Res{1.22*\vsi{lam}*\vsi{H}/\vsi{s}}{m} \]
+    \item \textbf{Réponse :} le miroir doit avoir au moins \textbf{\Res{1.22*\vsi{lam}*\vsi{H}/\vsi{s}}{m}} de diamètre.
+\end{enumerate}
+
+\subsubsection*{Question c) Miroir de \qty{2.4}{m}}
+\[ s_{\min} = \frac{1{,}22\,\lambda H}{D} = \frac{\num{1.22} \cdot \num[exponent-mode=threshold]{\vsi{lam}} \cdot \num[exponent-mode=threshold]{\vsi{H}}}{\num{2.4}} = \Res{100*1.22*\vsi{lam}*\vsi{H}/2.4}{cm} \]
+Un miroir de \qty{2.4}{m} distinguerait des détails de \textbf{\Res{100*1.22*\vsi{lam}*\vsi{H}/2.4}{cm}}.

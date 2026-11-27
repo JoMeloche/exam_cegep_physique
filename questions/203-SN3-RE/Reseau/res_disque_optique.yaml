@@ -1,0 +1,17 @@
+title: Un disque optique comme réseau par réflexion
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  pas: {type: choice, values: [1.6, 0.74], unit: \micro\metre, si: 1e-6, label: Distance entre les pistes}
+  lam: {type: choice, values: [405, 532, 633, 650], unit: nm, si: 1e-9, label: Longueur d'onde du laser}
+constraints:
+  - abs(pas/lam - round(pas/lam)) > 0.1
+solution:
+  mode: manual
+  parts:
+    th1: {expr: "deg(asin(lam/pas))", unit: deg, label: Angle du maximum d'ordre 1}
+    mmax: {expr: "floor(pas/lam)", unit: "", label: Ordre maximal}
+    Ntot: {expr: "2*floor(pas/lam) + 1", unit: "", label: Nombre total de taches}

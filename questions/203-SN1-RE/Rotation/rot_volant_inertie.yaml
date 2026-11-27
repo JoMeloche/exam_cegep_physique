@@ -9,7 +9,7 @@ variables:
   R: {type: decimal, min: 0.20, max: 0.80, step: 0.05, unit: m, label: Rayon du volant}
   w: {type: integer, min: 1000, max: 6000, step: 100, unit: tr/min, si: 0.10471975511965977, label: Vitesse angulaire}
   tf: {type: decimal, min: 5.0, max: 50.0, step: 0.5, unit: N.m, label: Moment de force de frottement}
-constraints: []
+constraints: ["w*R < 200", "0.5*M*R**2*w/tf < 600"]
 solution:
   mode: manual
   file: rot_volant_inertie.sol.tex

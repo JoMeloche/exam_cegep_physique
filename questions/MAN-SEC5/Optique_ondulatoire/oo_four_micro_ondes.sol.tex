@@ -1,0 +1,34 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}}{GHz} = \qty{\v{f}e9}{Hz}$, $c = \qty{3.00e8}{m/s}$ ; variable recherchée : $\lambda$
+    \item \textbf{Équations pertinentes :}
+    \[ c = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ \lambda = \frac{c}{f} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\qty{3.00e8}{m/s}}{\qty{\v{f}e9}{Hz}} = \Res{3e8/\vsi{f}}{m} = \Res{100*3e8/\vsi{f}}{cm} \]
+    \item \textbf{Réponse :} $\lambda = \mathbf{\Res{100*3e8/\vsi{f}}{cm}}$.
+\end{enumerate}
+\subsubsection*{Question b) Période}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $f = \qty{\v{f}e9}{Hz}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :}
+    \[ T = \frac{1}{f} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ T = \frac{1}{\qty{\v{f}e9}{Hz}} = \ResSci{1/\vsi{f}}{s} = \Res{1e12/\vsi{f}}{ps} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{1e12/\vsi{f}}{ps}}$.
+\end{enumerate}
+\subsubsection*{Question c) Vitesse estimée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\lambda/2 = \qty{\v{x}}{cm}$, donc $\lambda = \Res{2*\v{x}}{cm} = \Res{2*\vsi{x}}{m}$, $f = \qty{\v{f}e9}{Hz}$ ; variable recherchée : $v$
+    \item \textbf{Équations pertinentes :}
+    \[ v = \lambda f \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ v = \Res{2*\vsi{x}}{m} \cdot \qty{\v{f}e9}{Hz} = \ResSci{2*\vsi{x}*\vsi{f}}{m/s} \]
+    \item \textbf{Réponse :} l'expérience donne $v = \mathbf{\ResSci{2*\vsi{x}*\vsi{f}}{m/s}}$, à comparer avec \qty{3.00e8}{m/s}.
+\end{enumerate}

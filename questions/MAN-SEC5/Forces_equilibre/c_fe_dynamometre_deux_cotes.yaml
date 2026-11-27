@@ -1,0 +1,15 @@
+title: 'Dynamomètre tiré des deux côtés'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Le dynamomètre est en équilibre : chaque côté exerce \qty{50}{N}. Il mesure la tension dans le ressort, qui vaut \qty{50}{N}, exactement comme si une extrémité était attachée à un mur.'
+choices:
+  - '\qty{0}{N}'
+  - '\qty{50}{N}'
+  - '\qty{100}{N}'
+  - '\qty{25}{N}'

@@ -1,0 +1,19 @@
+title: Couleur d'une nappe d'huile sur l'eau
+type: developpement
+points: 20
+time_min: 18
+difficulty: 4
+figures: []
+variables:
+  n: {type: choice, values: [1.40, 1.45, 1.50], label: Indice de réfraction de l'huile}
+  ep: {type: integer, min: 200, max: 340, step: 5, unit: nm, si: 1e-9, label: Épaisseur de la nappe}
+constraints:
+  - 400e-9 < 4*n*ep/3 < 700e-9
+  - 4*n*ep/5 < 400e-9
+  - 4*n*ep > 700e-9
+solution:
+  mode: manual
+  parts:
+    lv: {expr: "4*n*ep/3", unit: m, label: Longueur d'onde visible fortement réfléchie}
+    ld: {expr: "2*n*ep", unit: m, label: Plus grande longueur d'onde éteinte}
+    emin: {expr: "ep/3", unit: m, label: Épaisseur minimale donnant la même couleur}

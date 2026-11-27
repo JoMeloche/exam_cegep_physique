@@ -1,0 +1,31 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Distance entre deux traits}
+\[ d = \frac{\qty{1}{mm}}{\num{\v{Nmm}}} = \frac{\num{1e-3}}{\num{\v{Nmm}}} = \Res{1e6*1e-3/\v{Nmm}}{\micro\metre} \]
+Deux traits voisins sont séparés de \textbf{\Res{1e6*1e-3/\v{Nmm}}{\micro\metre}}.
+
+\subsubsection*{Question b) Angles des maximums d'ordre 1 et 2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \Res{1e-3/\v{Nmm}}{m}$, $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $m = 1$ et $m = 2$
+        \item Variables recherchées : $\theta_1$ et $\theta_2$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} maximums principaux d'un réseau :
+    \[ d\sin\theta = m\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \theta_m = \arcsin\left(\frac{m\lambda}{d}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \theta_1 = \arcsin\left(\frac{\num[exponent-mode=threshold]{\vsi{lam}}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(\vsi{lam}*\v{Nmm}*1e3)}{\degree}, \qquad \theta_2 = \arcsin\left(\frac{2 \cdot \num[exponent-mode=threshold]{\vsi{lam}}}{\Val{1e-3/\v{Nmm}}}\right) = \Res{asind(2*\vsi{lam}*\v{Nmm}*1e3)}{\degree} \]
+    \item \textbf{Réponse :} \textbf{$\theta_1 = $ \Res{asind(\vsi{lam}*\v{Nmm}*1e3)}{\degree}} et \textbf{$\theta_2 = $ \Res{asind(2*\vsi{lam}*\v{Nmm}*1e3)}{\degree}}.
+\end{enumerate}
+
+\subsubsection*{Question c) Ordre maximal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $d$, $\lambda$ ; variable recherchée : $m_{\max}$
+    \item \textbf{Équations pertinentes :} $\sin\theta = m\lambda/d \le 1$
+    \item \textbf{Isolation de la variable recherchée :} $m \le d/\lambda$
+    \item \textbf{Résolution numérique :} $d/\lambda = \Val{1/(\vsi{lam}*\v{Nmm}*1e3)}$
+    \item \textbf{Réponse :} l'ordre le plus élevé observable est \textbf{$m = \num{\fpeval{floor(1/(\vsi{lam}*\v{Nmm}*1e3))}}$}.
+\end{enumerate}

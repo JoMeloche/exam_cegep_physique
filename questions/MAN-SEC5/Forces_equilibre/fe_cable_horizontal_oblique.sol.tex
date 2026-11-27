@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Poids}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $g = \qty{9.81}{N/kg}$ ; variable recherchée : $F_g$
+    \item \textbf{Équations pertinentes :}
+    \[ F_g = mg \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F_g = \qty{\v{m}}{kg} \cdot \qty{9.81}{N/kg} = \Res{\v{m}*9.81}{N} \]
+    \item \textbf{Réponse :} $F_g = \mathbf{\Res{\v{m}*9.81}{N}}$.
+\end{enumerate}
+\subsubsection*{Question b) Tension dans le câble oblique}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F_g = \Res{\v{m}*9.81}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $T_2$
+    \item \textbf{Équations pertinentes :}
+    \[ \textstyle\sum F_y = T_2\sin\theta - F_g = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ T_2 = \frac{F_g}{\sin\theta} \]
+    \item \textbf{Résolution numérique :}
+    \[ T_2 = \frac{\Val{\v{m}*9.81}\,\unit{N}}{\sin(\qty{\v{th}}{\degree})} = \Res{\v{m}*9.81/sind(\v{th})}{N} \]
+    \item \textbf{Réponse :} $T_2 = \mathbf{\Res{\v{m}*9.81/sind(\v{th})}{N}}$. Seul le câble oblique peut soutenir le poids, car le câble horizontal n'a pas de composante verticale.
+\end{enumerate}
+\subsubsection*{Question c) Tension dans le câble horizontal}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $T_2 = \Res{\v{m}*9.81/sind(\v{th})}{N}$, $\theta = \qty{\v{th}}{\degree}$ ; variable recherchée : $T_1$
+    \item \textbf{Équations pertinentes :}
+    \[ \textstyle\sum F_x = T_2\cos\theta - T_1 = 0 \]
+    \item \textbf{Isolation de la variable recherchée :} 
+    \[ T_1 = T_2\cos\theta \]
+    \item \textbf{Résolution numérique :}
+    \[ T_1 = \Val{\v{m}*9.81/sind(\v{th})}\,\unit{N} \cdot \cos(\qty{\v{th}}{\degree}) = \Res{\v{m}*9.81/tand(\v{th})}{N} \]
+    \item \textbf{Réponse :} $T_1 = \mathbf{\Res{\v{m}*9.81/tand(\v{th})}{N}}$.
+\end{enumerate}

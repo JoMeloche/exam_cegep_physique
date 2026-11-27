@@ -1,4 +1,4 @@
-title: Tuyaux ouvert temperature
+title: Tuyau ouvert et hausse de température
 type: conceptuel
 points: 4
 time_min: 4
@@ -6,12 +6,13 @@ difficulty: 2
 figures: []
 solution:
   mode: none
+answer: A
+explanation: $f_1 = v/(2L)$ et $v$ augmente avec la température.
 choices:
 - augmentée
 - diminuée
 - inchangée
 - impossible de le savoir
 pin_last: 1
-needs_review: true
 source: Question_concept/Onde_stationnaire/C_tuyaux_ouvert_temperature.tex
 history: []

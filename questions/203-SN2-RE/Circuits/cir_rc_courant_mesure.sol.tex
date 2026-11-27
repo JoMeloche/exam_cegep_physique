@@ -1,50 +1,53 @@
 \providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
 \providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
 \providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
 \subsubsection*{Question a) Courant initial}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $R = \qty{\vsi{R}}{\ohm}$ ; variable recherchée : $I_0$
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{eps}}{V}$, $R = \QtyT{\vsi{R}}{\ohm}$ ; variable recherchée : $I_0$
     \item \textbf{Équations pertinentes :} à $t = 0$, le condensateur déchargé se comporte comme un fil :
     \[ \mathcal{E} = R I_0 \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ I_0 = \frac{\mathcal{E}}{R} \]
     \item \textbf{Résolution numérique :}
-    \[ I_0 = \frac{\num{\v{eps}}}{\num{\vsi{R}}} = \ResSci{\v{eps}/\vsi{R}}{A} \]
+    \[ I_0 = \frac{\num{\v{eps}}}{\NumT{\vsi{R}}} = \ResSci{\v{eps}/\vsi{R}}{A} \]
     \item \textbf{Réponse :} $I_0 = \mathbf{\Res{1000*\v{eps}/\vsi{R}}{mA}}$.
 \end{enumerate}
 
 \subsubsection*{Question b) Constante de temps}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $I_0 = \Res{1000*\v{eps}/\vsi{R}}{mA}$, $I_1 = \qty{\v{I1}}{mA}$, $t_1 = \qty{\vsi{t1}}{s}$ ; variable recherchée : $\tau$
+    \item \textbf{Variables connues et recherchées :} $I_0 = \Res{1000*\v{eps}/\vsi{R}}{mA}$, $I_1 = \qty{\v{I1}}{mA}$, $t_1 = \QtyT{\vsi{t1}}{s}$ ; variable recherchée : $\tau$
     \item \textbf{Équations pertinentes :}
     \[ I(t) = I_0\, e^{-t/\tau} \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ \ln\left(\frac{I_1}{I_0}\right) = -\frac{t_1}{\tau} \quad\Rightarrow\quad \tau = -\frac{t_1}{\ln(I_1/I_0)} \]
     \item \textbf{Résolution numérique :}
-    \[ \tau = -\frac{\num{\vsi{t1}}}{\ln\left(\num{\v{I1}}/\Val{1000*\v{eps}/\vsi{R}}\right)} = \Res{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}{s} \]
+    \[ \tau = -\frac{\NumT{\vsi{t1}}}{\ln\left(\num{\v{I1}}/\Valt{1000*\v{eps}/\vsi{R}}\right)} = \Res{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}{s} \]
     \item \textbf{Réponse :} $\tau = \mathbf{\Res{1000*-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}{ms}}$.
 \end{enumerate}
 
 \subsubsection*{Question c) Capacité}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $\tau = \Res{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}{s}$, $R = \qty{\vsi{R}}{\ohm}$ ; variable recherchée : $C$
+    \item \textbf{Variables connues et recherchées :} $\tau = \Res{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}{s}$, $R = \QtyT{\vsi{R}}{\ohm}$ ; variable recherchée : $C$
     \item \textbf{Équations pertinentes :}
     \[ \tau = RC \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ C = \frac{\tau}{R} \]
     \item \textbf{Résolution numérique :}
-    \[ C = \frac{\Val{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}}{\num{\vsi{R}}} = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}}{F} \]
+    \[ C = \frac{\Valt{-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R}))}}{\NumT{\vsi{R}}} = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}}{F} \]
     \item \textbf{Réponse :} $C = \mathbf{\Res{1e6*(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}}{\micro\farad}}$.
 \end{enumerate}
 
 \subsubsection*{Question d) Charge à $t_1$}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $C = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}}{F}$, $\mathcal{E} = \qty{\v{eps}}{V}$, $I_1/I_0 = \Val{\vsi{I1}/(\v{eps}/\vsi{R})}$ ; variable recherchée : $q$
+    \item \textbf{Variables connues et recherchées :} $C = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}}{F}$, $\mathcal{E} = \qty{\v{eps}}{V}$, $I_1/I_0 = \Valt{\vsi{I1}/(\v{eps}/\vsi{R})}$ ; variable recherchée : $q$
     \item \textbf{Équations pertinentes :}
     \[ q(t) = C\mathcal{E}\left(1 - e^{-t/\tau}\right) \qquad e^{-t_1/\tau} = \frac{I_1}{I_0} \]
     \item \textbf{Isolation de la variable recherchée :}
     \[ q = C\mathcal{E}\left(1 - \frac{I_1}{I_0}\right) \]
     \item \textbf{Résolution numérique :}
-    \[ q = \Val{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}} \cdot \num{\v{eps}} \cdot \left(1 - \Val{\vsi{I1}/(\v{eps}/\vsi{R})}\right) = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}*\v{eps}*(1-\vsi{I1}/(\v{eps}/\vsi{R}))}{C} \]
+    \[ q = \Valt{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}} \cdot \num{\v{eps}} \cdot \left(1 - \Valt{\vsi{I1}/(\v{eps}/\vsi{R})}\right) = \ResSci{(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}*\v{eps}*(1-\vsi{I1}/(\v{eps}/\vsi{R}))}{C} \]
     \item \textbf{Réponse :} $q = \mathbf{\Res{1e6*(-\vsi{t1}/ln(\vsi{I1}/(\v{eps}/\vsi{R})))/\vsi{R}*\v{eps}*(1-\vsi{I1}/(\v{eps}/\vsi{R}))}{\micro\coulomb}}$.
 \end{enumerate}

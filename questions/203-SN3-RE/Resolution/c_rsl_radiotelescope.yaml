@@ -1,0 +1,15 @@
+title: "Pourquoi les radiotélescopes sont immenses"
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La résolution est limitée par $\theta_{\min} = 1{,}22\,\lambda/D$. Les ondes radio ont des longueurs d''onde des centaines de milliers de fois plus grandes que la lumière visible, donc il faut un très grand $D$ pour une résolution utile.'
+choices:
+  - 'Les ondes radio sont beaucoup moins rapides que la lumière'
+  - 'Les ondes radio ont une longueur d''onde beaucoup plus grande, ce qui dégrade la résolution'
+  - 'Les ondes radio sont absorbées par les petites antennes'
+  - 'Les sources radio sont plus éloignées que les sources visibles'

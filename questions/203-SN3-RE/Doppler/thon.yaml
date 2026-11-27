@@ -1,4 +1,4 @@
-title: Thon
+title: Dauphin qui poursuit un thon (écho)
 type: developpement
 points: 20
 time_min: 20
@@ -10,28 +10,36 @@ variables:
     min: 6
     max: 14
     step: 2
-    label: doppUnVThon
+    label: Vitesse du thon
+    unit: m/s
   VDauphin:
     type: integer
     min: 10
     max: 18
     step: 2
-    label: doppUnVDauphin
+    label: Vitesse du dauphin
+    unit: m/s
   Freq:
     type: integer
     min: 29500
     max: 35500
     step: 10
-    label: doppUnFreq
+    label: Fréquence de l'ultrason
+    unit: Hz
   VSon:
     type: integer
     min: 1484
     max: 1536
     step: 1
-    label: doppUnVSon
+    label: Vitesse du son dans l'eau
+    unit: m/s
 solution:
-  mode: none
-needs_review: true
+  mode: answers_only
+  parts:
+    a:
+      expr: Freq*(VSon - VThon)/(VSon - VDauphin)*(VSon + VDauphin)/(VSon + VThon)
+      unit: Hz
+      label: Fréquence de l'écho
 source: Question_dev/Doppler/thon.tex
 original_values:
   VThon:

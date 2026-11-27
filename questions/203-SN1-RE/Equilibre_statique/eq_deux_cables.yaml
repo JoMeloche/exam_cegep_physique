@@ -1,0 +1,22 @@
+title: 'Masse suspendue par deux câbles inclinés'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  m: {type: decimal, min: 5.0, max: 50.0, step: 0.5, unit: kg, label: Masse suspendue}
+  t1: {type: integer, min: 20, max: 70, step: 1, unit: '\degree', label: Angle du câble 1 avec l'horizontale}
+  t2: {type: integer, min: 20, max: 70, step: 1, unit: '\degree', label: Angle du câble 2 avec l'horizontale}
+  Tmax: {type: integer, min: 400, max: 1500, step: 50, unit: N, label: Tension maximale des câbles}
+constraints:
+  - abs(t1 - t2) >= 5
+  - t1 + t2 < 130
+  - Tmax > 1.2*m*g*max(cos(rad(t1)), cos(rad(t2)))/sin(rad(t1 + t2))
+solution:
+  mode: manual
+  file: eq_deux_cables.sol.tex
+  parts:
+    a: {expr: "m*g*cos(rad(t2))/sin(rad(t1 + t2))", unit: 'N', label: 'Tension du câble 1'}
+    b: {expr: "m*g*cos(rad(t1))/sin(rad(t1 + t2))", unit: 'N', label: 'Tension du câble 2'}
+    c: {expr: "Tmax*sin(rad(t1 + t2))/(g*max(cos(rad(t1)), cos(rad(t2))))", unit: 'kg', label: 'Masse maximale'}

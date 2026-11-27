@@ -32,11 +32,11 @@
     \[ E = P\,\Delta t \]
     \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
     \item \textbf{Résolution numérique :}
-    \[ E = \Val{\v{P}/1000}\,\unit{kW} \cdot \Val{30*\v{h}}\,\unit{h} = \Res{\v{P}*\v{h}*30/1000}{\kilo\watt\hour} \]
-    En joules ($\qty{1}{\kilo\watt\hour} = \qty{3.6e6}{J}$) : $E = \ResSci{\v{P}*\v{h}*30*3600}{J}$.
-    \item \textbf{Réponse :} $E = \mathbf{\Res{\v{P}*\v{h}*30/1000}{\kilo\watt\hour}} = \mathbf{\ResSci{\v{P}*\v{h}*30*3600}{J}}$.
+    \[ E = \Val{\v{P}/1000}\,\unit{kW} \cdot \Val{30*\v{h}}\,\unit{h} = \Res{\v{P}*\v{h}*30/1000}{kWh} \]
+    En joules ($\qty{1}{kWh} = \qty{3.6e6}{J}$) : $E = \ResSci{\v{P}*\v{h}*30*3600}{J}$.
+    \item \textbf{Réponse :} $E = \mathbf{\Res{\v{P}*\v{h}*30/1000}{kWh}} = \mathbf{\ResSci{\v{P}*\v{h}*30*3600}{J}}$.
 \end{enumerate}
 
 \subsubsection*{Question d) Coût}
-\[ \text{Coût} = \Val{\v{P}*\v{h}*30/1000}\,\unit{\kilo\watt\hour} \times \qty{\v{tarif}}{\$\per\kilo\watt\hour} = \Res{\v{P}*\v{h}*30/1000*\v{tarif}}{\$} \]
-Le chauffage de la pièce coûte \textbf{\Res{\v{P}*\v{h}*30/1000*\v{tarif}}{\$}} pour le mois.
+\[ \text{Coût} = \Val{\v{P}*\v{h}*30/1000}\,\unit{kWh} \times \qty[minimum-decimal-digits=2]{\v{tarif}}{\$/kWh} = \qty[round-mode=places,round-precision=2]{\fpeval{\v{P}*\v{h}*30/1000*\v{tarif}}}{\$} \]
+Le chauffage de la pièce coûte \textbf{\qty[round-mode=places,round-precision=2]{\fpeval{\v{P}*\v{h}*30/1000*\v{tarif}}}{\$}} pour le mois.

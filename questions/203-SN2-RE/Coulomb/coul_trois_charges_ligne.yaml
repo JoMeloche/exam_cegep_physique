@@ -16,5 +16,5 @@ solution:
   mode: manual
   parts:
     a: {expr: "8.99e9*q1*q3/(d1 + d2)**2", unit: N, label: "Force de q1 sur q3 (+x)"}
-    b: {expr: "8.99e9*q2*q3/d2**2", unit: N, label: "Force de q2 sur q3 (composante x)"}
+    b: {expr: "8.99e9*abs(q2)*q3/d2**2", unit: N, label: "Force de q2 sur q3 (module, vers -x)"}
     c: {expr: "8.99e9*q3*(q1/(d1 + d2)**2 + q2/d2**2)", unit: N, label: "Force résultante sur q3 (composante x)"}

@@ -5,8 +5,8 @@ time_min: 12
 difficulty: 2
 figures: []
 variables:
-  T1: {type: integer, min: 800, max: 2000, step: 50, unit: K, label: Température initiale}
-  T2: {type: integer, min: 2100, max: 4000, step: 50, unit: K, label: Température finale}
+  T1: {type: integer, min: 600, max: 1500, step: 50, unit: K, label: Température initiale}
+  T2: {type: integer, min: 1600, max: 3000, step: 50, unit: K, label: Température finale}
 constraints: []
 solution:
   mode: manual

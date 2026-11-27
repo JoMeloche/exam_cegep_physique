@@ -5,7 +5,7 @@
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty{\vsi{y}}{m}$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $a = \qty[exponent-mode=threshold]{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$, $y = \qty[exponent-mode=threshold]{\vsi{y}}{m}$
         \item Variable recherchée : $\alpha$
     \end{itemize}
     \item \textbf{Équations pertinentes :} pour de petits angles, $\sin\theta \approx y/L$ et
@@ -13,7 +13,7 @@
     \item \textbf{Isolation de la variable recherchée :}
     \[ \alpha = \frac{\pi a\,y}{\lambda L} \]
     \item \textbf{Résolution numérique :}
-    \[ \alpha = \frac{\pi \cdot \num{\vsi{larg}} \cdot \num{\vsi{y}}}{\num{\vsi{lam}} \cdot \num{\v{L}}} = \Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \]
+    \[ \alpha = \frac{\pi \cdot \num[exponent-mode=threshold]{\vsi{larg}} \cdot \num[exponent-mode=threshold]{\vsi{y}}}{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}} = \Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \]
     \item \textbf{Réponse :} au point P, $\alpha = $ \textbf{\Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad}}.
 \end{enumerate}
 
@@ -29,5 +29,5 @@
 \end{enumerate}
 
 \subsubsection*{Question c) Premier minimum}
-\[ y_1 = \frac{\lambda L}{a} = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+\[ y_1 = \frac{\lambda L}{a} = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
 Le premier minimum est à \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}} du centre. Le point P est dans le maximum central seulement si $y < y_1$, c'est-à-dire si $\alpha < \pi$ : ici $\alpha = \Val{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}$ \ifthenelse{\lengthtest{\fpeval{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})} pt < 3.14159 pt}}{$< \pi$, donc P est dans le maximum central.}{$> \pi$, donc P est dans un maximum secondaire.}

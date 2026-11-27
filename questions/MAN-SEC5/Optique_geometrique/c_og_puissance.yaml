@@ -1,0 +1,15 @@
+title: 'Lentille la plus puissante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: '$P = 1/f$ : plus la distance focale est courte, plus la lentille est puissante. $f = \qty{0.10}{m}$ donne \qty{10}{D}.'
+choices:
+  - 'Distance focale de \qty{10}{cm}'
+  - 'Distance focale de \qty{25}{cm}'
+  - 'Distance focale de \qty{50}{cm}'
+  - 'Distance focale de \qty{1}{m}'

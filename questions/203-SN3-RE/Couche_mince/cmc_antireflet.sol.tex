@@ -1,0 +1,35 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\textbf{Déphasages :} air ($n = 1$) vers couche ($n = \num{\v{nf}}$) : déphasage de $\lambda/2$ ; couche vers verre ($n = \num{1.52}$) : encore un déphasage de $\lambda/2$. Les deux déphasages s'annulent.
+
+\subsubsection*{Question a) Épaisseur minimale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $\lambda = \qty{\v{lam}}{nm}$, $n = \num{\v{nf}}$, $m = 0$
+        \item Variable recherchée : $e_{\min}$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :} avec deux déphasages, l'interférence est destructive quand
+    \[ 2ne = \left(m + \tfrac{1}{2}\right)\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ e = \frac{(m + \frac{1}{2})\lambda}{2n} \quad\Rightarrow\quad e_{\min} = \frac{\lambda}{4n} \]
+    \item \textbf{Résolution numérique :}
+    \[ e_{\min} = \frac{\num{\v{lam}}}{4 \cdot \num{\v{nf}}} = \Res{\v{lam}/(4*\v{nf})}{nm} \]
+    \item \textbf{Réponse :} l'épaisseur minimale est \textbf{\Res{\v{lam}/(4*\v{nf})}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Épaisseur suivante}
+Avec $m = 1$ :
+\[ e = \frac{3\lambda}{4n} = \frac{3 \cdot \num{\v{lam}}}{4 \cdot \num{\v{nf}}} = \Res{3*\v{lam}/(4*\v{nf})}{nm} \]
+L'épaisseur suivante est \textbf{\Res{3*\v{lam}/(4*\v{nf})}{nm}}.
+
+\subsubsection*{Question c) Longueur d'onde fortement réfléchie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $e = \Res{\v{lam}/(4*\v{nf})}{nm}$, $n = \num{\v{nf}}$ ; variable recherchée : $\lambda'$
+    \item \textbf{Équations pertinentes :} avec deux déphasages, l'interférence est constructive quand $2ne = m\lambda'$ ($m \ge 1$)
+    \item \textbf{Isolation de la variable recherchée :} avec $m = 1$, $\lambda' = 2ne = 2n \cdot \dfrac{\lambda}{4n} = \dfrac{\lambda}{2}$
+    \item \textbf{Résolution numérique :}
+    \[ \lambda' = \frac{\num{\v{lam}}}{2} = \Res{\v{lam}/2}{nm} \]
+    \item \textbf{Réponse :} la longueur d'onde \textbf{\Res{\v{lam}/2}{nm}} est fortement réfléchie ; elle est dans l'ultraviolet, donc invisible.
+\end{enumerate}

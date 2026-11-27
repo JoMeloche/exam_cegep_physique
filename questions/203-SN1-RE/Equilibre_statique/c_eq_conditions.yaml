@@ -1,0 +1,15 @@
+title: 'Conditions d''équilibre statique'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Il faut $\sum\vec F = \vec 0$ (pas de translation accélérée) et $\sum\tau = 0$ autour de tout axe (pas de rotation accélérée).'
+choices:
+  - 'Seule la somme des moments de force doit être nulle'
+  - 'Le corps ne doit subir aucune force'
+  - 'Seule la somme des forces doit être nulle'
+  - 'La somme des forces et la somme des moments de force doivent être nulles'

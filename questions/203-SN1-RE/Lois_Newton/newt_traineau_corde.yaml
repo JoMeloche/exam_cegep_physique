@@ -9,7 +9,7 @@ variables:
   T: {type: integer, min: 40, max: 150, step: 5, unit: N, label: Tension dans la corde}
   th: {type: integer, min: 15, max: 45, step: 5, unit: \degree, label: Angle de la corde}
   t: {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: s, label: Durée}
-constraints: [m*g - T*sin(rad(th)) > 10]
+constraints: [m*g - T*sin(rad(th)) > 10, T*cos(rad(th))/m*t < 8]
 solution:
   mode: manual
   file: newt_traineau_corde.sol.tex

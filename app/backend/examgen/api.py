@@ -78,12 +78,12 @@ def put_config(cfg: dict[str, Any] = Body(...)) -> dict[str, Any]:
     L = lib()
     merged = {**L.config, **cfg}
     L.save_config(merged)
-    return merged
+    return L.config
 
 
 @app.get("/api/session-code")
 def get_session_code(date: str) -> dict[str, str]:
-    return {"code": session_code(dt.date.fromisoformat(date[:10]))}
+    return {"code": session_code(dt.date.fromisoformat(date[:10]), lib().config.get("sessions"))}
 
 
 @app.get("/api/courses")
@@ -290,7 +290,7 @@ def plan(payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
     req = ExamRequest.from_dict(payload)
     p = plan_exam(L, req)
     out = p.to_dict(L)
-    out["session"] = session_code(req.date)
+    out["session"] = session_code(req.date, L.config.get("sessions"))
     out["export_dir"] = str(export_dir(L, req))
     return out
 

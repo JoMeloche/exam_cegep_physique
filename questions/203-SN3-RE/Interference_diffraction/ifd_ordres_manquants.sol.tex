@@ -19,11 +19,11 @@ Les ordres $m = -\fpeval{\v{k} - 1}, \dots, 0, \dots, \fpeval{\v{k} - 1}$ sont d
 
 \subsubsection*{Question d) Position du premier ordre manquant}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $\lambda = \qty{\vsi{lam}}{m}$, $a = \qty{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$ ; variable recherchée : $y$
+    \item \textbf{Variables connues et recherchées :} $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $a = \qty[exponent-mode=threshold]{\vsi{larg}}{m}$, $L = \qty{\v{L}}{m}$ ; variable recherchée : $y$
     \item \textbf{Équations pertinentes :} cette position est celle du premier minimum de diffraction : $a\sin\theta = \lambda$, $y \approx L\sin\theta$
     \item \textbf{Isolation de la variable recherchée :}
     \[ y = \frac{\lambda L}{a} \]
     \item \textbf{Résolution numérique :}
-    \[ y = \frac{\num{\vsi{lam}} \cdot \num{\v{L}}}{\num{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
+    \[ y = \frac{\num[exponent-mode=threshold]{\vsi{lam}} \cdot \num{\v{L}}}{\num[exponent-mode=threshold]{\vsi{larg}}} = \Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm} \]
     \item \textbf{Réponse :} le premier ordre manquant est à \textbf{\Res{1000*\vsi{lam}*\v{L}/\vsi{larg}}{mm}} du centre.
 \end{enumerate}

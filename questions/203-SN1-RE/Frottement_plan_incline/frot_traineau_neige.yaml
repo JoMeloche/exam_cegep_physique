@@ -9,7 +9,7 @@ variables:
   T: {type: integer, min: 80, max: 200, step: 5, unit: N, label: Tension dans la corde}
   th: {type: integer, min: 15, max: 40, step: 5, unit: \degree, label: Angle de la corde}
   mu: {type: decimal, step: 0.01, label: Coefficient de frottement cinétique, min: 0.05, max: 0.25}
-constraints: [m*g - T*sin(rad(th)) > 20, (T*cos(rad(th)) - mu*(m*g - T*sin(rad(th))))/m > 0.2]
+constraints: [m*g - T*sin(rad(th)) > 20, (T*cos(rad(th)) - mu*(m*g - T*sin(rad(th))))/m > 0.2, (T*cos(rad(th)) - mu*(m*g - T*sin(rad(th))))/m < 3]
 solution:
   mode: manual
   file: frot_traineau_neige.sol.tex

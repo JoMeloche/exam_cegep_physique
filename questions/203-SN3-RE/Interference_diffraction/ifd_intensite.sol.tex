@@ -7,25 +7,25 @@ Pour de petits angles, $\sin\theta \approx y/L = \Res{\vsi{y}/\v{L}}{}$.
 \begin{enumerate}[label=\arabic*)]
     \item \textbf{Variables connues et recherchées :}
     \begin{itemize}[label= -]
-        \item $\lambda = \qty{\vsi{lam}}{m}$, $d = \qty{\vsi{sep}}{m}$, $\sin\theta = \Val{\vsi{y}/\v{L}}$
+        \item $\lambda = \qty[exponent-mode=threshold]{\vsi{lam}}{m}$, $d = \qty[exponent-mode=threshold]{\vsi{sep}}{m}$, $\sin\theta = \Val{\vsi{y}/\v{L}}$
         \item Variable recherchée : $\cos^2(\phi/2)$
     \end{itemize}
     \item \textbf{Équations pertinentes :}
     \[ \frac{\phi}{2} = \frac{\pi d\sin\theta}{\lambda} \]
     \item \textbf{Isolation de la variable recherchée :} on calcule $\phi/2$, puis $\cos^2(\phi/2)$ (calculatrice en radians).
     \item \textbf{Résolution numérique :}
-    \[ \frac{\phi}{2} = \frac{\pi \cdot \num{\vsi{sep}} \cdot \Val{\vsi{y}/\v{L}}}{\num{\vsi{lam}}} = \Res{pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \quad\Rightarrow\quad \cos^2(\phi/2) = \Res{cos(pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L}))^2}{} \]
+    \[ \frac{\phi}{2} = \frac{\pi \cdot \num[exponent-mode=threshold]{\vsi{sep}} \cdot \Val{\vsi{y}/\v{L}}}{\num[exponent-mode=threshold]{\vsi{lam}}} = \Res{pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \quad\Rightarrow\quad \cos^2(\phi/2) = \Res{cos(pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L}))^2}{} \]
     \item \textbf{Réponse :} le facteur d'interférence vaut \textbf{\Res{cos(pi*\vsi{sep}*\vsi{y}/(\vsi{lam}*\v{L}))^2}{}}.
 \end{enumerate}
 
 \subsubsection*{Question b) Facteur de diffraction}
 \begin{enumerate}[label=\arabic*)]
-    \item \textbf{Variables connues et recherchées :} $a = \qty{\vsi{larg}}{m}$ ; variable recherchée : $(\sin\alpha/\alpha)^2$
+    \item \textbf{Variables connues et recherchées :} $a = \qty[exponent-mode=threshold]{\vsi{larg}}{m}$ ; variable recherchée : $(\sin\alpha/\alpha)^2$
     \item \textbf{Équations pertinentes :}
     \[ \alpha = \frac{\pi a\sin\theta}{\lambda} \]
     \item \textbf{Isolation de la variable recherchée :} on calcule $\alpha$, puis $(\sin\alpha/\alpha)^2$.
     \item \textbf{Résolution numérique :}
-    \[ \alpha = \frac{\pi \cdot \num{\vsi{larg}} \cdot \Val{\vsi{y}/\v{L}}}{\num{\vsi{lam}}} = \Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \quad\Rightarrow\quad \left(\frac{\sin\alpha}{\alpha}\right)^2 = \Res{(sin(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L}))/(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})))^2}{} \]
+    \[ \alpha = \frac{\pi \cdot \num[exponent-mode=threshold]{\vsi{larg}} \cdot \Val{\vsi{y}/\v{L}}}{\num[exponent-mode=threshold]{\vsi{lam}}} = \Res{pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})}{rad} \quad\Rightarrow\quad \left(\frac{\sin\alpha}{\alpha}\right)^2 = \Res{(sin(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L}))/(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})))^2}{} \]
     \item \textbf{Réponse :} le facteur de diffraction vaut \textbf{\Res{(sin(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L}))/(pi*\vsi{larg}*\vsi{y}/(\vsi{lam}*\v{L})))^2}{}}.
 \end{enumerate}
 

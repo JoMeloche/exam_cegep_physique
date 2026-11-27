@@ -1,0 +1,17 @@
+title: Les points d'un tableau pointilliste
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  s: {type: decimal, min: 1.0, max: 3.0, step: 0.1, unit: mm, si: 0.001, label: Distance entre deux points}
+  Dp: {type: decimal, min: 2.0, max: 5.0, step: 0.5, unit: mm, si: 0.001, label: Diamètre de la pupille}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    th: {expr: "1.22*550e-9/Dp", unit: rad, label: Angle limite de résolution}
+    L: {expr: "s*Dp/(1.22*550e-9)", unit: m, label: Distance à partir de laquelle les points se confondent}
+    Lb: {expr: "s*Dp/(1.22*450e-9)", unit: m, label: Distance pour des points bleus}
+    Lr: {expr: "s*Dp/(1.22*650e-9)", unit: m, label: Distance pour des points rouges}

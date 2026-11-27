@@ -1,0 +1,37 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Résistance et courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $V = \qty{120}{V}$ ; variables recherchées : $R$, $I$
+    \item \textbf{Équations pertinentes :}
+    \[ P = VI \qquad P = \frac{V^2}{R} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{P}{V} \qquad R = \frac{V^2}{P} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\num{\v{P}}}{\num{120}} = \Res{\v{P}/120}{A} \qquad R = \frac{(\num{120})^2}{\num{\v{P}}} = \Res{120^2/\v{P}}{\ohm} \]
+    \item \textbf{Réponse :} $R = \mathbf{\Res{120^2/\v{P}}{\ohm}}$ et $I = \mathbf{\Res{\v{P}/120}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Énergie nécessaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $c = \qty{4186}{J/kg.\celsius}$, $\Delta T = \qty{\fpeval{100 - \v{Ti}}}{\celsius}$ ; variable recherchée : $Q$
+    \item \textbf{Équations pertinentes :}
+    \[ Q = mc\Delta T \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ Q = \num{\v{m}} \cdot \num{4186} \cdot \num{\fpeval{100 - \v{Ti}}} = \ResSci{\v{m}*4186*(100 - \v{Ti})}{J} \]
+    \item \textbf{Réponse :} $Q = \mathbf{\ResSci{\v{m}*4186*(100 - \v{Ti})}{J}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Temps de chauffe}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q$, $P$ ; variable recherchée : $\Delta t$
+    \item \textbf{Équations pertinentes :}
+    \[ P = \frac{Q}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Delta t = \frac{Q}{P} \]
+    \item \textbf{Résolution numérique :}
+    \[ \Delta t = \frac{\ResSci{\v{m}*4186*(100 - \v{Ti})}{}}{\num{\v{P}}} = \Res{\v{m}*4186*(100 - \v{Ti})/\v{P}}{s} \]
+    \item \textbf{Réponse :} $\Delta t = \mathbf{\Res{\v{m}*4186*(100 - \v{Ti})/\v{P}}{s}}$, soit environ \Res{\v{m}*4186*(100 - \v{Ti})/\v{P}/60}{min}.
+\end{enumerate}

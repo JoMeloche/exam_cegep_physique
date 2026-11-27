@@ -2,15 +2,21 @@ export type QType = 'developpement' | 'conceptuel'
 
 export interface Topic { name: string; label: string; n_dev: number; n_concept: number }
 export interface Course { code: string; title?: string; full_title?: string; group?: string; topics: Topic[]; exams: number[] }
+export interface CourseInfo { title?: string; full_title?: string; group?: string; questions_from?: string[] }
 export interface Config {
+  setup_done: boolean
   school: string
+  logo: string
   professors: string[]
   default_professor: string
-  courses: Record<string, { title?: string; full_title?: string; group?: string }>
+  courses: Record<string, CourseInfo>
   topics: Record<string, string>
   latex: { engine: string; path: string }
   time_margin: number
   default_versions: number
+  naming: { file_pattern: string; solution_suffix: string; exam_label: string; version_label: string }
+  sessions: Record<string, number[]>
+  cover: { instructions: string; note: string; professor_label: string; name_label: string }
 }
 export interface QuestionSummary {
   id: string; course: string; topic: string; name: string; title: string; type: QType; points: number

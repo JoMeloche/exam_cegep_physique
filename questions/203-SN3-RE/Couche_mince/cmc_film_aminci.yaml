@@ -1,0 +1,17 @@
+title: Film de savon qui s'amincit
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 650, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde}
+  N: {type: integer, min: 4, max: 15, label: Nombre de franges brillantes comptées}
+  T: {type: integer, min: 10, max: 120, step: 5, unit: s, label: Durée de l'observation}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    de: {expr: "lam/(2*1.33)", unit: m, label: Variation d'épaisseur entre deux franges brillantes}
+    e0: {expr: "(N + 0.5)*lam/(2*1.33)", unit: m, label: Épaisseur initiale}
+    vit: {expr: "(N + 0.5)*lam/(2*1.33)/T", unit: m/s, label: Vitesse moyenne d'amincissement}

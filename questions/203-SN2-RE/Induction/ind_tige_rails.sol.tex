@@ -1,0 +1,51 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Force électromotrice induite}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $B = \qty{\v{B}}{T}$, $L = \QtyT{\vsi{L}}{m}$, $v = \qty{\v{v}}{m/s}$ ; variable recherchée : $\mathcal{E}$
+    \item \textbf{Équations pertinentes :} loi de Faraday, avec $\Phi_B = BLx$ et $dx/dt = v$ :
+    \[ |\mathcal{E}| = \left|\frac{d\Phi_B}{dt}\right| = BLv \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ \mathcal{E} = \num{\v{B}} \cdot \NumT{\vsi{L}} \cdot \num{\v{v}} = \Res{\v{B}*\vsi{L}*\v{v}}{V} \]
+    \item \textbf{Réponse :} $\mathcal{E} = \mathbf{\Res{\v{B}*\vsi{L}*\v{v}}{V}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Courant induit}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \Res{\v{B}*\vsi{L}*\v{v}}{V}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :}
+    \[ \mathcal{E} = RI \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ I = \frac{\mathcal{E}}{R} \]
+    \item \textbf{Résolution numérique :}
+    \[ I = \frac{\Valt{\v{B}*\vsi{L}*\v{v}}}{\num{\v{R}}} = \Res{(\v{B}*\vsi{L}*\v{v})/\v{R}}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\Res{(\v{B}*\vsi{L}*\v{v})/\v{R}}{A}}$.
+\end{enumerate}
+
+\subsubsection*{Question c) Force à appliquer}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \Res{(\v{B}*\vsi{L}*\v{v})/\v{R}}{A}$, $L = \QtyT{\vsi{L}}{m}$, $B = \qty{\v{B}}{T}$ ; variable recherchée : $F$
+    \item \textbf{Équations pertinentes :} la force magnétique $ILB$ sur la tige s'oppose au mouvement (loi de Lenz) ; à vitesse constante, la force appliquée la compense :
+    \[ F = ILB \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :}
+    \[ F = \Valt{(\v{B}*\vsi{L}*\v{v})/\v{R}} \cdot \NumT{\vsi{L}} \cdot \num{\v{B}} = \ResSci{(\v{B}*\vsi{L}*\v{v})/\v{R}*\vsi{L}*\v{B}}{N} \]
+    \item \textbf{Réponse :} $F = \mathbf{\ResSci{(\v{B}*\vsi{L}*\v{v})/\v{R}*\vsi{L}*\v{B}}{N}}$, dans le sens du mouvement.
+\end{enumerate}
+
+\subsubsection*{Question d) Bilan de puissance}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $F = \ResSci{(\v{B}*\vsi{L}*\v{v})/\v{R}*\vsi{L}*\v{B}}{N}$, $v = \qty{\v{v}}{m/s}$, $I = \Res{(\v{B}*\vsi{L}*\v{v})/\v{R}}{A}$, $R = \qty{\v{R}}{\ohm}$ ; variable recherchée : $P$
+    \item \textbf{Équations pertinentes :}
+    \[ P_{\text{méca}} = Fv \qquad P_{\text{élec}} = RI^2 \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ P_{\text{méca}} = ILB\,v = \frac{BLv}{R}\,BLv = \frac{(BLv)^2}{R} = RI^2 = P_{\text{élec}} \]
+    \item \textbf{Résolution numérique :}
+    \[ P = \frac{\left(\Valt{\v{B}*\vsi{L}*\v{v}}\right)^2}{\num{\v{R}}} = \ResSci{(\v{B}*\vsi{L}*\v{v})^2/\v{R}}{W} \]
+    \item \textbf{Réponse :} les deux puissances sont égales : $P = \mathbf{\ResSci{(\v{B}*\vsi{L}*\v{v})^2/\v{R}}{W}}$. Le travail mécanique est entièrement converti en chaleur dans la résistance.
+\end{enumerate}

@@ -1,0 +1,16 @@
+title: Couche antireflet sur une lentille
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  lam: {type: integer, min: 450, max: 650, step: 10, unit: nm, si: 1e-9, label: Longueur d'onde à éliminer}
+  nf: {type: choice, values: [1.25, 1.30, 1.38], label: Indice de réfraction de la couche}
+constraints: []
+solution:
+  mode: manual
+  parts:
+    t1: {expr: "lam/(4*nf)", unit: m, label: Épaisseur minimale}
+    t2: {expr: "3*lam/(4*nf)", unit: m, label: Épaisseur suivante}
+    lr: {expr: "lam/2", unit: m, label: Longueur d'onde fortement réfléchie}

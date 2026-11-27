@@ -15,5 +15,5 @@ solution:
   parts:
     a: {expr: "U/R", unit: A, label: Intensité du courant}
     b: {expr: "U**2/R", unit: W, label: Puissance}
-    c: {expr: "U**2/R*30*t/3.6e6", unit: \kilo\watt\hour, label: Énergie consommée}
+    c: {expr: "U**2/R*30*t/3.6e6", unit: kWh, label: Énergie consommée}
     d: {expr: "U**2/R*30*t/3.6e6*tarif", unit: \$, label: Coût}

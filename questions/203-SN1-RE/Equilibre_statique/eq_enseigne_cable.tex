@@ -1,0 +1,19 @@
+\begin{minipage}{0.55\linewidth}
+Une tige horizontale uniforme de \qty{\v{M}}{kg} et de \qty{\v{L}}{m} est fixée à un mur par une charnière. Une enseigne de \qty{\v{m}}{kg} est suspendue à son extrémité libre. Un câble relie cette extrémité au mur et fait un angle de \qty{\v{th}}{\degree} avec la tige.
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+\centering
+\begin{tikzpicture}[scale=0.8]
+  \fill[pattern=north east lines] (-0.3,-1.6) rectangle (0,2); \draw[thick] (0,-1.6) -- (0,2);
+  \draw[line width=2.5pt] (0,0) -- (4,0); \fill (0,0) circle (2.5pt);
+  \draw (0,1.8) -- (4,0);
+  \draw (4,0) -- (4,-0.5); \draw[fill=gray!20] (3.3,-0.5) rectangle (4.7,-1.3);
+  \draw (3.1,0) arc (180:156:0.9); \node at (2.8,0.25) {$\theta$};
+\end{tikzpicture}
+\end{minipage}
+
+\begin{enumerate}[label=\alph*)]
+    \item Déterminez la tension dans le câble.
+    \item Déterminez la composante horizontale de la force exercée par la charnière sur la tige.
+    \item Déterminez la composante verticale de la force exercée par la charnière sur la tige.
+\end{enumerate}

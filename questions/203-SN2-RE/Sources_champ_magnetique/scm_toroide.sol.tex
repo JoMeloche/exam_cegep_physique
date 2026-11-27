@@ -1,0 +1,33 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\providecommand{\Valt}[1]{\expanded{\noexpand\num[round-mode=figures,round-precision=4,exponent-mode=threshold,exponent-thresholds=-3\string:5]}{\fpeval{#1}}}
+\providecommand{\NumT}[1]{\expanded{\noexpand\num[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}}
+\providecommand{\QtyT}[2]{\expanded{\noexpand\qty[exponent-mode=threshold,exponent-thresholds=-3\string:9]}{#1}{#2}}
+\subsubsection*{Question a) Champ au rayon intérieur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $r = a = \QtyT{\vsi{a}}{m}$ ; variable recherchée : $B(a)$
+    \item \textbf{Équations pertinentes :} théorème d'Ampère sur un cercle de rayon $r$ ($a < r < b$) :
+    \[ \oint \vec{B}\cdot d\vec{s} = \mu_0 I_{\text{int}} \quad\Rightarrow\quad B\,(2\pi r) = \mu_0 N I \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ B(r) = \frac{\mu_0 N I}{2\pi r} \]
+    \item \textbf{Résolution numérique :}
+    \[ B(a) = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}}}{2\pi \cdot \NumT{\vsi{a}}} = \ResSci{2e-7*\v{N}*\v{I}/\vsi{a}}{T} \]
+    \item \textbf{Réponse :} $B(a) = \mathbf{\Res{1000*2e-7*\v{N}*\v{I}/\vsi{a}}{mT}}$.
+\end{enumerate}
+
+\subsubsection*{Question b) Champ au rayon extérieur}
+\[ B(b) = \frac{\mu_0 N I}{2\pi b} = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}}}{2\pi \cdot \NumT{\vsi{b}}} = \ResSci{2e-7*\v{N}*\v{I}/\vsi{b}}{T} \]
+Le champ au rayon extérieur vaut $\mathbf{\Res{1000*2e-7*\v{N}*\v{I}/\vsi{b}}{mT}}$ ; il est plus faible qu'au rayon intérieur, dans le rapport $a/b$.
+
+\subsubsection*{Question c) Flux à travers une spire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $N = \v{N}$, $I = \qty{\v{I}}{A}$, $a = \QtyT{\vsi{a}}{m}$, $b = \QtyT{\vsi{b}}{m}$, $h = \QtyT{\vsi{h}}{m}$ ; variable recherchée : $\Phi_B$
+    \item \textbf{Équations pertinentes :} on découpe la section en bandes de largeur $dr$ et de hauteur $h$ :
+    \[ \Phi_B = \int_a^b B(r)\, h\, dr \qquad B(r) = \frac{\mu_0 N I}{2\pi r} \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \Phi_B = \frac{\mu_0 N I h}{2\pi} \int_a^b \frac{dr}{r} = \frac{\mu_0 N I h}{2\pi} \ln\left(\frac{b}{a}\right) \]
+    \item \textbf{Résolution numérique :}
+    \[ \Phi_B = \frac{4\pi \times 10^{-7} \cdot \v{N} \cdot \num{\v{I}} \cdot \NumT{\vsi{h}}}{2\pi} \ln\left(\frac{\num{\v{b}}}{\num{\v{a}}}\right) = \ResSci{2e-7*\v{N}*\v{I}*\vsi{h}*ln(\v{b}/\v{a})}{Wb} \]
+    \item \textbf{Réponse :} $\Phi_B = \mathbf{\ResSci{2e-7*\v{N}*\v{I}*\vsi{h}*ln(\v{b}/\v{a})}{Wb}}$.
+\end{enumerate}

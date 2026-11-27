@@ -1,0 +1,25 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+\subsubsection*{Question a) Longueur d'onde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :}
+    \begin{itemize}[label= -]
+        \item $d = \dfrac{\qty{0.01}{m}}{\num{\v{Ncm}}} = \ResSci{0.01/\v{Ncm}}{m}$, $\theta_2 = \qty{\v{th2}}{\degree}$, $m = 2$
+        \item Variable recherchée : $\lambda$
+    \end{itemize}
+    \item \textbf{Équations pertinentes :}
+    \[ d\sin\theta = m\lambda \]
+    \item \textbf{Isolation de la variable recherchée :}
+    \[ \lambda = \frac{d\sin\theta_2}{2} \]
+    \item \textbf{Résolution numérique :}
+    \[ \lambda = \frac{\Val{0.01/\v{Ncm}} \cdot \sin(\v{th2}^\circ)}{2} = \Res{1e9*0.01/\v{Ncm}*sind(\v{th2})/2}{nm} \]
+    \item \textbf{Réponse :} la longueur d'onde est \textbf{\Res{1e9*0.01/\v{Ncm}*sind(\v{th2})/2}{nm}}.
+\end{enumerate}
+
+\subsubsection*{Question b) Maximum d'ordre 1}
+\[ \sin\theta_1 = \frac{\lambda}{d} = \frac{\sin\theta_2}{2} = \Val{sind(\v{th2})/2} \quad\Rightarrow\quad \theta_1 = \Res{asind(sind(\v{th2})/2)}{\degree} \]
+Le maximum d'ordre 1 est à \textbf{\Res{asind(sind(\v{th2})/2)}{\degree}}.
+
+\subsubsection*{Question c) Ordre maximal}
+$m \le \dfrac{d}{\lambda} = \dfrac{2}{\sin\theta_2} = \Val{2/sind(\v{th2})}$, donc l'ordre le plus élevé est \textbf{$m = \num{\fpeval{floor(2/sind(\v{th2}))}}$}.
