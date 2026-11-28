@@ -62,6 +62,9 @@ def main() -> None:
             time.sleep(0.1)
 
     import webview
+
+    from examgen.opener import install_webbrowser_hook
+    install_webbrowser_hook()  # links opened outside the window must not inherit the bundle's libraries
     webview.create_window("Générateur d'examens", url, width=1440, height=920, min_size=(1100, 700))
     webview.start()
     server.should_exit = True
