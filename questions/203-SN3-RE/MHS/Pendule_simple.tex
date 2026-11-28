@@ -1,5 +1,18 @@
 Un pendule simple est constitué d’une masse de \qty{\v{Masse}}{g} et d’un fil d’une longueur de \qty{\v{Longueur}}{cm}. À $t = 0\text{ s}$, le pendule est à un angle de \qty{\v{Angle}}{\degree} et sa vitesse tangentielle est de \qty{\v{Vit}}{m/s}, s’éloignant du centre. Trouvez :
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[pattern=north east lines] (-1,0) rectangle (1,0.25);
+    \draw (-1,0) -- (1,0);
+    \draw[thin,dashed] (0,0) -- (0,-4.8);
+    \draw (0,0) -- node[right=3pt,pos=0.6] {\small\qty{\v{Longueur}}{cm}} ({-90+\v{Angle}}:4.5) coordinate (M);
+    \draw[fill=gray!60] (M) circle (0.15);
+    \draw[thin] (0,-1.8) arc (-90:{-90+\v{Angle}}:1.8);
+    \path (0,0) ++({-90+\v{Angle}}:1.8) node[right] {\small\ang{\v{Angle}}};
+    \draw[-{Stealth[length=3mm]}] (M) ++(\v{Angle}:0.2) -- ++(\v{Angle}:1.2) node[right] {\small\qty{\v{Vit}}{m/s}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item L’amplitude d’oscillation du pendule, en mètres.
     \item L’énergie mécanique du pendule.

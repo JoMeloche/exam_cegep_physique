@@ -1,5 +1,20 @@
 Une masse de \qty{\v{m}}{kg} est attachée au bout d'une corde de \qty{\v{L}}{m}. Elle décrit un cercle horizontal à vitesse constante, la corde faisant un angle de \ang{\v{th}} avec la verticale (pendule conique).
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \pgfmathsetmacro{\figX}{3*sin(\v{th})}
+    \pgfmathsetmacro{\figY}{-3*cos(\v{th})}
+    \fill[pattern=north east lines] (-1,0) rectangle (1,0.25);
+    \draw (-1,0) -- (1,0);
+    \draw[thin,dashed] (0,0) -- (0,\figY);
+    \draw[thin,dashed] (0,\figY) ellipse [x radius=\figX, y radius=0.35];
+    \draw (0,0) -- node[right=2pt,pos=0.8] {\small\qty{\v{L}}{m}} (\figX,\figY);
+    \draw[fill=gray!60] (\figX,\figY) circle (0.15);
+    \draw[thin] (0,-1) arc (-90:{-90+\v{th}}:1);
+    \path (0,0) ++({-90+\v{th}}:1) node[right] {\small\ang{\v{th}}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Faites le diagramme des forces de la masse et déterminez la tension dans la corde.
     \item Quelle est la vitesse de la masse ?

@@ -1,5 +1,19 @@
 Une bougie de \qty{\v{ho}}{cm} de hauteur est placée à \qty{\v{dob}}{cm} d'une lentille convergente dont la distance focale est de \qty{\v{f}}{cm}.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \pgfmathsetmacro{\figO}{-0.09*\v{dob}}
+    \pgfmathsetmacro{\figF}{0.09*\v{f}}
+    \draw[thin] ({\figO-0.6},0) -- ({max(2*\figF,2.5)+0.6},0);
+    \draw[{Stealth[length=3mm]}-{Stealth[length=3mm]}] (0,-1.9) -- (0,1.9);
+    \draw[thin] (-\figF,-0.1) -- (-\figF,0.1) node[below=4pt] {\small$F$};
+    \draw[thin] (\figF,-0.1) -- (\figF,0.1) node[below=4pt] {\small$F'$};
+    \draw[very thick,-{Stealth[length=3mm]}] (\figO,0) -- (\figO,{0.3*\v{ho}});
+    \node[left] at (\figO,{0.15*\v{ho}}) {\small\qty{\v{ho}}{cm}};
+    \draw[thin,|-|] (\figO,-2.2) -- node[below] {\small\qty{\v{dob}}{cm}} (0,-2.2);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item À quelle distance de la lentille l'image se forme-t-elle ?
     \item Déterminez le grandissement de l'image.

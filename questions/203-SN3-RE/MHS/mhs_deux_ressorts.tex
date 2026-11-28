@@ -1,5 +1,22 @@
 Un chariot de \qty{\v{m}}{kg} roule sans frottement sur une surface horizontale. Il est relié à deux murs par deux ressorts horizontaux, un de chaque côté : le ressort de gauche a une constante de rappel de \qty{\v{k1}}{N/m} et celui de droite, \qty{\v{k2}}{N/m}. À l'équilibre, les deux ressorts sont à leur longueur naturelle. On écarte le chariot de \qty{\v{A}}{cm} et on le relâche.
 
+\begin{center}
+\begin{tikzpicture}[thick, spring/.style={decorate,decoration={coil,aspect=0.4,segment length=2.4mm,amplitude=2.5mm,pre length=2mm,post length=2mm}}]
+    \fill[pattern=north east lines] (-0.25,-0.25) rectangle (7.25,0);
+    \draw (-0.25,0) -- (7.25,0);
+    \fill[pattern=north east lines] (-0.25,0) rectangle (0,1.5);
+    \fill[pattern=north east lines] (7,0) rectangle (7.25,1.5);
+    \draw (0,1.5) -- (0,0); \draw (7,1.5) -- (7,0);
+    \draw[spring] (0,0.6) -- (2.6,0.6);
+    \draw[spring] (4.4,0.6) -- (7,0.6);
+    \draw[fill=gray!40] (2.6,0.22) rectangle (4.4,1);
+    \node at (3.5,0.61) {\small\qty{\v{m}}{kg}};
+    \draw[fill=white] (3,0.11) circle (0.11); \draw[fill=white] (4,0.11) circle (0.11);
+    \node[above] at (1.3,0.95) {\small\qty{\v{k1}}{N/m}};
+    \node[above] at (5.7,0.95) {\small\qty{\v{k2}}{N/m}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Montrez que la constante de rappel équivalente est $k_1 + k_2$, puis déterminez la fréquence d'oscillation du chariot.
     \item On retire le ressort de droite. Quelle est la nouvelle fréquence d'oscillation ?

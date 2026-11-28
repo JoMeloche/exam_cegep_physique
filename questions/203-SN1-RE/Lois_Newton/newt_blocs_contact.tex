@@ -1,5 +1,15 @@
 Deux blocs, A de \qty{\v{m1}}{kg} et B de \qty{\v{m2}}{kg}, sont placés côte à côte sur une surface horizontale sans frottement. On pousse le bloc A avec une force horizontale de \qty{\v{F}}{N}, de sorte que A pousse B.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[pattern=north east lines] (-1.6,-0.25) rectangle (4,0);
+    \draw (-1.6,0) -- (4,0);
+    \draw[fill=gray!40] (0,0) rectangle (1.5,1.2) node[midway,align=center] {A\\\small\qty{\v{m1}}{kg}};
+    \draw[fill=gray!25] (1.5,0) rectangle (3,0.9) node[midway,align=center] {B\\\small\qty{\v{m2}}{kg}};
+    \draw[-{Stealth[length=3mm]}] (-1.5,0.6) -- node[above] {\small\qty{\v{F}}{N}} (-0.05,0.6);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Quelle est l'accélération des blocs ?
     \item Faites le diagramme des forces du bloc B et déterminez la force de contact entre les deux blocs.

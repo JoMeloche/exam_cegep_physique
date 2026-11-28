@@ -1,5 +1,24 @@
 Dans une expérience de Young, une lumière monochromatique de longueur d'onde \qty{\v{lam}}{nm} éclaire deux fentes très fines séparées de \qty{\v{sep}}{mm}. La figure d'interférence est observée sur un écran placé à \qty{\v{L}}{m} des fentes.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \draw (0,-1.8) -- (0,-0.65); \draw (0,-0.55) -- (0,0.55); \draw (0,0.65) -- (0,1.8);
+    \draw[very thick] (6,-1.8) -- (6,2.4);
+    \node[above] at (0,1.8) {\small fentes};
+    \node[above] at (6,2.4) {\small écran};
+    \draw[thin,dashed] (0,0) -- (6,0);
+    \draw[thin] (0,0.6) -- (6,2);
+    \draw[thin] (0,-0.6) -- (6,2);
+    \draw[thin,dashed] (0,0) -- (6,2);
+    \draw[thin] (1.6,0) arc (0:18.43:1.6);
+    \node at (2,0.3) {\small$\theta$};
+    \fill (6,2) circle (2pt) node[above right] {\small frange brillante $m = \v{m}$};
+    \draw[thin,|-|] (6.4,0) -- node[right] {\small$y$} (6.4,2);
+    \draw[thin,|-|] (-0.4,-0.6) -- node[left] {\small\qty{\v{sep}}{mm}} (-0.4,0.6);
+    \draw[thin,|-|] (0,-2.2) -- node[below] {\small\qty{\v{L}}{m}} (6,-2.2);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez l'angle auquel on observe la frange brillante d'ordre $m = \v{m}$.
     \item Déterminez la distance sur l'écran entre le centre de la figure et cette frange brillante.

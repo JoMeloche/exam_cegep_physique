@@ -1,5 +1,26 @@
 Un feu de circulation de \qty{\v{m}}{kg} est suspendu à un point d'attache retenu par deux câbles. Le câble 1 est horizontal et attaché à un mur. Le câble 2 est attaché à un poteau et fait un angle de \qty{\v{th}}{\degree} au-dessus de l'horizontale. Le système est immobile. Utilisez $g = \qty{9.81}{N/kg}$.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \pgfmathsetmacro{\figX}{2.5+2.8*cos(\v{th})}
+    \pgfmathsetmacro{\figY}{2.8*sin(\v{th})}
+    \fill[pattern=north east lines] (-0.25,-2.5) rectangle (0,2.4);
+    \draw (0,-2.5) -- (0,2.4);
+    \fill[pattern=north east lines] (-0.25,-2.75) rectangle ({\figX+0.8},-2.5);
+    \draw (-0.25,-2.5) -- ({\figX+0.8},-2.5);
+    \draw[line width=3pt,gray] (\figX,-2.5) -- (\figX,{\figY+0.2});
+    \draw (0,0) -- node[above] {\small 1} (2.5,0) -- node[above left] {\small 2} (\figX,\figY);
+    \draw[thin,dashed] (2.5,0) -- (3.3,0);
+    \draw[thin] (3.1,0) arc (0:\v{th}:0.6);
+    \path (2.5,0) ++({\v{th}/2}:0.95) node {\small\ang{\v{th}}};
+    \fill (2.5,0) circle (1.8pt);
+    \draw (2.5,0) -- (2.5,-0.5);
+    \draw[fill=gray!60] (2.2,-0.5) rectangle (2.8,-1.9);
+    \foreach \y in {-0.75,-1.2,-1.65} \draw[fill=white] (2.5,\y) circle (0.15);
+    \node[right] at (2.8,-1.2) {\small\qty{\v{m}}{kg}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez le poids du feu de circulation.
     \item Déterminez la tension dans le câble 2 (oblique).

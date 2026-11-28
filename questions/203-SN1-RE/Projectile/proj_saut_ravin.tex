@@ -1,5 +1,19 @@
 Un cascadeur à moto veut franchir un ravin de \qty{\v{D}}{m} de largeur. Il quitte un tremplin incliné à \ang{\v{th}} au-dessus de l'horizontale, et l'autre bord du ravin est à la même hauteur que le haut du tremplin. On néglige la résistance de l'air et la taille de la moto.
 
+\begin{center}
+\begin{tikzpicture}[thick, scale=0.85]
+    \pgfmathsetmacro{\figR}{2.4*tan(\v{th})}
+    \fill[pattern=north east lines] (-3,0) rectangle (0,1.5);
+    \fill[pattern=north east lines] (5,0) rectangle (6.5,{1.5+\figR});
+    \draw (-3,1.5) -- (0,1.5) -- (0,0) -- (5,0) -- (5,{1.5+\figR}) -- (6.5,{1.5+\figR});
+    \draw[fill=gray!15] (-2.4,1.5) -- (0,1.5) -- (0,{1.5+\figR}) -- cycle;
+    \draw[thin] (-1.3,1.5) arc (0:\v{th}:1.1);
+    \path (-2.4,1.5) ++({\v{th}/2}:1.65) node {\small\ang{\v{th}}};
+    \draw[thin,dashed] (0,{1.5+\figR}) parabola bend (2.5,{2.9+\figR}) (5,{1.5+\figR});
+    \draw[thin,|-|] (0,-0.4) -- node[below] {\small\qty{\v{D}}{m}} (5,-0.4);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Quelle vitesse minimale doit-il avoir en quittant le tremplin ?
     \item À cette vitesse, combien de temps dure le saut ?

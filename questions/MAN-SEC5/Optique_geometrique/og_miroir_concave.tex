@@ -1,5 +1,21 @@
 Un objet de \qty{\v{ho}}{cm} de hauteur est placé à \qty{\v{dob}}{cm} devant un miroir concave dont le rayon de courbure est de \qty{\v{R}}{cm}.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \pgfmathsetmacro{\figO}{-0.06*\v{dob}}
+    \pgfmathsetmacro{\figC}{-0.06*\v{R}}
+    \draw[thin] ({min(\figO,\figC)-0.6},0) -- (0.4,0);
+    \fill[pattern=north east lines] (-0.3,1.9) .. controls (0,0.6) and (0,-0.6) .. (-0.3,-1.9)
+        -- (-0.05,-1.9) .. controls (0.25,-0.6) and (0.25,0.6) .. (-0.05,1.9) -- cycle;
+    \draw[very thick] (-0.3,1.9) .. controls (0,0.6) and (0,-0.6) .. (-0.3,-1.9);
+    \draw[thin] (\figC,-0.1) -- (\figC,0.1) node[below=4pt] {\small$C$};
+    \draw[thin] ({\figC/2},-0.1) -- ({\figC/2},0.1) node[below=4pt] {\small$F$};
+    \draw[very thick,-{Stealth[length=3mm]}] (\figO,0) -- (\figO,{0.3*\v{ho}});
+    \node[left] at (\figO,{0.15*\v{ho}}) {\small\qty{\v{ho}}{cm}};
+    \draw[thin,|-|] (\figO,-2.2) -- node[below] {\small\qty{\v{dob}}{cm}} (-0.08,-2.2);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez la distance focale du miroir.
     \item À quelle distance du miroir l'image se forme-t-elle ?
