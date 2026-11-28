@@ -1,7 +1,7 @@
 ; Inno Setup script: per-user install, no admin rights needed.
 #define AppName "Générateur d'examens"
 #ifndef AppVersion
-  #define AppVersion "1.0.0"
+  #define AppVersion "1.0.1"
 #endif
 
 [Setup]

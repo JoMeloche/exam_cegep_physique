@@ -102,7 +102,14 @@ STAGE="$BUILD/dmg"
 rm -rf "$STAGE" "$DMG"; mkdir -p "$STAGE"
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
-hdiutil create -volname "ExamGen" -srcfolder "$STAGE" -ov -format UDZO "$DMG" >/dev/null
+# hdiutil often fails with "Resource busy" on CI runners while the system still scans the freshly
+# written app (Spotlight/XProtect); waiting and trying again is the usual remedy.
+for attempt in 1 2 3 4 5; do
+  hdiutil create -volname "ExamGen" -srcfolder "$STAGE" -ov -format UDZO "$DMG" >/dev/null && break
+  [ "$attempt" = 5 ] && { echo "hdiutil create failed 5 times"; exit 1; }
+  echo "hdiutil create failed (attempt $attempt), retrying in $((attempt * 10)) s"
+  sleep $((attempt * 10))
+done
 if [ -n "${MACOS_SIGN_IDENTITY:-}" ]; then
   codesign --force --timestamp --sign "$MACOS_SIGN_IDENTITY" "$DMG"
   if [ -n "${MACOS_NOTARY_PROFILE:-}" ]; then

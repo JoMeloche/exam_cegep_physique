@@ -6,6 +6,8 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
 
 ## [Non publié / Unreleased]
 
+## [1.0.1] - 2026-11-28
+
 ### Ajouté / Added
 - Image Docker prête à l'emploi sur ghcr.io (Intel et ARM) : installation et mise à jour avec
   `docker compose pull && docker compose up -d`, sans cloner le projet ni construire l'image.
@@ -64,5 +66,6 @@ Première version publique / First public release.
 - Les adresses `/api` inconnues répondent 404 au lieu de renvoyer l'interface.
 - Les tests fonctionnent dans un clone neuf, sans préparation.
 
-[Non publié / Unreleased]: https://github.com/JoMeloche/exam_cegep_physique/compare/v1.0.0...HEAD
+[Non publié / Unreleased]: https://github.com/JoMeloche/exam_cegep_physique/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/JoMeloche/exam_cegep_physique/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/JoMeloche/exam_cegep_physique/releases/tag/v1.0.0
