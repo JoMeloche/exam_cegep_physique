@@ -1,4 +1,6 @@
-# Générateur d'examens — one command:  docker compose up -d   then open http://localhost:8765
+# Générateur d'examens — one command:  docker compose pull && docker compose up -d   then open http://localhost:8765
+# Update later with the same command. Pin a version with EXAMGEN_VERSION=1.0.0 in .env (default: latest).
+# From a clone of the source, build it yourself instead:  docker compose up -d --build
 # Your questions, exams and PDFs are kept in ./mes_examens next to this file (change below or in .env).
 #
 # Accounts: anyone can request an account (with a reason); an administrator approves it in
@@ -14,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: app/Dockerfile
-    image: examgen:latest
+    image: ghcr.io/jomeloche/exam_cegep_physique:${EXAMGEN_VERSION:-latest}
     container_name: examgen
     ports:
       # Only this computer by default. EXAMGEN_BIND=0.0.0.0 opens it to your network (prefer HTTPS then).

@@ -6,6 +6,10 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
 
 ## [Non publié / Unreleased]
 
+### Ajouté / Added
+- Image Docker prête à l'emploi sur ghcr.io (Intel et ARM) : installation et mise à jour avec
+  `docker compose pull && docker compose up -d`, sans cloner le projet ni construire l'image.
+
 ## [1.0.0] - 2026-11-28
 
 Première version publique / First public release.
