@@ -9,6 +9,7 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
 ### Ajouté / Added
 - Image Docker prête à l'emploi sur ghcr.io (Intel et ARM) : installation et mise à jour avec
   `docker compose pull && docker compose up -d`, sans cloner le projet ni construire l'image.
+- Installation en une commande sur macOS et Linux : `curl -fsSL …/install.sh | sh` (aussi pour mettre à jour).
 
 ## [1.0.0] - 2026-11-28
 
