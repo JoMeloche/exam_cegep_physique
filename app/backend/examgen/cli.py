@@ -7,7 +7,7 @@ import json
 import sys
 from pathlib import Path
 
-from .library import Library
+from .library import Library, exam_id
 
 
 def _lib(args) -> Library:
@@ -101,7 +101,7 @@ def main(argv: list[str] | None = None) -> int:
 
     g = sub.add_parser("generate", help="générer un examen")
     g.add_argument("--course", required=True)
-    g.add_argument("--exam", type=int, required=True)
+    g.add_argument("--exam", type=exam_id, required=True, help="numéro de l'examen (1, 2, …) ou « final »")
     g.add_argument("--date", default=dt.date.today().isoformat())
     g.add_argument("--professor")
     g.add_argument("--duration", type=int, default=120)

@@ -25,7 +25,7 @@ from .auth_routes import AuthMiddleware, router as auth_router
 from .generate import (ExamRequest, alternatives, exam_basename, export_dir, export_exam, plan_exam,
                        preview_question, session_code, load_usage)
 from .latex import LatexError, find_engine
-from .library import ExamDef, Library
+from .library import ExamDef, Library, exam_id
 from .model import NAME_RE, VREF_RE, Question, QuestionError
 from .opener import open_with_os
 from .solve import SolveError, solve_parts
@@ -151,7 +151,9 @@ def courses() -> list[dict[str, Any]]:
             topics.append({"name": t, "label": (cfg.get("topics") or {}).get(t, t.replace("_", " ")),
                            "n_dev": sum(q.type == "developpement" for q in qs),
                            "n_concept": sum(q.type == "conceptuel" for q in qs)})
-        out.append({"code": c, **info, "topics": topics, "exams": L.exam_numbers(c)})
+        exams = L.exam_numbers(c)
+        titles = {str(n): t for n in exams if (t := L.exam_def(c, n).title)}
+        out.append({**info, "code": c, "topics": topics, "exams": exams, "exam_titles": titles})
     return out
 
 
@@ -370,18 +372,33 @@ def get_figure(name: str):
 
 
 # ------------------------------------------------------------------ exams
+def _exam_id(number: str) -> int | str:
+    try:
+        return exam_id(number)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+
+
 @app.get("/api/exams/{course}/{number}")
-def get_exam_def(course: str, number: int) -> dict[str, Any]:
+def get_exam_def(course: str, number: str) -> dict[str, Any]:
     L = lib()
-    return {**L.exam_def(course, number).to_dict(), "saved": L.exam_path(course, number).exists()}
+    n = _exam_id(number)
+    return {**L.exam_def(course, n).to_dict(), "saved": L.exam_path(course, n).exists()}
 
 
 @app.put("/api/exams/{course}/{number}")
-def put_exam_def(course: str, number: int, payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
+def put_exam_def(course: str, number: str, payload: dict[str, Any] = Body(...)) -> dict[str, Any]:
     L = lib()
-    ed = ExamDef.from_dict({**payload, "course": course, "number": number})
+    ed = ExamDef.from_dict({**payload, "course": course, "number": _exam_id(number)})
     L.save_exam_def(ed)
     return ed.to_dict()
+
+
+@app.delete("/api/exams/{course}/{number}")
+def delete_exam_def(course: str, number: str) -> dict[str, Any]:
+    """Forget a saved exam structure (generated PDFs are kept)."""
+    L = lib()
+    return {"deleted": L.delete_exam_def(course, _exam_id(number)), "exams": L.exam_numbers(course)}
 
 
 @app.post("/api/exams/plan")

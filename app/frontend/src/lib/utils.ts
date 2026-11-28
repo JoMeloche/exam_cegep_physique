@@ -13,12 +13,18 @@ export function sessionCode(d: Date, sessions: Record<string, number[]> = DEFAUL
   return `${letter}${String(d.getFullYear() % 100).padStart(2, '0')}`
 }
 
-export function fileBaseName(pattern: string | undefined, f: { course: string; exam: number; session: string; version: number; date: Date }) {
+export function fileBaseName(pattern: string | undefined, f: { course: string; exam: number | string; session: string; version: number; date: Date }) {
   const vals: Record<string, string> = {
     course: f.course, exam: String(f.exam), session: f.session, version: String(f.version),
     date: isoDate(f.date), year: String(f.date.getFullYear()),
   }
   return (pattern || '{course}_Examen_{exam}_{session}_v{version}').replace(/\{(\w+)\}/g, (m, k) => vals[k] ?? m).replace(/[<>:"/\\|?*]+/g, '-')
+}
+
+/** "Examen 2", "Examen final" or the custom name a teacher gave it. */
+export function examLabel(n: number | string, title?: string) {
+  if (title) return title
+  return n === 'final' ? 'Examen final' : `Examen ${n}`
 }
 
 export function isoDate(d: Date) {

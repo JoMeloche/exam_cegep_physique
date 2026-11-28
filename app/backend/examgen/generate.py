@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from . import latex, values as V
-from .library import ExamDef, ExamSection, Library
+from .library import ExamDef, ExamSection, Library, exam_heading, exam_id
 from .model import Question
 from .solve import SolveError, solve_parts, auto_solution_tex
 
@@ -46,10 +46,16 @@ def duration_text(minutes: int) -> str:
     return f"{m} min"
 
 
-def exam_basename(course: str, number: int, d: dt.date, version: int, cfg: dict | None = None) -> str:
+def printed_code(course: str, cfg: dict | None = None) -> str:
+    """Course code as this cégep writes it (`print_code` in the course config), else the folder name."""
+    info = ((cfg or {}).get("courses") or {}).get(course) or {}
+    return str(info.get("print_code") or "").strip() or course
+
+
+def exam_basename(course: str, number: int | str, d: dt.date, version: int, cfg: dict | None = None) -> str:
     cfg = cfg or {}
     pattern = (cfg.get("naming") or {}).get("file_pattern") or DEFAULT_PATTERN
-    name = pattern.format_map(_SafeDict(course=course, exam=number, session=session_code(d, cfg.get("sessions")),
+    name = pattern.format_map(_SafeDict(course=printed_code(course, cfg), exam=number, session=session_code(d, cfg.get("sessions")),
                                         version=version, date=d.isoformat(), year=d.year))
     return re.sub(r'[<>:"/\\|?*]+', "-", name).strip()
 
@@ -67,7 +73,7 @@ def solution_suffix(cfg: dict | None) -> str:
 @dataclass
 class ExamRequest:
     course: str
-    exam_number: int
+    exam_number: int | str        # 1, 2, … or "final"
     date: dt.date
     professor: str
     duration_min: int = 120
@@ -90,7 +96,7 @@ class ExamRequest:
             date = dt.date.fromisoformat(date[:10])
         ed = d.get("exam_def")
         return cls(
-            course=d["course"], exam_number=int(d["exam_number"]), date=date or dt.date.today(),
+            course=d["course"], exam_number=exam_id(d["exam_number"]), date=date or dt.date.today(),
             professor=d.get("professor", ""), duration_min=int(d.get("duration_min", 120)),
             n_versions=int(d.get("n_versions", 3)), mode=d.get("mode", "same"), seed=d.get("seed"),
             shuffle_conceptual=bool(d.get("shuffle_conceptual", True)),
@@ -403,13 +409,14 @@ def build_document(lib: Library, plan: ExamPlan, vp: VersionPlan, *, with_soluti
     fields = {
         "version": str(vp.number),
         "school": cfg.get("school", ""),
-        "course": req.course,
+        "course": latex_escape(printed_code(req.course, cfg)),
         "course_title": course_cfg.get("title", ""),
         "group_paren": f" ({group})" if group else "",
         "date_long": date_long_fr(req.date),
         "professor": req.professor,
         "duration": duration_text(req.duration_min),
         "exam_number": str(req.exam_number),
+        "exam_heading": exam_heading(req.exam_number, latex_escape(ed.title), naming.get("exam_label", "Examen")),
         "total": _fmt_points(total),
         "summary": _summary_text(ed, vp.placed, lib),
         "solution_banner": r"\\[0.3cm]\Large\textbf{SOLUTIONNAIRE}" if with_solutions else "",
@@ -421,8 +428,11 @@ def build_document(lib: Library, plan: ExamPlan, vp: VersionPlan, *, with_soluti
         "note": cover.get("note", ""),
         "logo": logo_tex(lib),
     }
+    cover_tex = lib.template("cover.tex", req.course)
+    # covers written before named/final exams print "<<exam_label>> \#<<exam_number>>"
+    cover_tex = cover_tex.replace(r"<<exam_label>> \#<<exam_number>>", "<<exam_heading>>")
     out = [latex.fill(lib.template("preamble.tex", req.course), fields), r"\begin{document}",
-           latex.fill(lib.template("cover.tex", req.course), fields)]
+           latex.fill(cover_tex, fields)]
     figures: list[str] = []
     for si, sec in enumerate(ed.sections):
         items = [p for p in vp.placed if p.section == si]

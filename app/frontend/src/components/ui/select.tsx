@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import * as RS from '@radix-ui/react-select'
 import { Check, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -15,8 +16,9 @@ export function Select({ value, onChange, options, placeholder, className, foote
   'aria-label'?: string
   'aria-describedby'?: string
 }) {
+  const [open, setOpen] = useState(false)
   return (
-    <RS.Root value={value || undefined} onValueChange={onChange}>
+    <RS.Root value={value || undefined} onValueChange={onChange} open={open} onOpenChange={setOpen}>
       <RS.Trigger {...aria} className={cn('flex h-9 w-full items-center justify-between gap-2 rounded-lg border bg-card px-3 text-left text-sm [&>span]:truncate focus:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[placeholder]:text-muted-foreground cursor-pointer', className)}>
         <RS.Value placeholder={placeholder} />
         <RS.Icon><ChevronDown className="h-4 w-4 opacity-60" /></RS.Icon>
@@ -31,7 +33,7 @@ export function Select({ value, onChange, options, placeholder, className, foote
               </RS.Item>
             ))}
           </RS.Viewport>
-          {footer && <div className="border-t p-1">{footer}</div>}
+          {footer && <div className="border-t p-1" onClick={() => setOpen(false)}>{footer}</div>}
         </RS.Content>
       </RS.Portal>
     </RS.Root>

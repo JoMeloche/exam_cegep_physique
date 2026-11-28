@@ -26,15 +26,17 @@ export function CoursesEditor({ value, onChange, bankFolders }: { value: Record<
   return (
     <div className="space-y-3">
       <div className="hidden grid-cols-12 gap-2 px-1 text-xs font-medium uppercase tracking-wide text-muted-foreground md:grid">
-        <div className="col-span-2">Code</div><div className="col-span-2">Discipline</div><div className="col-span-3">Nom du cours</div>
-        <div className="col-span-2">Groupe</div><div className="col-span-2">Utilise aussi la banque de</div>
+        <div className="col-span-2">Dossier</div><div className="col-span-2">Code imprimé</div><div className="col-span-2">Titre (en-tête)</div>
+        <div className="col-span-2">Nom du cours</div><div className="col-span-1">Groupe</div><div className="col-span-2">Utilise aussi la banque de</div>
       </div>
       {Object.entries(value).map(([c, info]) => (
         <div key={c} className="grid grid-cols-12 items-center gap-2">
           <div className="col-span-12 font-mono text-sm md:col-span-2">{c}</div>
-          <Input className="col-span-6 md:col-span-2" value={info.title ?? ''} placeholder="Physique" aria-label={`Discipline de ${c}`} onChange={(e) => set(c, { title: e.target.value })} />
-          <Input className="col-span-6 md:col-span-3" value={info.full_title ?? ''} placeholder="Mécanique" aria-label={`Nom du cours ${c}`} title={info.full_title} onChange={(e) => set(c, { full_title: e.target.value })} />
-          <Input className="col-span-5 md:col-span-2" value={info.group ?? ''} placeholder="groupe 1" aria-label={`Groupe de ${c}`} onChange={(e) => set(c, { group: e.target.value })} />
+          <Input className="col-span-6 font-mono md:col-span-2" value={info.print_code ?? ''} placeholder={c} aria-label={`Code du cours imprimé pour ${c}`} title="Code du cours tel qu'il apparaît sur l'en-tête et dans le nom des fichiers. Laissez vide pour utiliser le nom du dossier."
+            onChange={(e) => set(c, { print_code: e.target.value })} />
+          <Input className="col-span-6 md:col-span-2" value={info.title ?? ''} placeholder="Physique" aria-label={`Titre imprimé sur l'en-tête pour ${c}`} title="Imprimé sur l'en-tête, devant le code du cours" onChange={(e) => set(c, { title: e.target.value })} />
+          <Input className="col-span-6 md:col-span-2" value={info.full_title ?? ''} placeholder="Mécanique" aria-label={`Nom du cours ${c}`} title={info.full_title} onChange={(e) => set(c, { full_title: e.target.value })} />
+          <Input className="col-span-5 md:col-span-1" value={info.group ?? ''} placeholder="groupe 1" aria-label={`Groupe de ${c}`} onChange={(e) => set(c, { group: e.target.value })} />
           <div className="col-span-6 flex flex-wrap items-center gap-1 md:col-span-2">
             {(info.questions_from ?? []).map((f) => (
               <Badge key={f}>{f}<button className="cursor-pointer" aria-label={`Ne plus utiliser la banque ${f}`} onClick={() => set(c, { questions_from: (info.questions_from ?? []).filter((x) => x !== f) })}><X className="h-3 w-3" /></button></Badge>
@@ -51,6 +53,7 @@ export function CoursesEditor({ value, onChange, bankFolders }: { value: Record<
         <Input className="w-full font-mono sm:w-56" aria-label="Code du nouveau cours" value={code} onChange={(e) => setCode(e.target.value.replace(/[^A-Za-z0-9_-]/g, ''))} placeholder="203-NYA-05" />
         <Button type="submit" variant="outline"><Plus className="h-4 w-4" />Ajouter un cours</Button>
       </form>
+      <p className="text-xs text-muted-foreground">L'en-tête de l'examen affiche « <b>Titre</b> <b>Code imprimé</b> (groupe) », par exemple « Physique 203-NYC-05 ». Le code imprimé sert aussi au nom des fichiers; laissez-le vide pour utiliser le nom du dossier.</p>
       <p className="text-xs text-muted-foreground">« Utilise aussi la banque de » permet, par exemple, à votre cours 203-NYC-05 de piger dans les questions du dossier 203-SN3-RE.</p>
     </div>
   )
