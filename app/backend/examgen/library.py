@@ -11,6 +11,37 @@ import yaml
 
 from .model import Question, QuestionError
 
+FINAL = "final"
+
+
+def exam_id(v: Any) -> int | str:
+    """Normalise an exam identifier: 1, "2" -> int; "final" / "Final" -> FINAL."""
+    if isinstance(v, bool):
+        raise ValueError(f"Examen invalide : {v!r}")
+    if isinstance(v, int):
+        if v < 1:
+            raise ValueError(f"Examen invalide : {v!r}")
+        return v
+    t = str(v).strip().lower()
+    if t == FINAL:
+        return FINAL
+    if t.isdigit() and int(t) >= 1:
+        return int(t)
+    raise ValueError(f"Examen invalide : {v!r}")
+
+
+def exam_sort_key(v: int | str) -> tuple[int, int]:
+    return (1, 0) if v == FINAL else (0, int(v))
+
+
+def exam_heading(number: int | str, title: str = "", label: str = "Examen") -> str:
+    """Text of the exam heading on the cover: a custom title, "Examen final" or "Examen #2"."""
+    if title:
+        return title
+    if number == FINAL:
+        return f"{label} final"
+    return rf"{label} \#{number}"
+
 DEFAULT_COVER_INSTRUCTIONS = r"""\textbf{CONSIGNES POUR L'EXAMEN :} les éléments suivants sont exigés dans les solutions de problèmes :
 \begin{itemize}[leftmargin=*, noitemsep]
     \item schéma de la situation avec identification des variables ;
@@ -105,9 +136,14 @@ class ExamSection:
 @dataclass
 class ExamDef:
     course: str
-    number: int
+    number: int | str                # 1, 2, … or FINAL
     duration_min: int = 120
     sections: list[ExamSection] = field(default_factory=list)
+    title: str = ""                  # optional custom name, e.g. "Examen de mi-session"
+
+    @property
+    def is_final(self) -> bool:
+        return self.number == FINAL
 
     @classmethod
     def from_dict(cls, d: dict[str, Any]) -> "ExamDef":
@@ -120,12 +156,16 @@ class ExamDef:
                                       points=sl.get("points")))
             secs.append(ExamSection(title=str(s.get("title", "")), type=str(s.get("type", "developpement")),
                                     slots=slots, points=s.get("points")))
-        return cls(course=str(d["course"]), number=int(d["number"]),
-                   duration_min=int(d.get("duration_min", 120)), sections=secs)
+        return cls(course=str(d["course"]), number=exam_id(d["number"]),
+                   duration_min=int(d.get("duration_min", 120)), sections=secs,
+                   title=str(d.get("title") or "").strip())
 
     def to_dict(self) -> dict[str, Any]:
-        return {"course": self.course, "number": self.number, "duration_min": self.duration_min,
-                "sections": [s.to_dict() for s in self.sections]}
+        d: dict[str, Any] = {"course": self.course, "number": self.number}
+        if self.title:
+            d["title"] = self.title
+        d.update({"duration_min": self.duration_min, "sections": [s.to_dict() for s in self.sections]})
+        return d
 
 
 class Library:
@@ -263,38 +303,57 @@ class Library:
         return sorted(out)
 
     # ------------------------------------------------------------------ exams
-    def exam_path(self, course: str, number: int) -> Path:
-        return self.exams_dir / course / f"examen_{number}.yaml"
+    def exam_path(self, course: str, number: int | str) -> Path:
+        return self.exams_dir / course / f"examen_{exam_id(number)}.yaml"
 
-    def exam_def(self, course: str, number: int) -> ExamDef:
+    def exam_def(self, course: str, number: int | str) -> ExamDef:
+        number = exam_id(number)
         p = self.exam_path(course, number)
         if p.exists():
-            return ExamDef.from_dict(yaml.safe_load(p.read_text(encoding="utf-8")))
+            d = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+            return ExamDef.from_dict({**d, "course": course, "number": number})
         for src in self.course_sources(course)[1:]:  # borrow the structure of the bank it draws from
             sp = self.exam_path(src, number)
             if sp.exists():
                 d = yaml.safe_load(sp.read_text(encoding="utf-8"))
                 return ExamDef.from_dict({**d, "course": course, "number": number})
-        # default: one development question per topic, 20 points each
         topics = self.topics(course)
         dev = [t for t in topics if self.questions(course, t, "developpement")]
         con = [t for t in topics if self.questions(course, t, "conceptuel")]
+        if number == FINAL:
+            # the final exam covers the whole course: every topic is eligible, spread over up to five
+            # development questions (80 points) plus conceptual questions (20 points), longer sitting
+            n = min(len(dev), 5)
+            secs = [ExamSection("Questions à développement", "developpement",
+                                [ExamSlot(dev[i::n], 1, 80 // n) for i in range(n)])]
+            if con:
+                secs.append(ExamSection("Questions conceptuelles", "conceptuel", [ExamSlot(con, 8)], points=20))
+            return ExamDef(course, number, 180, secs)
+        # default: one development question per topic, 20 points each
         secs = [ExamSection("Questions à développement", "developpement",
                             [ExamSlot([t], 1, 20) for t in dev[:4]])]
         if con:
             secs.append(ExamSection("Questions conceptuelles", "conceptuel", [ExamSlot(con, 5)], points=20))
         return ExamDef(course, number, 120, secs)
 
-    def exam_numbers(self, course: str) -> list[int]:
+    def exam_numbers(self, course: str) -> list[int | str]:
+        """Exams with a saved structure for this course: 1, 2, … then "final"."""
         d = self.exams_dir / course
-        nums = []
+        nums: list[int | str] = []
         if d.exists():
             for p in d.glob("examen_*.yaml"):
                 try:
-                    nums.append(int(p.stem.split("_")[1]))
+                    nums.append(exam_id(p.stem.split("_", 1)[1]))
                 except (IndexError, ValueError):
                     pass
-        return sorted(nums)
+        return sorted(set(nums), key=exam_sort_key)
+
+    def delete_exam_def(self, course: str, number: int | str) -> bool:
+        p = self.exam_path(course, number)
+        if p.exists():
+            p.unlink()
+            return True
+        return False
 
     def save_exam_def(self, e: ExamDef) -> Path:
         p = self.exam_path(e.course, e.number)

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
 import {
   AlertTriangle, ArrowLeftRight, Clock, Download, FileCheck2, FolderOpen, Loader2, Lock, Minus, Plus,
-  RefreshCw, Sparkles, Trash2, Unlock, UserPlus, Wand2,
+  RefreshCw, Sparkles, Trash2, Unlock, UserPlus, Wand2, FilePlus2, GraduationCap,
 } from 'lucide-react'
 import { PageHeader } from '@/App'
 import { Button } from '@/components/ui/button'
@@ -13,10 +13,10 @@ import { Field, Input } from '@/components/ui/input'
 import { Select } from '@/components/ui/select'
 import { Segmented, Switch } from '@/components/ui/switch'
 import {
-  api, exportZipUrl, type Config, type Course, type ExamDef, type ExamRequest, type ExportResult, type Placed, type Plan,
+  api, exportZipUrl, type Config, type Course, type ExamDef, type ExamId, type ExamRequest, type ExportResult, type Placed, type Plan,
   type QuestionSummary,
 } from '@/lib/api'
-import { cn, durationText, fileBaseName, frNumber, isoDate, sessionCode } from '@/lib/utils'
+import { cn, durationText, examLabel, fileBaseName, frNumber, isoDate, sessionCode } from '@/lib/utils'
 import { Link } from 'react-router-dom'
 import { useAuth } from '@/lib/auth'
 
@@ -31,7 +31,8 @@ export default function Generate() {
   const [courses, setCourses] = useState<Course[]>([])
   const [professor, setProfessor] = useState('')
   const [course, setCourse] = useState('')
-  const [examNumber, setExamNumber] = useState(1)
+  const [examNumber, setExamNumber] = useState<ExamId>(1)
+  const [deleteOpen, setDeleteOpen] = useState(false)
   const [date, setDate] = useState<Date>(nextExamDate)
   const [duration, setDuration] = useState(120)
   const [nVersions, setNVersions] = useState(3)
@@ -69,7 +70,7 @@ export default function Generate() {
   const courseObj = courses.find((c) => c.code === course)
   const topicLabel = (t: string) => courseObj?.topics.find((x) => x.name === t)?.label ?? t.replace(/_/g, ' ')
   const session = sessionCode(date, config?.sessions)
-  const fileName = fileBaseName(config?.naming?.file_pattern, { course, exam: examNumber, session, version: 1, date }) + '.pdf'
+  const fileName = fileBaseName(config?.naming?.file_pattern, { course: courseObj?.print_code || course, exam: examNumber, session, version: 1, date }) + '.pdf'
 
   function buildRequest(extra: Partial<ExamRequest> = {}): ExamRequest {
     return {
@@ -128,8 +129,41 @@ export default function Generate() {
 
   async function saveStructure() {
     if (!examDef) return
-    try { await api.saveExamDef({ ...examDef, duration_min: duration }); toast.success(`Structure de l'examen ${examNumber} enregistrée`) }
-    catch (e) { toast.error((e as Error).message) }
+    try {
+      await api.saveExamDef({ ...examDef, duration_min: duration })
+      toast.success(`Structure de « ${examLabel(examNumber, examDef.title)} » enregistrée`)
+      await refreshCourses()
+    } catch (e) { toast.error((e as Error).message) }
+  }
+
+  async function refreshCourses() {
+    try { setCourses(await api.courses()) } catch { /* keep the current list */ }
+  }
+
+  /** Add the next numbered exam, or the final exam, with a starting structure saved right away. */
+  async function addExam(n: ExamId) {
+    try {
+      const d = await api.examDef(course, n)
+      await api.saveExamDef(d)
+      await refreshCourses()
+      setExamNumber(n)
+      toast.success(`${examLabel(n)} ajouté`, { description: n === 'final' ? 'Il pige dans tous les thèmes du cours. Ajustez la structure au besoin.' : undefined })
+    } catch (e) { toast.error((e as Error).message) }
+  }
+
+  async function removeExam() {
+    try {
+      const { exams } = await api.deleteExamDef(course, examNumber)
+      await refreshCourses()
+      setDeleteOpen(false)
+      if (typeof examNumber === 'number' && examNumber <= 3) {
+        toast.success(`${examLabel(examNumber)} réinitialisé`)
+        const d = await api.examDef(course, examNumber); setExamDef(d); setDuration(d.duration_min || 120)
+      } else {
+        toast.success(`${examLabel(examNumber, examDef?.title)} retiré`, { description: 'Les PDF déjà exportés sont conservés.' })
+        setExamNumber(exams[0] ?? 1)
+      }
+    } catch (e) { toast.error((e as Error).message) }
   }
 
   async function addProfessor(name: string) {
@@ -150,10 +184,27 @@ export default function Generate() {
     return { time, pts, diff }
   }, [version])
 
-  const examOptions = useMemo(() => {
-    const nums = new Set([...(courseObj?.exams ?? []), 1, 2, 3, examNumber])
-    return [...nums].sort((a, b) => a - b).map((n) => ({ value: String(n), label: `Examen ${n}` }))
-  }, [courseObj, examNumber])
+  const savedExams = courseObj?.exams ?? []
+  const examIds = useMemo(() => {
+    // exams 1 to 3 are always offered; teachers add more and the final exam as needed
+    const ids = new Set<ExamId>([1, 2, 3, ...savedExams])
+    ids.add(examNumber)
+    const key = (n: ExamId) => (n === 'final' ? Infinity : n)
+    return [...ids].sort((a, b) => key(a) - key(b))
+  }, [savedExams, examNumber])
+  const examOptions = examIds.map((n) => {
+    const title = n === examNumber && examDef?.number === n ? examDef.title : courseObj?.exam_titles?.[String(n)]
+    return { value: String(n), label: n === 'final' ? <span className="flex items-center gap-1.5"><GraduationCap className="h-3.5 w-3.5 text-primary" />{examLabel(n, title)}</span> : examLabel(n, title) }
+  })
+  const nextNumber = Math.max(0, ...examIds.filter((n): n is number => n !== 'final')) + 1
+  const hasFinal = examIds.includes('final')
+  const isBuiltIn = typeof examNumber === 'number' && examNumber <= 3
+  const examFooter = (
+    <>
+      <button className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-primary hover:bg-muted cursor-pointer" onClick={() => addExam(nextNumber)}><FilePlus2 className="h-4 w-4" />Ajouter l'examen {nextNumber}</button>
+      {!hasFinal && <button className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm text-primary hover:bg-muted cursor-pointer" onClick={() => addExam('final')}><GraduationCap className="h-4 w-4" />Ajouter l'examen final</button>}
+    </>
+  )
 
   return (
     <div>
@@ -181,7 +232,7 @@ export default function Generate() {
               </Field>
               <div className="grid grid-cols-2 gap-3">
                 <Field label="Examen">
-                  <Select value={String(examNumber)} onChange={(v) => setExamNumber(Number(v))} options={examOptions} />
+                  <Select value={String(examNumber)} onChange={(v) => setExamNumber(v === 'final' ? 'final' : Number(v))} options={examOptions} footer={examFooter} />
                 </Field>
                 <Field label="Durée">
                   <Select value={String(duration)} onChange={(v) => setDuration(Number(v))}
@@ -220,7 +271,7 @@ export default function Generate() {
 
           {examDef && courseObj && (
             <StructureEditor def={examDef} onChange={setExamDef} topics={courseObj.topics.map((t) => ({ value: t.name, label: t.label }))}
-              onSave={saveStructure} />
+              onSave={saveStructure} canDelete={savedExams.includes(examNumber)} deleteLabel={isBuiltIn ? 'Réinitialiser la structure' : 'Retirer cet examen'} onDelete={() => setDeleteOpen(true)} />
           )}
 
           <Button size="lg" className="w-full" onClick={generate} disabled={!!busy || !course}>
@@ -308,6 +359,16 @@ export default function Generate() {
 
       <SwapDialog open={!!swapSlot} onClose={() => setSwapSlot(null)} req={lastReq} slot={swapSlot}
         exclude={version?.placed.map((p) => p.question_id) ?? []} onPick={applySwap} />
+      <Dialog open={deleteOpen} onOpenChange={setDeleteOpen}
+        title={isBuiltIn ? `Réinitialiser « ${examLabel(examNumber, examDef?.title)} » ?` : `Retirer « ${examLabel(examNumber, examDef?.title)} » ?`}
+        description={isBuiltIn
+          ? "La structure enregistrée sera supprimée et l'examen reprendra la structure par défaut. Les PDF déjà exportés et les questions de la banque ne sont pas touchés."
+          : "L'examen sera retiré de la liste de ce cours. Les PDF déjà exportés et les questions de la banque ne sont pas touchés."}>
+        <div className="flex justify-end gap-2">
+          <Button variant="ghost" onClick={() => setDeleteOpen(false)}>Annuler</Button>
+          <Button variant="danger" onClick={removeExam}><Trash2 className="h-4 w-4" />{isBuiltIn ? 'Réinitialiser' : "Retirer l'examen"}</Button>
+        </div>
+      </Dialog>
       <AddProfessorDialog open={addProfOpen} onClose={() => setAddProfOpen(false)} onAdd={addProfessor} />
     </div>
   )
@@ -411,14 +472,21 @@ function AddProfessorDialog({ open, onClose, onAdd }: { open: boolean; onClose: 
   )
 }
 
-function StructureEditor({ def, onChange, topics, onSave }: { def: ExamDef; onChange: (d: ExamDef) => void; topics: { value: string; label: string }[]; onSave: () => void }) {
+function StructureEditor({ def, onChange, topics, onSave, canDelete, deleteLabel, onDelete }: { def: ExamDef; onChange: (d: ExamDef) => void; topics: { value: string; label: string }[]; onSave: () => void; canDelete: boolean; deleteLabel: string; onDelete: () => void }) {
   const update = (fn: (d: ExamDef) => void) => { const d = structuredClone(def); fn(d); onChange(d) }
   const total = def.sections.reduce((a, s) => a + (s.type === 'conceptuel' && s.points ? s.points : s.slots.reduce((b, sl) => b + (sl.points ?? 0) * sl.count, 0)), 0)
   return (
     <Card>
       <CardHeader title="Structure" description={<>Thèmes et nombre de questions · <b>{total} points</b></>}
-        action={<Button variant="ghost" size="sm" onClick={onSave}>Enregistrer</Button>} />
+        action={<div className="flex items-center gap-1">
+          {canDelete && <Button size="icon" variant="ghost" className="h-8 w-8" aria-label={deleteLabel} title={deleteLabel} onClick={onDelete}><Trash2 className="h-3.5 w-3.5" /></Button>}
+          <Button variant="ghost" size="sm" onClick={onSave}>Enregistrer</Button>
+        </div>} />
       <CardBody className="space-y-5">
+        <Field label="Titre sur la copie" hint={def.number === 'final' ? 'Laissez vide pour « Examen final ».' : `Laissez vide pour « Examen #${def.number} ». Ex. : Examen de mi-session.`}>
+          <Input value={def.title ?? ''} placeholder={def.number === 'final' ? 'Examen final' : `Examen #${def.number}`} aria-label="Titre de l'examen sur la copie"
+            onChange={(e) => update((d) => { d.title = e.target.value })} />
+        </Field>
         {def.sections.map((sec, si) => (
           <div key={si} className="space-y-2" role="group" aria-label={sec.title}>
             <div className="flex items-center justify-between">

@@ -10,6 +10,11 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
 - Image Docker prête à l'emploi sur ghcr.io (Intel et ARM) : installation et mise à jour avec
   `docker compose pull && docker compose up -d`, sans cloner le projet ni construire l'image.
 - Installation en une commande sur macOS et Linux : `curl -fsSL …/install.sh | sh` (aussi pour mettre à jour).
+- Autant d'examens que nécessaire par cours (plus seulement 1 à 3) et un **examen final** qui pige dans tous les
+  thèmes du cours ; chaque examen peut recevoir un titre sur la copie (ex. « Examen de mi-session ») ou être retiré.
+  Any number of exams per course, a final exam, custom exam titles. CLI: `examgen generate --exam final`.
+- Code du cours imprimé par cours (ex. 203-NYC-05 pour un cours rangé dans le dossier 203-SN3-RE) : il apparaît sur
+  l'en-tête et dans le nom des fichiers. Per-course printed course code.
 
 ## [1.0.0] - 2026-11-28
 

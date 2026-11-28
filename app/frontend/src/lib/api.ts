@@ -1,8 +1,10 @@
 export type QType = 'developpement' | 'conceptuel'
 
 export interface Topic { name: string; label: string; n_dev: number; n_concept: number }
-export interface Course { code: string; title?: string; full_title?: string; group?: string; topics: Topic[]; exams: number[] }
-export interface CourseInfo { title?: string; full_title?: string; group?: string; questions_from?: string[] }
+/** An exam of a course: 1, 2, 3, … or the end-of-term exam. */
+export type ExamId = number | 'final'
+export interface Course { code: string; print_code?: string; title?: string; full_title?: string; group?: string; topics: Topic[]; exams: ExamId[]; exam_titles?: Record<string, string> }
+export interface CourseInfo { print_code?: string; title?: string; full_title?: string; group?: string; questions_from?: string[] }
 export interface Config {
   setup_done: boolean
   school: string
@@ -41,7 +43,7 @@ export interface QuestionFull extends QuestionSummary {
 }
 export interface ExamSlot { topic?: string; topics?: string[]; count: number; points?: number | null }
 export interface ExamSection { title: string; type: QType; points?: number | null; slots: ExamSlot[] }
-export interface ExamDef { course: string; number: number; duration_min: number; sections: ExamSection[]; saved?: boolean }
+export interface ExamDef { course: string; number: ExamId; title?: string; duration_min: number; sections: ExamSection[]; saved?: boolean }
 export interface Placed {
   slot: string; section: number; question_id: string; points: number; values: Record<string, unknown>
   answer: string; title?: string; time_min?: number; difficulty?: number; type?: QType; topic?: string; shared_by?: string
@@ -51,7 +53,7 @@ export interface Plan {
   versions: { number: number; basename: string; placed: Placed[] }[]
 }
 export interface ExamRequest {
-  course: string; exam_number: number; date: string; professor: string; duration_min: number; n_versions: number
+  course: string; exam_number: ExamId; date: string; professor: string; duration_min: number; n_versions: number
   mode: 'same' | 'different'; seed?: number; locks?: Record<string, string>; exam_def?: ExamDef
   shuffle_conceptual?: boolean; shuffle_choices?: boolean; include_shared?: boolean
 }
@@ -135,7 +137,8 @@ export const api = {
   saveQuestion: (p: unknown) => req<QuestionFull>('PUT', '/api/questions', p),
   deleteQuestion: (id: string) => req<{ deleted: string }>('DELETE', `/api/questions/${enc(id)}`),
   testQuestion: (p: unknown) => req<TestResult>('POST', '/api/questions/test', p),
-  examDef: (course: string, n: number) => req<ExamDef>('GET', `/api/exams/${encodeURIComponent(course)}/${n}`),
+  examDef: (course: string, n: ExamId) => req<ExamDef>('GET', `/api/exams/${encodeURIComponent(course)}/${n}`),
+  deleteExamDef: (course: string, n: ExamId) => req<{ deleted: boolean; exams: ExamId[] }>('DELETE', `/api/exams/${encodeURIComponent(course)}/${n}`),
   saveExamDef: (e: ExamDef) => req<ExamDef>('PUT', `/api/exams/${encodeURIComponent(e.course)}/${e.number}`, e),
   plan: (r: ExamRequest) => req<Plan>('POST', '/api/exams/plan', r),
   alternatives: (r: ExamRequest & { slot: string; exclude: string[] }) => req<QuestionSummary[]>('POST', '/api/exams/alternatives', r),

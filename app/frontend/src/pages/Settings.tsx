@@ -112,7 +112,7 @@ export default function Settings() {
         </Card>
 
         <Card className="xl:col-span-2">
-          <CardHeader title="Cours" description="Le code apparaît dans le nom des fichiers ; la discipline, le nom et le groupe sur la page couverture." />
+          <CardHeader title="Cours" description="Le code imprimé et le titre apparaissent sur l’en-tête de l’examen ; le code imprimé sert aussi au nom des fichiers." />
           <CardBody><CoursesEditor value={cfg.courses} onChange={(courses) => set({ courses })} bankFolders={bankFoldersOf(cfg, folders)} /></CardBody>
         </Card>
 
