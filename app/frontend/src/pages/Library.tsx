@@ -12,6 +12,7 @@ import { Segmented } from '@/components/ui/switch'
 import { api, shareApi, type Course, type QuestionSummary } from '@/lib/api'
 import { useAuth } from '@/lib/auth'
 import { ShareDialog } from '@/components/ShareDialog'
+import { PdfView } from '@/components/PdfView'
 import { cn } from '@/lib/utils'
 
 const MODE_LABEL: Record<string, string> = { auto: 'Auto', manual: 'LaTeX', answers_only: 'Réponses', none: 'Aucune' }
@@ -154,7 +155,7 @@ export default function Library() {
           {scope === 'shared' ? 'Aucun collègue ne vous a encore partagé de questions pour ce cours.' : 'Aucune question ne correspond.'}</p>}
         <Dialog open={!!pdf} onOpenChange={(v) => !v && setPdf(null)} title={pdf?.title ?? ''} className="max-w-4xl"
           description={<>Aperçu avec un jeu de valeurs tiré au hasard. <a href={pdf?.url} target="_blank" rel="noreferrer" className="text-primary hover:underline">Ouvrir dans un onglet</a></>}>
-          {pdf && <iframe title={`Aperçu PDF : ${pdf.title}`} src={pdf.url} className="h-[70vh] w-full rounded-lg border bg-white" />}
+          {pdf && <PdfView title={`Aperçu PDF : ${pdf.title}`} url={pdf.url} />}
         </Dialog>
         <ShareDialog open={!!sharing} onOpenChange={(v) => !v && setSharing(null)} target={sharing?.target ?? '*'} title={sharing?.title ?? ''}
           onChanged={() => setReloadKey((k) => k + 1)} />

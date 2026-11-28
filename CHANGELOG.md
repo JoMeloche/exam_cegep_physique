@@ -11,6 +11,14 @@ All notable changes are listed here, following Keep a Changelog and Semantic Ver
   `docker compose pull && docker compose up -d`, sans cloner le projet ni construire l'image.
 - Installation en une commande sur macOS et Linux : `curl -fsSL …/install.sh | sh` (aussi pour mettre à jour).
 
+### Corrigé / Fixed
+- Application de bureau : l'aperçu PDF d'une question s'affiche maintenant dans la fenêtre sur Linux, Windows et
+  macOS (rendu avec pdf.js au lieu du lecteur PDF intégré de la fenêtre, bloqué par la politique de sécurité).
+  Desktop app: question PDF previews now show inside the window (pdf.js instead of the webview's PDF plugin).
+- Linux (AppImage, .deb) : « Ouvrir dans un onglet », les PDF des examens produits et « Ouvrir le dossier »
+  lancent les applications du système sans leur passer les bibliothèques Qt de l'application (plantage de kde-open
+  avec « Qt_6.11_PRIVATE_API not found »). / External apps no longer inherit the bundle's Qt libraries.
+
 ## [1.0.0] - 2026-11-28
 
 Première version publique / First public release.

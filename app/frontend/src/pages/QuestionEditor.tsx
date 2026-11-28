@@ -5,6 +5,7 @@ import { AlertTriangle, CheckCircle2, FlaskConical, ImagePlus, Loader2, Plus, Sa
 import { PageHeader } from '@/App'
 import { useConfirm } from '@/components/ui/confirm'
 import { LatexEditor } from '@/components/LatexEditor'
+import { PdfView } from '@/components/PdfView'
 import { Button } from '@/components/ui/button'
 import { Badge, Card, CardBody, CardHeader } from '@/components/ui/card'
 import { Field, Input, Textarea } from '@/components/ui/input'
@@ -385,7 +386,7 @@ function TestPanel({ test, busy, onTest }: { test: TestResult | null; busy: bool
             </table>
           </div>
         )}
-        {test.pdf && <iframe title="Aperçu" src={`/api/previews/${test.pdf}.pdf`} className="h-[70vh] w-full rounded-lg border bg-white" />}
+        {test.pdf && <PdfView title="Aperçu" url={`/api/previews/${test.pdf}.pdf`} />}
       </CardBody>
     </Card>
   )

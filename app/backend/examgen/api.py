@@ -8,7 +8,6 @@ import platform
 import random
 import re
 import shutil
-import subprocess
 import tempfile
 import threading
 import uuid
@@ -28,6 +27,7 @@ from .generate import (ExamRequest, alternatives, exam_basename, export_dir, exp
 from .latex import LatexError, find_engine
 from .library import ExamDef, Library
 from .model import NAME_RE, VREF_RE, Question, QuestionError
+from .opener import open_with_os
 from .solve import SolveError, solve_parts
 from .validate import validate_question
 
@@ -528,12 +528,7 @@ def open_path(payload: dict[str, str] = Body(...)) -> dict[str, bool]:
         raise HTTPException(403)
     if payload.get("reveal") and p.is_file():
         p = p.parent
-    if platform.system() == "Windows":
-        os.startfile(str(p))  # type: ignore[attr-defined]  # noqa: S606
-    elif platform.system() == "Darwin":
-        subprocess.Popen(["open", str(p)])  # noqa: S603,S607
-    else:
-        subprocess.Popen(["xdg-open", str(p)])  # noqa: S603,S607
+    open_with_os(str(p))
     return {"ok": True}
 
 
