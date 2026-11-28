@@ -38,7 +38,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: Version téléchargée (ex. v0.1.0) ou date du git pull. / Release you downloaded (e.g. v0.1.0) or date of your git pull.
+      description: Version téléchargée (ex. v1.0.0) ou date du git pull. / Release you downloaded (e.g. v1.0.0) or date of your git pull.
   - type: textarea
     id: logs
     attributes:

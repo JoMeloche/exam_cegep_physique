@@ -70,6 +70,6 @@ if (-not $iscc) {
             "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
 }
 if (-not $iscc) { throw "Inno Setup 6 (ISCC.exe) not found" }
-$ver = if ($env:APP_VERSION) { $env:APP_VERSION } else { "0.1.0" }
+$ver = if ($env:APP_VERSION) { $env:APP_VERSION } else { "1.0.0" }
 & $iscc "/DAppVersion=$ver" packaging\installer.iss; Check "Inno Setup"
 Write-Host "Done: packaging\Output\ExamGen-Setup.exe"
