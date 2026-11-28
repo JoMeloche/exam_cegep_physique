@@ -58,7 +58,7 @@ jobs:
 
       - name: Build installer
         env:
-          APP_VERSION: ${{ inputs.tag || (startsWith(github.ref, 'refs/tags/') && github.ref_name) || '1.0.0' }}
+          APP_VERSION: ${{ inputs.tag || (startsWith(github.ref, 'refs/tags/') && github.ref_name) || '1.0.1' }}
         run: |
           $env:APP_VERSION = $env:APP_VERSION.TrimStart('v', 'V')
           ./app/packaging/build_windows.ps1
