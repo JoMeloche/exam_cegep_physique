@@ -75,16 +75,16 @@ LaTeX et la banque de départ sont inclus : rien d'autre à installer.
 Pour un usage dans le navigateur, sur votre poste ou sur un serveur partagé par le département.
 
 1. Installez [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows, macOS) ou Docker (Linux).
-2. Téléchargez ce projet (**Code → Download ZIP**, puis décompressez) ou :
+2. Dans un dossier vide, téléchargez le fichier [`docker-compose.yml`](docker-compose.yml) :
    ```bash
-   git clone https://github.com/JoMeloche/exam_cegep_physique.git
-   cd exam_cegep_physique
+   mkdir examgen && cd examgen
+   curl -O https://raw.githubusercontent.com/JoMeloche/exam_cegep_physique/main/docker-compose.yml
    ```
 3. Lancez :
    ```bash
-   docker compose up -d
+   docker compose pull && docker compose up -d
    ```
-   Le premier lancement prend 5 à 10 minutes (installation de LaTeX). Ouvrez ensuite
+   L'image prête à l'emploi (LaTeX et banque de départ inclus) est téléchargée en quelques minutes. Ouvrez ensuite
    **http://localhost:8765**.
 4. Créez le compte administrateur avec le code affiché par `docker compose logs examgen`
    (ou mettez `EXAMGEN_ADMIN_EMAIL` et `EXAMGEN_ADMIN_PASSWORD` dans `.env`). Un écran de bienvenue vous demande
@@ -102,7 +102,9 @@ Vos questions, vos examens et vos PDF sont conservés dans le dossier **`mes_exa
 |---|---|
 | Arrêter | `docker compose down` |
 | Redémarrer | `docker compose up -d` |
-| Mettre à jour | `git pull` puis `docker compose up -d --build` |
+| Mettre à jour | `docker compose pull && docker compose up -d` |
+| Rester sur une version | `EXAMGEN_VERSION=1.0.0` dans `.env` (par défaut : `latest`) |
+| Construire depuis le code source | dans un clone du projet : `docker compose up -d --build` |
 | Changer le port ou le dossier de données | copiez `.env.example` en `.env` et modifiez-le |
 
 > [!NOTE]
@@ -208,9 +210,9 @@ The interface is in French; it was built for Québec cégeps but works for any c
 **Web app with Docker**:
 
 ```bash
-git clone https://github.com/JoMeloche/exam_cegep_physique.git
-cd exam_cegep_physique
-docker compose up -d        # first start takes 5–10 minutes (installs LaTeX)
+mkdir examgen && cd examgen
+curl -O https://raw.githubusercontent.com/JoMeloche/exam_cegep_physique/main/docker-compose.yml
+docker compose pull && docker compose up -d   # ready-made image with LaTeX and the starter bank
 ```
 
 Open **http://localhost:8765** and create the administrator account with the code shown by
@@ -221,7 +223,8 @@ screen then asks for your institution, professors and courses.
 **Utilisateurs**. Each teacher gets their own bank and can share questions with everyone or chosen colleagues.
 HTTPS deployment and the security model: [docs/securite.md](docs/securite.md) (French).
 Your library and PDFs live in the **`mes_examens`** folder next to `docker-compose.yml`.
-Stop: `docker compose down`. Update: `git pull` then `docker compose up -d --build`.
+Stop: `docker compose down`. Update: `docker compose pull && docker compose up -d`. Pin a version with
+`EXAMGEN_VERSION=1.0.0` in `.env`; build from a source clone with `docker compose up -d --build`.
 Port and data folder: copy `.env.example` to `.env`.
 
 **From source**: see [app/README.md](app/README.md).

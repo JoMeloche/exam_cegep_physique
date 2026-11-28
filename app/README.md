@@ -24,7 +24,7 @@ The library lives in `~/exam_app` (override with `EXAM_APP_HOME`), format in `..
 ## Run it
 
 ### Web app in Docker
-From the repository root: `docker compose up -d`, then open http://localhost:8765.
+From the repository root: `docker compose up -d --build` builds the image from this source (`docker compose pull && docker compose up -d` uses the published one), then open http://localhost:8765.
 The library is kept in `./mes_examens` (mounted at `/data`); on first start an empty library gets the
 repository's question bank. The image is built from the repository root with `app/Dockerfile`.
 If Docker Hub rate-limits you: `docker compose build --build-arg REGISTRY=mirror.gcr.io/library`.
