@@ -70,6 +70,16 @@ LaTeX et la banque de départ sont inclus : rien d'autre à installer.
 | <img src="https://img.shields.io/badge/-macOS-000000?logo=apple&logoColor=white" alt="macOS"> | `.dmg` pour Apple Silicon (M1 et plus) ou Intel |
 | <img src="https://img.shields.io/badge/-Linux-FCC624?logo=linux&logoColor=black" alt="Linux"> | `ExamGen-x86_64.AppImage` (toutes distributions) ou `.deb` (Debian, Ubuntu) |
 
+**macOS et Linux en une commande** : ouvrez le Terminal et collez
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/JoMeloche/exam_cegep_physique/main/install.sh | sh
+```
+
+Le script télécharge la bonne version pour votre ordinateur (Apple Silicon ou Intel, Linux x86_64) et l'installe :
+`ExamGen.app` dans **Applications** sur macOS, `examgen` dans le menu des applications sur Linux. Relancez la même
+commande pour mettre à jour.
+
 ### Application web avec Docker
 
 Pour un usage dans le navigateur, sur votre poste ou sur un serveur partagé par le département.
@@ -206,6 +216,11 @@ The interface is in French; it was built for Québec cégeps but works for any c
 **Desktop app**: download the installer for your system from the
 [latest release](https://github.com/JoMeloche/exam_cegep_physique/releases/latest): `ExamGen-Setup.exe` (Windows),
 `.dmg` (macOS, Apple Silicon or Intel), `.AppImage` or `.deb` (Linux). LaTeX and the starter bank are included.
+On macOS or Linux, install or update in one command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/JoMeloche/exam_cegep_physique/main/install.sh | sh
+```
 
 **Web app with Docker**:
 
