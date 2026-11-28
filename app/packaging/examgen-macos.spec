@@ -5,7 +5,7 @@ import os
 from PyInstaller.utils.hooks import collect_submodules
 
 backend = os.path.join(SPECPATH, "..", "backend")
-version = os.environ.get("EXAMGEN_VERSION", "0.1.0")
+version = os.environ.get("EXAMGEN_VERSION", "1.0.0")
 hidden = collect_submodules("uvicorn") + collect_submodules("webview.platforms") + [
     "examgen.api", "sympy", "multipart", "webview"]
 datas = [
