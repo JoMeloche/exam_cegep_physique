@@ -1,0 +1,15 @@
+title: 'Pourquoi un satellite ne tombe pas sur la Terre'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La force résultante n''est pas nulle : la gravité pointe vers le centre et vaut $m v^2/r$. Le satellite « tombe » sans cesse, mais sa vitesse tangentielle l''empêche d''atteindre la surface.'
+choices:
+  - 'Il ne subit aucune gravité, car il est trop loin de la Terre'
+  - 'Il est en chute libre : la gravité fournit la force centripète qui courbe sa trajectoire'
+  - 'La force centrifuge équilibre exactement la gravité, donc la force résultante est nulle'
+  - 'Ses moteurs le maintiennent constamment en altitude'

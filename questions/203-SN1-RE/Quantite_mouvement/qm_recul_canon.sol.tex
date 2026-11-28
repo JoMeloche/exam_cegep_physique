@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Vitesse de recul}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $M = \qty{\v{M}}{kg}$, $m = \qty{\v{m}}{kg}$, $v = \qty{\v{v}}{m/s}$, $p_{\mathrm{tot},i} = 0$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :} la quantité de mouvement horizontale est conservée :\[ 0 = m v + M V \]
+    \item \textbf{Isolation de la variable recherchée :} \[ V = -\frac{m v}{M} \]
+    \item \textbf{Résolution numérique :} \[ |V| = \frac{\num{\v{m}} \cdot \num{\v{v}}}{\num{\v{M}}} = \Res{\vsi{m}*\vsi{v}/\vsi{M}}{m/s} \]
+    \item \textbf{Réponse :} $|V| = \mathbf{\Res{\vsi{m}*\vsi{v}/\vsi{M}}{m/s}}$, dans le sens contraire du boulet.
+\end{enumerate}
+
+\subsubsection*{Question b) Impulsion reçue par le boulet}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $v_i = 0$, $v_f = \qty{\v{v}}{m/s}$ ; variable recherchée : $J$
+    \item \textbf{Équations pertinentes :} \[ J = \Delta p = m v_f - m v_i \]
+    \item \textbf{Isolation de la variable recherchée :} \[ J = m v \]
+    \item \textbf{Résolution numérique :} \[ J = \num{\v{m}} \cdot \num{\v{v}} = \Res{\vsi{m}*\vsi{v}}{kg.m/s} \]
+    \item \textbf{Réponse :} $J = \mathbf{\Res{\vsi{m}*\vsi{v}}{kg.m/s}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Énergie cinétique fournie}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m$, $v$, $M$, $V = \Res{\v{m}*\v{v}/\v{M}}{m/s}$ ; variable recherchée : $K$
+    \item \textbf{Équations pertinentes :} \[ K = \tfrac{1}{2} m v^2 + \tfrac{1}{2} M V^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ K = \tfrac{1}{2} \cdot \num{\v{m}} \cdot (\num{\v{v}})^2 + \tfrac{1}{2} \cdot \num{\v{M}} \cdot (\Val{\v{m}*\v{v}/\v{M}})^2 = \Res{\vsi{m}*\vsi{v}^2/2 + \vsi{M}*(\vsi{m}*\vsi{v}/\vsi{M})^2/2}{J} \]
+    \item \textbf{Réponse :} $K = \mathbf{\Res{\vsi{m}*\vsi{v}^2/2 + \vsi{M}*(\vsi{m}*\vsi{v}/\vsi{M})^2/2}{J}}$
+\end{enumerate}

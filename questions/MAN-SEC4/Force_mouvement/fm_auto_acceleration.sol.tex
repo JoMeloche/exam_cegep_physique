@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = 0$, $v_f = \qty{\v{v}}{km/h} = \Res{\vsi{v}}{m/s}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} \[ a = \frac{v_f - v_i}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ a = \frac{\Val{\vsi{v}} - 0}{\num{\v{t}}} = \Res{\vsi{v}/\vsi{t}}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{\vsi{v}/\vsi{t}}{m/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Force résultante}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m = \qty{\v{m}}{kg}$, $a = \Res{\vsi{v}/\v{t}}{m/s^2}$ ; variable recherchée : $F_R$
+    \item \textbf{Équations pertinentes :} \[ F_R = m\,a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ F_R = \num{\v{m}} \cdot \Val{\vsi{v}/\v{t}} = \Res{\vsi{m}*\vsi{v}/\vsi{t}}{N} \]
+    \item \textbf{Réponse :} $F_R = \mathbf{\Res{\vsi{m}*\vsi{v}/\vsi{t}}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Distance parcourue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = 0$, $v_f = \Res{\vsi{v}}{m/s}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $d$
+    \item \textbf{Équations pertinentes :} \[ d = \frac{v_i + v_f}{2}\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ d = \frac{0 + \Val{\vsi{v}}}{2} \cdot \num{\v{t}} = \Res{\vsi{v}*\vsi{t}/2}{m} \]
+    \item \textbf{Réponse :} $d = \mathbf{\Res{\vsi{v}*\vsi{t}/2}{m}}$
+\end{enumerate}

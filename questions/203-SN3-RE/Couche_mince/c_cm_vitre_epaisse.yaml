@@ -1,0 +1,15 @@
+title: 'Pas de couleurs dans une vitre épaisse'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Avec $2nt \approx \qty{15}{mm}$, la condition de maximum est remplie pour un très grand nombre de longueurs d''onde voisines dans le visible ; leurs franges se brouillent (la cohérence de la lumière blanche est aussi bien plus courte).'
+choices:
+  - 'Le verre absorbe toutes les couleurs sauf le blanc'
+  - 'Il n''y a pas de déphasage à la réflexion sur le verre'
+  - 'La différence de marche est énorme : les maximums de très nombreuses longueurs d''onde se superposent et le reflet paraît blanc'
+  - 'Une vitre ne réfléchit pas la lumière'

@@ -1,0 +1,18 @@
+title: 'Champ autour d''une sphère conductrice chargée'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  Q: {type: integer, min: 5, max: 50, step: 1, unit: \nano\coulomb, si: 1e-9, label: Charge de la sphère}
+  R: {type: integer, min: 5, max: 20, step: 1, unit: cm, si: 0.01, label: Rayon de la sphère}
+  r: {type: integer, min: 30, max: 100, step: 5, unit: cm, si: 0.01, label: Distance au centre}
+constraints: []
+solution:
+  mode: manual
+  file: ce_sphere_conductrice.sol.tex
+  parts:
+    a: {expr: 'Q/(4*pi*R**2)', unit: 'C/m^2', label: 'Densité surfacique de charge'}
+    b: {expr: '8.99e9*Q/R**2', unit: 'N/C', label: 'Champ à la surface'}
+    c: {expr: '8.99e9*Q/r**2', unit: 'N/C', label: 'Champ à la distance donnée'}

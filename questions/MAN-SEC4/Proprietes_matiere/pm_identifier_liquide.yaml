@@ -1,0 +1,18 @@
+title: 'Masse volumique d''un liquide inconnu'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  m0: {type: integer, min: 80, max: 120, step: 1, unit: g, label: Masse du cylindre vide}
+  V: {type: integer, min: 50, max: 100, step: 5, unit: mL, label: Volume de liquide}
+  rho: {type: choice, values: [0.79, 0.88, 1.00, 1.03, 1.26], unit: g/mL, label: Masse volumique du liquide}
+constraints: []
+solution:
+  mode: manual
+  file: pm_identifier_liquide.sol.tex
+  parts:
+    a: {expr: 'rho*V', unit: 'g', label: 'Masse du liquide'}
+    b: {expr: 'rho', unit: 'g/mL', label: 'Masse volumique'}
+    c: {expr: 'rho*2.5', unit: 'kg', label: 'Masse de 2,5 L'}

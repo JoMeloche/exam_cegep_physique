@@ -1,0 +1,15 @@
+title: 'Spire immobile dans un champ intense'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Loi de Faraday : $\mathcal{E} = -\mathrm{d}\Phi_B/\mathrm{d}t$. Un flux constant, même grand, n''induit rien.'
+choices:
+  - 'Elle est très grande, car le champ est intense'
+  - 'Elle est nulle, car le flux ne varie pas'
+  - 'Elle est proportionnelle au champ'
+  - 'Elle est alternative'

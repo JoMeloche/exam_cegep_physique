@@ -1,0 +1,15 @@
+title: 'Charge de deux condensateurs en parallèle'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'En parallèle, les deux ont la même tension $\Delta V$ ; $Q = C\,\Delta V$ est donc proportionnelle à la capacité.'
+choices:
+  - 'Celui de capacité $C$'
+  - 'Celui de capacité $2C$, qui porte deux fois plus de charge'
+  - 'Ils portent la même charge'
+  - 'Celui de capacité $2C$, qui porte quatre fois plus de charge'

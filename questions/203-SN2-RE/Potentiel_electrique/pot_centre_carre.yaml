@@ -1,0 +1,18 @@
+title: 'Potentiel au centre d''un carré de charges'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+variables:
+  q: {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: \nano\coulomb, si: 1e-9, label: Charge de référence}
+  a: {type: integer, min: 10, max: 40, step: 2, unit: cm, si: 0.01, label: Côté du carré}
+  q0: {type: decimal, min: 1.0, max: 5.0, step: 0.5, unit: \nano\coulomb, si: 1e-9, label: Charge déplacée}
+constraints: []
+solution:
+  mode: manual
+  file: pot_centre_carre.sol.tex
+  parts:
+    a: {expr: 'a/sqrt(2)', unit: 'm', label: 'Distance centre-coin'}
+    b: {expr: '-8.99e9*q/(a/sqrt(2))', unit: 'V', label: 'Potentiel au centre'}
+    c: {expr: '-q0*8.99e9*q/(a/sqrt(2))', unit: 'J', label: 'Travail de l''agent extérieur'}

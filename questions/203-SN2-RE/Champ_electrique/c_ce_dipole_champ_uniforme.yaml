@@ -1,0 +1,15 @@
+title: 'Dipôle dans un champ uniforme'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les forces sur $+q$ et $-q$ sont égales et opposées (somme nulle) mais ne sont pas sur la même ligne d''action : elles forment un couple.'
+choices:
+  - 'Une force résultante nulle et un moment de force qui tend à l''aligner avec le champ'
+  - 'Une force résultante dans le sens du champ et aucun moment de force'
+  - 'Une force résultante nulle et aucun moment de force'
+  - 'Une force résultante dans le sens contraire du champ'

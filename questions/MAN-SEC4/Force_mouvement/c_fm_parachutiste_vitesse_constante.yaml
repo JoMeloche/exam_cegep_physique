@@ -1,0 +1,15 @@
+title: 'Parachutiste à vitesse constante'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Vitesse constante signifie accélération nulle : la résistance de l''air compense exactement le poids (première loi de Newton).'
+choices:
+  - 'Elle est vers le bas et égale à son poids'
+  - 'Elle est nulle'
+  - 'Elle est vers le haut'
+  - 'Elle augmente à mesure qu''il descend'

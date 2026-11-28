@@ -1,0 +1,18 @@
+title: 'Plongeon d''un tremplin'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  m: {type: integer, min: 45, max: 80, step: 5, unit: kg, label: Masse de la plongeuse}
+  h: {type: decimal, min: 3.0, max: 10.0, step: 0.5, unit: m, label: Hauteur du tremplin}
+  v0: {type: decimal, min: 2.0, max: 5.0, step: 0.5, unit: m/s, label: Vitesse au départ}
+constraints: []
+solution:
+  mode: manual
+  file: em_plongeon_tremplin.sol.tex
+  parts:
+    a: {expr: 'm*9.81*h + m*v0**2/2', unit: 'J', label: 'Énergie mécanique'}
+    b: {expr: 'h + v0**2/(2*9.81)', unit: 'm', label: 'Hauteur maximale'}
+    c: {expr: 'sqrt(v0**2 + 2*9.81*h)', unit: 'm/s', label: 'Vitesse d''entrée dans l''eau'}

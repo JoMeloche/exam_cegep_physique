@@ -1,0 +1,15 @@
+title: 'Lequel a une accélération nulle ?'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Accélération nulle signifie que la vitesse ne change ni de grandeur ni de direction. Au sommet d''un lancer vertical, la vitesse est nulle mais l''accélération vaut toujours $g$.'
+choices:
+  - 'Une voiture qui roule à \qty{90}{km/h} en ligne droite sur l''autoroute'
+  - 'Une balle au sommet de sa trajectoire après un lancer vertical'
+  - 'Une voiture qui freine à un feu rouge'
+  - 'Un objet qu''on vient de lâcher du haut d''un pont'

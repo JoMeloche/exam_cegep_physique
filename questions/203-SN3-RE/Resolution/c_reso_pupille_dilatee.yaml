@@ -1,0 +1,15 @@
+title: 'Pupille dilatée et résolution'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'Critère de Rayleigh : $\theta_{\min} = 1{,}22\,\lambda/D$. Un diamètre $D$ plus grand donne un $\theta_{\min}$ plus petit (en pratique, les défauts de l''œil limitent souvent davantage).'
+choices:
+  - 'Elle se détériore : l''angle minimal augmente'
+  - 'Elle s''améliore : l''angle minimal de résolution diminue'
+  - 'Elle ne change pas'
+  - 'Elle dépend seulement de la couleur des yeux'

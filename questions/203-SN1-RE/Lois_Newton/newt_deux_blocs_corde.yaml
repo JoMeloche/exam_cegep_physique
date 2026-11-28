@@ -1,0 +1,19 @@
+title: 'Deux blocs reliés par une corde et tirés'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+variables:
+  m1: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: kg, label: Masse du bloc 1}
+  m2: {type: decimal, min: 2.0, max: 8.0, step: 0.5, unit: kg, label: Masse du bloc 2}
+  F: {type: integer, min: 10, max: 40, step: 2, unit: N, label: Force appliquée}
+  t: {type: decimal, min: 2.0, max: 5.0, step: 0.5, unit: s, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  file: newt_deux_blocs_corde.sol.tex
+  parts:
+    a: {expr: 'F/(m1 + m2)', unit: 'm/s^2', label: 'Accélération'}
+    b: {expr: 'm1*F/(m1 + m2)', unit: 'N', label: 'Tension dans la corde'}
+    c: {expr: 'F/(m1 + m2)*t**2/2', unit: 'm', label: 'Distance parcourue'}

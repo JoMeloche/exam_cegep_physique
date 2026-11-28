@@ -1,0 +1,15 @@
+title: 'Potentiel là où le champ est nul'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: '$E = -\mathrm{d}V/\mathrm{d}x$ : un champ nul signifie que la pente du potentiel est nulle, pas que $V = 0$ (ex. au milieu de deux charges positives égales, $E = 0$ mais $V > 0$).'
+choices:
+  - 'Il est nécessairement nul'
+  - 'Il est nécessairement maximal'
+  - 'Il est nécessairement négatif'
+  - 'Il peut avoir n''importe quelle valeur ; il ne varie simplement pas localement'

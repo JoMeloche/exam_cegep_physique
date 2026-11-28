@@ -1,0 +1,17 @@
+title: 'Force résultante au coin d''un carré'
+type: developpement
+points: 20
+time_min: 16
+difficulty: 3
+figures: []
+variables:
+  q: {type: decimal, min: 1.0, max: 6.0, step: 0.5, unit: \micro\coulomb, si: 1e-6, label: Charge à chaque coin}
+  a: {type: integer, min: 10, max: 40, step: 2, unit: cm, si: 0.01, label: Côté du carré}
+constraints: []
+solution:
+  mode: manual
+  file: coul_carre_quatre_charges.sol.tex
+  parts:
+    a: {expr: '8.99e9*q**2/a**2', unit: 'N', label: 'Force d''une charge adjacente'}
+    b: {expr: '8.99e9*q**2/(2*a**2)', unit: 'N', label: 'Force de la charge en diagonale'}
+    c: {expr: '8.99e9*q**2/a**2*(sqrt(2) + 0.5)', unit: 'N', label: 'Force résultante'}

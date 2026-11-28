@@ -1,0 +1,15 @@
+title: 'Travail de la gravité sur une orbite circulaire'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: 'La force gravitationnelle est perpendiculaire au déplacement en tout point : $W = F d \cos 90^\circ = 0$. D''ailleurs l''énergie cinétique ne change pas.'
+choices:
+  - 'Un travail positif'
+  - 'Un travail nul'
+  - 'Un travail négatif'
+  - 'Un travail égal à son énergie cinétique'

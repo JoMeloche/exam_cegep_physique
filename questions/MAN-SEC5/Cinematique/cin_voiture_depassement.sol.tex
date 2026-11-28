@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Vitesse finale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = \qty{\v{v1}}{km/h} = \Res{\vsi{v1}}{m/s}$, $a = \qty{\v{a}}{m/s^2}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $v_f$
+    \item \textbf{Équations pertinentes :} \[ v_f = v_i + a\,\Delta t \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ v_f = \Val{\vsi{v1}} + \num{\v{a}} \cdot \num{\v{t}} = \Res{\vsi{v1} + \vsi{a}*\vsi{t}}{m/s} \]
+    \item \textbf{Réponse :} $v_f = \mathbf{\Res{\vsi{v1} + \vsi{a}*\vsi{t}}{m/s}}$, soit \Res{(\vsi{v1} + \v{a}*\v{t})*3.6}{km/h}.
+\end{enumerate}
+
+\subsubsection*{Question b) Distance parcourue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_i = \Res{\vsi{v1}}{m/s}$, $a = \qty{\v{a}}{m/s^2}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $\Delta x$
+    \item \textbf{Équations pertinentes :} \[ \Delta x = v_i\,\Delta t + \tfrac{1}{2} a\,(\Delta t)^2 \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \Delta x = \Val{\vsi{v1}} \cdot \num{\v{t}} + \tfrac{1}{2} \cdot \num{\v{a}} \cdot (\num{\v{t}})^2 = \Res{\vsi{v1}*\vsi{t} + \vsi{a}*\vsi{t}^2/2}{m} \]
+    \item \textbf{Réponse :} $\Delta x = \mathbf{\Res{\vsi{v1}*\vsi{t} + \vsi{a}*\vsi{t}^2/2}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse moyenne}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta x = \Res{\vsi{v1}*\v{t} + \v{a}*\v{t}^2/2}{m}$, $\Delta t = \qty{\v{t}}{s}$ ; variable recherchée : $v_{\mathrm{moy}}$
+    \item \textbf{Équations pertinentes :} \[ v_{\mathrm{moy}} = \frac{\Delta x}{\Delta t} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ v_{\mathrm{moy}} = \frac{\Val{\vsi{v1}*\v{t} + \v{a}*\v{t}^2/2}}{\num{\v{t}}} = \Res{\vsi{v1} + \vsi{a}*\vsi{t}/2}{m/s} \]
+    \item \textbf{Réponse :} $v_{\mathrm{moy}} = \mathbf{\Res{\vsi{v1} + \vsi{a}*\vsi{t}/2}{m/s}}$
+\end{enumerate}

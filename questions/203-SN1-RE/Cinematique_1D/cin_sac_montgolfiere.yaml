@@ -1,0 +1,17 @@
+title: 'Sac de sable lâché d''une montgolfière qui monte'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  v0: {type: decimal, min: 2.0, max: 6.0, step: 0.5, unit: m/s, label: Vitesse de montée de la montgolfière}
+  h: {type: integer, min: 40, max: 120, step: 5, unit: m, label: Hauteur au moment du lâcher}
+constraints: []
+solution:
+  mode: manual
+  file: cin_sac_montgolfiere.sol.tex
+  parts:
+    a: {expr: 'h + v0**2/(2*9.81)', unit: 'm', label: 'Hauteur maximale'}
+    b: {expr: '(v0 + sqrt(v0**2 + 2*9.81*h))/9.81', unit: 's', label: 'Durée de la chute'}
+    c: {expr: 'sqrt(v0**2 + 2*9.81*h)', unit: 'm/s', label: 'Vitesse à l''impact'}

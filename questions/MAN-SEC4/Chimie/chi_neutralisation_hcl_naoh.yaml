@@ -1,0 +1,18 @@
+title: 'Neutralisation d''un acide par une base'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 3
+figures: []
+variables:
+  Ca: {type: decimal, min: 0.10, max: 0.50, step: 0.05, unit: mol/L, label: Concentration de l'acide}
+  Va: {type: integer, min: 20, max: 50, step: 5, unit: mL, si: 0.001, label: Volume d'acide}
+  Cb: {type: decimal, min: 0.10, max: 0.50, step: 0.05, unit: mol/L, label: Concentration de la base}
+constraints: []
+solution:
+  mode: manual
+  file: chi_neutralisation_hcl_naoh.sol.tex
+  parts:
+    a: {expr: 'Ca*Va', unit: 'mol', label: 'Moles d''acide'}
+    b: {expr: 'Ca*Va/Cb*1000', unit: 'mL', label: 'Volume de base'}
+    c: {expr: 'Ca*Va*58.44', unit: 'g', label: 'Masse de NaCl formée'}

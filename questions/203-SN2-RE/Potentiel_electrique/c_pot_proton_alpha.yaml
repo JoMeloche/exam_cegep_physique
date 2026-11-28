@@ -1,0 +1,15 @@
+title: 'Proton et particule alpha accélérés'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$K = |q|\,\Delta V$ ne dépend pas de la masse : la particule alpha, deux fois plus chargée, gagne deux fois plus d''énergie.'
+choices:
+  - '1/2'
+  - '1'
+  - '2'
+  - '4'

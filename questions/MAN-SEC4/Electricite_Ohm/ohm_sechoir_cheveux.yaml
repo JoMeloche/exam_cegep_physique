@@ -1,0 +1,17 @@
+title: 'Séchoir à cheveux'
+type: developpement
+points: 20
+time_min: 12
+difficulty: 2
+figures: []
+variables:
+  P: {type: integer, min: 1000, max: 1800, step: 100, unit: W, label: Puissance du séchoir}
+  tj: {type: integer, min: 5, max: 20, step: 5, unit: min, label: Durée d'utilisation par jour}
+constraints: []
+solution:
+  mode: manual
+  file: ohm_sechoir_cheveux.sol.tex
+  parts:
+    a: {expr: 'P/120', unit: 'A', label: 'Intensité du courant'}
+    b: {expr: '120**2/P', unit: 'ohm', label: 'Résistance'}
+    c: {expr: 'P/1000*tj/60*30', unit: 'kWh', label: 'Énergie consommée en 30 jours'}

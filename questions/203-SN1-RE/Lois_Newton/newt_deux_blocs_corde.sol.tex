@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Accélération}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_1 = \qty{\v{m1}}{kg}$, $m_2 = \qty{\v{m2}}{kg}$, $F = \qty{\v{F}}{N}$ ; variable recherchée : $a$
+    \item \textbf{Équations pertinentes :} les deux blocs ont la même accélération ; sur le système, seule $F$ est horizontale :\[ \sum F_x = (m_1 + m_2)\,a \implies F = (m_1 + m_2)\,a \]
+    \item \textbf{Isolation de la variable recherchée :} \[ a = \frac{F}{m_1 + m_2} \]
+    \item \textbf{Résolution numérique :} \[ a = \frac{\num{\v{F}}}{\num{\v{m1}} + \num{\v{m2}}} = \Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2} \]
+    \item \textbf{Réponse :} $a = \mathbf{\Res{\vsi{F}/(\vsi{m1} + \vsi{m2})}{m/s^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Tension dans la corde}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $m_1 = \qty{\v{m1}}{kg}$, $a = \Res{\v{F}/(\v{m1}+\v{m2})}{m/s^2}$ ; variable recherchée : $T$
+    \item \textbf{Équations pertinentes :} seule la tension tire le bloc 1 :\[ \sum F_x = m_1 a \implies T = m_1 a \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ T = \num{\v{m1}} \cdot \Val{\v{F}/(\v{m1}+\v{m2})} = \Res{\vsi{m1}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N} \]
+    \item \textbf{Réponse :} $T = \mathbf{\Res{\vsi{m1}*\vsi{F}/(\vsi{m1} + \vsi{m2})}{N}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Distance parcourue}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = 0$, $a = \Res{\v{F}/(\v{m1}+\v{m2})}{m/s^2}$, $t = \qty{\v{t}}{s}$ ; variable recherchée : $\Delta x$
+    \item \textbf{Équations pertinentes :} \[ \Delta x = v_0 t + \tfrac{1}{2} a t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \Delta x = \tfrac{1}{2} a t^2 \]
+    \item \textbf{Résolution numérique :} \[ \Delta x = \tfrac{1}{2} \cdot \Val{\v{F}/(\v{m1}+\v{m2})} \cdot (\num{\v{t}})^2 = \Res{\vsi{F}/(\vsi{m1} + \vsi{m2})*\vsi{t}^2/2}{m} \]
+    \item \textbf{Réponse :} $\Delta x = \mathbf{\Res{\vsi{F}/(\vsi{m1} + \vsi{m2})*\vsi{t}^2/2}{m}}$
+\end{enumerate}

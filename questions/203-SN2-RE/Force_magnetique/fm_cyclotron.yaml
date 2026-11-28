@@ -1,0 +1,17 @@
+title: 'Proton dans un cyclotron'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  B: {type: decimal, min: 0.5, max: 1.5, step: 0.1, unit: T, label: Champ magnétique}
+  R: {type: decimal, min: 0.3, max: 1.0, step: 0.1, unit: m, label: Rayon de sortie}
+constraints: []
+solution:
+  mode: manual
+  file: fm_cyclotron.sol.tex
+  parts:
+    a: {expr: '1.602e-19*B*R/1.673e-27', unit: 'm/s', label: 'Vitesse de sortie'}
+    b: {expr: '(1.602e-19*B*R)**2/(2*1.673e-27)/1.602e-19/1e6', unit: 'MeV', label: 'Énergie cinétique'}
+    c: {expr: '1.602e-19*B/(2*pi*1.673e-27)', unit: 'Hz', label: 'Fréquence du cyclotron'}

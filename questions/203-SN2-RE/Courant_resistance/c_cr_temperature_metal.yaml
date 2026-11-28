@@ -1,0 +1,15 @@
+title: 'Résistance d''un métal qui chauffe'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'La résistivité d''un métal croît avec la température : l''agitation thermique du réseau multiplie les collisions et réduit la mobilité des électrons.'
+choices:
+  - 'Elle diminue, car les électrons se déplacent plus vite'
+  - 'Elle ne change pas, car la résistance ne dépend que des dimensions du fil'
+  - 'Elle augmente, car les électrons entrent plus souvent en collision avec les ions du réseau'
+  - 'Elle devient nulle au-delà d''une certaine température'

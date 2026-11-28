@@ -1,0 +1,15 @@
+title: 'Forces sur une balle qui monte'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: D
+explanation: 'Une fois la balle lâchée, la main n''agit plus : seule la gravité s''exerce. C''est pour cela que la balle ralentit en montant ($a = g$ vers le bas).'
+choices:
+  - 'Son poids vers le bas et la force du lancer vers le haut'
+  - 'Une force vers le haut plus grande que le poids'
+  - 'Aucune force, puisqu''elle ralentit'
+  - 'Seulement son poids, vers le bas'

@@ -1,0 +1,15 @@
+title: 'Énergie du photon diffusé'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Conservation de l''énergie : $E_{\gamma} = E_{\gamma''} + K_e$. La longueur d''onde diffusée est plus grande ($\Delta\lambda \geq 0$), donc l''énergie plus petite.'
+choices:
+  - 'Elle est plus petite : l''électron a reçu la différence sous forme d''énergie cinétique'
+  - 'Elle est plus grande'
+  - 'Elle est égale, seule sa direction change'
+  - 'Elle est nulle : le photon est absorbé'

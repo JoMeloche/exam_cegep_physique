@@ -1,0 +1,18 @@
+title: 'Voiture qui accélère sur une piste circulaire'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  R: {type: integer, min: 50, max: 200, step: 10, unit: m, label: Rayon de la piste}
+  at: {type: decimal, min: 1.0, max: 3.0, step: 0.2, unit: m/s^2, label: Accélération tangentielle}
+  t: {type: decimal, min: 4.0, max: 10.0, step: 0.5, unit: s, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  file: circ_piste_acceleration.sol.tex
+  parts:
+    a: {expr: 'at*t', unit: 'm/s', label: 'Vitesse'}
+    b: {expr: '(at*t)**2/R', unit: 'm/s^2', label: 'Accélération centripète'}
+    c: {expr: 'sqrt(at**2 + ((at*t)**2/R)**2)', unit: 'm/s^2', label: 'Accélération totale'}

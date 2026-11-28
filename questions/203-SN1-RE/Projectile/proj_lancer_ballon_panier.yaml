@@ -1,0 +1,18 @@
+title: 'Ballon lancé vers le panier'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 2
+figures: []
+variables:
+  v0: {type: decimal, min: 7.0, max: 10.0, step: 0.5, unit: m/s, label: Vitesse initiale}
+  th: {type: integer, min: 40, max: 60, step: 5, unit: \degree, label: Angle de lancer}
+  h0: {type: decimal, min: 1.8, max: 2.2, step: 0.1, unit: m, label: Hauteur de lancer}
+constraints: []
+solution:
+  mode: manual
+  file: proj_lancer_ballon_panier.sol.tex
+  parts:
+    a: {expr: 'v0*sin(rad(th))/9.81', unit: 's', label: 'Temps de montée'}
+    b: {expr: 'h0 + (v0*sin(rad(th)))**2/(2*9.81)', unit: 'm', label: 'Hauteur du sommet'}
+    c: {expr: 'v0*cos(rad(th))', unit: 'm/s', label: 'Vitesse au sommet'}

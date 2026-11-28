@@ -1,0 +1,15 @@
+title: 'Cadre suspendu à un clou'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À l''équilibre, le moment de force du poids autour du clou doit être nul : la ligne d''action du poids passe par le clou, donc le centre de masse est sur la verticale du point de suspension (en dessous, pour un équilibre stable).'
+choices:
+  - 'Directement au-dessus du point de suspension'
+  - 'Au centre géométrique du cadre, peu importe le point'
+  - 'Directement sous le point de suspension'
+  - 'À la même hauteur que le point de suspension'

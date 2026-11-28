@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Courant}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\mathcal{E} = \qty{\v{E}}{V}$, $R_1 = \qty{\vsi{R1}}{\ohm}$, $R_2 = \qty{\vsi{R2}}{\ohm}$ ; variable recherchée : $I$
+    \item \textbf{Équations pertinentes :} \[ \mathcal{E} = I\,(R_1 + R_2) \]
+    \item \textbf{Isolation de la variable recherchée :} \[ I = \frac{\mathcal{E}}{R_1 + R_2} \]
+    \item \textbf{Résolution numérique :} \[ I = \frac{\num{\v{E}}}{\num{\vsi{R1}} + \num{\vsi{R2}}} = \ResSci{\vsi{E}/(\vsi{R1} + \vsi{R2})}{A} \]
+    \item \textbf{Réponse :} $I = \mathbf{\ResSci{\vsi{E}/(\vsi{R1} + \vsi{R2})}{A}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Tension aux bornes de R2}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $I = \ResSci{\v{E}/(\vsi{R1}+\vsi{R2})}{A}$, $R_2 = \qty{\vsi{R2}}{\ohm}$ ; variable recherchée : $\Delta V_2$
+    \item \textbf{Équations pertinentes :} \[ \Delta V_2 = R_2\,I \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \Delta V_2 = \num{\vsi{R2}} \cdot \ResSci{\v{E}/(\vsi{R1}+\vsi{R2})}{A} = \Res{\vsi{E}*\vsi{R2}/(\vsi{R1} + \vsi{R2})}{V} \]
+    \item \textbf{Réponse :} $\Delta V_2 = \mathbf{\Res{\vsi{E}*\vsi{R2}/(\vsi{R1} + \vsi{R2})}{V}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Lecture du voltmètre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $R_v = \qty{\vsi{Rv}}{\ohm}$ en parallèle avec $R_2$ ; variable recherchée : $\Delta V_2'$
+    \item \textbf{Équations pertinentes :} le voltmètre en parallèle avec $R_2$ forme une résistance équivalente $R_p$, en série avec $R_1$ :\[ R_p = \frac{R_2 R_v}{R_2 + R_v}, \qquad \Delta V_2' = \mathcal{E}\,\frac{R_p}{R_1 + R_p} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \Delta V_2' = \num{\v{E}} \cdot \frac{\Val{\vsi{R2}*\vsi{Rv}/(\vsi{R2}+\vsi{Rv})}}{\num{\vsi{R1}} + \Val{\vsi{R2}*\vsi{Rv}/(\vsi{R2}+\vsi{Rv})}} = \Res{\vsi{E}*(\vsi{R2}*\vsi{Rv}/(\vsi{R2} + \vsi{Rv}))/(\vsi{R1} + \vsi{R2}*\vsi{Rv}/(\vsi{R2} + \vsi{Rv}))}{V} \]
+    \item \textbf{Réponse :} $\Delta V_2' = \mathbf{\Res{\vsi{E}*(\vsi{R2}*\vsi{Rv}/(\vsi{R2} + \vsi{Rv}))/(\vsi{R1} + \vsi{R2}*\vsi{Rv}/(\vsi{R2} + \vsi{Rv}))}{V}}$ : un peu moins que la vraie valeur, car le voltmètre dérive une partie du courant.
+\end{enumerate}

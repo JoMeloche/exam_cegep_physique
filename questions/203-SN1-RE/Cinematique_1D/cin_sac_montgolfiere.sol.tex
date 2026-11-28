@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Hauteur maximale}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $y_0 = \qty{\v{h}}{m}$, $v_0 = \qty{\v{v0}}{m/s}$ (le sac garde la vitesse de la montgolfière), $v = 0$ au sommet, $a = -g$ ; variable recherchée : $y_{\max}$
+    \item \textbf{Équations pertinentes :} \[ v^2 = v_0^2 - 2g\,(y_{\max} - y_0) \]
+    \item \textbf{Isolation de la variable recherchée :} \[ y_{\max} = y_0 + \frac{v_0^2}{2g} \]
+    \item \textbf{Résolution numérique :} \[ y_{\max} = \num{\v{h}} + \frac{(\num{\v{v0}})^2}{2 \cdot \num{9.81}} = \Res{\vsi{h} + \vsi{v0}^2/(2*9.81)}{m} \]
+    \item \textbf{Réponse :} $y_{\max} = \mathbf{\Res{\vsi{h} + \vsi{v0}^2/(2*9.81)}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Durée de la chute}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $y_0 = \qty{\v{h}}{m}$, $y = 0$, $v_0 = \qty{\v{v0}}{m/s}$ vers le haut, $a = -g$ ; variable recherchée : $t$
+    \item \textbf{Équations pertinentes :} \[ 0 = y_0 + v_0 t - \tfrac{1}{2} g t^2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ t = \frac{v_0 + \sqrt{v_0^2 + 2 g y_0}}{g} \quad \text{(racine positive)} \]
+    \item \textbf{Résolution numérique :} \[ t = \frac{\num{\v{v0}} + \sqrt{(\num{\v{v0}})^2 + 2 \cdot \num{9.81} \cdot \num{\v{h}}}}{\num{9.81}} = \Res{(\vsi{v0} + sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h}))/9.81}{s} \]
+    \item \textbf{Réponse :} $t = \mathbf{\Res{(\vsi{v0} + sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h}))/9.81}{s}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Vitesse à l'impact}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $v_0 = \qty{\v{v0}}{m/s}$, $\Delta y = -\qty{\v{h}}{m}$, $a = -g$ ; variable recherchée : $|v|$
+    \item \textbf{Équations pertinentes :} \[ v^2 = v_0^2 - 2g\,\Delta y \]
+    \item \textbf{Isolation de la variable recherchée :} \[ |v| = \sqrt{v_0^2 + 2 g h} \]
+    \item \textbf{Résolution numérique :} \[ |v| = \sqrt{(\num{\v{v0}})^2 + 2 \cdot \num{9.81} \cdot \num{\v{h}}} = \Res{sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h})}{m/s} \]
+    \item \textbf{Réponse :} $|v| = \mathbf{\Res{sqrt(\vsi{v0}^2 + 2*9.81*\vsi{h})}{m/s}}$, vers le bas.
+\end{enumerate}

@@ -1,0 +1,15 @@
+title: 'Glande qui sécrète l''insuline'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Le pancréas sécrète l''insuline, qui favorise l''entrée du glucose dans les cellules et son stockage dans le foie.'
+choices:
+  - 'Le pancréas'
+  - 'La glande thyroïde'
+  - 'L''hypophyse'
+  - 'Les glandes surrénales'

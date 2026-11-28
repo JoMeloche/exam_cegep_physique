@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Distance centre-coin}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $a = \qty{\vsi{a}}{m}$ ; variable recherchée : $r$
+    \item \textbf{Équations pertinentes :} c'est la moitié de la diagonale :\[ r = \frac{a\sqrt{2}}{2} = \frac{a}{\sqrt{2}} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ r = \frac{\num{\vsi{a}}}{\sqrt{2}} = \Res{\vsi{a}/sqrt(2)}{m} \]
+    \item \textbf{Réponse :} $r = \mathbf{\Res{\vsi{a}/sqrt(2)}{m}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Potentiel au centre}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $r = \Res{\vsi{a}/sqrt(2)}{m}$ pour les quatre charges, $q = \qty{\v{q}e-9}{C}$ ; variable recherchée : $V$
+    \item \textbf{Équations pertinentes :} le potentiel est un scalaire : on additionne les contributions, toutes à la même distance :\[ V = \frac{k}{r}\left(q + q - q - 2q\right) \]
+    \item \textbf{Isolation de la variable recherchée :} \[ V = -\frac{kq}{r} \]
+    \item \textbf{Résolution numérique :} \[ V = -\frac{\num{8.99e9} \cdot \num{\v{q}e-9}}{\Val{\vsi{a}/sqrt(2)}} = \Res{-8.99e9*\vsi{q}/(\vsi{a}/sqrt(2))}{V} \]
+    \item \textbf{Réponse :} $V = \mathbf{\Res{-8.99e9*\vsi{q}/(\vsi{a}/sqrt(2))}{V}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Travail de l'agent extérieur}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $q_0 = \qty{\v{q0}e-9}{C}$, $V_\infty = 0$, $V = \Res{-8.99e9*\v{q}e-9/(\vsi{a}/sqrt(2))}{V}$ ; variable recherchée : $W$
+    \item \textbf{Équations pertinentes :} \[ W = \Delta U = q_0\,(V - V_\infty) \]
+    \item \textbf{Isolation de la variable recherchée :} \[ W = q_0 V \]
+    \item \textbf{Résolution numérique :} \[ W = \num{\v{q0}e-9} \cdot \Val{-8.99e9*\v{q}e-9/(\vsi{a}/sqrt(2))} = \ResSci{-\vsi{q0}*8.99e9*\vsi{q}/(\vsi{a}/sqrt(2))}{J} \]
+    \item \textbf{Réponse :} $W = \mathbf{\ResSci{-\vsi{q0}*8.99e9*\vsi{q}/(\vsi{a}/sqrt(2))}{J}}$ : le travail est négatif, la charge positive est attirée vers le centre.
+\end{enumerate}

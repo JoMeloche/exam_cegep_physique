@@ -1,0 +1,15 @@
+title: 'Métal au travail d''extraction plus grand'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$K_{\max} = hf - \phi$ : à $hf$ égal, un $\phi$ plus grand laisse moins d''énergie aux électrons.'
+choices:
+  - 'Elle est plus grande'
+  - 'Elle est la même, puisque la lumière est la même'
+  - 'Elle est plus petite'
+  - 'Elle est nulle'

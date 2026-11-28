@@ -1,0 +1,19 @@
+title: 'Capacité d''un câble coaxial'
+type: developpement
+points: 20
+time_min: 14
+difficulty: 3
+figures: []
+variables:
+  L: {type: integer, min: 2, max: 20, step: 1, unit: m, label: Longueur du câble}
+  ra: {type: decimal, min: 0.5, max: 1.0, step: 0.1, unit: mm, si: 0.001, label: Rayon du conducteur central}
+  rb: {type: decimal, min: 2.0, max: 5.0, step: 0.5, unit: mm, si: 0.001, label: Rayon intérieur de la gaine}
+  V: {type: integer, min: 50, max: 500, step: 25, unit: V, label: Différence de potentiel}
+constraints: []
+solution:
+  mode: manual
+  file: cond_cable_coaxial.sol.tex
+  parts:
+    a: {expr: '2*pi*8.85e-12*L/log(rb/ra)', unit: 'F', label: 'Capacité'}
+    b: {expr: '2*pi*8.85e-12*L/log(rb/ra)*V', unit: 'C', label: 'Charge du conducteur central'}
+    c: {expr: 'pi*8.85e-12*L/log(rb/ra)*V**2', unit: 'J', label: 'Énergie emmagasinée'}

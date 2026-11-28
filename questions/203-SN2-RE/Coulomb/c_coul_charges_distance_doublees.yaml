@@ -1,0 +1,15 @@
+title: 'Charges et distance doublées'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: B
+explanation: '$F'' = k(2q_1)(2q_2)/(2r)^2 = 4/4 \cdot F = F$.'
+choices:
+  - '$F/2$'
+  - '$F$'
+  - '$2F$'
+  - '$4F$'

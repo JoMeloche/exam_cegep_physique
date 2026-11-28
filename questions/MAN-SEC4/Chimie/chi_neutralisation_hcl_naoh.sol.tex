@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Moles d'acide}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $C = \qty{\v{Ca}}{mol/L}$, $V = \qty{\v{Va}}{mL} = \qty{\vsi{Va}}{L}$ ; variable recherchée : $n$
+    \item \textbf{Équations pertinentes :} \[ C = \frac{n}{V} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ n = C\,V \]
+    \item \textbf{Résolution numérique :} \[ n_{\mathrm{HCl}} = \num{\v{Ca}} \cdot \num{\vsi{Va}} = \Res{\vsi{Ca}*\vsi{Va}}{mol} \]
+    \item \textbf{Réponse :} $n_{\mathrm{HCl}} = \mathbf{\Res{\vsi{Ca}*\vsi{Va}}{mol}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Volume de base}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_{\mathrm{HCl}} = \Res{\v{Ca}*\vsi{Va}}{mol}$, $C_{\mathrm{NaOH}} = \qty{\v{Cb}}{mol/L}$ ; variable recherchée : $V_{\mathrm{NaOH}}$
+    \item \textbf{Équations pertinentes :} la réaction se fait mole pour mole, donc $n_{\mathrm{NaOH}} = n_{\mathrm{HCl}}$ :\[ C_{\mathrm{NaOH}} = \frac{n_{\mathrm{NaOH}}}{V_{\mathrm{NaOH}}} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ V_{\mathrm{NaOH}} = \frac{n_{\mathrm{HCl}}}{C_{\mathrm{NaOH}}} \]
+    \item \textbf{Résolution numérique :} \[ V_{\mathrm{NaOH}} = \frac{\Val{\v{Ca}*\vsi{Va}}}{\num{\v{Cb}}} = \Res{\v{Ca}*\vsi{Va}/\v{Cb}}{L} = \Res{\vsi{Ca}*\vsi{Va}/\vsi{Cb}*1000}{mL} \]
+    \item \textbf{Réponse :} $V_{\mathrm{NaOH}} = \mathbf{\Res{\vsi{Ca}*\vsi{Va}/\vsi{Cb}*1000}{mL}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Masse de NaCl formée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $n_{\mathrm{NaCl}} = n_{\mathrm{HCl}} = \Res{\v{Ca}*\vsi{Va}}{mol}$, $M = \qty{58.44}{g/mol}$ ; variable recherchée : $m$
+    \item \textbf{Équations pertinentes :} \[ M = \frac{m}{n} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ m = n\,M \]
+    \item \textbf{Résolution numérique :} \[ m = \Val{\v{Ca}*\vsi{Va}} \cdot \num{58.44} = \Res{\vsi{Ca}*\vsi{Va}*58.44}{g} \]
+    \item \textbf{Réponse :} $m = \mathbf{\Res{\vsi{Ca}*\vsi{Va}*58.44}{g}}$
+\end{enumerate}

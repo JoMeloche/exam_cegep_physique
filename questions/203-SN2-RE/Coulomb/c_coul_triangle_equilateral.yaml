@@ -1,0 +1,15 @@
+title: 'Force résultante dans un triangle équilatéral'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les deux autres charges la repoussent ; les composantes horizontales s''annulent et les composantes verticales s''additionnent vers le haut.'
+choices:
+  - 'Vers le haut, en s''éloignant du centre du triangle'
+  - 'Vers le bas, vers le centre du triangle'
+  - 'Horizontale'
+  - 'Elle est nulle'

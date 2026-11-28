@@ -1,0 +1,15 @@
+title: 'Fil parallèle au champ magnétique'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 1
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: '$F = I L B \sin\theta$ avec $\theta = 0$ : la force est nulle.'
+choices:
+  - 'Elle est maximale'
+  - 'Elle est perpendiculaire au fil et non nulle'
+  - 'Elle est nulle'
+  - 'Elle est parallèle au champ'

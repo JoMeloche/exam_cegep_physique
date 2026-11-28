@@ -1,0 +1,15 @@
+title: 'Pente d''un graphique tension-courant'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'Loi d''Ohm : $U = R\,I$. La pente $\Delta U / \Delta I$ est la résistance.'
+choices:
+  - 'La puissance dissipée'
+  - 'L''énergie consommée'
+  - 'La résistance du résistor'
+  - 'La charge électrique'

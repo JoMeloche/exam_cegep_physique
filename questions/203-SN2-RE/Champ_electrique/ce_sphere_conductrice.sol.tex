@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Densité surfacique de charge}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $R = \qty{\vsi{R}}{m}$ ; variable recherchée : $\sigma$
+    \item \textbf{Équations pertinentes :} la charge se répartit uniformément sur la surface :\[ \sigma = \frac{Q}{4\pi R^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ \sigma = \frac{\num{\v{Q}e-9}}{4\pi (\num{\vsi{R}})^2} = \ResSci{\vsi{Q}/(4*pi*\vsi{R}^2)}{C/m^2} \]
+    \item \textbf{Réponse :} $\sigma = \mathbf{\ResSci{\vsi{Q}/(4*pi*\vsi{R}^2)}{C/m^2}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Champ à la surface}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $R = \qty{\vsi{R}}{m}$ ; variable recherchée : $E_R$
+    \item \textbf{Équations pertinentes :} par le théorème de Gauss, à l'extérieur la sphère agit comme une charge ponctuelle au centre :\[ E = \frac{kQ}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ E_R = \frac{kQ}{R^2} \]
+    \item \textbf{Résolution numérique :} \[ E_R = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9}}{(\num{\vsi{R}})^2} = \Res{8.99e9*\vsi{Q}/\vsi{R}^2}{N/C} \]
+    \item \textbf{Réponse :} $E_R = \mathbf{\Res{8.99e9*\vsi{Q}/\vsi{R}^2}{N/C}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Champ à la distance donnée}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $Q = \qty{\v{Q}e-9}{C}$, $r = \qty{\vsi{r}}{m} > R$ ; variable recherchée : $E$
+    \item \textbf{Équations pertinentes :} \[ E = \frac{kQ}{r^2} \]
+    \item \textbf{Isolation de la variable recherchée :} l'équation est déjà isolée.
+    \item \textbf{Résolution numérique :} \[ E = \frac{\num{8.99e9} \cdot \num{\v{Q}e-9}}{(\num{\vsi{r}})^2} = \Res{8.99e9*\vsi{Q}/\vsi{r}^2}{N/C} \]
+    \item \textbf{Réponse :} $E = \mathbf{\Res{8.99e9*\vsi{Q}/\vsi{r}^2}{N/C}}$, dirigé radialement vers l'extérieur.
+\end{enumerate}

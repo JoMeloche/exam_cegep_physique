@@ -1,0 +1,15 @@
+title: 'Champ d''une sphère chargée à deux rayons'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 2
+figures: []
+variables: {}
+solution: {mode: none}
+answer: C
+explanation: 'À l''extérieur, la sphère se comporte comme une charge ponctuelle au centre : $E \propto 1/r^2$, donc doubler $r$ divise le champ par 4.'
+choices:
+  - '$E$'
+  - '$E/2$'
+  - '$E/4$'
+  - 'Zéro'

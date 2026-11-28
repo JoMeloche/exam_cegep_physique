@@ -1,0 +1,15 @@
+title: 'Nombre d''ordres avec de la lumière rouge'
+type: conceptuel
+points: 4
+time_min: 4
+difficulty: 3
+figures: []
+variables: {}
+solution: {mode: none}
+answer: A
+explanation: 'Les maximums existent pour $\sin\theta = m\lambda/d \leq 1$, soit $m \leq d/\lambda$. Une longueur d''onde plus grande donne un $m_{\max}$ plus petit ou égal.'
+choices:
+  - 'Il diminue ou reste le même'
+  - 'Il augmente'
+  - 'Il double'
+  - 'Il devient infini'

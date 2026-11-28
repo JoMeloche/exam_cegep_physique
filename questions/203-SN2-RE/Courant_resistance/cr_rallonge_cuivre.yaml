@@ -1,0 +1,18 @@
+title: 'Rallonge électrique en cuivre'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  L: {type: integer, min: 5, max: 50, step: 5, unit: m, label: Longueur de chaque fil}
+  D: {type: decimal, min: 0.8, max: 2.0, step: 0.1, unit: mm, si: 0.001, label: Diamètre du fil}
+  I: {type: integer, min: 2, max: 15, step: 1, unit: A, label: Courant}
+constraints: []
+solution:
+  mode: manual
+  file: cr_rallonge_cuivre.sol.tex
+  parts:
+    a: {expr: '1.68e-8*L/(pi*D**2/4)', unit: 'ohm', label: 'Résistance d''un fil'}
+    b: {expr: 'I*2*1.68e-8*L/(pi*D**2/4)', unit: 'V', label: 'Chute de tension'}
+    c: {expr: 'I**2*2*1.68e-8*L/(pi*D**2/4)', unit: 'W', label: 'Puissance dissipée'}

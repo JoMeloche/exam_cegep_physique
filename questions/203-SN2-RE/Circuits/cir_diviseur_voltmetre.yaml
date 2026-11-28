@@ -1,0 +1,19 @@
+title: 'Diviseur de tension mesuré par un voltmètre'
+type: developpement
+points: 20
+time_min: 15
+difficulty: 3
+figures: []
+variables:
+  E: {type: integer, min: 9, max: 24, step: 1, unit: V, label: F.é.m. de la source}
+  R1: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: \kilo\ohm, si: 1000, label: Résistance R1}
+  R2: {type: decimal, min: 1.0, max: 10.0, step: 0.5, unit: \kilo\ohm, si: 1000, label: Résistance R2}
+  Rv: {type: integer, min: 5, max: 50, step: 5, unit: \kilo\ohm, si: 1000, label: Résistance du voltmètre}
+constraints: []
+solution:
+  mode: manual
+  file: cir_diviseur_voltmetre.sol.tex
+  parts:
+    a: {expr: 'E/(R1 + R2)', unit: 'A', label: 'Courant'}
+    b: {expr: 'E*R2/(R1 + R2)', unit: 'V', label: 'Tension aux bornes de R2'}
+    c: {expr: 'E*(R2*Rv/(R2 + Rv))/(R1 + R2*Rv/(R2 + Rv))', unit: 'V', label: 'Lecture du voltmètre'}

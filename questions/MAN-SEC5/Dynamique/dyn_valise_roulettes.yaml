@@ -1,0 +1,19 @@
+title: 'Valise à roulettes tirée avec un angle'
+type: developpement
+points: 20
+time_min: 13
+difficulty: 2
+figures: []
+variables:
+  F: {type: integer, min: 20, max: 60, step: 5, unit: N, label: Force exercée sur la poignée}
+  th: {type: integer, min: 25, max: 55, step: 5, unit: \degree, label: Angle de la poignée}
+  m: {type: integer, min: 12, max: 25, step: 1, unit: kg, label: Masse de la valise}
+  t: {type: decimal, min: 2.0, max: 4.0, step: 0.5, unit: s, label: Durée}
+constraints: []
+solution:
+  mode: manual
+  file: dyn_valise_roulettes.sol.tex
+  parts:
+    a: {expr: 'F*cos(rad(th))', unit: 'N', label: 'Composante horizontale'}
+    b: {expr: 'F*cos(rad(th))/m', unit: 'm/s^2', label: 'Accélération'}
+    c: {expr: 'F*cos(rad(th))/m*t', unit: 'm/s', label: 'Vitesse atteinte'}

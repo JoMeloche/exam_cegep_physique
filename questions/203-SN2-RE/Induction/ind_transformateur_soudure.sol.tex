@@ -1,0 +1,30 @@
+\providecommand{\Res}[2]{\qty[round-mode=figures,round-precision=3]{\fpeval{#1}}{#2}}
+\providecommand{\Val}[1]{\num[round-mode=figures,round-precision=4]{\fpeval{#1}}}
+\providecommand{\ResSci}[2]{\qty[round-mode=figures,round-precision=3,exponent-mode=scientific]{\fpeval{#1}}{#2}}
+
+\subsubsection*{Question a) Tension au secondaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $\Delta V_1 = \qty{240}{V}$, $N_1 = \v{N1}$, $N_2 = \v{N2}$ ; variable recherchée : $\Delta V_2$
+    \item \textbf{Équations pertinentes :} \[ \frac{\Delta V_2}{\Delta V_1} = \frac{N_2}{N_1} \]
+    \item \textbf{Isolation de la variable recherchée :} \[ \Delta V_2 = \Delta V_1\,\frac{N_2}{N_1} \]
+    \item \textbf{Résolution numérique :} \[ \Delta V_2 = \num{240} \cdot \frac{\num{\v{N2}}}{\num{\v{N1}}} = \Res{240*\vsi{N2}/\vsi{N1}}{V} \]
+    \item \textbf{Réponse :} $\Delta V_2 = \mathbf{\Res{240*\vsi{N2}/\vsi{N1}}{V}}$
+\end{enumerate}
+
+\subsubsection*{Question b) Courant au secondaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $\Delta V_2 = \Res{240*\v{N2}/\v{N1}}{V}$ ; variable recherchée : $I_2$
+    \item \textbf{Équations pertinentes :} \[ P = \Delta V_2\,I_2 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ I_2 = \frac{P}{\Delta V_2} \]
+    \item \textbf{Résolution numérique :} \[ I_2 = \frac{\num{\v{P}}}{\Val{240*\v{N2}/\v{N1}}} = \Res{\vsi{P}/(240*\vsi{N2}/\vsi{N1})}{A} \]
+    \item \textbf{Réponse :} $I_2 = \mathbf{\Res{\vsi{P}/(240*\vsi{N2}/\vsi{N1})}{A}}$
+\end{enumerate}
+
+\subsubsection*{Question c) Courant au primaire}
+\begin{enumerate}[label=\arabic*)]
+    \item \textbf{Variables connues et recherchées :} $P = \qty{\v{P}}{W}$, $\Delta V_1 = \qty{240}{V}$ ; variable recherchée : $I_1$
+    \item \textbf{Équations pertinentes :} un transformateur idéal ne perd pas d'énergie, la puissance est la même au primaire :\[ P = \Delta V_1\,I_1 \]
+    \item \textbf{Isolation de la variable recherchée :} \[ I_1 = \frac{P}{\Delta V_1} \]
+    \item \textbf{Résolution numérique :} \[ I_1 = \frac{\num{\v{P}}}{\num{240}} = \Res{\vsi{P}/240}{A} \]
+    \item \textbf{Réponse :} $I_1 = \mathbf{\Res{\vsi{P}/240}{A}}$
+\end{enumerate}
