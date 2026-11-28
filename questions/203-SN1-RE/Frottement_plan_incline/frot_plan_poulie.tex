@@ -1,5 +1,25 @@
 Un bloc de \qty{\v{m1}}{kg} est posé sur un plan incliné à \ang{\v{th}}. Une corde parallèle au plan le relie, par une poulie idéale située en haut du plan, à un bloc suspendu de \qty{\v{m2}}{kg}. Le coefficient de frottement cinétique entre le bloc et le plan est de \num{\v{mu}}. Le bloc suspendu descend et entraîne le bloc vers le haut du plan.
 
+\begin{center}
+\begin{tikzpicture}[thick, scale=0.85]
+    \pgfmathsetmacro{\figH}{5*tan(\v{th})}
+    \pgfmathsetmacro{\figS}{5/cos(\v{th})}
+    \fill[pattern=north east lines] (-0.3,-0.25) rectangle (5.9,0);
+    \draw (-0.3,0) -- (5.9,0);
+    \draw[fill=gray!15] (0,0) -- (5,0) -- (5,\figH) -- cycle;
+    \draw[thin] (2.1,0) arc (0:\v{th}:2.1);
+    \node at ({\v{th}/2}:2.75) {\small\ang{\v{th}}};
+    \begin{scope}[rotate=\v{th}]
+        \draw[fill=gray!40] (1.6,0) rectangle (2.8,0.7) node[midway] {$m_1$};
+        \draw[thin] (2.8,0.35) -- (\figS,0.35);
+    \end{scope}
+    \draw[fill=white] (5,\figH) circle (0.35);
+    \fill (5,\figH) circle (1.5pt);
+    \draw[thin] (5.35,\figH) -- (5.35,{0.45*\figH});
+    \draw[fill=gray!40] (5.05,{0.45*\figH}) rectangle (5.65,{0.45*\figH-0.7}) node[midway] {$m_2$};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Faites le diagramme des forces de chaque bloc.
     \item Déterminez l'accélération du système.

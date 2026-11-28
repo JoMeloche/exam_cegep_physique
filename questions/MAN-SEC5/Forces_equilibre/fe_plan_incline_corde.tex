@@ -1,5 +1,22 @@
 Un bloc de \qty{\v{m}}{kg} est immobile sur un plan incliné de \qty{\v{th}}{\degree} par rapport à l'horizontale. Le frottement entre le bloc et le plan est négligeable. Le bloc est retenu par une corde parallèle au plan, attachée au sommet. Utilisez $g = \qty{9.81}{N/kg}$.
 
+\begin{center}
+\begin{tikzpicture}[thick, scale=0.85]
+    \pgfmathsetmacro{\figH}{4.5*tan(\v{th})}
+    \pgfmathsetmacro{\figS}{4.5/cos(\v{th})}
+    \fill[pattern=north east lines] (-0.3,-0.25) rectangle (5.4,0);
+    \draw (-0.3,0) -- (5.4,0);
+    \draw[fill=gray!15] (0,0) -- (4.5,0) -- (4.5,\figH) -- cycle;
+    \draw[thin] (2.1,0) arc (0:\v{th}:2.1);
+    \node at ({\v{th}/2}:2.75) {\small\ang{\v{th}}};
+    \draw (4.5,\figH) -- (4.5,{\figH+0.9});
+    \begin{scope}[rotate=\v{th}]
+        \draw[fill=gray!40] ({0.62*\figS},0) rectangle ({0.62*\figS+1.2},0.6) node[midway] {\small\qty{\v{m}}{kg}};
+        \draw[thin] ({0.62*\figS+1.2},0.3) -- ({\figS+0.3*tan(\v{th})},0.3);
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Décomposez le poids du bloc en une composante parallèle au plan et une composante perpendiculaire au plan.
     \item Déterminez la tension dans la corde et la force normale exercée par le plan.

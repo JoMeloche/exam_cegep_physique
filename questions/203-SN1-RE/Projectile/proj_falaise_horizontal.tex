@@ -1,5 +1,17 @@
 Du haut d'une falaise de \qty{\v{h}}{m}, une randonneuse lance une pierre horizontalement avec une vitesse de \qty{\v{v0}}{m/s}. Le sol au pied de la falaise est horizontal et on néglige la résistance de l'air.
 
+\begin{center}
+\begin{tikzpicture}[thick, scale=0.9]
+    \fill[pattern=north east lines] (-0.6,0) rectangle (2,3);
+    \fill[pattern=north east lines] (2,-0.25) rectangle (8,0);
+    \draw (-0.6,3) -- (2,3) -- (2,0) -- (8,0);
+    \fill (2,3) circle (2.5pt);
+    \draw[-{Stealth[length=3mm]}] (2,3) -- node[above] {\small\qty{\v{v0}}{m/s}} (3.5,3);
+    \draw[thin,dashed] (2,3) parabola[bend at start] (6.5,0);
+    \draw[thin,|-|] (-0.9,0) -- node[left] {\small\qty{\v{h}}{m}} (-0.9,3);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Combien de temps la pierre reste-t-elle dans les airs ?
     \item À quelle distance horizontale du pied de la falaise la pierre touche-t-elle le sol ?

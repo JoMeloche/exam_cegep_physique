@@ -1,5 +1,26 @@
 On suspend un objet de \qty{\v{m}}{g} à un ressort vertical. À l'équilibre, le ressort est allongé de \qty{\v{dx}}{cm} par rapport à sa longueur naturelle. On tire ensuite l'objet de \qty{\v{A}}{cm} vers le bas à partir de sa position d'équilibre et on le relâche sans vitesse initiale à $t = \qty{0}{s}$.
 
+\begin{center}
+\begin{tikzpicture}[thick, spring/.style={decorate,decoration={coil,aspect=0.4,segment length=2.4mm,amplitude=2.5mm,pre length=2mm,post length=2mm}}]
+    \fill[pattern=north east lines] (-0.8,0) rectangle (6.8,0.25);
+    \draw (-0.8,0) -- (6.8,0);
+    \draw[spring] (0,0) -- (0,-2);
+    \draw[spring] (2.8,0) -- (2.8,-2.9);
+    \draw[fill=gray!40] (2.4,-2.9) rectangle (3.2,-3.6);
+    \draw[spring] (5.6,0) -- (5.6,-3.5);
+    \draw[fill=gray!40] (5.2,-3.5) rectangle (6,-4.2);
+    \node at (2.8,-3.25) {\small$m$};
+    \node at (5.6,-3.85) {\small$m$};
+    \draw[thin,dashed] (-0.5,-2) -- (6.5,-2);
+    \draw[thin,dashed] (2.2,-2.9) -- (6.5,-2.9);
+    \draw[thin,|-|] (3.5,-2) -- node[right] {\small\qty{\v{dx}}{cm}} (3.5,-2.9);
+    \draw[thin,|-|] (6.3,-2.9) -- node[right] {\small\qty{\v{A}}{cm}} (6.3,-3.5);
+    \node[align=center,font=\small] at (0,-4.7) {longueur\\naturelle};
+    \node[align=center,font=\small] at (2.8,-4.7) {équilibre};
+    \node[align=center,font=\small] at (5.6,-4.7) {relâché\\à $t = 0$};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez la constante de rappel du ressort.
     \item Déterminez la période d'oscillation.

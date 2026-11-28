@@ -1,5 +1,16 @@
 Deux blocs posés sur une table horizontale sans frottement sont reliés par une corde de masse négligeable. Le bloc 1 a une masse de \qty{\v{m1}}{kg} et le bloc 2, de \qty{\v{m2}}{kg}. On tire horizontalement sur le bloc 2 avec une force de \qty{\v{F}}{N}, de sorte que le bloc 1 suit derrière.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[pattern=north east lines] (-0.3,-0.25) rectangle (6.6,0);
+    \draw (-0.3,0) -- (6.6,0);
+    \draw[fill=gray!40] (0,0) rectangle (1.5,1) node[midway,align=center] {1\\\small\qty{\v{m1}}{kg}};
+    \draw[thin] (1.5,0.5) -- (3,0.5);
+    \draw[fill=gray!40] (3,0) rectangle (4.5,1) node[midway,align=center] {2\\\small\qty{\v{m2}}{kg}};
+    \draw[-{Stealth[length=3mm]}] (4.5,0.5) -- node[above] {\small\qty{\v{F}}{N}} (6.3,0.5);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Faites le diagramme des forces de chaque bloc et déterminez l'accélération du système.
     \item Déterminez la tension dans la corde qui relie les blocs.

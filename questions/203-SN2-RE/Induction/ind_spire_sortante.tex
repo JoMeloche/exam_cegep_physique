@@ -1,5 +1,19 @@
 Une spire carrée de côté $a = \qty{\v{a}}{cm}$ et de résistance \qty{\v{R}}{\ohm} se déplace à vitesse constante $v = \qty{\v{v}}{m/s}$, dans son propre plan. Elle sort d'une région où règne un champ magnétique uniforme de \qty{\v{B}}{T}, perpendiculaire au plan de la spire. Le bord de la région est rectiligne et parallèle à un côté de la spire.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[gray!12] (-0.5,-0.6) rectangle (3,2.6);
+    \foreach \x in {-0.2,0.3,...,2.8}
+        \foreach \y in {-0.3,0.2,...,2.4}
+            \node[gray] at (\x,\y) {\small$\times$};
+    \draw[thin,dashed] (3,-0.8) -- (3,2.8);
+    \node[left] at (-0.6,1) {$\vec B$};
+    \draw[very thick] (1.8,0) rectangle (3.8,2);
+    \draw[thin,|-|] (4.15,0) -- node[right,pos=0.25] {\small$a$} (4.15,2);
+    \draw[-{Stealth[length=3mm]}] (4.5,1.2) -- node[above] {$\vec v$} (5.5,1.2);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Pendant que la spire sort du champ, déterminez la force électromotrice induite.
     \item Déterminez le courant induit.

@@ -1,5 +1,20 @@
 Un enfant tire un traîneau de \qty{\v{m}}{kg} sur une patinoire (frottement négligeable) à l'aide d'une corde qui fait un angle de \ang{\v{th}} au-dessus de l'horizontale. La tension dans la corde est de \qty{\v{T}}{N} et le traîneau part du repos.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[pattern=north east lines] (-0.5,-0.25) rectangle (5.4,0);
+    \draw (-0.5,0) -- (5.4,0);
+    \draw[fill=gray!30] (0,0.15) rectangle (2.2,0.75);
+    \node at (1.1,0.45) {\small\qty{\v{m}}{kg}};
+    \draw (0.2,0.15) -- (0.2,0.03); \draw (2,0.15) -- (2,0.03);
+    \draw (-0.1,0.03) -- (2.3,0.03) to[out=0,in=-90] (2.55,0.35);
+    \draw[thin,dashed] (2.2,0.45) -- ++(2,0);
+    \draw[thin,-{Stealth[length=2.5mm]}] (2.2,0.45) -- node[above left,pos=0.75] {\small\qty{\v{T}}{N}} ++(\v{th}:2.7);
+    \draw[thin] (2.2,0.45) ++(1.2,0) arc (0:\v{th}:1.2);
+    \path (2.2,0.45) ++({\v{th}/2}:1.65) node {\small\ang{\v{th}}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Faites le diagramme des forces du traîneau et déterminez son accélération.
     \item Quelle est la force normale exercée par la glace sur le traîneau ?

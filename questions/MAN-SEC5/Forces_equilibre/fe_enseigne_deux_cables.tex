@@ -1,5 +1,21 @@
 Une enseigne de \qty{\v{m}}{kg} est suspendue au-dessus de l'entrée d'un magasin par deux câbles identiques. Chaque câble fait un angle de \qty{\v{th}}{\degree} avec l'horizontale, de façon symétrique. L'enseigne est immobile. Utilisez $g = \qty{9.81}{N/kg}$.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \pgfmathsetmacro{\figX}{2.6*cos(\v{th})}
+    \pgfmathsetmacro{\figY}{-2.6*sin(\v{th})}
+    \fill[pattern=north east lines] (-3,0) rectangle (3,0.25);
+    \draw (-3,0) -- (3,0);
+    \draw (-\figX,0) -- (0,\figY) -- (\figX,0);
+    \draw[thin] (\figX,0) ++(180:0.7) arc (180:{180+\v{th}}:0.7);
+    \path (\figX,0) ++({180+\v{th}/2}:1.1) node {\small\ang{\v{th}}};
+    \draw[thin] (-\figX,0) ++(0:0.7) arc (0:{-\v{th}}:0.7);
+    \draw (0,\figY) -- (0,{\figY-0.3});
+    \draw[fill=gray!25] (-1.2,{\figY-0.3}) rectangle (1.2,{\figY-1.1});
+    \node at (0,{\figY-0.7}) {\small\qty{\v{m}}{kg}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez le poids de l'enseigne.
     \item Déterminez la tension dans chacun des câbles.

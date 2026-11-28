@@ -1,5 +1,20 @@
 Une corde de masse négligeable est enroulée autour d'une poulie, assimilée à un disque plein de \qty{\v{M}}{kg} et de \qty{\v{R}}{cm} de rayon, qui tourne sans frottement autour de son axe horizontal fixe. Une masse de \qty{\v{m}}{kg} est suspendue à l'extrémité libre de la corde et lâchée du repos. La corde ne glisse pas sur la poulie ($I_{\text{disque}} = \tfrac{1}{2}MR^2$).
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \fill[pattern=north east lines] (-1.3,1.6) rectangle (1.3,1.85);
+    \draw (-1.3,1.6) -- (1.3,1.6);
+    \draw (0,1.6) -- (0,0);
+    \draw[fill=gray!20] (0,0) circle (1);
+    \fill (0,0) circle (2pt);
+    \draw[thin] (0,0) -- node[below left=-2pt] {\small$R$} (-150:1);
+    \node at (0.25,-0.55) {\small$M$};
+    \draw[thin] (1,0) -- (1,-2.3);
+    \draw[fill=gray!45] (0.6,-2.3) rectangle (1.4,-3.1) node[midway] {$m$};
+    \node[right] at (1.4,-2.7) {\small\qty{\v{m}}{kg}};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez l'accélération de la masse suspendue.
     \item Déterminez la tension dans la corde.

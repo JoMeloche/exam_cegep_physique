@@ -1,5 +1,21 @@
 Un bloc est lâché sans vitesse initiale en haut d'un plan incliné de \qty{\v{L}}{m} de longueur, qui fait un angle de \ang{\v{th}} avec l'horizontale. Le coefficient de frottement cinétique entre le bloc et le plan est de \num{\v{mu}}.
 
+\begin{center}
+\begin{tikzpicture}[thick, scale=0.85]
+    \pgfmathsetmacro{\figH}{4.5*tan(\v{th})}
+    \pgfmathsetmacro{\figS}{4.5/cos(\v{th})}
+    \fill[pattern=north east lines] (-0.3,-0.25) rectangle (5.4,0);
+    \draw (-0.3,0) -- (5.4,0);
+    \draw[fill=gray!15] (0,0) -- (4.5,0) -- (4.5,\figH) -- cycle;
+    \draw[thin] (2.1,0) arc (0:\v{th}:2.1);
+    \node at ({\v{th}/2}:2.75) {\small\ang{\v{th}}};
+    \begin{scope}[rotate=\v{th}]
+        \draw[fill=gray!40] ({\figS-1.2},0) rectangle ({\figS-0.2},0.6);
+        \draw[thin,|-|] (0,0.95) -- node[above,sloped] {\small\qty{\v{L}}{m}} (\figS,0.95);
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Faites le diagramme des forces du bloc et déterminez son accélération.
     \item Quelle est la vitesse du bloc au bas du plan ?

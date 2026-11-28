@@ -1,5 +1,18 @@
 Deux plaques de verre de \qty{\v{Lp}}{cm} de long sont en contact à une extrémité et séparées par un cheveu de \qty{\v{hc}}{\micro\metre} de diamètre à l'autre extrémité, ce qui forme un mince coin d'air. On éclaire les plaques par le dessus avec une lumière de longueur d'onde \qty{\v{lam}}{nm} et on observe en réflexion.
 
+\begin{center}
+\begin{tikzpicture}[thick]
+    \draw[fill=gray!20] (0,0) rectangle (7,0.3);
+    \draw[fill=gray!20] (0,0.3) -- (7,0.9) -- (7,1.2) -- (0,0.6) -- cycle;
+    \draw[fill=black] (6.75,0.6) circle (0.27);
+    \node[right] at (7.1,0.6) {\small cheveu, \qty{\v{hc}}{\micro\metre}};
+    \foreach \x in {1.5,2.5,3.5,4.5}
+        \draw[thin,-{Stealth[length=2.5mm]}] (\x,2.3) -- (\x,1.35);
+    \node[above] at (3,2.3) {\small lumière, \qty{\v{lam}}{nm}};
+    \draw[thin,|-|] (0,-0.35) -- node[below] {\small\qty{\v{Lp}}{cm}} (7,-0.35);
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez l'angle du coin d'air, en radians.
     \item Déterminez la distance entre deux franges sombres voisines.

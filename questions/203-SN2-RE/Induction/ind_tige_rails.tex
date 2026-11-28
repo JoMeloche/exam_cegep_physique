@@ -1,5 +1,21 @@
 Une tige conductrice de longueur $L = \qty{\v{L}}{cm}$ glisse sans frottement à vitesse constante $v = \qty{\v{v}}{m/s}$ sur deux rails conducteurs parallèles. Les rails sont reliés à une extrémité par une résistance $R = \qty{\v{R}}{\ohm}$ ; la résistance de la tige et des rails est négligeable. Un champ magnétique uniforme de \qty{\v{B}}{T} est perpendiculaire au plan des rails.
 
+\begin{center}
+\begin{tikzpicture}[thick, res/.style={decorate,decoration={zigzag,segment length=5pt,amplitude=4pt,pre length=0.4cm,post length=0.4cm}}]
+    \draw (6,0) -- (0,0);
+    \draw[res] (0,0) -- (0,2);
+    \node[left] at (-0.25,1) {$R$};
+    \draw (0,2) -- (6,2);
+    \foreach \x in {0.7,1.4,...,5.6}
+        \foreach \y in {0.4,1,1.6}
+            \node[gray] at (\x,\y) {\small$\times$};
+    \draw[line width=2.5pt] (4,-0.25) -- (4,2.25);
+    \draw[-{Stealth[length=3mm]}] (4.15,1.3) -- node[above,fill=white,inner sep=1pt] {$\vec v$} (5.2,1.3);
+    \draw[thin,|-|] (3.6,0) -- node[left,fill=white,inner sep=1pt] {\small$L$} (3.6,2);
+    \node[right] at (6.1,1) {$\vec B$ (entrant)};
+\end{tikzpicture}
+\end{center}
+
 \begin{enumerate}[label=\alph*)]
     \item Déterminez la force électromotrice induite.
     \item Déterminez le courant induit dans le circuit.
